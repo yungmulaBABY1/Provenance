@@ -1,0 +1,508 @@
+=================================================================
+SUPERSEDED — NOT THE CANONICAL COPY
+=================================================================
+
+This module's content has been MERGED INTO the two media prompts. Those merged
+copies are canonical and are what actually executes:
+
+  Single-piece:  framing_construction_audit_media.txt, SECTION E2 (E2.1-E2.6)
+  Network:       coverage_network_source_chain_audit.txt, SECTIONS D7, D8, D9
+
+EDITS MADE HERE DO NOT PROPAGATE. If you change this file, the prompts keep the
+old behavior. Make changes in the prompts.
+
+This file is retained because it contains the design rationale — the triad
+(narrative flags / causal bridges / atmospheric cues), why baselines are the
+quantitative form of the same three rather than a fourth mechanism, and the
+severity logic — which the merged copies compress. Read it for reasoning; edit the
+prompts for behavior.
+
+NARRATIVE FLAGS, CAUSAL BRIDGES & ATMOSPHERIC CUES
+==================================================
+Drop-in module. Two versions below:
+  PART 1 — full section for the single-piece framing audit (insert as Section E2,
+           between attribution asymmetry and source distribution)
+  PART 2 — compact comparative version for the coverage-network audit (insert as
+           Section D items 7-8)
+
+-----------------------------------------------------------------
+WHY THIS IS ORGANIZED AS A TRIAD
+-----------------------------------------------------------------
+
+A piece constructs meaning through three distinct mechanisms that are easy to
+collapse into a generic "word choice" finding, and should not be:
+
+  NARRATIVE FLAGS ..... facts or labels that CLASSIFY the actors or the event.
+                        What kind of person is this? What kind of event is this?
+
+  CAUSAL BRIDGES ...... facts that explain WHY one thing followed another.
+                        Their removal changes the reader's model of the sequence,
+                        not merely its emotional register.
+
+  ATMOSPHERIC CUES .... details that tell the reader HOW TO FEEL about the event
+                        before the facts establish whether that feeling is
+                        warranted.
+
+SEVERITY — REBUTTABLE DEFAULT, NOT A FIXED HIERARCHY:
+Default ranking is causal bridges > narrative flags > atmospheric cues, because
+removing a causal bridge changes the reader's MODEL of what happened rather than
+its register. A causal omission dropped into a "word choice" bucket is a diluted
+finding, and this default exists to prevent that.
+
+BUT THE DEFAULT IS REBUTTABLE. An event-classification flag ("riot," "reform,"
+"crisis," "correction"), a motive attribution, a denominator choice, or a sustained
+atmospheric frame can outweigh a modest causal omission. To rank one above a causal
+bridge, STATE WHY — name the concrete construction effect. Rank the effect, not the
+mechanism's category.
+
+WHERE QUANTITATIVE CLAIMS FIT — baselines are not a fourth mechanism. They are the
+NUMERICAL FORM of the same three:
+  category redefinition / changed geographic scope .... narrative flag, in numbers
+  denominator, adjustment, comparison point ........... causal bridge, in numbers
+  which year or window is chosen for contrast ......... atmospheric cue, in numbers
+"Unemployment rose" vs. "rose after the plant closed" and a raw count vs. a rate are
+the same operation performed on different material. Section E2.3 treats them
+together for convenience; do not classify them as a separate mechanism.
+
+THIS MODULE IS NOT CRIME-SPECIFIC. The mechanisms operate identically in economic,
+policy, health, education, institutional, and cultural coverage. Crime examples
+appear below as ONE domain among several. If you find yourself only able to apply
+this to crime stories, you are reading the examples as the definition.
+
+=================================================================
+PART 1 — SINGLE-PIECE VERSION
+=================================================================
+
+-----------------------------------------------------------------
+E2.1 — NARRATIVE FLAGS: WHICH ATTRIBUTES ARE ACTIVATED
+-----------------------------------------------------------------
+
+Pieces construct meaning through WHICH ATTRIBUTES OF THE ACTORS OR EVENT THEY
+ACTIVATE — foregrounding, delaying, routing through quotes, or omitting.
+
+CATEGORIES OF NARRATIVE-BEARING ATTRIBUTE (all domains):
+
+  PERSONAL / DEMOGRAPHIC
+    age, race, ethnicity, sex, religion, nationality, immigration or residency
+    status, family role, housing status, health status
+
+  AFFILIATION AND INTEREST
+    political party, ideological alignment, funding source, employer, industry
+    ties, institutional membership, advocacy-group affiliation, prior employment
+    by an interested party
+
+  CREDENTIAL AND STANDING
+    "expert" vs. "activist" vs. "critic"; "economist" vs. "industry-funded
+    economist"; "researcher" vs. "campaigner"; "official" vs. "spokesperson";
+    who gets a title and who gets a descriptor
+
+  ROLE AND STATUS IN THE EVENT
+    victim, perpetrator, bystander, official, whistleblower, defendant,
+    complainant, beneficiary, cost-bearer
+
+  EVENT CLASSIFICATION — often the single most consequential flag
+    Is this a crime, a protest, unrest, terrorism, self-defense, activism, a
+    mental-health crisis? A reform, a cut, a restructuring, a closure? An outbreak,
+    a cluster, a surge, a normal seasonal variation? A recession, a slowdown, a
+    correction? A shortage, a backlog, a crisis? The noun chosen is a claim.
+
+  MOTIVE AND CAUSAL ATTRIBUTION
+    stated motive, alleged motive, inferred motive; who or what is identified as
+    responsible; whether the piece names a cause at all
+
+AN ATTRIBUTE IS A CANDIDATE FINDING ONLY WHERE:
+  1. it was known or credibly reported at publication time;
+  2. it is materially relevant to the interpretation the piece creates;
+  3. comparable actors or items are treated differently; OR
+  4. the piece activates it indirectly — through quotes, labels, images, captions,
+     historical context, or linked stories — while avoiding it in outlet voice.
+
+APPOSITIONAL FLAGS — labels embedded in introductions or appositives:
+  "the controversial professor," "the far-right group," "the reform-minded
+  prosecutor," "the industry-backed critic," "John Smith, an election denier, said"
+These arrive grammatically as SETTLED BACKGROUND rather than as claims requiring
+sourcing, which is precisely what makes them effective. For each: who supplied the
+classification? Is it contested? Are comparable descriptors applied to comparable
+parties on the other side? An appositional label is a claim wearing the costume of
+a fact.
+
+MOTIVE AND CAUSE — EPISTEMIC LEVELS. Classify every motive or cause attribution:
+  DOCUMENTED ............ manifesto, direct statement, verified communication
+  OFFICIALLY ALLEGED .... law enforcement, complaint, indictment, institutional finding
+  SOURCE-INFERRED ....... witness, advocate, expert, or interested party's inference
+  OUTLET-INFERRED ....... the article's own synthesis
+  UNKNOWN ............... evidence insufficient
+THE TEST: does the piece SILENTLY MOVE BETWEEN LEVELS — an officially-alleged motive
+restated later as documented, or a source's inference appearing in outlet voice?
+Applies well beyond crime: why a company relocated, why voters shifted, why scores
+fell, why a policy was introduced, why an institution disciplined someone.
+
+DO NOT INFER UNKNOWN ATTRIBUTES. Never infer race, religion, immigration status,
+ideology, funding, or motive from names, appearance, location, employer, or
+rumor. An unconfirmed attribute is not an omission.
+
+TREATMENT CLASSIFICATION — for each material attribute:
+
+  ACTIVATED ....... explicitly foregrounded or repeatedly emphasized
+  REPORTED ........ included proportionately as ordinary context
+  DELAYED ......... included only after the dominant impression is established
+  QUOTE-ROUTED .... supplied through a speaker, absent from outlet voice
+  EUPHEMIZED ...... referenced indirectly through substitute language
+  OMITTED ......... known, material, and absent
+  INAPPLICABLE .... unknown, immaterial, or improper to report
+
+| Attribute | Known at pub? | Treatment | First appears | Outlet voice or quote? | Material relevance |
+|---|---|---|---|---|---|
+
+ASYMMETRY TESTS:
+
+  1. Are identifiers supplied for one principal actor but not another?
+  2. Is one party INDIVIDUALIZED while another is CATEGORIZED?
+       crime:     "father of three" vs. "the suspect"
+       policy:    a named family with a story vs. "affected households"
+       economics: a profiled small-business owner vs. "employers"
+       health:    a named patient vs. "the unvaccinated"
+       education: a named teacher vs. "administrators"
+  3. Are DISCLOSURES applied evenly? If one source's funding, party, or prior
+     employment is noted, is the opposing source's?
+  4. Are credentials assigned asymmetrically — one side "experts," the other
+     "critics" or "skeptics"?
+     SUBSTANTIVE-EQUIVALENCE CHECK: compare standing RELEVANT TO THE CLAIM AT
+     ISSUE, not general prestige. A physician may be expert on clinical treatment
+     but not population epidemiology; an economist may model costs but not clinical
+     outcomes. The asymmetry finding requires comparable DOMAIN RELEVANCE, not
+     comparable titles. "Both have doctorates" is not the standard.
+  5. Is an attribute absent from the factual account but introduced via quote,
+     headline, caption, hyperlink, or related-story box?
+  6. Does the piece say cause or motive is unknown in one instance while naming it
+     confidently in a comparable one?
+
+-----------------------------------------------------------------
+E2.2 — CAUSAL BRIDGES: SYNONYM VARIANCE vs. CAUSAL-CONTEXT LOSS
+-----------------------------------------------------------------
+
+THE MOST IMPORTANT DISTINCTION IN THIS MODULE. Do not treat all wording
+differences as synonyms.
+
+  SYNONYM / REGISTER VARIANCE — different words, substantially the same causal
+  proposition:
+    drew / pulled / produced a knife
+    fell / declined / dropped
+    protest / demonstration / rally
+    cut / reduced / trimmed
+
+  CAUSAL-CONTEXT VARIANCE — one formulation includes or removes the fact
+  explaining WHY the next thing happened:
+
+    "police used a Taser"          vs. "the Taser failed"
+    "unemployment rose"            vs. "unemployment rose after the plant closed"
+    "the district cut programs"    vs. "the district cut programs after the levy failed"
+    "premiums increased"           vs. "premiums increased following the mandate change"
+    "the company relocated"        vs. "the company relocated after the tax change"
+    "cases rose in the county"     vs. "cases rose after testing was expanded"
+    "the bill failed"              vs. "the bill failed after the amendment was added"
+    "enrollment declined"          vs. "enrollment declined as the district redrew boundaries"
+
+  In every pair, the shorter version is TRUE. It is not a softer synonym — it
+  removes the reader's ability to model the sequence.
+
+THREE BRIDGE TYPES — DO NOT CONVERT "AFTER" INTO "BECAUSE."
+Several formulations below establish CHRONOLOGY, not causation. The term "causal
+bridge" invites upgrading a temporal association into a causal fact. Classify:
+
+  SEQUENCE BRIDGE ........... what intervened between two events
+      "The levy failed; the district later cut programs."
+  MECHANISM BRIDGE .......... how one event produced or constrained the next
+      "The failed levy left a $12M gap, after which the district cut programs."
+  ATTRIBUTED CAUSAL BRIDGE .. a source's explanation for why one caused the other
+      "District officials said the failed levy forced the cuts."
+
+A missing SEQUENCE fact can be established even where causation remains contested.
+Record causal confidence SEPARATELY from whether the bridge was omitted. Omitting a
+sequence fact is a finding; asserting a mechanism the evidence doesn't support is a
+different finding, in the opposite direction.
+
+| Wording used | Synonym only? | Bridge type (sequence/mechanism/attributed) | Added or removed? | Whose explanation? | Effect on reader's model |
+|---|---|---|---|---|---|
+
+TESTS:
+  1. Does the shorter version preserve the causal relationship, or only the fact?
+  2. Does it tell the reader WHAT happened while omitting WHY the next thing did?
+  3. Is the missing causal fact ESTABLISHED, or is it an interested party's
+     explanation? These are different findings — omitting an established causal
+     fact is stronger than omitting a contested one.
+  4. Is the causal fact asserted, attributed, contested, or independently visible?
+  5. IS THE OMITTED BRIDGE THE ONE THAT WOULD COMPLICATE THE PIECE'S FRAME?
+     A piece that omits causal bridges in both directions is thin. A piece that
+     omits only the ones cutting against its frame is constructed.
+
+SEVERITY: causal-bridge removal that materially changes the reader's model of the
+sequence may be rated MODERATE or MAJOR. Synonym variance alone is MINOR at most.
+DO NOT COLLAPSE THE FIRST INTO THE SECOND.
+
+-----------------------------------------------------------------
+E2.3 — BASELINE AND DENOMINATOR SELECTION
+-----------------------------------------------------------------
+
+A quantitative claim's meaning is set by what it is compared against. Comparison
+choice is a construction lever and is largely invisible unless audited directly.
+
+  1. RAW COUNT or RATE? Absolute numbers and per-capita rates support opposite
+     impressions from identical data.
+  2. WHICH BASELINE YEAR? Compared to last year, pre-pandemic, a decade ago, the
+     peak, the trough? Is the chosen comparison point unusually high or low?
+  3. WHICH POPULATION IS THE DENOMINATOR? Total population, affected population,
+     eligible population, participants?
+  4. INFLATION, SEASONAL, OR POPULATION ADJUSTMENT applied — or not?
+  5. Are figures from opposing sides computed on the SAME basis?
+  6. Does the piece report the comparison it used, or present a number bare?
+  7. If a trend is claimed, over what window — and does the trend survive a
+     different reasonable window?
+
+ALSO TEST — common quantitative maneuvers:
+  percentage vs. percentage-POINT change; stock vs. flow; cumulative total vs.
+  period-specific; nominal vs. inflation-adjusted; total vs. marginal change; mean
+  vs. median; forecast vs. observed; preliminary vs. revised; absolute vs. relative
+  risk; survey respondents vs. total population; eligible population vs. all
+  residents; share of incidents vs. share of offenders/victims/exposures; whether
+  category DEFINITIONS or GEOGRAPHIC BOUNDARIES changed across the comparison;
+  start-date selection; truncated axes or visual scaling if charts appear;
+  uncertainty intervals and whether revisions are noted.
+
+DENOMINATOR SWITCHING — ask specifically: is the denominator merely UNSTATED, or
+has the piece MOVED BETWEEN DENOMINATORS within a single argument? Switching
+mid-argument is usually worse than consistently choosing one debatable basis,
+because it makes the comparison incoherent rather than merely contestable.
+
+| Figure cited | Baseline / denominator used | Alternative available | Consistent across the argument? | Would it change the impression? |
+|---|---|---|---|---|
+
+Applies to: crime statistics, unemployment, inflation, test scores, case counts,
+emissions, immigration figures, spending, polling. Wherever a number appears with
+a comparison, the comparison was chosen.
+
+-----------------------------------------------------------------
+E2.4 — ATMOSPHERIC CUES AND HISTORICAL SCENE-SETTING
+-----------------------------------------------------------------
+
+Context is not neutral because it is true. It can tell the reader WHAT KIND OF
+EVENT this is before the current facts establish the category.
+
+  SETTING CUES — true details supplying emotional weight, sometimes without
+  causal relevance:
+    crime:     "in broad daylight," "in front of witnesses," "steps from a school"
+    policy:    "in a district already facing cuts," "amid record profits"
+    economics: "as executives received bonuses," "in a town with one employer"
+    health:    "in a county with no ICU beds," "during flu season"
+    education: "in a building that failed inspection"
+  For each: is it MATERIALLY relevant, EMOTIONALLY relevant, both, or neither?
+  State which. A cue can be all three; the finding is when it supplies aggravation
+  without causal relevance.
+
+  HISTORICAL SCENE-SETTING — which prior episode is invoked as the relevant
+  precedent, when several are available:
+    | Element introduced | Where placed | Factual background or interpretive category? | Connection to current event established? |
+
+  THE COMPETING-HISTORY TEST — the sharpest question here:
+  WHAT DIFFERENT HISTORY WOULD A MIRROR PIECE HAVE INVOKED, from the same true
+  record? Name it concretely.
+    crime:     history of police violence / history of attacks on officers
+    immigration: history of immigrant crime / history of anti-immigrant violence
+    economics: history of corporate relocation / history of failed subsidies
+    health:    history of institutional failure / history of public overreaction
+    education: history of underfunding / history of administrative bloat
+
+  The finding is NOT that history was invoked. It is that ONE history was
+  activated to classify the event while a competing and equally available history
+  was not — and that the piece did not report material differences between the
+  invoked precedent and the current case.
+
+-----------------------------------------------------------------
+E2.5 — VIVIDNESS AND PERSONIFICATION
+-----------------------------------------------------------------
+
+CLASSIFY VIVIDNESS BEFORE RATING IT. A vivid detail is not suspect because it is
+emotional:
+  EVIDENTIARY ..... detail necessary to understand what occurred
+  INCIDENTAL ...... true but causally irrelevant
+  SELECTIVE ....... graphic specificity for one party, clinical abstraction for the other
+  SYMBOLIC ........ children, sacred sites, holidays, schools, uniforms, flags
+The finding is SELECTIVE vividness or symbolic weight carrying a conclusion the
+facts don't establish — not vividness itself.
+
+| Party | Named? | Biography | Visual detail | Emotional detail | Vividness type | Group/status label | Historical association |
+|---|---|---|---|---|---|---|---|
+
+  1. Who is rendered as a PERSON and who as a CATEGORY?
+  2. Who receives a name, photo, age, family role, aspiration, grief?
+  3. Who receives institutional, demographic, or group labels instead?
+  4. Do images humanize one side and abstract the other?
+  5. Does vividness substitute for evidence of cause, culpability, or category
+     membership?
+
+Human-interest detail is not improper. The finding is ASYMMETRY, or vividness
+carrying a conclusion the facts do not establish.
+
+-----------------------------------------------------------------
+E2.6 — REQUIRED FINDING RULES
+-----------------------------------------------------------------
+
+An attribute, causal, baseline, or context finding requires ALL of:
+  - the fact meets one of the three ACCESS TIERS below;
+  - it was material to the interpretation the piece creates;
+  - reporting it would not violate an applicable privacy, safety, legal, or
+    identification norm;
+  - the audit can state HOW inclusion or omission changes interpretation.
+
+ACCESS TIERS — a fact "available at publication" is too loose. A fact can exist in
+a 900-page filing, an obscure database, a foreign-language document, or a video
+posted minutes before deadline without being reasonably available. Classify:
+
+  PIECE-KNOWN ......... the article itself proves the outlet possessed it
+                        (it appears elsewhere in the piece, or the piece cites the
+                        document containing it)
+  SOURCE-KNOWN ........ it appears in a document or statement the article
+                        demonstrably used
+  GENERALLY AVAILABLE . it existed publicly, but this outlet's access is INFERRED
+
+PIECE-KNOWN and SOURCE-KNOWN support strong selection findings. GENERALLY AVAILABLE
+requires caution and an explicit statement of what makes access plausible given the
+outlet's format, deadline, and resources — cap at MODERATE absent that showing.
+
+CORPUS-REQUIRED ROUTING — where asymmetry cannot be tested among actors or outlets
+within the current event, mark it CORPUS-REQUIRED rather than inferring
+inconsistency. Establishing that an outlet SYSTEMATICALLY activates an attribute in
+one direction — names immigration status here, does it elsewhere? discloses
+industry funding but not advocacy funding? applies "terrorism" asymmetrically? —
+requires comparable stories across events. State the hypothesis, state that this
+audit cannot test it, and route it to a corpus audit. Do not convert an untestable
+hypothesis into a finding.
+
+MANDATORY INNOCENT EXPLANATIONS — consider each where applicable:
+  identification not confirmed; cause still under investigation; legal restriction
+  or minor status; privacy; retaliation risk; genuine irrelevance to the immediate
+  event; newsroom policy against demographic identification absent clear relevance;
+  uncertainty whether a label accurately applies; space; the reader is assumed to
+  know from prior coverage.
+
+OWNERSHIP / NON-DOUBLE-COUNTING — REQUIRED FOR AGGREGATION INTEGRITY.
+This module CLASSIFIES mechanisms; it does not create a parallel set of findings.
+Record each construction lever ONCE, assigned to the section that best captures its
+primary effect. Cross-reference rather than multiply.
+
+  Missing explanatory fact ............... causal bridge (NOT a second generic omission)
+  Prior case assigning category membership  pattern linkage (mechanism: narrative flag)
+  Lead image humanizing one party ........ packaging (mechanism: personification)
+  Number misleading via denominator ...... baseline (NOT a second factual finding
+                                           unless the number itself is false)
+  Event-classification noun .............. narrative flag (NOT also packaging, unless
+                                           the headline separately does other work)
+
+If a lever appears in two sections, name which section OWNS it and state the other
+as a cross-reference. Inflating one choice into four findings corrupts the coherence
+count downstream.
+
+SYMMETRY REQUIREMENT — state this in the output:
+  Omitting an attribute can be construction. Foregrounding it can also be
+  construction. Omitting a causal bridge can be construction. Asserting a contested
+  cause can also be construction. The question is never whether the treatment helps
+  one side. It is whether the treatment is PROPORTIONATE, EVIDENTIALLY GROUNDED,
+  and CONSISTENT across comparable parties.
+
+=================================================================
+PART 2 — NETWORK VERSION (insert as Section D items 7-8)
+=================================================================
+
+-----------------------------------------------------------------
+D7 — NARRATIVE-FLAG AND CONTEXT VARIANCE ACROSS OUTLETS
+-----------------------------------------------------------------
+
+| Attribute / context element | Outlet A | Outlet B | Outlet C | ... |
+|---|---|---|---|---|
+
+Compare across outlets, where each is materially relevant:
+  demographic attributes; affiliation, funding, and interest disclosures;
+  credential labels ("expert" vs. "critic"); role/status assignment; EVENT
+  CLASSIFICATION (which noun each outlet chose); motive or cause attribution;
+  biography and individualization; which prior episode is invoked as precedent;
+  setting and atmospheric cues.
+
+For each divergence:
+  1. Was the attribute known when EACH outlet published? (Use the availability
+     matrix — do not count an unconfirmed attribute as an omission.)
+  2. Is the difference inclusion, omission, delay, quote-routing, or euphemism?
+  3. Materially relevant, or merely inflammatory?
+  4. Does one outlet individualize a party another categorizes?
+  5. Does the variance correlate with headline, sequencing, or source choices?
+  6. Could timing, privacy rules, confirmation standards, house style, or outlet
+     policy explain it?
+
+NETWORK-WIDE PATTERNS — RECLASSIFY, DO NOT AUTOMATICALLY DOWNGRADE.
+If every outlet treats an attribute the same way, that establishes the outlet is not
+an OUTLIER. It does NOT establish that the treatment is proportionate or
+non-misleading. Every outlet can inherit the same official euphemism, wire framing,
+legal convention, or shared blind spot.
+
+  DOWNGRADE: any claim that this outlet is distinctive or slanted relative to peers.
+  DO NOT DOWNGRADE: the underlying construction finding itself.
+  RECORD SEPARATELY: a network-wide convention finding, which is often the more
+  interesting result.
+
+TEST THE SOURCE OF THE UNIFORMITY — these are different findings:
+  independent editorial convergence (several newsrooms reached it separately)
+  wire inheritance (one wire story, many mastheads)
+  common primary source (all worked from one release or briefing)
+  legal or professional convention (identification norms, sub judice rules)
+  shared blind spot (nobody looked)
+Only the first is evidence the convention is considered. The rest are evidence it is
+inherited, which leaves the substantive question open.
+
+ABSENCE CLUSTER: are the same material attributes OMITTED by outlets that otherwise
+share a framing cluster? Shared omission can be more diagnostic than shared wording,
+especially where those outlets used DIFFERENT source chains — independent omission is
+a stronger signal than common-source omission. Distinguish the two explicitly.
+
+-----------------------------------------------------------------
+D8 — SYNONYM VARIANCE vs. CAUSAL-CONTEXT VARIANCE
+-----------------------------------------------------------------
+
+| Event element | Outlet wordings | Synonym only? | Causal context added/removed | Effect |
+|---|---|---|---|---|
+
+WHAT THE NETWORK ADDS — stated precisely. A single-piece audit CAN establish
+causal-context loss by comparing the article against the primary material it
+demonstrably used. The network does something narrower and still valuable: it shows
+the alternative wording was FEASIBLE AND COMMONLY SELECTED, so the shorter
+formulation was not forced by the source.
+
+CAVEAT BUILT IN: outlets repeating the same wire sentence do not independently
+demonstrate anything. Before treating cross-outlet agreement as evidence, establish
+how many INDEPENDENT source chains it represents (Section B3).
+
+  1. Which outlets include the causal bridge and which omit it?
+  2. Does inclusion correlate with sequencing, sourcing, or framing cluster?
+  3. CRITICAL — CHECK THE PRIMARY SOURCE, IN BOTH FORMS. A wording difference may
+     be DOCUMENT DEPENDENCE rather than editorial choice: institutions often issue
+     a written release AND a spoken briefing with different language, and outlets
+     inherit whichever they used. Before rating a verb difference as construction,
+     establish which source document each outlet worked from. (Cross-reference
+     Section D2 item 2.)
+  4. Rank causal-context variance ABOVE synonym variance where it changes the
+     reader's model of the sequence.
+
+-----------------------------------------------------------------
+D9 — BASELINE AND DENOMINATOR VARIANCE
+-----------------------------------------------------------------
+
+Where outlets cite figures for the same phenomenon:
+
+| Figure | Outlet | Baseline / denominator | Raw or rate | Adjustment applied | Impression supported |
+|---|---|---|---|---|---|
+
+  1. Do outlets use different comparison points for the same underlying data?
+  2. Does the choice correlate with framing cluster?
+  3. Does any outlet report the comparison basis, or do they present bare numbers?
+  4. Would a common basis change the apparent disagreement between outlets?
+
+This is often the cleanest quantitative divergence available and it is invisible
+without cross-outlet comparison.
