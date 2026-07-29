@@ -1,0 +1,215 @@
+SHARED AUDIT PRIMITIVES
+=======================
+
+CANONICAL — but compact copies exist downstream.
+
+This file holds the FULL definitions. Abbreviated versions of §1 (verification
+state) and §3 (failure location) are inlined in the media prompts so each runs
+standalone for a paste-and-go user:
+
+  framing_construction_audit_media.txt  — compact vocabulary block after INPUTS
+  coverage_network_source_chain_audit.txt — media-branch subset in Section B
+
+IF YOU EDIT A VOCABULARY HERE, PROPAGATE TO THOSE COPIES. They do not update
+automatically, and divergent definitions across prompts is the exact failure this
+file was written to prevent.
+
+Note: the media prompts deliberately EXCLUDE reception-confirmed from their §1
+subset and use cross-outlet-corroborated instead — that is an intended divergence,
+not drift. See the media prompts for why.
+
+Three vocabularies used by more than one prompt in the sequence. Defined here
+once. Other prompts REFERENCE these rather than restating them, so the
+definitions cannot drift apart across files.
+
+Used by:
+  - Claim Extraction / Inflation Map ....... §3
+  - Construct Validity ..................... §2
+  - Internal Validity & Replication ........ §2
+  - Citation Network ....................... §1, §2
+  - Oppositional Counter-Audit ............. §1, §2, §3
+  - citation_reception_module.py ........... §1
+
+
+=================================================================
+§1 — VERIFICATION-STATE LADDER
+=================================================================
+
+How thoroughly a source has been checked. This is NOT the same axis as evidence
+type (primary study / meta-analysis / journalism / author inference), which
+describes what KIND of source it is. A source has BOTH: an evidence type and a
+verification state. Keep them separate — a peer-reviewed empirical study
+(strong evidence type) can be abstract-confirmed only (weak verification state).
+
+  LOCATED
+    Source exists; metadata (author, year, venue, DOI) confirmed. Nothing about
+    its content verified. Includes leads and references that have been resolved
+    to a real paper but not read.
+
+  ABSTRACT-CONFIRMED
+    Abstract read and supports the claimed relevance. Method and results NOT
+    verified. Sufficient to say what a paper is ABOUT; insufficient to audit its
+    operationalization, because abstracts do not contain the method detail
+    construct-validity work requires.
+
+  FULL-TEXT-CONFIRMED
+    Full text read; the source directly supports the specific claim attributed to
+    it. Only a human read establishes this — a retrieval tool cannot assert it.
+
+  RECEPTION-CONFIRMED
+    The source's own reception has been checked against real citation data:
+    replies, comments, corrigenda, replications, retractions, citation contexts.
+    Establishes HOW THE SOURCE FARED, which is independent of whether its content
+    was read. A source can be reception-confirmed but only abstract-confirmed.
+
+  CONTESTED
+    Reception check found credible disagreement. The dispute EXISTS and its tenor
+    is known; who is correct is NOT established.
+
+  REBUTTED
+    Reception check found later work that directly and substantially challenges
+    it, and the challenge was not evidently answered. Downgrades the source's
+    weight regardless of how strong its original claims read.
+
+  PROVISIONAL
+    Accessible evidence is insufficient to place the source on this ladder.
+    Includes: model-memory assertions not checked against retrieval, paywalled
+    full text, unresolved leads. PROVISIONAL IS A REAL STATE, NOT A FAILURE TO
+    LABEL — use it rather than guessing upward.
+
+RULES
+
+  1. Never report a state higher than what was actually done. "Retrieval
+     happened" is not "claim verified" — a reception query establishes
+     RECEPTION-CONFIRMED, not FULL-TEXT-CONFIRMED.
+
+  2. A source may not anchor a SEVERE / DECISIVE / LOAD-BEARING finding while
+     PROVISIONAL. Cap it at contested-pending-verification and say so.
+
+  3. The ladder is not strictly ordered — RECEPTION-CONFIRMED and
+     FULL-TEXT-CONFIRMED are different axes (how it fared vs. what it says). A
+     source can hold both. Report both when both are known.
+
+  4. Applies symmetrically to sources SUPPORTING and OPPOSING the audited claim.
+
+  5. This ladder ABSORBS the vaguer provenance entries previously used:
+       "model memory / needs verification"  ->  PROVISIONAL
+       "unverified source lead"             ->  LOCATED (once resolved) or
+                                                PROVISIONAL (if unresolved)
+     Keep the specific how-found labels (cites foundational directly, found via
+     adjacent-field search, supplied by user, etc.) — those describe DISCOVERY
+     PATH, which is still useful. Drop only the vague verification-ish ones,
+     which this ladder replaces.
+
+
+=================================================================
+§2 — STANDARDIZED FINDING TABLE
+=================================================================
+
+Every prosecutor stage (construct validity, internal validity, citation network)
+ends with its findings in this schema.
+
+This is a SUMMARY LAYER APPENDED TO the stage's existing internal tables — it
+does not replace them. The internal tables carry the detailed analysis; this
+carries the comparable, inspectable summary the human adjudicator and the
+counter-audit both read.
+
+Why the schema matters: it keeps an aggressive prosecutor from becoming a
+freeform attack generator. A prosecutor may be one-directional — that is its job
+— but it must still produce receipts, and it must still state what would weaken
+its own charge. FALSIFIABILITY WITHOUT BALANCE: naming what would undercut a
+critique does not soften the critique; it makes it inspectable.
+
+FIELDS (one row per finding)
+
+  Finding ..................... one-sentence statement of the problem
+  Target claim ................ which claim from the Claim Map this addresses
+                                (must match a claim in the shared Claim
+                                Extraction output — see §3)
+  What was measured ........... the actual operationalization / data
+  What was claimed ............ the assertion the measurement is used to support
+  Failure mode ................ the stage's own taxonomy (weak proxy, construct
+                                mismatch, level-of-analysis error, p-hacking
+                                risk, HARKing, forking-paths fragility, claim
+                                mutation, laundering, adjacent-field neglect...)
+  Severity .................... none / minor / moderate / major / fatal-for-the-
+                                strong-claim
+  Evidence .................... what specifically supports this finding
+                                (section, table, figure, quoted passage, data)
+  Evidence type ............... primary study / replication / meta-analysis /
+                                methodological critique / policy document /
+                                practitioner evidence / journalism / commentary /
+                                theoretical / author inference
+  Verification state .......... from §1
+  Possible innocent explanation  the strongest non-damning reading of this
+                                observation. Mandatory. If none exists, write
+                                "none identified" — do not leave blank.
+  What would weaken this ...... the specific evidence that would undercut this
+                                finding
+  Failure location ............ from §3
+  Status ...................... confirmed / contested / provisional
+
+RULES
+
+  1. "Possible innocent explanation" and "What would weaken this" are REQUIRED.
+     A finding without them is not inspectable and should not be ranked severe.
+
+  2. Severity must be consistent with verification state — a PROVISIONAL finding
+     cannot be rated major/fatal.
+
+  3. Target claim must reference the shared Claim Map. If a prosecutor finds
+     itself auditing a claim not on the map, that is a signal the map is
+     incomplete — flag it rather than silently auditing a different claim.
+
+
+=================================================================
+§3 — FAILURE-LOCATION TAXONOMY
+=================================================================
+
+WHERE the inflation or failure actually lives. Prevents collapsing "bad paper,"
+"bad citation uptake," "bad press release," and "bad model summary" into one
+undifferentiated accusation — a critique that names the right layer is much
+harder to dismiss, and one that names the wrong layer is easy to refute.
+
+  PAPER
+    The source itself overclaims, uses an invalid proxy, or asserts more than its
+    design supports. The failure is in the original document.
+
+  CITATION
+    The source is narrow and defensible; later papers inflate it. The failure is
+    in the citing literature — claim mutation, laundering, premise inflation.
+
+  PR / MEDIA
+    Institutional press release, university communications, or media coverage
+    strips caveats and broadens the claim. The failure is in the communication
+    layer, not the literature.
+
+  MODEL / RETRIEVAL
+    Search engines, summarizers, or LLMs reproduce the laundered version and drop
+    the construct caveat, so the inflated claim is what a reader now encounters
+    by default.
+
+  MIXED
+    More than one layer contributes. Specify WHICH LAYER IS RESPONSIBLE FOR WHICH
+    PART of the inflation. Do not use MIXED as a way to avoid deciding.
+
+DIVISION OF LABOR — TWO DIFFERENT USES, DO NOT DUPLICATE
+
+  Claim Extraction (prospective): identifies WHERE INFLATION BEGINS by tracing the
+  claim from measurement through to downstream restatement. Produces the map.
+
+  Counter-Audit (retrospective): asks WHETHER THE PROSECUTORS AIMED AT THE RIGHT
+  LAYER — did they attack the strongest version of the claim, or the easiest
+  downstream exaggeration?
+
+  These are related but distinct jobs. Claim extraction says where the inflation
+  starts; the counter-audit says whether the critique hit that layer or a softer
+  one. Neither should restate the other's conclusion. If they disagree, the
+  counter-audit's assessment governs (it has the prosecutors' output in hand) and
+  the disagreement itself should be reported to the human.
+
+NOTE
+  A PAPER-location failure and a CITATION-location failure call for different
+  challenges. Attacking a defensible paper for its press release is a category
+  error and the easiest way for a critique to be dismissed. Getting this right is
+  what separates a challenge that lands from one that gets waved off.
