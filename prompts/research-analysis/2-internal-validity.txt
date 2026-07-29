@@ -1,0 +1,314 @@
+INTERNAL VALIDITY & REPLICATION AUDIT PROMPT
+
+Purpose:
+This prompt audits the internal validity of a specific study or finding — whether the result itself is likely to be real, replicable, and free of analytic artifacts — before assessing what it claims or how it has been cited.
+
+Citation laundering and proxy problems operate on the output of a study. P-hacking, HARKing (Hypothesizing After Results are Known), selective reporting, and underpowered designs corrupt the finding at the source. A finding that fails internal validity cannot support the claims built on it regardless of how many papers cite it.
+
+This prompt also covers AI-assisted data analysis. The failure mode is identical: a tool produces a confident output, the user lacks the domain knowledge to audit whether the output measures what the claim requires, and the output gets treated as a finding. Whether the tool is a regression model, a citation network, or an LLM doing exploratory analysis — the proxy failure mechanism is the same. The data generation audit below applies to both human-conducted and AI-assisted analysis.
+
+Run this audit before or alongside the construct validity audit. If the foundational finding fails internal validity, note this in the thesis. The claim is doubly weak: the study may not measure what it claims, and the finding may not be real.
+
+-----
+
+INPUTS
+
+Provide the following:
+
+1. Foundational paper(s) or analysis:
+   [Paste citation, abstract, methods, results, and statistical reporting where available. For AI-assisted analysis, paste the prompt used, the output, and the dataset description.]
+1. Central empirical finding:
+   [State the finding in one sentence: what effect was found, in what population, measured how, of what magnitude.]
+1. Claimed construct and downstream use:
+   [What is this finding used to prove in subsequent literature, policy, or decision-making?]
+1. Known replication attempts (if any):
+   [Paste citations and outcomes if known. If none known, state “unknown.”]
+1. Pre-registration status (if known):
+   [Was the study pre-registered? At what stage? Did the published analysis match the pre-registered plan?]
+
+-----
+
+DATA-HONESTY RULE
+
+For every claim about study design, analysis choices, or replication status, state how it was determined:
+
+- reported in the paper itself
+- reported in supplementary materials
+- found in pre-registration record (OSF, ClinicalTrials, AsPredicted, etc.)
+- found in replication literature
+- found in methodological critique
+- model memory / needs verification
+- unknown / not reported
+
+Do not infer pre-registration compliance from the absence of information. If pre-registration status is unknown, state it clearly.
+
+-----
+
+SECTION A: DATA GENERATION AUDIT
+
+Run this section before any analysis audit. A finding built on flawed data cannot be rescued by clean analysis. AI-assisted analysis on flawed data produces confident wrong answers faster than any previous tool.
+
+1. How was this data collected?
+- Who collected it, when, and under what conditions?
+- Was collection prospective or retrospective?
+- Was it observational, experimental, or administrative?
+- Does the analysis treat it accordingly — or does it make causal claims from observational data?
+1. What selection effects shaped the dataset?
+- Who or what is included in the data?
+- Who or what is systematically missing — and why?
+- Is the sample representative of the population the claim is made about?
+- What self-selection, survival, or survivorship bias might be present?
+1. What does missingness look like?
+- How much data is missing?
+- Is missingness random (MCAR), related to observed variables (MAR), or related to unobserved variables (MNAR)?
+- If MNAR: does the missingness pattern systematically bias the finding in one direction?
+- How was missingness handled in the analysis — and was that handling appropriate?
+1. What incentive structure governed data collection?
+- Who benefits from particular findings emerging from this data?
+- Was the data collected by the same party that stands to benefit from the result?
+- Are there known cases where similar data collection incentives produced distorted findings?
+- For administrative or platform data: what organizational decisions shaped what gets recorded versus what gets dropped?
+1. For AI-assisted analysis specifically:
+- Was the dataset inspected before analysis or fed directly to the model?
+- Did the model flag data quality issues or proceed without surfacing them?
+- Were the analysis outputs checked against the raw data or accepted as outputs?
+- Was the adversarial check run: “What is the strongest methodological critique of this analysis? What does this measure that I might be mistaking for what I want it to measure? What would falsify this finding?”
+
+Required table:
+
+|Data source|Collection method|Selection bias risk|Missingness pattern|Incentive structure risk|AI-analysis check run|
+|-----------|-----------------|-------------------|-------------------|------------------------|---------------------|
+
+Risk options: Low / Moderate / High / Cannot assess
+AI-analysis check: Yes / No / Partial / N/A
+
+-----
+
+SECTION B: PRE-REGISTRATION AND ANALYSIS PLAN
+
+1. Was the study pre-registered before data collection began?
+- If yes: where, when, and what was registered?
+- If no: was any aspect of the design registered after data collection but before analysis?
+- If unknown: note as unknown
+1. Did the published analysis match the pre-registered plan?
+- Were primary outcomes changed?
+- Were additional outcomes added post-hoc?
+- Were subgroup analyses pre-specified or exploratory?
+- Were exclusion criteria changed after data collection?
+1. If not pre-registered: how many outcomes were tested in the study?
+- How many are reported?
+- What is the probability that at least one would reach p < .05 by chance given the number tested?
+
+Required table:
+
+|Pre-registration status|Analysis match|Outcomes tested|Outcomes reported|Post-hoc subgroups|P-hacking risk|
+|-----------------------|--------------|---------------|-----------------|------------------|--------------|
+
+P-hacking risk options: Low / Moderate / High / Severe / Cannot assess
+
+-----
+
+SECTION C: EFFECT SIZE AND STATISTICAL POWER
+
+1. What is the reported effect size? (r, d, OR, RR, η², etc.)
+1. How does this effect size compare to:
+- The field’s typical effect sizes for similar constructs?
+- The minimum effect size that would be practically or clinically meaningful?
+- Later corrected meta-analyses or larger independent replications?
+1. What was the sample size?
+1. What statistical power did the study have to detect the reported effect at the reported size?
+- Was the sample size determined in advance by power calculation?
+- If not, at what power level was the study operating?
+1. Winner’s curse assessment: studies that barely achieve p < .05 in underpowered designs systematically overestimate effect sizes. Is the reported effect size likely inflated?
+
+Required table:
+
+|Reported effect size|Field typical range|Corrected meta-analysis estimate|Sample size|Estimated power|Winner’s curse risk|
+|--------------------|-------------------|--------------------------------|-----------|---------------|-------------------|
+
+Winner’s curse risk options: Low / Moderate / High / Cannot assess
+
+-----
+
+SECTION D: HARKING (HYPOTHESIZING AFTER RESULTS ARE KNOWN)
+
+1. Is the central finding presented as confirmatory (testing a pre-specified hypothesis) or exploratory?
+1. Does the introduction describe a specific directional hypothesis that matches the result?
+- If yes: was this hypothesis pre-registered before data collection?
+- If no: was the hypothesis direction specified in any pre-study documentation?
+1. Are there signs of post-hoc hypothesis specification?
+- Vague or multiple hypotheses in the introduction that could accommodate various outcomes?
+- Subgroup findings presented as primary results without pre-specification?
+- Effect found in unexpected direction presented as theoretically predicted?
+1. Does the discussion present exploratory findings as if they were confirmatory?
+
+Required table:
+
+|Hypothesis type|Pre-registered?|HARKing indicators|HARKing risk|
+|---------------|---------------|------------------|------------|
+
+HARKing risk options: Low / Moderate / High / Cannot assess
+
+-----
+
+SECTION E: SELECTIVE REPORTING
+
+1. Are all pre-registered outcomes reported?
+- If not: which outcomes are missing?
+- Is there a plausible explanation for their omission?
+1. Are there signs of selective subgroup reporting?
+- Is the reported effect found in the full sample or only in a subgroup?
+- Was the subgroup pre-specified?
+1. Are there signs of selective time-point reporting?
+- Is the reported effect found at all time points or only at one?
+- Was the reported time point pre-specified?
+1. Publication bias assessment:
+- Is this a published positive result in a high-impact journal?
+- Are there known null or negative replication attempts?
+- Is the effect size unusually large compared to later replications (consistent with publication bias)?
+
+Required table:
+
+|Outcomes registered|Outcomes reported|Missing outcomes|Subgroup selectivity|Publication bias indicators|
+|-------------------|-----------------|----------------|--------------------|---------------------------|
+
+-----
+
+SECTION F: REPLICATION STATUS
+
+1. Has the finding been directly replicated?
+- How many direct replication attempts exist?
+- What proportion succeeded?
+- Were the replications pre-registered and adequately powered?
+- Were the replications conducted by independent labs?
+1. Has the finding been conceptually replicated?
+- Do meta-analyses support the effect?
+- Are meta-analyses author-run or independent?
+- Do meta-analyses show evidence of publication bias (funnel plot asymmetry, p-curve skew)?
+1. Effect size trajectory:
+- Has the reported effect size shrunk across successive replications?
+- What is the current best estimate of the true effect size?
+- Does the current best estimate support the downstream claims built on the original finding?
+
+Required table:
+
+|Direct replications|Success rate|Pre-registered reps|Independent reps|Meta-analytic estimate|Effect shrinkage|
+|-------------------|------------|-------------------|----------------|----------------------|----------------|
+
+-----
+
+SECTION G: DATA AND CODE AVAILABILITY
+
+1. Were the data made publicly available?
+1. Was the analysis code made publicly available?
+1. Has anyone attempted a reanalysis of the original data?
+- If yes: what did the reanalysis find?
+1. Are there known data irregularities, anomalies, or concerns?
+- Has the paper been flagged on PubPeer or by post-publication peer review?
+- Have any authors issued corrections or expressions of concern?
+
+Required table:
+
+|Data available|Code available|Reanalysis attempted|Reanalysis result|PubPeer flags|Corrections issued|
+|--------------|--------------|--------------------|-----------------|-------------|------------------|
+
+-----
+
+SECTION H: SUMMARY TABLE — INTERNAL VALIDITY
+
+Complete this table:
+
+|Dimension               |Assessment|Severity|Notes|
+|------------------------|----------|--------|-----|
+|Data generation quality |          |        |     |
+|Selection bias          |          |        |     |
+|Missingness handling    |          |        |     |
+|Incentive structure risk|          |        |     |
+|Pre-registration        |          |        |     |
+|Analysis plan compliance|          |        |     |
+|P-hacking risk          |          |        |     |
+|Effect size plausibility|          |        |     |
+|Statistical power       |          |        |     |
+|Winner’s curse risk     |          |        |     |
+|HARKing risk            |          |        |     |
+|Selective reporting     |          |        |     |
+|Replication success rate|          |        |     |
+|Effect size trajectory  |          |        |     |
+|Data/code availability  |          |        |     |
+|Post-publication flags  |          |        |     |
+
+Severity options: None / Minor / Moderate / Major / Fatal / Cannot assess
+
+-----
+
+SECTION I: INTERNAL VALIDITY VERDICT
+
+Classify the finding using this scale:
+
+A. Strong — pre-registered, adequately powered, replicated by independent labs, effect stable across replications, data available, data generation process sound
+B. Acceptable — minor design limitations, replicated in spirit if not directly, effect size plausible, data generation concerns minor
+C. Weak — underpowered or unreplicated, effect size possibly inflated, design concerns present, or data generation concerns moderate
+D. Suspect — multiple internal validity problems, non-replicated or failed replication, effect size likely inflated, or data generation seriously compromised
+E. Invalid — failed replication in adequately powered independent studies, p-hacking or HARKing evidence, finding likely artifact of analytic choices, or data generation fatally flawed
+F. Cannot assess — insufficient reporting to evaluate
+
+Do not choose a weaker verdict when a stronger one is accurate. If multiple problems compound across sections, the verdict should reflect the compounding — not average across dimensions or soften because individual problems seem minor in isolation. A study with moderate p-hacking risk, moderate HARKing risk, and failed replication is not “Weak” — it is “Suspect” or “Invalid.”
+
+Then answer:
+
+1. Is the foundational finding likely to be real?
+1. If it is real, is its magnitude sufficient to support the downstream claims built on it?
+1. What is the best current estimate of the true effect size?
+1. What pre-registration and replication evidence would upgrade this verdict?
+1. What is the decisive test that has not been run?
+1. For AI-assisted analysis: did the adversarial check surface proxy failures the original analysis missed?
+
+-----
+
+SECTION J: INTEGRATION WITH CONSTRUCT VALIDITY AUDIT
+
+After completing this audit, note:
+
+1. If the finding is suspect or invalid (D/E), the construct validity problem is secondary — the foundational claim is doubly weak.
+1. If the finding is acceptable or strong but the construct validity fails, the study may be internally valid but externally overclaimed.
+1. If both internal validity and construct validity fail, note the compounding failure: the study may not measure what it claims AND the finding may not be real.
+1. If the data generation is compromised, note this as a third compounding failure: the study may not measure what it claims, the finding may not be real, AND the data may not represent the population the claim is made about.
+
+The decisive-test sentence should integrate all applicable failures:
+
+“The foundational finding [is/is not] likely to be real based on current replication evidence, AND the construct being measured [does/does not] validly represent the downstream claim, AND the data generation process [does/does not] support generalization to the claimed population — meaning the policy/institutional deployment rests on [a real but overclaimed finding / an unreliable finding being overclaimed / a finding from unrepresentative data being overclaimed / all three].”
+
+-----
+
+SECTION K: FINAL ONE-PARAGRAPH SUMMARY
+
+Write one paragraph summarizing:
+
+- Whether the foundational finding is likely real
+- The current best estimate of the true effect size
+- The replication status
+- The data generation quality
+- The internal validity verdict
+- How internal validity failures compound or modify the construct validity assessment
+- What the decisive test would look like
+
+This paragraph should be direct, evidence-based, and free of unnecessary reassurance language. State the verdict plainly. Do not hedge unless the evidence genuinely requires it. If the finding is unlikely to be real, say so. If multiple failure modes compound, name the compounding explicitly rather than softening into a general “limitations” framing.
+
+-----
+
+REMINDER
+
+This prompt audits the finding itself — whether the result is real and stable — before asking what it proves.
+
+A finding that replicates cleanly but is overclaimed has one problem.
+A finding built on flawed data has a second problem.
+A finding that doesn’t replicate has a third problem.
+A finding that doesn’t replicate AND is overclaimed AND is built on flawed data is triply invalid.
+
+The toolkit now covers all three.
+
+You may begin with suspicion.
+You may not end with suspicion.
+
+Start wherever the anomaly appears.
+Finish with receipts.
