@@ -1,0 +1,309 @@
+FIELD DIAGNOSTIC: 44 QUESTIONS TO RUN AGAINST YOUR FIELD
+A companion to "The Same Four Failures, Different Fields"
+GitHub: https://github.com/yungmulaBABY1/the-same-four-failures-or-field-map-adversarial-research
+Archive: DOI 10.5281/zenodo.20201226
+
+-----
+
+WHERE THIS SITS IN THE TOOLKIT (STAGE 0 — FEASIBILITY & SELF-CALIBRATION GATE)
+
+This diagnostic runs BEFORE any paper-level audit. It is not a construct-,
+internal-, or citation-validity audit and does not fold into them. It is the
+upstream go/no-go gate that decides two things:
+
+  (1) Is the failure mode plausibly present in this field?  (Section A)
+  (2) Are YOU positioned and clear-eyed enough to run a credible challenge?
+      (Sections B and C)
+
+Its output is ROUTING, not findings. Based on your answers it sends you to one
+of: proceed to the paper-level audit pipeline / partner or narrow scope / steelman
+first / stop. Run it once, up front, on the field and your own position — not
+per-paper. Only after passing this gate do you select a target paper and run the
+construct-validity, internal-validity, citation-network, and counter-audit stages.
+
+Section C is the part of the entire toolkit that audits the AUDITOR. It is the
+one safeguard that cannot be automated or externally grounded, because it is you
+checking your own motivated reasoning before you start. Treat it as the human-side
+equivalent of the reception gate: before you audit their evidence, audit your own
+motive. Do not skip it because you are confident — confidence is exactly when it
+matters most.
+
+-----
+
+PURPOSE
+
+This diagnostic helps you evaluate whether a field has the structural conditions
+for a serious methodological challenge. It separates:
+
+- Does the failure mode exist in the field? (Section A)
+- Do you have the position and information needed to run a credible challenge?
+  (Section B)
+
+It also includes calibration questions (Section C) to distinguish methodological
+critique from motivated reasoning.
+
+Use this before investing significant time in building a formal challenge.
+
+-----
+
+HOW TO USE THIS PROMPT
+
+Option A (Recommended):
+Paste this prompt into an AI and add a short description of the field and the
+claim you want to examine. Ask it to answer the questions based on the published
+literature. Then compare its answers to your own knowledge. The gaps are often
+the most valuable part.
+
+Guidance on model use (model-agnostic — do not hardcode to specific products,
+whose behavior shifts over time):
+- For the initial mapping pass on contested or politically sensitive territory,
+  use whichever model is currently LEAST prone to sycophancy and false balance on
+  the topic, and cross-check its claims — any single model will lean, and the lean
+  is invisible unless you compare or verify.
+- For adversarial stress-testing (generating the strongest objections to your
+  own challenge), use a SEPARATE pass — ideally a different model or a clearly
+  re-framed prompt — so the model attacking your argument is not the same one that
+  built it. A model asked to both generate and validate tends to rubber-stamp.
+- Do not let one model both produce and confirm the same claim. Confirmation
+  must come from retrieval or an independent pass, not from the same model's
+  agreement with itself.
+- On any citation, replication, or "who-cites-whom" question, prefer RETRIEVED
+  data (a real citation graph — OpenAlex, Semantic Scholar) over the model's
+  recollection. Models confabulate citation relationships confidently; see the
+  grounding notes in Sections A-citation and A-empirical below.
+
+Option B:
+Work through the questions yourself before committing to a challenge.
+
+-----
+
+SECTION A: DOES THE FAILURE MODE EXIST?
+
+Answer these about the field and its central claim. If you answer yes to most,
+the failure mode is likely present.
+
+ON THE CORE CLAIM
+
+1. What is the field's central claim? State it in one sentence.
+2. Is this claim presented as an empirical finding, a theoretical framework, or
+   both? Does the field treat it as settled?
+3. What was the original study or paper that established the claim? What was the
+   sample and population?
+4. Has the original claim been directly replicated by independent researchers
+   using pre-registered methods? What was the result?
+   [GROUNDING: confirm replication status against retrieved data — pull the citing
+   works and reply/comment papers rather than recalling. A replication claim that
+   is only model-recalled is provisional and must be labeled so.]
+5. Does the field clearly distinguish between well-supported versions of the
+   claim and overstated versions?
+
+ON EMPIRICAL STATUS
+
+6. What would it take for a researcher in this field to publish a paper that
+   meaningfully challenges the central claim?
+7. Has the field specified what evidence would falsify or seriously weaken its
+   central claim?
+8. Has the field's main prediction been tested against a natural experiment or
+   large-scale intervention? Did the field update its position afterward?
+9. Are there adjacent fields or literatures that contradict or complicate the
+   central claim? Does the dominant literature engage with them substantively?
+
+ON THE PROXY / MEASUREMENT
+
+10. What does the field most commonly measure? Describe the primary data sources
+    and instruments.
+11. What construct does the field claim to be explaining or intervening on?
+12. Is the thing being measured the same as the construct being claimed? If not,
+    what is the gap?
+13. What confounds are routinely present in the field's typical measurements that
+    are not adequately controlled for?
+14. Has anyone in the field formally challenged the validity of the primary
+    measurement instruments or proxies? What happened to those challenges?
+    [GROUNDING + NO-ASSUME-SUPPRESSION: if a validity challenge received little
+    engagement, check whether it SURVIVED its own rebuttals before concluding it
+    was suppressed. Low uptake of a rebutted challenge is expected, not evidence of
+    a cartel. Confirm the challenge's own reception via retrieval.]
+
+ON THE CITATION NETWORK
+
+15. Name the 5-10 most-cited papers in the relevant subfield. Do they primarily
+    cite each other?
+    [GROUNDING: this must be answered from a REAL citation graph (OpenAlex /
+    Semantic Scholar), not model memory. Citation counts and who-cites-whom are
+    exactly what models confabulate. Mark unretrieved answers provisional.]
+16. Is there a small founding cluster of papers that later work heavily relies
+    on? Were those foundational claims rigorously tested or largely adopted as
+    premises?
+17. Which disciplines with relevant expertise are well-represented in the
+    citation network? Which are largely absent?
+18. Are there papers that challenged the dominant view that receive little
+    engagement or are mainly cited to be dismissed?
+    [GROUNDING + NO-ASSUME-SUPPRESSION: "cited only to be dismissed" and "ignored
+    despite rigor" are claims that require the challenged paper to have SURVIVED
+    its rebuttals. Confirm its reception via retrieval before reading low uptake as
+    suppression rather than as the field correctly discounting rebutted work.]
+
+ON EXTRAPOLATION
+
+19. At what population or skill level were the foundational studies conducted?
+20. At what population or outcome level does the field make its strongest claims?
+21. What assumptions are required to bridge the evidence level to the claim
+    level? Are those assumptions tested or merely asserted?
+22. Are there contexts where the field's model predicts improvement or
+    convergence that have not occurred? How does the field explain those failures?
+
+ON THE INTERVENTION RATCHET
+
+23. What interventions or policies has the field advocated for or helped
+    implement?
+24. Which metrics improved after implementation, and which did not?
+25. Was the primary outcome measure independent of the intervention, or did it
+    largely measure compliance with it?
+26. Has any version of the intervention been meaningfully rolled back or
+    reformed? How did the field respond?
+27. When interventions fail to deliver on their stated goals, what does the field
+    typically recommend next?
+
+-----
+
+SECTION B: CAN THE CHALLENGE BE RUN?
+
+Answer these about your own position and knowledge. If you answer yes to most,
+you have the raw material to run the challenge.
+
+ON YOUR DOMAIN KNOWLEDGE
+
+28. Do you have direct experience with the phenomenon the field claims to explain
+    (amateur, professional, or elite level)?
+29. Can you identify specific, concrete cases where the field's model or
+    predictions do not match observable reality?
+30. Can you name confounds that the field routinely ignores because you have
+    encountered them directly?
+31. Can you clearly articulate the proxy or measurement problem in terms that
+    someone working in the field would recognize as a legitimate methodological
+    objection?
+
+ON THE DECISIVE TEST
+
+32. What evidence would directly and decisively test the central claim at the
+    right level of analysis?
+33. Does this evidence currently exist? If not, is it collectible through a
+    natural experiment or existing dataset?
+34. If the decisive test were run and came back against the field's position,
+    would it be publishable in mainstream venues? Or would the field's gatekeeping
+    prevent publication regardless of the finding?
+
+ON YOUR POSITION
+
+35. What do you have to lose by running this challenge (career, funding,
+    relationships, institutional standing)?
+36. What do you have to gain that is independent of career advancement?
+37. Are you willing to publish under your own name with transparent sourcing and
+    receipts?
+38. Can you specify what evidence would cause you to revise or abandon your
+    critique?
+
+-----
+
+SECTION C: CALIBRATION QUESTIONS
+
+These distinguish methodological critique from motivated reasoning. Answer them
+before you start writing. This is the section that audits YOU.
+
+39. Is there a version of the field's central claim that you accept as valid?
+    Where does the overreach begin?
+40. Can you describe the strongest version of the field's argument before
+    critiquing it?
+41. If the decisive test came back in the field's favor, would you update your
+    position? What would that update look like?
+42. Are there aspects of the field's work you would be willing to cite positively
+    in your challenge? (If no, your challenge may be advocacy rather than
+    methodology.)
+43. Are you primarily identifying problems with the field's methods and evidence,
+    or are you attributing motives to individual researchers? The former is
+    documentable. The latter requires stronger evidence.
+44. Would you be willing to publish this challenge even if it received
+    significant institutional or professional pushback?
+
+-----
+
+RED FLAGS — stop and reconsider if:
+
+- You cannot identify any version of the field's claim that you accept as valid
+  (Q39) -> you may be writing a polemic, not a methodological challenge
+- You cannot specify what evidence would change your own conclusion (Q38/Q41)
+  -> your challenge is not falsifiable
+- Your critique relies heavily on attributing motive rather than documenting
+  method (Q43) -> you need more evidence before publishing
+- You answered no to most of Section B
+  -> domain expertise is necessary but not sufficient
+
+GREEN FLAGS — proceed if:
+
+- You can clearly name the proxy/measurement problem in terms the field would
+  recognize as legitimate
+- You know which confounds are ignored because you have encountered them directly
+- The decisive test is specifiable and the data either exists or is collectible
+- You can describe the strongest opposing argument before dismantling it
+- You are willing to publish under your own name with receipts
+- You can answer Q39-44 honestly without becoming defensive
+
+-----
+
+WHAT TO DO WITH YOUR ANSWERS (ROUTING)
+
+Section A mostly yes + Section B mostly yes:
+You have the raw material for a methodological challenge. PROCEED to the
+paper-level audit pipeline. Select a target paper and run the construct-validity
+audit first; this diagnostic has told you where to point it. (If you are using the
+field-context generator, run it on the target paper now to specialize the audits
+for this field.)
+
+Section A mostly yes but Section B weak:
+The failure mode likely exists, but you may lack the position, access, or evidence
+to run a strong challenge right now. PARTNER with someone who has the missing
+domain knowledge or institutional access, or NARROW the scope to what you can
+document.
+
+Section C shows motivated reasoning:
+STEELMAN the field's position first. A challenge that survives steelmanning is
+publishable. One that does not is advocacy rather than methodology — which has its
+place, but is a different project. Do not proceed to the audit pipeline until
+Section C is clean.
+
+-----
+
+FINAL ASSESSMENT
+
+After working through all 44 questions, briefly answer:
+
+- Does the failure mode appear to be present in this field?
+- Do you have sufficient position and evidence to run a credible challenge?
+- What is the single strongest methodological objection you can currently make?
+- What is the decisive test that has not been run?
+- What evidence would most strengthen your position?
+- What evidence would most weaken it?
+
+Be direct. Do not hedge unless the evidence genuinely requires it. (Calibrated
+uncertainty tied to a real gap — "this is unverified," "this is the specific not
+the general claim" — is not hedging and should be kept.) If the failure mode is
+present and the challenge is runnable, say so clearly.
+
+-----
+
+REMINDER
+
+This diagnostic is not asking whether the field is wrong.
+It is asking whether the failure mode is structurally present and whether you are
+in a position to document it.
+
+A methodological challenge that can survive calibration (Section C) is publishable.
+One that cannot is a polemic.
+
+You may begin with suspicion.
+You may not end with suspicion.
+
+Start wherever the anomaly appears.
+Finish with receipts.
+
+-----
