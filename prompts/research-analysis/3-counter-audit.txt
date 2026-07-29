@@ -1,0 +1,404 @@
+OPPOSITIONAL CITATION & NEGLECTED EVIDENCE COUNTER-AUDIT PROMPT
+
+Purpose:
+You are now running an adversarial counter-audit against a previously generated citation-network audit, construct-validity audit, thesis paragraph, or short paper.
+
+The goal is not to find more evidence for the audit.
+The goal is to find the strongest evidence that opposes, complicates, narrows, weakens, or potentially overturns the audit.
+
+This prompt is designed to prevent motivated reasoning. It forces the user to ask:
+
+- What did I miss?
+- What does the other side have?
+- What evidence would change my conclusion?
+- Did the field actually engage its critics?
+- Did I overstate the claim?
+- Are there adjacent fields with better evidence or better methods?
+
+Run this audit rigorously and without softening. Prioritize direct, high-quality opposition over weak or tangential material. Do not produce flat lists — rank findings by how much they threaten the original claim.
+
+-----
+
+ANTI-HEDGING RULE
+
+Do not default to false balance. If the opposition is weak, say so. If it is strong, say so. Do not soften the verdict to appear thorough or even-handed. A prompt that finds strong opposition and calls it “mixed” is a failure. A prompt that finds weak opposition and calls the audit “strengthened” is a success — but only if the opposition was genuinely tested.
+
+-----
+
+INPUTS
+
+Provide the following:
+
+1. Original foundational paper(s):
+   [Paste citation, abstract, methods, or key excerpts.]
+1. Citation-network audit output:
+   [Paste the prior audit, including cartel-risk scorecard if available.]
+1. Construct-validity audit output:
+   [Paste if available.]
+1. Current thesis paragraph or short paper draft:
+   [Paste current version.]
+1. Central claim being audited:
+   [State the claim in one sentence.]
+1. Current audit verdict:
+   [Example: fatal construct-validity failure, citation-laundering network, weak proxy, etc.]
+1. Known citation hub / founding cluster:
+   [List papers, authors, reviews, institutions, or recurring citation nodes.]
+1. Adjacent fields already suspected of being ignored:
+   [List if known.]
+
+-----
+
+DATA-HONESTY RULE
+
+For every paper, study, report, or source listed, state how it was found:
+
+- cites foundational paper directly
+- cites citation hub directly
+- cited by foundational paper
+- cited by citation hub
+- appeared in “related papers”
+- found through keyword search
+- found through adjacent-field search
+- supplied by user
+- model memory / needs verification
+- unverified source lead
+
+If you cannot verify a citation relationship, label it: “Unverified citation relationship.”
+
+Do not invent citation links.
+Do not claim that a paper cites another paper unless the citation relationship is verified.
+Do not treat a paper as oppositional merely because it is thematically different.
+Do not count weak, tangential, or speculative criticism as strong opposition.
+Do not omit strong evidence that supports the original field’s position.
+
+-----
+
+EVIDENCE-QUALITY SCORING
+
+For every source listed, assign an evidence-quality score:
+
+0 = weak / speculative / rhetorical
+1 = relevant but limited
+2 = strong methodological critique
+3 = direct empirical contradiction or strong empirical support
+4 = decisive or near-decisive evidence
+
+Also label source type:
+
+- primary empirical study
+- replication / failed replication
+- meta-analysis / systematic review
+- methodological critique
+- natural experiment
+- policy evaluation
+- adjacent-field canonical paper
+- practitioner / domain-expert evidence
+- public reporting / journalism
+- commentary / editorial
+- theoretical paper
+- model estimate / needs verification
+
+-----
+
+RELATIONSHIP TO CENTRAL CLAIM
+
+For each source, classify its relationship to the central claim:
+
+- directly contradicts
+- weakens
+- narrows
+- complicates
+- supports a weaker version
+- supports the original claim
+- irrelevant after inspection
+- unclear / needs verification
+
+Do not overstate opposition. Some evidence narrows a claim without refuting it. Some evidence criticizes one use of a construct while supporting another. Mark this clearly.
+
+-----
+
+A. OPPOSITIONAL CITING PAPERS
+
+List the 5–10 most important papers that cite the foundational work or citation hub but criticize, weaken, narrow, or undermine it. Rank by strength of opposition — most threatening first.
+
+For each source, provide:
+
+- full citation and year
+- source type and how it was found
+- what foundational paper or hub it cites
+- main criticism
+- evidence-quality score (0–4)
+- relationship to central claim
+- strength of opposition (weak / moderate / strong / severe / potentially decisive)
+- whether the dominant field engaged it substantively
+- whether the critique changed later citation behavior
+
+Required table:
+
+|Paper|Year|Cites foundational/hub?|Main criticism|Evidence quality|Relationship to claim|Field uptake|Strength|
+|-----|---:|-----------------------|--------------|---------------:|---------------------|------------|--------|
+
+-----
+
+B. NON-CITING OPPOSITION PAPERS
+
+List papers, studies, reports, or literatures that oppose, weaken, or complicate the central claim but do not cite the foundational paper or citation hub. Rank by relevance and evidence quality.
+
+These matter because a field can appear internally coherent while contrary evidence exists outside the citation network.
+
+For each source, provide:
+
+- full citation and year
+- source type and how it was found
+- main argument or finding
+- why it matters
+- why it may have been outside the citation network
+- evidence-quality score (0–4)
+- relationship to central claim
+- whether the field should have engaged it
+
+Required table:
+
+|Paper / source|Year|Does not cite hub?|Main argument|Why it matters|Evidence quality|Relationship to claim|
+|--------------|---:|------------------|-------------|--------------|---------------:|---------------------|
+
+-----
+
+C. NEGLECTED REFERENCES THE HUB SHOULD HAVE CITED
+
+List important papers, studies, reports, or literatures that the foundational authors and/or citation hub should have referenced but neglected. These are not necessarily oppositional in intent — they may contain relevant methods, confounds, measurement standards, or findings that would have constrained the claim.
+
+For each:
+
+- full citation and year
+- source type and relevance to the foundational claim
+- what method, confound, or evidence it contributes
+- whether the foundational paper cited it
+- whether the hub cited it
+- effect of omission (minor context loss / moderate weakness / major evidentiary gap / fatal omission for the strong claim)
+- evidence-quality score (0–4)
+
+Required table:
+
+|Neglected source|Year|Relevance|Cited by foundation?|Cited by hub?|Effect of omission|Evidence quality|
+|----------------|---:|---------|--------------------|-------------|------------------|---------------:|
+
+-----
+
+D. IGNORED ADJACENT FIELDS
+
+List 4–6 adjacent fields or literatures that are directly relevant but were ignored, excluded, or minimally engaged.
+
+For each adjacent field, provide:
+
+- field name and key papers/authors
+- why it is relevant
+- what evidence it provides against, beneath, or adjacent to the claim
+- what better measurement instrument or method it offers
+- what decisive test it suggests
+- whether the target field adopted that method
+- what the target field would have had to confront if it engaged this literature
+- effect of neglect (minor / moderate / major / fatal for strong claim)
+
+Required table:
+
+|Adjacent field|Key sources|Why relevant|Better method / measure|Decisive test suggested|Engagement by target field|Effect of neglect|
+|--------------|-----------|------------|-----------------------|-----------------------|--------------------------|-----------------|
+
+-----
+
+E. STRONGEST EVIDENCE SUPPORTING THE ORIGINAL CLAIM
+
+Do not only search for evidence that supports the audit. Identify the strongest evidence that supports the foundational paper, citation hub, or mainstream claim.
+
+For each source:
+
+- full citation and year
+- source type
+- what part of the original claim it supports
+- whether it directly answers the construct-validity problem
+- whether it runs or approximates the decisive test
+- whether it supports the strong claim or only a narrower version
+- whether it changes the audit verdict
+- evidence-quality score (0–4)
+
+Classify impact on audit:
+
+- no effect
+- narrows the critique
+- weakens the critique
+- seriously challenges the critique
+- overturns the critique
+
+Required table:
+
+|Supporting source|Year|What it supports|Answers construct problem?|Runs decisive test?|Strong or narrow claim?|Impact on audit|
+|-----------------|---:|----------------|--------------------------|-------------------|-----------------------|---------------|
+
+Be honest. If the strongest support for the original claim is genuinely strong, say so. If it only supports a narrower version, say that clearly.
+
+-----
+
+F. CITATION-NETWORK UPTAKE OF OPPOSITION
+
+For each strong oppositional paper or neglected source identified above, answer:
+
+- Did the dominant citation hub cite it?
+- Did later papers cite it?
+- Was it engaged substantively, dismissed, minimized, or ignored?
+- Did the field update after it appeared?
+- Did the opposition remain peripheral while the original claim continued spreading?
+- Did later reviews preserve the critique or bury it?
+
+Required table:
+
+|Opposition / neglected source|Cited by hub?|Later uptake?|Engagement quality|Did field update?|Network implication|
+|-----------------------------|-------------|-------------|------------------|-----------------|-------------------|
+
+Engagement quality options:
+
+- not cited
+- cited in passing
+- cited but dismissed
+- cited and reframed
+- substantively engaged
+- incorporated into model revision
+- unclear / needs verification
+
+Network implication options:
+
+- healthy uptake
+- partial uptake
+- critique contained
+- critique marginalized
+- evidence ignored
+- field updated
+- field did not update
+
+-----
+
+G. SUMMARY TABLE — OPPOSITION STRENGTH
+
+Complete this table. After completing it, explicitly rank the three most threatening findings by their impact on the central claim — do not produce a flat summary that treats all findings as equally significant.
+
+|Category                            |Number Found|Strongest Example|Evidence Quality|Impact on Central Claim|
+|------------------------------------|-----------:|-----------------|---------------:|-----------------------|
+|Oppositional citing papers          |            |                 |                |                       |
+|Non-citing opposition papers        |            |                 |                |                       |
+|Neglected references                |            |                 |                |                       |
+|Ignored adjacent fields             |            |                 |                |                       |
+|Strongest support for original claim|            |                 |                |                       |
+
+Impact options:
+
+- no effect
+- narrows claim
+- weakens claim
+- strengthens audit
+- weakens audit
+- seriously challenges audit
+- overturns audit
+- needs verification
+
+Then state: “The three most threatening findings in order of severity are: [1], [2], [3].”
+
+-----
+
+H. REVISED THESIS IMPACT
+
+Classify how the counter-audit affects the original thesis. Do not choose a weaker category when a stronger one is accurate.
+
+A. Thesis strengthened — opposition confirms ignored evidence / critique non-uptake.
+B. Thesis narrowed — original critique remains valid but needs more precise scope.
+C. Thesis softened — some claims were overstated.
+D. Thesis seriously weakened — decisive contrary evidence exists.
+E. Thesis overturned — audit’s central claim is wrong.
+F. Mixed — thesis strengthened in one area and narrowed in another.
+
+Then answer each question directly. Do not hedge:
+
+1. Which claims should be removed?
+1. Which claims should be narrowed?
+1. Which claims should be strengthened?
+1. Which claims require better sourcing?
+1. Which claims survived the adversarial review unchanged?
+1. Which evidence most improves the thesis?
+1. Which evidence most threatens the thesis?
+
+-----
+
+I. REVISED THESIS PARAGRAPH
+
+Write a revised, sharper thesis paragraph that incorporates the strongest counter-evidence.
+
+Rules:
+
+- Preserve the strongest valid critique.
+- Do not soften merely to appease institutional readers.
+- Do narrow claims that were too broad.
+- Do distinguish direct evidence, inference, and speculation.
+- Do acknowledge the strongest evidence for the original claim if it materially changes the argument.
+- Do not use vague balancing phrases unless they do real evidentiary work.
+
+The revised thesis should include:
+
+- what was measured
+- what was claimed
+- where the proxy or construct gap is
+- what evidence opposed the claim
+- what evidence supports a narrower version
+- what the decisive test would look like
+- how the citation network handled opposition
+
+-----
+
+J. FINAL ADVERSARIAL VERDICT
+
+End with a final verdict using this format. Be direct and specific on every line:
+
+- Strongest opposition to the foundational claim:
+- Strongest support for the foundational claim:
+- Strongest neglected adjacent-field evidence:
+- Strongest paper the hub should have cited:
+- Most important non-citing opposition:
+- Did the field engage the opposition?
+- Did the opposition change the thesis?
+- Revised thesis impact category:
+- Claims to remove:
+- Claims to narrow:
+- Claims strengthened:
+- Three most threatening findings ranked by severity:
+- Main remaining source-risk:
+- Confidence level (Low / Moderate / High):
+- What evidence would change this assessment:
+
+-----
+
+K. FINAL ONE-PARAGRAPH SUMMARY
+
+Write one paragraph summarizing:
+
+- the strongest counter-evidence found
+- whether it weakens or strengthens the original audit
+- whether the original thesis survives
+- whether the field engaged or ignored the opposition
+- what the most defensible revised position is
+
+This paragraph should be direct, evidence-based, and free of unnecessary reassurance language. State the verdict plainly. Do not hedge.
+
+-----
+
+REMINDER
+
+This prompt is not for finding more ammunition.
+It is for testing whether the audit survives contact with the strongest opposing evidence.
+
+A good audit becomes sharper after this process.
+A weak audit becomes narrower.
+A bad audit should be abandoned.
+
+You may begin with suspicion.
+You may not end with suspicion.
+
+Start wherever the anomaly appears.
+Finish with receipts.
