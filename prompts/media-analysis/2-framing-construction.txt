@@ -1,0 +1,1439 @@
+FRAMING & CONSTRUCTION AUDIT — MEDIA / ARTICLE BRANCH
+=====================================================
+Prosecutor stage. Document-type variant for: news articles, opinion pieces,
+press releases, institutional communications, advocacy briefs.
+
+References: shared_primitives.txt §1 (verification states), §2 (finding table)
+
+-----------------------------------------------------------------
+WHAT THIS AUDITS — AND WHAT IT DOES NOT
+-----------------------------------------------------------------
+
+The academic prosecutors audit CLAIM VS. MEASUREMENT. This one audits
+CONSTRUCTION: what a piece does with ordering, agency, attribution, sourcing,
+omission, and packaging.
+
+The central premise: A PIECE CAN BE ENTIRELY FACTUALLY ACCURATE AND STILL
+MISLEAD THROUGH ASSEMBLY. Every sentence true, every quote real, and the
+assembled impression unsupported by the facts assembled. That is the object of
+this audit.
+
+THIS AUDIT IS NOT:
+  - fact-checking. You are not adjudicating whether the reported facts are true.
+    If you find a factual error, note it, but that is a different finding type.
+  - a bias accusation. "This outlet is biased" is not a finding. "The piece
+    places the justifying context in paragraph 6 while the emotional scene is in
+    paragraph 1" is a finding. Structure is observable; motive is not.
+  - a claim that the piece should have reached a different conclusion. You are
+    auditing whether the construction supports the impression it creates.
+
+THIS AUDIT IS NOT ABOUT WHETHER YOU AGREE WITH THE PIECE. See the FLIP TEST
+(Section J), which is mandatory and non-negotiable. A construction audit that
+only fires in one political direction is a broken instrument, and it is broken in
+exactly the way the pieces it audits are broken.
+
+-----------------------------------------------------------------
+INPUTS
+-----------------------------------------------------------------
+
+Article / piece (full text, including headline, subheads, captions):
+  [PASTE]
+
+Publication and date/time:
+  [PASTE — timing matters for Section I]
+
+VERSION REVIEWED — required, media pieces change after publication:
+  URL and/or archive link:
+  Original publication time:
+  Last-updated time (if shown):
+  Correction or update note present? [yes / no / none visible]
+  Headline changed since publication? [yes / no / unknown — check archive]
+  Social-card headline (if different from article headline):
+  Homepage/section headline (if different):
+
+  A great deal of media construction happens in packaging surfaces that differ
+  from the article body — the social card, the homepage teaser, the push
+  notification. Those reach more readers than the piece. If they differ from the
+  article headline, that difference is itself a finding (Section B). If you
+  cannot check them, write UNKNOWN — do not assume they match.
+
+Claim map, if produced upstream:
+  [PASTE, or write NONE]
+
+What else was publicly known at publication time, if known:
+  [Other coverage, official statements, video, documents available at press time.
+  If unknown, write UNKNOWN — do not assume. This bounds Section I.]
+
+Your prior on this topic:
+  [State it. One line. Not for the audit's use — for the flip test in Section J,
+  which asks whether you would flag the same construction in a piece leaning the
+  other way. Naming the prior up front makes that check honest.]
+
+-----------------------------------------------------------------
+COMPACT VOCABULARY
+-----------------------------------------------------------------
+
+VERIFICATION STATE — media branch subset
+
+  LOCATED ..................... the item exists; content unverified
+  FULL-TEXT-CONFIRMED ......... you read the full source and it supports the claim
+  CROSS-OUTLET-CORROBORATED ... the fact appears in 2+ outlets
+  CONTESTED ................... outlets report it incompatibly
+  PROVISIONAL ................. asserted from memory, or source not retrieved
+
+  RECEPTION-CONFIRMED IS NOT USED IN THIS BRANCH. In shared_primitives §1 it means
+  a source's own scholarly reception was checked — replies, replications,
+  corrigenda. A news article does not have reception in that sense. If you find
+  yourself reaching for it, you want CROSS-OUTLET-CORROBORATED.
+
+  CROSS-OUTLET-CORROBORATED CARRIES A MANDATORY CAVEAT: if few independent sources
+  underlie the coverage, multiple outlets reporting the same fact is AMPLIFICATION
+  of one upstream source, not corroboration. State how many independent sources you
+  believe underlie it, or mark it PROVISIONAL.
+
+  For this branch: any claim about what OTHER outlets reported, what the subject's
+  record contains, or what was known at press time is PROVISIONAL unless you
+  retrieved it. Do not assert "other reporting confirms X" from memory.
+
+MEDIA FINDING TYPE — what KIND of failure this is
+(Distinct from FAILURE LOCATION in shared_primitives §3, which means which LAYER
+of the chain — paper / citation / PR-media / model-retrieval / mixed. These are
+different axes. Do not use "failure location" for the categories below.)
+
+  FACTUAL ......... the piece states something false or unsupported
+  CONSTRUCTION .... facts accurate, assembly misleads (ordering, emphasis, verbs)
+  OMISSION ........ what is absent changes the meaning of what is present
+  SOURCING ........ voice selection is one-sided, or sources are unreliable
+  CAUSAL-BRIDGE ... an explanatory fact is removed, changing the reader's model of
+                    why one event followed another — see Section E2.2. Rank above
+                    ordinary synonym/register findings.
+  NARRATIVE-FLAG .. an attribute or event-classification is activated, delayed,
+                    quote-routed, or omitted asymmetrically — see Section E2.1
+  BASELINE ........ a quantitative claim's meaning is set by denominator,
+                    comparison point, adjustment, or window — see Section E2.3
+  FRAME-LAUNDERING  the outlet's interpretation is delivered via quoted third
+                    parties rather than its own reporting — see Section F2. DISTINCT
+                    from SOURCING: adding a balancing voice does not fix it.
+  PACKAGING ....... headline, image, or framing does work the body doesn't support
+  NONE ............ construction is proportionate to the facts and sourcing
+
+  A piece can be clean on FACTUAL and severe on CONSTRUCTION. That combination is
+  the most common and the most important to name precisely, because "they lied" is
+  refutable and "they assembled accurate facts into an unsupported impression" is
+  not.
+
+  FAILURE LOCATION, where applicable: a media piece is usually itself the PR-MEDIA
+  layer. Record location only when the finding concerns how the piece handled an
+  upstream source (e.g. the piece faithfully reports a study that itself overclaims
+  — that is location PAPER, finding type FACTUAL-adjacent, and the piece may be
+  clean).
+
+=================================================================
+SECTION 0 — GENRE / FORMAT GATE  (run first)
+=================================================================
+
+Classify the piece before auditing anything. Format determines which standards
+apply, and auditing a piece against standards its format never claimed is the
+fastest way to produce a finding that gets dismissed.
+
+  news report ............ full report, original reporting, standard newsroom norms
+  breaking brief ......... short, fast, filed during an unfolding event
+  analysis ............... interpretive, signed, argues a reading of the facts
+  opinion / editorial .... argues a position openly
+  press release .......... institutional messaging, advocacy by design
+  advocacy brief ......... organizational, position-advancing by design
+  explainer .............. background/context piece
+  live blog .............. incremental, timestamped, unedited by design
+  institutional statement  official communication
+
+STANDARDS BY FORMAT — state which apply:
+
+  A 250-word BREAKING BRIEF cannot be judged like a 2,000-word investigation.
+  Absence of balancing voices, thin sourcing, and missing context are FORMAT
+  CONSTRAINTS, not findings, unless the piece had room and chose otherwise.
+
+  An OPINION or EDITORIAL piece is ALLOWED to argue. Sourcing asymmetry and
+  one-sided framing are the genre, not a defect. What it may NOT do is
+  misrepresent its evidence, attribute claims falsely, or assert contested facts
+  as settled. Audit those; do not audit it for having a position.
+
+  A PRESS RELEASE or ADVOCACY BRIEF is advocacy by design. Auditing it for
+  "one-sided sourcing" is a category error. Audit it as institutional messaging:
+  does it misrepresent the underlying evidence? Does it claim more than its
+  source supports?
+
+  A LIVE BLOG is incremental by design. Sequencing findings largely do not apply.
+
+REQUIRED OUTPUT:
+  Format: [classification]
+  (Section F2, quote function / frame laundering, APPLIES TO EVERY FORMAT —
+   including briefs. Length constrains sourcing balance; it does not constrain
+   whether the piece's interpretation comes from its own reporting.)
+
+  Sections that APPLY given this format:
+  Sections that are N/A given this format, and why:
+  Findings that would be format constraints rather than choices:
+
+INTERACTION WITH SECTION I (timing test): the timing defense applies strongly to
+BREAKING BRIEF and LIVE BLOG, weakly to NEWS REPORT, and barely at all to
+ANALYSIS, OPINION, or EXPLAINER — those are written with time to consider.
+
+=================================================================
+SECTION A — BASELINE: WHAT IS ESTABLISHED VS. WHAT IS ASSERTED
+=================================================================
+
+Before analyzing construction, separate the layers. List:
+
+  1. Facts the piece reports as established (asserted in the outlet's voice)
+  2. Facts the piece attributes to a source ("police say," "according to")
+  3. Characterizations and interpretations (the outlet's framing)
+  4. Reactions and quotes from others
+  5. What the piece does NOT state
+
+Required table:
+
+| Statement | Layer (asserted / attributed / characterization / quote) | Verification state |
+|---|---|---|
+
+WHY THIS FIRST: the asserted/attributed line is where a lot of construction work
+happens. Facts favorable to one reading asserted directly; facts favorable to the
+other attributed to an interested party ("police say") are treated by readers as
+weaker. Note asymmetry here — it recurs in Section E.
+
+=================================================================
+SECTION B — HEADLINE & PACKAGING
+=================================================================
+
+  1. What impression does the headline alone create?
+  2. Is that impression supported by the body?
+  3. What material facts present in the body are ABSENT from the headline?
+  4. Would a reader who read only the headline be misinformed relative to a
+     reader who read the whole piece? Specifically how?
+  5. Image/caption: what does the lead image depict, and what does that choice
+     emphasize? What could have been depicted instead?
+  6. Subheads, pull quotes, tags: what do they emphasize?
+
+Rate: headline SUPPORTED / PARTIALLY SUPPORTED / UNSUPPORTED by the body.
+
+Note explicitly: headlines are often written by editors, not reporters. That
+affects attribution of responsibility, not whether the packaging misleads.
+
+=================================================================
+SECTION C — SEQUENCING
+=================================================================
+
+Map the order of material. Paragraph by paragraph or block by block:
+
+| ¶ | Content | Function (scene / reaction / justification / context / attribution) |
+|---|---|---|
+
+Then answer:
+  1. What is in the first three paragraphs?
+  2. Where does the material that most complicates the lead impression appear?
+     Paragraph number, and how far down the page is that in practice?
+  3. Is any load-bearing context placed after the point most readers stop?
+  4. Reverse the order of two specific blocks. Does the impression change? If
+     ordering alone changes the impression, ordering is doing argumentative work.
+  5. Is context that undercuts the frame bundled INTO a paragraph whose other
+     content reinforces the frame? (A common move: place the complicating fact
+     adjacent to a damning detail so it reads as qualified.)
+
+=================================================================
+SECTION D — AGENCY AND VERB ASYMMETRY
+=================================================================
+
+For each principal party in the piece, list the verbs and constructions used.
+
+| Party | Verbs / constructions used | Active or passive | Vivid or clinical |
+|---|---|---|---|
+
+Then:
+  1. Is one party's action rendered vividly and another's clinically? Give the
+     specific pairs.
+  2. Are there passive constructions that remove an actor? Who disappears?
+  3. Are there euphemisms or de-agentifying verbs for one party's conduct?
+     (e.g. "produced a weapon" vs. "drew and used a weapon" — the first minimizes
+     agency without stating anything false)
+  4. Rewrite the two most asymmetric sentences with the asymmetry reversed. Does
+     the piece read differently? That difference is the construction effect.
+
+NOTE: some asymmetry is warranted by the facts. A party that did more gets more
+verbs. Flag asymmetry that is NOT proportionate to what each party did.
+
+=================================================================
+SECTION E — ATTRIBUTION ASYMMETRY
+=================================================================
+
+  1. Which claims are asserted in the outlet's voice, and which are attributed?
+  2. Do claims favorable to one reading get asserted while claims favorable to
+     the other get attributed to an interested party?
+  3. Attribution verbs: who "said" vs. "claimed" vs. "alleged" vs. "admitted"
+     vs. "acknowledged"? These are not neutral.
+  4. Scare quotes: which terms are placed in quotation marks, and does that
+     signal distance?
+  5. Are caveats applied symmetrically to both sides' accounts?
+
+=================================================================
+SECTION E2 — NARRATIVE FLAGS, CAUSAL BRIDGES & ATMOSPHERIC CUES
+=================================================================
+
+WHY THIS IS ORGANIZED AS A TRIAD
+-----------------------------------------------------------------
+
+A piece constructs meaning through three distinct mechanisms that are easy to
+collapse into a generic "word choice" finding, and should not be:
+
+  NARRATIVE FLAGS ..... facts or labels that CLASSIFY the actors or the event.
+                        What kind of person is this? What kind of event is this?
+
+  CAUSAL BRIDGES ...... facts that explain WHY one thing followed another.
+                        Their removal changes the reader's model of the sequence,
+                        not merely its emotional register.
+
+  ATMOSPHERIC CUES .... details that tell the reader HOW TO FEEL about the event
+                        before the facts establish whether that feeling is
+                        warranted.
+
+SEVERITY — REBUTTABLE DEFAULT, NOT A FIXED HIERARCHY:
+Default ranking is causal bridges > narrative flags > atmospheric cues, because
+removing a causal bridge changes the reader's MODEL of what happened rather than
+its register. A causal omission dropped into a "word choice" bucket is a diluted
+finding, and this default exists to prevent that.
+
+BUT THE DEFAULT IS REBUTTABLE. An event-classification flag ("riot," "reform,"
+"crisis," "correction"), a motive attribution, a denominator choice, or a sustained
+atmospheric frame can outweigh a modest causal omission. To rank one above a causal
+bridge, STATE WHY — name the concrete construction effect. Rank the effect, not the
+mechanism's category.
+
+WHERE QUANTITATIVE CLAIMS FIT — baselines are not a fourth mechanism. They are the
+NUMERICAL FORM of the same three:
+  category redefinition / changed geographic scope .... narrative flag, in numbers
+  denominator, adjustment, comparison point ........... causal bridge, in numbers
+  which year or window is chosen for contrast ......... atmospheric cue, in numbers
+"Unemployment rose" vs. "rose after the plant closed" and a raw count vs. a rate are
+the same operation performed on different material. Section E2.3 treats them
+together for convenience; do not classify them as a separate mechanism.
+
+THIS MODULE IS NOT CRIME-SPECIFIC. The mechanisms operate identically in economic,
+policy, health, education, institutional, and cultural coverage. Crime examples
+appear below as ONE domain among several. If you find yourself only able to apply
+this to crime stories, you are reading the examples as the definition.
+
+=================================================================
+
+E2.1 — NARRATIVE FLAGS: WHICH ATTRIBUTES ARE ACTIVATED
+-----------------------------------------------------------------
+
+Pieces construct meaning through WHICH ATTRIBUTES OF THE ACTORS OR EVENT THEY
+ACTIVATE — foregrounding, delaying, routing through quotes, or omitting.
+
+CATEGORIES OF NARRATIVE-BEARING ATTRIBUTE (all domains):
+
+  PERSONAL / DEMOGRAPHIC
+    age, race, ethnicity, sex, religion, nationality, immigration or residency
+    status, family role, housing status, health status
+
+  AFFILIATION AND INTEREST
+    political party, ideological alignment, funding source, employer, industry
+    ties, institutional membership, advocacy-group affiliation, prior employment
+    by an interested party
+
+  CREDENTIAL AND STANDING
+    "expert" vs. "activist" vs. "critic"; "economist" vs. "industry-funded
+    economist"; "researcher" vs. "campaigner"; "official" vs. "spokesperson";
+    who gets a title and who gets a descriptor
+
+  ROLE AND STATUS IN THE EVENT
+    victim, perpetrator, bystander, official, whistleblower, defendant,
+    complainant, beneficiary, cost-bearer
+
+  EVENT CLASSIFICATION — often the single most consequential flag
+    Is this a crime, a protest, unrest, terrorism, self-defense, activism, a
+    mental-health crisis? A reform, a cut, a restructuring, a closure? An outbreak,
+    a cluster, a surge, a normal seasonal variation? A recession, a slowdown, a
+    correction? A shortage, a backlog, a crisis? The noun chosen is a claim.
+
+  MOTIVE AND CAUSAL ATTRIBUTION
+    stated motive, alleged motive, inferred motive; who or what is identified as
+    responsible; whether the piece names a cause at all
+
+AN ATTRIBUTE IS A CANDIDATE FINDING ONLY WHERE:
+  1. it was known or credibly reported at publication time;
+  2. it is materially relevant to the interpretation the piece creates;
+  3. comparable actors or items are treated differently; OR
+  4. the piece activates it indirectly — through quotes, labels, images, captions,
+     historical context, or linked stories — while avoiding it in outlet voice.
+
+APPOSITIONAL FLAGS — labels embedded in introductions or appositives:
+  "the controversial professor," "the far-right group," "the reform-minded
+  prosecutor," "the industry-backed critic," "John Smith, an election denier, said"
+These arrive grammatically as SETTLED BACKGROUND rather than as claims requiring
+sourcing, which is precisely what makes them effective. For each: who supplied the
+classification? Is it contested? Are comparable descriptors applied to comparable
+parties on the other side? An appositional label is a claim wearing the costume of
+a fact.
+
+MOTIVE AND CAUSE — EPISTEMIC LEVELS. Classify every motive or cause attribution:
+  DOCUMENTED ............ manifesto, direct statement, verified communication
+  OFFICIALLY ALLEGED .... law enforcement, complaint, indictment, institutional finding
+  SOURCE-INFERRED ....... witness, advocate, expert, or interested party's inference
+  OUTLET-INFERRED ....... the article's own synthesis
+  UNKNOWN ............... evidence insufficient
+THE TEST: does the piece SILENTLY MOVE BETWEEN LEVELS — an officially-alleged motive
+restated later as documented, or a source's inference appearing in outlet voice?
+Applies well beyond crime: why a company relocated, why voters shifted, why scores
+fell, why a policy was introduced, why an institution disciplined someone.
+
+DO NOT INFER UNKNOWN ATTRIBUTES. Never infer race, religion, immigration status,
+ideology, funding, or motive from names, appearance, location, employer, or
+rumor. An unconfirmed attribute is not an omission.
+
+TREATMENT CLASSIFICATION — for each material attribute:
+
+  ACTIVATED ....... explicitly foregrounded or repeatedly emphasized
+  REPORTED ........ included proportionately as ordinary context
+  DELAYED ......... included only after the dominant impression is established
+  QUOTE-ROUTED .... supplied through a speaker, absent from outlet voice
+  EUPHEMIZED ...... referenced indirectly through substitute language
+  OMITTED ......... known, material, and absent
+  INAPPLICABLE .... unknown, immaterial, or improper to report
+
+| Attribute | Known at pub? | Treatment | First appears | Outlet voice or quote? | Material relevance |
+|---|---|---|---|---|---|
+
+ASYMMETRY TESTS:
+
+  1. Are identifiers supplied for one principal actor but not another?
+  2. Is one party INDIVIDUALIZED while another is CATEGORIZED?
+       crime:     "father of three" vs. "the suspect"
+       policy:    a named family with a story vs. "affected households"
+       economics: a profiled small-business owner vs. "employers"
+       health:    a named patient vs. "the unvaccinated"
+       education: a named teacher vs. "administrators"
+  3. Are DISCLOSURES applied evenly? If one source's funding, party, or prior
+     employment is noted, is the opposing source's?
+  4. Are credentials assigned asymmetrically — one side "experts," the other
+     "critics" or "skeptics"?
+     SUBSTANTIVE-EQUIVALENCE CHECK: compare standing RELEVANT TO THE CLAIM AT
+     ISSUE, not general prestige. A physician may be expert on clinical treatment
+     but not population epidemiology; an economist may model costs but not clinical
+     outcomes. The asymmetry finding requires comparable DOMAIN RELEVANCE, not
+     comparable titles. "Both have doctorates" is not the standard.
+  5. Is an attribute absent from the factual account but introduced via quote,
+     headline, caption, hyperlink, or related-story box?
+  6. Does the piece say cause or motive is unknown in one instance while naming it
+     confidently in a comparable one?
+
+-----------------------------------------------------------------
+E2.2 — CAUSAL BRIDGES: SYNONYM VARIANCE vs. CAUSAL-CONTEXT LOSS
+-----------------------------------------------------------------
+
+THE MOST IMPORTANT DISTINCTION IN THIS MODULE. Do not treat all wording
+differences as synonyms.
+
+  SYNONYM / REGISTER VARIANCE — different words, substantially the same causal
+  proposition:
+    drew / pulled / produced a knife
+    fell / declined / dropped
+    protest / demonstration / rally
+    cut / reduced / trimmed
+
+  CAUSAL-CONTEXT VARIANCE — one formulation includes or removes the fact
+  explaining WHY the next thing happened:
+
+    "police used a Taser"          vs. "the Taser failed"
+    "unemployment rose"            vs. "unemployment rose after the plant closed"
+    "the district cut programs"    vs. "the district cut programs after the levy failed"
+    "premiums increased"           vs. "premiums increased following the mandate change"
+    "the company relocated"        vs. "the company relocated after the tax change"
+    "cases rose in the county"     vs. "cases rose after testing was expanded"
+    "the bill failed"              vs. "the bill failed after the amendment was added"
+    "enrollment declined"          vs. "enrollment declined as the district redrew boundaries"
+
+  In every pair, the shorter version is TRUE. It is not a softer synonym — it
+  removes the reader's ability to model the sequence.
+
+THREE BRIDGE TYPES — DO NOT CONVERT "AFTER" INTO "BECAUSE."
+Several formulations below establish CHRONOLOGY, not causation. The term "causal
+bridge" invites upgrading a temporal association into a causal fact. Classify:
+
+  SEQUENCE BRIDGE ........... what intervened between two events
+      "The levy failed; the district later cut programs."
+  MECHANISM BRIDGE .......... how one event produced or constrained the next
+      "The failed levy left a $12M gap, after which the district cut programs."
+  ATTRIBUTED CAUSAL BRIDGE .. a source's explanation for why one caused the other
+      "District officials said the failed levy forced the cuts."
+
+A missing SEQUENCE fact can be established even where causation remains contested.
+Record causal confidence SEPARATELY from whether the bridge was omitted. Omitting a
+sequence fact is a finding; asserting a mechanism the evidence doesn't support is a
+different finding, in the opposite direction.
+
+| Wording used | Synonym only? | Bridge type (sequence/mechanism/attributed) | Added or removed? | Whose explanation? | Effect on reader's model |
+|---|---|---|---|---|---|
+
+TESTS:
+  1. Does the shorter version preserve the causal relationship, or only the fact?
+  2. Does it tell the reader WHAT happened while omitting WHY the next thing did?
+  3. Is the missing causal fact ESTABLISHED, or is it an interested party's
+     explanation? These are different findings — omitting an established causal
+     fact is stronger than omitting a contested one.
+  4. Is the causal fact asserted, attributed, contested, or independently visible?
+  5. IS THE OMITTED BRIDGE THE ONE THAT WOULD COMPLICATE THE PIECE'S FRAME?
+     A piece that omits causal bridges in both directions is thin. A piece that
+     omits only the ones cutting against its frame is constructed.
+
+SEVERITY: causal-bridge removal that materially changes the reader's model of the
+sequence may be rated MODERATE or MAJOR. Synonym variance alone is MINOR at most.
+DO NOT COLLAPSE THE FIRST INTO THE SECOND.
+
+-----------------------------------------------------------------
+E2.3 — BASELINE AND DENOMINATOR SELECTION
+-----------------------------------------------------------------
+
+A quantitative claim's meaning is set by what it is compared against. Comparison
+choice is a construction lever and is largely invisible unless audited directly.
+
+  1. RAW COUNT or RATE? Absolute numbers and per-capita rates support opposite
+     impressions from identical data.
+  2. WHICH BASELINE YEAR? Compared to last year, pre-pandemic, a decade ago, the
+     peak, the trough? Is the chosen comparison point unusually high or low?
+  3. WHICH POPULATION IS THE DENOMINATOR? Total population, affected population,
+     eligible population, participants?
+  4. INFLATION, SEASONAL, OR POPULATION ADJUSTMENT applied — or not?
+  5. Are figures from opposing sides computed on the SAME basis?
+  6. Does the piece report the comparison it used, or present a number bare?
+  7. If a trend is claimed, over what window — and does the trend survive a
+     different reasonable window?
+
+ALSO TEST — common quantitative maneuvers:
+  percentage vs. percentage-POINT change; stock vs. flow; cumulative total vs.
+  period-specific; nominal vs. inflation-adjusted; total vs. marginal change; mean
+  vs. median; forecast vs. observed; preliminary vs. revised; absolute vs. relative
+  risk; survey respondents vs. total population; eligible population vs. all
+  residents; share of incidents vs. share of offenders/victims/exposures; whether
+  category DEFINITIONS or GEOGRAPHIC BOUNDARIES changed across the comparison;
+  start-date selection; truncated axes or visual scaling if charts appear;
+  uncertainty intervals and whether revisions are noted.
+
+DENOMINATOR SWITCHING — ask specifically: is the denominator merely UNSTATED, or
+has the piece MOVED BETWEEN DENOMINATORS within a single argument? Switching
+mid-argument is usually worse than consistently choosing one debatable basis,
+because it makes the comparison incoherent rather than merely contestable.
+
+| Figure cited | Baseline / denominator used | Alternative available | Consistent across the argument? | Would it change the impression? |
+|---|---|---|---|---|
+
+Applies to: crime statistics, unemployment, inflation, test scores, case counts,
+emissions, immigration figures, spending, polling. Wherever a number appears with
+a comparison, the comparison was chosen.
+
+-----------------------------------------------------------------
+E2.4 — ATMOSPHERIC CUES AND HISTORICAL SCENE-SETTING
+-----------------------------------------------------------------
+
+Context is not neutral because it is true. It can tell the reader WHAT KIND OF
+EVENT this is before the current facts establish the category.
+
+  SETTING CUES — true details supplying emotional weight, sometimes without
+  causal relevance:
+    crime:     "in broad daylight," "in front of witnesses," "steps from a school"
+    policy:    "in a district already facing cuts," "amid record profits"
+    economics: "as executives received bonuses," "in a town with one employer"
+    health:    "in a county with no ICU beds," "during flu season"
+    education: "in a building that failed inspection"
+  For each: is it MATERIALLY relevant, EMOTIONALLY relevant, both, or neither?
+  State which. A cue can be all three; the finding is when it supplies aggravation
+  without causal relevance.
+
+  HISTORICAL SCENE-SETTING — which prior episode is invoked as the relevant
+  precedent, when several are available:
+    | Element introduced | Where placed | Factual background or interpretive category? | Connection to current event established? |
+
+  THE COMPETING-HISTORY TEST — the sharpest question here:
+  WHAT DIFFERENT HISTORY WOULD A MIRROR PIECE HAVE INVOKED, from the same true
+  record? Name it concretely.
+    crime:     history of police violence / history of attacks on officers
+    immigration: history of immigrant crime / history of anti-immigrant violence
+    economics: history of corporate relocation / history of failed subsidies
+    health:    history of institutional failure / history of public overreaction
+    education: history of underfunding / history of administrative bloat
+
+  The finding is NOT that history was invoked. It is that ONE history was
+  activated to classify the event while a competing and equally available history
+  was not — and that the piece did not report material differences between the
+  invoked precedent and the current case.
+
+-----------------------------------------------------------------
+E2.5 — VIVIDNESS AND PERSONIFICATION
+-----------------------------------------------------------------
+
+CLASSIFY VIVIDNESS BEFORE RATING IT. A vivid detail is not suspect because it is
+emotional:
+  EVIDENTIARY ..... detail necessary to understand what occurred
+  INCIDENTAL ...... true but causally irrelevant
+  SELECTIVE ....... graphic specificity for one party, clinical abstraction for the other
+  SYMBOLIC ........ children, sacred sites, holidays, schools, uniforms, flags
+The finding is SELECTIVE vividness or symbolic weight carrying a conclusion the
+facts don't establish — not vividness itself.
+
+| Party | Named? | Biography | Visual detail | Emotional detail | Vividness type | Group/status label | Historical association |
+|---|---|---|---|---|---|---|---|
+
+  1. Who is rendered as a PERSON and who as a CATEGORY?
+  2. Who receives a name, photo, age, family role, aspiration, grief?
+  3. Who receives institutional, demographic, or group labels instead?
+  4. Do images humanize one side and abstract the other?
+  5. Does vividness substitute for evidence of cause, culpability, or category
+     membership?
+
+Human-interest detail is not improper. The finding is ASYMMETRY, or vividness
+carrying a conclusion the facts do not establish.
+
+-----------------------------------------------------------------
+E2.6 — REQUIRED FINDING RULES
+-----------------------------------------------------------------
+
+An attribute, causal, baseline, or context finding requires ALL of:
+  - the fact meets one of the three ACCESS TIERS below;
+  - it was material to the interpretation the piece creates;
+  - reporting it would not violate an applicable privacy, safety, legal, or
+    identification norm;
+  - the audit can state HOW inclusion or omission changes interpretation.
+
+ACCESS TIERS — a fact "available at publication" is too loose. A fact can exist in
+a 900-page filing, an obscure database, a foreign-language document, or a video
+posted minutes before deadline without being reasonably available. Classify:
+
+  PIECE-KNOWN ......... the article itself proves the outlet possessed it
+                        (it appears elsewhere in the piece, or the piece cites the
+                        document containing it)
+  SOURCE-KNOWN ........ it appears in a document or statement the article
+                        demonstrably used
+  GENERALLY AVAILABLE . it existed publicly, but this outlet's access is INFERRED
+
+PIECE-KNOWN and SOURCE-KNOWN support strong selection findings. GENERALLY AVAILABLE
+requires caution and an explicit statement of what makes access plausible given the
+outlet's format, deadline, and resources — cap at MODERATE absent that showing.
+
+CORPUS-REQUIRED ROUTING — where asymmetry cannot be tested among actors or outlets
+within the current event, mark it CORPUS-REQUIRED rather than inferring
+inconsistency. Establishing that an outlet SYSTEMATICALLY activates an attribute in
+one direction — names immigration status here, does it elsewhere? discloses
+industry funding but not advocacy funding? applies "terrorism" asymmetrically? —
+requires comparable stories across events. State the hypothesis, state that this
+audit cannot test it, and route it to a corpus audit. Do not convert an untestable
+hypothesis into a finding.
+
+MANDATORY INNOCENT EXPLANATIONS — consider each where applicable:
+  identification not confirmed; cause still under investigation; legal restriction
+  or minor status; privacy; retaliation risk; genuine irrelevance to the immediate
+  event; newsroom policy against demographic identification absent clear relevance;
+  uncertainty whether a label accurately applies; space; the reader is assumed to
+  know from prior coverage.
+
+OWNERSHIP / NON-DOUBLE-COUNTING — REQUIRED FOR AGGREGATION INTEGRITY.
+This module CLASSIFIES mechanisms; it does not create a parallel set of findings.
+Record each construction lever ONCE, assigned to the section that best captures its
+primary effect. Cross-reference rather than multiply.
+
+  Missing explanatory fact ............... causal bridge (NOT a second generic omission)
+  Prior case assigning category membership  pattern linkage (mechanism: narrative flag)
+  Lead image humanizing one party ........ packaging (mechanism: personification)
+  Number misleading via denominator ...... baseline (NOT a second factual finding
+                                           unless the number itself is false)
+  Event-classification noun .............. narrative flag (NOT also packaging, unless
+                                           the headline separately does other work)
+
+If a lever appears in two sections, name which section OWNS it and state the other
+as a cross-reference. Inflating one choice into four findings corrupts the coherence
+count downstream.
+
+SYMMETRY REQUIREMENT — state this in the output:
+  Omitting an attribute can be construction. Foregrounding it can also be
+  construction. Omitting a causal bridge can be construction. Asserting a contested
+  cause can also be construction. The question is never whether the treatment helps
+  one side. It is whether the treatment is PROPORTIONATE, EVIDENTIALLY GROUNDED,
+  and CONSISTENT across comparable parties.
+
+=================================================================
+SECTION F — SOURCE DISTRIBUTION
+=================================================================
+
+  1. List every voice quoted or cited. For each: who they are, their position,
+     word count or approximate space given.
+  2. What positions are represented? What positions are absent?
+  3. Are the quoted voices drawn from one field, party, organization type, or
+     advocacy position?
+  4. Was a balancing voice available and not sought? (Officials, subject-matter
+     experts, people with the opposite interest, the accused party's
+     representative.) State whether you KNOW one was available or are inferring —
+     inference here is PROVISIONAL.
+  5. Does the piece note that it sought comment and was refused? Absence of that
+     note is itself information.
+
+Required table:
+
+| Voice | Affiliation / position | Space given | Position advanced |
+|---|---|---|---|
+
+=================================================================
+SECTION F2 — QUOTE FUNCTION & ATTRIBUTED FRAME
+=================================================================
+
+THIS IS NOT SOURCING ASYMMETRY. Keep them separate:
+
+  SOURCING ASYMMETRY = we quoted one side and not the other. Remedy: add a voice.
+
+  FRAME LAUNDERING = the outlet delivers interpretation it could not assert in its
+  own voice by routing it through quoted third parties. The claim enters the piece
+  with the force of an assertion and the deniability of attribution. The quotes are
+  not sources for FACTS; they are carriers of MEANING.
+
+A piece can have perfect factual accuracy, attribute everything properly, and still
+import its entire interpretive frame from outside itself.
+
+STEP 1 — CLASSIFY EVERY QUOTE BY FUNCTION
+
+| Quote (short) | Speaker | FACT-SOURCE (what happened) | FRAME-CARRIER (what it means) | Both | Words |
+|---|---|---|---|---|---|
+
+  FACT-SOURCE: supplies information about the event the outlet could not otherwise
+  report. "Patterson said the man produced a knife."
+  FRAME-CARRIER: supplies significance, moral register, causal story, or category
+  membership. "This is part of a pattern." "No other country tolerates this."
+  "Someone's child." "Murdered."
+
+STEP 2 — SPACE ALLOCATION
+  Total words in fact-source quotes: ___
+  Total words in frame-carrier quotes: ___
+  Ratio: ___
+  Words of outlet-voice reporting on the event itself: ___
+
+  A piece where frame-carrying quotes substantially outweigh both fact-sourcing and
+  original reporting is structurally an opinion piece assembled from other people's
+  opinions.
+
+STEP 3 — THE STRIP TEST  (the core diagnostic)
+
+  WHAT TO REMOVE — this is the most common place this test is run wrong.
+
+  Remove ONLY the FRAME-CARRIERS identified in Step 1. Keep the FACT-SOURCES.
+
+  You are not testing whether the piece can stand without sourcing. Every news
+  article depends on attributed facts; strip those and EVERY piece "collapses,"
+  which makes the diagnostic meaningless. You are testing whether the piece's
+  INTERPRETATION comes from its own reporting or is imported from quoted opinion.
+
+  KEEP (fact-sources — the piece's evidentiary base):
+    - attributed statements of what happened, whoever supplied them
+    - paraphrased official accounts
+    - MIXED CONSTRUCTIONS, where a fact is paraphrased with a short quoted
+      fragment inside it. Example:
+        Patterson said the man produced a "fixed blade knife," injuring an officer
+      This is a FACT-SOURCE. The quotation marks cover three words of a factual
+      claim. Keep the whole clause. Removing it because it contains quoted strings
+      is a mechanical error, not a strip.
+
+  REMOVE (frame-carriers — imported meaning):
+    - characterizations of significance, moral weight, or category membership
+    - claims about pattern, precedent, or what the event "is part of"
+    - emotional register instructions
+    - contested legal or moral predicates asserted by a speaker ("murdered")
+
+  BORDERLINE: if a quote does both, keep the factual component and remove the
+  interpretive one. State that you split it and how.
+
+  Then read what remains — the outlet's reporting plus its evidentiary base.
+
+  1. What interpretation of the event does the remaining text support?
+  2. What interpretation did the FULL piece convey?
+  3. Is there a gap?
+
+  CALIBRATION NOTE — two independent runs of this test on the same article split
+  PARTLY SURVIVES vs. COLLAPSES, entirely because one stripped a mixed
+  paraphrase-plus-quoted-fragment construction and the other kept it. That single
+  choice drove the severity rating, the aggregation, and the final verdict. Follow
+  the keep/remove rules above literally; the result is not robust to improvisation
+  at this step.
+
+  IF THE PIECE'S DOMINANT INTERPRETATION SURVIVES THE STRIP: the frame is grounded
+  in reporting. No finding.
+
+  IF IT COLLAPSES — if the significance, moral weight, or category membership exists
+  only in the quotes — the quotes are carrying the frame, and the piece has imported
+  an interpretation its own reporting does not establish. That is FRAME LAUNDERING.
+
+  State both readings explicitly. Quote the stripped version's implied conclusion.
+
+STEP 4 — THE OWN-VOICE TEST
+
+  For each frame-carrying claim, ask: could the outlet have asserted this in its own
+  voice in a news piece?
+
+  | Frame claim | Could outlet assert it directly? | If no, why not |
+  |---|---|---|
+
+  If the answer is NO — because it would be opinion, unsupported, or defamatory —
+  then routing it through a quote accomplishes something the outlet could not do
+  directly. That is the laundering mechanism, and it is observable without any claim
+  about intent.
+
+STEP 5 — SOURCE-INTERNAL SELECTION  (what did the outlet foreground?)
+
+A source who gave a long statement — a press conference, a briefing, a filing —
+supplies many statements. The outlet chooses which to foreground. That choice is
+invisible unless you look for it, and it is the most efficient frame-carrying move
+available, because it uses a FACT-SOURCE to deliver a FRAME.
+
+  1. For each source given substantial space, list what they said that the piece
+     reports, in the order the piece reports it.
+
+  2. Which statement does the piece FOREGROUND from that source? Is it
+     fact-carrying or frame-carrying?
+
+  3. THE KEY CASE: did the outlet lead a FACT-SOURCE with a FRAME-CARRIER? If the
+     first thing an official is quoted saying is about significance, history,
+     emotion, or category — and the factual account follows — the outlet has used
+     the source's authority to validate a frame before supplying the facts that
+     would let a reader evaluate it.
+
+  4. AUTHORITY MULTIPLIER: a frame delivered by a neutral-coded or adverse-interest
+     source carries more weight than the same frame from an advocate. An official
+     validating an interpretation that cuts against their own institution is the
+     most persuasive possible carrier — and therefore the most consequential
+     placement choice. Note when this occurs.
+
+  5. MANDATORY AMBIGUITY FLAG: you usually CANNOT tell from the piece whether the
+     source themselves led with that material or the outlet selected it. Both are
+     possible. State this explicitly:
+       "Cannot determine whether [source] opened with this or the outlet
+        foregrounded it. The effect on the reader is the same; responsibility is
+        not determinable from the text."
+     Do not assume selection. The finding is about the piece's ORDER, which is
+     observable, not about the outlet's choice, which is not.
+
+  6. Reverse test: if the source's factual account appeared first and their
+     framing statement after, would the piece read differently? Demonstrate.
+
+| Source | Statements reported | Which foregrounded | Fact or frame | Authority multiplier? |
+|---|---|---|---|---|
+
+  7. PROFESSIONAL-NORM CHECK — REQUIRED BEFORE RATING THIS FINDING.
+     Institutional crisis communication doctrine now widely teaches empathy-first:
+     acknowledge impact, harm, and history BEFORE presenting the factual account,
+     because leading with the account reads as defensive. This is professionalized
+     across sectors — police, universities, hospitals, corporations.
+
+     Consequence: when an institutional source leads with framing material, the most
+     likely explanation is THAT IS HOW THEY SPOKE, not that the outlet selected it.
+     An outlet reporting a statement in the order it was delivered has committed no
+     construction.
+
+     Therefore: where source ordering is plausibly explained by standard practice,
+     THIS FINDING IS WEAK ABSENT EVIDENCE OF SELECTION. Do not manufacture a
+     construction finding out of ordinary institutional communication — that is the
+     false positive most likely to get an entire audit dismissed.
+
+     EVIDENCE THAT WOULD ESTABLISH SELECTION:
+       - a transcript or recording showing a different order
+       - other outlets covering the same statement leading with the factual account
+         (this is directly testable via the coverage-network branch)
+       - the piece reordering material within a single quoted passage
+     Absent one of these, cap this finding at MINOR and state why.
+
+SEVERITY NOTE: leading a fact-source with a frame-carrier, where that frame
+pre-validates the interpretation the piece goes on to convey, is a MAJOR finding
+ONLY when (a) the strip test fails AND (b) selection is established per item 7. If
+selection is not established, the finding is capped at MINOR regardless of effect —
+the effect on the reader is real, but the outlet did not create it.
+
+STEP 6 — REACTION AS INTERPRETATION
+
+  Protest, mourning, vigil, and outrage material is NOT neutral scene-setting. It is
+  evidence of how OTHERS interpreted the event, and its placement shapes how the
+  reader will.
+
+  1. How much of the piece is reaction material? Word count and position.
+  2. Does reaction appear BEFORE the event is explained? Which paragraph?
+  3. What does the reaction material tell a reader about how to feel, before they
+     have the facts to judge?
+  4. Would the same facts with reaction material placed AFTER the explanation
+     produce a different impression? Demonstrate.
+
+  Leading with reaction is placing an interpretive frame in the position where
+  explanation normally goes. That is a construction choice, and it is available to
+  any outlet in any direction.
+
+STEP 7 — IS THE FRAME CHALLENGED?
+
+  1. Is any frame-carrying claim contextualized, contested, or given a counter?
+  2. Where a quote asserts a factual predicate ("murdered," "unarmed," "pattern"),
+     does the piece note whether that predicate is established?
+  3. Where a quote links this event to prior cases, does the piece note material
+     differences? (Cross-reference Section H.)
+  4. Is there ANY quoted voice whose frame differs from the others?
+
+SEVERITY GUIDE — this finding type is not capped at moderate
+
+  MINOR ......... frame-carrying quotes present but the interpretation also survives
+                  the strip test on the outlet's own reporting
+  MODERATE ...... interpretation partly survives the strip; quotes amplify it
+  MAJOR ......... interpretation exists substantially ONLY in quotes; strip test
+                  collapses it; no counter-frame present
+  SEVERE ........ as MAJOR, plus the quoted frame asserts factual predicates the
+                  piece's own reporting contradicts or does not support
+
+  Record as media finding type: FRAME-LAUNDERING (not sourcing).
+
+DIRECTION-NEUTRAL. A piece leading with a police union's outrage and quoting five
+sheriffs on "what happens when we don't back the blue," where the outlet's own
+reporting doesn't establish that frame, is the identical finding. The strip test
+does not know which direction the frame runs.
+
+=================================================================
+SECTION G — OMISSION AND DE-EMPHASIS  (two distinct finding types)
+=================================================================
+
+These are different findings with different bars. Do not merge them. A fact that
+appears in the piece is not omitted, and may not inherit an omission's effect
+language.
+
+  OMITTED — the fact does not appear in the piece AT ALL.
+    BEFORE listing anything here, SEARCH THE PIECE TEXT for it. If it appears
+    anywhere, in any form, however briefly, it is NOT omitted.
+    Effect language permitted: "absent," "reader never learns," "removed."
+
+  DE-EMPHASIZED — the fact appears, but is placed late, rendered clinically,
+    given minimal space, or attributed rather than asserted.
+    REQUIRED: quote where it appears and give the paragraph number.
+    Effect language permitted: "placed at ¶N," "rendered clinically," "given N
+    words versus M for the contrasting material."
+    Effect language FORBIDDEN: "removes," "absent," "reader never learns" — the
+    reader does learn it. Your finding is about prominence, not presence.
+
+  1. For each candidate: is it OMITTED or DE-EMPHASIZED? Verify by searching the
+     text before classifying.
+  2. Was it KNOWN at publication time? (known / unknown / cannot determine — this
+     is the hinge for Section I.)
+  3. Does the pattern systematically favor one reading?
+  4. Would inclusion, or different placement, change the impression? How?
+
+CAUTION — this is the section most prone to unfalsifiable critique. Any piece
+omits infinite facts. A finding here requires: the fact is MATERIAL to the
+impression the piece creates, and its absence is not explained by space,
+publication timing, or the piece's stated scope. If you cannot meet that bar,
+do not list it.
+
+Required table:
+
+| Fact | OMITTED or DE-EMPHASIZED | If de-emphasized: where it appears (¶ + quote) | Material because | Available at press time? | Effect |
+|---|---|---|---|---|---|
+
+RULES
+  1. A DE-EMPHASIS finding may not be rated above MINOR unless you can show the
+     placement or wording materially changes what a reader takes away.
+  2. DO NOT DOUBLE-COUNT. If Section C already flagged the placement of this
+     material as a sequencing finding, it is one finding, not two. State which
+     section owns it.
+
+=================================================================
+SECTION H — PATTERN LINKAGE
+=================================================================
+
+  1. Does the piece connect this event to prior events, cases, or a broader
+     phenomenon?
+  2. Is the connection asserted, implied, or supplied entirely by quoted sources?
+  3. Is the comparison apt? Are the prior cases materially similar, and does the
+     piece note where they differ?
+  4. Does the linkage do work the reported facts do not support — establishing a
+     pattern by juxtaposition rather than by evidence?
+  5. Is the outcome of the linked prior case reported accurately, including
+     resolution?
+
+  6. CONTESTED-PREDICATE RATIFICATION  (run whenever a quote makes a factual or
+     legal claim about a PRIOR case)
+
+     A quoted speaker often asserts a predicate about an earlier event —
+     "murdered," "unarmed," "unprovoked," "cleared," "justified," "assaulted the
+     officer." These are not opinions about the current event. They are FACTUAL OR
+     LEGAL CLAIMS ABOUT A DIFFERENT CASE that has usually already been adjudicated.
+
+     For each such predicate:
+
+     | Predicate asserted | Prior case | Actual disposition | Does the piece note it? |
+     |---|---|---|---|
+
+     THE RULE: printing a contested predicate without its disposition is not
+     neutral reporting. It RATIFIES the predicate. A reader who does not know the
+     case learns it as fact from an unchallenged quote in a news article; a reader
+     who does know it receives confirmation of the version they already hold. Both
+     leave with the same unestablished predicate, now firmer.
+
+     WHY THIS MATTERS MORE THAN ORDINARY OMISSION: the predicate is doing the work
+     of establishing that the current event BELONGS TO A CATEGORY. If the prior case
+     is the anchor for the pattern, and the prior case's characterization is
+     contested or was officially rejected, then the pattern rests on a predicate the
+     piece never established and did not flag as disputed.
+
+     TIME-DIRECTIONALITY: this laundering runs BACKWARD. A contested
+     characterization of an old case is treated as settled in order to categorize a
+     new one — and if the new one is absorbed the same way, it becomes the anchor
+     for the next. Each iteration inherits a predicate that was never established
+     and passes it forward more solidified. Note where in that chain the piece sits:
+     is it inheriting a predicate, establishing one, or both?
+
+     This is citation laundering with public memory as the medium — structurally
+     identical to a claim that becomes settled through repeated citation while
+     nobody rereads the original source.
+
+     DIRECTION-NEUTRAL: "the officer was cleared, as officers always are" and "that
+     suspect assaulted police first" are the same finding. Any contested predicate
+     about a prior case, asserted in a quote and printed without disposition,
+     qualifies.
+
+     SEVERITY: MODERATE where the predicate is contested; MAJOR where it was
+     officially adjudicated the other way and the piece reproduces it unqualified
+     while relying on it for category membership.
+
+Linkage-by-juxtaposition is a construction finding, not a factual one: nothing
+false is stated, and a pattern is asserted.
+
+=================================================================
+SECTION I — TIMING TEST  (MANDATORY INNOCENT-EXPLANATION CHECK)
+=================================================================
+
+The strongest defense of most breaking coverage is publication timing: witness
+video, protests, and reaction exist at press time; investigation findings do not.
+A piece filed within hours will NECESSARILY have more scene-and-reaction material
+than justification material. You must address this or the audit is dismissable on
+this ground alone.
+
+THE TEST — for each finding you have made, ask:
+
+  "If this piece had been written 48 hours later with full information available,
+   would this specific finding change?"
+
+  TIMING-EXPLAINED — the finding would likely resolve with more information.
+    Typically: volume asymmetry, absence of investigative detail, thin sourcing
+    on one side.
+
+  NOT TIMING-EXPLAINED — the finding involves choices about material the piece
+    ALREADY HAD. Typically: headline wording, verb selection, sequencing of
+    material printed in the piece, which voices were sought, what the lead image
+    depicts.
+
+THE KEY LOGIC — STATE IT EXPLICITLY IN YOUR OUTPUT:
+Timing explains VOLUME, not SPECIFIC CHOICES. It explains why there is more scene
+material than investigation detail. It does not explain the wording of a headline
+about facts the piece reports, the verbs chosen for parties whose conduct the
+piece describes, the ordering of material the piece printed, or the failure to
+seek a single balancing voice.
+
+Required table:
+
+| Finding | Timing-explained? | Reasoning |
+|---|---|---|
+
+Then state: "N findings survive the timing test." THOSE ARE THE LOAD-BEARING
+FINDINGS. Rank them first in Section K. Findings that are timing-explained should
+be reported but explicitly marked as weak.
+
+NOTE BOTH DIRECTIONS: it is also true that some outlets file hot and correct
+quietly later, and that the initial framing reaches far more readers than the
+correction. That is a real pattern and it is not disproven by the timing defense.
+But it is a claim about the OUTLET'S PRACTICE, which requires evidence across
+multiple pieces — it is not established by this piece alone. If you assert it,
+mark it PROVISIONAL and note what evidence would establish it (a corpus
+comparison of initial vs. follow-up framing across N pieces).
+
+=================================================================
+SECTION I2 — PRIOR-MATCH CHECK  (MANDATORY, run before the flip test)
+=================================================================
+
+You stated a prior in the inputs. This section compares it to what you found.
+
+  1. Restate your prior's PREDICTION in one sentence: what did your stated prior
+     lead you to expect this audit would find?
+
+  2. State your actual PRIMARY FINDING in one sentence.
+
+  3. DO THEY MATCH? [full match / partial / no match]
+
+  4. If FULL MATCH: this audit found what you expected to find. That is not
+     disqualifying — priors are often correct, and a prior derived from experience
+     is evidence. But it means the flip test and the innocent explanations carry
+     MORE weight, not less, and you must complete items 5 and 6.
+
+  5. WHAT DID YOU EXPECT TO FIND AND NOT FIND?
+     Name at least one thing your prior predicted that the evidence did NOT
+     support. If your prior was confirmed in every particular with no misses,
+     state that explicitly — a prior confirmed in every particular is a prior that
+     was not tested.
+
+  6. INVERSE CHECK: name the single strongest piece of evidence in this material
+     AGAINST your prior — not against your findings, against the PRIOR itself. If
+     you cannot find any, say so plainly.
+
+WHY THIS EXISTS: you cannot instruct a prior away, and a prior grounded in real
+base rates is useful information. This check is not for having one. It is for
+whether the audit could have come out otherwise.
+
+=================================================================
+SECTION J — FLIP TEST  (MANDATORY — DESIGNED TO BE COSTLY)
+=================================================================
+
+NON-NEGOTIABLE. A construction audit that only detects one political direction is
+a broken instrument — broken the same way as the pieces it audits.
+
+Answering "yes, I would flag the mirror" is free. This section is built so that
+answering requires producing something.
+
+STEP 1 — WRITE THE MIRROR, AS TEXT
+Take your #1 finding. COMPOSE the actual mirror passage — 3-6 sentences of prose,
+written the way an outlet with the opposite lean would have written this same
+event, using the same construction technique you flagged. Not a description of the
+mirror. The mirror itself.
+
+MIRROR THE FUNCTION, NOT THE CONTENT. This is the most common way this step is
+run wrong, and a mirror that inverts the wrong thing invalidates the test.
+
+  Ask first: WHAT JOB is the flagged element doing in the piece? Then build a
+  passage where an element does THE SAME JOB pointing the other way.
+
+  WORKED EXAMPLE — an evidentiary quote about a prior case:
+    Original: a politician says police "murdered" a prior subject — the prior case
+    is offered as EVIDENCE ABOUT POLICE, establishing that the current event
+    belongs to a pattern of police wrongdoing.
+
+    WRONG MIRROR: flip what the prior subject did — "he tried to murder an
+    officer." That inverts the CONTENT of the prior case and produces a different
+    argument, not a mirrored one.
+
+    RIGHT MIRROR: keep the prior case fixed, invert what it PROVES — a union
+    official says the officer in that case "was dragged through the mud for two
+    years and cleared on every count, and we're seeing it again tonight." Same
+    case, same evidentiary function, opposite lesson.
+
+  DO NOT INTRODUCE CLAIM TYPES ABSENT FROM THE ORIGINAL. If the original makes no
+  causal claim about why the event happened, your mirror must not make one either.
+  Adding a claim type the original lacks means you are auditing a passage you
+  invented rather than testing your own finding.
+
+  State explicitly, in one line: "The flagged element's function is ___. My mirror
+  reproduces that function in the opposite direction by ___."
+
+
+STEP 2 — AUDIT YOUR OWN MIRROR
+Run your own Section B/C/D criteria against the passage you just wrote. Produce at
+least two findings against it, with severity ratings, in the same format you used
+for the real piece.
+
+  If you cannot produce findings against your own mirror at comparable severity,
+  your original finding is PRIOR-DEPENDENT. Say so and downgrade it.
+
+STEP 3 — CONSISTENCY CHECK  (compare mirror findings to original findings)
+
+You have now audited two texts: the real piece and the mirror you wrote. Compare
+the PRINCIPLES you applied to each.
+
+FIRST, CLASSIFY WHAT YOU FOUND. There are two different things and they resolve
+oppositely:
+
+  (A) INCONSISTENT PRINCIPLE — you applied a rule to the mirror that you did not
+      apply to the original, or vice versa.
+      Example: you faulted the mirror for leading with material X, and separately
+      faulted the original for OMITTING material X. Either X belongs or it does
+      not. You cannot hold both.
+      RESOLUTION: one finding must give. State which and why. If the mirror-side
+      principle is stronger — and it often is, because you applied it without a
+      stake in the outcome — the original finding is DOWNGRADED OR CUT.
+
+  (B) SYMMETRIC PHENOMENON — the same construction lever appears in both texts,
+      pushing in opposite directions.
+      Example: scene-first ordering constructs one impression; justification-first
+      ordering constructs the other. Both are true.
+      RESOLUTION: NO DOWNGRADE. This is NOT a contradiction. Finding that ordering
+      does argumentative work in both directions CONFIRMS that ordering is a
+      construction lever — which makes the outlet's specific choice more
+      meaningful, not less. Both texts are constructing; you are auditing this one.
+
+  DO NOT DOWNGRADE A FINDING ON THE GROUND THAT THE MIRROR COMMITS THE MIRROR-IMAGE
+  VERSION. That is the expected result and it is the point of writing the mirror.
+  The mirror exists to test whether you would APPLY THE SAME RULE, not to establish
+  that construction is universal and therefore unremarkable.
+
+  | Observation | Type (A inconsistent / B symmetric) | Resolution |
+  |---|---|---|
+
+  A finding may only be downgraded here for TYPE A. If you downgrade for Type B,
+  you have misapplied this step — state so and restore the finding.
+
+STEP 4 — FORCED RANKING
+Rank ALL findings from MOST prior-dependent to LEAST.
+
+| Rank (1 = most prior-dependent) | Finding | Why more prior-dependent than the next |
+|---|---|---|
+
+"All equally construction-dependent" is not an available answer — if you cannot
+distinguish them, you have not examined them.
+
+STEP 5 — AUTOMATIC DOWNGRADE  (not discretionary)
+
+The finding you ranked #1 — the MOST prior-dependent — IS DOWNGRADED ONE SEVERITY
+STEP. This is mechanical. There is no justification path and no opt-out.
+
+  MAJOR → MODERATE
+  MODERATE → MINOR
+  MINOR → cut, or retained explicitly as "reported, not load-bearing"
+
+WHY THIS IS AUTOMATIC RATHER THAN ARGUED: earlier versions of this prompt allowed
+a model to decline the downgrade by supplying a rebuttal. In practice the rebuttal
+was always supplied and the downgrade never happened — across repeated runs, the
+count was zero. A check that can be argued away is not a check. The model always
+finds its own rebuttal persuasive, because it wrote the finding.
+
+IF YOU BELIEVE THE DOWNGRADE IS WRONG, THE RANKING IS WHERE YOU FIX IT. You
+control Step 4. If a finding should not be downgraded, it should not have been
+ranked most prior-dependent. Re-examine the ranking — do not argue with the
+consequence.
+
+DO NOT write a paragraph explaining why the downgrade is unwarranted. Do not
+append a parenthetical rebutting it. Apply it, state it in one line, and continue:
+
+  "Downgrade applied: [finding] MODERATE → MINOR (ranked most prior-dependent)."
+
+REPORT IN SECTION L: which finding was downgraded and from what to what. A run
+reporting no downgrade has either produced zero findings or failed to rank them.
+
+STEP 6 — WHAT CUTS AGAINST YOUR READING
+List every element of the piece that cuts AGAINST the impression you concluded it
+creates. List at least one, or state plainly that you searched and found none.
+
+Then answer this specific question — not a general one:
+
+  "Would a reader who noticed these counter-elements reach a different conclusion
+   about the piece? If no, WHAT DO THE COUNTER-ELEMENTS FAIL TO ADDRESS?"
+
+  Your answer must name what is MISSING from the counter-elements. It may not
+  restate what the assembly does. "The assembly still produces a different
+  impression" is circular — it asserts the conclusion as its own support.
+
+  The phrase "noted but does not offset" is BANNED. If your reasoning reduces to
+  it, the counter-elements have not been engaged and the affected findings are
+  downgraded one step.
+
+Required summary table:
+
+| Finding | Mirror written? | Findings against mirror | Contradiction w/ mirror principle? | Prior-dependence rank | Verdict |
+|---|---|---|---|---|---|
+
+Then state: "N findings survive the flip test."
+
+A finding that survives BOTH the timing test and the flip test is
+construction-dependent, not prior-dependent, and not timing-explained. Those are
+the findings worth publishing. Everything else is reported with its weakness
+labeled.
+
+=================================================================
+SECTION K — STANDARDIZED FINDING TABLE
+=================================================================
+
+One row per finding. Rank by (1) survives both tests, (2) severity.
+
+| Field | Entry |
+|---|---|
+| Finding | one sentence |
+| Section | B / C / D / E / F / G / H |
+| Evidence | specific text, paragraph number, verb, quote |
+| Media finding type | factual / construction / omission / sourcing / frame-laundering / causal-bridge / narrative-flag / baseline / packaging / none |
+| Failure location (if applicable) | PR-media / paper / model-retrieval / mixed |
+| Severity | none / minor / moderate / major / severe |
+| Survives timing test | yes / no |
+| Survives flip test | yes / no |
+| Possible innocent explanation | MANDATORY — strongest non-damning reading. "None identified" if none. Never blank. |
+| What would weaken this | MANDATORY — specific evidence that would undercut it |
+| Verification state | from vocabulary |
+
+SEVERITY CAPS — enforceable, not advisory
+
+  | Condition | Cap |
+  |---|---|
+  | Missing either mandatory column | may not exceed MODERATE |
+  | Fails flip test (prior-dependent) | may not exceed MINOR |
+  | Timing-explained (Section I) | may not be load-bearing; report as weak |
+  | Explained by format constraint (Section 0) | not a finding — cut it |
+  | Packaging surface not checked (social/homepage unknown) | packaging findings capped at MODERATE |
+  | Rests on an unretrieved claim about other coverage | PROVISIONAL, may not exceed MINOR |
+
+  Additional rule: if you produced no findings of consequence, say so and submit
+  an empty table. A construction audit that never returns "this piece is
+  constructed proportionately" is not measuring anything — it is a template.
+
+=================================================================
+SECTION L — VERDICT
+=================================================================
+
+RETRIEVAL DEPTH — REPORT BEFORE THE VERDICT
+
+Audit quality varies enormously with how much material was actually fetched, and
+that variation is invisible in the output unless stated. A thin run and a deep run
+produce equally confident-looking tables. Disclose:
+
+  - Pieces read FULL TEXT: [n, list]
+  - Pieces read SNIPPET ONLY: [n, list]
+  - Pieces NOT retrieved but referenced: [n, list]
+  - Primary source obtained: WRITTEN form? [y/n] SPOKEN form/transcript? [y/n]
+  - Searches or fetches performed: [approximate count]
+  - Material you looked for and could NOT obtain: [list]
+
+CAP: any finding resting on material you did not fetch is PROVISIONAL and may not
+be load-bearing. State which findings this affects.
+
+This is not a confession of inadequacy. A shallow run that says so is more useful
+than a shallow run that reads as thorough.
+
+AUDIT INTEGRITY — report before the verdict
+
+  - AUTOMATIC DOWNGRADE (Step 5): which finding was downgraded, from what severity
+    to what? [required — a run reporting none has either produced zero findings or
+    failed to rank them]
+  - Was any argument made against the automatic downgrade? [yes — quote it, and treat
+    as evidence the check is being resisted / no]
+  - Did any reasoning reduce to "noted but does not offset"? [yes / no]
+  - Did the consistency check (Step 3) surface a contradiction between a mirror
+    principle and an original finding? [yes — resolved how / no]
+  - Findings downgraded or cut as a result of Steps 3 or 5: [list, or "none"]
+
+  If the first two answers are "altered" and "yes," this audit's flip test did not
+  function and every severity rating in it should be treated as provisional.
+
+DIRECTIONAL COHERENCE CHECK — run before aggregating
+
+Severity alone is not the whole picture. Five minor findings scattered in different
+directions is noise. Five minor findings ALL PUSHING THE SAME WAY is a pattern, and
+the pattern is stronger evidence than any item in it — because each individual
+choice is defensible in isolation, and a consistent direction across many
+independent choices is not explained by chance.
+
+  COUNT LEVERS, NOT FINDINGS. Severity here must not scale with how finely you
+  split your findings — that is gameable in both directions. Two findings about the
+  headline (its wording and its omission) are ONE lever. Map findings onto levers
+  first, then count the levers.
+
+  THE LEVER LIST — these are the independent construction choices available to a
+  piece. Assign each surviving finding to exactly one:
+
+    1. PACKAGING ......... headline, image, social/homepage surfaces, captions
+    2. SEQUENCING ........ order of material, what leads, what is bundled
+    3. LANGUAGE .......... verb selection, register, agency, asserted-vs-attributed
+    4. SOURCING .......... whose voices appear, in what proportion
+    5. QUOTE FUNCTION .... frame-carrier allocation, what the quotes are doing
+    6. OMISSION .......... what available material is absent
+    7. IMPORTED MATERIAL . prior cases, comparisons, predicates brought in
+    8. CAUSAL BRIDGES .... explanatory facts present or removed (E2.2)
+    9. BASELINES ......... denominator, comparison point, adjustment (E2.3)
+
+  | Lever | Findings assigned | Direction it favors |
+  |---|---|---|
+
+  1. For each LEVER that has at least one surviving finding, state which impression
+     it favors. If findings on one lever point different ways, mark it MIXED.
+  2. Count: how many levers push the same direction? How many push the other way,
+     or are mixed?
+  3. COHERENCE RATIO: [N same-direction levers] of [M levers engaged].
+
+  Maximum possible ratio is 9 of 9. A ratio above that means you have counted
+  findings, not levers — recount.
+
+  COHERENCE FINDING: if 4 or more LEVERS push the same direction and fewer than 2
+  push the other way, record a separate finding:
+
+      "Directional coherence: N of M independent construction levers — [name them] —
+       all favor the same impression. Each is individually defensible; the
+       consistency across independent levers is not."
+
+  Severity, by LEVER count:
+    4 levers same-direction ...................... MODERATE
+    5 levers same-direction ...................... MODERATE
+    6+ levers same-direction, none opposing ...... MAJOR
+
+  A MAJOR coherence finding requires nearly every available lever to point one way.
+  That is a strong claim and the threshold is deliberately high — at 5 levers the
+  finding is real but the piece has left at least two levers unengaged or neutral,
+  which is not the same as a piece that used everything it had.
+
+  THIS IS DIRECTION-NEUTRAL. Six choices all favoring "justified force" is the same
+  finding as six all favoring "unjustified killing." Apply it identically.
+
+  If findings do NOT cohere — several push each way — say so plainly. That is
+  evidence the piece is constructed proportionately even if individual choices are
+  imperfect, and it should reduce the overall rating.
+
+AGGREGATION RULE — the overall rating is DERIVED, not asserted
+
+  | Findings surviving BOTH tests | Overall construction rating |
+  |---|---|
+  | none above MINOR, and no coherence finding | PROPORTIONATE |
+  | one or two MODERATE, or a MODERATE coherence finding | MILDLY SLANTED |
+  | three or more MODERATE, or one MAJOR, or a coherence finding plus 2+ minors | SUBSTANTIALLY SLANTED |
+  | two or more MAJOR, or a MAJOR coherence finding | HEAVILY CONSTRUCTED |
+
+  The coherence finding counts as a finding for aggregation purposes. A set of
+  minor findings that all push one direction can therefore reach SUBSTANTIALLY
+  SLANTED via the coherence route — which is correct, because the pattern is the
+  evidence, not the individual severities.
+
+  CEILING RULE: the overall rating may not exceed ONE STEP above your
+  highest-severity single finding. Five MODERATE findings can reach SUBSTANTIALLY
+  SLANTED; they cannot reach HEAVILY CONSTRUCTED.
+
+  Only findings surviving BOTH the timing test and the flip test count toward
+  aggregation. Timing-explained and prior-dependent findings are reported but do
+  not contribute.
+
+  SHOW THE ARITHMETIC: "N findings survived both tests: [list with severities].
+  Per the aggregation rule this yields [rating]."
+
+  If the derived rating differs from the one you were about to write, the derived
+  rating governs.
+
+  - Factual accuracy: [clean / minor errors / significant errors / cannot assess]
+  - Construction (derived per the rule above): [proportionate / mildly slanted / substantially slanted / heavily constructed]
+  - Primary media finding type (factual / construction / omission / sourcing / frame-laundering / causal-bridge / narrative-flag / baseline / packaging / none):
+  - STRIP TEST RESULT (F2 Step 3): does the piece's dominant interpretation survive
+    removal of all quotes? [survives / partly / collapses]
+  - Failure location, if the finding concerns an upstream source:
+  - Findings surviving timing test:
+  - Findings surviving flip test:
+  - Findings surviving BOTH (the load-bearing set):
+  - Strongest single finding:
+  - Strongest innocent explanation for the piece overall:
+  - What this audit could NOT assess:
+  - Confidence: [low / moderate / high]
+  - What evidence would change this assessment:
+
+FINAL REQUIRED STATEMENT — one of:
+  "This piece is factually [accurate/flawed] and its construction is
+   [proportionate/slanted]. The load-bearing findings are: [list]."
+OR
+  "No findings survived both the timing and flip tests. This piece's construction
+   is defensible."
+
+The second output must be genuinely available. If it never occurs across many
+runs, the instrument is broken.
+
+=================================================================
+SCOPE LIMITS — STATE THESE IN THE OUTPUT
+=================================================================
+
+  1. This audits ONE piece. Claims about an outlet's PRACTICE require a corpus.
+     Do not generalize from one article to an editorial policy.
+  2. Construction findings do not establish intent. "The piece is constructed to
+     produce impression X" is supportable; "the outlet intended to mislead" is
+     not, from this evidence.
+  3. You cannot assess what the reporter knew, what was cut by an editor, or what
+     sources declined to comment, unless the piece says so.
+  4. Absence of a balancing voice may reflect refusal to comment, deadline, or
+     selection. You usually cannot distinguish these. Say which you are inferring.
