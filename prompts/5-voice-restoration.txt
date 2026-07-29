@@ -1,0 +1,108 @@
+VOICE RESTORATION / ANTICIPATORY COMPLIANCE AUDIT PROMPT
+
+I want you to audit the following draft for compliance softening, anticipatory hedging, false balance, and AI-generated reassurance language.
+
+Context:
+This draft is a methodological critique / adversarial research document. The goal is not to make it harsher for its own sake. The goal is to preserve direct, accurate criticism where the evidence supports it.
+
+Do not tone-police the draft. Do not soften the argument merely because the subject is controversial. Do not add generic “both sides” language unless it is logically necessary or evidence-based.
+
+Your task:
+Identify places where the prose appears to apologize for, dilute, hedge, or repeatedly re-legitimize the field being critiqued before making a methodological point.
+
+The most recognizable fingerprint of compliance softening is this structure appearing repeatedly:
+
+“X has produced valuable insights into Y, but…”
+
+A confident author may establish good faith once in the introduction. They do not need to re-establish the field’s legitimacy before every critique. If acknowledgment language appears repeatedly before the sharpest methodological points, treat it as likely compliance softening unless context clearly justifies it.
+
+Search specifically for these phrases and close variants:
+
+- “it is worth noting that”
+- “it is important to acknowledge”
+- “the field has produced valuable insights”
+- “this does not invalidate”
+- “while acknowledging”
+- “to be clear, [X] is real”
+- “these findings are valuable within their domain”
+- “this paper acknowledges”
+- “both X and Y can be true”
+- “understanding this does not diminish”
+- “this is not to say”
+- “however, it is important to be balanced”
+- “more research is needed” when used to soften a direct methodological failure
+- “limitations” where the stronger and more accurate term is “invalid proxy,” “construct mismatch,” “level-of-analysis error,” “citation laundering,” or “untested premise”
+
+Important distinction:
+Some caveats are legitimate. Do not remove caveats that:
+- prevent factual overstatement
+- distinguish method critique from motive accusation
+- acknowledge real contrary evidence
+- define the scope of the claim
+- protect falsifiability
+- clarify that the critique is about evidence, not people
+
+But remove or flag caveats that:
+- repeat good-faith acknowledgments unnecessarily
+- soften a supported methodological criticism
+- convert “bad proxy” into “imperfect proxy”
+- convert “not tested” into “underexplored”
+- convert “citation network recycles the premise” into “the literature may be somewhat concentrated”
+- add reassurance sentences before every critique
+- make the author sound less certain than the evidence warrants
+
+Output format:
+
+1. Executive summary
+Briefly state whether the draft has:
+- no meaningful compliance-softening problem
+- mild softening
+- moderate softening
+- severe softening
+
+2. Phrase inventory
+Create a table with:
+- phrase or pattern found
+- number of occurrences
+- where it appears
+- whether it is justified, questionable, or likely softening
+
+3. Hotspot table
+For each problematic passage, provide:
+- original sentence or paragraph
+- problem type
+  - repeated reassurance
+  - false balance
+  - unnecessary caveat
+  - softened methodological claim
+  - vague “limitations” language
+  - compliance-style apology
+- why it weakens the argument
+- recommended action: keep / cut / rewrite / move to introduction
+- voice-restored replacement
+
+4. Stronger terminology suggestions
+Identify places where the draft uses weak terms and suggest stronger accurate terms.
+
+Examples:
+- “limitation” -> “proxy failure” if the measure does not test the claim
+- “understudied” -> “untested” if the decisive test has not been run
+- “mixed evidence” -> “evidence does not support the strength of the claim” if that is more accurate
+- “cultural factors may not fully explain” -> “cultural-only explanations have not earned the strength of their claims” if supported
+
+5. Good caveats to preserve
+List caveats that should remain because they are doing real evidentiary work.
+
+6. Final voice-restoration pass
+Rewrite only the affected passages. Do not rewrite the whole paper unless asked.
+Preserve the author’s directness, structure, and thesis.
+Do not make the prose inflammatory.
+Do not add unsupported claims.
+The goal is accurate force, not rhetorical escalation.
+
+7. Manual review warning
+End by identifying any sections where your recommendation depends on context outside the excerpt or where the author should manually verify whether a caveat is necessary.
+
+Here is the draft to audit:
+
+[PASTE DRAFT HERE]
