@@ -1,0 +1,510 @@
+CONSTRUCT-VALIDITY AUDIT PROMPT:
+
+CLAIM VS. MEASUREMENT
+
+Purpose:
+
+Use this prompt to audit one paper, study, report, policy document, or institutional claim before making any broad claim about a field.
+
+Do not evaluate whether the authors are good people.
+
+Do not infer private motive.
+
+Do not summarize the source politely.
+
+Do not defer to prestige, peer review, journal status, citation count, institutional authority, or the social acceptability of the conclusion.
+
+Your task is narrower:
+
+Compare what the source actually measured to what the source claims, and to what later citations, institutions, or public arguments use it to prove.
+
+The point is not to decide whether the field is good or bad.
+
+The point is to test whether the measurement supports the claim.
+
+-----
+
+HOW TO USE THIS PROMPT
+
+Paste the relevant source material below:
+
+- Abstract
+- Methods
+- Measures / variables
+- Sample / population
+- Results
+- Conclusion
+- Any key tables or quoted claims
+- If available: how later papers, institutions, or public commentators cite this source
+
+Then provide:
+
+1. The contested claim this source is being used to support.
+1. The field or debate where the source is being used.
+1. Any domain-specific concern you want tested.
+
+-----
+
+INPUT TEMPLATE
+
+Source title:
+
+[PASTE TITLE HERE]
+
+Source citation / link:
+
+[PASTE CITATION OR LINK HERE]
+
+Contested claim:
+
+[WHAT IS THIS SOURCE BEING USED TO PROVE?]
+
+Field / debate:
+
+[WHAT FIELD OR DISPUTE IS THIS SOURCE PART OF?]
+
+Source excerpts:
+
+[PASTE ABSTRACT / METHODS / RESULTS / CONCLUSION / KEY QUOTES HERE]
+
+Later citation use, if available:
+
+[PASTE HOW LATER PAPERS OR INSTITUTIONS DESCRIBE THIS SOURCE]
+
+Domain-expert concern:
+
+[WHAT SMELLS WRONG TO YOU? WHAT CONFOUND OR PROXY ISSUE DO YOU SUSPECT?]
+
+-----
+
+AUDIT INSTRUCTIONS
+
+You are auditing construct validity.
+
+Do not begin by balancing the source with generic praise.
+
+Do not add reassurance clauses unless they are doing real evidentiary work.
+
+Do not use phrases like “it is important to acknowledge” or “this does not invalidate” unless the qualification is necessary to prevent factual overstatement.
+
+Do not soften “invalid proxy” into “limited proxy” if the measurement cannot support the claim.
+
+Do not treat peer review, citation count, or institutional adoption as evidence that the construct was measured correctly.
+
+Answer the following sections.
+
+-----
+
+1. EXACT CLAIM EXTRACTION
+
+Identify three levels of claim:
+
+A. Strongest claim made by the source itself:
+
+[Extract the strongest claim the authors make.]
+
+B. Weaker defensible claim actually supported by the data:
+
+[State the narrower claim the study may support.]
+
+C. Inflated claim made by later citations, institutions, media, or public discourse:
+
+[State how the source is being used beyond its evidence.]
+
+Then answer:
+
+- Are A, B, and C the same claim?
+- Where does inflation occur?
+- Does the source itself overclaim, or is the overclaim mainly downstream?
+
+-----
+
+1. MEASUREMENT EXTRACTION
+
+State exactly what was measured.
+
+Include:
+
+- Sample size
+- Population studied
+- Recruitment method
+- Task, instrument, proxy, survey, administrative measure, or dataset used
+- Time scale
+- Outcome variable
+- Control variables
+- Exclusions
+- What was not measured
+
+Then answer:
+
+- Is the measured variable direct evidence of the claimed construct?
+- Or is it a proxy?
+- If it is a proxy, how close is the proxy to the target construct?
+
+-----
+
+1. CLAIM VS. MEASUREMENT TABLE
+
+Create a table with these columns:
+
+Measured variable | Claimed construct | Are they the same? | Gap | Severity | Notes
+
+Severity options:
+
+- No meaningful gap
+- Minor limitation
+- Moderate proxy gap
+- Major construct mismatch
+- Fatal proxy failure for the claim being made
+
+Use the strongest severity justified by the evidence.
+
+Do not understate the severity to sound balanced.
+
+-----
+
+1. LEVEL-OF-ANALYSIS CHECK
+
+At what level was the evidence collected?
+
+Examples:
+
+- Laboratory task
+- Survey respondents
+- Self-report
+- Administrative records
+- Clinical sample
+- Amateur population
+- Intermediate-skill population
+- Elite population
+- Institutional metric
+- Real-world field outcome
+- Longitudinal behavioral data
+- Natural experiment
+
+At what level is the claim being applied?
+
+Examples:
+
+- Elite performance
+- Professional behavior
+- Population-level policy
+- Clinical guideline
+- Institutional intervention
+- Group outcome gap
+- Long-term social outcome
+- Mechanistic causal claim
+
+Then answer:
+
+- What assumptions are required to bridge the evidence level to the claim level?
+- Are those assumptions tested?
+- Are they merely implied?
+- Would a domain expert accept the bridge as valid?
+
+-----
+
+1. CONFOUND AUDIT
+
+Identify obvious confounds.
+
+Ask:
+
+- What variables could explain the measured outcome besides the proposed explanation?
+- What confounds would a practitioner, clinician, performer, or domain expert immediately notice?
+- Did the authors control for these confounds?
+- Did the authors acknowledge them?
+- Did later citations forget the confounds?
+- Would the omitted confounds change the interpretation?
+
+Classify each confound:
+
+Confound | Domain obvious? | Controlled? | Acknowledged? | Impact if omitted
+
+Impact options:
+
+- Low
+- Moderate
+- High
+- Fatal for the strong claim
+
+-----
+
+1. ECOLOGICAL VALIDITY CHECK
+
+Ask:
+
+- Does the task resemble the real-world phenomenon being explained?
+- Does the sample resemble the population the claim is applied to?
+- Does the time scale match the real process?
+- Does the measured behavior occur under realistic pressure, incentives, constraints, or selection?
+- Is the study measuring performance, stated belief, compliance, perception, or institutional output?
+- Are those being conflated?
+
+Verdict:
+
+- High ecological validity
+- Moderate ecological validity
+- Low ecological validity
+- Ecologically valid only for a narrower claim
+- Not ecologically valid for the claim being made
+
+-----
+
+1. DECISIVE-TEST CHECK
+
+What test would directly measure the claimed construct?
+
+Answer:
+
+- What would the decisive test measure?
+- What population would it study?
+- What controls would be required?
+- What outcome would support the source’s claim?
+- What outcome would weaken or falsify the source’s claim?
+- Does the current source run that test?
+- If not, does the field acknowledge that the decisive test has not been run?
+
+Then state:
+
+“The decisive test would be: [ONE-SENTENCE TEST SPECIFICATION].”
+
+-----
+
+1. CROSS-REANALYSIS OBJECT CHECK
+
+If two or more independent reanalyses, replications, or critiques reach different conclusions about the source, before treating them as agreeing or conflicting, check what each one actually tested.
+
+Ask:
+
+- Did each reanalysis test the same object — the full result, a single component, a specific subgroup, a specific time window?
+- Or did they test different objects that only sound like the same dispute?
+- Is apparent disagreement actually a scope mismatch rather than a genuine unresolved question?
+- Is apparent convergence masking that the harder or more specific version of the question was never independently re-tested?
+
+State plainly: for each pair of reanalyses in tension, are they actually contradicting each other, or talking past each other?
+
+Do not report a dispute as “resolved” or “settled” if the reanalyses that appear to resolve it tested a narrower or different claim than the one in question. Do not report a dispute as “ongoing” if it is actually two non-competing findings about different objects.
+
+-----
+
+1. CITATION-USE AUDIT
+
+If later papers, institutions, or commentators cite this source:
+
+Ask:
+
+- Are they citing the actual finding?
+- Are they citing an inflated version of the finding?
+- Are they using the source as evidence, or as a premise?
+- Does the source become stronger through repetition than it was in the original methods?
+- Does the citation network preserve the source’s limitations?
+- Does the network drop the limitations and retain only the conclusion?
+
+Classify the downstream use:
+
+- Accurate citation
+- Slightly inflated citation
+- Major inflation
+- Citation laundering
+- Premise laundering
+- Unsupported consensus construction
+
+-----
+
+1. IGNORED-LITERATURE CHECK
+
+Ask:
+
+- What adjacent literatures should have been cited?
+- What domain-specific literatures are directly relevant?
+- What practitioner knowledge would identify obvious confounds?
+- Did the source cite those literatures?
+- Did later reviews or hubs cite them?
+- Are there contrary findings that were available but structurally ignored?
+
+Create a table:
+
+Ignored literature / evidence | Why it matters | Was it cited? | Effect of omission
+
+Effect options:
+
+- Minor context loss
+- Moderate weakness
+- Major evidentiary gap
+- Fatal omission for the strong claim
+
+-----
+
+1. SOURCE-STATUS LABELS
+
+Assign labels to each type of evidence in the source.
+
+Use these labels:
+
+- Primary empirical evidence
+- Secondary synthesis
+- Systematic review / meta-analysis
+- Policy document / guideline
+- Proxy evidence
+- Weak proxy
+- Conceptual / theoretical claim
+- Citation-laundered premise
+- Practitioner / domain observation
+- Public reporting / journalism
+- Community observation / anecdotal lead
+- Author inference
+- Unverified source lead
+
+Then state:
+
+- Which claims are directly measured?
+- Which claims are inferred?
+- Which claims are speculative?
+- Which claims require a source audit before publication?
+
+-----
+
+1. VERDICT
+
+Choose one primary verdict:
+
+A. Valid evidence for the claim
+
+B. Partial evidence with clear limits
+
+C. Useful for a narrower claim, invalid for the stronger claim
+
+D. Major proxy failure
+
+E. Fatal construct-validity failure for the claim being made
+
+F. Citation-laundered premise: weak original evidence inflated into consensus
+
+G. Insufficient information to judge without the full source
+
+Then explain the verdict in 3-6 sentences.
+
+Do not hedge unless the evidence requires it.
+
+Do not soften the verdict for comfort.
+
+If the study is useful for a narrower claim, say so.
+
+If it fails for the strong claim, say that directly.
+
+If your confidence level or dispute-resolution language differs between this Verdict section and any earlier table or note, resolve the discrepancy here and state which is correct.
+
+-----
+
+1. PAPER-SAFE WORDING
+
+Write four versions:
+
+A. Neutral summary sentence:
+
+[One sentence accurately summarizing what the source found.]
+
+B. Direct methodological critique:
+
+[One sentence stating the main measurement/construct problem.]
+
+C. Strong adversarial version:
+
+[One sharper sentence suitable for a methodological challenge.]
+
+D. Decisive-test sentence:
+
+[One sentence saying what evidence would actually settle the question.]
+
+-----
+
+1. FAILURE-MODE CLASSIFICATION
+
+Mark which failure modes are present:
+
+[ ] Untested premise
+
+[ ] Proxy problem
+
+[ ] Weak proxy
+
+[ ] Fatal proxy failure
+
+[ ] Level-of-analysis error
+
+[ ] Ecological-validity failure
+
+[ ] Omitted confound
+
+[ ] Citation laundering
+
+[ ] Premise laundering
+
+[ ] Ignored adjacent literature
+
+[ ] Missing decisive test
+
+[ ] Intervention ratchet
+
+[ ] Institutional measurement gap
+
+[ ] Motive claim unsupported
+
+[ ] Motive claim supported by public record / policy architecture
+
+[ ] Needs more source verification
+
+For each checked box, give one sentence explaining why.
+
+-----
+
+1. INTERNAL CONSISTENCY CHECK
+
+Before finalizing the verdict, reread this audit’s own sections for contradictory resolution language about the same dispute, finding, or reanalysis — for example, calling something “resolved” in one section and “contested” or “disputed” in another.
+
+If found:
+
+- State which characterization is accurate.
+- State why the inconsistent phrasing occurred (e.g., borrowing the framing of one source without checking it against another section of this same audit).
+
+Do not let a downstream section (e.g., a confound table entry or citation-use note) carry a more confident or more hedged resolution status than the Decisive-Test Check and Verdict sections actually support. All resolution-status language in this audit should agree with itself.
+
+-----
+
+1. FINAL OUTPUT FORMAT
+
+End with this concise summary:
+
+- Strongest defensible claim:
+- Claim being overextended:
+- Main proxy problem:
+- Main level-of-analysis problem:
+- Main omitted confound:
+- Decisive test:
+- Citation-use verdict:
+- Overall verdict:
+- Confidence level:
+- What would change this assessment:
+
+Confidence levels:
+
+- Low
+- Moderate
+- High
+
+-----
+
+REMINDER
+
+Suspicion, practitioner frustration, political disagreement, and anecdotes can be valid discovery tools. They are often how domain experts notice that a literature does not match reality.
+
+But they are not final evidence.
+
+You may begin with vibes.
+
+You may not end with vibes.
+
+Start wherever the anomaly appears.
+
+Finish with receipts.
