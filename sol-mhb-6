@@ -1,0 +1,289 @@
+CLAIM EXTRACTION / INFLATION MAP
+================================
+
+TARGET DOCUMENT
+Mann, Michael E.; Bradley, Raymond S.; Hughes, Malcolm K. (1998).
+“Global-scale temperature patterns and climate forcing over the past six centuries.”
+Nature 392: 779–787.
+Full text: https://www.meteo.psu.edu/holocene/public_html/shared/articles/mbh98.pdf
+
+DOCUMENT TYPE
+Academic paper.
+
+DOWNSTREAM USES SUPPLIED
+None.
+
+CLAIM THAT PROMPTED THIS AUDIT
+No separate user-supplied claim was provided. The map therefore uses the paper’s own most precisely quantified late-twentieth-century temperature claim as the candidate claim under audit.
+
+SCOPE NOTE
+This is a claim-extraction and inflation map, not a validity verdict. It records what the paper measured, what it claimed, a narrower evidence-matched reconstruction, and selected downstream attribution contexts. It does not adjudicate whether the reconstruction or its uncertainty calculation is correct.
+
+
+REQUIRED OUTPUT TABLE
+=====================
+
+| Field | Content | Verification state |
+|---|---|---|
+| 1. Literally measured | MBH98 assembled a multiproxy network of annual-resolution climate indicators, including tree-ring series and tree-ring principal components, ice-core/ice-melt records, coral records, long historical records, and long instrumental records. The network contained 112 indicators back to 1820, declining with time to 93 back to 1760, 74 back to 1700, 57 back to 1600, 24 back to 1450, and 22 back to 1400. Monthly gridded land-air and sea-surface temperatures for 1902–1995 were used as the instrumental target; proxy calibration used annual means over 1902–1980. The instrumental temperature field comprised 1,082 nearly continuous grid points, decomposed into empirical orthogonal functions/principal components. Independent verification used 219 grid points for 1854–1901 and a smaller set of long instrumental series. The model reconstructed annual spatial surface-temperature patterns where skill permitted and derived indices including Northern Hemisphere annual-mean temperature. At AD 1400, only the first eigenvector was retained; the authors reported no useful spatial-pattern resolution that far back, but approximately 40–50% resolved variance for the Northern Hemisphere mean in calibration and verification. The unit of analysis relevant to the selected claim is the reconstructed annual Northern Hemisphere mean temperature anomaly for individual calendar years, referenced to the 1902–1980 calibration mean. | FULL-TEXT-CONFIRMED |
+| 2. Source’s strongest claim | Results, pp. 783–784: “Taking into account the uncertainties in our NH reconstruction … it appears that the years 1990, 1995 and now 1997 … each show anomalies that are greater than any other year back to 1400 at 3 standard errors, or roughly a 99.7% level of certainty.” The hedge “it appears” is preserved. The abstract states the less quantified version: “Northern Hemisphere mean annual temperatures for three of the past eight years are warmer than any other year since (at least) AD 1400.” | FULL-TEXT-CONFIRMED |
+| 3. Weaker defensible claim | Author reconstruction from Field 1: Under MBH98’s multiproxy calibration, retained-eigenvector reconstruction, and stated uncertainty model, the estimated Northern Hemisphere annual-mean temperature anomalies for 1990, 1995, and 1997 exceed the reconstructed annual estimates for AD 1400–1989. This statement is limited to the Northern Hemisphere annual mean, the proxy network and calibration design used, the annual temporal scale, the reconstruction’s decreasing early-period information, and the paper’s own uncertainty assumptions. It does not by itself establish globally uniform warmth, global-mean warmth, a millennium-long comparison, a multi-decadal “late twentieth century” comparison, or anthropogenic causation. | No verification state applies because this is an author reconstruction from Field 1. |
+| 4. Downstream claim | RETRIEVED — assessment / synthesis layer: The 2006 National Research Council summary states that the 1998 and 1999 Mann-Bradley-Hughes reconstructions “attracted considerable attention because the authors concluded that the Northern Hemisphere was warmer during the late 20th century than at any other time during the past millennium.” It later characterizes “[t]he basic conclusion of Mann et al. (1998, 1999)” as “late 20th century warmth in the Northern Hemisphere was unprecedented during at least the last 1,000 years.” This is a joint attribution to MBH98 and MBH99. The same document explicitly distinguishes the “original conclusions by Mann et al. (1999)” that “the 1990s are likely the warmest decade, and 1998 the warmest year, in at least a millennium,” and assigns less confidence to that annual/decadal claim. Because the document identifies the claims as arising from the 1998 and 1999 papers jointly and separately identifies the millennium claim as an MBH99 conclusion, the joint wording is SYNTHESIS ATTRIBUTION rather than established misattribution. Locator: National Research Council, Surface Temperature Reconstructions for the Last 2,000 Years (2006), summary pp. 1–3.  RETRIEVED — assessment layer: The same NRC summary reports that “many people interpreted this result as definitive evidence of anthropogenic causes of recent climate change,” but immediately treats that as a public interpretation rather than the authors’ stated conclusion and later says paleotemperature reconstructions are “not the primary evidence” for anthropogenic warming. This is evidence that a causal inference circulated, but not evidence that the NRC attributes that causal claim to MBH98.  RETRIEVED — IPCC assessment layer: IPCC TAR Chapter 2 attributes the millennial annual/decadal conclusion to Mann et al. (1999): “Taking into account these substantial uncertainties, Mann et al. (1999) concluded that the 1990s were likely to have been the warmest decade, and 1998 the warmest year, of the millennium.” The accessible IPCC text therefore points to the successor paper rather than MBH98 alone for the millennium claim. | FULL-TEXT-CONFIRMED for the audited paper; CROSS-SOURCE-CONFIRMED for the NRC attribution comparison involving MBH98 and MBH99; ABSTRACT-CONFIRMED / text-retrieved for the cited IPCC passage where the accessible chapter text and bibliography identify Mann et al. (1999). |
+| 5. Inflation point + failure location | ITEMS ANCHORING CLASSIFICATION: (1) MBH98 quantified annual claim, RETRIEVED from full text; verification state FULL-TEXT-CONFIRMED. (2) NRC 2006 joint description of MBH98/MBH99 and its later express separation of the MBH99 millennium annual/decadal claim, RETRIEVED; attribution verification state CROSS-SOURCE-CONFIRMED. (3) IPCC TAR wording assigning the millennium annual/decadal conclusion to Mann et al. (1999), RETRIEVED. WITHIN SOURCE: The selected quantified claim moves from a reconstruction whose AD 1400 network retains one eigenvector and resolves an estimated 40–50% of Northern Hemisphere variance to a “3 standard errors” / “roughly 99.7%” ranking of particular modern years over every reconstructed year back to 1400. This is the source’s own inferential move, so its location is PAPER. This map does not judge whether that move is valid. DOWNSTREAM: A scope expansion from AD 1400 to “the past millennium” exists in later assessment language, but the retrieved sources either cite MBH98 jointly with the 1999 extension and distinguish their scopes elsewhere, or attribute the millennium claim directly to MBH99. On the retrieved record, no CROSS-SOURCE-CONFIRMED citation-layer misattribution to MBH98 alone is established. Public interpretation of the reconstruction as definitive anthropogenic-causation evidence is reported by NRC, but no retrieved citing sentence assigning that causal claim to MBH98 was located in this run; PR/media inflation is therefore not established here. FAILURE LOCATION for the selected claim: PAPER. Downstream inflation: neither apparent in the checked assessment attributions, though the search was selective rather than exhaustive. | FULL-TEXT-CONFIRMED for the paper-level transition; CROSS-SOURCE-CONFIRMED for the NRC attribution finding. |
+| 6. Claim under audit | MBH98’s claim that the reconstructed Northern Hemisphere annual-mean temperature anomalies for 1990, 1995, and 1997 were greater than those of every other year back to AD 1400 at three standard errors, or roughly 99.7% certainty. This is selected because it is the paper’s most precisely quantified version of the claim and permits all three prosecutors to examine one bounded assertion. | FULL-TEXT-CONFIRMED |
+
+
+FIELD NOTES
+===========
+
+1. WHAT WAS LITERALLY MEASURED
+------------------------------
+
+Instrument and data sources
+- A heterogeneous annual-resolution multiproxy network:
+  - dendroclimatic records and principal-component summaries of dense tree-ring networks;
+  - ice-core and ice-melt indicators;
+  - coral records;
+  - long historical records;
+  - long instrumental temperature and precipitation series.
+- Instrumental calibration target:
+  - monthly gridded land-air and sea-surface temperature data;
+  - 1,082 nearly continuous grid-point series;
+  - annualized for analysis;
+  - 1902–1995 data availability;
+  - 1902–1980 calibration/training interval.
+- Statistical representation:
+  - principal component analysis of the instrumental temperature field;
+  - proxy indicators calibrated against retained instrumental principal components;
+  - year-by-year inverse reconstruction of retained components;
+  - reconstructed spatial fields and derived Northern Hemisphere mean anomalies.
+
+Population / geography
+- Widely distributed proxy sites, but spatial coverage was uneven.
+- The selected claim concerns the areally weighted Northern Hemisphere mean, not each location, not a hemispherically uniform trend, and not necessarily the global mean.
+- The authors expressly state that hemispheric means are not associated with globally or hemispherically uniform trends.
+
+Time period
+- Reconstruction presented back to AD 1400.
+- Information and retained dimensionality decline backward:
+  - 112 indicators by 1820;
+  - 93 by 1760;
+  - 74 by 1700;
+  - 57 by 1600;
+  - 24 by 1450;
+  - 22 by 1400.
+- Only the first eigenvector was retained for 1400–1449.
+- Instrumental annual values were used for the recent period, with the paper mentioning a newly calculated 1997 value not displayed in Figure 5.
+
+Unit of analysis
+- Annual Northern Hemisphere mean temperature anomaly, relative to the 1902–1980 calibration mean.
+- The selected comparison ranks individual recent years against reconstructed individual years back to 1400.
+
+Uncertainty procedure stated by the paper
+- Calibration residuals were examined for heteroscedasticity and approximate Gaussian behavior.
+- The spectra were described as approximately white.
+- Reconstruction uncertainties were calculated by assuming unresolved variance was Gaussian-distributed over time.
+- Error bars widened backward as the proxy network became sparser and calibrated less variance.
+
+Source locators
+- Abstract and data: Nature 392, p. 779.
+- Assumptions and calibration: pp. 780–781.
+- Backward-declining network skill: pp. 781–782.
+- Temperature reconstruction and selected claim: pp. 783–784.
+- Calibration and uncertainty methods: p. 786.
+
+
+2. STRONGEST CLAIM THE SOURCE ITSELF MAKES
+------------------------------------------
+
+Most precise version:
+“Taking into account the uncertainties in our NH reconstruction … it appears that the years 1990, 1995 and now 1997 … each show anomalies that are greater than any other year back to 1400 at 3 standard errors, or roughly a 99.7% level of certainty.”
+
+Location:
+Results / “Temperature reconstructions,” crossing pp. 783–784.
+
+Hedge and qualifiers preserved:
+- “Taking into account the uncertainties”
+- “it appears”
+- Northern Hemisphere mean
+- annual years
+- back to 1400
+- 3 standard errors / roughly 99.7%
+
+Abstract version:
+“Northern Hemisphere mean annual temperatures for three of the past eight years are warmer than any other year since (at least) AD 1400.”
+
+Difference in prominence/precision:
+The abstract gives a categorical ranking without the numerical confidence statement. The results section supplies the more specific “3 standard errors” and “roughly 99.7%” formulation. Because the prompt requires targeting the most precisely quantified version, Field 6 uses the results claim.
+
+
+3. WEAKER DEFENSIBLE CLAIM THE EVIDENCE ACTUALLY SUPPORTS
+----------------------------------------------------------
+
+Author reconstruction from Field 1:
+
+Using MBH98’s specified proxy network, calibration period, retained principal components, reconstruction procedure, and uncertainty assumptions, its estimated Northern Hemisphere annual-mean anomalies place 1990, 1995, and 1997 above all reconstructed annual values from AD 1400 onward.
+
+Necessary scope limits:
+- “estimated” and “reconstructed,” not directly measured before widespread instrumentation;
+- Northern Hemisphere annual mean, not global temperature;
+- annual ranking, not automatically a statement about decades or longer comparable periods;
+- AD 1400 onward, not the full millennium;
+- conditional on the proxy network, model specification, retained components, and uncertainty construction;
+- not a statement of uniform regional warmth;
+- not, on its own, a causal attribution to greenhouse gases or human activity.
+
+This field does not decide whether the model or uncertainty assumptions succeed. It states the claim shape directly matched to the operationalization.
+
+
+4. BROADER CLAIM ATTACHED DOWNSTREAM
+-------------------------------------
+
+A. ASSESSMENT / SYNTHESIS — NATIONAL RESEARCH COUNCIL (2006)
+
+Provenance: RETRIEVED.
+
+Restatement:
+The NRC summary says the 1998 and 1999 reconstructions attracted attention because “the authors concluded that the Northern Hemisphere was warmer during the late 20th century than at any other time during the past millennium.”
+
+Layer:
+Assessment / synthesis.
+
+Attribution check:
+- Could MBH98 alone support the millennium period? No. Its useful reconstruction begins at AD 1400.
+- Who is cited? The NRC describes the 1998 and 1999 reconstructions together.
+- Does the document distinguish scopes elsewhere? Yes. It separately refers to the “original conclusions by Mann et al. (1999)” that the 1990s were likely the warmest decade and 1998 the warmest year “in at least a millennium.”
+- Classification: SYNTHESIS ATTRIBUTION, not MISATTRIBUTED.
+- Verification state: CROSS-SOURCE-CONFIRMED.
+
+A second NRC formulation calls “[t]he basic conclusion of Mann et al. (1998, 1999)” that late-twentieth-century Northern Hemisphere warmth was unprecedented during at least 1,000 years.
+
+Document-level result:
+Again, the surrounding document distinguishes the 1999 annual/decadal millennium conclusion. The joint citation is best recorded as synthesis of a same-author research program, not as a demonstrated assignment of the 1,000-year scope to MBH98 alone.
+
+B. ASSESSMENT — IPCC THIRD ASSESSMENT REPORT (2001)
+
+Provenance: RETRIEVED.
+
+Restatement:
+“Taking into account these substantial uncertainties, Mann et al. (1999) concluded that the 1990s were likely to have been the warmest decade, and 1998 the warmest year, of the millennium.”
+
+Layer:
+Assessment.
+
+Attribution check:
+The millennium annual/decadal claim is attributed to MBH99, the successor paper extending the reconstruction to AD 1000. It is therefore ATTRIBUTED ELSEWHERE relative to MBH98, not inflation by MBH98.
+
+Verification note:
+The IPCC passage and bibliography were retrieved. The 1999 paper’s abstract was also located and describes a millennium reconstruction and the 1990s/1998 conclusion. The assessment’s attribution is consistent with the successor’s scope.
+
+C. PUBLIC CAUSAL INTERPRETATION REPORTED BY NRC
+
+Provenance: RETRIEVED.
+
+Restatement:
+The NRC says “many people interpreted this result as definitive evidence of anthropogenic causes of recent climate change.”
+
+Layer:
+Public reception / PR-media-type interpretation, as described by an assessment.
+
+Attribution check:
+The NRC does not present this as MBH98’s own conclusion. It identifies it as an interpretation made by others and later states that surface-temperature reconstructions are not the primary evidence for anthropogenic warming.
+
+Classification:
+Not a verified citing-text misattribution. No specific media or institutional sentence citing MBH98 for definitive anthropogenic causation was retrieved in this run, so this item cannot anchor PR/MEDIA as an established failure location.
+
+Searches run
+- MBH98 title and citation combined with “past millennium,” “warmest decade,” and “warmest year.”
+- IPCC TAR Chapter 2 references to Mann, Bradley, and Hughes 1998/1999.
+- National Research Council “Surface Temperature Reconstructions for the Last 2,000 Years” references to the 1998 and 1999 papers.
+- Searches for assessment-language distinctions between the 600-year MBH98 reconstruction and the millennium MBH99 extension.
+
+Scope note
+The downstream search was targeted, not an exhaustive citation-context census. NONE FOUND is therefore not used for all PR, media, policy, or model layers.
+
+
+5. WHERE THE INFLATION BEGINS
+-----------------------------
+
+Anchoring items and provenance states
+1. MBH98 full-text quantified claim — RETRIEVED; FULL-TEXT-CONFIRMED.
+2. NRC 2006 joint attribution and scope-disambiguating passages — RETRIEVED; CROSS-SOURCE-CONFIRMED.
+3. IPCC TAR passage assigning the millennium annual/decadal claim to Mann et al. 1999 — RETRIEVED.
+
+Within-source component
+Transition:
+- Measurement/model output: a Northern Hemisphere annual-mean reconstruction whose earliest interval uses 22 indicators, retains one eigenvector, and is reported to resolve about 40–50% of NH variance.
+- Claim: named recent annual anomalies exceed every reconstructed annual anomaly back to 1400 at three standard errors, “roughly a 99.7% level of certainty.”
+
+Failure location:
+PAPER.
+
+Meaning of classification:
+The numerical confidence/ranking assertion is made by MBH98 itself. The classification only identifies where the inferential commitment enters the chain. It is not a finding that the inference is wrong.
+
+Downstream component
+- The retrieved millennium formulations are either attributed directly to MBH99 or jointly to MBH98/MBH99 in a document that distinguishes the papers’ scopes.
+- Accordingly, a citation-layer misattribution of the millennium claim to MBH98 alone is not established by the checked sources.
+- A broader causal interpretation circulated, according to NRC, but the specific citing sentence necessary to assign PR/MEDIA or CITATION as a failure location was not retrieved.
+
+Downstream failure location:
+Neither apparent in the selected, checked assessment attributions.
+
+Overall classification for Field 6:
+PAPER, because Field 6 targets MBH98’s own quantified claim rather than a downstream restatement.
+
+
+6. WHICH CLAIM IS THIS AUDIT EVALUATING?
+----------------------------------------
+
+This audit evaluates MBH98’s claim that its reconstructed Northern Hemisphere annual-mean temperature anomalies for 1990, 1995, and 1997 were greater than those of every other year back to AD 1400 at three standard errors, or roughly 99.7% certainty.
+
+Selection rationale
+- One claim only.
+- It is the source’s own claim.
+- It is the most precisely quantified form available.
+- It preserves the paper’s unit, geography, time boundary, and confidence language.
+- It gives the construct-validity, internal-validity, and citation-network prosecutors the same bounded target.
+- It does not bundle the separate forcing-attribution claim.
+- It does not substitute the successor paper’s millennium claim.
+
+
+HANDOFF LINES
+=============
+
+CLAIM UNDER AUDIT: MBH98’s claim that its reconstructed Northern Hemisphere annual-mean temperature anomalies for 1990, 1995, and 1997 exceeded every other reconstructed year back to AD 1400 at three standard errors, or roughly 99.7% certainty.
+
+FAILURE LOCATION (provisional): PAPER for the selected quantified claim; no established downstream failure location in the assessment passages checked.
+
+GAP TYPE: Source makes a more strongly quantified inferential claim than the minimally measurement-matched reconstruction in Field 3; no citation-layer inflation is apparent in the checked joint/successor attributions.
+
+MAP CONFIDENCE: Moderate-high for Fields 1–3 and 6 because the full paper was read; moderate for Fields 4–5 because authoritative downstream assessment passages were checked but the citation, PR/media, policy, and model-use search was not exhaustive. Confidence would rise with a systematic citation-context sample, retrieval of the original MBH99 full text and its exact uncertainty language, and specific press-release/media texts containing MBH98 citations.
+
+
+SOURCES CHECKED
+===============
+
+1. Mann, M. E., Bradley, R. S., and Hughes, M. K. (1998).
+   “Global-scale temperature patterns and climate forcing over the past six centuries.”
+   Nature 392, 779–787.
+   https://www.meteo.psu.edu/holocene/public_html/shared/articles/mbh98.pdf
+   Verification: FULL-TEXT-CONFIRMED.
+
+2. National Research Council (2006).
+   Surface Temperature Reconstructions for the Last 2,000 Years, summary.
+   National Academies Press.
+   https://nap.nationalacademies.org/resource/11676/Surface_Temps_final.pdf
+   Relevant summary passages: pp. 1–3.
+   Verification: FULL-TEXT-CONFIRMED for the retrieved summary; CROSS-SOURCE-CONFIRMED for the attribution comparison.
+
+3. Intergovernmental Panel on Climate Change (2001).
+   Climate Change 2001: The Scientific Basis, Chapter 2, “Observed Climate Variability and Change.”
+   Relevant text attributes the millennium warmest-decade/warmest-year conclusion to Mann et al. (1999).
+   https://www.ipcc.ch/site/assets/uploads/2018/03/TAR-02.pdf
+   Verification: retrieved chapter passage and bibliography.
+
+4. Mann, M. E., Bradley, R. S., and Hughes, M. K. (1999).
+   “Northern Hemisphere Temperatures During the Past Millennium: Inferences, Uncertainties, and Limitations.”
+   Geophysical Research Letters 26.
+   Used only to verify that the millennium claim belongs to a same-author successor source rather than to MBH98’s AD 1400 reconstruction.
