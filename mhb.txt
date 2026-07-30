@@ -1,0 +1,100 @@
+CLAIM EXTRACTION / INFLATION MAP
+Target: Mann, M.E., R.S. Bradley & M.K. Hughes (1998). Global-scale temperature patterns and climate forcing over the past six centuries. Nature 392, 779–787.
+Document type: academic paper
+Date of map: 2026-07-30
+
+-----------------------------------------------------------------
+1. WHAT WAS LITERALLY MEASURED
+-----------------------------------------------------------------
+
+Spatially resolved annual-mean surface temperature patterns (and the derived Northern Hemisphere mean annual temperature series) reconstructed by multivariate calibration of a multiproxy network against the leading EOFs/PCs of the 1902–1980 instrumental land-air + sea-surface temperature field (5° × 5° grid).
+
+Proxy network: dendroclimatic (tree-ring) series, ice-core isotope and melt records, coral series, and long historical/documentary temperature series. Full network size = 112 indicators from AD 1820; progressively thinned to 93 (1760), 74 (1700), 57 (1600), 24 (1450) and 22 indicators available back to AD 1400. Calibration interval 1902–1980; verification on independent 1854–1901 gridded data and longer instrumental grid-point averages. Reconstructions resolve between 11 EOFs (post-1820) and 1 EOF (pre-1450). Uncertainties reported as ±2 standard errors and widen markedly prior to ~1600–1700 as fewer degrees of freedom are retained. Unit of analysis: annual temperature anomalies relative to the 1902–1980 mean.
+
+-----------------------------------------------------------------
+2. STRONGEST CLAIM THE SOURCE ITSELF MAKES
+-----------------------------------------------------------------
+
+Abstract (exact):
+“Northern Hemisphere mean annual temperatures for three of the past eight years are warmer than any other year since (at least) AD 1400.”
+
+Body, Temperature reconstructions section (exact):
+“Taking into account the uncertainties in our NH reconstruction (see Methods), it appears that the years 1990, 1995 and now 1997 (this value recently calculated and not shown) each show anomalies that are greater than any other year back to 1400 at 3 standard errors, or roughly a 99.7% level of certainty.”
+
+(The paper also states that greenhouse-gas forcing “emerges as the dominant forcing during the twentieth century,” but the temperature-extremes claim above is the most precise quantified assertion.)
+
+-----------------------------------------------------------------
+3. WEAKER DEFENSIBLE CLAIM THE EVIDENCE ACTUALLY SUPPORTS
+-----------------------------------------------------------------
+
+Under the specific multiproxy network, EOF selection rules, 1902–1980 calibration window, verification statistics, and uncertainty model employed by the authors, the reconstructed Northern Hemisphere mean annual temperature anomalies for calendar years 1990, 1995 and 1997 exceed the reconstructed anomaly of every year in the interval AD 1400–~1980 at approximately three standard errors. The claim is limited to (a) the Northern Hemisphere mean only, (b) the particular proxy set that thins dramatically before the 18th century, (c) the linear stationarity assumptions of the calibration, and (d) the paper’s own reported uncertainty estimates.
+
+-----------------------------------------------------------------
+4. BROADER CLAIM ATTACHED DOWNSTREAM
+-----------------------------------------------------------------
+
+RETRIEVED – IPCC Third Assessment Report (TAR), Working Group I, Chapter 2:
+
+• Bullet-point summary: “New analyses indicate that the magnitude of Northern Hemisphere warming over the 20th century is likely to have been the largest of any century in the last 1,000 years. (Mann et al., 1998)”
+
+• Running text: “Mann et al. (1998) and Jones et al. (1998) support the idea that the 15th to 19th centuries were the coldest of the millennium over the Northern Hemisphere overall.”
+
+• Parallel accurate restatement also present: Mann et al. (1998) reconstructed NH mean temperature back to AD 1400 with independent cross-validation skill; the extension to AD 1000 is attributed to the 1999 successor paper.
+
+RETRIEVED – Wikipedia “Hockey stick graph (global temperature)” and contemporaneous secondary summaries:
+Accurately quote the 1998 abstract’s “since (at least) AD 1400” language. Millennial-scale statements are predominantly attached to MBH99 and to the IPCC TAR figure that incorporates the 1999 reconstruction.
+
+RECALLED:
+Secondary literature and popular accounts frequently collapse MBH98 and MBH99 into a single “hockey-stick / warmest in a thousand years” narrative. Direct quotations that cite only the 1998 paper more often retain the six-century framing.
+
+NONE FOUND:
+No high-visibility media restatement was retrieved that invents a numerical claim beyond what the 1998 paper itself states when the citation is restricted to MBH98 alone.
+
+-----------------------------------------------------------------
+5. WHERE THE INFLATION BEGINS
+-----------------------------------------------------------------
+
+Within-source component:
+The abstract and the quantified body statement are essentially congruent in scope (both terminate at AD 1400). The body supplies the explicit 3-standard-error / ~99.7 % quantification that the abstract omits; the abstract’s “at least” hedge is retained. No material within-paper inflation of the temperature-extremes claim is identified.
+
+Downstream component:
+IPCC TAR attributes a full-millennium claim (“largest of any century in the last 1,000 years”; “coldest of the millennium”) directly to Mann et al. (1998). The 1998 reconstruction and all of its stated skill and uncertainty estimates stop at AD 1400; the paper itself describes millennial-scale reconstruction as future work. This is a scope expansion from six centuries to one millennium.
+
+Failure location classification: MIXED
+– PAPER: none material on the core temperature claim.
+– CITATION / assessment-report layer: the millennium expansion.
+
+Verification state of the classification: RETRIEVED for the IPCC statements; the within-source component is established from the paper alone and is not provisional.
+
+-----------------------------------------------------------------
+6. WHICH CLAIM IS THIS AUDIT EVALUATING?
+-----------------------------------------------------------------
+
+The quantified claim that the years 1990, 1995 and 1997 each show Northern Hemisphere mean annual temperature anomalies greater than any other year back to AD 1400 at three standard errors (roughly 99.7 % certainty) under the paper’s own uncertainty model.
+
+(Selection rationale: the quantified body version is preferred over the abstract’s unquantified version per the stage rules; it is the most precise commitment the source makes and therefore the version against which construct and internal validity can be tested most cleanly.)
+
+-----------------------------------------------------------------
+REQUIRED OUTPUT TABLE
+-----------------------------------------------------------------
+
+| Field | Content | Verification state |
+|---|---|---|
+| 1. Literally measured | Multiproxy EOF-calibrated reconstruction of NH mean annual temperature anomalies (and spatial patterns) from AD 1400 using 22–112 proxy series calibrated 1902–1980; verification 1854–1901; thinning network and widening uncertainty pre-~1600. | ESTABLISHED (source) |
+| 2. Source’s strongest claim | “\ldots three of the past eight years are warmer than any other year since (at least) AD 1400” (abstract); quantified in body as 1990/1995/1997 > all prior years at 3 SE (~99.7 %). | ESTABLISHED (source) |
+| 3. Weaker defensible claim | Same numerical comparison holds under the paper’s specific network, calibration window, EOF rules and uncertainty model, limited to NH mean and the stated assumptions. | RECONSTRUCTED |
+| 4. Downstream claim | IPCC TAR attributes “largest \ldots of any century in the last 1,000 years” and “coldest of the millennium” to Mann et al. (1998). Accurate six-century restatements also exist. | RETRIEVED (IPCC TAR) + RECALLED (popular collapse of 98/99) |
+| 5. Inflation point + failure location | Millennium-scope expansion occurs in IPCC TAR citation layer. Within-paper temperature claim is congruent between abstract and body. Location: MIXED (primarily CITATION). | RETRIEVED for downstream; ESTABLISHED for within-source |
+| 6. Claim under audit | 1990, 1995 & 1997 NH anomalies exceed every reconstructed year back to AD 1400 at 3 standard errors (~99.7 % certainty). | — |
+
+-----------------------------------------------------------------
+ONE-LINE SUMMARY
+-----------------------------------------------------------------
+
+CLAIM UNDER AUDIT: The years 1990, 1995 and 1997 each exceed every year in the AD 1400–~1980 reconstruction at three standard errors under the paper’s uncertainty model.
+
+FAILURE LOCATION (provisional only for downstream component): MIXED (paper congruent on the core claim; citation layer expands scope to the full millennium).
+
+GAP TYPE: downstream inflates (millennium attribution); neither apparent on the quantified six-century temperature claim itself.
+
+MAP CONFIDENCE: high for within-source fields (direct quotation + methods); moderate for Field 4 completeness (IPCC TAR retrieved; exhaustive media survey not performed). Confidence would rise with a systematic sample of 1998–2001 press releases and early secondary literature that cite only MBH98.
