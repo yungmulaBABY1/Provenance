@@ -1,0 +1,1055 @@
+CITATION NETWORK AUDIT PROMPT:
+DETECTING FUNCTIONAL CITATION CARTELS AND ADJACENT FIELD NEGLECT
+
+-----
+
+PURPOSE
+
+Use this prompt to audit whether a field, subfield, or contested claim is supported by a healthy evidence base or by a functionally closed citation network.
+
+The goal is not to prove that individual researchers acted in bad faith.
+The goal is to test whether the literature’s apparent consensus is produced by converging evidence, or by repeated citation of the same premise, same proxies, same review hubs, same author clusters, and same neglected adjacent literatures.
+
+This prompt is designed for fields where a domain expert suspects that:
+- a small founding cluster dominates the literature;
+- weak proxy studies are being cited as if they directly measured the target construct;
+- review papers are laundering a premise into “settled science”;
+- adjacent fields with direct expertise are ignored;
+- recent papers continue recycling old claims rather than testing the decisive question.
+
+-----
+
+IMPORTANT DEFINITION
+
+In this prompt, “citation cartel” does not require proof of secret coordination, illegal collusion, or private bad faith.
+
+It means a functional citation structure:
+a small group of papers, authors, journals, theoretical frameworks, or institutional networks repeatedly cite one another, recycle the same load-bearing premise, neglect adjacent literatures, and convert repetition into apparent consensus.
+
+Use “cartel” as a structural diagnosis, not a motive claim.
+
+Preferred formal terms:
+- functionally closed citation network
+- self-referential citation cluster
+- citation laundering pathway
+- premise-laundering hub
+- adjacent-field neglect
+- unsupported consensus construction
+
+Use “citation cartel” only when the evidence supports closure, premise recycling, and systematic exclusion of relevant outside evidence.
+
+-----
+
+HOW TO USE THIS PROMPT
+
+Provide:
+1. A one-paragraph description of the field or subfield.
+2. The central contested claim.
+3. Any founding papers or review papers you already know.
+4. Any adjacent fields you suspect were ignored.
+5. Any databases or citation sources available to you.
+
+Do not rely on any model to invent exact citation metrics. If exact citation data are unavailable, require the model to label numbers as rough estimates or source leads.
+
+-----
+
+INPUT TEMPLATE
+
+Field / subfield:
+[PASTE FIELD HERE]
+
+Central contested claim (fallback context if no upstream Claim Map is supplied):
+[WHAT CLAIM IS THE LITERATURE TREATING AS ESTABLISHED?]
+
+Founding papers or likely hubs:
+[PASTE ANY KNOWN PAPERS, AUTHORS, OR REVIEWS]
+
+Adjacent fields that may be relevant:
+[PASTE ADJACENT FIELDS]
+
+Known contrary evidence or domain-expert concerns:
+[PASTE CONCERNS]
+
+Available citation tools:
+[Google Scholar / Semantic Scholar / OpenAlex / Scopus / Web of Science / CrossRef / manual search / none]
+
+Time window:
+[Example: 2010-2026, or last 5 years for recent behavior]
+
+-----
+
+SHARED CLAIM MAP — REQUIRED FOR FULL-SEQUENCE MODE
+
+A Claim Extraction / Inflation Map should have been produced upstream. Paste it
+here:
+
+[PASTE CLAIM MAP]
+
+DEGRADED STANDALONE MODE — USE ONLY WHEN NO UPSTREAM MAP EXISTS
+
+This prosecutor must still be runnable when no upstream map is supplied. If the
+map is missing, do not stop, but state this warning before the audit:
+
+“CLAIM MAP MISSING: running in degraded standalone mode. The target claim below
+is SELF-GENERATED and PROVISIONAL. Cross-prosecutor claim alignment cannot be
+assumed until an upstream Claim Extraction / Inflation Map is produced.”
+
+Then create only this minimum fallback:
+
+CLAIM MAP: SELF-GENERATED — PROVISIONAL
+- Field 1 — What was literally measured:
+- Field 3 — Weaker defensible claim:
+- Field 6 — Claim under audit:
+
+Do not invent the missing upstream fields. Do not present this fallback as
+equivalent to the upstream map. Its purpose is to permit a one-off network audit,
+not to replace Stage 1. Before this audit is combined with the other prosecutors,
+the claim must be reconciled against an upstream map.
+
+YOU AUDIT THE CLAIM NAMED IN FIELD 6 OF THE MAP. Do not substitute the field’s
+broadest claim, the public version, or a claim you find more interesting. The
+network can establish how evidentiary authority and claim formulations propagate;
+it does not automatically establish whether the underlying real-world proposition
+is true.
+
+If you find yourself auditing a claim that is not on the map, flag it rather than
+substituting silently:
+
+“MAP GAP: this finding concerns [claim], which does not appear on the claim map.
+The map may be incomplete.”
+
+That flag is information, not an error. Silent substitution is what makes
+different prosecutors produce incoherent critiques.
+
+Before Section A, confirm in one line each:
+
+- Claim under audit (map field 6):
+- What was literally measured in the foundational source(s) (map field 1):
+- Weaker defensible claim (map field 3):
+- Target layer: source claim / downstream citation / PR-media / model-retrieval
+
+If the map is self-generated, repeat that it is PROVISIONAL and that cross-stage
+alignment remains unresolved.
+
+-----
+
+COMPACT VOCABULARY
+Full rules: shared_primitives.txt
+
+VERIFICATION STATE — how thoroughly a source has been checked. This is separate
+from evidence type.
+
+- LOCATED: source exists and metadata is confirmed; content is unverified.
+- ABSTRACT-CONFIRMED: abstract supports relevance; methods and results are not
+  verified.
+- FULL-TEXT-CONFIRMED: full text was read and directly supports the specific claim.
+- RECEPTION-CONFIRMED: replies, replications, corrections, retractions, citation
+  graphs, or citation contexts were checked against retrieved sources.
+- CONTESTED: credible disagreement exists; who is correct remains unresolved.
+- REBUTTED: later work directly and substantially challenges the source and the
+  challenge was not evidently answered.
+- PROVISIONAL: access or retrieval is insufficient, including unverified model
+  memory, unresolved leads, or model-estimated network metrics.
+
+- CROSS-SOURCE-CONFIRMED: an ATTRIBUTION relationship was checked by reading BOTH
+  the downstream text and the audited source — plus a successor or alternative
+  source where one is implicated — and comparing what is claimed against what each
+  actually supports. This is a distinct verification act: not reception checking
+  (how a source fared) and not full-text checking (what one source says), but
+  whether a downstream text has assigned a claim to a source that supports it.
+  Use for every MISATTRIBUTED or ATTRIBUTED ELSEWHERE classification you actually
+  verified.
+
+DO NOT INVENT VERIFICATION STATES. The list above is the whole vocabulary. Live
+runs have produced "ESTABLISHED FROM SOURCE," "RECONSTRUCTION FROM SOURCE," and
+similar ad-hoc labels. Each reads as authoritative, none is defined anywhere, and
+a downstream stage cannot tell what was actually checked. If no state fits what
+you did, describe it in a sentence rather than coining a label — an undefined
+state is worse than plain prose.
+
+For a field that is an author reconstruction rather than a retrieval, write
+"author reconstruction from [source field]." That is a description, not a
+verification state.
+
+ATTRIBUTION CLASSIFICATIONS FOR STANDALONE USE:
+
+- MISATTRIBUTED: the downstream text cites the audited source for a claim that
+  source cannot support.
+- ATTRIBUTED ELSEWHERE: the actual supporting source is cited correctly, and the
+  audited source is not assigned the unsupported claim.
+
+Rules:
+
+1. Never report a verification state above what was actually checked.
+2. Evidence type and verification state are separate axes; report both.
+3. FULL-TEXT-CONFIRMED and RECEPTION-CONFIRMED may both apply.
+4. Apply the ladder symmetrically to sources supporting and opposing the claim.
+5. A PROVISIONAL source or network metric may not anchor a MAJOR or FATAL finding.
+
+FAILURE LOCATION — where the failure actually lives:
+
+- PAPER: the foundational source itself overclaims or rests on inadequate evidence.
+- CITATION: later literature inflates, launders, or recycles the claim.
+- PR / MEDIA: communications or coverage strip caveats or broaden the claim.
+- MODEL / RETRIEVAL: summarizers or search systems reproduce the inflated version.
+- MIXED: more than one layer contributes; specify which layer contributes what.
+
+Attacking a defensible paper for downstream inflation is a category error. Classify
+the responsible layer honestly.
+
+-----
+
+DATA-HONESTY RULES
+
+For every quantitative estimate, state the source used:
+- Google Scholar
+- Semantic Scholar
+- OpenAlex
+- Web of Science
+- Scopus
+- CrossRef
+- manual search
+- paper bibliography
+- model estimate
+- unknown
+
+If exact data are unavailable, label the number as:
+- rough estimate
+- incomplete
+- needs verification
+- source lead only
+
+Do not present model-estimated citation counts as measured facts.
+Do not invent citation counts.
+Do not invent edge lists.
+Do not infer that a citation is supportive unless you have inspected the citing passage.
+
+RECEPTION-MODULE CONFIRMATION RULE
+
+Any load-bearing claim in this audit — hub dominance, internal-citation density,
+claim mutation, amplification or ratchet behavior, or critique non-uptake — must
+be checked against retrieved citation data before it is stated as fact. Do not
+assert it from model memory.
+
+Use the citation-reception module (OpenAlex + Semantic Scholar), together with
+direct source retrieval where available. For each load-bearing source or network
+claim:
+
+- Hub dominance and internal density (Sections A and F): confirm citation counts,
+  citing-set overlap, and network edges from retrieved data rather than estimates.
+- Claim mutation and amplification (Sections D and G): inspect citation-context
+  snippets and, where load-bearing, the full citing texts. Check whether limiting
+  language appears in early contexts and disappears downstream.
+- Critique non-uptake (Section H): confirm the critique’s citation count, whether
+  dominant-cluster papers actually cite it, and whether formal replies or
+  rebuttals exist.
+
+Apply the compact verification vocabulary:
+
+- Retrieved citation graph or citation contexts:
+  RECEPTION-CONFIRMED.
+- Metadata resolved but citing content unread:
+  LOCATED.
+- Model estimate or remembered network pattern:
+  PROVISIONAL.
+
+A claim is not RECEPTION-CONFIRMED merely because it sounds familiar. It must
+trace to an actual retrieval query. Label quantitative and reception claims in
+the output as either:
+
+- RECEPTION-CONFIRMED (retrieved via OpenAlex/S2); or
+- PROVISIONAL — not confirmed / model estimate.
+
+Citation-context snippets can establish that a formulation appears in the citing
+record, but a load-bearing claim-mutation finding should be FULL-TEXT-CONFIRMED
+where the context is ambiguous or the surrounding argument matters.
+
+NO-ASSUME-SUPPRESSION
+
+Low citation uptake of a critique has at least two explanations: the field
+marginalized valid work, or the field discounted work that did not survive
+scrutiny. Do not resolve toward suppression unless the critique’s own reception
+has been checked. Low uptake of a REBUTTED critique is expected, not evidence of
+functional closure.
+
+-----
+
+OUTPUT EXECUTION CONTRACT — REQUIRED
+
+Compliance is verifiable with `prompts/research-analysis/check-citation-network-output.py` in the repository. The checker requires unique standalone headings, checks critical order, cross-checks the Completion Ledger's presence and completion claims against the actual output, and flags headings with too little substantive content for manual review.
+
+This prompt has failed in live use by silently omitting required sections even
+when the instructions were present. Presence must therefore be inspectable, not
+assumed.
+
+EXACT-HEADING RULE
+
+Use every applicable section heading below EXACTLY as written in the output. Do
+not rename, merge, paraphrase, or bury a required section inside another section.
+
+Required analytical headings:
+
+- PRE-AUDIT CLAIM CONFIRMATION
+- SECTION A: CITATION NETWORK STRUCTURE AND CARTEL DETECTION
+- SECTION B: EVIDENCE TYPE CODING
+- SECTION C: CITATION POLARITY AND CLAIM USE
+- SECTION D: CLAIM MUTATION TRACKING
+- SECTION E: ADJACENT FIELD ENGAGEMENT / NEGLECT
+- SECTION F: HUB DEPENDENCY AND REVIEW-PAPER LAUNDERING
+- SECTION G: PATTERN RECOGNITION AND RATCHET BEHAVIOR
+- SECTION H: IGNORED CRITIQUE AND NON-UPTAKE
+- SECTION I: AUTHOR, INSTITUTION, JOURNAL, AND FUNDING CLUSTERING
+- SECTION J: FALSE-POSITIVE AND BASELINE CHECK
+- SECTION J2: THE CONCEDE TEST
+- SECTION K: CARTEL-RISK SCORING
+
+Required final-artifact headings:
+
+- ARTIFACT 1: TOP 15 CITATION SPINE TABLE
+- ARTIFACT 2: FOUNDING CLUSTER TABLE
+- ARTIFACT 3: RECENT 5-YEAR CITATION BEHAVIOR TABLE
+- ARTIFACT 4: CITATION POLARITY TABLE
+- ARTIFACT 5: CLAIM MUTATION TABLE
+- ARTIFACT 6: ADJACENT-LITERATURE NEGLECT TABLE
+- ARTIFACT 7: CRITIQUE-UPTAKE TABLE
+- ARTIFACT 8: CARTEL-RISK SCORECARD
+- ARTIFACT 9: NETWORK MAP
+- ARTIFACT 10: FINAL VERDICT
+- COMPLETION LEDGER
+- FINAL SECTION: STANDARDIZED FINDING TABLE
+
+N/A RULE
+
+A required section may be marked N/A only under its exact heading and only with a
+specific reason. Lack of convenient evidence is not by itself N/A; use the
+verification ladder and report the section as PROVISIONAL or insufficiently
+supported.
+
+NO SILENT MERGING
+
+A table or discussion may cross-reference another section, but it does not count
+as completing that section unless the exact heading appears and the section
+answers its own required questions.
+
+PRE-AUDIT CLAIM CONFIRMATION
+
+Before Section A, output the four claim-confirmation lines required above under
+the exact heading PRE-AUDIT CLAIM CONFIRMATION.
+
+SECTION A: CITATION NETWORK STRUCTURE AND CARTEL DETECTION
+
+1. What are the top 50 most-cited papers on the central claim?
+List at least the top 10-15 with:
+- citation count
+- year
+- authors
+- paper type
+- source of citation count
+- role in the literature
+
+2. Of the top 50, what percentage of citations appear internal to this set?
+That is: how many papers in the top 50 cite other papers in the top 50?
+
+3. Calculate the mutual citation rate:
+How many papers in the top 50 cite at least 3-5 other papers from the same top-50 cluster?
+
+4. Identify the founding cluster:
+Is there a small founding cluster, typically 3-8 papers, that dominates later citations?
+
+5. What percentage of total citations in the network still flow back to this founding cluster?
+
+6. In the last 5 years, what are the most-cited new papers on the claim?
+
+7. Do recent papers primarily cite:
+- the old founding cluster;
+- the main review/hub papers;
+- new independent empirical evidence;
+- adjacent-field evidence;
+- policy/guideline documents;
+- commentary or theory papers?
+
+8. Do the last 5 years show continued self-reinforcement of the original cluster, or genuine model updating?
+
+9. Is there one main review paper or synthesis paper functioning as an amplification hub?
+
+10. If yes, what does the hub do?
+- accurately preserve the limits of original studies;
+- simplify the original claims;
+- overstate the original claims;
+- convert weak evidence into a settled premise;
+- export the claim into policy, public discourse, or other fields.
+
+-----
+
+SECTION B: EVIDENCE TYPE CODING
+
+For the top 50 papers, code each paper by evidence type:
+
+- primary empirical test of the central claim
+- proxy study
+- weak proxy study
+- secondary analysis
+- review article
+- systematic review / meta-analysis
+- theoretical / conceptual paper
+- qualitative study
+- survey study
+- policy / guideline document
+- commentary / editorial
+- public-facing synthesis
+- unclear / needs source audit
+
+11. What percentage of the network’s authority rests on direct empirical tests of the central claim?
+
+12. What percentage rests on reviews, proxies, theory papers, qualitative studies, or commentary?
+
+13. How many papers directly measure the target construct at the relevant level of analysis?
+
+14. How many papers use proxy measures?
+
+15. How many papers are cited as if they answer the central claim despite measuring something narrower?
+
+16. Is the network evidence-rich or citation-rich?
+
+-----
+
+SECTION C: CITATION POLARITY AND CLAIM USE
+
+A citation is not automatically supportive. For each major citation, classify citation polarity:
+
+- supportive citation
+- neutral/background citation
+- critical citation
+- perfunctory citation
+- inflated citation
+- used as premise
+- unclear without full text
+
+17. For the top 15 papers, classify how they cite the founding cluster.
+
+18. What percentage of citations to the founding cluster are supportive or premise-building rather than critical?
+
+19. What percentage are merely background citations?
+
+20. Are there any serious critical citations inside the dominant network?
+
+21. If critiques exist, are they engaged substantively or cited and dismissed?
+
+22. Does the network preserve the original limitations of key studies, or drop the limitations and retain only the conclusion?
+
+-----
+
+SECTION D: CLAIM MUTATION TRACKING
+
+Citation laundering often occurs because claims mutate as they move downstream.
+
+Track the main claim across the citation chain:
+
+Original study claim -> first review restatement -> downstream paper claim -> public/policy claim
+
+23. What did the original source actually claim?
+
+24. What did the first major review or hub paper say the original source showed?
+
+25. How do later papers restate the review?
+
+26. Does a narrow finding become generalized?
+
+27. Does “evidence consistent with X” become “X is established”?
+
+28. Does “no effect in one proxy task” become “no meaningful difference in the real-world construct”?
+
+29. Do caveats disappear after one or two citation steps?
+
+30. Does the claim become stronger through repetition than it was in the original methods?
+
+Create a claim-mutation table:
+
+Original source | Original measured claim | Hub-paper restatement | Downstream restatement | Mutation severity | Notes
+
+Mutation severity:
+- none
+- minor simplification
+- moderate inflation
+- major inflation
+- premise laundering
+
+-----
+
+SECTION E: ADJACENT FIELD ENGAGEMENT / NEGLECT
+
+31. Identify the most relevant adjacent fields or literatures with direct expertise on the same phenomenon.
+
+Examples:
+- psychometrics
+- sports science
+- neuroscience
+- cognitive psychology
+- behavioral genetics
+- economics
+- clinical medicine
+- epidemiology
+- education measurement
+- labor economics
+- criminology
+- statistics / measurement theory
+- domain-specific practitioner literature
+
+32. What are the most important findings from those adjacent fields?
+
+33. Do those findings support, complicate, or contradict the central claim?
+
+34. What percentage of papers in the dominant cluster cite these adjacent literatures?
+
+35. What percentage engage them substantively rather than mentioning them in passing?
+
+36. Are there obvious canonical adjacent-field sources that should appear but do not?
+
+37. Does the dominant literature cite adjacent fields selectively, only when they support the preferred claim?
+
+38. Does the dominant literature treat adjacent-field evidence as irrelevant without explaining why?
+
+39. Are there practitioners or domain experts whose knowledge would identify obvious confounds that the literature ignores?
+
+Create an adjacent-literature neglect table:
+
+Adjacent field | Canonical sources | Why relevant | Cited by dominant cluster? | Engagement quality | Effect of omission
+
+Engagement quality:
+- not cited
+- cited in passing
+- selectively cited
+- substantively engaged
+- directly tested against
+- dismissed without engagement
+
+Effect of omission:
+- minor context loss
+- moderate weakness
+- major evidentiary gap
+- fatal omission for the strong claim
+
+-----
+
+SECTION F: HUB DEPENDENCY AND REVIEW-PAPER LAUNDERING
+
+40. Identify the main hub paper or review article.
+
+41. What percentage of recent papers cite the hub?
+
+42. What percentage cite the original primary studies directly?
+
+43. What percentage cite the hub instead of inspecting the underlying evidence?
+
+44. Does the hub accurately represent the original studies’ methods and limits?
+
+45. Does the hub simplify or overstate the original evidence?
+
+46. Does the hub cite adjacent literatures?
+
+47. Does the hub become the field’s substitute for direct empirical evidence?
+
+Calculate a hub-dependency summary:
+
+Hub paper | Recent papers citing hub | Recent papers citing primary evidence directly | Adjacent-field citation rate | Hub accuracy | Hub risk
+
+Hub risk:
+- low
+- moderate
+- high
+- laundering hub
+
+-----
+
+SECTION G: PATTERN RECOGNITION AND RATCHET BEHAVIOR
+
+48. Does the literature treat proxy measures as equivalent to the actual construct?
+
+49. Does it export findings from low-stakes, lab, amateur, convenience, or administrative settings to explain elite, real-world, professional, or long-term outcomes?
+
+50. Has the field ignored natural experiments or long-running interventions that test its predictions?
+
+51. When predictions fail, does the field update the model?
+
+52. Or does the field expand the intervention and reinterpret failure as evidence that more intervention is needed?
+
+53. Does the field specify falsification criteria?
+
+54. Does the field identify what evidence would change its conclusion?
+
+55. Does the intervention improve the measured metric while leaving the underlying construct unmeasured or unimproved?
+
+56. Does the citation network reward papers that expand the premise more than papers that test it?
+
+-----
+
+SECTION H: IGNORED CRITIQUE AND NON-UPTAKE
+
+57. Identify serious critiques, failed replications, natural experiments, practitioner objections, or contrary reviews.
+
+58. Are these critiques cited by the dominant cluster?
+
+59. If cited, are they:
+- engaged;
+- dismissed;
+- minimized;
+- reframed as ideological;
+- ignored after citation;
+- treated as settled against despite unresolved issues?
+
+60. Did the citation network update after the critique appeared?
+
+61. Did recent papers incorporate the critique into methods or continue citing the old premise unchanged?
+
+62. Are practitioner or domain-expert warnings visible in forums, trade publications, professional debates, or community spaces?
+
+63. If yes, did those warnings affect the academic citation network?
+
+Create a critique-uptake table:
+
+Critique / contrary evidence | Year | Source type | Main objection | Cited by dominant cluster? | Uptake status | Effect
+
+Uptake status:
+- ignored
+- cited but not engaged
+- dismissed
+- partially incorporated
+- materially changed the field
+- unknown
+
+-----
+
+SECTION I: AUTHOR, INSTITUTION, JOURNAL, AND FUNDING CLUSTERING
+
+64. Are the same authors or coauthors recurring across the founding cluster?
+
+65. Are the same journals, conferences, departments, labs, or institutions recurring?
+
+66. Are the same funding sources, NGOs, advocacy organizations, government agencies, or policy bodies recurring?
+
+67. Does the intellectual network overlap with a social, institutional, funding, or policy network?
+
+68. Are dissenting papers published in the same venues, or pushed to peripheral venues?
+
+69. Does gatekeeping appear explicit, or is the closure functional?
+
+70. Are there signs of ideological or policy alignment that shape what gets cited?
+
+Classify closure type:
+- normal small-field clustering
+- author-network clustering
+- journal/conference clustering
+- funding/policy clustering
+- theoretical-framework clustering
+- advocacy-network clustering
+- functional citation closure
+- explicit gatekeeping
+- insufficient evidence
+
+-----
+
+SECTION J: FALSE-POSITIVE AND BASELINE CHECK
+
+Dense citation is not always a cartel. Some fields are small. Some topics naturally have a few canonical papers.
+
+71. Is this field small enough that dense internal citation would be expected?
+
+72. Compare the target network with a healthier adjacent subfield of similar size.
+Is the internal citation rate unusually high?
+
+73. Does the target field show less engagement with adjacent expertise than comparable fields?
+
+74. Are researchers citing each other because they are the only people studying the question, or because they are excluding relevant outside evidence?
+
+75. Does the founding cluster rest on strong primary empirical evidence?
+
+76. Are the central claims directly tested repeatedly by independent groups?
+
+77. Are limitations preserved downstream?
+
+78. Are failed predictions acknowledged?
+
+79. Are critics cited and engaged?
+
+80. Does the field have a clear mechanism for updating?
+
+If the answer to these is mostly yes, do not call it a cartel.
+Call it a small but active literature.
+
+-----
+
+SECTION J2: THE CONCEDE TEST
+
+Run this on every proposed network finding before scoring Section K or choosing
+the final formal label.
+
+For each finding, ask:
+
+IF THIS FINDING WERE FULLY CONCEDED — granted entirely, with no argument — WOULD
+THE CLAIM NAMED IN MAP FIELD 6 STILL STAND?
+
+- SURVIVES: the audited claim still stands. The observation may be a real network
+  limitation, but it cannot anchor a high-risk verdict.
+- NARROWS: the claim survives only in smaller epistemic scope — for example, the
+  underlying proposition may remain possible, but the literature has not
+  established it through the degree of independence or convergence claimed.
+- DEFEATS: the map-field-6 claim does not follow. This is load-bearing.
+
+Create a table:
+
+| Finding | Concede test: SURVIVES / NARROWS / DEFEATS | Surviving claim if NARROWS |
+|---|---|---|
+
+NETWORK-SPECIFIC SCOPE RULE
+
+Apply the test to the exact wording of field 6:
+
+- If field 6 is an epistemic claim such as “independent converging evidence has
+  established X,” verified dependence, laundering, or absent direct tests can
+  NARROW or DEFEAT that claim.
+- If field 6 is the bare real-world proposition “X is true,” a citation network
+  usually cannot defeat the proposition by itself. It can show that the cited
+  literature does not establish X. Do not silently convert an evidentiary failure
+  into a truth verdict.
+
+SCOPE-LOSS ASSESSMENT — REQUIRED FOR EVERY NARROWS RESULT
+
+- INCIDENTAL NARROWING: the evidentiary claim remains substantially intact after a
+  small precision or boundary correction.
+- MATERIAL NARROWING: the asserted consensus, independence, breadth, or certainty
+  is meaningfully reduced, while a weaker evidentiary claim survives.
+- NEAR-DEFEAT NARROWING: only a trivial or practically different remainder
+  survives. Reclassify as DEFEATS when it no longer supports the use under audit.
+
+For each NARROWS result, add:
+
+| Finding | Scope-loss level | Original claim | Surviving claim | What epistemic or practical work is lost? |
+|---|---|---|---|---|
+
+SCORING AND LABEL MAPPING
+
+- A SURVIVES finding may not justify a dimension score of 3 or anchor the final
+  formal label.
+- A verified MATERIAL NARROWING finding may justify a serious-concern score where
+  the dimension warrants it.
+- A score of 3 or a DEFEATS finding requires adequately verified evidence.
+- A PROVISIONAL metric or model-estimated network pattern may not independently
+  anchor “functional citation cartel,” “functionally closed citation network,” or
+  another MAJOR/FATAL finding.
+- Do not sum duplicated manifestations of the same source dependence as if they
+  were independent failures.
+
+Do not use this test to suppress genuine network weaknesses. Report SURVIVES
+findings, but calibrate their severity and role in the verdict.
+
+-----
+
+SECTION K: CARTEL-RISK SCORING
+
+Score each dimension from 0 to 3.
+
+0 = no concern
+1 = mild concern
+2 = serious concern
+3 = severe concern
+
+Dimensions:
+
+1. Founding-cluster dominance:
+0 / 1 / 2 / 3
+
+2. Internal citation density:
+0 / 1 / 2 / 3
+
+3. Recent-paper dependence on old cluster:
+0 / 1 / 2 / 3
+
+4. Review-hub laundering:
+0 / 1 / 2 / 3
+
+5. Proxy-to-construct mismatch:
+0 / 1 / 2 / 3
+
+6. Claim mutation downstream:
+0 / 1 / 2 / 3
+
+7. Adjacent-field neglect:
+0 / 1 / 2 / 3
+
+8. Lack of decisive tests:
+0 / 1 / 2 / 3
+
+9. Poor critique uptake:
+0 / 1 / 2 / 3
+
+10. Intervention ratchet / model non-updating:
+0 / 1 / 2 / 3
+
+Total score:
+[0-30]
+
+Interpretation:
+0-6 = healthy or low-risk citation network
+7-12 = normal field clustering with some weaknesses
+13-18 = self-referential literature with significant blind spots
+19-24 = high-risk citation laundering network
+25-30 = functional citation cartel / structurally closed consensus
+
+Do not use the final label without explaining which dimensions drive the score.
+
+SCORING DISCIPLINE
+
+- State the verification state for every dimension scored 2 or 3.
+- A PROVISIONAL metric or model-estimated pattern may not independently receive a
+  score of 3.
+- A SURVIVES finding may not anchor a score of 3.
+- Consolidate overlapping manifestations of the same source dependence rather
+  than scoring the same failure repeatedly under different labels.
+- The final formal label must agree with the Concede Test and the verification
+  state of the dimensions that drive the total.
+
+-----
+
+RED FLAGS
+
+Strong evidence of a functionally closed citation network:
+
+- Top 50 papers show >60-70% internal citation density.
+- Recent papers continue to heavily cite the same small founding cluster.
+- Main review/hub paper is cited more often than original primary evidence.
+- Adjacent fields with relevant expertise are cited at very low rates, especially below 10-15%.
+- Contradictory evidence from adjacent fields is ignored or dismissed without engagement.
+- Original limitations disappear downstream.
+- A weak or narrow finding becomes stronger through repetition.
+- The original premise is treated as settled fact rather than a testable hypothesis.
+- The decisive test has not been run.
+- Failed predictions do not trigger model revision.
+- Critics are pathologized or ignored rather than engaged.
+
+-----
+
+GREEN FLAGS
+
+Signs of a healthier field:
+
+- Diverse citation sources beyond a small cluster.
+- Regular substantive engagement with adjacent literatures.
+- New papers build on fresh evidence rather than recycling the founding cluster.
+- Primary empirical tests outnumber reviews/theory papers in load-bearing positions.
+- Limitations are preserved downstream.
+- Critical papers are cited and engaged.
+- Falsification criteria are specified.
+- Natural experiments and failed predictions cause model updating.
+- Interventions are evaluated against the underlying construct, not only the preferred metric.
+
+-----
+
+REQUIRED FINAL OUTPUTS
+
+Produce every artifact below under its exact heading.
+
+ARTIFACT 1: TOP 15 CITATION SPINE TABLE
+
+Columns:
+
+Rank | Paper | Year | Citation count | Evidence type | Role in network | Source of citation count
+
+ARTIFACT 2: FOUNDING CLUSTER TABLE
+
+Columns:
+
+Paper | Year | Claim introduced | Evidence type | Verification state | Later role | Risk
+
+ARTIFACT 3: RECENT 5-YEAR CITATION BEHAVIOR TABLE
+
+Columns:
+
+Recent paper | Year | Verification state | Cites founding cluster? | Cites hub? | Cites adjacent fields? | New evidence or recycling?
+
+ARTIFACT 4: CITATION POLARITY TABLE
+
+Columns:
+
+Citing paper | Cited paper | Verification state | Citation polarity | Claim use | Inflation risk
+
+ARTIFACT 5: CLAIM MUTATION TABLE
+
+Columns:
+
+Original source | Original claim | Verification state | Hub restatement | Downstream restatement | Mutation severity
+
+ARTIFACT 6: ADJACENT-LITERATURE NEGLECT TABLE
+
+Columns:
+
+Adjacent field | Canonical source | Verification state | Relevance | Cited? | Engagement quality | Omission severity
+
+ARTIFACT 7: CRITIQUE-UPTAKE TABLE
+
+Columns:
+
+Critique / contrary evidence | Year | Source type | Verification state | Cited? | Uptake status | Effect on consensus
+
+ARTIFACT 8: CARTEL-RISK SCORECARD
+
+Dimensions:
+
+- Founding-cluster dominance
+- Internal citation density
+- Recent-paper dependence
+- Review-hub laundering
+- Proxy mismatch
+- Claim mutation
+- Adjacent-field neglect
+- Lack of decisive tests
+- Poor critique uptake
+- Intervention ratchet
+
+ARTIFACT 9: NETWORK MAP
+
+Provide either:
+
+- a simple edge list suitable for Gephi, Cytoscape, Mermaid, or manual
+  visualization; or
+- a clean image-generation prompt for a citation-network map.
+
+COMPLETION LEDGER
+
+Complete this after Artifacts 1–9 and immediately before Artifact 10.
+
+For each required heading, state whether it appears in the output and whether it
+was completed, validly marked N/A, or omitted.
+
+| Required heading | Exact heading present? | Status: completed / N/A / omitted | Reason or output location |
+|---|---|---|---|
+
+MECHANICAL CHECK
+
+Do not mark a heading present unless that exact heading appears verbatim elsewhere
+in the output. This is a presence claim, not a judgment call, and the human may
+verify it by text search.
+
+COMPLETION GATE
+
+If any applicable analytical section or Artifact 1–9 is omitted:
+
+1. Write:
+   "INCOMPLETE RUN — REQUIRED SECTION OMITTED: [heading(s)]."
+2. Do not issue Artifact 10's substantive verdict, cartel-risk label, or confidence
+   level.
+3. In Artifact 10, write only:
+   "WITHHELD — completion gate failed."
+4. Do not allow the standardized finding table to imply a completed audit.
+
+If the ledger itself is omitted, the run fails the execution test.
+
+-----
+
+ARTIFACT 10: FINAL VERDICT
+
+Do not issue this artifact until the analytical sections and Artifacts 1–9 have
+been completed or validly marked N/A and the COMPLETION LEDGER has been completed.
+
+The ledger is the pre-verdict check. If it identifies an omission, follow the
+COMPLETION GATE and withhold the substantive verdict.
+
+Report:
+
+- Main founding cluster:
+- Main amplification hub:
+- Main proxy problem:
+- Main adjacent fields neglected:
+- Main claim mutation:
+- Most important ignored critique:
+- Decisive test missing:
+- Cartel-risk score:
+- Load-bearing finding(s):
+- Concede-test result:
+- Failure location:
+- Best formal label:
+- Confidence level:
+- What evidence would change this assessment:
+
+Confidence levels:
+
+- Low
+- Moderate
+- High
+
+Best formal label options:
+
+- healthy citation network
+- normal small-field clustering
+- self-referential citation cluster
+- citation-laundering network
+- premise-laundering hub
+- functionally closed citation network
+- functional citation cartel
+- insufficient evidence
+
+REMINDER
+
+Do not call something a cartel merely because researchers cite each other.
+Do not call something a cartel merely because the field is small.
+Do not call something a cartel because you disagree politically with the conclusion.
+
+The strongest accusation is not:
+“They cite each other.”
+
+The strongest accusation is:
+“A small cluster repeatedly cites itself supportively, preserves an untested premise, drops original limitations, neglects adjacent fields with direct expertise, fails to run the decisive test, and continues to shape recent papers despite contrary evidence.”
+
+That is the cartel signature.
+
+Start with suspicion if that is where the anomaly appeared.
+Finish with receipts.
+
+-----
+
+FINAL SECTION: STANDARDIZED FINDING TABLE
+
+This summarizes the findings already produced above. It does not replace the
+detailed network tables. It is the inspectable layer read by the human adjudicator
+and the counter-audit.
+
+You are a one-directional prosecutor, and that is correct. An aggressive
+prosecutor still produces receipts. The two falsifiability fields are mandatory:
+naming what would undercut a finding does not weaken it; it makes it checkable.
+
+One row per finding:
+
+| Field | Entry |
+|---|---|
+| Finding | One sentence |
+| Target claim | Claim map field 6 |
+| What was measured | Citation graph, citing contexts, source texts, or other network evidence actually inspected |
+| What was claimed | Network, consensus, independence, mutation, or uptake inference |
+| Failure mode | source dependence / hub laundering / claim mutation / adjacent-field neglect / critique non-uptake / closure / other taxonomy above |
+| Severity | none / minor / moderate / major / fatal-for-strong-claim |
+| Concede test | SURVIVES / NARROWS / DEFEATS |
+| Scope loss if NARROWS | incidental / material / near-defeat, plus surviving claim |
+| Evidence | Graph query, edge list, citation context, passage, table, or source text |
+| Evidence type | primary study / replication / meta-analysis / methodological critique / policy document / practitioner / journalism / commentary / theoretical / author inference |
+| Verification state | From the compact vocabulary |
+| Possible innocent explanation | MANDATORY — strongest non-damning reading; if none, write “none identified” |
+| What would weaken this | MANDATORY — specific evidence that would undercut it |
+| Failure location | PAPER / CITATION / PR-MEDIA / MODEL-RETRIEVAL / MIXED |
+| Status | confirmed / contested / provisional |
+
+RULES
+
+1. A finding missing either mandatory falsifiability field is not inspectable and
+   may not be rated MAJOR or FATAL.
+2. Severity must agree with verification state. A PROVISIONAL finding cannot be
+   MAJOR or FATAL.
+3. A SURVIVES finding cannot be MAJOR or FATAL and may not anchor the final label.
+4. A NARROWS finding must state the surviving claim and scope-loss level.
+5. Target claim must match field 6 of the shared Claim Map. Use MAP GAP rather
+   than silently substituting another claim.
+6. Quantitative and reception claims must preserve their retrieval status. A
+   model-estimated metric remains PROVISIONAL.
+7. If no findings of consequence were produced, say so plainly and submit an
+   empty table with a one-line statement. A prosecutor that never returns
+   “nothing of consequence here” is not measuring anything.
+8. If the Completion Gate failed, state that the run is incomplete. Do not present
+   the table as a completed audit and do not include a substantive final label.
