@@ -1,0 +1,200 @@
+Claude’s correction is right, and it improves the architecture audit materially.
+
+The biggest change is that this is no longer just a list of ten prompt defects. It reveals three different classes of failure:
+
+1. Audit-trail corruption — provenance gets rewritten by a later sufficiency judgment.
+2. Stage-contract failure — a stage lacks the inputs or ownership needed to perform what it is asked to do.
+3. Execution failure — the prompt contains the rule, but the model does not run it.
+
+The third category has to be addressed first, because a perfectly designed section that is routinely skipped is functionally nonexistent.
+
+Revised priority
+
+1. Fix the citation-network compliance gap
+
+Before adding more substantive rules to that prompt, determine why whole required blocks disappeared from the output.
+
+Possible causes differ:
+
+* The model lost section salience in a very long prompt.
+* The output hit a practical length limit.
+* The model silently treated sections as optional.
+* Later instructions displaced earlier ones.
+* The requested output structure did not require visible evidence that each section ran.
+
+The cleanest repair is an execution ledger, not another reminder paragraph.
+
+At the beginning of the output:
+
+REQUIRED-SECTION LEDGER
+| Section | Applicable? | Completed? | Output location |
+|---|---|---|---|
+
+At the end:
+
+COMPLETION GATE
+List every required section.
+A section may be marked N/A only with a reason.
+If any applicable section is missing, do not issue the final verdict.
+State: INCOMPLETE RUN — REQUIRED SECTION OMITTED.
+
+Also require exact section headings in the output. That makes compliance inspectable from RESULTS.md without rereading the entire audit.
+
+I would test this first on a deliberately small citation-network case. If sections still disappear, it is a prompt-compliance defect. If they appear on the small case but disappear on a large one, the problem is probably output burden, and the prompt may need staged or compressed execution rather than stronger wording.
+
+2. Separate provenance from anchor eligibility
+
+Claude is exactly right about the severity of #3.
+
+SUPPLIED, RETRIEVED, and RECALLED are historical facts about how material entered the audit. They must never be rewritten merely because the material fails a later evidentiary threshold.
+
+The architecture should be:
+
+Provenance state:
+  SUPPLIED / RETRIEVED / RECALLED / NONE FOUND
+Anchor eligibility:
+  ELIGIBLE / NOT ELIGIBLE — quotation missing / locator missing /
+  attribution not cross-source-confirmed
+
+For example:
+
+SUPPLIED — NOT ANCHOR-ELIGIBLE: locator missing.
+
+not:
+
+RECALLED
+
+The latter falsifies the audit trail. This should probably become a general primitive:
+
+Later evaluation may change weight, status, or eligibility. It may not rewrite provenance.
+
+That principle will apply elsewhere too—such as a retrieved critique later found rebutted. It remains retrieved; its evidentiary weight changes.
+
+3. Redesign the counter-audit input contract once, with multi-claim support
+
+Claude is also right that adding internal validity now and claim IDs later would edit the same seam twice.
+
+The counter-audit input redesign should happen as one change:
+
+* Claim Map, including Claim Inventory.
+* Construct-validity output.
+* Internal-validity output.
+* Citation-network output.
+* Every standardized finding row carries a stable Claim ID.
+* G2 checks each finding against its declared Claim ID.
+* Field 6 remains the selected claim for the current run, but the contract no longer assumes that every inherited finding necessarily concerns only one unnamed claim.
+
+The key distinction should be:
+
+Claim selected for this run:
+  Field 6 / Claim ID
+Claim actually addressed by finding:
+  Finding-table Claim ID
+Match:
+  yes / partial / no / map gap
+
+This prevents a prosecutor from formally naming Field 6 while substantively drifting to another claim.
+
+4. Move cross-prosecutor compounding into the counter-audit
+
+Removing Section J from internal validity is still right. Claude’s destination is better.
+
+The counter-audit has all three prosecutor outputs and is therefore the first model stage capable of asking whether findings compound.
+
+I would add a section after G2:
+
+G3. CROSS-PROSECUTOR COMPOUNDING
+For findings concerning the same Claim ID, determine whether they are:
+- INDEPENDENT — separate evidentiary failures that genuinely compound;
+- CORRELATED — different descriptions of the same underlying defect;
+- NESTED — one finding is evidence for another;
+- NON-COMBINABLE — concern different claims, layers, or inferential steps.
+Do not add severities mechanically.
+Where findings are correlated or nested, merge them into one compound finding
+rather than counting them repeatedly.
+
+Then the example becomes:
+
+A non-preregistered result with p-hacking indicators that disappears across defensible specifications is not three independent minor findings. It is one compound internal-validity finding that the reported result may be pipeline-dependent.
+
+But the reverse safeguard matters just as much:
+
+A proxy mismatch and a low-powered robustness check do not automatically compound if they concern different claims or different outcomes.
+
+Without that rule, “compounding” can become a new severity-inflation mechanism.
+
+5. Add the E0 applicability gate
+
+This is an uncomplicated and necessary repair:
+
+E0 applies only to findings whose substance could be answered by the audited
+source’s own text.
+Mark as N/A — NOT SOURCE-ANSWERABLE:
+- later citation uptake
+- hub dominance
+- downstream mutation
+- post-publication reception
+- critique non-uptake
+- later institutional use
+Do not include N/A rows in the DEFEATED / NARROWED / RECHARACTERIZED /
+UNAFFECTED residual counts.
+
+That keeps E0 from looking like a failed search when the finding is temporally impossible for the source to answer.
+
+6. Repair the Claim Map handoff summary
+
+The final summary should preserve the component-specific provisional logic:
+
+WITHIN-SOURCE INFLATION:
+  [paper / none apparent] — [verification state]
+DOWNSTREAM INFLATION:
+  [citation / PR-media / model / mixed / suspected / none established]
+  — [provenance and verification state]
+
+A single “FAILURE LOCATION (provisional)” line no longer fits the architecture.
+
+7. Add the voice-restoration stage boundary
+
+This remains important and low-cost:
+
+Run voice restoration only on the human-adjudicated synthesis or on text whose evidentiary decisions have already been resolved. Do not run it on raw prosecutor or counter-audit output. Voice restoration may tighten accepted conclusions; it may not decide which findings survive.
+
+That prevents the final stylistic stage from accidentally becoming an adjudicator.
+
+On NONE FOUND
+
+The model’s spontaneous correction is good evidence that the existing definition is too strong.
+
+Use:
+
+NONE FOUND — no qualifying item located within the stated searches.
+
+Then require:
+
+Search scope:
+Databases, queries, date limits, citation paths, and documents checked.
+
+It should support:
+
+No downstream use was established in the checked material.
+
+It should not support:
+
+No downstream use exists.
+
+That preserves NONE FOUND as meaningful evidence without turning finite retrieval into proof of universal absence.
+
+Updated order of work
+
+I would now sequence the architecture repairs as:
+
+1. Citation-network execution/compliance gate.
+2. Provenance versus anchor-eligibility separation.
+3. Counter-audit contract plus multi-claim Claim IDs.
+4. Move compounding logic into counter-audit G3.
+5. E0 applicability gate.
+6. Claim Map component-level handoff summary.
+7. Voice-restoration stage boundary.
+8. Remaining table vocabulary, scope-fence, and NONE FOUND cleanup.
+
+Claude’s response also confirms something encouraging: the architecture review is now producing independent convergence. The same defects are being found from different directions, and the disagreements are mostly about where the repair belongs—not whether the underlying failure is real. That is exactly what a useful multi-model adversarial process should look like.
