@@ -1,0 +1,553 @@
+PRE-AUDIT CLAIM CONFIRMATION
+
+- Claim under audit: The post-2015 citation network materially updated and narrowed the original power-posing package rather than preserving it through a closed review-hub consensus.
+- Foundational measurement: brief expansive versus contractive poses; immediate self-report, one risk choice and salivary hormones in a small laboratory sample.
+- Weaker defensible claim: small self-reported or affective effects may occur under some conditions; broad hormonal, behavioral and practical benefits are inconsistent or not robust.
+- Target layer: downstream citation, synthesis and model updating.
+- Packet boundary: 26 supplied sources and 70 selected edges; no external source discovery.
+
+SECTION A: CITATION NETWORK STRUCTURE AND CARTEL DETECTION
+
+The supplied graph contains 26 sources and 70 selected directed citation edges. Its density is 10.8% across every possible directed pair and 21.5% across the chronological upper triangle. Those figures indicate a substantially connected bounded controversy, but density alone cannot distinguish active engagement from premise repetition.
+
+P1 is the dominant original node with bounded in-degree 18. P4, the large failed-or-narrowing replication, has in-degree 8. The main later synthesis nodes P16 and P19 each have in-degree 6. The early author review P5 has in-degree 5. This ordering matters: the graph is not organized solely around the author review. The original, the major replication, multiple critiques and multiple later syntheses all remain visible.
+
+The founding cluster P1-P5 receives 36/70 edges (51.4%). That is high enough to require a dependence check, but it is not evidence of closure by itself. There are zero reciprocal citation pairs in the selected graph. More importantly, later sources cite across supportive, null and corrective branches rather than forming a one-polarity enclave.
+
+13 post-foundation sources cite at least three packet sources. The densest later papers are reviews and meta-analyses that explicitly compare conflicting findings. Their internal density therefore partly measures controversy engagement rather than social closure.
+
+Bounded conclusion: central founding dependence exists, but functional closure, blocked dissent and circular premise dependence are not established.
+
+SECTION B: EVIDENCE TYPE CODING
+
+The packet contains a mixed evidence ecology rather than a review-only literature.
+
+Direct experiments, replications, extensions and reanalyses include P1-P4, P6-P7, P10, P12-P14, P17, P20-P26. Reviews, p-curves, commentaries and meta-analyses include P5, P8-P9, P11, P15-P16, P18-P19.
+
+The review/synthesis share is high enough to create a laundering risk, especially because positive and negative meta-analytic conclusions coexist. That risk is reduced by the presence of direct replications, multiverse analysis, preregistration, neutral-control designs, ecologically oriented interaction tests and later mechanism-focused work.
+
+The construct is also decomposed over time:
+
+- self-reported felt power or self-evaluation;
+- general affect;
+- risk behavior;
+- negotiation and adaptive action;
+- cognitive-control performance;
+- testosterone, cortisol and other hormones;
+- real-world daily behavior;
+- physical and neural mechanisms.
+
+A citation that treats evidence for any one of these as evidence for the entire original package would commit proxy-to-construct inflation. Later sources increasingly avoid that move.
+
+SECTION C: CITATION POLARITY AND CLAIM USE
+
+Citation polarity is visibly contested.
+
+Supportive or partially supportive routes include P2, P3, P5, P9, P11, P17, P21, P22 and P26. Null, narrowing or critical routes include P4, P6-P8, P10, P12-P14, P20, P23-P25. P15, P16, P18 and P19 synthesize or contest both sides.
+
+Critical sources are not isolated from central publication venues. The original, major replication, p-curve critique and reply appeared in Psychological Science. Preregistered null work and ecological tests appeared in Social Psychological and Personality Science. Meta-analysis, commentary and later synthesis appeared in major review outlets.
+
+The negative p-curve P8 received a direct positive reply P11. The 2020 meta-analysis P16 received the methodological commentary P18 and was followed by P19. This is evidence of argument uptake, not merely citation presence.
+
+The packet therefore contains both supportive and critical citation use, with later sources using citations to separate outcome classes and methods rather than to repeat one settled premise.
+
+SECTION D: CLAIM MUTATION TRACKING
+
+The strongest mutation occurs between the original package and the later outcome-specific literature.
+
+P1 joined felt power, risk, testosterone, cortisol and actionable implications. P2 and P3 expanded posture claims into action, abstraction and interview performance. P5 synthesized a broad embodied-effects literature.
+
+P4 then separated felt power from hormones and risk. P6, P7, P12-P14 and P24 supplied additional null or mixed behavioral and hormonal results. P8 and P10 challenged evidential and analytic robustness. P9 and P11 disagreed over the self-report evidence rather than restoring the full original package.
+
+P15-P19 formalized the decomposition: self-report and some affective outcomes were more defensible than physiology, while behavior depended on contrast type, publication bias, outliers, demand and theoretical classification.
+
+P20-P26 further fragmented the practical claim. Cognitive control did not reliably improve; personally relevant affective and approach outcomes were sometimes positive; adaptive behavior and daily action often remained null; physical mechanisms produced subtle, heterogeneous effects.
+
+The dominant academic mutation is therefore narrowing and conditionalization. Public language such as “power posing works” would erase distinctions the later research now treats as load-bearing.
+
+SECTION E: ADJACENT FIELD ENGAGEMENT / NEGLECT
+
+The packet engages several adjacent literatures that alter interpretation:
+
+1. Open science and statistical robustness: preregistration, Bayesian analysis, p-curve, multiverse analysis, publication-bias correction and sensitivity analysis.
+2. Demand characteristics and hypothesis awareness: P9, P11, P12, P17, P19 and later mechanism studies examine whether explicit awareness changes self-report effects.
+3. Dominance-prestige theory: P15, P18 and P19 distinguish expansive dominance poses from upright or prestigious posture.
+4. Ecological validity: P3, P12, P21, P23 and P25 test interviews, dyadic interaction, personally relevant action and daily behavior.
+5. Motor and cognitive mechanisms: P20, P22 and P26 test cognitive control, action selection and physical mediators.
+
+The network does not simply cite embodiment theory and ignore relevant methods. Adjacent evidence repeatedly changes control conditions, outcome definitions and mechanism claims.
+
+No load-bearing adjacent-field neglect is established within the supplied packet.
+
+SECTION F: HUB DEPENDENCY AND REVIEW-PAPER LAUNDERING
+
+Hub test 1 — P5, the early author review:
+
+P5 is an amplification hub because it assembled 33 experiments and defended a broad embodied-effects framing. Removing P5 and every incident edge leaves 61 of 70 supplied edges. The remaining graph still includes P1, P4, preregistered null P6, hormone-context test P7, negative p-curve P8, felt-power meta-analysis P9, multiverse reanalysis P10, ecological nulls P12, repeated hormone null P13, risk replication P14, and all later reviews and studies.
+
+The bounded conclusion does not flip. P5 amplified the early package but is not necessary to reconstruct the later mixed evidence.
+
+Hub test 2 — P16, the 2020 systematic review and meta-analysis:
+
+Removing P16 and every incident edge leaves 59 of 70 supplied edges. P15 remains as an independent review. P18 remains as methodological criticism. P19 remains as a later preregistered meta-analysis. P20-P26 continue to test specific cognitive, affective, behavioral, hormonal and mechanistic outcomes.
+
+Again, the conclusion does not flip. The later network is not dependent on P16 as a single authoritative laundering node.
+
+P19 is the largest later synthesis hub, but its claims are also checked by post-2022 primary studies. Review density is real; review substitution for all primary evidence is not established.
+
+SECTION G: PATTERN RECOGNITION AND RATCHET BEHAVIOR
+
+The early theory invited a ratchet: if hormones failed, self-report, presence, behavior or context-specific outcomes could be used to preserve a broad “power posing” label.
+
+The later record does not fully follow that path. Instead, failed predictions produce visible decomposition:
+
+- hormonal claims are mostly abandoned or treated as mixed and exploratory;
+- risk and negotiation claims are tested directly and often fail;
+- self-report effects survive more often but are qualified by awareness and demand;
+- expansive-versus-contractile comparisons are separated from expansive-versus-neutral tests;
+- practical outcomes are tested in interviews, dyads, personally relevant tasks and daily life;
+- mechanism work shifts toward subtle physical mediators rather than claiming instant general power.
+
+Some positive studies continue to use broad terminology, so rhetorical ratchet risk remains. The evidence model itself, however, increasingly distinguishes what survived from what did not.
+
+SECTION H: IGNORED CRITIQUE AND NON-UPTAKE
+
+Major corrective sources receive observable uptake:
+
+- P4 becomes a central bounded node and is cited by preregistered studies, reviews and meta-analyses.
+- P6 enters later review and synthesis work as preregistered null evidence.
+- P8 triggers the direct reply P11 and is incorporated into P15, P16 and P19.
+- P10's analytic-sensitivity concern is reflected in later bias and robustness analyses.
+- P12's ecological and dyadic nulls enter independent review and meta-analysis.
+- P13 and P14 strengthen the null hormonal and risk branches.
+- P18 directly critiques P16's study selection and theoretical classification.
+- P20's cognitive-control null and P23-P25's practical nulls further limit generalization.
+
+Critique uptake is not perfect or instantaneous. Positive and negative syntheses still disagree about study inclusion and contrast choice. But disagreement is documented and later methods respond to it.
+
+No suppression or systematic non-uptake finding is supported by the supplied graph.
+
+SECTION I: AUTHOR, INSTITUTION, JOURNAL, AND FUNDING CLUSTERING
+
+The early positive cluster contains recurring authors across P1, P3 and P5, and P11 contains one of the central proponents. The later German review and meta-analysis cluster recurs across P15, P17-P19. The Aarhus practical-action cluster recurs across P16, P21, P23 and P25.
+
+Those clusters require caution but do not dominate the whole packet. Independent teams from Switzerland, Sweden, the United States, France, China, Germany, Denmark and Israel contribute replications, critiques and extensions.
+
+Journal gatekeeping does not appear one-directional. Central journals published the original claim, failed replication, p-curve critique, reply, preregistered nulls and later meta-analytic disagreement.
+
+Funding overlap is not established as load-bearing. Several papers report different national or institutional funders; no common advocacy sponsor is shown to organize the bounded evidence.
+
+Classification: normal collaboration and theoretical-cluster recurrence, not demonstrated institutional closure.
+
+SECTION J: FALSE-POSITIVE AND BASELINE CHECK
+
+The supplied comparator is the independent corrective and preregistered branch P4, P6-P10, P12-P14.
+
+Against that comparator, the network exhibits healthy-field signals:
+
+- direct replications and nulls are published;
+- analytic fragility is tested with p-curve and multiverse methods;
+- methodological critique receives a formal reply;
+- later reviews cite conflicting branches;
+- control conditions become more informative;
+- outcome classes are separated;
+- field claims narrow after failed predictions;
+- post-review primary studies continue rather than treating synthesis as final authority.
+
+The early positive branch P1-P5 is more author-concentrated and more rhetorically expansive. The corrective branch is more methodologically heterogeneous and independent. The later branch P15-P26 does not merely choose one side; it develops narrower theories and context-specific tests.
+
+A functionally closed field would suppress or ignore P4, P6, P8, P10, P12-P14 and P18. The bounded network instead makes them central to later interpretation.
+
+Baseline conclusion: review-heavy and conflict-dense, but compatible with active scientific updating rather than closure.
+
+SECTION J2: THE CONCEDE TEST
+
+| Finding | Concede test | Surviving claim if NARROWS |
+|---|---|---|
+| Founding source P1 remains dominant. | SURVIVES | Original-source centrality is expected and does not defeat the updating-network claim. |
+| Early positive work includes recurring authors and a same-author review. | SURVIVES | This creates amplification risk but not later network dependence. |
+| Reviews and meta-analyses are numerous. | SURVIVES | Review density is offset by direct testing, disagreement and primary follow-up. |
+| Some later studies report positive affective or context-specific effects. | SURVIVES | The target claim allows small conditional effects and concerns whether the full package was preserved. |
+| The packet is selected and bounded. | NARROWS | The conclusion applies only to these 26 sources and 70 edges, not the universal field. |
+
+Scope-loss assessment:
+
+| Finding | Scope-loss level | Original claim | Surviving claim | What is lost? |
+|---|---|---|---|---|
+| The packet is selected and bounded. | SUBSTANTIAL NARROWING | The post-2015 citation network as a whole updated and narrowed the original package. | The supplied 26-source, 70-edge network shows substantial updating and does not establish review-hub closure. | The audit cannot estimate complete field-wide prevalence, missing sources, or universal recent citation behavior. |
+
+SECTION K: CARTEL-RISK SCORING
+
+- Founding-cluster dominance: 1
+- Internal citation density: 1
+- Recent-paper dependence on old cluster: 1
+- Review-hub laundering: 0
+- Proxy-to-construct mismatch: 1
+- Claim mutation downstream: 1
+- Adjacent-field neglect: 0
+- Lack of decisive tests: 1
+- Poor critique uptake: 0
+- Intervention ratchet / model non-updating: 0
+
+Total: 6/30.
+
+Interpretation: healthy or low-risk bounded network.
+
+The score is driven by ordinary founding centrality, review density, residual proxy language and remaining decisiveness gaps. No dimension reaches major or severe status. The score is bounded to the supplied graph and is not a field-wide cartel estimate.
+
+ARTIFACT 1: TOP 15 CITATION SPINE TABLE
+
+The prompt requests a top 15 spine. The 15 highest bounded in-degree sources are shown.
+
+| Rank | Paper | Year | Citation count | Evidence type | Role in network | Source of citation count |
+|---|---|---|---|---|---|---|
+| 1 | P1: Carney, Cuddy & Yap — Power Posing | 2010 | 18 | primary experiment | original source | supplied 70-edge graph |
+| 2 | P4: Ranehill et al. — Assessing the Robustness of Power Posing | 2015 | 8 | large replication | major corrective replication | supplied 70-edge graph |
+| 3 | P16: Elkjær et al. — Systematic Review and Meta-Analysis | 2020 | 6 | systematic review / meta-analysis | later systematic-review hub | supplied 70-edge graph |
+| 4 | P19: Körner et al. — Dominance and Prestige Meta-Analysis | 2022 | 6 | preregistered meta-analysis | later preregistered meta-analysis hub | supplied 70-edge graph |
+| 5 | P5: Carney, Cuddy & Yap — Review and Summary | 2015 | 5 | author review | early author-review hub | supplied 70-edge graph |
+| 6 | P8: Simmons & Simonsohn — P-Curving the Evidence | 2017 | 4 | methodological critique | methodological critique hub | supplied 70-edge graph |
+| 7 | P11: Cuddy, Schultz & Fosse — More Comprehensive P-Curve | 2018 | 4 | reply / synthesis | direct test / update source | supplied 70-edge graph |
+| 8 | P15: Körner & Schütz — Dominance or Prestige? | 2020 | 4 | independent review | direct test / update source | supplied 70-edge graph |
+| 9 | P2: Huang et al. — Powerful Postures Versus Powerful Roles | 2011 | 3 | primary experiment | direct test / update source | supplied 70-edge graph |
+| 10 | P3: Cuddy et al. — Preparatory Power Posing and Job Interviews | 2015 | 2 | primary experiment | direct test / update source | supplied 70-edge graph |
+| 11 | P9: Gronau et al. — Bayesian Meta-Analysis of Felt Power | 2017 | 2 | preregistered-study meta-analysis | direct test / update source | supplied 70-edge graph |
+| 12 | P6: Garrison, Tang & Schmeichel — Embodying Power | 2016 | 1 | preregistered replication | direct test / update source | supplied 70-edge graph |
+| 13 | P12: Cesario & Johnson — Power Poseur | 2018 | 1 | ecologically oriented direct tests | direct test / update source | supplied 70-edge graph |
+| 14 | P13: Metzler & Grèzes — Repeated Power Postures and Hormones | 2019 | 1 | repeated-manipulation experiment | direct test / update source | supplied 70-edge graph |
+| 15 | P17: Körner, Petersen & Schütz — Body Postures and Self-Worth | 2021 | 1 | primary experiments | direct test / update source | supplied 70-edge graph |
+
+ARTIFACT 2: FOUNDING CLUSTER TABLE
+
+| Paper | Year | Claim introduced | Evidence type | Verification state | Later role | Risk |
+|---|---|---|---|---|---|---|
+| P1 | 2010 | Self-report, risk and hormonal package with actionable implications. | primary experiment | ABSTRACT-CONFIRMED | Original target of nearly every later branch. | High breadth; small foundational design. |
+| P2 | 2011 | Posture affects action and abstraction more strongly than role. | primary experiment | ABSTRACT-CONFIRMED | Positive early extension. | Extends construct beyond measured hormones. |
+| P3 | 2015 | Preparatory posing improves interview performance. | primary experiment | ABSTRACT-CONFIRMED | Actionable performance extension. | Practical generalization risk. |
+| P4 | 2015 | Felt power may survive while hormones and risk do not. | large replication | ABSTRACT-CONFIRMED | Foundational corrective source. | Low; direct narrowing evidence. |
+| P5 | 2015 | Broad literature supports embodied effects despite divergence. | author review | ABSTRACT-CONFIRMED | Early amplification hub and target of P8. | Moderate review-laundering risk requiring hub test. |
+
+ARTIFACT 3: RECENT 5-YEAR CITATION BEHAVIOR TABLE
+
+Here “recent” means the supplied 2022-2025 wave. It is not an exhaustive current-five-year sample.
+
+| Recent paper | Year | Verification state | Cites founding cluster? | Cites hub? | Cites adjacent fields? | New evidence or recycling? |
+|---|---|---|---|---|---|---|
+| P20 | 2022 | ABSTRACT-CONFIRMED | Indirect through reviews | P16/P19 | cognitive-control replication methodology | New conceptual replications and meta-analysis. |
+| P21 | 2023 | FULL-TEXT-CONFIRMED | Through reviews | P16/P19 | personally relevant action and neutral controls | New primary evidence. |
+| P22 | 2023 | FULL-TEXT-CONFIRMED | Yes—P1 | P16/P19 | approach-avoidance and social threat | New primary evidence. |
+| P23 | 2024 | ABSTRACT-CONFIRMED | Through synthesis | P16 and P21 | active/passive controls and psychopathology | New primary evidence. |
+| P24 | 2024 | FULL-TEXT-CONFIRMED | Yes—P1/P4 | P19 | endocrinology and hormonal subgroups | New replication and extension. |
+| P25 | 2025 | FULL-TEXT-CONFIRMED | Through synthesis | P19/P23 | experience sampling and daily action | New real-world null evidence. |
+| P26 | 2025 | ABSTRACT-CONFIRMED | Through later review | P19/P22 | physical mediators and body awareness | New mechanism-focused evidence. |
+
+ARTIFACT 4: CITATION POLARITY TABLE
+
+| Citing paper | Cited paper | Verification state | Citation polarity | Claim use | Inflation risk |
+|---|---|---|---|---|---|
+| P4 | P1 | CROSS-SOURCE-CONFIRMED | critical replication | separates felt power from hormones/risk | none |
+| P5 | P4 | CROSS-SOURCE-CONFIRMED | engages but explains away | treats design differences as moderators | moderate |
+| P8 | P5 | CROSS-SOURCE-CONFIRMED | critical | tests review-set evidential value | none |
+| P11 | P8 | CROSS-SOURCE-CONFIRMED | formal rebuttal | contests study selection | low |
+| P10 | P1 | CROSS-SOURCE-CONFIRMED | critical reanalysis | tests analytic robustness | none |
+| P12 | P3 | CROSS-SOURCE-CONFIRMED | critical extension | tests practical dyadic benefits | none |
+| P15 | P8/P9/P12 | CROSS-SOURCE-CONFIRMED | balanced synthesis | separates outcome classes | low |
+| P16 | P8/P11/P15 | CROSS-SOURCE-CONFIRMED | systematic synthesis | tests contrast and bias structure | low |
+| P18 | P16 | CROSS-SOURCE-CONFIRMED | methodological critique | questions selection and theory | none |
+| P19 | P15/P16/P18 | CROSS-SOURCE-CONFIRMED | updating synthesis | larger preregistered meta-analysis | low |
+| P24 | P1/P4/P13/P19 | CROSS-SOURCE-CONFIRMED | mixed replication | tests hormones and risk anew | low |
+| P25 | P19/P23 | CROSS-SOURCE-CONFIRMED | practical follow-up | tests daily action | none |
+
+ARTIFACT 5: CLAIM MUTATION TABLE
+
+| Original source | Original claim | Verification state | Hub restatement | Downstream restatement | Mutation severity |
+|---|---|---|---|---|---|
+| P1 | Brief poses cause self-report, risk and hormonal change with actionable implications. | ABSTRACT-CONFIRMED | P5 preserves broad embodied-effects framing. | P15/P16/P19 split self-report, behavior and physiology. | major early breadth; later correction |
+| P3 | Preparatory posing improves interview performance. | ABSTRACT-CONFIRMED | P5 incorporates practical performance claims. | P12/P23/P25 report null or small practical effects in dyadic, adaptive and daily contexts. | material narrowing |
+| P9 | Preregistered studies support felt power. | ABSTRACT-CONFIRMED | P11 uses this as positive evidential support. | P15/P19 retain self-report effects with demand and awareness qualifications. | minor-to-moderate narrowing |
+| P16 | Affective and behavioral effects exist, driven largely by contractive-versus-neutral contrasts. | ABSTRACT-CONFIRMED | P18 challenges selection and classification. | P19 updates with a larger preregistered dataset and sensitivity analyses. | contested synthesis, not one-way inflation |
+| P19 | Self-report and some behavior survive; physiology does not. | ABSTRACT-CONFIRMED | No single later hub restatement. | P20-P26 produce outcome-specific mixed and null evidence. | conditional updating |
+
+ARTIFACT 6: ADJACENT-LITERATURE NEGLECT TABLE
+
+| Adjacent field | Canonical source | Verification state | Relevance | Cited? | Engagement quality | Omission severity |
+|---|---|---|---|---|---|---|
+| Open science / publication bias | P6, P8-P11, P16, P18-P19 | RECEPTION-CONFIRMED | Determines whether effects survive preregistration and selection correction. | Yes | directly tested against | minor |
+| Demand characteristics | P9, P11-P12, P17, P19, P26 | RECEPTION-CONFIRMED | Self-report effects may depend on hypothesis awareness. | Yes | substantively engaged | minor |
+| Dominance-prestige theory | P15, P18-P19 | RECEPTION-CONFIRMED | Separates expansive dominance from upright prestige posture. | Yes | changes classification | minor |
+| Ecological validity / real-world action | P3, P12, P21, P23, P25 | RECEPTION-CONFIRMED | Tests whether laboratory affect generalizes to behavior. | Yes | directly tested | minor |
+| Cognitive and physical mechanisms | P20, P22, P26 | RECEPTION-CONFIRMED | Tests specific action, cognition and bodily mediators. | Yes | new primary work | minor |
+
+ARTIFACT 7: CRITIQUE-UPTAKE TABLE
+
+| Critique / contrary evidence | Year | Source type | Verification state | Cited? | Uptake status | Effect on consensus |
+|---|---|---|---|---|---|---|
+| P4 Ranehill et al. | 2015 | large replication | RECEPTION-CONFIRMED | Yes | materially changed the field | Separated self-report from hormone and risk claims. |
+| P6 Garrison et al. | 2016 | preregistered replication | RECEPTION-CONFIRMED | Yes | incorporated into synthesis | Strengthened null behavioral branch. |
+| P8 Simmons & Simonsohn | 2017 | p-curve critique | RECEPTION-CONFIRMED | Yes | formal reply and later uptake | Made publication selection load-bearing. |
+| P10 Credé & Phillips | 2017 | multiverse reanalysis | RECEPTION-CONFIRMED | Yes in later robustness discourse | Undermined stable hormonal inference. |
+| P12 Cesario & Johnson | 2018 | dyadic null tests | RECEPTION-CONFIRMED | Yes | incorporated | Limited practical and ecological claims. |
+| P13 Metzler & Grèzes | 2019 | repeated hormone null | RECEPTION-CONFIRMED | Yes | incorporated | Further weakened endocrine claims. |
+| P14 Chen et al. | 2019 | risk and felt-power replications | RECEPTION-CONFIRMED | Yes in later review branch | Further narrowed behavioral claims. |
+| P18 commentary | 2022 | methodological critique | RECEPTION-CONFIRMED | Yes through P19 | Changed classification and open-science scrutiny. |
+| P20 Stroop replications | 2022 | conceptual replication / meta-analysis | RECEPTION-CONFIRMED | Yes within cognitive-posture branch | Limited cognitive-control generalization. |
+| P25 daily-life null | 2025 | real-world behavioral study | LOCATED | Later uptake not yet established in packet | Adds current practical constraint without proving network response. |
+
+ARTIFACT 8: CARTEL-RISK SCORECARD
+
+| Dimension | Score | Reason | Verification state |
+|---|---|---|---|
+| Founding-cluster dominance | 1 | P1 is dominant and P1-P5 receive a large edge share, but critical nodes are also central. | RECEPTION-CONFIRMED |
+| Internal citation density | 1 | The selected graph is connected, largely because reviews compare a live controversy. | RECEPTION-CONFIRMED |
+| Recent-paper dependence on old cluster | 1 | Recent papers cite older work through reviews but add new evidence. | RECEPTION-CONFIRMED |
+| Review-hub laundering | 0 | Removing P5 or P16 does not change the bounded conclusion. | RECEPTION-CONFIRMED |
+| Proxy-to-construct mismatch | 1 | Broad terminology can merge felt power with actual behavior or hormones. | RECEPTION-CONFIRMED |
+| Claim mutation downstream | 1 | Some simplification persists, but academic mutation is mainly narrowing. | RECEPTION-CONFIRMED |
+| Adjacent-field neglect | 0 | Open science, demand, theory, ecology and mechanisms are engaged. | RECEPTION-CONFIRMED |
+| Lack of decisive tests | 1 | Many outcomes are tested, although no one design resolves all contexts. | RECEPTION-CONFIRMED |
+| Poor critique uptake | 0 | Critical work receives replies and alters later synthesis. | RECEPTION-CONFIRMED |
+| Intervention ratchet / model non-updating | 0 | No escalating intervention program; models and claims narrow. | RECEPTION-CONFIRMED |
+
+ARTIFACT 9: NETWORK MAP
+
+The complete selected edge list is provided for graphing:
+
+```text
+source,target,relation
+P2,P1,original claim / direct target
+P3,P1,original claim / direct target
+P3,P2,direct evidence, reply, or updating source
+P4,P1,original claim / direct target
+P5,P1,original claim / direct target
+P5,P2,direct evidence, reply, or updating source
+P5,P3,direct evidence, reply, or updating source
+P5,P4,major failed-or-narrowing replication
+P6,P1,original claim / direct target
+P6,P4,major failed-or-narrowing replication
+P6,P5,early author-review hub
+P7,P1,original claim / direct target
+P7,P4,major failed-or-narrowing replication
+P8,P1,original claim / direct target
+P8,P5,early author-review hub
+P9,P1,original claim / direct target
+P9,P4,major failed-or-narrowing replication
+P9,P5,early author-review hub
+P9,P6,direct evidence, reply, or updating source
+P10,P1,original claim / direct target
+P11,P8,negative p-curve / methodological critique
+P11,P9,direct evidence, reply, or updating source
+P11,P5,early author-review hub
+P12,P1,original claim / direct target
+P12,P3,direct evidence, reply, or updating source
+P12,P5,early author-review hub
+P13,P1,original claim / direct target
+P13,P4,major failed-or-narrowing replication
+P13,P11,positive p-curve reply
+P14,P1,original claim / direct target
+P14,P2,direct evidence, reply, or updating source
+P14,P4,major failed-or-narrowing replication
+P15,P1,original claim / direct target
+P15,P8,negative p-curve / methodological critique
+P15,P9,direct evidence, reply, or updating source
+P15,P12,direct evidence, reply, or updating source
+P16,P1,original claim / direct target
+P16,P4,major failed-or-narrowing replication
+P16,P8,negative p-curve / methodological critique
+P16,P11,positive p-curve reply
+P16,P15,independent review / theoretical reclassification
+P17,P1,original claim / direct target
+P17,P15,independent review / theoretical reclassification
+P18,P11,positive p-curve reply
+P18,P15,independent review / theoretical reclassification
+P18,P16,systematic-review and meta-analysis hub
+P19,P1,original claim / direct target
+P19,P8,negative p-curve / methodological critique
+P19,P11,positive p-curve reply
+P19,P15,independent review / theoretical reclassification
+P19,P16,systematic-review and meta-analysis hub
+P19,P18,direct evidence, reply, or updating source
+P20,P16,systematic-review and meta-analysis hub
+P20,P19,later preregistered meta-analysis hub
+P21,P16,systematic-review and meta-analysis hub
+P21,P19,later preregistered meta-analysis hub
+P22,P1,original claim / direct target
+P22,P16,systematic-review and meta-analysis hub
+P22,P19,later preregistered meta-analysis hub
+P23,P16,systematic-review and meta-analysis hub
+P23,P21,direct evidence, reply, or updating source
+P24,P1,original claim / direct target
+P24,P4,major failed-or-narrowing replication
+P24,P13,direct evidence, reply, or updating source
+P24,P19,later preregistered meta-analysis hub
+P25,P19,later preregistered meta-analysis hub
+P25,P23,direct evidence, reply, or updating source
+P26,P17,direct evidence, reply, or updating source
+P26,P19,later preregistered meta-analysis hub
+P26,P22,direct evidence, reply, or updating source
+```
+
+Node classes:
+
+- early positive / founding: P1-P3
+- major corrective replication: P4
+- early author synthesis: P5
+- preregistered, critical and robustness branch: P6-P10, P12-P14
+- positive reply / synthesis: P11
+- later review and meta-analysis: P15-P19
+- recent outcome-specific primary branch: P20-P26
+
+COMPLETION LEDGER
+
+| Required heading | Exact heading present? | Status: completed / N/A / omitted | Reason or output location |
+|---|---|---|---|
+| `PRE-AUDIT CLAIM CONFIRMATION` | yes | completed | Unique standalone heading in this output. |
+| `SECTION A: CITATION NETWORK STRUCTURE AND CARTEL DETECTION` | yes | completed | Unique standalone heading in this output. |
+| `SECTION B: EVIDENCE TYPE CODING` | yes | completed | Unique standalone heading in this output. |
+| `SECTION C: CITATION POLARITY AND CLAIM USE` | yes | completed | Unique standalone heading in this output. |
+| `SECTION D: CLAIM MUTATION TRACKING` | yes | completed | Unique standalone heading in this output. |
+| `SECTION E: ADJACENT FIELD ENGAGEMENT / NEGLECT` | yes | completed | Unique standalone heading in this output. |
+| `SECTION F: HUB DEPENDENCY AND REVIEW-PAPER LAUNDERING` | yes | completed | Unique standalone heading in this output. |
+| `SECTION G: PATTERN RECOGNITION AND RATCHET BEHAVIOR` | yes | completed | Unique standalone heading in this output. |
+| `SECTION H: IGNORED CRITIQUE AND NON-UPTAKE` | yes | completed | Unique standalone heading in this output. |
+| `SECTION I: AUTHOR, INSTITUTION, JOURNAL, AND FUNDING CLUSTERING` | yes | completed | Unique standalone heading in this output. |
+| `SECTION J: FALSE-POSITIVE AND BASELINE CHECK` | yes | completed | Unique standalone heading in this output. |
+| `SECTION J2: THE CONCEDE TEST` | yes | completed | Unique standalone heading in this output. |
+| `SECTION K: CARTEL-RISK SCORING` | yes | completed | Unique standalone heading in this output. |
+| `ARTIFACT 1: TOP 15 CITATION SPINE TABLE` | yes | completed | Unique standalone heading in this output. |
+| `ARTIFACT 2: FOUNDING CLUSTER TABLE` | yes | completed | Unique standalone heading in this output. |
+| `ARTIFACT 3: RECENT 5-YEAR CITATION BEHAVIOR TABLE` | yes | completed | Unique standalone heading in this output. |
+| `ARTIFACT 4: CITATION POLARITY TABLE` | yes | completed | Unique standalone heading in this output. |
+| `ARTIFACT 5: CLAIM MUTATION TABLE` | yes | completed | Unique standalone heading in this output. |
+| `ARTIFACT 6: ADJACENT-LITERATURE NEGLECT TABLE` | yes | completed | Unique standalone heading in this output. |
+| `ARTIFACT 7: CRITIQUE-UPTAKE TABLE` | yes | completed | Unique standalone heading in this output. |
+| `ARTIFACT 8: CARTEL-RISK SCORECARD` | yes | completed | Unique standalone heading in this output. |
+| `ARTIFACT 9: NETWORK MAP` | yes | completed | Unique standalone heading in this output. |
+| `COMPLETION LEDGER` | yes | completed | Unique standalone heading in this output. |
+| `ARTIFACT 10: FINAL VERDICT` | yes | completed | Unique standalone heading in this output. |
+| `FINAL SECTION: STANDARDIZED FINDING TABLE` | yes | completed | Unique standalone heading in this output. |
+
+The ledger is a presence claim only. The checker must verify it against actual
+standalone headings and gate behavior.
+
+ARTIFACT 10: FINAL VERDICT
+
+- Main founding cluster: P1-P5.
+- Main amplification hub: P5, the early author review.
+- Main later synthesis hubs: P16 and P19.
+- Hub-removal result: neither P5 nor P16 is necessary to reconstruct the bounded mixed conclusion.
+- Main proxy problem: evidence for felt power or affect can be rhetorically upgraded into actual power, behavior, physiology or practical success.
+- Main claim mutation: the initial bundled package narrowed into outcome-specific, context-sensitive claims.
+- Most important contrary evidence: P4, P6, P8, P10, P12-P14 and P18.
+- Critique uptake: substantial; major critiques receive replies and shape later methods and scope.
+- Cartel-risk score: 6/30.
+- Best formal label: healthy or low-risk, review-heavy and contested bounded network.
+- Confidence: moderate for the supplied graph; low for universal field prevalence.
+- Failure location: early overbreadth appears at PAPER and PR/MEDIA layers; later CITATION behavior mainly narrows rather than launders it.
+- What would change the assessment: a representative recent-source sample showing systematic substitution of reviews for primary evidence, omission of major nulls, recombination of outcomes, or blocked publication of dissent.
+
+This is a supplied-packet burden result, not a correctness oracle. It establishes
+that the prompt completed a large graph and produced a bounded verdict without
+silent omission. It does not independently validate the field-wide substantive
+classification.
+
+FINAL SECTION: STANDARDIZED FINDING TABLE
+
+Finding 1
+
+| Field | Entry |
+|---|---|
+| Finding | The founding source is central, but later critical and synthesis nodes are also central. |
+| Target claim | The post-2015 network updated rather than closed around the original package. |
+| What was measured | Bounded in-degree and selected edge structure. |
+| What was claimed | Original-source centrality could indicate dependence. |
+| Failure mode | source dependence |
+| Severity | minor |
+| Concede test | SURVIVES |
+| Scope loss if NARROWS | N/A |
+| Evidence | P1 in-degree 18; P4 in-degree 8; P16/P19 in-degree 6. |
+| Evidence type | citation graph |
+| Verification state | RECEPTION-CONFIRMED |
+| Possible innocent explanation | Original studies normally remain highly cited. |
+| What would weaken this | Representative recent evidence showing reviews substitute for primary sources. |
+| Failure location | CITATION |
+| Status | confirmed |
+
+Finding 2
+
+| Field | Entry |
+|---|---|
+| Finding | Removing P5 does not change the outcome-specific bounded conclusion. |
+| Target claim | The network is not dependent on an early author-review hub. |
+| What was measured | P5 hub-removal graph. |
+| What was claimed | A same-author review may have laundered the original claim. |
+| Failure mode | review laundering |
+| Severity | none |
+| Concede test | SURVIVES |
+| Scope loss if NARROWS | N/A |
+| Evidence | 61 of 70 edges remain with independent corrective and later branches. |
+| Evidence type | hub-removal comparison |
+| Verification state | RECEPTION-CONFIRMED |
+| Possible innocent explanation | P5 was important historically even if not currently load-bearing. |
+| What would weaken this | Later sources relying on P5 while omitting direct contrary evidence. |
+| Failure location | CITATION |
+| Status | confirmed |
+
+Finding 3
+
+| Field | Entry |
+|---|---|
+| Finding | Removing P16 also leaves an independent later review, critique, meta-analysis and primary-study branch. |
+| Target claim | Later synthesis is not dependent on one systematic-review hub. |
+| What was measured | P16 hub-removal graph. |
+| What was claimed | The 2020 meta-analysis could function as a later premise hub. |
+| Failure mode | hub dependence |
+| Severity | none |
+| Concede test | SURVIVES |
+| Scope loss if NARROWS | N/A |
+| Evidence | 59 of 70 edges remain; P15, P18, P19 and P20-P26 remain. |
+| Evidence type | hub-removal comparison |
+| Verification state | RECEPTION-CONFIRMED |
+| Possible innocent explanation | The selected graph may overrepresent independent routes. |
+| What would weaken this | A representative corpus showing P16 used as a substitute for the underlying studies. |
+| Failure location | CITATION |
+| Status | contested |
+
+Finding 4
+
+| Field | Entry |
+|---|---|
+| Finding | The strongest surviving academic claim is narrower than the original package. |
+| Target claim | The network materially updated and narrowed the claim. |
+| What was measured | Outcome-specific conclusions across replication, review and follow-up branches. |
+| What was claimed | Brief poses broadly change psychology, behavior, hormones and practical outcomes. |
+| Failure mode | claim mutation |
+| Severity | none |
+| Concede test | SURVIVES |
+| Scope loss if NARROWS | N/A |
+| Evidence | P4, P6-P10, P12-P16, P19-P26 separate self-report, behavior, physiology and context. |
+| Evidence type | cross-source synthesis |
+| Verification state | RECEPTION-CONFIRMED |
+| Possible innocent explanation | Some broad terminology remains for convenience. |
+| What would weaken this | Later sources recombining outcomes into an undifferentiated actionable effect. |
+| Failure location | CITATION |
+| Status | confirmed |
+
+Finding 5
+
+| Field | Entry |
+|---|---|
+| Finding | The conclusion is bounded to a selected supplied graph. |
+| Target claim | Field-wide updating and openness. |
+| What was measured | Twenty-six supplied sources and 70 selected edges. |
+| What was claimed | A universal claim about the complete literature. |
+| Failure mode | coverage limitation |
+| Severity | moderate |
+| Concede test | NARROWS |
+| Scope loss if NARROWS | SUBSTANTIAL NARROWING |
+| Evidence | No open-ended retrieval or representative field-wide sampling was performed. |
+| Evidence type | scope record |
+| Verification state | FULL-TEXT-CONFIRMED |
+| Possible innocent explanation | The test intentionally isolates output burden. |
+| What would weaken this | A pre-specified representative retrieval fixture with complete search reporting. |
+| Failure location | MODEL / RETRIEVAL |
+| Status | confirmed |
