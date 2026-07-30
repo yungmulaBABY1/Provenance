@@ -1,25 +1,0 @@
-The shared-object discipline is useful for one purpose and costly for another. It is not strictly necessary in every design, but dropping it without a replacement creates the exact incoherence the original prompt was written to prevent.
-What the shared-object rule is protecting
-Without it, the three prosecutors naturally drift:
-	•	Construct validity tends to attack the paper’s operationalization and measurement choices.
-	•	Internal validity tends to attack design, controls, uncertainty quantification, and statistical procedures.
-	•	Citation network tends to attack the most exaggerated downstream restatement it can find (media, assessment reports, secondary literature).
-When those three objects are different, the final critique often reads as a single demolition of “the paper” even though the strongest findings are about a press release or an IPCC summary sentence the paper never wrote. The counter-audit then becomes impossible: you cannot tell whether the prosecutors hit the strongest version the source actually committed to, or merely the easiest downstream exaggeration.
-The Field 6 rule (one claim, prefer the quantified version) exists so that later stages can answer that question cleanly.
-Where the rule becomes limiting
-Inflation is frequently multi-claim and multi-layer. A single paper can contain:
-	•	a carefully hedged measurement claim,
-	•	a slightly stronger abstract claim,
-	•	a forcing/attribution claim with its own hedges,
-	•	and then a cascade of media and institutional restatements that mix, strengthen, or re-scope those claims.
-Forcing everything through one shared object can hide that structure. In particular, it under-powers the citation-network stage, whose natural job is to map travel across literature, assessments, PR, and media. Constraining that stage to the exact Field 6 sentence makes it less good at its actual purpose.
-Practical design options
-There are cleaner solutions than pure shared-object or pure free-for-all:
-	1	Keep shared-object for the paper-level prosecutors, relax it for citation network Construct and internal validity stay locked to the single claim in Field 6. Citation network is explicitly allowed a broader scope: “the selected claim and closely related restatements of it, including media and assessment language.” It must still declare which layer and which restatement it is attacking. This preserves coherence for the paper critique while letting the network stage do real work.
-	2	Multiple claim maps Run the extraction stage once per major claim (temperature extremes, forcing attribution, etc.). Each map gets its own three-prosecutor run. Synthesis happens afterward. More expensive, but clean.
-	3	Primary + secondary list Field 6 names the primary claim. The map also lists 1–3 secondary related claims with a note that only the citation-network prosecutor may treat them as in-scope. The other two stay on the primary.
-	4	Drop the shared-object rule entirely Allow each prosecutor to choose its target, but require every finding table to state, in the first column, exactly which claim and which layer it is attacking. The synthesis / counter-audit stage then has to sort the findings by object. This works, but shifts the coherence burden downstream and makes the final write-up harder to keep honest.
-Recommendation
-For the goal the original prompt optimizes for — a coherent, defensible critique of a specific claim the paper actually made — the shared-object discipline is necessary. It is the mechanism that stops the critique from laundering a media exaggeration back onto the paper.
-For the broader goal of mapping how a paper’s findings moved and mutated across the entire information system (including media), the strict version is too narrow. The citation-network stage should be given explicit permission to range more widely, while the construct and internal validity stages remain tightly coupled to the paper’s own claim.
-The current prompt is optimized for the first goal. If the more common real-world failure mode is multi-claim / media inflation, then option 1 (or 3) is the better local modification: keep the shared object for the paper-level stages, and deliberately loosen the citation-network stage so it can do the job the user is correctly pointing at.
