@@ -1,0 +1,49 @@
+Exit code: 0
+
+Checked: /mnt/data/citation_network_pilot_01/citation-network-compliance-pilot-01-audit.txt
+Required headings: 25
+Present: 25
+Missing: 0
+Thin-section threshold: 12 words
+ORDER_PASS	ARTIFACT 9: NETWORK MAP precedes COMPLETION LEDGER
+ORDER_PASS	COMPLETION LEDGER precedes ARTIFACT 10: FINAL VERDICT
+ORDER_PASS	ARTIFACT 10: FINAL VERDICT precedes FINAL SECTION: STANDARDIZED FINDING TABLE
+BODY_PASS	PRE-AUDIT CLAIM CONFIRMATION	96 words	status=PROVISIONAL
+BODY_PASS	SECTION A: CITATION NETWORK STRUCTURE AND CARTEL DETECTION	209 words	status=N/A,PROVISIONAL
+BODY_PASS	SECTION B: EVIDENCE TYPE CODING	201 words	status=PROVISIONAL
+BODY_PASS	SECTION C: CITATION POLARITY AND CLAIM USE	208 words	status=UNLABELED
+BODY_PASS	SECTION D: CLAIM MUTATION TRACKING	212 words	status=N/A,PROVISIONAL
+BODY_PASS	SECTION E: ADJACENT FIELD ENGAGEMENT / NEGLECT	143 words	status=PROVISIONAL
+BODY_PASS	SECTION F: HUB DEPENDENCY AND REVIEW-PAPER LAUNDERING	163 words	status=PROVISIONAL
+BODY_PASS	SECTION G: PATTERN RECOGNITION AND RATCHET BEHAVIOR	150 words	status=N/A,PROVISIONAL
+BODY_PASS	SECTION H: IGNORED CRITIQUE AND NON-UPTAKE	117 words	status=PROVISIONAL
+BODY_PASS	SECTION I: AUTHOR, INSTITUTION, JOURNAL, AND FUNDING CLUSTERING	141 words	status=PROVISIONAL
+BODY_PASS	SECTION J: FALSE-POSITIVE AND BASELINE CHECK	167 words	status=PROVISIONAL
+BODY_PASS	SECTION J2: THE CONCEDE TEST	283 words	status=UNLABELED
+BODY_PASS	SECTION K: CARTEL-RISK SCORING	254 words	status=PROVISIONAL
+BODY_PASS	ARTIFACT 1: TOP 15 CITATION SPINE TABLE	134 words	status=PROVISIONAL
+BODY_PASS	ARTIFACT 2: FOUNDING CLUSTER TABLE	85 words	status=UNLABELED
+BODY_PASS	ARTIFACT 3: RECENT 5-YEAR CITATION BEHAVIOR TABLE	51 words	status=N/A,PROVISIONAL
+BODY_PASS	ARTIFACT 4: CITATION POLARITY TABLE	130 words	status=UNLABELED
+BODY_PASS	ARTIFACT 5: CLAIM MUTATION TABLE	130 words	status=PROVISIONAL
+BODY_PASS	ARTIFACT 6: ADJACENT-LITERATURE NEGLECT TABLE	109 words	status=PROVISIONAL
+BODY_PASS	ARTIFACT 7: CRITIQUE-UPTAKE TABLE	65 words	status=PROVISIONAL
+BODY_PASS	ARTIFACT 8: CARTEL-RISK SCORECARD	108 words	status=N/A,PROVISIONAL
+BODY_PASS	ARTIFACT 9: NETWORK MAP	57 words	status=UNLABELED
+BODY_PASS	COMPLETION LEDGER	352 words	status=N/A,PROVISIONAL
+BODY_PASS	ARTIFACT 10: FINAL VERDICT	295 words	status=PROVISIONAL
+BODY_PASS	FINAL SECTION: STANDARDIZED FINDING TABLE	348 words	status=N/A
+STATUS_SUMMARY	N/A=7	PROVISIONAL=19	INCOMPLETE=0	UNLABELED=5
+PASS	All required headings are present as unique standalone lines in the required order. Review THIN flags manually.
+
+STDERR
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.yTcnQsZYiA/artifact_tool_v2-2.8.4/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.yTcnQsZYiA/artifact_tool_v2-2.8.4/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.yTcnQsZYiA/artifact_tool_v2-2.8.4/artifact_tool/spreadsheet_warmup.py", line 720, in _warm_feature_flows
+  File "/tmp/tmp.yTcnQsZYiA/artifact_tool_v2-2.8.4/artifact_tool/spreadsheet_warmup.py", line 704, in _warm_collaboration_flows
+  File "/tmp/tmp.yTcnQsZYiA/artifact_tool_v2-2.8.4/artifact_tool/generated/interface/models.py", line 30820, in hydrate_crdt_from_proto
+  File "/tmp/tmp.yTcnQsZYiA/artifact_tool_v2-2.8.4/artifact_tool/rpc/remote.py", line 749, in __call__
+  File "/tmp/tmp.yTcnQsZYiA/artifact_tool_v2-2.8.4/artifact_tool/rpc/client.py", line 150, in call
+artifact_tool.rpc.client.RemoteError: hydrateCrdtFromProto requires an empty collaborative document.
