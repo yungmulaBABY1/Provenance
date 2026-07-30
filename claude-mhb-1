@@ -1,0 +1,283 @@
+CLAIM EXTRACTION / INFLATION MAP
+================================
+Target: Mann, M.E., Bradley, R.S. & Hughes, M.K. (1998), "Global-scale temperature
+patterns and climate forcing over the past six centuries," Nature 392, 779-787.
+(hereafter MBH98)
+
+Document type: academic paper (multiproxy paleoclimate reconstruction)
+
+Source verification: FULL-TEXT-CONFIRMED. Full text retrieved and read from
+meteo.psu.edu/holocene/.../mbh98.pdf on run date.
+
+The claim that prompted this audit (as encountered): the "hockey stick" —
+commonly restated as "1998 was the warmest year in 1,000 years / of the
+millennium." This is recorded as the inflated form on purpose; part of the map's
+job is to determine whether MBH98 actually said it.
+
+-----------------------------------------------------------------
+STAGE NOTE
+-----------------------------------------------------------------
+This stage extracts and maps. It does NOT rule on whether MBH98's method
+supports its own quantified claim — that is the prosecutors' job. A documented,
+still-contested methodological literature exists (McIntyre & McKitrick 2003/2005;
+NRC/North Report 2006; Wahl & Ammann 2007; Huybers 2005) and is noted where
+relevant as reception context only, never adjudicated here.
+
+=================================================================
+1. WHAT WAS LITERALLY MEASURED
+=================================================================
+Instrument / data source: a multiproxy network of annual-resolution indicators —
+dendroclimatic (tree-ring), ice-core, ice-melt, and coral records, plus long
+historical and instrumental series. 112 indicators back to 1820, declining with
+age to 22 indicators back to 1400.
+
+Calibration / verification: proxies calibrated against gridded instrumental land
+air + sea-surface temperature, 1902-1980 (training). Verified against a withheld
+1854-1901 gridded subset (219 grid-points) and 11 long instrumental series.
+
+Method: principal component analysis of the instrumental temperature field to
+isolate leading eigenvectors; each proxy calibrated against the leading PCs
+during 1902-80; an overdetermined inverse solution then reconstructs the PCs
+(RPCs) year-by-year before the calibration period. Hemispheric/global means,
+a NINO3 index, and gridded spatial patterns are derived from the RPCs.
+
+Population / unit of analysis: Northern Hemisphere (and global) mean annual
+surface-temperature anomaly (deg C, relative to 1902-80), and gridded spatial
+anomaly patterns, reconstructed back to AD 1400 (i.e., "six centuries" / ~600
+years), with error bars that expand back in time.
+
+Scope caveat stated IN the source (not added here): reconstructive skill degrades
+with age. Back to 1400 the network "resolves only the first eigenvector"
+(~40-50% of NH variance in calibration/verification); spatial reconstructions are
+"of marginal usefulness" before ~1600; "useful reconstruction" terminates at AD
+1400. The deep-time NH claim therefore rests on a single resolved eigenvector.
+
+Verification state: FULL-TEXT-CONFIRMED.
+
+=================================================================
+2. STRONGEST CLAIM THE SOURCE ITSELF MAKES (hedges preserved)
+=================================================================
+Abstract (qualitative form): "Northern Hemisphere mean annual temperatures for
+three of the past eight years are warmer than any other year since (at least)
+AD 1400."  [Hedge preserved: "(at least)".]
+
+Results (quantified form — the version Rule 2 targets): "Taking into account the
+uncertainties in our NH reconstruction ... it appears that the years 1990, 1995
+and now 1997 ... each show anomalies that are greater than any other year back to
+1400 at 3 standard errors, or roughly a 99.7% level of certainty."
+[Hedges preserved: "Taking into account the uncertainties," "it appears that."]
+
+Note on within-source framing: the abstract states the exceedance qualitatively
+but keeps BOTH the 1400 bound and a hedge; the quantified 99.7% figure lives in
+the Results. The abstract does NOT extend the scope beyond what the body
+supports (contrast the common pattern of methods-hedged / abstract-inflated).
+
+A DISTINCT second claim also appears (not the target of this map): an attribution
+claim — "greenhouse gases emerging as the dominant forcing during the twentieth
+century" / "It is reasonable to infer that greenhouse-gas forcing is now the
+dominant external forcing." [Hedge preserved: "reasonable to infer."] Per Rule 1
+(one claim only), this is flagged, not audited here. Auditing it requires a
+second run.
+
+Location of claim: abstract + Results section. Verification state:
+FULL-TEXT-CONFIRMED.
+
+=================================================================
+3. WEAKER DEFENSIBLE CLAIM THE EVIDENCE ACTUALLY SUPPORTS
+=================================================================
+Within THIS multiproxy reconstruction — calibrated on 1902-80, cross-validated
+against 1854-1901, and carrying uncertainties that widen back in time and rest on
+a single resolved eigenvector before ~1600 — the recent instrumental NH annual-
+mean values (1990, 1995, 1997) fall outside the reconstructed range (at the
+paper's stated 3-standard-error level) for any year back to AD 1400.
+
+Scope limits the measurement can carry:
+  - Northern Hemisphere, annual mean (NOT global; NOT a specific calendar-day or
+    seasonal claim).
+  - Bounded at AD 1400 / ~600 years (NOT "the millennium," NOT "ever").
+  - Conditional on this proxy network, this method, and this stated error model —
+    it is a statement about exceeding THIS reconstruction, not an unconditional
+    statement about all past temperatures.
+
+Verification state: author reconstruction from Field 1.
+
+This field is the reference point. Gap #2->#3 is any paper-level overclaim;
+gap #3->#4 is downstream inflation. They are different problems.
+
+=================================================================
+4. BROADER CLAIM ATTACHED DOWNSTREAM
+=================================================================
+The broadest restatement in circulation is the millennial one: "1998 the warmest
+year of the millennium / warmest in 1,000 years." The attribution check below is
+run on it before it is allowed to anchor anything.
+
+--- RETRIEVED (assessment/policy layer) ---
+IPCC Third Assessment Report (2001), WGI Summary for Policymakers:
+"it is likely that the 1990s have been the warmest decade and 1998 the warmest
+year of the millennium. [Based upon (a) Chapter 2, Figure 2.7c and (b) Chapter 2,
+Figure 2.20]"
+Source located: IPCC WGI TAR SPM (via ResearchGate copy of the report and an
+arXiv statistics paper reproducing the SPM sentence and figure caption).
+The figure it rests on (the 1000-year NH reconstruction, IPCC Fig. 2.20 / the SPM
+"past 1000 years" curve) is captioned to Mann, Bradley & Hughes 1999.
+
+--- RETRIEVED (the actual supporting successor source) ---
+Mann, Bradley & Hughes (1999), "Northern hemisphere temperatures during the past
+millennium: inferences, uncertainties, and limitations," Geophys. Res. Lett. 26,
+759-762 (MBH99). Abstract: "our results suggest that the latter 20th century is
+anomalous in the context of at least the past millennium. The 1990s was the
+warmest decade, and 1998 the warmest year, at moderately high levels of
+confidence ... Though expanded uncertainties prevent decisive conclusions for the
+period prior to AD 1400."
+MBH99 is the source that reaches 1,000 years; it explicitly extends MBH98's
+method to new/older data and states its own (heavier) uncertainties.
+
+--- RETRIEVED (journal-highlight layer, downstream of MBH99 not MBH98) ---
+GRL vol. 26 no. 6 "Highlights" for MBH99: headline "Year 1998 is the warmest in a
+millennium." This flattens MBH99's "at moderately high levels of confidence" into
+a flat headline — but it is a restatement of MBH99, not MBH98.
+
+--- RETRIEVED (PR/policy echo) ---
+Popular/policy restatements ("1998 was the warmest year of the millennium in the
+Northern Hemisphere" — e.g., 2001 Globe and Mail coverage and a Canadian Kyoto
+promotional pamphlet, as quoted in McKitrick's 2005 conference paper) trace to
+the IPCC TAR SPM sentence above, which rests on the MBH99 figure. None of the
+retrieved popular restatements pin the millennial claim to the 1998 paper
+specifically.
+
+--- NONE FOUND ---
+Searched for a downstream text that cites MBH98 (the 1998 paper) SPECIFICALLY as
+the authority for the 1,000-year / "warmest of the millennium" claim. Searches
+run: "IPCC TAR 2001 hockey stick MBH98 MBH99 1000 years citation"; "IPCC TAR
+1998 warmest year millennium chapter 2 Mann 1999 citation." Found none — the
+retrieved attributions for the millennial claim point to MBH99, correctly.
+
+ATTRIBUTION CHECK (run on the millennial restatement):
+  Q1 - Could MBH98 alone support "warmest year of the millennium / past 1,000
+       years"? NO. Scope arithmetic: MBH98 reaches AD 1400 (~600 years); the
+       restatement asserts 1,000 years. The extra 400 years is carried by
+       something other than MBH98.
+  Q2 - Who does the downstream text cite for it? IPCC TAR's millennial figure and
+       sentence rest on Mann, Bradley & Hughes 1999. That is the ACTUAL
+       supporting source, cited/figured correctly.
+  => ATTRIBUTED ELSEWHERE. The millennial claim rests on MBH99 and the downstream
+     assessment attributes it to MBH99. This is NOT inflation by MBH98, and NOT a
+     misattribution against MBH98. (Where IPCC cites the pair jointly, the report
+     and the NRC/North Report distinguish their spans explicitly — MBH98 = 600
+     yr, MBH99 = 1,000 yr — which makes any joint citation SYNTHESIS ATTRIBUTION,
+     not misattribution.)
+
+Verification state for the attribution relationship: CROSS-SOURCE-CONFIRMED
+(read the downstream IPCC text, the audited source MBH98, and the successor MBH99,
+and compared what each supports).
+
+=================================================================
+5. WHERE THE INFLATION BEGINS
+=================================================================
+ANCHORING CHECK: the classification below rests on SUPPLIED/RETRIEVED items only
+(IPCC TAR SPM sentence — RETRIEVED; MBH99 abstract — RETRIEVED; MBH98 full text —
+FULL-TEXT-CONFIRMED). No RECALLED item anchors this field.
+
+WITHIN-SOURCE component (MBH98 alone; established from the paper, NOT provisional):
+No clear within-source scope inflation. The abstract preserves the 1400 bound and
+a hedge ("(at least)"); the quantified 99.7% claim sits in Results with its own
+hedges ("it appears that," "Taking into account the uncertainties"). The abstract
+does not stretch scope beyond the body. (Whether the 3-SE / 99.7% figure is itself
+warranted given single-eigenvector resolution back to 1400 and the off-centered
+PCA later flagged by M&M and partially acknowledged by NRC 2006 is a
+CONSTRUCT/INTERNAL-VALIDITY question for the prosecutors, not a
+measurement->claim->downstream gap. The map locates it; it does not rule on it.)
+
+DOWNSTREAM component (the millennial restatement):
+The transition "greater than any year back to 1400 / ~600 years" -> "warmest year
+of the millennium / past 1,000 years" is a SCOPE EXTENSION. Per Field 4 it is
+carried out BY MBH99 — a same-author successor with its own older data and its own
+(heavier) uncertainty statements — and is ATTRIBUTED to MBH99 in IPCC TAR. A
+same-author successor is still a different source; treating MBH99's millennial
+claim as an inflation of MBH98 would be a category error, and the downstream text
+does not cite MBH98 alone for it.
+
+A separate hedge-stripping does occur downstream — MBH99's "moderately high levels
+of confidence" / "expanded uncertainties prevent decisive conclusions prior to AD
+1400" becomes the flat GRL headline "1998 is the warmest in a millennium" and the
+IPCC's calibrated "likely." But that is inflation of MBH99, outside this map's
+target.
+
+FAILURE LOCATION for THIS map's target claim (MBH98's own 1400-bounded quantified
+claim): the claim LIVES in the PAPER; there is no established downstream inflation
+of it. The millennial inflation that the public associates with "the hockey stick"
+belongs to a DIFFERENT source (MBH99) and its communication layer — classified
+ATTRIBUTED ELSEWHERE with respect to MBH98.
+
+Verification state: CROSS-SOURCE-CONFIRMED.
+
+=================================================================
+6. WHICH CLAIM IS THIS AUDIT EVALUATING?
+=================================================================
+Rule 2 applied — the most precisely quantified version is targeted, and it is
+MBH98's own claim (#2), not the downstream restatement:
+
+"In the MBH98 reconstruction, Northern Hemisphere mean annual temperature
+anomalies for 1990, 1995 and 1997 exceed those of any year back to AD 1400 at
+three standard errors (roughly 99.7% certainty)."
+
+This audits the SOURCE'S OWN claim (tests whether MBH98 overreached in its own
+quantified statement). It deliberately does NOT target the downstream "warmest of
+the millennium" restatement, because that restatement is carried by MBH99 and
+attributed to MBH99 — findings about it would be findings about MBH99 and the
+assessment/communication layer, not about MBH98.
+
+(The MBH98 forcing/attribution claim in Field 2 is a distinct claim with a
+different evidence base; if you want it audited, run the sequence a second time
+with that claim in Field 6.)
+
+-----------------------------------------------------------------
+REQUIRED OUTPUT TABLE
+-----------------------------------------------------------------
+| Field | Content | Verification state |
+|---|---|---|
+| 1. Literally measured | NH & global annual-mean temp anomaly (deg C, vs 1902-80) + gridded patterns, reconstructed to AD 1400 from a multiproxy network (tree-ring/ice/coral/historical), PCA-calibrated on 1902-80, verified on 1854-1901; skill degrades with age, single eigenvector resolved back to 1400 | FULL-TEXT-CONFIRMED |
+| 2. Source's strongest claim | Abstract: NH temps for 3 of past 8 yrs "warmer than any other year since (at least) AD 1400"; Results (quantified): 1990/1995/1997 "greater than any other year back to 1400 at 3 standard errors, or roughly a 99.7% level of certainty" ("it appears that") | FULL-TEXT-CONFIRMED |
+| 3. Weaker defensible claim | Within this reconstruction and its stated (widening) uncertainties, recent instrumental NH annual means exceed the reconstructed 3-SE range for any year back to AD 1400 — NH only, bounded at 1400, conditional on network/method/error model | author reconstruction from Field 1 |
+| 4. Downstream claim | "1998 the warmest year of the millennium / warmest in 1,000 years" (IPCC TAR 2001 SPM, RETRIEVED). Rests on MBH99 (1,000-yr reconstruction, RETRIEVED), which IPCC figures/cites correctly. No retrieved text pins the 1,000-yr claim to MBH98 specifically (NONE FOUND). | RETRIEVED; attribution CROSS-SOURCE-CONFIRMED |
+| 5. Inflation point + failure location | Within-source: no clear scope inflation (abstract keeps 1400 bound + hedges). Downstream millennial extension is carried by MBH99 and ATTRIBUTED ELSEWHERE, not misattributed to MBH98. Claim lives in the PAPER; no established downstream inflation OF MBH98. | CROSS-SOURCE-CONFIRMED |
+| 6. Claim under audit | MBH98's own quantified claim: NH annual-mean anomalies for 1990/1995/1997 exceed any year back to AD 1400 at 3 SE (~99.7%) | FULL-TEXT-CONFIRMED |
+
+-----------------------------------------------------------------
+SUMMARY LINES
+-----------------------------------------------------------------
+- CLAIM UNDER AUDIT: In MBH98, NH mean annual temperature anomalies for 1990,
+  1995 and 1997 exceed those of any year back to AD 1400 at three standard errors
+  (~99.7% certainty).
+
+- FAILURE LOCATION (provisional): PAPER — the claim resides in the source itself.
+  The famous millennial inflation is NOT this paper's: it is ATTRIBUTED ELSEWHERE
+  to the successor MBH99, which downstream assessments (IPCC TAR) cite correctly.
+
+- GAP TYPE: neither apparent at the extraction level. MBH98's own claim is scoped
+  to AD 1400 with hedges intact (no measurement->claim gap the map can assert),
+  and the broader downstream millennial claim is faithfully attributed to the
+  correct successor source (no downstream misattribution against MBH98). The open
+  question is internal to MBH98's own quantified method (a construct/internal-
+  validity matter reserved for the prosecutors), which is not a
+  measurement/claim/downstream inflation gap.
+
+- MAP CONFIDENCE: high. The MBH98 vs MBH99 scope split and the IPCC attribution
+  are established across multiple retrieved sources (IPCC TAR SPM, MBH99 abstract,
+  NRC/North Report, the GRL highlight) and cross-checked against the MBH98 full
+  text. What would raise it further: retrieving the exact citation string attached
+  to the IPCC TAR SPM millennial sentence (MBH99-only vs MBH99+MBH98 joint) — but
+  both possibilities resolve to "not misattributed against MBH98," since the
+  assessment distinguishes the two papers' spans.
+
+-----------------------------------------------------------------
+HANDOFF NOTE TO PROSECUTORS
+-----------------------------------------------------------------
+Audit the Field 6 claim (MBH98's own 3-SE / 99.7% statement bounded at AD 1400).
+Do NOT audit "warmest of the millennium" against MBH98 — the map establishes that
+claim belongs to MBH99. If a prosecutor finds itself auditing the millennial
+claim, that is a signal it has drifted off this map onto the wrong source.
+The live methodological reception (M&M off-centered-PCA critique; NRC/North 2006,
+which upheld the broad post-1600 conclusion while granting specific statistical
+criticisms; Wahl & Ammann 2007) is CONTESTED and is provided as reception context
+only — it is the prosecutors' material to weigh, not a verdict carried by this map.
