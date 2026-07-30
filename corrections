@@ -1,0 +1,272 @@
+Yes. A real architecture pass on the current working copies already found several things worth fixing before more live runs.
+
+CURRENT PIPELINE ARCHITECTURE CHECK
+
+1. Counter-audit omits one of the three prosecutors
+
+The stage-role note correctly says the counter-audit follows:
+
+* construct validity
+* internal validity
+* citation network
+
+But its INPUTS request only:
+
+* citation-network audit
+* construct-validity audit
+
+There is no input for the internal-validity audit.
+
+That means the counter-audit cannot inspect replication, power, forking-paths, data-generation, or selective-reporting findings even though G2 and E0 refer broadly to “the prosecutors.”
+
+Repair: add:
+
+Internal-validity and replication audit output:
+[Paste the prior audit, including its standardized finding table.]
+
+Then renumber the remaining inputs.
+
+This is the clearest stage-contract bug in the current sequence.
+
+⸻
+
+2. Internal validity performs synthesis that belongs downstream
+
+The internal-validity prompt ends with:
+
+SECTION J: INTEGRATION WITH CONSTRUCT VALIDITY AUDIT
+
+But the three prosecutors are supposed to run in parallel from the same Claim Map. Internal validity does not receive the construct-validity audit as an input, yet Section J asks it to decide whether both fail and produce an integrated decisive-test sentence.
+
+That creates two problems:
+
+1. It may invent or reconstruct the construct verdict.
+2. It breaks prosecutor independence by making one prosecutor synthesize another.
+
+The counter-audit, human adjudicator, and synthesis stages already exist to perform this integration.
+
+Best repair: remove Section J from internal validity and move its useful compounding logic into the synthesis or human-adjudication prompt.
+
+The internal prosecutor should end with its own answer:
+
+Is the result real and stable enough to support the Claim Map target?
+
+It should not decide how its verdict combines with construct validity.
+
+⸻
+
+3. Claim-map anchoring currently changes provenance labels incorrectly
+
+Field 5 says a failure location may rest on SUPPLIED or RETRIEVED items.
+
+It then says every anchoring item must meet the RETRIEVED bar—quotation plus locator—and that an item lacking either becomes RECALLED regardless of how it was labeled in Field 4.
+
+That collapses two different questions:
+
+* How did the item enter the map?
+    SUPPLIED / RETRIEVED / RECALLED / NONE FOUND
+* Is it sufficient to anchor a failure location?
+    quotation + locator present or absent
+
+A user-supplied passage without a full locator is still SUPPLIED; it does not become RECALLED. It is merely not anchor-eligible yet.
+
+Repair: preserve the original provenance state and add anchoring eligibility:
+
+SUPPLIED — NOT ANCHOR-ELIGIBLE: quotation or locator missing.
+
+or:
+
+An item may anchor only when it is SUPPLIED or RETRIEVED and includes a quotation and locator. Failure to meet the anchoring bar does not change its provenance state.
+
+This keeps provenance factual rather than using it as a severity downgrade.
+
+⸻
+
+4. E0 is overbroad for citation-network findings
+
+The counter-audit’s Source Self-Defense Check requires:
+
+one row per prosecutor finding
+
+That works for paper-facing findings such as:
+
+* the source ignored a limitation;
+* the source did not run a sensitivity test;
+* an assumption was undisclosed;
+* a proxy class was supposedly not tested.
+
+It does not naturally apply to network findings such as:
+
+* hub dominance;
+* citation density;
+* critique non-uptake;
+* later caveat loss;
+* downstream claim mutation.
+
+The foundational source cannot pre-empt evidence about how later literature behaved.
+
+Without an applicability gate, E0 will generate many meaningless NONE FOUND / UNAFFECTED rows and make a properly performed check look suspiciously empty.
+
+Repair: add before the table:
+
+Run E0 only on findings whose substance could be answered by the audited source’s own text. Mark citation-network structure, later uptake, downstream mutation, and post-publication reception findings N/A — not source-answerable. Do not count N/A findings in the E0 residual totals.
+
+⸻
+
+5. The Claim Map’s final summary still assumes blanket provisionality
+
+The prompt now carefully distinguishes:
+
+* Field 4: provisional when downstream use cannot be retrieved;
+* Field 5: only the downstream component provisional;
+* Field 6: provisional only when it targets an unretrieved downstream claim.
+
+But the required summary still says:
+
+FAILURE LOCATION (provisional): [paper / citation / PR-media / model / mixed]
+
+That line predates the field-specific rule and now misstates established paper-level findings as provisional.
+
+The Field 5 table row also has only one verification-state cell, although Field 5 may contain:
+
+* an established within-source component;
+* a suspected or provisional downstream component.
+
+Repair: replace the summary line with:
+
+WITHIN-SOURCE FAILURE LOCATION: [paper / none apparent] — [verification state]
+DOWNSTREAM FAILURE LOCATION: [citation / PR-media / model / mixed / suspected / not assessed] — [verification state]
+
+This preserves the component split at handoff.
+
+⸻
+
+6. Counter-audit tables still use two reception vocabularies
+
+Sections A, E, and G now use Verification state.
+
+Section B still uses:
+
+Reception (if load-bearing)
+
+Other source tables do not consistently provide a verification-state column even though the Source-Reception Gate applies to every load-bearing source.
+
+This creates an easy output loophole: a source can enter through B, C, or D without a state, then become load-bearing later.
+
+Repair: give every source table a Verification state column, or impose a rule that any source promoted to a load-bearing role must be re-entered in a single gated-source table before ranking.
+
+The first option is cleaner.
+
+⸻
+
+7. Voice restoration lacks an explicit stage boundary
+
+The voice-restoration prompt correctly protects provenance flags, but it does not explicitly say that its input must be the human-adjudicated synthesis.
+
+As written, someone could run it directly on:
+
+* a one-directional prosecutor output;
+* the counter-audit;
+* an unadjudicated thesis draft.
+
+That would sharpen language before disputed findings had been resolved.
+
+Repair: add near the top:
+
+STAGE INPUT: Run this only on the post-adjudication synthesis or a draft whose evidentiary decisions have already been resolved by the human. Do not voice-restore raw prosecutor or counter-audit outputs. Voice restoration may sharpen accepted wording; it may not decide which findings survive.
+
+That protects the human-in-the-loop architecture at the final stage.
+
+⸻
+
+8. Construct validity overlaps citation-network ownership
+
+Construct validity currently includes:
+
+* Citation-Use Audit
+* Ignored-Literature Check
+
+Those are useful, but they can drift into the citation-network prosecutor’s job.
+
+The clean division should be:
+
+Construct validity owns:
+
+* whether a specific cited restatement matches what was measured;
+* whether omitted literature exposes a proxy or measurement defect.
+
+Citation network owns:
+
+* propagation;
+* topology;
+* hub dependence;
+* uptake;
+* non-uptake;
+* repeated caveat loss;
+* apparent consensus construction.
+
+Repair: add a scope fence to Construct Sections 9–10:
+
+Do not map network structure, estimate uptake, or infer systematic suppression here. Inspect only the downstream uses and adjacent evidence necessary to determine whether the measurement supports the Claim Map target. Route network-level findings to the citation-network prosecutor.
+
+This prevents duplicated findings from looking like independent corroboration.
+
+⸻
+
+9. CROSS-SOURCE-CONFIRMED is operationally dangling in two prompts
+
+The citation-network and counter-audit prompts now contain:
+
+* MISATTRIBUTED
+* ATTRIBUTED ELSEWHERE
+
+inside the vocabulary definition, but neither prompt defines those classifications locally.
+
+They may inherit them from the Claim Map, but both prompts also support degraded standalone operation.
+
+Repair: add a compact sentence:
+
+When these classifications are inherited from the Claim Map: MISATTRIBUTED means the downstream text cites a source for a claim it cannot support; ATTRIBUTED ELSEWHERE means the actual supporting source is cited correctly.
+
+No full duplicate module is needed.
+
+⸻
+
+10. NONE FOUND risks becoming stronger than the search warrants
+
+The current Claim Map says:
+
+NONE FOUND means you searched and the thing does not exist.
+
+A finite search ordinarily establishes only:
+
+none found within the stated search scope.
+
+The strong definition may create false evidence that a claim did not travel when the real result is that the selected databases or search strings did not locate it.
+
+This is not necessarily urgent because the prompt requires search disclosure, but it is a real false-negative pathway.
+
+A safer formulation would preserve the signal without turning search failure into proof of nonexistence:
+
+NONE FOUND — no qualifying item located within the stated searches.
+
+Then distinguish it from:
+
+NOT SEARCHED / NO RETRIEVAL CAPABILITY.
+
+⸻
+
+Priority order
+
+I would repair these before the next substantial test series:
+
+1. Add internal validity to the counter-audit inputs.
+2. Remove construct synthesis from the internal-validity prosecutor.
+3. Separate provenance state from anchoring eligibility.
+4. Add the E0 applicability gate.
+5. Repair the Claim Map’s final failure-location summary.
+6. Add the voice-restoration stage boundary.
+
+The rest are valuable cleanup, but those six affect what the system actually concludes.
+
+The encouraging part is that these are now mostly interface and ownership defects, not evidence that the underlying method is incoherent. That is exactly what you expect when a toolkit matures: the central reasoning is working, and the remaining failures increasingly occur at the seams between stages.
