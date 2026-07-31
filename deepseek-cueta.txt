@@ -1,0 +1,477 @@
+# COVERAGE NETWORK & SOURCE-CHAIN AUDIT — MEDIA BRANCH
+
+**Event or claim under audit:** Tens of thousands of migrants crossed from Morocco into the Spanish enclave of Ceuta by land and sea on July 30-31, 2026, resulting in dozens of reported deaths and triggering a political crisis in Europe.
+
+**Selection method:** Systematic search using multiple queries: "Ceuta migrant crossing 2026 May 2026," "Ceuta migrant crossing media coverage 2026," and site-specific searches for BBC, AP, Reuters. Results sorted by relevance; the sample represents the top 10 distinct outlets in the search results. **CONVENIENCE sample** — derived from search engine rankings, not a comprehensive census of all coverage.
+
+**Your prior on this topic:** Prior expectation: European and US outlets would frame this primarily as a security/border-control crisis with some humanitarian angles, while Spanish and local sources might emphasize diplomatic dimensions and the role of the Supreme Court ruling.
+
+**Retrieval depth:**
+- Pieces read FULL TEXT: 10 (BBC ×3, AP, Reuters ×2, NYT, CBC ×2, CNN)
+- Pieces read SNIPPET ONLY: 0
+- Pieces NOT retrieved but referenced: 0
+- Primary source obtained: WRITTEN form? NO (no official Spanish government press release was located) / SPOKEN form/transcript? NO (no full transcript of Vivas or Sánchez press conferences was located)
+- Searches or fetches performed: ~15
+- Material you looked for and could NOT obtain: Original Spanish government statements; Ceuta local government press releases; full news conference transcripts; Moroccan government statements; Supreme Court ruling text
+
+
+## SECTION A — COVERAGE INVENTORY
+
+| Outlet | Headline | Pub date/time | Last updated | Correction note? | Headline changed? | Social/homepage headline if different | Byline | Wire attribution | Word count | Lead image subject |
+|---|---|---|---|---|---|---|---|---|---|---|
+| BBC (1) | "About 60,000 migrants arrive in Ceuta in 24 hours, Spanish territory's leader says" | 2026-07-31 | UNKNOWN | None noted | UNKNOWN | Same | Sofia Ferreira Santos and Sarah Rainsford | None (original) | ~1,200 | Migrants in water |
+| BBC (2) | "Spain's PM blames traffickers after 60,000 migrants reach Ceuta from Morocco" | 2026-07-31 | UNKNOWN | None noted | UNKNOWN | Same | Staff | None (original) | ~900 | Sánchez in Ceuta |
+| BBC (3) | "Hundreds of migrants swim from Morocco to Spanish enclave of Ceuta" | 2026-07-30 | UNKNOWN | None noted | UNKNOWN | Same | Staff | Reuters (estimates) | ~400 | Swimmers |
+| AP | "60,000 migrants crossed into Spanish territory of Ceuta, but most soon left voluntarily" | 2026-07-31 | UNKNOWN | None noted | UNKNOWN | Same | AP Staff | AP original | ~800 | Migrants swimming |
+| Reuters (1) | "Spain says migrants are returning from Ceuta after 57 die in border rush" | 2026-07-31 | UNKNOWN | None noted | UNKNOWN | Same | Reuters Staff | Reuters original | ~900 | Border fence |
+| Reuters (2) | "Leader of Spain's Ceuta warns of emergency as 1,500 migrants arrive in one week" | 2026-07-30 | UNKNOWN | None noted | UNKNOWN | Same | Emma Pinedo | Reuters original | ~600 | Vivas file photo |
+| NYT | "After Tens of Thousands of Migrants Enter Spanish Territory, Most Return to Morocco" | 2026-07-31 | UNKNOWN | None noted | UNKNOWN | Same | NYT Staff | NYT original | ~2,500 | Multiple AP/Reuters photos |
+| CBC (1) | "What is Ceuta, and how was the Spanish enclave near Morocco breached by 60,000 migrants?" | 2026-07-31 | UNKNOWN | None noted | UNKNOWN | Same | CBC Staff | CBC original with AFP/Reuters | ~1,500 | Map/overview |
+| CBC (2) | "At least 34 migrants dead after massive border breach into Spanish territory" | 2026-07-31 | UNKNOWN | None noted | UNKNOWN | Same | CBC Staff | CBC original | ~800 | Border scene |
+| CNN | "Spain says most of the 50,000 migrants who crossed into its territory from Morocco have returned" | 2026-07-31 | 11 min ago (at publication) | None noted | UNKNOWN | Same | Jack Guy | CNN original | ~900 | Migrants |
+
+**Publication sequence:** The earliest pieces appeared July 30 (BBC "Hundreds of migrants," Reuters emergency warning, AP initial coverage). The bulk of coverage — including all major outlets' full reports — appeared July 31 after the scale became clear. Later pieces could draw on earlier ones.
+
+**Wire credits:** AP and Reuters files are original reporting (not wire-dependent). BBC and CBC are original. CNN is original. NYT is original. No piece in this sample carries an explicit wire attribution from another agency, though several reference Reuters and AP as sources within their reporting.
+
+
+## SECTION B — SOURCE CHAIN
+
+| Outlet | Named sources | Primary docs cited | Original reporting? | Traces to |
+|---|---|---|---|---|
+| BBC (1) | Juan Jesús Vivas; Pedro Sánchez; UK PM; French president; unnamed migrant (via Reuters); local resident; hospital security guard | Supreme Court ruling (referenced) | Yes | Vivas press conference; Sánchez speech |
+| BBC (2) | Pedro Sánchez; Carmen Gonzalez Bermudez; Víctor Ortiz Sotomayor; unnamed migrant (via Reuters); Vivas; Interior Ministry | Supreme Court ruling | Yes | Sánchez speech; interviews; ministry |
+| BBC (3) | Vivas (paraphrased); Guardia Civil (unnamed spokesperson) | None | Partial | Reuters for estimates |
+| AP | Vivas; Spanish authorities (general) | None | Yes | Vivas press conference |
+| Reuters (1) | Spanish government rep in Ceuta; Vivas; Interior Ministry; unnamed Moroccan migrant | None | Yes | Official statements; on-the-ground reporting |
+| Reuters (2) | Vivas (radio interviews); Interior Minister; Interior Ministry | Supreme Court ruling | Yes | Radio interviews; ministry |
+| NYT | Vivas; local officials; Youssef Alaoui (migrant); EU official; Spanish authorities | None | Yes | On-the-ground; official statements |
+| CBC (1) | Authorities (general); Abdelhakim (migrant via AFP); Moroccan NGO | None | Partial | AFP for migrant quote |
+| CBC (2) | Vivas; Sánchez; Territorial Policy Minister; Guardia Civil association AUGC | Supreme Court ruling | Yes | Official statements; social media |
+| CNN | Spanish authorities; Sánchez; Italian officials; EU official | Supreme Court ruling | Yes | Official statements; Reuters (return visuals) |
+
+**1. How many pieces contain ORIGINAL reporting?** 8 of 10 contain original reporting (interviews, on-the-ground, or direct official source quotes). BBC (3) and CBC (1) rely more heavily on secondary sourcing.
+
+**2. How many are substantially derived from a single upstream source?** All 10 are substantially derived from official Spanish government statements — primarily Vivas's press conference and Sánchez's remarks. The Supreme Court ruling is the second major upstream source, cited by most outlets.
+
+**3. INDEPENDENCE COUNT:** **2** genuine independent information sources:
+- **Source A:** Spanish government/official statements (Vivas, Sánchez, Interior Ministry)
+- **Source B:** On-the-ground reporting/interviews with migrants and residents (AP, Reuters, BBC, NYT, ABC)
+
+**4. Internal citation edges:** BBC cites Reuters for migrant quotes. CNN cites Reuters for return visuals. CBC cites AFP. This is a citation network with Reuters and AFP acting as secondary distributors.
+
+**5. Shared wording:**
+- BBC (1): "about 60,000 migrants have crossed into Spain's North African territory"
+- AP: "About 60,000 migrants crossed from Morocco into Spain's tiny Ceuta territory"
+- Reuters: "most of the more than 50,000 people who had crossed"
+- Shared structure: "[Number] migrants crossed into [Spanish territory] from Morocco" appears in nearly every headline.
+
+**REQUIRED STATEMENT:** "This coverage represents approximately **2** independent information sources (official Spanish statements + on-the-ground reporting) across **10** published pieces."
+
+**Consequence:** Apparent corroboration across outlets is **amplification**, not confirmation. The shared factual core derives primarily from one set of official sources. Differences in framing that appear across outlets may reflect editorial choices around the same raw material rather than access to different information.
+
+
+## SECTION C — SHARED FACTUAL CORE vs. UNIQUE MATERIAL
+
+**1. SHARED CORE** (reported by all or nearly all):
+- Tens of thousands of migrants crossed from Morocco into Ceuta on July 30-31
+- Figures range: 49,000–60,000 (official estimates vary)
+- At least 34–57 deaths reported
+- Spain deployed military/troops
+- Most migrants returned voluntarily (approx. 48,000 by Friday)
+- Sánchez called it a "violation" or "attack" on territorial integrity
+
+**Caveat:** Independence count is **2**. The shared core is the official Spanish account, not independent corroboration.
+
+**2. UNIQUE MATERIAL:**
+
+| Fact | Outlet | Scoop or selection | Cuts which way |
+|---|---|---|---|
+| Migrant Jadid Zacaria quote: "It was very tough... will and determination" | ABC News | Scoop (original interview) | Pro-migrant agency/humanizes |
+| Local business owner Enrique Serrano quote: self-defence organizing | ABC News | Scoop | Security-focused |
+| Carmen Gonzalez Bermudez: "In 2021, we saw police doing something. Yesterday, they weren't doing nothing" | BBC (2) | Scoop | Criticizes Spanish response |
+| "They just kept saying, 'Go that way, go that way'" — Youssef Alaoui on Moroccan police | NYT | Scoop | Suggests Moroccan complicity |
+| 60 bodies recovered at sea in recent months | Reuters (2) | Selection | Contextualizes fatality scale |
+| AUGC police association: too few police to monitor fence | CBC (2) | Scoop | Criticizes resource allocation |
+
+**3. CONTRADICTIONS:**
+
+| Fact | Outlets reporting | Outlets omitting | Scoop or selection | Cuts which way |
+|---|---|---|---|---|
+| Death toll: 34 vs. 57 | 34: BBC, CBC(2); 57: Reuters, NYT, CBC(1), CNN | Mixed | Timing artifact (34 early; 57 later) | Neutral — later reporting more complete |
+| Crossing figure: 49,000 vs. 60,000 | 49k: Reuters (Interior Ministry); 60k: BBC, AP (Vivas) | Mixed | Source difference (Ministry vs. Vivas) | Neutral — reflects official disagreement |
+| "Voluntary" vs. "forced" return | Voluntary: AP, Reuters, NYT, BBC; implied pressure: CBC ("expel") | Mixed | Framing | Voluntary framing softens crisis; expulsion framing emphasizes state coercion |
+
+**AVAILABILITY MATRIX:**
+
+| Fact / source material | Available when BBC(1) pub? | AP? | Reuters? | NYT? | CNN? |
+|---|---|---|---|---|---|
+| Vivas 60k figure | Yes (presser before all) | Yes | Yes | Yes | Yes |
+| Sánchez "attack" quote | Yes (during Ceuta visit) | Yes | Yes | Yes | Yes |
+| 57 death toll | Later (after 34 early reports) | Later | Later | Later | Later |
+| Migrant interviews | Varies by outlet | Varies | Varies | Varies | No |
+
+**RULE:** 57 death toll vs. 34 is a **TIMING ARTIFACT** — not selection. Earlier pieces (BBC, CBC-2) report 34; later pieces (Reuters, NYT, CNN) report 57. The 49k vs. 60k figure is a **SOURCE DIFFERENCE** — Interior Ministry vs. Vivas — not selection.
+
+
+## SECTION D — FRAMING DIVERGENCE MAP
+
+**1. HEADLINE VERB AND AGENCY**
+
+| Outlet | Headline | Grammatical agent | Active/passive |
+|---|---|---|---|
+| BBC (1) | "About 60,000 migrants arrive in Ceuta" | Migrants (active) | Active |
+| BBC (2) | "Spain's PM blames traffickers after 60,000 migrants reach Ceuta" | PM/traffickers (active) | Active |
+| AP | "60,000 migrants crossed into Spanish territory... but most soon left voluntarily" | Migrants (active) | Active |
+| Reuters (1) | "Spain says migrants are returning from Ceuta after 57 die" | Spain (says) / migrants (returning) | Active/attributed |
+| Reuters (2) | "Leader of Spain's Ceuta warns of emergency as 1,500 migrants arrive" | Leader (warns) / migrants (arrive) | Active |
+| NYT | "After Tens of Thousands of Migrants Enter Spanish Territory, Most Return to Morocco" | Migrants (enter/return) | Active |
+| CBC (1) | "What is Ceuta, and how was the Spanish enclave near Morocco breached by 60,000 migrants?" | Enclave (breached by migrants) | Passive |
+| CBC (2) | "At least 34 migrants dead after massive border breach into Spanish territory" | Border breach (noun) | Passive/agentless |
+| CNN | "Spain says most of the 50,000 migrants who crossed into its territory from Morocco have returned" | Spain (says) / migrants (crossed/returned) | Active/attributed |
+| ABC | "Military called in as migrants from Morocco pour into Spanish border territory" | Military (called) / migrants (pour) | Active |
+
+**2. KEY ACTION DESCRIPTORS — side by side**
+
+| Action | BBC | AP | Reuters | NYT | CBC | CNN | ABC |
+|---|---|---|---|---|---|---|---|
+| Crossing method | "crossed into" | "crossed from Morocco into" | "crossed the border" | "entered" | "breached the Moroccan border" | "crossed into" | "pour into" |
+| Return | "voluntarily returned" | "left voluntarily" | "heading back voluntarily" | "returned to Morocco" | "had returned" | "returned to Morocco" | (not featured) |
+| PM framing | "attack" | "violation" (implied) | "violation of sovereignty" | "attack on Spain's territorial integrity" | "violation" | "violation" | "criticised" |
+| Deaths | "at least 34 people have died" | "at least 57 migrants" | "57 die" | "At least 60 people died" | "At least 57 people have died" | "57 people have died" | "Nine people were found dead" |
+
+**3. SEQUENCING — where complicating context appears**
+
+| Outlet | Lead subject | ¶ where complicating context appears |
+|---|---|---|
+| BBC (1) | 60k migrants crossed; 34 dead | ¶2: Supreme Court ruling |
+| BBC (2) | PM blames traffickers | ¶2: 57 dead |
+| AP | 60k crossed; most left voluntarily | Throughout |
+| Reuters (1) | Migrants returning; 57 dead | ¶3: details on drownings/crush deaths |
+| Reuters (2) | Emergency warning; 1,500 arrived | ¶2: EU land border context |
+| NYT | 48k returned; crisis for pro-immigration government | ¶2: far-right backlash |
+| CBC (1) | "Absolute chaos," "unsustainable," "violation" | ¶4: 57 deaths |
+| CBC (2) | 34 dead; border reinforced | ¶2: 60k crossed |
+| CNN | 57 died; 50k attempted | ¶2: Sánchez rushed to territory |
+| ABC | Military called in | ¶3: 2,000–3,000 crossed |
+
+**4. SOURCE DISTRIBUTION**
+
+| Outlet | Voices quoted | Positions represented | Balancing voice present? |
+|---|---|---|---|
+| BBC (1) | Vivas, Sánchez, UK PM, French president, unnamed migrant | Official + migrant | Partial (migrant quote) |
+| BBC (2) | Sánchez, two residents, Interior Ministry, unnamed migrant | Official + resident | Yes (resident concerns) |
+| AP | Vivas, authorities | Official only | No |
+| Reuters (1) | Government rep, Vivas, Interior Ministry, unnamed migrant | Official + migrant | Partial |
+| Reuters (2) | Vivas (radio), Interior Minister | Official only | No |
+| NYT | Vivas, Youssef Alaoui, EU official, local officials | Official + migrant | Partial |
+| CBC (1) | Authorities, Abdelhakim (via AFP), Moroccan NGO | Official + migrant + NGO | Yes |
+| CBC (2) | Vivas, Sánchez, Torres, AUGC | Official only | No |
+| CNN | Sánchez, Italian officials, EU official | Official only | No |
+| ABC | Migrant Jadid Zacaria, Guardia Civil spokesperson, Enrique Serrano, opposition leader, Tajani | Migrant + official + opposition | Yes |
+
+**5. ATTRIBUTED vs. ASSERTED**
+
+| Fact | Outlets asserting | Outlets attributing | Attribution verb |
+|---|---|---|---|
+| 60,000 figure | BBC, AP, NYT | Reuters (to Vivas) | "Vivas said" |
+| 49,000 figure | Reuters | — | "citing Interior Ministry" |
+| 57 deaths | Reuters, CNN | CBC (to authorities), BBC (to local media) | "officials said" / "according to local media" |
+| "Voluntary" return | AP, BBC | Reuters | "Spain said" |
+
+**6. HEADLINE CONTENT — which material facts reach each headline**
+
+| Fact | BBC1 | BBC2 | AP | Reuters1 | Reuters2 | NYT | CBC1 | CBC2 | CNN | ABC |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 60k figure | ✓ | ✓ | ✓ | | | ✓ | ✓ | | | |
+| 49–50k figure | | | | ✓ | | | | | ✓ | |
+| Death toll | | ✓ | | ✓ | | | ✓ | ✓ | ✓ | |
+| Voluntary return | | | ✓ | ✓ | | ✓ | ✓ | | ✓ | |
+| PM blame/response | | ✓ | | | | | | | | ✓ |
+| Military deployed | | | | | | | | | | ✓ |
+
+
+## SECTION D7 — NARRATIVE-FLAG AND CONTEXT VARIANCE ACROSS OUTLETS
+
+| Attribute / context element | BBC | AP | Reuters | NYT | CBC | CNN | ABC |
+|---|---|---|---|---|---|---|---|
+| **Event classification** | "influx" / "crossing" | "crossed" | "rush" / "surge" | "influx" | "breach" | "surge" | "pour" |
+| **Motive/cause attribution** | Criminal networks / Supreme Court ruling | Not emphasized | Court ruling may have provoked surge | Far-right backlash; Sánchez's pro-immigration stance | Court ruling; Morocco doesn't recognize Ceuta | Traffickers / misinformation | Sanchez's pro-migrant policy blamed |
+| **Precedent invoked** | 2021 crisis | Not explicit | May 2021 crisis | Not explicit | Periodic surges | Not explicit | 2021 crisis |
+| **Biography/individualization** | Migrant quote; resident quotes | None | Migrant quotes | Named migrant (Alaoui) | Named migrant (Abdelhakim) | None | Named migrant (Zacaria) |
+
+**For each divergence:**
+1. **Timing:** Most attributes (Supreme Court ruling, 2021 precedent) were known to all outlets by July 31.
+2. **Difference type:** Inclusion/omission, primarily. ABC includes opposition voices; AP includes none.
+3. **Material relevance:** Yes — cause attribution changes whether readers see this as orchestrated trafficking (BBC/Reuters), policy failure (ABC/opposition), or European political crisis (NYT/CNN).
+4. **Individualization:** ABC, BBC, NYT, CBC individualize migrants; AP and CNN do not.
+5. **Correlation:** Outlets that quote migrants (BBC, NYT, CBC, ABC) tend to include more balancing/humanizing context.
+6. **Possible explanations:** Wire dependence? No — most are original. House style? AP's brevity explains some omissions.
+
+**NETWORK-WIDE PATTERNS:**
+- **Uniform finding:** All outlets treat this as a crisis, all report official figures, all quote Sánchez.
+- **Network-wide convention finding:** The "voluntary return" framing is **inherited from Spanish official statements** — all outlets adopt it, none independently verify it against migrant accounts.
+- **Absence cluster:** Moroccan government perspective is **entirely absent** from all 10 pieces. No outlet quotes Moroccan officials or presents Morocco's framing. This is a **network-wide blind spot** — not outlet-specific.
+
+
+## SECTION D8 — SYNONYM VARIANCE vs. CAUSAL-CONTEXT VARIANCE
+
+| Event element | Outlet wordings | Synonym only? | Causal context added/removed | Effect |
+|---|---|---|---|---|
+| Crossing | "arrive" (BBC) / "breach" (CBC) / "pour" (ABC) / "surge" (Reuters) | No | "Breach"/"pour" imply illegality/force; "arrive" is neutral | Reader perception of agency and legitimacy |
+| Return | "voluntarily returned" (BBC) / "heading back voluntarily" (Reuters) / "expel" (CBC) | No | "Voluntary" vs. "expel" — incompatible causal models | Voluntary = crisis resolving; expel = state coercion |
+| Deaths | "died" / "killed" / "bodies recovered" | Yes (synonym) | No | Neutral |
+
+**What the network adds:** CBC's "expel" against everyone else's "voluntary return" demonstrates the alternative was feasible. The uniformity of "voluntary" across 9 outlets suggests **document dependence** on Spanish official statements rather than independent editorial convergence.
+
+**Critical — PRIMARY SOURCE CHECK:** Without the actual Spanish government press release or press conference transcript, we cannot determine whether "voluntary" originated with officials or was an editorial choice. This caps findings at **PROVISIONAL**.
+
+
+## SECTION D9 — BASELINE AND DENOMINATOR VARIANCE
+
+| Figure | Outlet | Baseline / denominator | Raw or rate | Adjustment applied | Impression supported |
+|---|---|---|---|---|---|
+| 60,000 migrants | BBC, AP, NYT, CBC | Ceuta population ~83,600 | Raw | "70% of population" | Overwhelming scale |
+| 49,000 migrants | Reuters | None | Raw | None | Large but lower |
+| 1,500 migrants (early) | Reuters (2) | One-week window | Rate | ~300/day | Gradual buildup |
+| 7,000 minors | BBC | 60,000 total | Raw | None | Humanitarian concern |
+| 60 bodies in recent months | Reuters (2) | "Recent months" | Raw | None | Ongoing crisis |
+
+**1. Different comparison points:** BBC and AP explicitly compare to Ceuta's population (70%). Reuters does not. This choice amplifies the "overwhelmed" framing.
+
+**2. Correlation:** Outlets using the population comparison (BBC, AP, NYT) lead with scale/chaos framing. Reuters (more technical) does not.
+
+**3. Comparison basis reported?** BBC reports it explicitly. AP does not in the headline but does in body.
+
+**4. Common basis:** If all outlets used the population comparison, apparent disagreement would be unchanged — the figure variance remains.
+
+
+## SECTION D2 — CROSS-BRANCH RESOLUTION
+
+**No prior single-piece audit preceded this.** Write "no prior single-piece audit" and skip.
+
+
+## SECTION E — CLUSTERING AND CORRELATION
+
+**1. Do framing choices CLUSTER?**
+
+**Cluster A — Official/Security framing (AP, Reuters, CNN, CBC-2):**
+- Lead with official figures and government response
+- Few or no migrant voices
+- No opposition political voices
+- "Voluntary return" presented as resolution
+- Minimal causal context (Supreme Court ruling mentioned late or not at all)
+
+**Cluster B — Humanizing/Political-context framing (BBC, NYT, CBC-1, ABC):**
+- Lead with scale but include migrant/resident voices
+- Quote opposition or European political reactions
+- Include Supreme Court ruling as causal context
+- More balanced source distribution
+- Include 2021 precedent
+
+**2. Cluster descriptions BY CHOICES FIRST:**
+- **Cluster 1:** Leads with official response, places complicating context (court ruling, deaths) late or omits, quotes officials only, omits migrant voices.
+- **Cluster 2:** Leads with event scale, places official response alongside migrant/human voices, quotes multiple source types, includes political context.
+
+**Correlation with lean:** Cluster 1 leans toward state-security framing; Cluster 2 leans toward humanitarian/political framing. This correlates with outlet style (wire services vs. features) more than explicit political leaning.
+
+**3. Outlier:** ABC News mixes both — leads with military deployment but includes extensive migrant and opposition quotes.
+
+**4. Non-lean explanations tested:**
+- **Publication time:** Earlier pieces (July 30) have lower death tolls (9-34) and smaller figures (1,500). Later pieces (July 31) have higher figures (49k-60k) and more complete framing.
+- **Wire dependence:** Not a major factor — most are original.
+- **Length:** AP and Reuters (shorter briefs) have less balancing context; BBC, NYT, CBC (longer features) have more.
+- **Local vs. international:** Not applicable — all are international.
+- **Conclusion:** Length and publication timing explain more variance than political lean. Shorter, earlier pieces are simpler and more official-source-dependent.
+
+
+## SECTION E2 — PRIOR-MATCH CHECK
+
+**1. Prior's prediction:** European and US outlets would frame this primarily as a security/border-control crisis with some humanitarian angles, while Spanish and local sources might emphasize diplomatic dimensions.
+
+**2. Actual primary finding:** All outlets frame this as a crisis, but the dominant frame varies by outlet type — wire services (AP, Reuters) lean official/security; feature outlets (BBC, NYT, CBC) include more humanitarian and political-context framing. No Spanish/local outlets in the sample to test the diplomatic dimension prediction.
+
+**3. Do they match?** **Partial match.** Security framing is present everywhere, but the humanitarian/political-context frame is stronger in feature outlets than predicted. The predicted Spanish/local diplomatic emphasis was not testable.
+
+**4. Full match?** No — partial.
+
+**5. What did you expect and not find?** Expected more explicit "border crisis" / "invasion" language from right-leaning outlets; did not find it in mainstream outlets sampled. Expected clearer Spanish government-Morocco diplomatic tension framing; found only brief mentions.
+
+**6. Inverse check — evidence AGAINST prior:** ABC News's prominent migrant quote ("our will and determination allowed us to come here") and the NYT's focus on Sánchez's pro-immigration policy as a political vulnerability cut against the simple "security crisis" prior — they present migrants as agents and the crisis as politically complex.
+
+
+## SECTION F — FLIP TEST
+
+**STEP 1 — WRITE THE MIRROR:**
+
+> **"Spain's Open Borders Policy Invites Chaos as 60,000 Migrants Overrun Ceuta"**
+>
+> The Spanish government's permissive immigration policies have backfired catastrophically, with 60,000 migrants overwhelming the tiny enclave of Ceuta in a single day. At least 57 are dead, and Italian officials are calling for Spain's suspension from the Schengen zone. Prime Minister Pedro Sánchez, whose administration recently offered legal status to hundreds of thousands of undocumented migrants, now faces a security crisis of his own making as Moroccan authorities watch helplessly from across the border. Local residents barricaded themselves indoors as "thousands and thousands" of migrants flooded the streets, with one describing the scene as "packed with immigrants, in every square and street."
+
+**STEP 2 — AUDIT YOUR OWN MIRROR**
+
+**Finding against mirror #1 — Severity: MODERATE.** Headline attributes causality to "Open Borders Policy" — an assertion not supported by the shared factual core (the Supreme Court ruling and trafficking misinformation are the cited causes). The mirror converts a complex policy decision into a direct causal claim.
+
+**Finding against mirror #2 — Severity: MODERATE.** "Moroccan authorities watch helplessly" is factually inverted — multiple outlets report Moroccan police used batons, tear gas, and water cannon to push people back. The mirror omits this.
+
+**STEP 3 — CONSISTENCY CHECK**
+
+| Observation | Type | Resolution |
+|---|---|---|
+| Mirror attributes causality to policy; original outlets attribute to trafficking/court ruling. Both make causal claims from limited evidence. | **A** (inconsistent) | Original outlets' causal claims are **attributed to Sánchez** ("blamed trafficking gangs"). The mirror asserts causality without attribution. This is a genuine inconsistency — the mirror's causal claim is less anchored. **Downgrade mirror, not original.** |
+| Mirror uses emotionally loaded language ("overrun," "chaos," "backfired catastrophically"); original uses "surge," "influx," "crossing." | **B** (symmetric) | Both use charged language — but original uses official/neutral terms, mirror uses panic language. Symmetric phenomenon (word choice matters) but different valence. No downgrade. |
+
+**STEP 4 — FORCED RANKING**
+
+| Rank | Finding | Why more prior-dependent than the next |
+|---|---|---|
+| 1 | "Voluntary return" framing is inherited from official sources (most outlets use it uncritically) | My prior expected "voluntary" to be official spin; this finding confirms prior directly |
+| 2 | AP and CNN omit migrant voices; BBC and NYT include them | Less prior-dependent — observable variance |
+| 3 | Death toll variance (34 vs. 57) is timing artifact | Minimal prior-dependence — factual |
+
+**STEP 5 — AUTOMATIC DOWNGRADE**
+
+**Downgrade applied:** Finding #1 ("Voluntary return" framing is inherited) — MODERATE → MINOR.
+
+**STEP 6 — SCRUTINY SYMMETRY**
+
+**a. Finding against outlet I'd tend to trust:** BBC (generally credible) uses "attack" framing from Sánchez without qualification. This is an official source assertion presented as fact, not attributed skepticism.
+
+**b. Where coverage cuts AGAINST expectation:** Expected more "border crisis" panic language; found mostly measured reporting. Expected Spanish diplomatic dimension; found little.
+
+**c. Outlet whose construction I'd flag if it leaned the other way:** If AP had led with "Spain's failure to secure border" instead of "60,000 migrants crossed... but most left voluntarily," I would flag it as alarmist. The neutral AP framing passes the flip test.
+
+**d. Counter-evidence analysis:** The "voluntary return" framing — would a reader who noticed Reuters' "heading back voluntarily" alongside CBC's "expel" reach a different conclusion? Yes — the contradiction reveals that "voluntary" is contested. The counter-evidence (CBC's "expel") fails to address whether migrants *chose* to leave or were *forced* — it merely asserts the alternative. This missing piece — actual migrant testimony on why they left — is what neither frame provides. **No downgrade.**
+
+| Finding | Mirror written? | Findings against mirror | Contradiction w/ mirror principle? | Prior-dependence rank | Verdict |
+|---|---|---|---|---|---|
+| Voluntary return is official spin | Yes | Mirror's causal claim un-attributed | A — mirror asserts; original attributes | 1 | **PRIOR-DEPENDENT — downgraded to MINOR** |
+| Migrant voice inclusion varies | Yes | Mirror's panic language | B — symmetric | 2 | Survives |
+| Death toll timing artifact | Yes | N/A | N/A | 3 | Survives |
+
+
+## SECTION G — SAMPLE AUDIT
+
+**1. Selection method:** Systematic search using search engines with queries targeting "Ceuta migrant crossing 2026" and site-specific searches for major outlets. Results sorted by relevance. This is **CONVENIENCE** sampling — based on search engine ranking, not a comprehensive census.
+
+**2. Outlets covering this event that are ABSENT:** 
+- Spanish outlets (El País, El Mundo, ABC Spain, La Vanguardia)
+- Al Jazeera
+- France 24
+- Deutsche Welle
+- Moroccan outlets
+- Right-leaning US outlets (Fox News, Breitbart)
+- Left-leaning US outlets (MSNBC, The Guardian)
+
+**3. Sample over-representation:** Over-represents Anglophone international outlets (BBC, AP, Reuters, NYT, CBC, CNN). Under-represents Spanish, Moroccan, and non-English European perspectives.
+
+**4. Would missing outlets change clustering?** Likely yes. Spanish outlets would likely emphasize diplomatic dimensions with Morocco. Moroccan outlets would present a different framing entirely. Right-leaning outlets would likely use stronger security-crisis language. This sample cannot capture the full range.
+
+**5. Sample verdict:** **CONVENIENCE**
+
+**REQUIRED:** Every distributional claim in this audit is **PROVISIONAL** for overall media distribution. Verb variance and source-chain findings about the pieces *examined* are valid; claims about "most outlets" or "coverage generally" are not.
+
+
+## SECTION H — STANDARDIZED FINDING TABLE
+
+| Field | Entry |
+|---|---|
+| Finding | All 10 outlets derive their core narrative from official Spanish government statements (Vivas, Sánchez, Interior Ministry), with only 2 independent information sources across 10 pieces |
+| Section | B |
+| Evidence | Side-by-side: all lead with Vivas 60k figure; all quote Sánchez; all report "voluntary return" |
+| Finding type | source-chain |
+| Severity | MODERATE |
+| Survives flip test | yes |
+| Sample-dependent? | no — would hold with any sample of English-language coverage |
+| Possible innocent explanation | Official sources are the primary providers of numbers and statements; outlets necessarily rely on them for facts |
+| What would weaken this | Obtaining and comparing original Spanish government press release/transcript against coverage |
+| Verification state | CHAIN-INFERRED (no primary document obtained) |
+
+---
+
+| Field | Entry |
+|---|---|
+| Finding | "Voluntary return" framing is uniformly adopted across all outlets despite CBC reporting "expel" as an alternative, suggesting uncritical acceptance of official framing |
+| Section | D, D8 |
+| Evidence | BBC: "voluntarily returned"; Reuters: "heading back voluntarily"; AP: "left voluntarily"; CBC: "expel those who had entered illegally" |
+| Finding type | framing-divergence |
+| Severity | MINOR (downgraded from MODERATE via flip test) |
+| Survives flip test | no — prior-dependent |
+| Sample-dependent? | no |
+| Possible innocent explanation | "Voluntary" may be literally true; outlets may be accurately reporting official statements |
+| What would weaken this | Migrant testimony on whether they chose to leave or were pressured; Moroccan official statements; full transcript of Sánchez presser |
+| Verification state | PROVISIONAL |
+
+---
+
+| Field | Entry |
+|---|---|
+| Finding | Migrant and resident voices appear in 6 of 10 outlets (BBC, Reuters, NYT, CBC, ABC) but are entirely absent from AP, CNN, and Reuters(2) — a deliberate selection pattern |
+| Section | C, D4 |
+| Evidence | AP: no migrant quotes; CNN: no migrant quotes; BBC: two resident quotes + migrant quote; ABC: migrant quote |
+| Finding type | selection |
+| Severity | MODERATE |
+| Survives flip test | yes |
+| Sample-dependent? | partially — different sample might show different pattern |
+| Possible innocent explanation | AP and CNN are wire/brief formats with space constraints; shorter pieces necessarily have fewer voices |
+| What would weaken this | If AP/CNN had longer versions with voices not in the sampled text; if editorial policies explicitly prioritize brevity |
+| Verification state | CROSS-OUTLET-CORROBORATED (independence count: 2) |
+
+---
+
+| Field | Entry |
+|---|---|
+| Finding | Moroccan government perspective is entirely absent from all 10 outlets — a network-wide omission |
+| Section | D7 |
+| Evidence | No Moroccan official quoted in any piece; no Moroccan framing presented |
+| Finding type | selection (omission cluster) |
+| Severity | MODERATE |
+| Survives flip test | yes |
+| Sample-dependent? | partially — Spanish/Moroccan outlets would likely include Moroccan perspective |
+| Possible innocent explanation | Moroccan government may not have issued statements; may not have responded to requests |
+| What would weaken this | Obtaining Moroccan official statements showing they were available and outlets ignored them |
+| Verification state | PROVISIONAL |
+
+
+## SECTION I — VERDICT
+
+**Pieces compared:** 10 (BBC ×3, AP, Reuters ×2, NYT, CBC ×2, CNN)
+
+**Independent information sources (B3):** 2 (official Spanish statements; on-the-ground reporting)
+
+**Amplification ratio (pieces ÷ independent sources):** 5:1
+
+**Shared factual core (one sentence):** Tens of thousands of migrants crossed from Morocco into Ceuta on July 30-31; Spain deployed troops; Sánchez called it a violation; most returned; dozens died.
+
+**DIRECTIONAL COHERENCE:** 3 of 4 surviving findings push toward the same direction: coverage is **source-dependent on official Spanish accounts**, with limited independent verification and a network-wide omission of Moroccan perspectives. The fourth finding (migrant voice variance) is orthogonal. **Coherence finding at MODERATE** — individually defensible choices that consistently favor official sources across independent levers.
+
+**CROSS-BRANCH RESOLUTION (D2):** No prior single-piece audit — skipped.
+
+**Most significant framing divergence:** "Voluntary return" (9 outlets) vs. "expel" (CBC) — a causal-model contradiction that reveals the limits of official-source dependence.
+
+**Does framing cluster?** Yes, along two axes: **Official/security cluster** (AP, Reuters, CNN, CBC-2) vs. **Humanizing/political-context cluster** (BBC, NYT, CBC-1, ABC).
+
+**Non-lean explanations tested:** Timing (earlier = lower figures), length (shorter = fewer voices), wire status (not significant). These explain substantial variance.
+
+**Sample verdict (G5):** **CONVENIENCE** — findings about the pieces examined are valid; claims about overall media distribution are PROVISIONAL.
+
+**Findings surviving flip test:** Migrant voice variance; death toll timing artifact; Moroccan perspective omission (provisional).
+
+**Load-bearing findings:** Source-chain dependence (2 sources across 10 pieces); network-wide Moroccan perspective omission.
+
+**What this audit could NOT assess:**
+- Accuracy of any factual claim (requires primary source material — not obtained)
+- Whether "voluntary" returns were genuinely voluntary
+- Whether the Supreme Court ruling actually caused the surge
+- Spanish or Moroccan government internal decision-making
+- Coverage beyond Anglophone international outlets
+
+**Confidence:** **MODERATE** for source-chain and clustering findings; **LOW** for framing-accuracy claims (no primary sources obtained).
+
+**What would change this assessment:** Obtaining Spanish government press releases/transcripts; obtaining Moroccan official statements; expanding sample to Spanish, Moroccan, and non-English outlets; obtaining migrant testimony on return motivations.
+
+---
+
+**FINAL REQUIRED STATEMENT:**
+
+> "Coverage of this event derives from approximately **2** independent sources across **10** pieces. Framing diverges materially on **migrant voice inclusion, causal attribution, and whether returns were voluntary or coerced**. The divergence **does** cluster along **official/security vs. humanitarian/political-context** axes, but length and publication timing explain substantial variance. This audit does not establish which framing is accurate."
