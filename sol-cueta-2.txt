@@ -1,0 +1,682 @@
+COVERAGE NETWORK & SOURCE-CHAIN AUDIT — MEDIA BRANCH
+EVENT: Mass migrant crossing from Morocco into Ceuta, Spain, July 30–31, 2026
+AUDIT DATE: July 31, 2026
+TIMESTAMP STANDARD: Publication times are reproduced in the outlet's stated timezone and normalized to UTC where possible.
+
+=================================================================
+SCOPE AND LIMIT
+=================================================================
+
+This audit maps how the story propagated and where framings differ. It does NOT establish which framing is correct. A distribution of framings is not a verdict, and majority coverage is not evidence of accuracy—especially when multiple outlets share Reuters, AP, official statements, or the same images. Adjudicating disputed causes requires primary material beyond the coverage network.
+
+EVENT OR CLAIM UNDER AUDIT
+Tens of thousands of people crossed from Morocco into the Spanish territory of Ceuta by land and sea on July 30–31, 2026, causing deaths, overwhelming local capacity, prompting military deployment and rapid returns, and generating competing humanitarian, sovereignty, security, and policy explanations.
+
+PRIMARY SOURCE MATERIAL
+Obtained indirectly through quoted or linked statements:
+- Spanish Interior Ministry figures and return estimates.
+- Statements by Spanish Prime Minister Pedro Sánchez.
+- Statements by Ceuta President Juan Jesús Vivas.
+- Statements attributed to Morocco's ambassador to Spain.
+- Eyewitness observations by Reuters and AP personnel.
+Not obtained:
+- Full written Interior Ministry release in original form.
+- Full transcript/video of the principal Spanish government briefing.
+- Full Moroccan Interior Ministry written statement.
+- Complete police/military operational logs.
+Accordingly, source chains based on quoted official material are often CHAIN-INFERRED rather than fully CHAIN-CONFIRMED.
+
+SELECTION METHOD
+Searches were conducted for English- and Spanish-language coverage using combinations of:
+“Ceuta migrants July 30 2026,” “Ceuta crossing Morocco Spain,” “49,000 migrants Ceuta,” “60,000 Ceuta,” and outlet-specific searches. The sample deliberately includes:
+- two wire organizations or wire-origin pieces;
+- an international broadcaster;
+- a European live blog;
+- a Spanish national newspaper;
+- a US tabloid;
+- a general-interest explainer.
+
+The sample is PARTIAL, not systematic. It supports concrete findings about the pieces compared, but not claims about “the media” as a whole.
+
+=================================================================
+SECTION A — CORPUS AND PUBLICATION SEQUENCE
+=================================================================
+
+A1. Reuters
+Headline: “Migrants pour into Spain's Ceuta from Morocco, military called in”
+Byline: Jaime Lopez and Ahmed Eljechtimi
+Published: July 30, 2026, 12:18 PM UTC
+Updated: current page only says “Updated ago”; original update timestamp unavailable
+Format: Full breaking-news report; original Reuters field reporting
+URL: https://www.reuters.com/world/europe/thousands-migrants-cross-into-spains-ceuta-foot-efe-reports-2026-07-30/
+
+A2. New York Post
+Headline: “Thousands of migrants flood Spain from Morocco, causing ‘absolute chaos’”
+Byline: outlet page/byline not fully retrieved in this run
+Published: July 30, 2026, 6:22:14 PM UTC
+Format: Tabloid report/synthesis
+URL: https://nypost.com/2026/07/30/world-news/thousands-of-migrants-rush-spanish-border-prompting-call-for-national-emergency-absolute-chaos/
+
+A3. El País
+Headline: “Máxima alerta en Ceuta tras el cruce descontrolado de miles de personas desde Marruecos que deja al menos 18 muertos”
+English rendering: “Maximum alert in Ceuta after the uncontrolled crossing of thousands of people from Morocco leaves at least 18 dead”
+Published: July 30, 2026
+Exact publication time: NOT RETRIEVED
+Format: Spanish national full report
+URL: https://elpais.com/espana/2026-07-30/otra-manana-de-centenares-de-entradas-de-inmigrantes-a-ceuta-pone-en-jaque-a-la-ciudad-autonoma.html
+
+A4. Guardian live blog
+Headline: “Italy says it’s temporarily suspending EU Schengen arrangement with Spain after 60,000 migrants reach Ceuta – as it happened”
+Byline: Jakub Krupa
+First published: July 31, 2026, 8:42 AM BST = 7:42 AM UTC
+Final displayed update: July 31, 2026, 6:43 PM BST = 5:43 PM UTC
+Format: Live blog, continuously updated
+URL: https://www.theguardian.com/world/live/2026/jul/31/cueta-spain-morocco-italy-migration-schengen-europe-latest-news-updates
+
+A5. Reuters
+Headline: “Spain says migrants are returning from Ceuta after 57 die in border rush”
+Byline: Michael Francis Gore and Ahmed Eljechtimi
+Published: July 31, 2026, 8:38 AM UTC
+Updated: current page only says “Updated ago”; exact update timestamp unavailable
+Format: Full follow-up with field observation in Ceuta and Fnideq
+URL: https://www.reuters.com/world/africa/spain-morocco-halt-deadly-rush-spanish-enclave-after-49000-cross-day-2026-07-31/
+
+A6. Time
+Headline: “Why Thousands of Moroccan Migrants Crossed Into the Spanish Exclave Ceuta”
+Byline: Chad de Guzman, Tiago Ventura, Olivia-Anne Cleary
+Published: July 31, 2026, 11:47 AM UTC
+Updated: July 31, 2026, 7:40 PM UTC
+Format: Explainer/synthesis
+URL: https://time.com/article/2026/07/31/ceuta-spain-morocco-africa-explainer/
+
+A7. CBS News / Associated Press
+Headline: “Spain deploys military to Ceuta after thousands of migrant crossings at Morocco border; at least 34 dead”
+Wire credit: CBS/AP
+Published time: original publication time not displayed in retrieved page
+Updated: July 31, 2026, 8:54 AM EDT = 12:54 PM UTC
+Format: AP-derived breaking report hosted by CBS
+URL: https://www.cbsnews.com/news/spain-deploys-military-ceuta-morocco-border-migrants/
+
+A8. Euronews
+Headline: “More than 48,000 migrants return to Morocco after mass crossing into Ceuta”
+Byline: Rafael Salido
+Published: July 31, 2026, 3:33 PM GMT+2 = 1:33 PM UTC
+Updated: July 31, 2026, 9:33 PM GMT+2 = 7:33 PM UTC
+Format: European news synthesis using official figures and AP imagery
+URL: https://www.euronews.com/my-europe/2026/07/31/around-25000-migrants-returned-to-morocco-after-mass-border-crossing-into-ceuta
+
+PUBLICATION-SEQUENCE OBSERVATION
+The sequence matters enormously. Reuters A1 and the New York Post A2 appeared while the reported scale was still in the low thousands and before the final death toll and return figures were available. Guardian A4, Reuters A5, Time A6, CBS/AP A7, and Euronews A8 had access to later official estimates ranging from approximately 49,000 to 60,000 arrivals and up to 57 deaths. Numerical differences between the early and later pieces are primarily TIMING ARTIFACTS, not evidence of editorial suppression.
+
+VERSION NOTE
+Several pieces were live or updated repeatedly. Exact original headlines and first-version text could not be checked against archive captures. Any claim that an outlet changed emphasis over time is therefore UNKNOWN.
+
+=================================================================
+SECTION B — SOURCE CHAIN
+=================================================================
+
+COUNTING UNIT
+Level 1 counts organizations that produced original reporting: direct field observation, interviews, or independently obtained material.
+Level 2 counts upstream information origins: official Spanish statements, Ceuta local-government statements, Moroccan statements, Reuters field reporting, AP field reporting, local Spanish broadcasters/agencies, and direct migrant/witness interviews.
+
+| Outlet/piece | Named or visible sources | Primary documents cited | Original reporting? | Principal trace |
+|---|---|---|---|---|
+| Reuters A1 | TVE; Spanish government; Reuters witnesses; migrant Jadid Zacaria; Moroccan rights representative Omar Naji; local authorities | No full document reproduced | Yes | Reuters field team + Spanish official sources + TVE/local material |
+| New York Post A2 | Spanish officials; local emergency rhetoric; images/video; likely wire/local synthesis | No | No clear original reporting retrieved | Reuters/AP/local Spanish reporting and political statements |
+| El País A3 | Spanish/Ceuta officials; emergency services; on-scene conditions | No full document retrieved | Likely yes, but full chain incompletely retrieved | El País reporting + official/local sources |
+| Guardian A4 | Reuters/AP/AFP-style updates; EU and national leaders; official social posts | Links to some statements, no single primary dossier | Limited original aggregation/analysis | Multiple wires + official statements + live political reaction |
+| Reuters A5 | Spanish Interior Ministry; Ceuta government representative; Vivas; Reuters observations; returning migrant interview | No full document reproduced | Yes | Reuters field team + Spanish/Ceuta official sources |
+| Time A6 | EFE; Reuters; El País; Cadena SER; official social post; Moroccan ambassador | Links rather than reproduced primary docs | No evident field reporting | Multi-source synthesis drawing heavily on agencies and Spanish outlets |
+| CBS/AP A7 | AP reporting; Ceuta president; Spanish Interior Ministry; RTVE | No | AP original; CBS republication/edit | AP field reporting + official sources |
+| Euronews A8 | Spanish Interior Ministry via local media; Sánchez; Robles; AP imagery | No | No clear field reporting in retrieved text | Official statements + local media + AP imagery |
+
+SOURCE-CHAIN STATUS
+- Reuters A1/A5: CHAIN-CONFIRMED for Reuters direct observations and interviews; CHAIN-INFERRED for some official claims because full releases/transcripts were not obtained.
+- CBS/AP A7: CHAIN-CONFIRMED as AP-derived through explicit credit.
+- Time A6: CHAIN-CONFIRMED for its visible links to EFE, Reuters, El País, Cadena SER, and official social media.
+- Euronews A8: CHAIN-INFERRED for “local media” and official claims; AP image dependence is explicit.
+- New York Post A2 and parts of El País A3: CHAIN-PROVISIONAL where the full source chain was not retrievable.
+
+INDEPENDENCE COUNTS
+Level 1 — reporting organizations producing original reporting:
+Approximately 4: Reuters, AP, El País, and possibly Guardian correspondents/analysis. Guardian mainly aggregates the evolving event, so a stricter count is 3.
+
+Level 2 — upstream information origins:
+Approximately 7:
+1. Spanish national government / Interior Ministry;
+2. Ceuta local government and its president;
+3. Reuters field observation and interviews;
+4. AP field observation and photography;
+5. Spanish local/national broadcasters and agencies (TVE/RTVE/EFE);
+6. Moroccan government/diplomatic statements;
+7. migrant, witness, and rights-group accounts not reducible to one official origin.
+
+REQUIRED STATEMENT
+This coverage represents approximately 3–4 organizations producing original reporting and approximately 7 upstream information origins, across 8 published pieces.
+
+AMPLIFICATION RATIO
+8 pieces ÷ approximately 7 upstream origins.
+
+This ratio looks modest, but it understates dependence because several central facts—arrival totals, return totals, military deployment, and official causal claims—trace to the same Spanish governmental origin. For those facts, apparent cross-outlet corroboration is often amplification of one official account rather than independent confirmation.
+
+ORIGINAL REPORTING
+- Clearly original: Reuters A1, Reuters A5, AP underlying CBS A7.
+- Likely original/local: El País A3.
+- Predominantly synthesis: New York Post A2, Guardian A4, Time A6, Euronews A8.
+
+INTERNAL EDGES
+- Time explicitly links Reuters, El País, EFE, Cadena SER, and official social media.
+- CBS explicitly credits AP.
+- Al Jazeera coverage located during retrieval credited both Reuters and AP, illustrating another direct amplification edge, though it was not included in the final eight-piece table.
+- Euronews uses AP imagery and cites official figures through local media.
+
+NEAR-IDENTICAL INFORMATION
+The repeated package—military deployment, tens of thousands entering, official return figures, Ceuta’s population comparison, and deaths by drowning/crushing—appears across later pieces because it was distributed by Reuters/AP and Spanish authorities. Repetition does not by itself supply independent verification.
+
+=================================================================
+SECTION C — SHARED FACTUAL CORE VS. UNIQUE MATERIAL
+=================================================================
+
+SHARED CORE
+Reported by nearly all later pieces:
+1. A mass crossing occurred from Morocco into Ceuta by land and sea.
+2. Spanish forces were deployed or reinforced.
+3. Local capacity was overwhelmed.
+4. People died during the crossing.
+5. Spain and Morocco moved to halt or reverse the flow.
+6. Large numbers returned to Morocco.
+7. Ceuta is a small Spanish territory in North Africa and an EU external border.
+
+CAVEAT
+Most numerical elements of the shared core depend on Spanish/Ceuta official estimates. They are CROSS-OUTLET-CORROBORATED as reports of what officials said, but not independently confirmed population counts.
+
+UNIQUE OR LIMITED MATERIAL
+
+| Fact/context | Outlets emphasizing it | Outlets omitting/de-emphasizing | Classification | Directional effect |
+|---|---|---|---|---|
+| Direct migrant quote expressing determination to enter | Reuters A1 | Most others | Genuine Reuters original reporting | Humanizes agency and motivation |
+| Returning migrant saying he did not know why he came and lacked food | Reuters A5 | Most others | Genuine Reuters original reporting | Complicates both heroic-migration and organized-invasion narratives |
+| Burned vehicles and clashes observed in Morocco | Reuters A5, CBS/AP A7, Guardian A4 | Time A6 less prominent | Available later; partly selection, partly format | Supports disorder/security frame |
+| “Violation of territorial integrity/sovereignty” | Reuters A5, Guardian A4, Euronews A8 | Early Reuters A1 unavailable; some humanitarian leads delay it | Known only after Sánchez spoke; timing-sensitive | Security/sovereignty frame |
+| “Gateway for migrants seeking better lives” and historical explainer | Time A6 | Breaking pieces | Format effect, not omission | Structural/humanitarian frame |
+| Political backlash in Europe and US | Guardian A4, later Reuters A5, some tabloid coverage | Early pieces | Later availability and format | Policy/political frame |
+| Reception-center conditions, sanitation, food scarcity | El País A3, Reuters A5, Time A6 | Headline-driven security pieces | Material likely available to later outlets; partial selection | Humanitarian/system-capacity frame |
+| Residents staying inside/business disruption | New York Post A2 and some local reports | Reuters/Time less prominent | Chain not fully verified | Public-order threat frame |
+| Uncertainty about cause | AP early report, Reuters early report | Later political pieces often foreground asserted causes | Genuine uncertainty marker | Resists premature causal closure |
+
+CONTRADICTIONS
+1. Arrival total:
+- Early: 1,500–3,000 or “thousands.”
+- Later: approximately 49,000–60,000.
+Classification: TIMING ARTIFACT plus differences among official estimates, not necessarily factual contradiction.
+
+2. Death toll:
+- Early: 9, then 18, then 34.
+- Later: 57.
+Classification: evolving confirmed count; TIMING ARTIFACT.
+
+3. Returns:
+- 25,000 returned in midday updates.
+- 48,300 returned by 6 p.m. local time.
+Classification: evolving cumulative count; TIMING ARTIFACT.
+
+4. Voluntary return vs. expulsion/deportation:
+- Reuters A5: most were “heading back voluntarily,” while Spain accelerated expulsions.
+- CBS/New York Post formulations: “sent back,” “expel,” or “deported.”
+- Euronews: “returned.”
+Classification: partly factual and partly definitional. The network often merges voluntary return, facilitated return, and formal expulsion into one headline-scale number. This is a real causal/legal distinction and one of the strongest divergences.
+
+AVAILABILITY MATRIX (CONDENSED)
+
+| Material | Reuters A1 7/30 12:18 UTC | NYP A2 7/30 18:22 UTC | Guardian A4 7/31 07:42 UTC | Reuters A5 7/31 08:38 UTC | Time A6 7/31 11:47 UTC | CBS/AP A7 update 12:54 UTC | Euronews A8 13:33 UTC |
+|---|---|---|---|---|---|---|---|
+| Military deployment | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| 49k–60k estimate | No | No/unclear | Yes | Yes | Yes | Yes | Yes |
+| 57 deaths | No | No | Became available during live blog | Yes | Yes | Update may initially have 34 | Later update |
+| Large-scale returns | No | No | Yes | Yes | Yes | Yes | Yes |
+| Sánchez sovereignty statement | No | No | Yes | Yes | Yes | Yes/officially available | Yes |
+| Reception-center scarcity | Emerging/local | Likely available locally | Yes | Yes | Yes via El País | Possibly available | Available |
+| Full explanation of trigger | No | No | No definitive source | No definitive source | Multiple hypotheses | No definitive source | Official trafficking claim |
+
+SELECTION FINDING
+Only later pieces can be assessed for selection concerning return conditions, sovereignty framing, reception-center scarcity, and legal/political explanations. Early omissions are not findings.
+
+=================================================================
+SECTION D — FRAMING DIVERGENCE MAP
+=================================================================
+
+D1. HEADLINE VERB AND AGENCY
+
+| Outlet | Headline construction | Grammatical agent | Active/passive effect |
+|---|---|---|---|
+| Reuters A1 | “Migrants pour into…” | Migrants | Active movement; “pour” depicts volume and flow |
+| New York Post A2 | “Thousands of migrants flood Spain…” | Migrants | Active; “flood” natural-disaster metaphor intensifies threat |
+| El País A3 | “uncontrolled crossing of thousands…” | Crossing/event | Nominalized; stresses loss of control and deaths |
+| Guardian A4 | “60,000 migrants reach Ceuta” | Migrants | Relatively neutral arrival verb, while headline foregrounds Schengen reaction |
+| Reuters A5 | “Spain says migrants are returning… after 57 die in border rush” | Spain/migrants | Foregrounds reversal and death; “rush” conveys mass pressure |
+| Time A6 | “Why Thousands… Crossed Into…” | Migrants | Explanatory/causal frame rather than emergency frame |
+| CBS/AP A7 | “Spain deploys military… after thousands… crossings…; 34 dead” | Spain | State response leads; crossings and deaths follow |
+| Euronews A8 | “More than 48,000 migrants return…” | Migrants | Reversal/containment leads, not breach |
+
+HEADLINE FINDING
+The largest headline divergence is temporal and causal:
+- Early: mass motion and loss of control (“pour,” “flood,” “uncontrolled crossing”).
+- Mid-event: state emergency response (“deploys military”).
+- Later: containment and reversal (“returning,” “return”).
+- Explainer: causal inquiry (“why … crossed”).
+
+D2. KEY ACTION DESCRIPTORS
+
+| Event element | Reuters A1 | NY Post A2 | El País A3 | Guardian A4 | Reuters A5 | Time A6 | CBS/AP A7 | Euronews A8 |
+|---|---|---|---|---|---|---|---|---|
+| Entry | surged/pour/crossed | flood/rush | uncontrolled crossing | reach/cross | huge rush/pushed across | rushed/crossed | breached/poured | crossed illegally/mass crossing |
+| Border event | crossing | border rush/chaos | descontrolado | crisis/influx | violation/huge rush | humanitarian crisis | breached frontier | attack/violation |
+| State action | reinforce police | military control/emergency | maximum alert | political/EU reaction | reversed rush/accelerating expulsions | assist law enforcement | deploy military/restore border | returned/response from Madrid |
+| Departure | not yet available | not yet available | limited | returned | voluntarily returning + expulsions | returned | sent back | returned |
+| Cause | unclear | policy/blame cues | structural/diplomatic tension | competing political explanations | smugglers/uncertainty | economic disparity, law, networks | unclear/official claims | trafficking networks |
+
+D3. SEQUENCING
+
+- Reuters A1 leads with military reinforcement and the immediate crossing, then gives uncertain estimates, visual evidence, a migrant quote, Moroccan enforcement, clashes, deaths, and historical precedent.
+- New York Post A2 leads with “flood” and “absolute chaos,” prioritizing threat and emergency language.
+- El País A3 leads with maximum alert, uncontrolled crossing, and deaths, then develops humanitarian capacity failure.
+- Guardian A4’s final headline leads with Italy/Schengen, making European political reaction the organizing frame rather than conditions in Ceuta.
+- Reuters A5 leads with reversal/returns and deaths, then official totals, enforcement, European division, and migrant return testimony.
+- Time A6 opens with humanitarian crisis and explanation, then geography/history, possible triggers, and policy context.
+- CBS/AP A7 leads with deaths, breach, and military restoration.
+- Euronews A8 leads with returns and Spain’s sovereignty claim, producing a containment/state-capacity frame.
+
+D4. SOURCE DISTRIBUTION
+
+| Outlet | Dominant voices | Counter/complicating voice |
+|---|---|---|
+| Reuters A1 | Spanish officials, Reuters witnesses, migrant, Moroccan rights representative | Yes; migrant agency and Morocco-side observations |
+| NY Post A2 | Officials, residents/political critics, dramatic imagery | Limited in retrieved material |
+| El País A3 | Local officials, services, affected migrants/conditions | Some humanitarian context |
+| Guardian A4 | Wide set of EU/national political leaders | Yes, but politics overwhelms individual migrant voices |
+| Reuters A5 | Spanish officials, Reuters observers, returning migrant | Yes; returnee quote complicates official and activist narratives |
+| Time A6 | Officials, agencies, historical/economic context | Broad context, fewer direct affected-person voices |
+| CBS/AP A7 | Officials plus AP field material | Some visual/on-scene context |
+| Euronews A8 | Spanish officials and official figures | Little direct migrant voice |
+
+D5. ATTRIBUTED VS. ASSERTED
+
+The later arrival/return totals are generally attributed to the Spanish Interior Ministry or Ceuta president. Headline compression sometimes strips this attribution:
+- “More than 48,000 migrants return…” reads as settled fact, although the body attributes the figure to the ministry.
+- “60,000 migrants reach Ceuta” in live-blog packaging uses the upper local estimate rather than the lower national estimate.
+- “flood Spain” and “absolute chaos” are outlet-level characterizations, not neutral reproductions of a quantified official category.
+
+D6. HEADLINE CONTENT
+
+| Material fact | Headlines carrying it |
+|---|---|
+| Mass entry | All except later return-focused pieces still imply it |
+| Military deployment | Reuters A1, CBS/AP A7 |
+| Death toll | Reuters A5, El País A3, CBS/AP A7 |
+| Returns | Reuters A5, Euronews A8 |
+| European political reaction | Guardian A4 |
+| Cause/explanation | Time A6 |
+| “Chaos”/loss of control | NY Post A2, El País A3 |
+| Sovereignty | Euronews deck/body, not headline; Guardian/Reuters body |
+
+D7. NARRATIVE-FLAG AND CONTEXT VARIANCE
+
+EVENT CLASSIFICATION
+- “Humanitarian crisis”: Al Jazeera, El País, Time, officials quoted across outlets.
+- “Border crisis,” “breach,” “rush,” “influx”: Reuters, CBS/AP, Guardian.
+- “Flood,” “invasion”-adjacent political framing: New York Post and quoted political actors.
+- “Violation of sovereignty/territorial integrity”: Spanish government and later coverage.
+These are not mere synonyms. They assign different causal centers: migrant suffering, state control, physical pressure, or geopolitical offense.
+
+INDIVIDUALIZATION
+Reuters provides the clearest individualization through direct migrant interviews. Guardian’s live blog individualizes political leaders rather than migrants. Euronews and CBS/AP are mostly institutional. New York Post coverage categorizes migrants as a mass and foregrounds resident/political threat perceptions.
+
+CAUSE ATTRIBUTION
+Later pieces diverge among:
+- economic hardship and inequality;
+- smuggling networks and social-media rumors;
+- legal signals from a Spanish court ruling;
+- Spanish migration policy;
+- Moroccan passivity or state leverage;
+- broad European “weak border” politics.
+No retrieved piece establishes one cause conclusively. Coverage that turns one hypothesis into a settled explanation exceeds the source base.
+
+ABSENCE CLUSTER
+Across security- and policy-led pieces, direct migrant testimony is sparse. Across humanitarian/explainer pieces, detailed treatment of burned vehicles, clashes, and local public-order effects is often delayed or compressed. Because these outlets do not all share one source chain, this is partly independent selection rather than only wire inheritance.
+
+D8. SYNONYM VS. CAUSAL-CONTEXT VARIANCE
+
+| Event element | Variants | Synonym only? | Causal-context effect |
+|---|---|---|---|
+| “crossed/reached/entered” vs. “breached/poured/flooded” | Wide | No | Changes whether movement appears neutral, forceful, or disaster-like |
+| “returned” vs. “sent back/deported/expelled” | Wide | No | Changes agency, voluntariness, and legal process |
+| “humanitarian crisis” vs. “security emergency/violation” | Wide | No | Changes the primary victim, responsible actor, and policy response |
+| “thousands” vs. “49,000/60,000” | Time-varying | Mostly timing | Scale radically alters perceived state capacity |
+| “smugglers exploited” vs. “policy encouraged” vs. “economic hardship” | Competing | No | Competing causal models, none decisively established |
+
+The strongest causal-context variance concerns DEPARTURE AGENCY. “Returned voluntarily,” “were sent back,” and “expelled” are not interchangeable. A reader can infer very different legal and humanitarian outcomes from the same gross return count.
+
+D9. BASELINE AND DENOMINATOR VARIANCE
+
+| Figure | Uses | Baseline/denominator | Impression |
+|---|---|---|---|
+| 49,000–60,000 arrivals | Later pieces | 24–48 hours | Unprecedented scale |
+| “70% of Ceuta’s population” | CBS/AP, Guardian, AP-derived reports | City population approx. 83k–85k | Emphasizes overwhelm |
+| 25,000 returned | Midday updates | Point-in-time cumulative | Partial restoration |
+| 48,300 returned | Evening updates | By 6 p.m. Friday | Near-total reversal |
+| 150 people per minute | Some reports | Operational return rate | Rapid state control; may obscure legal category |
+| 57 deaths | Later reports | Absolute toll, no consistent rate | Human cost |
+| Earlier 1,500–2,000 over days | Early/local reporting | Different time window | Makes the later jump appear even more sudden |
+
+A common denominator would reduce apparent contradiction. Arrival and return numbers are often quoted from different cut-off times and different authorities.
+
+=================================================================
+SECTION D2 — CROSS-BRANCH RESOLUTION
+=================================================================
+
+No prior single-piece audit was supplied. Section skipped.
+
+=================================================================
+SECTION E — CLUSTERING AND CORRELATION
+=================================================================
+
+CLUSTER 1 — IMMEDIATE BREACH/CONTROL
+Pieces: Reuters A1, New York Post A2, El País A3, CBS/AP A7.
+Choices:
+- lead with mass movement, disorder, death, or military deployment;
+- use vivid motion/control terms;
+- rely heavily on officials and breaking images;
+- have limited causal certainty.
+Non-lean explanations:
+- early publication;
+- breaking-news format;
+- visible physical spectacle;
+- incomplete totals.
+
+CLUSTER 2 — REVERSAL/STATE RESPONSE
+Pieces: Reuters A5, Euronews A8.
+Choices:
+- lead with returns and restoration;
+- foreground official numbers and sovereignty;
+- describe enforcement on both sides;
+- retain some death/disorder context.
+Non-lean explanation:
+- later publication, after large-scale returns became the principal new fact.
+
+CLUSTER 3 — EXPLANATION/POLITICAL CONSEQUENCE
+Pieces: Time A6, Guardian A4.
+Choices:
+- organize around causes, geography, law, and transnational political reaction;
+- use the event as a case for broader migration politics;
+- reduce granular border chronology relative to breaking reports.
+Non-lean explanation:
+- explainer/live-blog format and audience.
+
+OUTLIER/MIXED PIECE
+Reuters A5 is the most mixed. It combines official restoration, sovereignty, coercive enforcement, deaths, burned vehicles, and a returning migrant’s disillusioned testimony. It does not fit a clean humanitarian-versus-security binary.
+
+PRIMARY CLUSTER FINDING
+Publication time and format explain more variation than ideological alignment. Political orientation becomes more visible in causal claims and metaphor choice after the basic event was established, but the dominant structural split is early breach coverage versus later reversal/explanation coverage.
+
+=================================================================
+SECTION E2 — PRIOR-MATCH CHECK
+=================================================================
+
+PRIOR SOURCE: MODEL-GENERATED
+
+Prediction:
+Coverage would divide mainly into humanitarian-language outlets and security/invasion-language outlets, with wire dependence explaining repeated facts.
+
+Actual primary finding:
+There is real humanitarian/security divergence, but the larger organizing variable is publication time and format: early breach, later reversal, and subsequent political/explanatory synthesis.
+
+Match: PARTIAL.
+
+Expected but not found:
+- A tidy two-cluster ideological split.
+- Consistently softer language from all conventionally center-left outlets.
+- Consistently harder language from all wire reports.
+Reuters and El País combine humanitarian and security material; Guardian repeatedly carries hard-border political statements; later Euronews foregrounds sovereignty and returns.
+
+Evidence that cuts against the prior:
+- Reuters includes direct migrant voices and harsh enforcement details.
+- Time acknowledges illegal crossings, military deployment, and mass scale.
+- El País uses “uncontrolled” and “maximum alert.”
+- New York Post’s vivid framing is not merely invented; the physical scale and local emergency were genuinely exceptional, though its metaphors intensify them.
+
+=================================================================
+SECTION F — FLIP TEST
+=================================================================
+
+NUMBER-ONE DIVERGENCE FINDING
+The transformation of the return count into “voluntary return,” “sent back,” or “expelled” materially changes agency and legal meaning.
+
+MIRROR TEXT
+Headline: “Spain forces tens of thousands back across Ceuta border after deadly mass arrival.”
+Lead: Spanish authorities rapidly removed most of the people who entered Ceuta from Morocco, returning more than 48,000 within a day as soldiers and police restored control. Officials described the operation as a defense of territorial integrity, while migrants faced hunger, inadequate shelter, and little practical route onward. The government called the departures lawful returns; the speed and conditions left the degree of genuine choice unclear.
+
+AUDIT OF THE MIRROR
+Finding 1 — MODERATE:
+“Forces” is stronger than the retrieved evidence supports for the entire 48,000-person group. Reuters directly observed some voluntary returns and separately reported accelerated expulsions. The mirror collapses mixed departure mechanisms into coercion.
+
+Finding 2 — MODERATE:
+The lead sequences hunger and lack of onward route as evidence against voluntariness without establishing that every returnee faced those conditions or that these factors legally negate voluntary return.
+
+CONSISTENCY CHECK
+Type B — SYMMETRIC PHENOMENON.
+Both “voluntarily returned” and “forced/sent back” can collapse a mixed process into one agency label. No downgrade for the existence of the mirror-image problem; the divergence is real.
+
+FORCED PRIOR-DEPENDENCE RANKING
+1. Security-versus-humanitarian event labels — most dependent on normative prior.
+2. “Flood” metaphor severity — vivid but partly anchored in physical scale.
+3. Return-agency terminology — grounded in incompatible factual/legal implications.
+4. Timing-based scale differences — least prior-dependent; directly explained by timestamps.
+
+AUTOMATIC DOWNGRADE
+Downgrade applied: security-versus-humanitarian event-label finding MODERATE → MINOR.
+
+SCRUTINY SYMMETRY
+- Outlet one might tend to trust but that warrants criticism: Reuters A5’s headline says migrants “are returning” while the body also reports accelerated expulsions; the headline selects the less coercive umbrella term.
+- Coverage cutting against a simple anti-migrant-media expectation: El País foregrounds “uncontrolled” crossing and maximum alert; Guardian devotes extensive space to border-security reactions.
+- Outlet whose construction would be flagged in the opposite direction: Time’s “Why … crossed” explainer can imply causal knowledge greater than the evidence supports; it presents multiple hypotheses but the headline promises an answer.
+- Counter-evidence limit: Reuters’ observation of some voluntary returnees does not establish the mechanism for all 48,300 people. Conversely, official expulsion plans do not establish that all departures were coerced.
+
+=================================================================
+SECTION G — SAMPLE AUDIT
+=================================================================
+
+1. Selection: Structured but not exhaustive; designed to capture formats, languages, and source types.
+2. Important absent outlets/material:
+- Full original EFE report;
+- RTVE original broadcast/transcript;
+- Cadena SER full reports;
+- Moroccan national press in Arabic/French;
+- local Ceuta outlets;
+- BBC, CNN, France 24, Le Monde, ABC, La Vanguardia;
+- full AP publication timestamps and revision history;
+- archived first versions.
+3. Spectrum balance:
+The sample includes wire, Spanish center-left national press, European/international outlets, and a US tabloid, but underrepresents Moroccan and local Ceuta perspectives.
+4. Likely effect of missing outlets:
+Moroccan coverage could materially alter cause and sovereignty framing. Local Ceuta outlets could add resident and operational detail. More wire republications would increase the measured amplification ratio without adding origins.
+5. SAMPLE VERDICT: PARTIAL.
+
+Permitted claim:
+These eight pieces demonstrate real variance in verbs, event classification, sequencing, return-agency language, and causal emphasis.
+
+Not permitted:
+A claim that most global media framed the event in any one way.
+
+=================================================================
+SECTION H — STANDARDIZED FINDINGS
+=================================================================
+
+FINDING 1
+Finding: Apparent cross-outlet confirmation of the central arrival and return totals rests heavily on repeated Spanish official estimates rather than independent counting.
+Section: B
+Evidence: Reuters, CBS/AP, Guardian, Time, and Euronews cite the Interior Ministry or Ceuta president for 49,000–60,000 arrivals and 25,000–48,300 returns.
+Finding type: source-chain
+Severity: MAJOR
+Survives flip test: YES
+Sample-dependent: NO for the sampled pieces; broader magnitude unknown
+Possible innocent explanation: Only governments had operational access to rapid counts during a live emergency.
+What would weaken this: Independent telecom, transport, aerial, NGO, or audited administrative counts converging on the same totals.
+Verification state: FULL-TEXT-CONFIRMED as a source-chain finding; underlying totals remain attributed.
+Source-chain status: CHAIN-INFERRED/partly CHAIN-CONFIRMED.
+
+FINDING 2
+Finding: Early-versus-late numerical divergence is overwhelmingly a timing artifact and must not be treated as selective minimization or inflation.
+Section: C/D9
+Evidence: Reuters at 12:18 UTC July 30 carried 2,000–3,000; later July 31 pieces carried 49,000–60,000 and rising death/return totals.
+Finding type: framing-divergence/timing resolution
+Severity: MAJOR
+Survives flip test: YES
+Sample-dependent: NO
+Possible innocent explanation: Not merely possible; evolving information is the demonstrated explanation.
+What would weaken this: Archived evidence showing a late outlet retained obsolete low figures after higher official figures were available.
+Verification state: FULL-TEXT-CONFIRMED.
+
+FINDING 3
+Finding: “Voluntarily returned,” “sent back,” “deported,” and “expelled” collapse potentially different mechanisms into one headline-scale outcome.
+Section: C/D8
+Evidence: Reuters reports voluntary return observations and expulsions in the same piece; CBS, Euronews, and tabloid headlines use different agency terms for the return totals.
+Finding type: framing-divergence
+Severity: MAJOR
+Survives flip test: YES
+Sample-dependent: NO
+Possible innocent explanation: Headline space and incomplete official category breakdown.
+What would weaken this: A Spanish administrative breakdown showing nearly all 48,300 departures occurred under one clearly defined legal/voluntary mechanism.
+Verification state: CROSS-OUTLET-CORROBORATED divergence; underlying mechanism CONTESTED/UNKNOWN.
+
+FINDING 4
+Finding: Publication time and format explain more clustering than a simple ideological binary.
+Section: E
+Evidence: Early pieces across outlets lead with breach/control; later pieces lead with returns; explainers and live blogs lead with causes and political consequences.
+Finding type: clustering
+Severity: MODERATE
+Survives flip test: YES
+Sample-dependent: YES
+Possible innocent explanation: This is itself the principal non-ideological explanation.
+What would weaken this: A larger timestamp-controlled sample showing persistent ideological clustering within identical formats and publication windows.
+Verification state: FULL-TEXT-CONFIRMED for sample; distribution PROVISIONAL.
+
+FINDING 5
+Finding: “Flood” is the most vivid mass-movement metaphor in the sample and intensifies depersonalized threat beyond “crossed,” “reached,” or “entered.”
+Section: D
+Evidence: New York Post headline “Thousands of migrants flood Spain”; Reuters uses “pour,” Guardian “reach,” Time “crossed,” Euronews “return.”
+Finding type: framing-divergence
+Severity: MODERATE
+Survives flip test: YES
+Sample-dependent: YES
+Possible innocent explanation: Tabloid house style and genuinely extraordinary volume.
+What would weaken this: Evidence that “flood” was directly quoted from a primary official source or uniformly used across ideologically diverse outlets.
+Verification state: FULL-TEXT-CONFIRMED.
+
+FINDING 6
+Finding: Later causal coverage offers multiple hypotheses but the retrieved source base does not establish a single trigger for the crossing.
+Section: C/D7
+Evidence: Outlets variously cite hardship, smugglers, rumors, court rulings, Spanish policy, and Moroccan conduct; early AP/Reuters explicitly marked cause as unclear.
+Finding type: selection/framing-divergence
+Severity: MODERATE
+Survives flip test: YES
+Sample-dependent: NO
+Possible innocent explanation: Explanatory journalism must organize plausible causes during a fast-moving event.
+What would weaken this: Primary evidence from organizers, communication records, or a convergent official investigation identifying the principal trigger.
+Verification state: CONTESTED/PROVISIONAL.
+
+FINDING 7
+Finding: Network-wide omission of a precise legal and empirical breakdown of return mechanisms leaves the central “reversal” narrative under-specified.
+Section: C/D8
+Evidence: Later pieces report gross return totals but do not provide a category table separating spontaneous return, assisted return, refusal of entry, readmission, and formal expulsion.
+Finding type: shared omission/network-wide
+Severity: MODERATE
+Survives flip test: YES
+Sample-dependent: YES
+Possible innocent explanation: The government had not yet released a breakdown during the first news cycle.
+What would weaken this: A contemporaneous official breakdown that outlets accurately summarized or later updates supplying it.
+Verification state: PROVISIONAL because availability of such a breakdown is UNKNOWN.
+
+FINDING 8
+Finding: Security-versus-humanitarian noun choices are real but too prior-sensitive to carry the verdict by themselves.
+Section: D/E/F
+Evidence: “Humanitarian crisis,” “border crisis,” “breach,” “violation,” “flood,” and “uncontrolled crossing” appear across the network.
+Finding type: framing-divergence
+Severity: MINOR (automatically downgraded from MODERATE)
+Survives flip test: Partly
+Sample-dependent: YES
+Possible innocent explanation: Different story genres select different valid dimensions of the same event.
+What would weaken this: Primary-source comparison showing the nouns were inherited directly from distinct briefings rather than editorially selected.
+Verification state: FULL-TEXT-CONFIRMED as wording variance; interpretive effect remains judgment-dependent.
+
+=================================================================
+SECTION I — RETRIEVAL DEPTH AND VERDICT
+=================================================================
+
+RETRIEVAL DEPTH
+Pieces read in full or substantial full-text extraction:
+- Reuters A1
+- Reuters A5
+- Guardian A4
+- Time A6
+- CBS/AP A7
+- Euronews A8
+- Al Jazeera was also inspected as a supplementary wire-dependent comparator
+
+Pieces read through substantial search-result summaries/snippets:
+- New York Post A2
+- El País A3
+
+Pieces referenced but not fully retrieved:
+- Original AP early and late versions
+- Original EFE report
+- RTVE broadcast
+- Cadena SER reports
+- Moroccan-language press
+
+Primary source obtained:
+- Written full official releases: NO
+- Spoken briefing/transcript: NO
+- Quoted excerpts and linked official statements: YES
+
+Approximate searches/fetches:
+More than 20 search, open, and within-page retrieval operations.
+
+Material sought but not obtained:
+- Archive captures of first versions
+- Complete Spanish Interior Ministry release
+- Complete Sánchez briefing transcript
+- Moroccan Interior Ministry statement
+- Exact original publication times for El País and the AP-origin CBS article
+- Formal breakdown of return mechanisms
+
+FINDINGS AFFECTED BY RETRIEVAL LIMIT
+- Any claim about the origin of descriptive terms in official written versus spoken material is PROVISIONAL.
+- The network-wide omission finding on return mechanisms is PROVISIONAL because document availability is unknown.
+- Distributional claims are PROVISIONAL because the sample is partial.
+
+VERDICT
+
+Pieces compared: 8
+Reporting organizations producing original reporting: approximately 3–4
+Upstream information origins: approximately 7
+Amplification ratio: 8 ÷ approximately 7 overall, but much higher for specific official statistics
+
+The coverage network is neither uniformly humanitarian nor uniformly securitized. Its strongest organizing variable is chronology. Early reports depict breach, mass motion, deaths, and emergency reinforcement because those were the available facts. Later reports pivot toward return, restored control, sovereignty, and political consequences because those facts emerged afterward. Treating those changes as ideological inconsistency would be a timing error.
+
+The most robust source-chain finding is that the apparent consensus around the scale of entry and return is substantially dependent on Spanish and Ceuta official estimates. Multiple outlets repeat the figures, but repetition is not equivalent to multiple independent counts.
+
+The most consequential framing divergence is the language of departure. “Voluntarily returned,” “sent back,” “deported,” and “expelled” imply materially different agency and legal processes, yet the coverage often attaches one of those labels to the same aggregate number without a category breakdown. That difference survives the flip test and should be the principal target for further primary-source verification.
+
+The clearest construction clusters are:
+1. immediate breach/control;
+2. reversal/state response;
+3. explanation/political consequence.
+
+Within those clusters, outlet choices still matter. The New York Post’s “flood” metaphor intensifies threat; Time’s “why” headline promises more causal resolution than the evidence supports; Guardian’s final live-blog headline relocates the center of gravity from Ceuta to Schengen politics; Reuters’ later “returning” headline softens the coercive component present in its own body; and Euronews foregrounds successful return and sovereignty over the conditions that produced those returns.
+
+FINAL STATUS
+- Source-chain dependence: SUBSTANTIAL and verified within the sample.
+- Framing divergence: REAL, especially on agency, event classification, and cause.
+- Ideological clustering: PARTIAL and weaker than timing/format clustering.
+- Overall media-distribution claim: PROVISIONAL due to partial sample.
+- Primary unresolved fact: the breakdown between voluntary return and coercive/legal removal.
