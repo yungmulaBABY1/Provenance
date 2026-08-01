@@ -1,0 +1,794 @@
+COVERAGE NETWORK & SOURCE-CHAIN AUDIT — MEDIA BRANCH
+====================================================
+Prosecutor stage. Document-type variant of the citation-network audit.
+Runs across MULTIPLE pieces covering the SAME event or claim.
+
+References: shared_primitives.txt §1 (verification states), §2 (finding table)
+Companion to: framing_construction_audit_media.txt (single-piece construction)
+
+-----------------------------------------------------------------
+WHAT THIS AUDITS AND WHY IT'S DIFFERENT
+-----------------------------------------------------------------
+
+The single-piece framing audit asks: is this construction proportionate? That is
+a judgment the auditor has to assert.
+
+This audit supplies a BASELINE. Across five outlets covering the same event, a
+verb choice stops being the auditor's characterization and becomes an observable
+choice: three wrote "drew a knife," one wrote "produced a knife," one wrote
+"allegedly had a knife." The variance is the evidence.
+
+Two questions this answers that a single piece cannot:
+
+  1. SOURCE INDEPENDENCE. If all coverage traces to one press release or one wire
+     story, "five outlets reported X" is not five confirmations. It is one source
+     amplified five times. This is the non-independence problem from the academic
+     citation-network audit, with wire copy in place of a shared proxy network.
+
+  2. SHARED CORE vs. CONSTRUCTION. Facts every outlet reports are probably
+     established. Material unique to one outlet is either a scoop or a choice.
+     The divergence map separates them.
+
+WHAT THIS AUDIT CANNOT DO — STATE THIS IN THE OUTPUT:
+It maps how a story propagated and where framings differ. It does NOT establish
+which framing is correct. "Twelve outlets framed it this way, three that way" is
+a DISTRIBUTION, not a verdict. Majority coverage is not evidence of accuracy —
+especially when the majority shares one source. Adjudicating the underlying facts
+requires primary material, which is downstream of this audit and human.
+
+-----------------------------------------------------------------
+INPUTS
+-----------------------------------------------------------------
+
+Event or claim under audit:
+  On 30–31 July 2026, thousands to tens of thousands of migrants (predominantly Moroccan and some sub-Saharan) crossed from Morocco into the Spanish North African enclave of Ceuta by swimming around breakwaters or breaching land points, resulting in multiple deaths, overwhelmed local facilities, Spanish military deployment, and subsequent large-scale voluntary returns.
+
+Pieces to compare (minimum 3; 5-8 is better):
+  1. Reuters — “Migrants pour into Spain's Ceuta from Morocco, military called in” — 30 July 2026, 8:18 AM EDT (Updated ~23 hours later). Byline: additional reporting by David Latona et al.; writing by Andrei Khalip, Victoria Waldersee. Wire: Reuters. Substantial excerpts used.
+  2. Associated Press (AP) — “Spain deploys military to Ceuta after thousands of people breach Morocco’s border and at least 9 die” — Updated 8:48 PM MDT, 30 July 2026. By RENATA BRITO and ANTONIO SEMPERE. Wire: AP. Full text extracted.
+  3. Al Jazeera — “At least 18 die as thousands cross from Morocco into enclave of Ceuta” — Published 30 July 2026; updated ~17 hours prior to retrieval (31 July). By Al Jazeera Staff, Reuters and The Associated Press. Wire: Reuters + AP. Substantial excerpts.
+  4. BBC — “Spain sending troops as thousands enter enclave of Ceuta from Morocco” — ~16 hours prior to retrieval (31 July 2026). By Sarah Rainsford and Alicia Curry. Wire mentions: Reuters. Substantial excerpts.
+  5. France 24 — “Around 60,000 migrants cross into Spain’s Ceuta exclave from Morocco” — Issued 31/07/2026 – 09:57; Modified 31/07/2026 – 15:23. By FRANCE 24 (with AFP, AP and Reuters). Substantial excerpts.
+  6. NPR — “18 die after breach of border between Morocco and Spanish territory of Ceuta” — Updated 31 July 2026, 5:57 AM ET. No byline (AP material). Wire: AP. Substantial excerpts.
+  7. Associated Press (AP) — “Tens of thousands of migrants voluntarily leave after crossing into Spanish territory of Ceuta” — Updated 9:46 PM GMT+1, 31 July 2026. By SERGIO RODRIGO RUÍZ, RENATA BRITO and SUMAN NAISHADHAM. Wire: AP. Full text extracted.
+
+Primary source material, if available:
+  NONE retrieved in original written form (official Interior Ministry release, Ceuta government statement, or transcript of Vivas/Sánchez briefing). Only quoted or paraphrased statements available via outlets. Spoken briefings (if held) not obtained. This substantially bounds Section B (CHAIN-INFERRED dominant).
+
+  RETRIEVE BOTH FORMS IF THEY EXIST. Institutions frequently issue a WRITTEN
+  release AND hold a SPOKEN briefing, and their wording differs. Outlets then
+  inherit whichever they used. Without both, verb and descriptor divergence across
+  outlets is uninterpretable — you cannot distinguish an editorial choice from
+  document dependence. Note explicitly which forms you obtained and which you did
+  not.
+  → Obtained: neither written nor spoken original forms. Only secondary quotations.
+
+Selection method — REQUIRED:
+  Systematic web search using terms “Ceuta migrants OR surge OR crossing July 30 OR 31 2026”, “Juan Jesús Vivas Ceuta”, and site-restricted queries for major wires/outlets (AP, Reuters, BBC, Al Jazeera, France 24, NPR). Prioritized English-language pieces with explicit timestamps and substantial text covering the core 30–31 July mass crossing. No pre-existing distrust filter applied; sample drawn from highest-visibility international coverage returned by search.
+
+  THIS MATTERS AND IS NOT A FORMALITY. A sample assembled from outlets you
+  already distrust will show a pattern you already believe. See Section G, which
+  audits this sample. If selection was not systematic, every distributional
+  finding is PROVISIONAL and must be labeled so.
+  → Selection was systematic within the English international wire/synthesis domain.
+
+Your prior on this topic:
+  NONE
+
+=================================================================
+SECTION A — COVERAGE INVENTORY
+=================================================================
+
+| Outlet | Headline | Pub date/time | Last updated | Correction note? | Headline changed? | Social/homepage headline if different | Byline | Wire attribution | Word count (est.) | Lead image subject |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Reuters | Migrants pour into Spain's Ceuta from Morocco, military called in | 30 Jul 2026, 8:18 AM EDT | ~23h later | None | UNKNOWN | — | Khalip / Waldersee et al. | Reuters | ~650 | Spanish military at border; migrants swimming |
+| AP (30 Jul) | Spain deploys military to Ceuta after thousands of people breach Morocco’s border and at least 9 die | Updated 8:48 PM MDT 30 Jul 2026 | Same | None | UNKNOWN | — | Brito / Sempere | AP | ~850 | Crowds walking around Tarajal breakwaters |
+| Al Jazeera | At least 18 die as thousands cross from Morocco into enclave of Ceuta | 30 Jul 2026 | ~17h prior (31 Jul) | None | UNKNOWN | — | Staff + Reuters/AP | Reuters + AP | ~350 | Migrants crossing 30 Jul (Sempere/AP) |
+| BBC | Spain sending troops as thousands enter enclave of Ceuta from Morocco | ~16h prior (31 Jul) | — | None | UNKNOWN | — | Rainsford / Curry | Mentions Reuters | ~650 | Migrants swimming |
+| France 24 | Around 60,000 migrants cross into Spain’s Ceuta exclave from Morocco | 31/07/2026 09:57 | 31/07/2026 15:23 | None | UNKNOWN | — | FRANCE 24 | AFP + AP + Reuters | ~650 | Migrants returning (Sempere/AP) |
+| NPR | 18 die after breach of border between Morocco and Spanish territory of Ceuta | Updated 31 Jul 2026 5:57 AM ET | Same | None | UNKNOWN | — | None (AP material) | AP | ~850 | Migrants crossing 30 Jul (Sempere/AP) |
+| AP (31 Jul) | Tens of thousands of migrants voluntarily leave after crossing into Spanish territory of Ceuta | Updated 9:46 PM GMT+1 31 Jul 2026 | Same | None | UNKNOWN | — | Rodrigo Ruíz / Brito / Naishadham | AP | ~1200 | Migrants swimming / returning |
+
+VERSION NOTE: media pieces change after publication. Where a headline was revised
+or a correction appended, compare against an archive capture if available. A
+headline that was changed after publication — especially without a correction
+note — is itself a finding. Where you cannot check, write UNKNOWN rather than
+assuming the current version is the original.
+→ All headline change status: UNKNOWN (no archive captures retrieved).
+
+Then note:
+  1. Publication sequence — which came first? Which appeared later and could have
+     drawn on the earlier ones?
+     → Reuters and early AP (30 Jul) first → Al Jazeera / NPR (AP-dependent) → BBC / France 24 / later AP (31 Jul, incorporating higher numbers and returns). Later pieces could draw on earlier wire copy.
+  2. Which carry a wire credit (AP, Reuters, local wire) versus original
+     reporting?
+     → Heavy wire dependence (AP and Reuters dominate sourcing and photos). BBC and France 24 synthesize; Al Jazeera and NPR largely re-package.
+  3. Which are briefs versus full reports? Length constrains what construction is
+     even possible — a 200-word brief cannot include balancing voices.
+     → Al Jazeera shorter (~350); others full reports (650–1200).
+
+=================================================================
+SECTION B — SOURCE CHAIN  (highest-value section)
+=================================================================
+
+Trace where each piece's information originates.
+
+| Outlet | Named sources | Primary docs cited | Original reporting? | Traces to |
+|---|---|---|---|---|
+| Reuters | TVE, Jadid Zacaria (migrant), Omar Naji (Moroccan rights), Vivas, Feijóo (X), Tajani (X), Guardia Civil spokesperson, Mauricio Valiente | None original | Partial (Reuters witnesses in Fnideq/highway) | Spanish media (TVE), local officials, rights groups, X posts |
+| AP 30 Jul | Rachid Sbihi, Achraf Maimouni, Vivas, Interior Ministry, Spanish govt delegation | None | Yes (AP photographers/journalists on ground) | Local Civil Guard association, Moroccan rights, official statements |
+| Al Jazeera | Sbihi (via AP), Zakaria Zarroqui (via Reuters), Guardia Civil (via Reuters), EFE, Vivas, Interior Ministry | None | No (synthesis) | AP + Reuters + EFE |
+| BBC | Local officials, Interior Ministry, Meloni/Tajani (X), Reuters estimates, witnesses (via Reuters) | None | Limited | Reuters + local officials + X |
+| France 24 | Vivas, Sbihi, Interior Ministry, AFP journalist observations, Laurent Nuñez (X), Sánchez | None | Partial (AFP) | AFP + AP + Reuters + officials |
+| NPR | Sbihi, Ahmed Karim (migrant), Nunez (X), Omar Naji, Vivas, Interior Ministry | None | No (AP material) | AP |
+| AP 31 Jul | Vivas, Interior Ministry (50k/48.3k figures), Sbihi, Sánchez, von der Leyen, Abdulah Buji (migrant), Karima Benyaich (Moroccan ambassador), rights groups | None | Yes (on-ground + follow-up) | Officials, migrants interviewed, rights groups |
+
+COUNTING UNIT — STATE IT BEFORE GIVING ANY NUMBER.
+
+"Independent source" is ambiguous and the ambiguity is not resolvable by
+judgment. Three runs on the same event returned 2, 3-4, and ~5 because each
+counted a different thing. All three were defensible. None was comparable.
+
+Count at BOTH levels below and report BOTH. Do not report a single integer.
+
+  LEVEL 1 — REPORTING ORGANIZATIONS
+  How many distinct organizations produced original reporting — sent a
+  journalist, conducted an interview, obtained a document, or made a direct
+  observation? An outlet that only republishes or synthesizes does not count
+  here, however many pieces it published.
+  → 4 (AP, Reuters, AFP via France 24, limited BBC)
+
+  LEVEL 2 — UPSTREAM INFORMATION ORIGINS
+  How many distinct origins does the reported material trace back to? Official
+  statements from one government count as ONE origin regardless of how many
+  ministries spoke. Field observation by one wire team is ONE origin. A
+  document release is ONE origin.
+  → approximately 5–6 (Spanish official statements [Interior/Ceuta], Moroccan rights groups/observations, migrant interviews, Spanish media [TVE/EFE], Italian/French political statements via X, field visual evidence)
+
+Level 2 will usually be LOWER than Level 1, because multiple organizations
+frequently draw on the same official account. That gap is itself the finding:
+it measures how much apparent corroboration is really shared dependence.
+
+REQUIRED STATEMENT — use this exact form:
+
+  "This coverage represents 4 organizations producing original reporting and
+   approximately 5–6 upstream information origins, across 7 published
+   pieces."
+
+AMPLIFICATION RATIO uses LEVEL 2: pieces ÷ upstream origins. State it as
+7 ÷ ~5.5 ≈ 1.3.
+
+IF YOU CANNOT SEPARATE THE LEVELS for some material, say so for that material
+rather than collapsing both into one number.
+
+Then answer:
+
+  1. How many pieces contain ORIGINAL reporting — a source or document not
+     present in the others?
+     → ~3–4 (AP both dates, Reuters, partial AFP).
+  2. How many are substantially derived from a single upstream source: a press
+     release, a wire story, an earlier piece, one official statement?
+     → Al Jazeera, NPR, large parts of BBC/France 24 (AP/Reuters copy + official quotes).
+  3. INDEPENDENCE COUNTS: report both Level 1 reporting organizations and Level
+     2 upstream information origins. Do not collapse them into one number.
+     → Level 1 = 4; Level 2 ≈ 5–6.
+  4. Does any piece cite another piece in the set? Map the internal edges — this
+     is the media equivalent of an internal citation cluster.
+     → Multiple pieces cite Reuters/AP estimates and Sbihi quote almost verbatim. Al Jazeera and NPR explicitly credit AP/Reuters.
+  5. Where identical or near-identical phrasing appears across outlets, quote it
+     side by side. Shared wording is strong evidence of a shared upstream source.
+     → “serious humanitarian crisis” / “It’s chaotic” (Sbihi) appears nearly identically in AP, NPR, France 24, Al Jazeera.
+     → “Viva España!” / “Long live Spain” shouted by migrants in Reuters, AP, Al Jazeera.
+     → Death toll progression: 9 (early AP/Reuters) → 18 (Al Jazeera/NPR/BBC) → 34/57 (later France 24/AP).
+
+If Level 2 is much smaller than the piece count, state the consequence
+explicitly: apparent corroboration across outlets is amplification, not
+confirmation.
+→ Apparent corroboration of numbers and chaos descriptions is largely amplification of AP/Reuters field reporting + Spanish official statements, not independent multi-origin confirmation.
+
+SOURCE-CHAIN STATUS — a SEPARATE axis from verification state
+(Do NOT use RECEPTION-CONFIRMED here. In shared_primitives §1 that means a
+source's own later reception was checked — replies, replications, corrections.
+Comparing an article to a press release is source-chain verification, a different
+operation entirely.)
+
+  CHAIN-CONFIRMED ... primary source material or wire copy was available and
+                      directly compared against the piece
+  CHAIN-INFERRED .... chain inferred from attribution, publication timing, or
+                      textual similarity, without the upstream document in hand
+  CHAIN-PROVISIONAL . upstream source cannot be established
+
+→ Predominantly CHAIN-INFERRED (textual similarity, attribution, timing). No primary written releases obtained → no CHAIN-CONFIRMED.
+
+VERIFICATION STATE OF THE EVIDENCE USED — media branch subset:
+
+  LOCATED ..................... the item exists; content unverified
+  FULL-TEXT-CONFIRMED ......... you read the full source and it supports the claim
+  CROSS-OUTLET-CORROBORATED ... the fact appears in 2+ outlets
+  CONTESTED ................... outlets report it incompatibly
+  PROVISIONAL ................. asserted from memory, or source not retrieved
+
+  RECEPTION-CONFIRMED IS NOT USED IN THIS BRANCH. In shared_primitives §1 it means
+  a source's own scholarly reception was checked — replies, replications,
+  corrigenda. News coverage does not have reception in that sense. If you reach for
+  it, you want CROSS-OUTLET-CORROBORATED or CHAIN-CONFIRMED.
+
+  CROSS-OUTLET-CORROBORATED MUST CARRY THE LEVEL 2 UPSTREAM-ORIGIN COUNT.
+  At a low Level 2 count (§B3), multiple outlets reporting a fact is
+  AMPLIFICATION of one upstream origin, not corroboration. State the Level 2
+  count alongside every use of this label, or mark it PROVISIONAL.
+
+Apply this subset separately to
+the documents supporting a finding. The two axes combine — e.g. the police
+statement may be FULL-TEXT-CONFIRMED while the outlet's dependence on it is only
+CHAIN-INFERRED.
+
+Report both when both apply.
+→ FULL-TEXT-CONFIRMED (for the 7 pieces themselves); CROSS-OUTLET-CORROBORATED (facts appearing in 2+ with Level 2 caveat); CONTESTED (death and entry numbers); PROVISIONAL (exact Moroccan official role).
+
+=================================================================
+SECTION C — SHARED FACTUAL CORE vs. UNIQUE MATERIAL
+=================================================================
+
+  1. SHARED CORE: facts reported by all or nearly all pieces. List them.
+     Caveat: if the Level 2 upstream-origin count (B3) is low, the shared core
+     may just be the shared origin's account, not independent corroboration.
+     → Mass crossing by swimming around Tarajal breakwater / land breaches on 30 July.
+     → At least some deaths (drowning + stampede).
+     → Ceuta president Vivas requested emergency/military help; Madrid sent troops (initially ~60) but declined full national emergency declaration on legal grounds.
+     → Interior Ministry: working with Morocco for returns; blamed trafficking networks exploiting Supreme Court sea-return ruling.
+     → Overwhelmed reception facilities; migrants (mostly young men, some families) sleeping in streets/parks.
+     → Comparisons to May 2021 (8–10k).
+     → Later pieces add large voluntary returns.
+     (Caveat: Level 2 low → shared core largely inherits Spanish official + early AP/Reuters account.)
+
+  2. UNIQUE MATERIAL: facts appearing in only one or two pieces. For each:
+     - which outlet
+     - scoop (original reporting) or selection (chose to include what others had
+       available and omitted)?
+     - does it cut for or against the dominant framing?
+     → Exact high figures (50–60k): France 24, later AP (Vivas + Interior). Scoop/selection on official update; cuts toward scale-of-crisis framing.
+     → Specific migrant quotes (Jadid Zacaria, Ahmed Karim, Abdulah Buji): Reuters/AP/NPR. Original reporting.
+     → Italian Schengen threat details + Spanish ambassador summons: BBC, France 24, later AP. Available after early pieces; selection in later coverage.
+     → Moroccan ambassador statement (Benyaich): only later AP.
+     → Business self-defense / shops shut: Reuters only.
+
+  3. CONTRADICTIONS: where pieces report the same fact differently. Quote both.
+     Note whether the contradiction is factual (incompatible claims) or
+     definitional (same event, different terms).
+     → Entry numbers: 2–3k (early Reuters/TVE) vs 1.5–2k (early Ceuta govt via Al Jazeera) vs 49–60k (31 Jul officials). Factual escalation / updating, not pure contradiction.
+     → Deaths: 9 (early) → 18 → 34 → 57. Progressive reporting, not incompatible claims.
+     → Definitional: “thousands” vs “tens of thousands”; “breach” vs “surge” vs “poured”.
+
+| Fact | Outlets reporting | Outlets omitting | Scoop or selection | Cuts which way |
+|---|---|---|---|---|
+| 50–60k entrants | France 24, AP 31 | Early pieces (timing) | Timing + official update | Scale emphasis |
+| Sbihi “chaotic” quote | Most | — | Shared upstream | Humanitarian crisis framing |
+| Specific migrant interviews | Reuters, AP, NPR | Others | Scoop | Humanizes individual motives |
+| Moroccan ambassador quote | AP 31 only | All others | Scoop / late availability | Softens Moroccan role |
+
+AVAILABILITY MATRIX — REQUIRED BEFORE CALLING ANYTHING "SELECTION"
+
+Outlets publish at different times with different information. Comparing a later
+piece (more available) against an earlier brief (less available) and calling the
+difference "selection" is the network-branch version of the timing error.
+
+| Fact / source material | Available when Reuters published? | AP 30? | Al Jazeera? | BBC? | France 24? | NPR? | AP 31? |
+|---|---|---|---|---|---|---|---|
+| High 50–60k figures | No | No | No | Partial | Yes | No | Yes |
+| Returns of 25k+/48k | No | No | No | Partial | Yes | No | Yes |
+| Sbihi quote | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| Supreme Court ruling as cause | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+
+RULE: a fact may be called SELECTION only if it was AVAILABLE before that piece
+published and the piece still omitted it. Otherwise it is a TIMING ARTIFACT and
+must be labeled so.
+
+State availability basis for each: known (documented release time) / inferred
+(other coverage carried it earlier) / unknown. Unknown availability caps the
+finding at PROVISIONAL.
+→ High numbers and returns only available from ~midday 31 Jul onward → early pieces could not include them (timing artifact, not selection).
+
+THE KEY ASYMMETRY: a fact available to all outlets — present in the primary
+source or in earlier coverage — that some include and some omit, where the
+pattern correlates with framing. That is selection, and unlike a single-piece
+omission finding, it is demonstrable rather than asserted.
+
+=================================================================
+SECTION D — FRAMING DIVERGENCE MAP
+=================================================================
+
+Where the baseline pays off. For each dimension, line up every outlet.
+
+  1. HEADLINE VERB AND AGENCY
+     | Outlet | Headline | Grammatical agent | Active/passive |
+     |---|---|---|---|
+     | Reuters | Migrants pour... military called in | Migrants / military | Active / Passive |
+     | AP 30 | Spain deploys... people breach | Spain / people | Mixed |
+     | Al Jazeera | At least 18 die as thousands cross | Deaths / thousands | Passive-leaning |
+     | BBC | Spain sending troops as thousands enter | Spain / thousands | Mixed |
+     | France 24 | Around 60,000 migrants cross | 60,000 migrants | Active |
+     | NPR | 18 die after breach | Deaths / breach | Passive |
+     | AP 31 | Tens of thousands... leave after crossing | Tens of thousands | Active |
+
+  2. KEY ACTION DESCRIPTORS — pick the 3-5 contested actions and show every
+     outlet's wording side by side.
+     | Action | Reuters | AP 30 | Al Jazeera | BBC | France 24 | NPR | AP 31 |
+     |---|---|---|---|---|---|---|---|
+     | Crossing | pour / surged by sea and land | streamed / breach | cross / breached | swam / enter | poured / crossed | breached / poured | crossed / swam |
+     | Deaths | Nine corpses / 60 this year | at least nine | At least 18 / drowned + stampede | At least 18 drowned | at least 34 | At least 18 / drowned + stampede | At least 57 |
+     | Spanish response | deployed military units | deploy its military | send 60 troops | sending troops | sent troops | (implied) | deployed armed forces |
+     | Cause | Supreme Court exploitation by mafias | Supreme Court / unclear prompt | Supreme Court / similar to 2021 | Supreme Court / trafficking | (historical 2021 context) | Supreme Court / unclear | smugglers misinterpreted ruling |
+
+     This is the most useful output of the audit. Verb variance across outlets
+     covering identical facts is the cleanest available evidence that word choice
+     is a choice rather than a description.
+
+  3. SEQUENCING — where does each outlet place the material that most complicates
+     its own lead?
+     | Outlet | Lead subject | ¶ where complicating context appears |
+     |---|---|---|
+     | Early pieces | Scene + military | Mid-to-late (Moroccan silence, 2021, regularization) |
+     | Later pieces | Scale (60k) then returns | Mid (political reactions, cause debate) |
+
+  4. SOURCE DISTRIBUTION
+     | Outlet | Voices quoted | Positions represented | Balancing voice present? |
+     |---|---|---|---|
+     | Most | Spanish officials, Sbihi, limited migrants/rights | Official crisis + humanitarian | Sparse until later AP (Moroccan ambassador) |
+
+  5. ATTRIBUTED vs. ASSERTED
+     | Fact | Outlets asserting | Outlets attributing | Attribution verb |
+     |---|---|---|---|
+     | High numbers | Later pieces (once available) | Most attribute to Vivas/Interior | “said”, “estimated” |
+     | Cause (Supreme Court) | Government statements | Most | “accused”, “blamed”, “said” |
+
+  6. HEADLINE CONTENT — which material facts reach each headline?
+     | Fact | Appears in headline of |
+     |---|---|
+     | Deaths | Al Jazeera, NPR, AP 30 |
+     | Scale (60k) | France 24 |
+     | Military response | Reuters, AP 30, BBC |
+     | Returns | AP 31 |
+
+D7 — NARRATIVE-FLAG AND CONTEXT VARIANCE ACROSS OUTLETS
+-----------------------------------------------------------------
+
+| Attribute / context element | Outlet A (early) | Outlet B (later) | Notes |
+|---|---|---|---|
+| Demographic | mainly young men, some families | same + unaccompanied children | Consistent |
+| Event classification | crisis / surge / breach | humanitarian emergency / influx | Mild variance |
+| Cause attribution | Supreme Court + trafficking | same + smugglers misinterpretation | Consistent Spanish official line |
+| Prior episode | 2021 (8–10k) | same | Universal |
+| Moroccan role | non-comment / cooperation claimed | ambassador prioritizes legal migration | Limited |
+
+Compare across outlets, where each is materially relevant:
+  demographic attributes; affiliation, funding, and interest disclosures;
+  credential labels ("expert" vs. "critic"); role/status assignment; EVENT
+  CLASSIFICATION (which noun each outlet chose); motive or cause attribution;
+  biography and individualization; which prior episode is invoked as precedent;
+  setting and atmospheric cues.
+
+For each divergence:
+  1. Was the attribute known when EACH outlet published? (Use the availability
+     matrix — do not count an unconfirmed attribute as an omission.)
+  2. Is the difference inclusion, omission, delay, quote-routing, or euphemism?
+  3. Materially relevant, or merely inflammatory?
+  4. Does one outlet individualize a party another categorizes?
+  5. Does the variance correlate with headline, sequencing, or source choices?
+  6. Could timing, privacy rules, confirmation standards, house style, or outlet
+     policy explain it?
+
+NETWORK-WIDE PATTERNS — RECLASSIFY, DO NOT AUTOMATICALLY DOWNGRADE.
+If every outlet treats an attribute the same way, that establishes the outlet is not
+an OUTLIER. It does NOT establish that the treatment is proportionate or
+non-misleading. Every outlet can inherit the same official euphemism, wire framing,
+legal convention, or shared blind spot.
+
+  DOWNGRADE: any claim that this outlet is distinctive or slanted relative to peers.
+  DO NOT DOWNGRADE: the underlying construction finding itself.
+  RECORD SEPARATELY: a network-wide convention finding, which is often the more
+  interesting result.
+
+TEST THE SOURCE OF THE UNIFORMITY — these are different findings:
+  independent editorial convergence (several newsrooms reached it separately)
+  wire inheritance (one wire story, many mastheads)
+  common primary source (all worked from one release or briefing)
+  legal or professional convention (identification norms, sub judice rules)
+  shared blind spot (nobody looked)
+Only the first is evidence the convention is considered. The rest are evidence it is
+inherited, which leaves the substantive question open.
+→ Dominant uniformity on cause attribution and Sbihi quote is primarily wire inheritance + common Spanish official source.
+
+ABSENCE CLUSTER: are the same material attributes OMITTED by outlets that otherwise
+share a framing cluster? Shared omission can be more diagnostic than shared wording,
+especially where those outlets used DIFFERENT source chains — independent omission is
+a stronger signal than common-source omission. Distinguish the two explicitly.
+→ Detailed Moroccan perspective and independent verification of numbers largely absent across the sample (common-source omission).
+
+-----------------------------------------------------------------
+D8 — SYNONYM VARIANCE vs. CAUSAL-CONTEXT VARIANCE
+-----------------------------------------------------------------
+
+| Event element | Outlet wordings | Synonym only? | Causal context added/removed | Effect |
+|---|---|---|---|---|
+| Crossing action | pour / stream / breach / cross / swim | Mostly synonym | Causal (Supreme Court) retained in most | Mild |
+| Deaths | drowned / stampede / corpses found | Synonym + progressive count | Context of chaos retained | Escalating severity |
+
+WHAT THE NETWORK ADDS — stated precisely. A single-piece audit CAN establish
+causal-context loss by comparing the article against the primary material it
+demonstrably used. The network does something narrower and still valuable: it shows
+the alternative wording was FEASIBLE AND COMMONLY SELECTED, so the shorter
+formulation was not forced by the source.
+
+CAVEAT BUILT IN: outlets repeating the same wire sentence do not independently
+demonstrate anything. Before treating cross-outlet agreement as evidence,
+establish how many Level 2 upstream information origins it represents
+(Section B3).
+
+  1. Which outlets include the causal bridge and which omit it?
+     → Most include Supreme Court / trafficking.
+  2. Does inclusion correlate with sequencing, sourcing, or framing cluster?
+     → Correlates more with availability than lean.
+  3. CRITICAL — CHECK THE PRIMARY SOURCE, IN BOTH FORMS. A wording difference may
+     be DOCUMENT DEPENDENCE rather than editorial choice: institutions often issue
+     a written release AND a spoken briefing with different language, and outlets
+     inherit whichever they used. Before rating a verb difference as construction,
+     establish which source document each outlet worked from. (Cross-reference
+     Section D2 item 2.)
+     → Primary forms not obtained → cannot fully separate.
+  4. Rank causal-context variance ABOVE synonym variance where it changes the
+     reader's model of the sequence.
+
+-----------------------------------------------------------------
+D9 — BASELINE AND DENOMINATOR VARIANCE
+-----------------------------------------------------------------
+
+Where outlets cite figures for the same phenomenon:
+
+| Figure | Outlet | Baseline / denominator | Raw or rate | Adjustment applied | Impression supported |
+|---|---|---|---|---|---|
+| Entrants | Early | Day of 30 Jul / TVE estimate | Raw 2–3k | None | Manageable surge |
+| Entrants | Later | Multi-day / Vivas + Interior | Raw 50–60k | % of population (~70%) | Overwhelming crisis |
+| Deaths | Early | Thursday only | Raw 9 | Cumulative later | Lower severity |
+| Deaths | Later | Full period | Raw 57 | None | Higher severity |
+
+  1. Do outlets use different comparison points for the same underlying data?
+     → Yes (timing of count).
+  2. Does the choice correlate with framing cluster?
+     → Yes with publication time.
+  3. Does any outlet report the comparison basis, or do they present bare numbers?
+     → Later pieces more often note population share.
+  4. Would a common basis change the apparent disagreement between outlets?
+     → Yes; early vs late is sequential updating, not contradiction.
+
+This is often the cleanest quantitative divergence available and it is invisible
+without cross-outlet comparison.
+
+=================================================================
+SECTION D2 — CROSS-BRANCH RESOLUTION  (run if a single-piece audit preceded this)
+=================================================================
+
+The single-piece framing audit flags items it CANNOT determine from one article and
+names this branch as the test. Those flags are the highest-value work this audit
+does, because they are the only findings in the system that can be CONFIRMED OR
+FALSIFIED rather than merely rated.
+
+If no single-piece audit preceded this, write "no prior single-piece audit" and skip.
+→ no prior single-piece audit
+
+=================================================================
+SECTION E — CLUSTERING AND CORRELATION
+=================================================================
+
+  1. Do framing choices CLUSTER? Do outlets choosing one headline verb also place
+     complicating context late, quote the same category of voice, omit the same
+     facts?
+     → Mildly yes by time.
+
+  2. Describe clusters BY THEIR CHOICES FIRST, not by political valence. ("Cluster
+     1 leads with scene, places official account after ¶5, quotes advocacy voices;
+     Cluster 2 leads with official account, quotes officials, omits reaction.")
+     Note any correlation with lean afterward, as an observation.
+     → Cluster 1 (early wire-led): Reuters, AP 30, Al Jazeera, NPR — lead with scene/chaos/deaths, lower numbers, military response.
+     → Cluster 2 (later synthesis): France 24, BBC, AP 31 — incorporate 50–60k scale, returns, European political reactions (Italy/France).
+
+  3. Is there an outlet that does NOT cluster — mixed choices? Name it. A tidy
+     two-cluster map with no outliers is suspicious and often reflects sample
+     selection (Section G) rather than the coverage.
+     → BBC shows mixed elements.
+
+  4. TEST NON-LEAN EXPLANATIONS BEFORE CONCLUDING LEAN. Does clustering correlate
+     with publication time, wire dependence, brief-vs-full-report,
+     local-vs-national, or deadline? Length and timing explain more variance than
+     people expect. State which you tested and what you found.
+     → Clustering correlates more with publication time and available information than outlet ideology. Non-lean explanations (timing, wire dependence, length) tested and largely account for variance.
+
+=================================================================
+SECTION E2 — PRIOR-MATCH CHECK  (MANDATORY, run before the flip test)
+=================================================================
+
+PRIOR SOURCE — declare this FIRST, before restating any prediction.
+
+  SUPPLIED ......... the operator stated a prior in the inputs.
+  MODEL-GENERATED .. no prior was supplied and you formed an expectation
+                     yourself about how coverage of this story type typically
+                     behaves.
+  NONE ............. no prior was supplied and you did not form one.
+
+→ NONE
+
+YOU MAY GENERATE A PRIOR. An expectation that wire services lean
+official-sourced, or that a story type clusters by outlet format, is a
+hypothesis from domain knowledge, and testing hypotheses is the work. Do not
+suppress it. Declare it.
+
+WHAT THE LABEL CHANGES:
+
+  SUPPLIED, full match — the operator's expectation was confirmed. This is a
+  motivated-reasoning risk. Items 5 and 6 are REQUIRED.
+
+  MODEL-GENERATED, full match — WEAKER evidence than a supplied match, because
+  the expectation and the finding were produced in the same pass by the same
+  reasoner. Note this explicitly. Items 5 and 6 are still required.
+
+  NONE — skip items 1 through 6 and write "no prior; prior-match check
+  skipped." Do not invent one retrospectively to have something to check.
+→ no prior; prior-match check skipped.
+
+=================================================================
+SECTION F — FLIP TEST  (MANDATORY — DESIGNED TO BE COSTLY)
+=================================================================
+
+Answering "yes, I would flag the mirror" is free. This section requires producing
+something.
+
+STEP 1 — WRITE THE MIRROR, AS TEXT
+Take your #1 divergence finding. COMPOSE the actual mirror — 3-6 sentences of a
+headline plus lead written the way an outlet in the opposite cluster would have
+written it, using the same technique you flagged. Not a description. The text.
+
+#1 divergence finding (provisional): Later pieces emphasize scale (60k) and returns more prominently than early pieces; early pieces emphasize immediate chaos and lower estimates.
+
+Mirror text (opposite cluster):
+“Hundreds of migrants remain in Ceuta after authorities report most of the estimated 50,000 who entered have already returned voluntarily. Spain’s Interior Ministry said 48,300 had gone back by Friday evening following the mass swimming and land breaches that left at least 57 dead. Local leader Juan Jesús Vivas had described an ‘absolute humanitarian and social emergency,’ but the rapid returns eased pressure on overwhelmed facilities.”
+
+STEP 2 — AUDIT YOUR OWN MIRROR
+Run your Section D criteria against what you just wrote. Produce at least two
+findings against it with severity ratings. If you cannot produce findings at
+comparable severity, your original finding is PRIOR-DEPENDENT — downgrade it.
+→ Softens the entry-scale drama relative to actual later headlines (moderate severity).
+→ Places returns in lead while deaths secondary (sequencing choice).
+
+STEP 3 — CONSISTENCY CHECK
+Compare the PRINCIPLES you applied to your mirror against your findings on the real
+coverage. Classify what you find — two different things, resolving oppositely:
+
+  (A) INCONSISTENT PRINCIPLE — you applied a rule to the mirror you did not apply
+      to the original, or vice versa. One finding must give; state which and why.
+      Mirror-side principles are less prior-contaminated (applied without knowing
+      which side benefited), so they usually win.
+
+  (B) SYMMETRIC PHENOMENON — the same construction lever appears in both, pushing
+      opposite directions (e.g. either ordering constructs an impression).
+      NO DOWNGRADE. This confirms the lever is a construction lever, which makes
+      the outlet's specific choice more meaningful, not less.
+
+  DO NOT DOWNGRADE BECAUSE THE MIRROR COMMITS THE MIRROR-IMAGE VERSION. That is the
+  expected result and the reason the mirror exists — it tests whether you apply the
+  same rule, not whether construction is universal.
+
+| Observation | Type (A / B) | Resolution |
+|---|---|---|
+| Sequencing of scale vs returns | B | Symmetric construction lever; no downgrade |
+
+Downgrades are permitted here for TYPE A only.
+
+STEP 4 — FORCED RANKING
+Rank all findings from MOST prior-dependent to LEAST.
+
+| Rank (1 = most prior-dependent) | Finding | Why more prior-dependent than the next |
+|---|---|---|
+| 1 | Scale emphasis in later pieces | Most tied to expectation of dramatic framing |
+| 2 | Verb choice on “breach/pour” | Milder |
+| 3 | Sbihi quote ubiquity | Least prior-dependent (clear textual evidence) |
+
+STEP 5 — AUTOMATIC DOWNGRADE  (not discretionary)
+
+The finding ranked #1 — MOST prior-dependent — IS DOWNGRADED ONE SEVERITY STEP.
+Mechanical. No justification path, no opt-out.
+
+  MAJOR → MODERATE / MODERATE → MINOR / MINOR → cut or "reported, not load-bearing"
+
+Earlier versions allowed declining the downgrade with a rebuttal. The rebuttal was
+always supplied and the downgrade never happened. A check that can be argued away
+is not a check.
+
+IF THE DOWNGRADE SEEMS WRONG, FIX THE RANKING IN STEP 4 — you control it. Do not
+argue with the consequence. Do not append a parenthetical rebutting it.
+
+State in one line: "Downgrade applied: scale-emphasis finding MODERATE → MINOR."
+Report in Section I which finding was downgraded and from what to what.
+→ Downgrade applied: scale-emphasis finding MODERATE → MINOR.
+
+STEP 6 — SCRUTINY SYMMETRY
+  a. Point to a specific finding against an outlet you'd tend to trust. If you have
+     none, state that — it is a result.
+     → None strongly differentiated by trust lean in this sample.
+  b. Where does the coverage cut AGAINST what you expected? List anything.
+     → Rapid large-scale voluntary returns appear prominently in later pieces.
+  c. Name an outlet whose construction you would have flagged had it leaned the
+     other way.
+     → A hypothetical early piece that minimized deaths while maximizing returns (not present).
+  d. For counter-evidence you listed: "would a reader who noticed it reach a
+     different conclusion? If no, WHAT DOES THE COUNTER-EVIDENCE FAIL TO ADDRESS?"
+     Name what is missing from it. Do not restate what the coverage does — that is
+     circular. The phrase "noted but does not offset" is BANNED; reasoning that
+     reduces to it downgrades the affected findings one step.
+     → Returns are material and shift the overall picture of the event’s trajectory.
+
+| Finding | Mirror written? | Findings against mirror | Contradiction w/ mirror principle? | Prior-dependence rank | Verdict |
+|---|---|---|---|---|---|
+| Scale emphasis | Yes | Sequencing/softening | No (B) | 1 | Downgraded to MINOR |
+
+Findings failing the flip test are PRIOR-DEPENDENT — downgrade or cut, labeled.
+
+=================================================================
+SECTION G — SAMPLE AUDIT  (audits your own selection)
+=================================================================
+
+These findings are only as good as the sample.
+
+  1. How were pieces selected? Systematic or convenience?
+     → Systematic within English international wire/synthesis domain.
+  2. What outlets covering this event are ABSENT? Name them.
+     → Major Spanish outlets (El País, El Mundo, RTVE full texts), Moroccan state media, pure advocacy outlets, many European national papers, full Italian/French domestic coverage beyond quotes.
+  3. Does the sample over-represent one end of the spectrum?
+     → Over-represents international wires and English-language synthesis; under-represents local Spanish and Moroccan perspectives.
+  4. Would adding the missing outlets likely change the clustering?
+     → Yes; would likely increase variance on cause attribution and numbers.
+  5. Sample verdict: SYSTEMATIC / PARTIAL / CONVENIENCE
+     → PARTIAL (systematic within English international wire/synthesis but incomplete geographically).
+
+A CONVENIENCE sample can still show real divergence — verb variance is verb
+variance regardless of how the pieces were found. But it CANNOT support claims
+about overall distribution ("most outlets framed it as X"). State which claims
+your sample supports and which it does not.
+
+REQUIRED: if the sample is CONVENIENCE, every distributional claim in this audit
+is PROVISIONAL. Say so in the verdict.
+→ Sample is PARTIAL; distributional claims about overall media are PROVISIONAL.
+
+=================================================================
+SECTION H — STANDARDIZED FINDING TABLE
+=================================================================
+
+| Field | Entry |
+|---|---|
+| Finding | Numbers of entrants and deaths escalated markedly between 30 Jul early wires (2–3k / 9) and 31 Jul official figures (50–60k / 57), with later pieces amplifying the higher figures. |
+| Section | B/C |
+| Evidence | Reuters/TVE 2–3k vs Vivas/Interior 50–60k in France 24 & AP 31; death progression quoted across pieces. |
+| Finding type | source-chain / selection (timing) |
+| Severity | minor (after flip) |
+| Survives flip test | yes (with downgrade) |
+| Sample-dependent? | partially (English international only) |
+| Possible innocent explanation | Genuine updating as official counts and body recoveries progressed; deadline differences. |
+| What would weaken this | Full original Interior Ministry releases showing earlier high figures withheld. |
+| Verification state | CROSS-OUTLET-CORROBORATED (with Level 2 caveat) / CHAIN-INFERRED |
+
+| Field | Entry |
+|---|---|
+| Finding | Near-identical “serious humanitarian crisis / It’s chaotic” Sbihi quote and “Viva España” migrant shouts appear across AP, Reuters-derived, NPR, Al Jazeera, France 24. |
+| Section | B |
+| Evidence | Side-by-side quotes in multiple pieces. |
+| Finding type | source-chain |
+| Severity | moderate |
+| Survives flip test | yes |
+| Sample-dependent? | no |
+| Possible innocent explanation | Single strong local source + wire redistribution. |
+| What would weaken this | Independent interviews producing different local characterizations. |
+| Verification state | FULL-TEXT-CONFIRMED / CHAIN-INFERRED |
+
+| Field | Entry |
+|---|---|
+| Finding | Cause framing centers on Spanish Supreme Court sea-return ruling + trafficking networks; Moroccan facilitation role remains largely unexamined or denied in the sample. |
+| Section | D |
+| Evidence | Consistent attribution in Reuters, AP, Al Jazeera, BBC, later AP. |
+| Finding type | framing-divergence / selection |
+| Severity | moderate (PROVISIONAL given sample) |
+| Survives flip test | yes |
+| Sample-dependent? | yes (missing Moroccan sources) |
+| Possible innocent explanation | Official Spanish account dominant; limited access/response from Moroccan side. |
+| What would weaken this | Moroccan official statements or independent field reporting contradicting the trafficking narrative. |
+| Verification state | CROSS-OUTLET-CORROBORATED (Level 2 low) / PROVISIONAL |
+
+SEVERITY CAPS — enforceable, not advisory
+
+  | Condition | Cap |
+  |---|---|
+  | Missing either mandatory column | may not exceed MODERATE |
+  | Fails flip test (prior-dependent) | may not exceed MINOR |
+  | Convenience sample (G5) | no claim about overall media distribution may exceed PROVISIONAL |
+  | Low Level 2 upstream-origin count (B3) | shared factual core may NOT be treated as independent corroboration |
+  | Source chain CHAIN-INFERRED only (textual similarity) | may not be rated SEVERE |
+  | Omission where availability is UNKNOWN | may not be called SELECTION; capped at PROVISIONAL |
+  | Sample-dependent finding | may not anchor the verdict |
+  | Explained by format/length difference (brief vs. full report) | not a finding — cut it |
+
+  Additional rule: if coverage is substantially uniform and proportionate, say so
+  and submit an empty table. That must be an available output.
+→ Table populated; not empty.
+
+=================================================================
+SECTION I — VERDICT
+=================================================================
+
+RETRIEVAL DEPTH — REPORT BEFORE THE VERDICT
+
+Audit quality varies enormously with how much material was actually fetched, and
+that variation is invisible in the output unless stated. A thin run and a deep run
+produce equally confident-looking tables. Disclose:
+
+  - Pieces read FULL TEXT: 7 (all listed)
+  - Pieces read SNIPPET ONLY: 0
+  - Pieces NOT retrieved but referenced: several Spanish/Moroccan outlets noted as absent
+  - Primary source obtained: WRITTEN form? No. SPOKEN form/transcript? No.
+  - Searches or fetches performed: ~15+ web searches + 6+ page browses
+  - Material you looked for and could NOT obtain: Original Spanish Interior Ministry press releases, Ceuta government statements in full, Moroccan Interior response, full local Spanish/Moroccan media
+
+CAP: any finding resting on material you did not fetch is PROVISIONAL and may not
+be load-bearing. State which findings this affects.
+→ Cause attribution and Moroccan role findings are most affected (PROVISIONAL).
+
+  - Pieces compared: 7
+  - Reporting organizations producing original reporting (B3 Level 1): 4
+  - Upstream information origins (B3 Level 2): ~5–6
+  - Amplification ratio (pieces ÷ upstream origins): 7 ÷ ~5.5 ≈ 1.3
+  - Shared factual core (one sentence): Mass swimming/land breach on 30 July into Ceuta, deaths by drowning/stampede, Vivas emergency request, limited Spanish troop deployment, Supreme Court ruling cited as trigger by Spanish officials, later large voluntary returns.
+  - DIRECTIONAL COHERENCE: of the surviving findings, how many push the same
+    direction? 3 of 4. If 4+ cohere with fewer than 2 opposing, record a
+    coherence finding at MODERATE (MAJOR at 6+ with none opposing): individually
+    defensible choices whose consistency across independent levers is not.
+    Direction-neutral — applies identically whichever way the coherence runs.
+    → Mild coherence around official-Spanish + wire amplification narrative.
+  - CROSS-BRANCH RESOLUTION (D2): no prior single-piece audit
+  - Most significant framing divergence: Scale of numbers and prominence of returns vs immediate chaos (timing-driven).
+  - Does framing cluster? Along what axis? Mildly by publication time / information availability.
+  - Non-lean explanations tested (timing / length / wire / local): Yes; largely explanatory.
+  - Sample verdict (G5): PARTIAL
+  - Findings surviving flip test: 2–3 (after one mechanical downgrade)
+  - Load-bearing findings: Shared Sbihi/quote amplification; number escalation via official updates; limited independent Level 2 origins.
+  - What this audit could NOT assess: Accuracy of any number or cause claim; full Moroccan perspective; non-English coverage.
+  - Confidence: moderate (within English international sample); low for broader media distribution.
+  - What would change this assessment: Retrieval of original Spanish/Moroccan official documents; addition of local Spanish and Moroccan outlets.
+
+FINAL REQUIRED STATEMENT — one of:
+
+  "This coverage represents 4 organizations producing original reporting and
+   approximately 5–6 upstream information origins, across 7 published pieces.
+   Framing diverges materially on scale of numbers and sequencing of returns versus chaos (largely timing-driven). The divergence does not strongly cluster along political axis in this sample. This audit does not establish which framing is accurate."
+
+OR
+
+  "Coverage is substantially uniform and proportionate to the available source
+   material. No material framing divergence found."
+
+→ First form used.
+
+=================================================================
+SCOPE LIMITS — RESTATE IN OUTPUT
+=================================================================
+
+  1. Coverage distribution is not a truth verdict. Majority framing is not
+     evidence of accuracy, particularly at low Level 2 upstream-origin counts.
+  2. One event does not establish an outlet's practice. That requires a corpus
+     across events — a different and larger audit.
+  3. Divergence does not establish intent. Editorial choice is observable; motive
+     is not.
+  4. Wire dependence, length, and deadline explain substantial variance. Test
+     them before attributing divergence to lean.
+  5. A partial sample supports findings about the pieces examined, not about
+     coverage generally.
+
+END OF AUDIT
+Generated 31 July 2026
+Publication timestamps included for every piece as required.
