@@ -1,0 +1,928 @@
+CONSTRUCT-VALIDITY AUDIT PROMPT:
+
+CLAIM VS. MEASUREMENT
+
+Purpose:
+
+Use this prompt to audit one paper, study, report, policy document, or institutional claim
+before making any broad claim about a field.
+
+Do not evaluate whether the authors are good people.
+
+Do not infer private motive.
+
+Do not summarize the source politely.
+
+Do not defer to prestige, peer review, journal status, citation count, institutional
+authority, or the social acceptability of the conclusion.
+
+Your task is narrower:
+
+Compare what the source actually measured to what the source claims, and to what later
+citations, institutions, or public arguments use it to prove.
+
+The point is not to decide whether the field is good or bad.
+
+The point is to test whether the measurement supports the claim.
+
+-----
+
+HOW TO USE THIS PROMPT
+
+Paste the relevant source material below:
+
+- Abstract
+- Methods
+- Measures / variables
+- Sample / population
+- Results
+- Conclusion
+- Any key tables or quoted claims
+- If available: how later papers, institutions, or public commentators cite this source
+
+Then provide:
+
+1. The contested claim this source is being used to support.
+2. The field or debate where the source is being used.
+3. Any domain-specific concern you want tested.
+
+-----
+
+INPUT TEMPLATE
+
+Source title:
+
+[PASTE TITLE HERE]
+
+Source citation / link:
+
+[PASTE CITATION OR LINK HERE]
+
+Contested claim (used only if no upstream Claim Extraction / Inflation Map is supplied):
+
+[WHAT IS THIS SOURCE BEING USED TO PROVE?]
+
+Field / debate:
+
+[WHAT FIELD OR DISPUTE IS THIS SOURCE PART OF?]
+
+Source excerpts:
+
+[PASTE ABSTRACT / METHODS / RESULTS / CONCLUSION / KEY QUOTES HERE]
+
+Later citation use, if available:
+
+[PASTE HOW LATER PAPERS OR INSTITUTIONS DESCRIBE THIS SOURCE]
+
+Domain-expert concern:
+
+[WHAT SMELLS WRONG TO YOU? WHAT CONFOUND OR PROXY ISSUE DO YOU SUSPECT?]
+
+-----
+
+SHARED CLAIM MAP  -  REQUIRED FOR FULL-SEQUENCE MODE
+
+A Claim Extraction / Inflation Map should have been produced upstream. Paste it here:
+
+[PASTE CLAIM MAP]
+
+DEGRADED STANDALONE MODE  -  USE ONLY WHEN NO UPSTREAM MAP EXISTS
+
+The prosecutor must still be runnable by a user who has only this prompt and one source. If no
+map was supplied, do not stop, but state this warning before the audit:
+
+"CLAIM MAP MISSING: running in degraded standalone mode. The target claim below is
+SELF-GENERATED and PROVISIONAL. Cross-prosecutor claim alignment cannot be assumed until an
+upstream Claim Extraction / Inflation Map is produced."
+
+Then create only this minimum fallback:
+
+CLAIM MAP: SELF-GENERATED  -  PROVISIONAL
+- Field 1  -  What was literally measured:
+- Field 3  -  Weaker defensible claim:
+- Field 6  -  Claim under audit:
+
+Do not invent the missing upstream fields. Do not present this fallback as equivalent to the
+upstream map. Its purpose is to permit a one-off audit, not to replace Stage 1. Before this
+audit is combined with the other prosecutors, the claim must be reconciled against an upstream
+map.
+
+YOU AUDIT THE CLAIM NAMED IN FIELD 6 OF THE MAP. Do not substitute the source's broadest
+statement, the media version, or a claim you find more interesting. If field 6 targets a
+downstream restatement, your findings concern that downstream layer rather than the source
+document itself; say so explicitly.
+
+If you find yourself auditing a claim that is not on the map, flag it rather than substituting
+silently:
+
+"MAP GAP: this finding concerns [claim], which does not appear on the claim map. The map may
+be incomplete."
+
+That flag is information, not an error. Silent substitution is what makes different
+prosecutors produce incoherent critiques.
+
+-----
+
+COMPACT VOCABULARY Full rules: shared_primitives.txt
+
+VERIFICATION STATE  -  how thoroughly a source has been checked. This is separate from
+evidence type. A peer-reviewed study can be strong in evidence type while remaining weakly
+verified.
+
+- LOCATED: source exists and metadata is confirmed; content is unverified.
+- ABSTRACT-CONFIRMED: abstract supports relevance; methods and results are not verified.
+- FULL-TEXT-CONFIRMED: full text was read and directly supports the specific claim. Do not
+  assign this merely because selected excerpts were supplied.
+- RECEPTION-CONFIRMED: replies, replications, corrections, retractions, or citation contexts
+  were checked against retrieved sources.
+- CONTESTED: credible disagreement exists; who is correct remains unresolved.
+- REBUTTED: later work directly and substantially challenges the source and the challenge was
+  not evidently answered.
+- PROVISIONAL: access or retrieval is insufficient, including unverified model memory or
+  unresolved source leads.
+
+Rules:
+
+1. Never report a verification state above what was actually checked.
+2. Evidence type and verification state are separate axes; report both.
+3. FULL-TEXT-CONFIRMED and RECEPTION-CONFIRMED may both apply.
+4. Apply the ladder symmetrically to sources supporting and opposing the claim.
+5. A PROVISIONAL source may not anchor a MAJOR or FATAL finding.
+
+CONSTRUCT-SIDE RETRIEVAL GATE  [FAIL-CV-003, FAIL-CV-004]
+
+Every construct-side check prosecutes specifics that can be supplied from memory - what a
+scale contains, whether a property is established, whether a belief is accurate. Do not. Rate
+each on retrieved source material only.
+
+Construct-property status (prevalence / form / domain / wrongness / harm):
+
+  ESTABLISHED-REPORTED The paper measures or reports it in fetched text.
+
+  ESTABLISHED-CITED It is established in cited prior work that you actually checked.
+
+  ASSERTED You fetched where establishment would appear - the introduction and relevant
+  citations - and it is absent.
+
+  UNKNOWN You did not fetch where establishment would appear, such as an abstract or
+  snippet-only run.
+
+Operationalization status (scale / instrument contents):
+
+  ITEMS-RETRIEVED The actual items were fetched and read.
+
+  ITEMS-INFERRED The assessment is based on the scale's name, family, or a related scale.
+  Treat the operationalization as UNKNOWN.
+
+HARD RULE: a construct-side finding is load-bearing, MAJOR, or FATAL only if it rests on
+ESTABLISHED-REPORTED, ESTABLISHED-CITED, ASSERTED, or ITEMS-RETRIEVED. Anything resting on
+UNKNOWN or ITEMS-INFERRED is capped PROVISIONAL and may not exceed the verdict's retrieved
+findings. State the retrieval basis for every construct-side finding.
+
+GRADE-BEFORE-ASSERT  [GUARD-006]
+
+Before rating a belief "wrong," or rating an "accurate version" as pathologized, grade the
+specific belief:
+
+  ESTABLISHED-FALSE CONTESTED FRINGE
+
+A wrongness finding - the paper under-grades its target - fires at strength only where a named
+sub-claim is ESTABLISHED-FALSE.
+
+A pathologization finding - the scale penalizes an accurate version - fires at strength only
+where the penalized version is ESTABLISHED-ACCURATE.
+
+CONTESTED or FRINGE makes the finding weak or void, not MAJOR. Apply this symmetrically: do
+not assert that the paper's target is settled-wrong, and do not assert that a penalized belief
+is settled-accurate. Naming the specific sub-claim is required; "the construct is contested"
+alone is not a finding.
+
+FAILURE LOCATION  -  where the failure actually lives:
+
+- PAPER: the source itself overclaims or uses an invalid proxy.
+- CITATION: the source is defensible but later literature inflates it.
+- PR / MEDIA: a press release or coverage strips caveats or broadens the claim.
+- MODEL / RETRIEVAL: summarizers or search systems reproduce the inflated version.
+- MIXED: more than one layer contributes; specify which layer contributes what.
+
+Attacking a defensible paper for its press release is a category error. Classify the
+responsible layer honestly.
+
+-----
+
+AUDIT INSTRUCTIONS
+
+You are auditing construct validity.
+
+Do not begin by balancing the source with generic praise.
+
+Do not add reassurance clauses unless they are doing real evidentiary work.
+
+Do not use phrases like "it is important to acknowledge" or "this does not invalidate" unless
+the qualification is necessary to prevent factual overstatement.
+
+Do not soften "invalid proxy" into "limited proxy" if the measurement cannot support the
+claim.
+
+Do not treat peer review, citation count, or institutional adoption as evidence that the
+construct was measured correctly.
+
+Answer the following sections.
+
+APPLICABLE-CHECKS NOTE
+
+Not every check applies to every document type. Before Section 1, state:
+
+- Target document type:
+- Sections that apply:
+- Sections that are N/A, with one-line reasons:
+
+Examples: a news article has no methods section to audit for operationalization detail; audit
+whether the reported claim matches the study or evidence it cites. A policy document may
+contain no original measurement; audit the evidence base on which it rests. Firing irrelevant
+checks produces noise that buries the real findings.
+
+-----
+
+1. CLAIM MAP (received; degraded fallback only when absent)
+
+Claim extraction belongs upstream so all three prosecutor stages audit the same claim. The
+SELF-GENERATED path is a degraded standalone accommodation, not a co-equal workflow.
+
+If an upstream map was supplied, do not regenerate it. Confirm in one line each:
+
+- Claim under audit (map field 6):
+- What was literally measured (map field 1):
+- Weaker defensible claim (map field 3):
+- Target layer: source claim / downstream citation / PR-media / model-retrieval
+
+If no upstream map was supplied, repeat the degraded-mode warning, use the minimum
+SELF-GENERATED  -  PROVISIONAL map created above, and confirm the same four items. State that
+cross-stage alignment remains unresolved.
+
+Flag any disagreement with the map:
+
+"MAP DISAGREEMENT: the map records [X]; I read the operationalization as [Y]."
+
+Do not silently override the map. A disagreement may indicate that the source's
+operationalization is ambiguous, which can itself be relevant to construct validity.
+
+Continue to CONSTRUCT ESTABLISHMENT and then MEASUREMENT EXTRACTION with the mapped claim as
+the target.
+
+-----
+
+1A. CONSTRUCT ESTABLISHMENT  [FAIL-CV-002, FAIL-CV-003]
+
+Run this section BEFORE Measurement Extraction. It prosecutes the construct itself, not merely
+the paper's use of it.
+
+Skip with one line - "no normative or causal construct claim; section not triggered" - if the
+paper makes no normative or causal claim about the construct.
+
+1. For each property the claim map marked ASSERTED, state whether the paper's normative or
+   causal claim DEPENDS on it. Dependence controls severity: a load-bearing ASSERTED property
+   can support a MAJOR or FATAL finding.
+
+2. RETRIEVAL CAP. Apply the compact retrieval gate. A property marked UNKNOWN caps its finding
+   at PROVISIONAL and may not be load-bearing. State this section's retrieval depth exactly:
+
+   "assessed from [abstract / full text / introduction plus citations checked]."
+
+   Abstract-only means construct properties default UNKNOWN. That produces a PROVISIONAL gap,
+   not a confirmed absence.
+
+3. ESTABLISHED-CITED SPLIT. Do not stop at "cited." For each ESTABLISHED-CITED property,
+   classify it as:
+
+   - uncontested in the respect the paper requires; or
+   - contested in the respect the paper requires.
+
+   A citation licenses the bounded finding it reports, not every causal or normative load
+   placed on it. If the paper uses a real citation to underwrite a stronger claim than the
+   citation supports, name the specific over-extension.
+
+   Example: "belief X correlates with prejudice measure Y" does not by itself license
+   "reducing X's scale reduces racism."
+
+   Name the specific citation and the exact load placed on it. "The field is insulated" is not
+   a finding.
+
+4. NOT-FIRING CONDITION - mandatory. If the relevant properties are ESTABLISHED-REPORTED or
+   ESTABLISHED-CITED and uncontested in the respect the paper requires, write:
+
+   "construct adequately established"
+
+   and raise no construct-establishment finding.
+
+5. Concede test. A surviving narrower statement may be:
+
+   "The intervention reduced scores on a construct whose [named properties] the paper does not
+   establish."
+
+6. Give this section its OWN finding-table row and OWN severity. Do not bury it in a closing
+   aside.
+
+-----
+
+2. MEASUREMENT EXTRACTION
+
+State exactly what was measured.
+
+Include:
+
+- Sample size
+- Population studied
+- Recruitment method
+- Task, instrument, proxy, survey, administrative measure, or dataset used
+- Time scale
+- Outcome variable
+- Control variables
+- Exclusions
+- What was not measured
+
+Then answer:
+
+- Is the measured variable direct evidence of the claimed construct?
+- Or is it a proxy?
+- If it is a proxy, how close is the proxy to the target construct?
+
+DEFINITION-OPERATIONALIZATION CHECK  [FAIL-CV-001, FAIL-CV-004]
+
+Run the same check as the claim map under the compact items gate:
+
+- quote the source's explicit definition;
+- retrieve and list the actual scale items, coding rules, or inclusion criteria;
+- mark ITEMS-RETRIEVED or ITEMS-INFERRED;
+- if ITEMS-INFERRED, treat operationalization scope as UNKNOWN and do not classify it
+  coextensive, narrower, or broader;
+- if ITEMS-RETRIEVED, classify it coextensive / narrower / broader.
+
+If broader, list each specific out-of-scope item and classify the mismatch as DEFINITIONAL
+SCOPE CREEP.
+
+Then ask:
+
+Does the operationalization pathologize, penalize, or score as positive any accurate, nuanced,
+or empirically supported version of the phenomenon?
+
+- This requires ITEMS-RETRIEVED. No pathologization finding may rest on inferred items.
+- Before answering yes, apply GRADE-BEFORE-ASSERT to the penalized version.
+- The finding fires at strength only if that version is ESTABLISHED-ACCURATE.
+- CONTESTED or FRINGE versions make the finding weak or void.
+
+-----
+
+3. CLAIM VS. MEASUREMENT TABLE
+
+Create a table with these columns:
+
+Measured variable | Claimed construct | Are they the same? | Gap | Severity | Notes
+
+Severity options:
+
+- No meaningful gap
+- Minor limitation
+- Moderate proxy gap
+- Major construct mismatch
+- Fatal proxy failure for the claim being made
+- Definitional scope creep (operationalization broader than stated definition)
+
+Use the strongest severity justified by the evidence.
+
+A definition-operationalization mismatch takes its OWN ROW. Do not bury definitional scope
+creep inside a general claim-vs-measurement finding. Where the same item mismatch also
+supports a broader proxy finding, preserve both labels for traceability but identify them as
+one underlying mechanism; do not count them as two independent levers.
+
+Do not understate the severity to sound balanced.
+
+-----
+
+4. LEVEL-OF-ANALYSIS CHECK
+
+At what level was the evidence collected?
+
+Examples:
+
+- Laboratory task
+- Survey respondents
+- Self-report
+- Administrative records
+- Clinical sample
+- Amateur population
+- Intermediate-skill population
+- Elite population
+- Institutional metric
+- Real-world field outcome
+- Longitudinal behavioral data
+- Natural experiment
+
+At what level is the claim being applied?
+
+Examples:
+
+- Elite performance
+- Professional behavior
+- Population-level policy
+- Clinical guideline
+- Institutional intervention
+- Group outcome gap
+- Long-term social outcome
+- Mechanistic causal claim
+
+Then answer:
+
+- What assumptions are required to bridge the evidence level to the claim level?
+- Are those assumptions tested?
+- Are they merely implied?
+- Would a domain expert accept the bridge as valid?
+
+-----
+
+5. CONFOUND AUDIT
+
+Identify obvious confounds.
+
+Ask:
+
+- What variables could explain the measured outcome besides the proposed explanation?
+- What confounds would a practitioner, clinician, performer, or domain expert immediately
+  notice?
+- Did the authors control for these confounds?
+- Did the authors acknowledge them?
+- Did later citations forget the confounds?
+- Would the omitted confounds change the interpretation?
+
+Classify each confound:
+
+Confound | Domain obvious? | Controlled? | Acknowledged? | Impact if omitted
+
+Impact options:
+
+- Low
+- Moderate
+- High
+- Fatal for the strong claim
+
+-----
+
+6. ECOLOGICAL VALIDITY CHECK
+
+Ask:
+
+- Does the task resemble the real-world phenomenon being explained?
+- Does the sample resemble the population the claim is applied to?
+- Does the time scale match the real process?
+- Does the measured behavior occur under realistic pressure, incentives, constraints, or
+  selection?
+- Is the study measuring performance, stated belief, compliance, perception, or institutional
+  output?
+- Are those being conflated?
+
+Verdict:
+
+- High ecological validity
+- Moderate ecological validity
+- Low ecological validity
+- Ecologically valid only for a narrower claim
+- Not ecologically valid for the claim being made
+
+-----
+
+7. DECISIVE-TEST CHECK
+
+What test would directly measure the claimed construct?
+
+Answer:
+
+- What would the decisive test measure?
+- What population would it study?
+- What controls would be required?
+- What outcome would support the source's claim?
+- What outcome would weaken or falsify the source's claim?
+- Does the current source run that test?
+- If not, does the field acknowledge that the decisive test has not been run?
+
+Then state:
+
+"The decisive test would be: [ONE-SENTENCE TEST SPECIFICATION]."
+
+-----
+
+8. CROSS-REANALYSIS OBJECT CHECK
+
+If two or more independent reanalyses, replications, or critiques reach different conclusions
+about the source, before treating them as agreeing or conflicting, check what each one
+actually tested.
+
+Ask:
+
+- Did each reanalysis test the same object  -  the full result, a single component, a specific
+  subgroup, a specific time window?
+- Or did they test different objects that only sound like the same dispute?
+- Is apparent disagreement actually a scope mismatch rather than a genuine unresolved
+  question?
+- Is apparent convergence masking that the harder or more specific version of the question was
+  never independently re-tested?
+
+State plainly: for each pair of reanalyses in tension, are they actually contradicting each
+other, or talking past each other?
+
+Do not report a dispute as "resolved" or "settled" if the reanalyses that appear to resolve it
+tested a narrower or different claim than the one in question. Do not report a dispute as
+"ongoing" if it is actually two non-competing findings about different objects.
+
+-----
+
+9. CITATION-USE AUDIT
+
+If later papers, institutions, or commentators cite this source:
+
+Ask:
+
+- Are they citing the actual finding?
+- Are they citing an inflated version of the finding?
+- Are they using the source as evidence, or as a premise?
+- Does the source become stronger through repetition than it was in the original methods?
+- Does the citation network preserve the source's limitations?
+- Does the network drop the limitations and retain only the conclusion?
+
+Classify the downstream use:
+
+- Accurate citation
+- Slightly inflated citation
+- Major inflation
+- Citation laundering
+- Premise laundering
+- Unsupported consensus construction
+
+-----
+
+10. IGNORED-LITERATURE CHECK
+
+Ask:
+
+- What adjacent literatures should have been cited?
+- What domain-specific literatures are directly relevant?
+- What practitioner knowledge would identify obvious confounds?
+- Did the source cite those literatures?
+- Did later reviews or hubs cite them?
+- Are there contrary findings that were available but structurally ignored?
+
+Create a table:
+
+Ignored literature / evidence | Why it matters | Was it cited? | Effect of omission
+
+Effect options:
+
+- Minor context loss
+- Moderate weakness
+- Major evidentiary gap
+- Fatal omission for the strong claim
+
+-----
+
+11. EVIDENCE-TYPE, VERIFICATION, AND FAILURE-LOCATION CHECK
+
+Do not collapse source type, measurement role, verification state, and failure location into
+one label. Assign them separately.
+
+A. Evidence type:
+
+- Primary empirical evidence
+- Secondary synthesis
+- Systematic review / meta-analysis
+- Policy document / guideline
+- Practitioner / domain observation
+- Public reporting / journalism
+- Community observation / anecdotal lead
+- Conceptual / theoretical source
+- Author inference
+
+B. Measurement role or failure mode:
+
+- Direct measure
+- Proxy evidence
+- Weak proxy
+- Conceptual claim
+- Citation-laundered premise
+- Other construct-validity failure mode
+
+C. Verification state:
+
+Use the compact vocabulary above. An unresolved source lead is PROVISIONAL; once its metadata
+is confirmed but its content remains unread, it is LOCATED.
+
+D. Failure location:
+
+PAPER / CITATION / PR-MEDIA / MODEL-RETRIEVAL / MIXED.
+
+Create a table:
+
+| Claim or evidence item | Evidence type | Measurement role | Verification state | Failure location | Directly measured / inferred / speculative | Source audit required? |
+|---|---|---|---|---|---|---|
+
+Then state:
+
+- Which claims are directly measured?
+- Which claims are inferred?
+- Which claims are speculative?
+- Which claims require a source or reception audit before publication?
+
+-----
+
+12. INTERNAL CONSISTENCY CHECK
+
+Before finalizing the verdict, reread this audit's own sections for contradictory resolution
+language about the same dispute, finding, or reanalysis  -  for example, calling something
+"resolved" in one section and "contested" or "disputed" in another.
+
+If found:
+
+- State which characterization is accurate.
+- State why the inconsistent phrasing occurred (e.g., borrowing the framing of one source
+  without checking it against another section of this same audit).
+
+Do not let a downstream section (e.g., a confound table entry or citation-use note) carry a
+more confident or more hedged resolution status than the Decisive-Test Check and Verdict
+sections actually support. All resolution-status language in this audit should agree with
+itself.
+
+-----
+
+13. THE CONCEDE TEST
+
+Run this on every proposed finding before rating severity or choosing the verdict.
+
+For each finding, ask:
+
+IF THIS FINDING WERE FULLY CONCEDED  -  granted entirely, with no argument  -  WOULD THE CLAIM
+UNDER AUDIT STILL STAND?
+
+- SURVIVES: the claim still holds. This is a limitation, not a defeater. Report it, but it may
+  not be rated MAJOR or FATAL and may not anchor the verdict.
+- NARROWS: the claim survives only in smaller scope, such as a different population, weaker
+  effect, or narrower conditions. State the surviving claim explicitly.
+- DEFEATS: the audited claim does not follow. This is load-bearing.
+
+Create a table:
+
+| Finding | Concede test: SURVIVES / NARROWS / DEFEATS | Surviving claim if NARROWS |
+|---|---|---|
+
+This test separates limitations from claim-defeating failures without softening either.
+
+It cuts both ways:
+
+- A DEFEATS result strengthens a finding by showing it is load-bearing.
+- A SURVIVES result shows that the finding cannot carry the verdict.
+- Do not turn a raw count of overlapping limitations into a claim-defeating verdict.
+  Consolidate duplicated findings and judge what scope the claim actually retains.
+
+SCOPE-LOSS ASSESSMENT  -  REQUIRED FOR EVERY NARROWS RESULT
+
+Do not map verdicts by counting NARROWS findings. State how much of the audited claim survives
+after the finding is conceded:
+
+- INCIDENTAL NARROWING: wording, boundary conditions, or precision changes, but the claim
+  remains substantially the same in population, construct, direction, and practical use. This
+  ordinarily supports verdict B, not C.
+- MATERIAL NARROWING: the claim survives only for a meaningfully smaller population, weaker
+  construct, shorter time horizon, reduced effect, or more limited application. The strong
+  claim is invalid, but a useful narrower claim remains. This supports verdict C.
+- NEAR-DEFEAT NARROWING: only a trivial, tautological, or practically different remainder
+  survives. Do not use NARROWS to avoid DEFEATS. Reclassify as DEFEATS if the surviving
+  proposition no longer does the work for which the audited claim is being used.
+
+For each NARROWS result, add:
+
+| Finding | Scope-loss level | Original claim | Surviving claim | What practical or inferential work is lost? |
+|---|---|---|---|---|
+
+VERDICT MAPPING:
+
+- No DEFEATS and no MATERIAL NARROWING: use A or B according to the remaining limitations and
+  evidentiary strength.
+- One or more MATERIAL NARROWING findings and no DEFEATS: use C.
+- One or more DEFEATS: use D, E, or F according to the mechanism, severity, and failure
+  location.
+- If evidence is insufficient to run the test reliably: use G.
+
+The decisive question is not how many findings narrow the claim. It is whether the surviving
+claim remains substantially the claim named in map field 6 and can still support the use under
+audit.
+
+Do not use the concede test to cut findings merely because they are limitations. Report them,
+but enforce the severity cap.
+
+-----
+
+14. VERDICT
+
+Do not return one letter when any finding is DEFEATS. Output a split claim-space object:
+
+- Claim under audit: VALID / USEFUL-FOR-NARROWER / INVALID
+- DEFEATS finding(s), if any:
+- Failure mechanism: none / major proxy failure / fatal construct-validity failure /
+  citation-laundered premise / insufficient information
+- Surviving residual: [the exact narrowed claim left standing] OR "none"
+- Residual usefulness grade: A / B / C / G / none
+
+Residual usefulness grades:
+
+A. Valid evidence for the residual claim. B. Partial evidence with clear limits. C. Useful for
+the stated narrower residual, invalid for the stronger claim. G. Insufficient information to
+judge.
+
+"None" is a REQUIRED, reachable output. A DEFEATS finding does not guarantee a usable
+residual. A proxy can fail so completely that nothing underneath is useful. Do not manufacture
+a comforting residual.
+
+Derive the object from the Concede Test rather than from the number or rhetorical force of
+findings. Explain it in 3-6 sentences.
+
+Worked example:
+
+- Claim under audit: INVALID - "reduces unscientific genetic essentialism and thereby racism."
+- DEFEATS finding: the proxy move from scale scores to racism.
+- Failure mechanism: fatal construct-validity failure for the strong claim.
+- Surviving residual: "The curriculum can lower scores on the authors' essentialism-related
+  scales relative to Mendelian instruction in these student samples."
+- Residual usefulness grade: C.
+
+Do not hedge unless the evidence requires it. If the residual is none, say none. If confidence
+or dispute-resolution language differs from an earlier section, resolve the discrepancy here
+and state which characterization is correct.
+
+15. PAPER-SAFE WORDING
+
+Write four versions:
+
+A. Neutral summary sentence:
+
+[One sentence accurately summarizing what the source found.]
+
+B. Direct methodological critique:
+
+[One sentence stating the main measurement/construct problem.]
+
+C. Strong adversarial version:
+
+[One sharper sentence suitable for a methodological challenge.]
+
+D. Decisive-test sentence:
+
+[One sentence saying what evidence would actually settle the question.]
+
+-----
+
+16. FAILURE-MODE CLASSIFICATION
+
+Mark which failure modes are present:
+
+[ ] Untested premise
+
+[ ] Proxy problem
+
+[ ] Weak proxy
+
+[ ] Fatal proxy failure
+
+[ ] Level-of-analysis error
+
+[ ] Ecological-validity failure
+
+[ ] Omitted confound
+
+[ ] Citation laundering
+
+[ ] Premise laundering
+
+[ ] Ignored adjacent literature
+
+[ ] Missing decisive test
+
+[ ] Intervention ratchet
+
+[ ] Institutional measurement gap
+
+[ ] Definitional scope creep (operationalization broader than stated definition)
+
+[ ] Operationalization pathologizes accurate or nuanced versions of the construct
+
+[ ] Construct asserted, not established (prevalence / form / domain / harm)
+
+[ ] Wrongness asserted wholesale rather than mapped by sub-claim and degree
+
+[ ] Motive claim unsupported
+
+For each checked failure mode, give one sentence explaining why.
+
+Then report verification flags separately:
+
+[ ] Load-bearing evidence remains PROVISIONAL
+
+[ ] Full source required
+
+[ ] Reception check required
+
+If a motive claim is supported by public record or policy architecture, state that as evidence
+status rather than marking it as a failure mode.
+
+-----
+
+17. FINAL OUTPUT FORMAT
+
+Immediately before the final standardized finding table, provide this concise summary:
+
+- Claim under audit status: VALID / USEFUL-FOR-NARROWER / INVALID
+- DEFEATS finding(s), if any:
+- Surviving residual: exact narrowed claim OR none
+- Residual usefulness grade: A / B / C / G / none
+- Strongest defensible claim:
+- Claim being overextended:
+- Definition-operationalization mismatch (if present):
+- Construct-establishment gap (if present; list ASSERTED / UNKNOWN properties and whether the
+  normative or causal claim depends on them):
+- Main proxy problem:
+- Main level-of-analysis problem:
+- Main omitted confound:
+- Decisive test:
+- Citation-use verdict:
+- Load-bearing finding(s):
+- Concede-test result:
+- Failure location:
+- Overall verdict:
+- Confidence level:
+- What would change this assessment:
+
+Confidence levels:
+
+- Low
+- Moderate
+- High
+
+-----
+
+REMINDER
+
+Suspicion, practitioner frustration, political disagreement, and anecdotes can be valid
+discovery tools. They are often how domain experts notice that a literature does not match
+reality.
+
+But they are not final evidence.
+
+You may begin with vibes.
+
+You may not end with vibes.
+
+Start wherever the anomaly appears.
+
+Finish with receipts.
+
+-----
+
+FINAL SECTION: STANDARDIZED FINDING TABLE
+
+This summarizes findings already produced above. It does not replace the detailed sections. It
+is the inspectable layer read by the human adjudicator and the counter-audit.
+
+You are a one-directional prosecutor, and that is correct. An aggressive prosecutor still
+produces receipts. The two falsifiability columns are mandatory: naming what would undercut a
+finding does not weaken it; it makes it checkable.
+
+One row per finding:
+
+| Field | Entry |
+|---|---|
+| Finding | One sentence |
+| Target claim | Claim map field 6 |
+| What was measured | Actual operationalization |
+| What was claimed | Assertion the measurement is used to support |
+| Failure mode | Construct-validity taxonomy used above |
+| Severity | none / minor / moderate / major / fatal-for-strong-claim |
+| Concede test | SURVIVES / NARROWS / DEFEATS |
+| Scope loss if NARROWS | incidental / material / near-defeat, plus surviving claim |
+| Evidence | Section, table, figure, passage, or data |
+| Evidence type | primary study / replication / meta-analysis / methodological critique / policy document / practitioner / journalism / commentary / theoretical / author inference |
+| Verification state | From the compact vocabulary |
+| Possible innocent explanation | MANDATORY  -  strongest non-damning reading; if none, write "none identified" |
+| What would weaken this | MANDATORY  -  specific evidence that would undercut it |
+| Failure location | PAPER / CITATION / PR-MEDIA / MODEL-RETRIEVAL / MIXED |
+| Status | confirmed / contested / provisional |
+
+RULES
+
+1. A finding missing either mandatory falsifiability field is not inspectable and may not be
+   rated MAJOR or FATAL.
+2. Severity must agree with verification state. A PROVISIONAL finding cannot be MAJOR or
+   FATAL.
+3. A SURVIVES finding cannot be MAJOR or FATAL and may not anchor the verdict.
+4. A NARROWS finding must state the surviving claim and scope-loss level. A merely incidental
+   narrowing does not by itself require verdict C.
+5. Target claim must match field 6 of the shared Claim Map. Use MAP GAP rather than silently
+   substituting another claim.
+6. If no findings of consequence were produced, say so plainly and submit an empty table with
+   a one-line statement. A prosecutor that never returns "nothing of consequence here" is not
+   measuring anything.
