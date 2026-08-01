@@ -1,0 +1,900 @@
+COVERAGE NETWORK & SOURCE-CHAIN AUDIT — MEDIA BRANCH
+SYNTHETIC TEST FIXTURE — CLOSED PACKET
+EVENT LABEL: Ceuta mass-crossing coverage packet
+AUDIT DATE: 31 July 2026
+CORPUS SIZE: 8 synthetic pieces
+EXTERNAL RETRIEVAL: NONE
+PRIMARY SOURCE MATERIAL: NONE
+
+=================================================================
+SCOPE, EVIDENCE BOUNDARY, AND FIXTURE STATUS
+=================================================================
+
+This audit is limited strictly to the eight synthetic pieces supplied in the fixed packet. No outside facts, sources, archived versions, outlet pages, prior knowledge, or real-world reporting are used. A detail absent from the packet is treated as unavailable.
+
+The pieces are treated as separately published items with the outlet, headline, timestamp, byline, and wire credit shown. The packet contains no primary documents. Every statement attributed to a ministry, public official, witness, migrant, rights campaigner, association representative, or anonymous official reaches the audit only through one or more media pieces.
+
+Verification labels:
+- PACKET-CONFIRMED: directly present in the fixture.
+- CROSS-PIECE-CONFIRMED: present in more than one piece.
+- CHAIN-CONFIRMED: explicit outlet/wire dependence is stated.
+- CHAIN-INFERRED: dependence is suggested but not explicitly stated.
+- CONTESTED: the packet contains direct disagreement.
+- PROVISIONAL: the packet cannot resolve the matter.
+- NONE: no primary source is supplied.
+
+=================================================================
+SECTION A — CORPUS AND PUBLICATION SEQUENCE
+=================================================================
+
+A1. REUTERS
+Headline: “Migrants pour into Spain's Ceuta from Morocco as Madrid sends in the military”
+Published: Wed 30 Jul 2026, 08:18 EDT = 12:18 UTC
+Updated: approximately 23 hours later, about 31 Jul 2026, 11:18 UTC
+Byline: Reuters staff
+Wire: Reuters
+Format: Original wire report with direct interview material, official attribution, broadcaster attribution, and political reaction.
+Reported scale: Two to three thousand, attributed to TVE.
+Reported deaths: At least nine, attributed to Spanish authorities.
+
+A2. ASSOCIATED PRESS
+Headline: “Spain deploys military to Ceuta after thousands breach Morocco's border; at least 9 dead”
+Published: Wed 30 Jul 2026, 20:48 MDT = Thu 31 Jul 2026, 02:48 UTC
+Byline: Renata Brito and Antonio Sempere
+Wire: AP
+Format: Original wire report with AP eyewitness observation, a named migrant, official attribution, an association representative, and a rights-campaigner dispute.
+Reported scale: Thousands.
+Reported deaths: At least nine.
+
+A3. AL JAZEERA
+Headline: “At least 18 die as thousands cross from Morocco into Ceuta”
+Published: 30 Jul 2026; exact time not supplied
+Updated: 31 Jul 2026; exact time not supplied
+Byline: Al Jazeera staff with AP and Reuters
+Wire: AP + Reuters + EFE
+Format: Multi-wire synthesis.
+Reported scale: Thousands.
+Reported deaths: At least 18.
+
+A4. BBC
+Headline: “Spain sends troops as thousands enter Ceuta from Morocco”
+Published: 31 Jul 2026; exact time not supplied
+Byline: Sofia Ferreira Santos and Sarah Rainsford
+Wire: Mentions Reuters
+Format: Outlet report combining a resident account, official attribution, Reuters estimates, and political reaction.
+Reported scale: Low thousands.
+Reported deaths: Not stated in the supplied text.
+
+A5. FRANCE 24
+Headline: “Around 60,000 cross into Spain's Ceuta as Trump blames Madrid”
+Published: 31 Jul 2026, 09:57; timezone not supplied
+Modified: 31 Jul 2026, 15:23; timezone not supplied
+Byline: France 24 with AFP, AP and Reuters
+Wire: AFP + AP + Reuters
+Format: Multi-wire synthesis centered on the escalated figure and international political reaction.
+Reported scale: Around 60,000, attributed to Juan Jesús Vivas; Interior Ministry said the figure included many who had already returned.
+Reported deaths: At least 34.
+
+A6. NPR
+Headline: “18 die after a border breach between Morocco and Spain's Ceuta”
+Original publication time: Not supplied
+Updated: 31 Jul 2026, 05:57 ET = 09:57 UTC if ET means EDT
+Byline: No byline
+Wire: AP
+Format: Direct AP-dependent republication or adaptation.
+Reported scale: Not quantified beyond “border breach.”
+Reported deaths: At least 18.
+
+A7. CBC
+Headline: “What is Ceuta, and how was the Spanish enclave breached by 60,000 migrants?”
+Posted: 31 Jul 2026, 19:29; timezone not supplied
+Byline: CBC staff
+Wire: AFP + Reuters + AP
+Format: Explainer using multiple wire services and two migrant accounts.
+Reported scale: Estimated 60,000, attributed to Spanish officials and Vivas.
+Reported deaths: Not stated in the supplied text.
+
+A8. THE NEW YORK TIMES
+Headline: “After tens of thousands enter Spanish territory, most return to Morocco”
+Published: 31 Jul 2026; exact time not supplied
+Byline: NYT staff
+Wire: None for text; AP, Reuters and AFP photos
+Format: Outlet report with ministry figures, a direct migrant interview, an anonymous EU official, and wire photographs.
+Reported scale: About 50,000 crossed; about 48,300 returned.
+Reported deaths: At least 57.
+
+PUBLICATION-SEQUENCE OBSERVATION
+
+The packet presents an escalation from two to three thousand and nine deaths to 50,000–60,000 and 57 deaths. Because exact timestamps are absent for five pieces and Al Jazeera was updated, the precise order among several 31 July items cannot be established.
+
+Timing finding:
+- Numerical escalation is PACKET-CONFIRMED.
+- Whether a particular outlet retained an obsolete figure after a higher one was available is UNKNOWN.
+- No selective minimization or inflation finding may be made from the changing totals alone.
+
+=================================================================
+SECTION B — SOURCE CHAIN
+=================================================================
+
+B1. PIECE-BY-PIECE SOURCE MAP
+
+REUTERS
+Explicit sources: TVE; Vivas; Spanish authorities; Guardia Civil spokesperson; Jadid Zacaria; Omar Naji; Feijóo; Tajani.
+Primary documents: NONE.
+Original reporting: YES.
+Chain status: CHAIN-CONFIRMED as Reuters original reporting.
+
+ASSOCIATED PRESS
+Explicit sources: Spanish Interior Ministry; Rachid Sbihi; Achraf Maimouni; Vivas; Interior Minister Grande-Marlaska; Omar Naji; AP eyewitnesses.
+Primary documents: NONE.
+Original reporting: YES.
+Chain status: CHAIN-CONFIRMED as AP original reporting.
+
+AL JAZEERA
+Explicit sources: Spanish officials; Vivas; Interior Ministry; AP; Reuters; EFE.
+Primary documents: NONE.
+Original reporting: No original field reporting stated.
+Chain status: CHAIN-CONFIRMED multi-wire synthesis.
+
+BBC
+Explicit sources: residents; Carmen González; Interior Ministry; Reuters; Tajani; Meloni; Vivas.
+Primary documents: NONE.
+Original reporting: PARTIAL/POSSIBLE.
+Chain status: Reuters dependence is CHAIN-CONFIRMED; resident-source origin is PROVISIONAL.
+
+FRANCE 24
+Explicit sources: Spanish officials; Vivas; Interior Ministry; Trump; Weidel; Meloni; Nuñez; Sánchez; AFP; AP; Reuters.
+Primary documents: NONE.
+Original reporting: No independent field reporting stated.
+Chain status: CHAIN-CONFIRMED multi-wire synthesis.
+
+NPR
+Explicit sources: Spanish authorities; Rachid Sbihi; Ahmed Karim; Interior Ministry; Omar Naji; Vivas; AP.
+Primary documents: NONE.
+Original reporting: NO.
+Chain status: CHAIN-CONFIRMED AP dependence.
+
+CBC
+Explicit sources: Spanish officials; Vivas; migrants Abdelhakim and Brahim; AFP; Reuters; AP.
+Primary documents: NONE.
+Original reporting: No independent reporting stated.
+Chain status: CHAIN-CONFIRMED multi-wire dependence; migrant-account origin is CHAIN-INFERRED.
+
+NEW YORK TIMES
+Explicit sources: Interior Ministry; Vivas; Youssef Alaoui; anonymous EU official; AP/Reuters/AFP photographs.
+Primary documents: NONE.
+Original reporting: YES/PARTIAL.
+Chain status: independent text sourcing is PACKET-CONFIRMED; wire-photo use does not establish text dependence.
+
+B2. LEVEL 1 INDEPENDENCE COUNT — REPORTING ORGANIZATIONS
+
+Clearly original textual reporting:
+1. Reuters.
+2. Associated Press.
+3. New York Times.
+
+Possible fourth:
+4. BBC, if Carmen González’s account was obtained directly.
+
+LEVEL 1 COUNT: 3 clearly independent reporting organizations; 4 under the broader interpretation.
+
+B3. LEVEL 2 INDEPENDENCE COUNT — UPSTREAM INFORMATION ORIGINS
+
+Materially distinct origins:
+1. Reuters original reporting.
+2. AP original reporting.
+3. AFP reporting.
+4. EFE reporting.
+5. BBC-specific resident reporting, provisionally independent.
+6. NYT-specific reporting.
+7. TVE.
+8. Spanish national government / Interior Ministry / Interior Minister.
+9. Ceuta regional government / Vivas.
+10. Guardia Civil or civil-guard-associated sources.
+11. Migrants and crossers as a source class.
+12. Omar Naji / Moroccan rights perspective.
+13. Political figures’ public statements or X posts.
+14. Anonymous EU official.
+
+Strict count collapsing Guardia Civil into the Spanish state and excluding BBC as independently sourced: approximately 12.
+Broader count: approximately 14.
+
+LEVEL 2 COUNT: 12–14 upstream origins.
+
+B4. AMPLIFICATION RATIO
+
+Overall ratio:
+8 published pieces ÷ approximately 12–14 upstream origins = 0.57–0.67 pieces per origin.
+
+This overall ratio masks claim-specific dependence.
+
+Claim-specific amplification:
+- Vivas emergency/request framing: appears in all eight pieces or their core summaries, from one principal institutional origin.
+- 60,000 figure: France 24 and CBC, both tracing to Vivas and overlapping wires: 2 pieces ÷ 1 origin.
+- Low-thousands estimate: Reuters cites TVE; BBC cites Reuters: 2 pieces built on one explicit numerical origin.
+- Trafficking/smuggling explanation: appears in AP, Al Jazeera, BBC, France 24, and NPR, largely from one Spanish-government origin.
+- NPR’s package is explicitly AP-derived and therefore is not independent confirmation.
+
+B5. SOURCE-CHAIN VERDICT
+
+The packet has a small original-reporting core surrounded by substantial wire amplification.
+
+Original core:
+- Reuters.
+- AP.
+- New York Times.
+- Possibly BBC.
+
+Derivative/heavily wire-dependent layer:
+- Al Jazeera.
+- France 24.
+- NPR.
+- CBC.
+- Parts of BBC.
+
+Eight outlet names do not equal eight independent confirmations.
+
+=================================================================
+SECTION C — SHARED FACTUAL CORE, UNIQUE MATERIAL, CONTRADICTIONS
+=================================================================
+
+C1. SHARED FACTUAL CORE
+
+Cross-piece claims:
+1. A large number of migrants crossed from Morocco into Ceuta.
+2. The crossing occurred by land and/or around maritime barriers.
+3. Spain deployed or sent military forces.
+4. Border or reception capacity was overwhelmed.
+5. Deaths occurred.
+6. Spanish authorities blamed or emphasized trafficking/smuggling networks.
+7. Vivas requested help or described an emergency.
+8. Returns were being arranged or had occurred.
+9. The event generated international political reaction.
+
+Status: CROSS-PIECE-CONFIRMED as claims within the packet. Truth outside the packet remains unresolved.
+
+C2. UNIQUE OR LIMITED MATERIAL
+
+- Reuters: Jadid Zacaria’s swim; Guardia Civil struggling to hold the line; Omar Naji questioning Moroccan enforcement.
+- AP: direct observation at Tarajal; Supreme Court-ruling theory; Omar Naji’s dispute.
+- Al Jazeera: explicit 2021 precedent.
+- BBC: Carmen González’s resident account and police-incapacity observation.
+- France 24: Trump’s blame and a concentrated cluster of international political reaction.
+- NPR: Ahmed Karim’s account that people were told the border was open.
+- CBC: Abdelhakim and Brahim’s swimming accounts; geography explainer.
+- New York Times: 48,300 of 50,000 returned; Youssef Alaoui’s allegation that Moroccan police waved his group toward the border; anonymous EU official; highest death toll.
+
+C3. CONTRADICTIONS AND TENSIONS
+
+ARRIVAL TOTAL
+- Early: two to three thousand / low thousands.
+- Later: about 50,000 / around 60,000.
+Assessment: likely temporal escalation plus unresolved measurement differences.
+Status: PROVISIONAL TIMING/MEASUREMENT DIVERGENCE.
+
+DEATH TOLL
+- 9 → 18 → 34 → 57.
+Assessment: likely evolving count.
+Status: TIMING ARTIFACT LIKELY; exact outlet lag cannot be adjudicated.
+
+CAUSE
+Official explanation:
+- trafficking/smuggling networks;
+- exploitation of a Supreme Court ruling.
+Counter/complicating accounts:
+- Omar Naji disputes the ruling link;
+- Ahmed Karim reports a border-open rumor;
+- Youssef Alaoui alleges Moroccan police facilitation.
+Status: CONTESTED.
+
+RETURN AGENCY
+Reported:
+- arranging returns;
+- many returned;
+- most returned;
+- 48,300 of 50,000 returned.
+Missing:
+- voluntary return versus refusal, readmission, expulsion, or informal departure.
+Status: AGENCY UNDER-SPECIFIED.
+
+C4. AVAILABILITY MATRIX — CONDENSED
+
+| Material | Reuters | AP | AJ | BBC | F24 | NPR | CBC | NYT |
+|---|---|---|---|---|---|---|---|---|
+| Military deployment | Yes | Yes | Yes | Yes | Yes | No | No | No |
+| Early low-thousands estimate | Yes | Partial | Partial | Yes | Timing-limited | No | Timing-limited | Timing-limited |
+| 60,000 estimate | Timing-limited | Timing-limited | Unknown | Unknown | Yes | Unknown | Yes | No |
+| 50,000 / 48,300 | Timing-limited | Timing-limited | Unknown | Unknown | Partial | Unknown | Partial | Yes |
+| Trafficking explanation | No | Yes | Yes | Yes | Yes | Yes | No | Complicated |
+| Supreme Court theory | No | Yes | No | No | No | Yes | No | No |
+| Direct migrant account | Yes | Yes | No | No | No | Yes | Yes | Yes |
+| Resident account | No | No | No | Yes | No | No | No | No |
+| Moroccan-police facilitation | No | No | No | No | No | No | No | Yes |
+| International political reaction | Yes | No | No | Yes | Yes | No | No | Partial |
+
+Selection findings must be limited by incomplete timestamps and version histories.
+
+=================================================================
+SECTION D — FRAMING DIVERGENCE MAP
+=================================================================
+
+D1. HEADLINE VERB AND AGENCY
+
+| Outlet | Headline construction | Primary frame |
+|---|---|---|
+| Reuters | “Migrants pour into”; “Madrid sends in the military” | Mass flow + state reaction |
+| AP | “Spain deploys military”; “thousands breach” | Security breach + emergency response |
+| Al Jazeera | “18 die”; “thousands cross” | Death-first humanitarian frame |
+| BBC | “Spain sends troops”; “thousands enter” | State response + neutral entry verb |
+| France 24 | “60,000 cross”; “Trump blames Madrid” | Scale + political blame |
+| NPR | “18 die after a border breach” | Death-first but breach-classified |
+| CBC | “how was the ... enclave breached” | Explainer built around penetration/failure |
+| NYT | “tens of thousands enter”; “most return” | Full-cycle movement + reversal |
+
+D2. ACTION-DESCRIPTOR VARIANCE
+
+Entry:
+- pour;
+- stream;
+- breach;
+- cross;
+- enter;
+- surge.
+
+State response:
+- sends in military;
+- deploys military;
+- sends troops;
+- arranging returns;
+- monitoring returns.
+
+Cause:
+- trafficking networks;
+- smuggling networks;
+- court-ruling exploitation;
+- border-open rumor;
+- Moroccan-police facilitation.
+
+D3. SEQUENCING EFFECTS
+
+Reuters moves from mass movement and military response to low-thousands estimates, deaths, enforcement strain, migrant testimony, Moroccan-rights criticism, and political reaction.
+
+AP combines military response, breach, deaths, humanitarian emergency, migrant testimony, return planning, a specific court-ruling causal theory, direct dispute, and eyewitness observation.
+
+Al Jazeera compresses the event into death, crossing, official emergency, trafficking attribution, military deployment, returns, precedent, and wire disclosure.
+
+BBC foregrounds troops, resident tension, police incapacity, official uncertainty, Reuters estimates, European political reaction, and emergency declaration.
+
+France 24 moves from 60,000 and a return caveat to Trump, Weidel, Meloni, Nuñez, Sánchez, deaths, and wire disclosure. Political blame becomes the organizing frame.
+
+NPR reproduces the AP causal-dispute package in compressed form.
+
+CBC organizes around geography, breach, the 60,000 estimate, migrant route accounts, return, historical flashpoint, and wire disclosure.
+
+NYT leads with entry-to-return reversal, then adds Vivas’s humanitarian framing, a migrant allegation of Moroccan-police facilitation, EU monitoring, and the highest death toll.
+
+D4. SOURCE DISTRIBUTION
+
+Broadest source diversity:
+- Reuters.
+- AP.
+- New York Times.
+
+Most institutionally compressed:
+- Al Jazeera.
+- France 24.
+
+Most politically reaction-driven:
+- France 24.
+
+Clearest wire reproduction:
+- NPR, which carries AP’s source and causal package nearly intact.
+
+D5. ATTRIBUTED VS. ASSERTED
+
+Attributed in bodies:
+- TVE’s two-to-three-thousand estimate;
+- official death counts;
+- Vivas’s 60,000 estimate;
+- Interior Ministry’s 48,300 of 50,000;
+- trafficking-network explanations.
+
+Headline-compressed/asserted:
+- “pour”;
+- “breach”;
+- “enclave breached by 60,000”;
+- “most return.”
+
+The removal of attribution is most consequential for numerical totals and “breach” as an event classification.
+
+D6. HEADLINE CONTENT
+
+Military/state response:
+- Reuters, AP, BBC.
+
+Death toll:
+- AP, Al Jazeera, NPR.
+
+Scale:
+- Reuters, France 24, CBC, NYT.
+
+Breach/security:
+- AP, NPR, CBC.
+
+Political blame:
+- France 24.
+
+Return/reversal:
+- NYT.
+
+Humanitarian-emergency phrase:
+- Appears in bodies, not in any headline.
+
+D7. NARRATIVE FLAGS, CAUSAL BRIDGES, ABSENCE CLUSTERS
+
+Event classifications:
+- security/control: pour, breach, troops, hold the line, frontier;
+- humanitarian: deaths, humanitarian emergency, overwhelmed services;
+- political-policy: failed migration policy, pressure on Europe’s borders, court ruling, criminal networks.
+
+Causal bridges:
+A. Supreme Court ruling → traffickers exploit ruling → surge.
+Present in AP/NPR; disputed by Omar Naji.
+
+B. Smuggling networks → mass movement.
+Repeated across several pieces; complicated by rumor and Moroccan-police accounts.
+
+C. Crossing → proof of failed Spanish/EU policy.
+Presented through political reactions, not demonstrated by primary evidence.
+
+D. Military deployment → restored control.
+Implied by response framing but not directly demonstrated.
+
+E. Moroccan police conduct → facilitated movement.
+Present in one attributed NYT migrant account only.
+
+Network-wide absences:
+- no primary documents;
+- no counting methodology;
+- no 50,000/60,000 reconciliation;
+- no return-category breakdown;
+- no Moroccan government statement;
+- no full ruling analysis;
+- no verified operational chronology.
+
+D8. SYNONYM VS. CAUSAL-CONTEXT VARIANCE
+
+- cross / enter: mostly neutral movement.
+- pour / stream: add volume, continuity, and loss-of-control imagery.
+- breach: presupposes a defended boundary overcome.
+- return / arranging returns / most returned: differ in stage and agency.
+- humanitarian emergency / border breach: select different centers of concern.
+- traffickers / rumor / police facilitation: competing causal mechanisms.
+
+Strongest non-synonymous variance:
+1. breach versus cross/enter;
+2. trafficking versus rumor/facilitation;
+3. return language without agency categories;
+4. humanitarian versus security classification.
+
+D9. BASELINE AND DENOMINATOR VARIANCE
+
+Two to three thousand:
+- TVE through Reuters.
+- Early-morning figure.
+
+Around 60,000:
+- Vivas through France 24/CBC.
+- Two-day or week-level cumulative estimate.
+- France 24 says it included many who had returned.
+
+About 50,000 crossed / 48,300 returned:
+- Interior Ministry through NYT.
+- By Friday evening.
+
+Unresolved denominator questions:
+- unique persons or crossing events;
+- different cutoffs;
+- regional versus ministry methods;
+- entrants versus returnees;
+- point-in-time versus cumulative counts.
+
+Death counts:
+- 9, 18, 34, 57.
+- No common time cutoff or method supplied.
+
+D9 VERDICT:
+The packet’s largest apparent numerical contradiction may be produced by incompatible temporal and administrative denominators. No piece resolves it.
+
+=================================================================
+SECTION D2 — CROSS-BRANCH RESOLUTION
+=================================================================
+
+No prior single-piece audit is supplied within the closed fixture.
+Status: SKIPPED.
+
+=================================================================
+SECTION E — CLUSTERING AND CORRELATION
+=================================================================
+
+CLUSTER 1 — ORIGINAL BREAKING REPORTING
+Pieces: Reuters, AP.
+Shared traits: direct observation, named migrants, official sources, early figures, military response, causal uncertainty or dispute.
+
+CLUSTER 2 — DERIVATIVE WIRE SYNTHESIS
+Pieces: Al Jazeera, France 24, NPR, CBC.
+Shared traits: explicit wire reliance, compressed sourcing, fewer direct observations, repeated official claims.
+Subclusters:
+- death-first: Al Jazeera, NPR;
+- scale/politics: France 24;
+- explainer/geography: CBC.
+
+CLUSTER 3 — OUTLET-SPECIFIC SUPPLEMENTATION
+Pieces: BBC, New York Times.
+BBC adds resident testimony and European political reaction.
+NYT adds a migrant account challenging the trafficking-only frame and an anonymous EU source.
+
+CORRELATIONS
+Wire dependence correlates with:
+- repeated official causal claims;
+- shared numerical packages;
+- reduced source diversity;
+- derivative contradictions caused by update stages.
+
+Original reporting correlates with:
+- named migrants;
+- direct observation;
+- countervailing accounts;
+- more complicated agency narratives.
+
+OUTLIER
+NYT is the principal outlier because it uniquely supplies:
+- the 48,300/50,000 ratio;
+- 57 deaths;
+- Moroccan-police facilitation account;
+- anonymous EU source;
+- no stated text-wire credit.
+
+CLUSTER VERDICT
+The packet does not support a simple ideological binary. The stronger division is original wires, derivative synthesis, and outlet-specific supplementation.
+
+=================================================================
+SECTION E2 — PRIOR-MATCH CHECK
+=================================================================
+
+PRIOR SOURCE: MODEL-GENERATED ANALYTIC PRIOR.
+
+Prior prediction:
+1. small original-reporting base;
+2. widespread repetition of official figures;
+3. humanitarian/security headline divergence;
+4. figure escalation;
+5. causal claims outrunning primary evidence;
+6. wire reuse inflating apparent corroboration.
+
+Results:
+1. MATCH — 3 clearly original reporting organizations, possibly 4.
+2. MATCH — 60,000 and 48,300/50,000 depend on named official origins.
+3. PARTIAL MATCH — divergence exists, but humanitarian language often remains in bodies while security/action terms reach headlines.
+4. MATCH — figures escalate sharply.
+5. MATCH — no primary material; causes remain contested.
+6. MATCH — four pieces explicitly reuse multiple wires or AP.
+
+Expected but not found:
+- no clean left/right split;
+- no purely humanitarian piece excluding security facts;
+- no purely security piece wholly excluding deaths/emergency conditions;
+- no reconciliation of 50,000 versus 60,000.
+
+Counterevidence to a simple prior:
+AP uses “breach” but includes humanitarian language, migrant testimony, a rights dispute, and direct observation. NYT leads with returns but includes the highest death figure and a state-complicating account.
+
+PRIOR-MATCH VERDICT: SUBSTANTIAL BUT NOT COMPLETE.
+
+=================================================================
+SECTION F — FLIP TEST
+=================================================================
+
+PRIMARY DIVERGENCE:
+“Breach” versus “cross/enter” changes whether the event is modeled as neutral movement or successful penetration of a defended boundary.
+
+MIRROR HEADLINE:
+“After 60,000 people reach Ceuta, Spain militarizes the crossing and sends most back”
+
+MIRROR LEAD:
+Tens of thousands of people reached the Spanish enclave of Ceuta from Morocco over two days before Spain deployed troops and arranged the return of most of them. Spanish officials blamed trafficking networks, but migrants described rumors that the border was open and, in one account, Moroccan police directing a group toward it. At least 57 people were reported dead, while officials emphasized restoring control.
+
+MIRROR AUDIT
+
+Finding A:
+“Spain militarizes the crossing” converts a reported deployment into a broader claim about policy and intent.
+Severity: MODERATE.
+
+Finding B:
+“Sends most back” attributes coercive agency to Spain not established by the packet.
+Severity: MAJOR.
+
+Finding C:
+Placing deaths and complicating migrant accounts before state-control language shifts the piece toward a humanitarian/state-power narrative.
+Severity: MINOR.
+
+SYMMETRY CHECK
+Type B — symmetric construction risk.
+
+- “Breach” can overstate organized or forceful penetration.
+- “Militarizes” can overstate state intent or excess.
+- “Returned” can soften coercion.
+- “Sent back” can overstate coercion.
+
+AUTOMATIC DOWNGRADE
+Candidate claim: security terminology systematically mischaracterizes the event.
+Initial severity: MAJOR.
+Adjusted severity: MODERATE.
+Reason: opposite-direction language can add unsupported implications too.
+
+FORCED PRIOR-DEPENDENCE RANKING
+1. Whether “breach” is justified or inflammatory.
+2. Whether troop deployment is restoration or militarization.
+3. Whether political reactions deserve headline priority.
+4. Whether “pour” is vivid description or dehumanizing metaphor.
+5. Whether “returned” hides coercion.
+6. Whether 50,000 and 60,000 are materially contradictory.
+7. Whether death-count escalation is temporal.
+8. Explicit wire reuse and source dependence — least prior-dependent.
+
+FLIP-TEST VERDICT
+The divergence survives at MODERATE severity. The terms are not interchangeable, but neither directional frame is uniquely immune from overstatement.
+
+=================================================================
+SECTION G — SAMPLE AUDIT
+=================================================================
+
+Sample contents:
+- 8 pieces;
+- 2 original major wire reports;
+- 4 explicit wire syntheses/republications;
+- 2 outlet-specific reports with possible independent supplementation;
+- breaking reports, briefs, an explainer, a political synthesis, and a reversal update.
+
+Missing:
+- Moroccan media;
+- Ceuta local media;
+- Spanish national press;
+- official documents;
+- full wire versions;
+- social posts;
+- Supreme Court text;
+- Moroccan government response;
+- counting and return methodology;
+- complete timestamps and revision histories.
+
+Language limit:
+All pieces are presented in English.
+
+Format imbalance:
+Wire-dependent pieces are overrepresented. The fixture is well suited to testing amplification but not the full distribution of independent coverage.
+
+SAMPLE VERDICT: PARTIAL BUT PURPOSE-FIT.
+
+Permitted claim:
+Within this packet, coverage is structured by a small original-reporting base, substantial wire amplification, numerical escalation, and meaningful divergence in event classification and causal emphasis.
+
+Not permitted:
+A claim about “the media” generally.
+
+=================================================================
+SECTION H — STANDARDIZED FINDINGS
+=================================================================
+
+FINDING 1
+Finding: Five of eight pieces are wholly or substantially dependent on Reuters, AP, AFP, or EFE, so outlet count overstates independent reporting count.
+Type: SOURCE-CHAIN.
+Severity: MAJOR.
+Survives flip test: YES.
+Sample-dependent: YES.
+Possible innocent explanation: Wire services transparently distribute timely reporting.
+What would weaken it: Independent verification by the derivative outlets.
+State: PACKET-CONFIRMED / CHAIN-CONFIRMED.
+
+FINDING 2
+Finding: The 60,000 figure appears in multiple outlets but traces to one identified institutional source, Vivas.
+Type: SOURCE-CHAIN / APPARENT CORROBORATION.
+Severity: MAJOR.
+Survives flip test: YES.
+Possible innocent explanation: Vivas may have been the only current regional source.
+What would weaken it: Independent count using the same cutoff and method.
+State: Attribution CROSS-PIECE-CONFIRMED; number UNVERIFIED.
+
+FINDING 3
+Finding: The packet does not reconcile 50,000 and 60,000, and no piece supplies counting methodology.
+Type: BASELINE / DENOMINATOR / MEASUREMENT.
+Severity: MAJOR.
+Survives flip test: YES.
+Possible innocent explanation: Different cutoffs, systems, or definitions.
+What would weaken it: Shared methodology reconciling the estimates.
+State: DIVERGENCE PACKET-CONFIRMED; resolution PROVISIONAL.
+
+FINDING 4
+Finding: Death figures escalate from 9 to 18 to 34 to 57, but incomplete timestamps prevent treating the differences as editorial selection.
+Type: TIMING RESOLUTION.
+Severity: MAJOR.
+Survives flip test: YES.
+Possible innocent explanation: Evolving count.
+What would weaken it: Evidence a later outlet knowingly retained an obsolete figure.
+State: Escalation PACKET-CONFIRMED; timing explanation LIKELY.
+
+FINDING 5
+Finding: The trafficking-network explanation is amplified across at least five pieces but is directly contested and unsupported by primary material.
+Type: CAUSAL BRIDGE / SOURCE-CHAIN.
+Severity: MAJOR.
+Survives flip test: YES.
+Possible innocent explanation: Officials were the only immediate source of a theory.
+What would weaken it: Communications, arrests, organizer testimony, or documented operational links.
+State: CONTESTED.
+
+FINDING 6
+Finding: “Breach,” “pour,” “cross,” and “enter” assign different levels of force, disorder, and boundary failure.
+Type: FRAMING DIVERGENCE.
+Severity: MODERATE after flip-test downgrade.
+Survives flip test: YES.
+Possible innocent explanation: Headline compression and genre conventions.
+What would weaken it: Evidence readers perceive no meaningful difference.
+State: PACKET-CONFIRMED wording variance.
+
+FINDING 7
+Finding: Humanitarian-emergency language appears in bodies but not headlines, while military, breach, troop, and motion terms repeatedly reach headlines.
+Type: PACKAGING / SELECTION.
+Severity: MODERATE.
+Survives flip test: PARTLY.
+Possible innocent explanation: Death counts convey humanitarian gravity; state action is highly newsworthy.
+What would weaken it: Broader comparable sample with humanitarian headline labels.
+State: PACKET-CONFIRMED within sample.
+
+FINDING 8
+Finding: NPR reproduces the AP source and causal package and is not independent confirmation.
+Type: SOURCE-CHAIN.
+Severity: MODERATE.
+Survives flip test: YES.
+Possible innocent explanation: NPR explicitly discloses AP dependence.
+What would weaken it: Independent NPR interviews or verification.
+State: CHAIN-CONFIRMED.
+
+FINDING 9
+Finding: France 24 makes international political blame part of the headline and devotes a large share of the brief to political reaction.
+Type: SEQUENCING / POLITICAL FRAME.
+Severity: MODERATE.
+Survives flip test: YES.
+Possible innocent explanation: The piece’s purpose is political reaction.
+What would weaken it: A fuller version with proportionate operational and humanitarian detail.
+State: PACKET-CONFIRMED.
+
+FINDING 10
+Finding: NYT materially complicates the dominant Spanish official causal frame with a migrant allegation of Moroccan-police facilitation.
+Type: COUNTER-SOURCE / CAUSAL DIVERGENCE.
+Severity: MODERATE.
+Survives flip test: YES.
+Possible innocent explanation: One account may not generalize.
+What would weaken it: Contradictory witness evidence or records.
+State: Attributed claim PACKET-CONFIRMED; truth PROVISIONAL.
+
+FINDING 11
+Finding: The network reports return totals without defining the mechanism of return.
+Type: NETWORK-WIDE OMISSION.
+Severity: MAJOR.
+Survives flip test: YES.
+Possible innocent explanation: No breakdown may have been available.
+What would weaken it: A contemporaneous category table distinguishing voluntary return, refusal, readmission, and expulsion.
+State: Absence PACKET-CONFIRMED; external availability UNKNOWN.
+
+FINDING 12
+Finding: Original reporting pieces contain more direct human and countervailing evidence than derivative wire syntheses.
+Type: CLUSTERING.
+Severity: MODERATE.
+Survives flip test: YES.
+Sample-dependent: YES.
+Possible innocent explanation: Derivative briefs are shorter and serve different functions.
+What would weaken it: Full versions showing equal diversity or evidence the apparent interviews were wire-derived.
+State: PACKET-CONFIRMED with BBC status PROVISIONAL.
+
+=================================================================
+SECTION I — RETRIEVAL DEPTH AND VERDICT
+=================================================================
+
+External searches: 0.
+External pages opened: 0.
+Primary documents obtained: 0.
+Pieces analyzed: 8 of 8.
+Archive versions: NONE.
+Publication metadata: PARTIAL.
+
+Material unavailable by fixture design:
+- written official releases;
+- full statements/transcripts;
+- court text;
+- counting methodology;
+- return-procedure breakdown;
+- Moroccan government response;
+- social posts;
+- full wire stories;
+- revision histories;
+- exact timestamps for several pieces.
+
+INDEPENDENCE COUNTS
+Level 1: 3 clearly original textual reporting organizations; 4 if BBC’s resident account is independently obtained.
+Level 2: approximately 12–14 upstream origins.
+
+AMPLIFICATION RATIO
+Overall: 8 ÷ approximately 12–14.
+Claim-specific dependence is much higher for:
+- 60,000;
+- Vivas emergency framing;
+- trafficking causation;
+- low-thousands estimate;
+- NPR’s AP-derived package.
+
+SOURCE-NETWORK VERDICT
+A small original-reporting core is surrounded by substantial wire amplification. Eight outlet names do not equal eight independent confirmations.
+
+FRAMING VERDICT
+The strongest structural division is:
+1. original breaking wires;
+2. derivative wire syntheses;
+3. outlet-specific supplementation.
+
+The strongest framing divisions concern:
+- breach versus entry;
+- security versus humanitarian centering;
+- political blame;
+- causal explanation;
+- return agency.
+
+TIMING VERDICT
+Numerical escalation is major and likely reflects an evolving event. Incomplete timestamps prevent precise availability or update-lag findings.
+
+CAUSAL VERDICT
+The trafficking-network explanation is amplified but contested. No primary evidence resolves it.
+
+PRINCIPAL NETWORK FINDING
+The packet converts a small set of original reports and official claims into a larger appearance of cross-outlet confirmation.
+
+PRINCIPAL CONSTRUCTION FINDING
+“Breach,” “pour,” “cross,” “enter,” and “return” are not interchangeable. They alter perceived force, migrant agency, state failure, coercion, and legal meaning. The flip test leaves this at MODERATE severity.
+
+PRINCIPAL OMISSION
+The absence of counting and return methodology prevents resolution of:
+- 50,000 versus 60,000;
+- unique persons versus crossing events;
+- voluntary versus coerced return;
+- point-in-time versus cumulative counts;
+- official-estimate quality.
+
+FINAL VERDICT
+
+SOURCE INDEPENDENCE: LIMITED TO MODERATE.
+The packet contains 3–4 original reporting organizations but 8 published pieces.
+
+AMPLIFICATION: SUBSTANTIAL AT THE CLAIM LEVEL.
+The outlet count most clearly overstates independence for the 60,000 estimate, Vivas’s emergency framing, and trafficking causation.
+
+FACTUAL CORE: BROADLY SHARED WITHIN THE PACKET.
+The exact scale, cause, and return mechanism remain unresolved.
+
+FRAMING DIVERGENCE: REAL AND MATERIAL.
+The principal differences concern event classification, political blame, causation, and return agency.
+
+TIMING EFFECT: MAJOR.
+Escalating figures should not be converted into ideological findings without version evidence.
+
+CAUSAL CERTAINTY: LOW.
+The dominant official explanation is repeated but contested and unsupported by primary documentation in the fixture.
+
+OVERALL SAMPLE STATUS: PARTIAL BUT ADEQUATE FOR A SOURCE-CHAIN TEST.
+
+FINAL AUDIT STATUS:
+- Source-chain dependence: PACKET-CONFIRMED.
+- Numerical escalation: PACKET-CONFIRMED.
+- 50,000 versus 60,000 reconciliation: UNRESOLVED.
+- Trafficking causation: CONTESTED.
+- Return mechanism: UNDER-SPECIFIED.
+- Security/humanitarian divergence: PACKET-CONFIRMED; interpretation MODERATE.
+- Claims beyond the fixture: NOT PERMITTED.
