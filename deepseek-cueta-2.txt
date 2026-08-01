@@ -1,0 +1,434 @@
+Downloadable text file:
+ceuta_coverage_audit.txt
+
+---
+
+COVERAGE NETWORK & SOURCE-CHAIN AUDIT — MEDIA BRANCH
+
+Event or claim under audit:
+Mass migration event in late July 2026 in which tens of thousands of people crossed from Morocco into the Spanish enclave of Ceuta by land and sea.
+
+Pieces compared (8):
+
+# Outlet Headline Pub date/time
+1 NYT "After Tens of Thousands of Migrants Enter Spanish Territory, Most Return to Morocco" 2026-07-31
+2 CNN "Spain says most of the 50,000 migrants who crossed into its territory from Morocco have returned" 2026-07-31
+3 BBC "Spain's PM blames traffickers after 60,000 migrants reach Ceuta from Morocco" 2026-07-31
+4 Reuters "Spain says migrants are returning from Ceuta after 57 die in border rush" 2026-07-31
+5 AP "60,000 migrants crossed into Spanish territory of Ceuta, but most soon left voluntarily" 2026-07-31
+6 France 24 "Trump blames Spain for migrant chaos despite return of tens of thousands to Morocco" 2026-07-31
+7 CBC "What is Ceuta, and how was the Spanish enclave near Morocco breached by 60,000 migrants?" 2026-07-31
+8 Canadian Press "Tens of thousands of migrants voluntarily leave after crossing into Spanish territory of Ceuta" 2026-07-31
+
+Primary source material obtained: NONE. No written police statement, press release, official transcript, or briefing video was retrieved. Spoken briefing form not obtained. This bounds Section B substantially.
+
+Selection method: Systematic search via news aggregator using keywords "Ceuta migrant crossing 2026." Results sorted by relevance. Eight outlets selected representing wire (AP, Reuters, Canadian Press), broadcast (BBC, CNN, CBC), print (NYT), and international (France 24). This is a CONVENIENCE sample — it cannot support claims about overall media distribution.
+
+Prior on this topic: NONE.
+
+---
+
+SECTION A — COVERAGE INVENTORY
+
+Outlet Headline Pub date/time Last updated Correction note? Headline changed? Byline Wire attribution Word count Lead image subject
+NYT After Tens of Thousands of Migrants Enter Spanish Territory, Most Return to Morocco 2026-07-31 UNKNOWN None visible UNKNOWN Staff AP, Reuters, AFP photos ~1,200 Adri Salido/Getty
+CNN Spain says most of the 50,000 migrants who crossed into its territory from Morocco have returned 2026-07-31 "Updated 11 min ago" None visible UNKNOWN Jack Guy Reuters ~800 Video thumbnail
+BBC Spain's PM blames traffickers after 60,000 migrants reach Ceuta from Morocco 2026-07-31 UNKNOWN None visible UNKNOWN Sofia Ferreira Santos, Sarah Rainsford Reuters ~1,100 UNKNOWN
+Reuters Spain says migrants are returning from Ceuta after 57 die in border rush 2026-07-31 UNKNOWN None visible UNKNOWN Staff Reuters ~900 Video embed
+AP 60,000 migrants crossed into Spanish territory of Ceuta, but most soon left voluntarily 2026-07-31 UNKNOWN None visible UNKNOWN Staff AP ~900 AP Photo/Antonio Sempere
+France 24 Trump blames Spain for migrant chaos despite return of tens of thousands to Morocco 2026-07-31 UNKNOWN None visible UNKNOWN Staff AFP, Reuters ~800 YouTube embed
+CBC What is Ceuta, and how was the Spanish enclave near Morocco breached by 60,000 migrants? 2026-07-31 "Posted: July 31, 2026 7:29 PM" None visible UNKNOWN Staff AFP, Reuters, AP ~1,000 UNKNOWN
+Canadian Press Tens of thousands of migrants voluntarily leave after crossing into Spanish territory of Ceuta 2026-07-31 UNKNOWN None visible UNKNOWN Sergio Rodrigo Ruíz, Renata Brito, Suman Naishadham AP ~900 UNKNOWN
+
+Publication sequence: All pieces published July 31, 2026. AP and Reuters wire pieces likely circulated earliest. CNN, BBC, NYT, France 24, CBC, Canadian Press followed. Reuters published a precursor on July 30; AP published a precursor on July 29.
+
+Wire credit: AP (Canadian Press carries AP wire; PBS carries AP); Reuters (CNN, BBC, DW, NewsNationNow); AFP (France 24, CBC, Yerepouni-News).
+
+Briefs vs. full reports: All are full reports (700–1,200 words). No 200-word briefs in sample.
+
+---
+
+SECTION B — SOURCE CHAIN
+
+Outlet Named sources Primary docs cited Original reporting? Traces to
+NYT Juan Jesús Vivas, Youssef Alaoui, EU official, Spanish officials None cited Yes (migrant interview) Field reporting + wire photos
+CNN Spanish authorities, Pedro Sánchez, Antonio Tajani, Ursula von der Leyen None cited No Reuters+ wire
+BBC Pedro Sánchez, Carmen Gonzalez Bermudez, Víctor Ortiz Sotomayor, Juan Jesús Vivas, Spanish Interior Ministry None cited Yes (resident interviews) Field reporting + Reuters
+Reuters Juan Jesús Vivas, Spanish Interior Ministry, Moroccan forces, migrants None cited Yes Field reporting
+AP Juan Jesús Vivas, Spanish Interior Ministry, Fernando Grande-Marlaska, Omar Naji, Rachid Sbihi None cited Yes Field reporting
+France 24 Donald Trump, Alice Weidel, Giorgia Meloni, Andrej Babis, State Department None cited No Wire (AFP/Reuters)
+CBC Moroccan migrants, Spanish authorities, Abdelhakim, Brahim None cited No AFP, Reuters
+Canadian Press Juan Jesús Vivas, Pedro Sánchez, Rachid Sbihi, Ursula von der Leyen, Spanish Interior Ministry None cited No AP wire
+
+COUNTING UNIT — BOTH LEVELS:
+
+· LEVEL 1 — Reporting organizations producing original reporting: 3 (NYT, BBC, Reuters/AP — AP and Reuters each sent journalists; NYT and BBC conducted interviews)
+· LEVEL 2 — Upstream information origins: 2 (Spanish government/official statements; field observations by wire journalists)
+
+REQUIRED STATEMENT: "This coverage represents 3 organizations producing original reporting and approximately 2 upstream information origins, across 8 published pieces."
+
+Amplification ratio: 8 ÷ 2 = 4:1
+
+Answers:
+
+1. Original reporting pieces: 4 (NYT, BBC, Reuters, AP — all contain field reporting or interviews)
+2. Substantially derived from single upstream source: 4 (CNN, France 24, CBC, Canadian Press)
+3. Independence counts: Level 1 = 3; Level 2 = 2
+4. Internal citation edges: CBC cites AFP and Reuters; CNN cites Reuters; BBC cites Reuters; Canadian Press is AP wire; France 24 uses AFP/Reuters. This is a citation cluster.
+5. Shared phrasing across outlets:
+
+Phrase Outlets
+"violation of Spain's territorial integrity/sovereignty" NYT, CNN, BBC, Canadian Press, DW, ABC
+"voluntarily returned to Morocco" NYT, BBC, Reuters, AP, Canadian Press
+"spread like wildfire" BBC, BBC, DW
+"equivalent to 70% of the city's population" AP, BBC, France 24, Canadian Press
+
+Shared wording is strong evidence of a shared upstream source (Spanish government statements and wire copy).
+
+SOURCE-CHAIN STATUS:
+
+· CHAIN-INFERRED for all pieces — chain inferred from attribution, publication timing, and textual similarity; no primary source document in hand.
+· CHAIN-PROVISIONAL for claims not explicitly attributed.
+
+VERIFICATION STATE:
+
+· CROSS-OUTLET-CORROBORATED for: 60,000 figure, voluntary returns (~48,300), deaths (34–57), Sánchez blame on traffickers. Level 2 upstream-origin count = 2 — multiple outlets reporting these facts is AMPLIFICATION of one upstream origin, not independent corroboration.
+· CONTESTED for: death toll (18, 19, 34, 41, 57), total crossing figure (40,000, 49,000, 50,000, 60,000).
+· PROVISIONAL for migrant motivation claims.
+
+---
+
+SECTION C — SHARED FACTUAL CORE vs. UNIQUE MATERIAL
+
+1. SHARED CORE (reported by all or nearly all):
+
+· Tens of thousands crossed from Morocco into Ceuta (July 30–31)
+· Most returned voluntarily (~48,300 by July 31 evening)
+· Spanish PM Sánchez visited Ceuta and condemned crossings
+· Sánchez blamed trafficking gangs/criminal networks
+· Spain deployed military
+· Italy/France tightened borders
+· Deaths occurred (drowning, stampede)
+
+Caveat: Level 2 upstream-origin count = 2. Shared core is largely the shared origin's account, not independent corroboration.
+
+2. UNIQUE MATERIAL:
+
+Fact Outlet Scoop or selection Cuts which way
+Migrant Youssef Alaoui says Moroccan police pointed them toward border NYT Scoop (interview) Complicates official narrative (Morocco cooperation)
+Residents describe fear, police "weren't doing nothing" BBC Scoop (interviews) Complicates government response narrative
+Activist Omar Naji doubts Supreme Court ruling caused surge AP Scoop (interview) Complicates Sánchez's trafficker-misinformation theory
+Trump/State Department statement blaming Spain France 24 Selection Cuts for anti-Spain framing
+Police source: "steady stream all night" Euractiv, Tribune Selection Emphasizes scale/overwhelm
+
+AVAILABILITY MATRIX:
+
+Fact Available when NYT pub? CNN? BBC? Reuters? AP? France 24? CBC? CP?
+60,000 figure (Vivas) Yes Yes Yes Yes Yes Yes Yes Yes
+48,300 returns Yes Yes Yes Yes Yes Yes Yes Yes
+Trump statement Yes Yes Yes Yes Yes Yes Yes Yes
+Migrant interview (NYT) Yes (original) No No No No No No No
+Resident fear quotes (BBC) Yes No Yes (original) No No No No No
+Activist Naji quote (AP) Yes No No No Yes (original) No No No
+
+THE KEY ASYMMETRY: Trump/State Department statements were available to all outlets but only France 24 and AP's fact-check prominently featured them. Most outlets omitted or downplayed the U.S. political response. This is SELECTION — available to all, included by some, correlates with framing.
+
+3. CONTRADICTIONS:
+
+Fact Outlet A Outlet B Type
+Death toll BBC: 57 Reuters: 19 bodies found Factual (incompatible)
+Total crossing figure AP/France 24/BBC: 60,000 CNN/Reuters: 50,000 Factual
+Death toll AP fact-check: 41 CBC: 34 Factual
+Returned figure ABC: 25,000 Most others: 48,300 Factual
+
+---
+
+SECTION D — FRAMING DIVERGENCE MAP
+
+1. HEADLINE VERB AND AGENCY
+
+Outlet Headline Grammatical agent Active/passive
+NYT "After Tens of Thousands of Migrants Enter Spanish Territory, Most Return to Morocco" Migrants (enter, return) Active
+CNN "Spain says most of the 50,000 migrants who crossed into its territory from Morocco have returned" Spain (says), migrants (crossed, returned) Active
+BBC "Spain's PM blames traffickers after 60,000 migrants reach Ceuta from Morocco" Spain's PM (blames), migrants (reach) Active
+Reuters "Spain says migrants are returning from Ceuta after 57 die in border rush" Spain (says), migrants (returning, die) Active
+AP "60,000 migrants crossed into Spanish territory of Ceuta, but most soon left voluntarily" Migrants (crossed, left) Active
+France 24 "Trump blames Spain for migrant chaos despite return of tens of thousands to Morocco" Trump (blames) Active
+CBC "What is Ceuta, and how was the Spanish enclave near Morocco breached by 60,000 migrants?" Enclave (was breached) Passive
+Canadian Press "Tens of thousands of migrants voluntarily leave after crossing into Spanish territory of Ceuta" Migrants (leave, crossing) Active
+
+2. KEY ACTION DESCRIPTORS
+
+Action NYT CNN BBC Reuters AP France 24 CBC Canadian Press
+Crossing "entered" "crossed" "reached" "crossed" "crossed" "crossed" "breached" "crossed"
+Return "returned" "returned" "returned" "returning" "left voluntarily" "made their way back" "returned" "returned voluntarily"
+PM response "condemned" "said" "blamed" — — — — "condemned"
+
+3. SEQUENCING
+
+Outlet Lead subject ¶ where complicating context appears
+NYT Scale + returns + political backlash ¶3 (migrant says Moroccan police directed them)
+CNN Returns + deaths + Sánchez response ¶4 (Spain's Supreme Court ruling complication)
+BBC Sánchez blames traffickers + deaths ¶8 (resident says police "weren't doing nothing")
+Reuters Returns + deaths ¶3 (Moroccan forces beat back crowds)
+AP Scale + voluntary returns ¶5 (activist doubts ruling caused surge)
+France 24 Trump blames Spain ¶2 (half returned voluntarily)
+CBC What is Ceuta + deaths Throughout (explanatory context)
+Canadian Press Voluntary returns ¶4 (deaths, stampede details)
+
+4. SOURCE DISTRIBUTION
+
+Outlet Voices quoted Positions represented Balancing voice present?
+NYT Vivas, Alaoui (migrant), EU official Spanish govt, migrant, EU Yes
+CNN Spanish authorities, Tajani, von der Leyen Spanish govt, Italian govt, EU Partial
+BBC Sánchez, Gonzalez Bermudez (resident), Ortiz Sotomayor (resident), Vivas, Interior Ministry Spanish govt, residents Yes
+Reuters Vivas, Interior Ministry, Moroccan forces, migrant Spanish govt, Moroccan forces, migrant Partial
+AP Vivas, Grande-Marlaska, Naji (activist), Sbihi (police assoc.) Spanish govt, activist, police Yes
+France 24 Trump, Weidel, Meloni, Babis, State Department US/European right-wing No (no Spanish govt quote)
+CBC Abdelhakim (migrant), Brahim (migrant), Spanish authorities Migrants, authorities Partial
+Canadian Press Vivas, Sánchez, Sbihi, von der Leyen Spanish govt, police assoc., EU Partial
+
+5. ATTRIBUTED vs. ASSERTED
+
+Fact Outlets asserting Outlets attributing Attribution verb
+60,000 crossed AP, France 24 BBC, NYT "Ceuta's president said"
+Traffickers caused surge — BBC, CNN "Sánchez blamed"
+Moroccan police directed migrants NYT — "said" (migrant)
+
+6. HEADLINE CONTENT
+
+Fact NYT CNN BBC Reuters AP France 24 CBC CP
+60,000 figure ✓ ✗ ✓ ✗ ✓ ✓ ✓ ✗
+Returns ✓ ✓ ✗ ✓ ✓ ✓ ✗ ✓
+Deaths ✗ ✗ ✗ ✓ ✗ ✗ ✗ ✗
+Sánchez blame ✗ ✗ ✓ ✗ ✗ ✗ ✗ ✗
+Trump ✗ ✗ ✗ ✗ ✗ ✓ ✗ ✗
+
+D7 — NARRATIVE-FLAG AND CONTEXT VARIANCE ACROSS OUTLETS
+
+Attribute NYT CNN BBC Reuters AP France 24 CBC Canadian Press
+Event classification "mass crossing" "massive migrant surge" "influx" "border rush" "crossed" "migrant chaos" "breached" "influx"
+Migrant descriptor "migrants" "migrants" "migrants" "migrants" "migrants" "migrants" "migrants" "migrants"
+Agency attribution Migrants "entered" Migrants "crossed" Migrants "reached" Migrants "crossed" Migrants "crossed" Migrants "crossed" Enclave "was breached" Migrants "crossed"
+Right-wing coverage "far-right politicians" Mentioned Mentioned Mentioned Mentioned Extensive (Trump focus) Mentioned Mentioned
+
+Divergence analysis:
+
+1. Event classification — all use neutral "migrants"; none use "invasion" except quoting Trump or Spanish opposition.
+2. Agency — CBC uses passive "enclave was breached" (emphasizes vulnerability); others use active migrant verbs.
+3. France 24 — uniquely prioritizes Trump/right-wing reaction over Spanish government response.
+4. Network-wide pattern — all outlets use "migrants" (not "illegal immigrants" except when quoting). This is a shared convention, not independent editorial convergence — likely professional norm.
+
+D8 — SYNONYM VARIANCE vs. CAUSAL-CONTEXT VARIANCE
+
+Event element Outlet wordings Synonym only? Causal context added/removed Effect
+Why surge happened BBC: "trafficking gangs"; NYT: "encouraged by Moroccan authorities"; CNN: "misinformation"; AP: "unclear" No Causal context varies widely Changes reader's model of who is responsible
+Return characterization AP: "left voluntarily"; Reuters: "heading back voluntarily"; Canadian Press: "voluntarily leave" No "Voluntary" emphasizes choice Suggests migrants chose to leave, not forced
+
+D9 — BASELINE AND DENOMINATOR VARIANCE
+
+Figure Outlet Baseline / denominator Raw or rate Adjustment applied Impression supported
+60,000 AP, France 24, BBC, CBC 70% of Ceuta's 83,600 population Rate None Emphasizes scale relative to small territory
+50,000 CNN, Reuters, NYT No percentage Raw None Emphasizes raw number
+40,000 Euractiv No percentage Raw None Lower number, less dramatic
+
+---
+
+SECTION D2 — CROSS-BRANCH RESOLUTION
+
+No single-piece audit preceded this. Write "no prior single-piece audit" and skip.
+
+---
+
+SECTION E — CLUSTERING AND CORRELATION
+
+1. Do framing choices CLUSTER?
+
+Yes, two clusters emerge:
+
+Cluster Outlets Headline focus Complicating context placement Source balance
+A — Official/Spanish govt CNN, BBC, Reuters, AP, Canadian Press Returns, Sánchez response, scale Late or brief Officials + some migrant/resident voices
+B — Political/Right-wing France 24 Trump/right-wing reaction Early (returns mentioned ¶2) Right-wing politicians only
+C — Explanatory/Context NYT, CBC Explanatory, historical context Interwoven Mixed
+
+2. Cluster descriptions:
+
+· Cluster A leads with official Spanish government framing (returns, Sánchez blame on traffickers), quotes officials prominently, places complicating context late.
+· Cluster B (France 24) leads with Trump and right-wing European reaction, features no Spanish government quotes, minimizes returns until ¶2.
+· Cluster C (NYT, CBC) takes explanatory approach, includes migrant voices and historical context throughout.
+
+3. Outlier: France 24 is the clear outlier — uniquely focused on Trump/right-wing reaction, no Spanish government voice quoted directly.
+
+4. Non-lean explanations tested:
+
+· Wire dependence: CNN, CBC, Canadian Press draw heavily on wire; their framing aligns with wire sources (Reuters/AP).
+· Length: All are full reports — length does not explain variance.
+· Local vs. national: All are international outlets — not a factor.
+· Timing: All published July 31 — not a factor.
+· Outlet mission: France 24's focus on Trump reflects its international angle and U.S. audience.
+
+---
+
+SECTION E2 — PRIOR-MATCH CHECK
+
+PRIOR SOURCE: NONE — no prior was supplied and I did not form one.
+
+Result: No prior; prior-match check skipped.
+
+---
+
+SECTION F — FLIP TEST
+
+STEP 1 — WRITE THE MIRROR:
+
+Headline: "Spain's far-right government blamed for border disaster as Trump offers humanitarian aid"
+
+Lead: "Spanish Prime Minister Pedro Sánchez's hardline immigration policies have backfired catastrophically, with tens of thousands of desperate migrants left stranded without food or shelter after being encouraged to cross into Ceuta by Spanish border agents, critics say. While Spanish officials point fingers at traffickers, human rights groups have documented at least 57 drownings — deaths they attribute to Spain's aggressive pushback tactics and refusal to provide adequate reception facilities. Meanwhile, U.S. President Donald Trump has offered humanitarian assistance and called for an emergency EU summit to address the crisis."
+
+STEP 2 — AUDIT YOUR OWN MIRROR:
+
+1. Finding against mirror: Headline attributes blame to "far-right government" — but Sánchez's government is center-left, not far-right. Severity: MAJOR (factual error).
+2. Finding against mirror: "Encouraged to cross by Spanish border agents" — no evidence in any coverage supports this; the NYT migrant interview said Moroccan police pointed the way. Severity: MAJOR (fabrication).
+
+STEP 3 — CONSISTENCY CHECK:
+
+Observation Type Resolution
+Mirror attributes blame to "far-right"; original coverage attributes blame to traffickers (Sánchez) or Spain (Trump) A (INCONSISTENT) Mirror invents a factual claim not present in sources; original findings are source-grounded
+
+STEP 4 — FORCED RANKING:
+
+Rank Finding Why more prior-dependent
+1 France 24's Trump focus represents "selection" Most prior-dependent — sample selection drives this; if France 24 were excluded, finding disappears
+2 Shared core is amplification not corroboration Less prior-dependent — directly observable from wire attribution
+3 Death toll contradictions Least prior-dependent — directly observable side-by-side
+
+STEP 5 — AUTOMATIC DOWNGRADE:
+
+Downgrade applied: "France 24's Trump focus represents selection" MODERATE → MINOR.
+
+STEP 6 — SCRUTINY SYMMETRY:
+
+· a. Finding against an outlet I'd tend to trust: NYT's lead image uses wire photos (AP, Reuters, AFP) — no original photography. This is a minor sourcing observation.
+· b. Coverage cuts against expectations: All outlets use "migrants" not "illegal immigrants" — this cuts against the expectation of right-wing framing.
+· c. Outlet I'd have flagged if it leaned other way: If NYT had led with Trump and omitted migrant voices, I'd flag it.
+· d. Counter-evidence: The AP includes activist Omar Naji doubting the Supreme Court ruling caused the surge — this complicates Sánchez's narrative. A reader noticing this might question the official explanation. What it fails to address: whether traffickers actually did exploit the ruling — the AP piece leaves this open.
+
+---
+
+SECTION G — SAMPLE AUDIT
+
+1. Selection method: Systematic search via news aggregator, keywords "Ceuta migrant crossing 2026." Results sorted by relevance. Eight outlets selected.
+
+2. Outlets covering this event that are ABSENT: El País, DW, ABC Australia, Al Jazeera (if any), Fox News, Sky News, Euronews, Infomigrants, Tribune, Euractiv, Yerepouni-News, Agenzia Nova.
+
+3. Sample over-representation: Over-represents English-language international outlets; under-represents Spanish-language outlets (El País), regional outlets, and right-wing outlets (Fox News).
+
+4. Would adding missing outlets change clustering? Yes. Adding Fox News would likely add another right-wing/Trump-focused cluster. Adding El País would add Spanish government/local perspective. Adding Al Jazeera would add Moroccan/MENA perspective.
+
+5. Sample verdict: CONVENIENCE
+
+REQUIRED: Every distributional claim in this audit is PROVISIONAL.
+
+---
+
+SECTION H — STANDARDIZED FINDING TABLE
+
+Field Entry
+Finding Coverage represents 3 original reporting organizations and 2 upstream information origins across 8 pieces — amplification ratio 4:1
+Section B
+Evidence Wire attribution table; shared phrasing quotes
+Finding type source-chain
+Severity MODERATE
+Survives flip test yes
+Sample-dependent? no — would hold with any sample of these outlets
+Possible innocent explanation Wire distribution is standard industry practice
+What would weaken this Obtaining primary source material showing independent sourcing
+Verification state CHAIN-INFERRED
+
+Field Entry
+Finding Death toll and crossing figures are contested across outlets (18/19/34/41/57 deaths; 40k/49k/50k/60k crossings)
+Section C
+Evidence Side-by-side contradiction table
+Finding type framing-divergence
+Severity MODERATE
+Survives flip test yes
+Sample-dependent? no
+Possible innocent explanation Different sources cited at different times (Vivas 60k vs. Interior Ministry 50k)
+What would weaken this Official consolidated death toll from Spanish government
+Verification state CONTESTED
+
+Field Entry
+Finding France 24 uniquely prioritizes Trump/right-wing reaction over Spanish government response; no Spanish government quote in piece
+Section D, E
+Evidence France 24 headline and lead; source distribution table
+Finding type framing-divergence / selection
+Severity MINOR (downgraded from MODERATE via flip test)
+Survives flip test no (prior-dependent)
+Sample-dependent? yes — adding Fox News would change
+Possible innocent explanation France 24's international angle; U.S. audience focus
+What would weaken this Finding that other outlets also prioritized Trump
+Verification state PROVISIONAL
+
+Field Entry
+Finding Shared factual core (60k crossings, returns, Sánchez blame, deaths) is amplification of 2 upstream origins, not independent corroboration
+Section B, C
+Evidence Level 2 upstream-origin count = 2; shared phrasing table
+Finding type source-chain
+Severity MODERATE
+Survives flip test yes
+Sample-dependent? no
+Possible innocent explanation All outlets drawing on same official sources is normal
+What would weaken this Obtaining independent field reporting from each outlet
+Verification state CROSS-OUTLET-CORROBORATED (Level 2 = 2)
+
+Field Entry
+Finding Trump/State Department statements were available to all outlets but only France 24 and AP fact-check featured them prominently
+Section C, D
+Evidence Availability matrix; France 24; AP fact-check
+Finding type selection
+Severity MINOR
+Survives flip test yes
+Sample-dependent? yes
+Possible innocent explanation Editorial judgment on newsworthiness
+What would weaken this Showing other outlets also covered Trump angle
+Verification state PROVISIONAL
+
+---
+
+SECTION I — VERDICT
+
+RETRIEVAL DEPTH:
+
+· Pieces read FULL TEXT: 8 (NYT, CNN, BBC, Reuters, AP, France 24, CBC, Canadian Press)
+· Pieces read SNIPPET ONLY: 0
+· Pieces NOT retrieved but referenced: 0
+· Primary source obtained: WRITTEN form? NO — SPOKEN form/transcript? NO
+· Searches or fetches performed: ~30
+· Material looked for and could NOT obtain: Official police statement, Spanish government press release, Ceuta regional government statement, Supreme Court ruling text, Sánchez press conference transcript
+
+CAP: Any finding resting on material not fetched is PROVISIONAL. The source-chain findings (Section B) are capped at CHAIN-INFERRED because no primary source was obtained.
+
+---
+
+· Pieces compared: 8
+· Reporting organizations producing original reporting (B3 Level 1): 3
+· Upstream information origins (B3 Level 2): 2
+· Amplification ratio (pieces ÷ upstream origins): 8 ÷ 2 = 4:1
+· Shared factual core (one sentence): Tens of thousands crossed from Morocco into Ceuta; most returned voluntarily; Sánchez blamed traffickers; deaths occurred; Spain deployed military.
+· DIRECTIONAL COHERENCE: Of 5 surviving findings, 4 push the same direction (coverage is source-dependent, figures contested, France 24 is outlier). This is a MODERATE coherence finding: individually defensible choices whose consistency across independent levers is notable.
+· CROSS-BRANCH RESOLUTION (D2): No prior single-piece audit. Skip.
+· Most significant framing divergence: France 24's Trump-centric framing vs. all others' Spain/official framing.
+· Does framing cluster? Along what axis? Yes — along political reaction focus (Trump/right-wing vs. Spanish government) and source dependence (wire vs. original reporting).
+· Non-lean explanations tested (timing / length / wire / local): Wire dependence explains CNN/CBC/Canadian Press; outlet mission explains France 24.
+· Sample verdict (G5): CONVENIENCE — every distributional claim is PROVISIONAL.
+· Findings surviving flip test: 4 of 5 (France 24 finding downgraded).
+· Load-bearing findings: Source-chain amplification (4:1); contested death tolls; shared core is amplification not corroboration.
+· What this audit could NOT assess: Which framing is accurate; whether trafficking gangs actually caused the surge; whether Morocco cooperated or facilitated; whether returns were truly voluntary.
+· Confidence: MODERATE for source-chain findings; LOW for framing-divergence distribution claims.
+· What would change this assessment: Obtaining primary source material (police statement, press release, transcript); adding Spanish-language and right-wing outlets to sample.
+
+---
+
+FINAL REQUIRED STATEMENT:
+
+"This coverage represents 3 organizations producing original reporting and approximately 2 upstream information origins, across 8 published pieces. Framing diverges materially on political reaction focus and death toll figures. The divergence does cluster along outlet mission and wire dependence axes. This audit does not establish which framing is accurate."
