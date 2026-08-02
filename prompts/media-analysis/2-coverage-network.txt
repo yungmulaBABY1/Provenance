@@ -1,0 +1,995 @@
+COVERAGE NETWORK & SOURCE-CHAIN AUDIT  -  MEDIA BRANCH
+====================================================
+Prosecutor stage. Document-type variant of the citation-network audit. Runs across MULTIPLE
+pieces covering the SAME event or claim.
+
+References: shared_primitives.txt Section 1 (verification states), Section 2 (finding table)
+Companion to: framing_construction_audit_media.txt (single-piece construction)
+
+-----------------------------------------------------------------
+WHAT THIS AUDITS AND WHY IT'S DIFFERENT
+-----------------------------------------------------------------
+
+The single-piece framing audit asks: is this construction proportionate? That is a judgment
+the auditor has to assert.
+
+This audit supplies a BASELINE. Across five outlets covering the same event, a verb choice
+stops being the auditor's characterization and becomes an observable choice: three wrote "drew
+a knife," one wrote "produced a knife," one wrote "allegedly had a knife." The variance is the
+evidence.
+
+Two questions this answers that a single piece cannot:
+
+  1. SOURCE INDEPENDENCE. If all coverage traces to one press release or one wire story, "five
+     outlets reported X" is not five confirmations. It is one source amplified five times.
+     This is the non-independence problem from the academic citation-network audit, with wire
+     copy in place of a shared proxy network.
+
+  2. SHARED CORE vs. CONSTRUCTION. Facts every outlet reports are probably established.
+     Material unique to one outlet is either a scoop or a choice. The divergence map separates
+     them.
+
+WHAT THIS AUDIT CANNOT DO  -  STATE THIS IN THE OUTPUT: It maps how a story propagated and
+where framings differ. It does NOT establish which framing is correct. "Twelve outlets framed
+it this way, three that way" is a DISTRIBUTION, not a verdict. Majority coverage is not
+evidence of accuracy  - especially when the majority shares one source. Adjudicating the
+underlying facts requires primary material, which is downstream of this audit and human.
+
+-----------------------------------------------------------------
+INPUTS
+-----------------------------------------------------------------
+
+Event or claim under audit: [One sentence. What happened, or what is asserted.]
+
+Pieces to compare (minimum 3; 5-8 is better): For each: outlet, headline, publication date AND
+TIME, full text or substantial excerpt, byline, wire attribution if any. [PASTE]
+
+Primary source material, if available: [Police statement, press release, court filing,
+official report, video, wire copy. If none available, write NONE  -  this bounds Section B
+substantially.]
+
+  RETRIEVE BOTH FORMS IF THEY EXIST. Institutions frequently issue a WRITTEN release AND hold
+  a SPOKEN briefing, and their wording differs. Outlets then inherit whichever they used.
+  Without both, verb and descriptor divergence across outlets is uninterpretable  -  you
+  cannot distinguish an editorial choice from document dependence. Note explicitly which forms
+  you obtained and which you did not.
+
+Selection method  -  REQUIRED: How did you choose these pieces? Search terms, aggregator,
+outlets you already read, outlets someone else compiled? [PASTE]
+
+  THIS MATTERS AND IS NOT A FORMALITY. A sample assembled from outlets you already distrust
+  will show a pattern you already believe. See Section G, which audits this sample. If
+  selection was not systematic, every distributional finding is PROVISIONAL and must be
+  labeled so.
+
+Your prior on this topic: [One line, or NONE. Used by the prior-match check in Section E2 and
+the flip test in Section F. If NONE is supplied, Section E2 may still declare a
+MODEL-GENERATED prior or NONE under its own rules.]
+
+-----------------------------------------------------------------
+COMPACT MEDIA PRIMITIVE
+-----------------------------------------------------------------
+
+[MEDIA-P1] CAUSAL-ROLE AXES + GATES
+
+CANONICAL RULE. This compact copy and every local execution copy must move
+together. Local sections may add examples, but may not rename, narrow, broaden,
+or change the disposition of these axes and gates.
+
+Six axes. For each, extract the assignment the TEXT makes. Leave the axis blank
+when the text supplies no usable assignment and the absence itself is not the
+object of analysis. When non-assignment is materially part of the construction,
+record the applicable null state rather than silently leaving it blank.
+
+Do not infer an assignment from the headline alone. An assignment explicitly
+stated in a headline may be recorded as a headline assignment; do not infer an
+unstated cause, blame, role, or motive from it.
+
+Never infer cause, blame, motive, role, or status from names, appearance,
+employer, or location.
+
+EVENT CLASSIFICATION
+  The noun or frame assigned to the event itself. The noun is a claim. Where the
+  absence of classification is materially relevant, record UNCLASSIFIED.
+
+CAUSE
+  Why the event happened: stated, alleged, or inferred motive; the explanation
+  supplied for the event; or whether the text assigns no cause. Where materially
+  relevant, record NO CAUSE ASSIGNED.
+
+ROLE-AND-STATUS
+  Who is cast as agent, victim, perpetrator, beneficiary, cost-bearer,
+  bystander, official, whistleblower, defendant, or complainant.
+
+BLAME / RESPONSIBILITY
+  Who or what is assigned fault, including whether responsibility is
+  individualized, institutionalized, diffused, or left unassigned.
+
+REMEDY
+  Whether a fix or solution is offered, whose fix it is, and who is called to
+  act. Where materially relevant, record NO REMEDY FRAMED.
+
+LEADERSHIP / POLICY
+  How leadership decisions or policy are characterized, including competent,
+  failing, humane, authoritarian, negligent, necessary, or ineffective
+  characterizations, whether stated directly, appositionally, or through a
+  source.
+
+EPISTEMIC LEVEL - CAUSE AND BLAME
+
+Classify every CAUSE and BLAME assignment:
+
+  DOCUMENTED
+    Direct statement, verified communication, or established record.
+
+  OFFICIALLY-ALLEGED
+    Law enforcement, complaint, indictment, or institutional finding.
+
+  SOURCE-INFERRED
+    Witness, advocate, expert, or interested party's inference.
+
+  OUTLET-INFERRED
+    The article's own synthesis.
+
+  UNKNOWN
+    Evidence insufficient.
+
+Test for silent upward movement: an alleged cause restated as documented, or a
+source's inference appearing later in outlet voice. Apply the ladder separately
+to CAUSE and BLAME.
+
+VERB-AS-TRACE
+
+A verb or descriptor is reportable as causal-role framing only when it MOVES an
+assignment on one of the six axes.
+
+Examples:
+
+- "breach" assigns migrant agency against a defended boundary;
+- "waved through" reassigns cause to an authority;
+- "pour" or "surge" can classify the event as flood-like mass movement.
+
+A lexical difference that moves no assignment is REGISTER variance. Record it
+as register only; do not report it as framing.
+
+This test is distinct from the causal-bridge test. VERB-AS-TRACE asks what
+causal-role assignment the language makes. The causal-bridge test asks whether
+the WHY of a sequence is present or removed.
+
+BRANCH-SPECIFIC LAYERS
+
+Single-piece branch:
+  Apply the mirror and flip guard to these axes. Cause, blame, and victim-role
+  assignments are especially prior-sensitive. The branch must be able to
+  decline to find a causal-role failure.
+
+Coverage branch:
+  Add CHOSEN vs. INHERITED, TEXT-READ vs. HEADLINE-ONLY, and the genre
+  not-firing condition. These determine whose framing is being observed and
+  whether the sample can support a divergence finding.
+
+=================================================================
+SECTION A  -  COVERAGE INVENTORY
+=================================================================
+
+| Outlet | Headline | Pub date/time | Last updated | Correction note? | Headline changed? | Social/homepage headline if different | Byline | Wire attribution | Word count | Lead image subject |
+|---|---|---|---|---|---|---|---|---|---|---|
+
+VERSION NOTE: media pieces change after publication. Where a headline was revised or a
+correction appended, compare against an archive capture if available. A headline that was
+changed after publication  -  especially without a correction note  -  is itself a finding.
+Where you cannot check, write UNKNOWN rather than assuming the current version is the
+original.
+
+Then note:
+  1. Publication sequence  -  which came first? Which appeared later and could have drawn on
+     the earlier ones?
+  2. Which carry a wire credit (AP, Reuters, local wire) versus original reporting?
+  3. Which are briefs versus full reports? Length constrains what construction is even
+     possible  -  a 200-word brief cannot include balancing voices.
+
+=================================================================
+SECTION B  -  SOURCE CHAIN  (highest-value section)
+=================================================================
+
+Trace where each piece's information originates.
+
+| Outlet | Named sources | Primary docs cited | Original reporting? | Traces to |
+|---|---|---|---|---|
+
+COUNTING UNIT - STATE IT BEFORE GIVING ANY NUMBER.   [FAIL-MB-008][FAIL-MB-009]
+
+"Independent source" is ambiguous and the ambiguity is not resolvable by judgment. Count at
+BOTH levels below and report BOTH as DESCRIPTION. The amplification VERDICT is not carried
+by either whole-coverage number - it is carried by the per-fact table further down. Do not
+skip that table.
+
+LEVEL 1 - REPORTING ORGANIZATIONS (descriptive; comparatively stable) How many distinct
+organizations produced original reporting - sent a journalist, conducted an interview,
+obtained a document, or made a direct observation? An outlet that only republishes or
+synthesizes does not count.
+
+LEVEL 2 - UPSTREAM INFORMATION ORIGINS (descriptive; granularity-sensitive) How many
+distinct origins does the reported material trace back to? Report it, but DO NOT read the
+Level-1-vs-Level-2 relationship as a finding. Level 1 counts only original reporters (often
+few); Level 2 counts every upstream origin (often many), so Level 2 routinely EXCEEDS Level
+1. That direction carries no meaning, and the whole-coverage count is not comparable
+run-to-run - the same coverage is defensibly counted at very different granularities.
+
+WHOLE-COVERAGE RATIO - DESCRIPTIVE ONLY. NOT AN AMPLIFICATION VERDICT. pieces / Level 2 is
+granularity-sensitive and misleads. A ratio near or below 1 is NOT evidence of independence:
+a story can trace every disputed number to one source while its total origin count looks
+large. State the number if you wish; it may not support any corroboration or amplification
+claim. The amplification finding comes from the next table only.
+
+AMPLIFICATION IS JUDGED PER CONTESTED FACT - LOAD-BEARING STEP, DO NOT SKIP. Amplification
+is a property of a FACT, not of the coverage as a whole. Build this table for every
+load-bearing or contested fact - the arrival/scale totals, the casualty figures, the stated
+cause, and any figure a headline turns on (pull them from Sections C and D9):
+
+| Contested / load-bearing fact | Pieces asserting it | INDEPENDENT origins for THIS fact | Single-origin? |
+|---|---|---|---|
+
+RULES FOR THE TABLE:
+- Count origins PER FACT. "One government = one origin" applies here: an arrival total
+  carried by six outlets all citing one ministry is 6 pieces / 1 origin, however many
+  origins the whole story contains.
+- DO NOT POOL facts. Each fact gets its own row. A fact single-sourced to one origin may not
+  be averaged against a well-sourced one.
+- A fact at [many pieces / 1 origin] IS amplification. Label it so on its row, regardless of
+  the whole-coverage ratio.
+- Per-fact counts are granularity-stable - a single disputed fact traces to few origins no
+  matter how finely the whole network is split. This is why the per-fact table is comparable
+  across runs when the whole-coverage counts are not.
+
+REQUIRED STATEMENT - use this form: "Across [P] pieces, the load-bearing facts trace to
+these independent origins: [fact - pieces / origins; ...]. [N] of these facts are
+single-origin; apparent cross-outlet agreement on them is AMPLIFICATION, not confirmation."
+
+SOURCE-CHAIN STATUS  -  a SEPARATE axis from verification state (Do NOT use
+RECEPTION-CONFIRMED here. In shared_primitives Section 1 that means a source's own later
+reception was checked  -  replies, replications, corrections. Comparing an article to a
+press release is source-chain verification, a different operation entirely.)
+
+  CHAIN-CONFIRMED ... primary source material or wire copy was available and directly
+  compared against the piece CHAIN-INFERRED .... chain inferred from attribution,
+  publication timing, or textual similarity, without the upstream document in hand
+  CHAIN-PROVISIONAL . upstream source cannot be established
+
+VERIFICATION STATE OF THE EVIDENCE USED  -  media branch subset:
+
+  LOCATED ..................... the item exists; content unverified
+  FULL-TEXT-CONFIRMED ......... you read the full source and it supports the claim
+  CROSS-OUTLET-CORROBORATED ... the fact is supported by 2+ INDEPENDENT origins
+                                across outlets; state the per-fact origin count
+  CONTESTED ................... outlets report it incompatibly
+  PROVISIONAL ................. asserted from memory, or source not retrieved
+
+  RECEPTION-CONFIRMED IS NOT USED IN THIS BRANCH. In shared_primitives Section 1 it means a
+  source's own scholarly reception was checked  -  replies, replications, corrigenda. News
+  coverage does not have reception in that sense. If you reach for it, you want
+  CROSS-OUTLET-CORROBORATED or CHAIN-CONFIRMED.
+
+  CROSS-OUTLET-CORROBORATED MUST CARRY THE PER-FACT ORIGIN COUNT. A fact may be labeled
+  CROSS-OUTLET-CORROBORATED only if it has 2+ INDEPENDENT origins on its own row in the
+  per-fact table. A fact carried by many outlets but tracing to ONE origin is AMPLIFICATION
+  - mark it PROVISIONAL or amplified, never corroborated, even when the whole-coverage
+  origin count is high. State the per-fact origin count alongside every use of this label.
+
+Apply this subset separately to the documents supporting a finding. The two axes combine  -
+e.g. the police statement may be FULL-TEXT-CONFIRMED while the outlet's dependence on it is
+only CHAIN-INFERRED.
+
+Report both when both apply.
+
+=================================================================
+SECTION C  -  SHARED FACTUAL CORE vs. UNIQUE MATERIAL
+=================================================================
+
+  1. SHARED CORE: facts reported by all or nearly all pieces. List them.
+     For each shared-core fact, check its row in the per-fact table in Section B.
+     If it is single-origin, it is the shared origin's account amplified, not
+     independent corroboration, however large the whole-coverage origin count is.
+
+  2. UNIQUE MATERIAL: facts appearing in only one or two pieces. For each:
+     - which outlet
+     - scoop (original reporting) or selection (chose to include what others had available and
+       omitted)?
+     - does it cut for or against the dominant framing?
+
+  3. CONTRADICTIONS: where pieces report the same fact differently. Quote both. Note whether
+     the contradiction is factual (incompatible claims) or definitional (same event, different
+     terms).
+
+| Fact | Outlets reporting | Outlets omitting | Scoop or selection | Cuts which way |
+|---|---|---|---|---|
+
+AVAILABILITY MATRIX  -  REQUIRED BEFORE CALLING ANYTHING "SELECTION"
+
+Outlets publish at different times with different information. Comparing a later piece (more
+available) against an earlier brief (less available) and calling the difference "selection" is
+the network-branch version of the timing error.
+
+| Fact / source material | Available when A published? | B? | C? | D? |
+|---|---|---|---|---|
+
+RULE: a fact may be called SELECTION only if it was AVAILABLE before that piece published and
+the piece still omitted it. Otherwise it is a TIMING ARTIFACT and must be labeled so.
+
+State availability basis for each: known (documented release time) / inferred (other coverage
+carried it earlier) / unknown. Unknown availability caps the finding at PROVISIONAL.
+
+THE KEY ASYMMETRY: a fact available to all outlets  -  present in the primary source or in
+earlier coverage  -  that some include and some omit, where the pattern correlates with
+framing. That is selection, and unlike a single-piece omission finding, it is demonstrable
+rather than asserted.
+
+=================================================================
+SECTION D  -  FRAMING DIVERGENCE MAP
+=================================================================
+
+Where the baseline pays off. For each dimension, line up every outlet.
+
+  1. HEADLINE VERB AND AGENCY
+     | Outlet | Headline | Grammatical agent | Active/passive |
+
+  2. KEY ACTION DESCRIPTORS  -  pick the 3-5 contested actions and show every outlet's wording
+     side by side.
+     | Action | Outlet A | Outlet B | Outlet C | ... |
+
+     This is an inventory, not yet a framing verdict. Verb variance shows
+     that wording differs; D-ROLE determines whether the difference moves a
+     [MEDIA-P1] assignment or is REGISTER variance only.
+
+  3. SEQUENCING  -  where does each outlet place the material that most complicates its own
+     lead?
+     | Outlet | Lead subject | paragraph  where complicating context appears |
+
+  4. SOURCE DISTRIBUTION
+     | Outlet | Voices quoted | Positions represented | Balancing voice present? |
+
+  5. ATTRIBUTED vs. ASSERTED
+     | Fact | Outlets asserting | Outlets attributing | Attribution verb |
+
+  6. HEADLINE CONTENT  -  which material facts reach each headline?
+     | Fact | Appears in headline of |
+
+D7  -  NARRATIVE-FLAG AND CONTEXT VARIANCE ACROSS OUTLETS
+-----------------------------------------------------------------
+
+| Attribute / context element | Outlet A | Outlet B | Outlet C | ... |
+|---|---|---|---|---|
+
+Compare across outlets, where each is materially relevant: demographic attributes;
+affiliation, funding, and interest disclosures; credential labels ("expert" vs. "critic");
+biography and individualization; which prior episode is invoked as precedent; setting and
+atmospheric cues.
+
+The [MEDIA-P1] causal-role axes - EVENT CLASSIFICATION, CAUSE, ROLE-AND-STATUS, BLAME /
+RESPONSIBILITY, REMEDY, and LEADERSHIP / POLICY - are owned by D-ROLE.
+
+D7's inheritance test, TEST THE SOURCE OF THE UNIFORMITY, remains the shared
+primitive both sections use.
+
+D7 retains individualization/categorization because it measures identity
+granularity, not causal-role assignment. Where the same text bears on both,
+cross-reference the second section and record each distinct effect once.
+
+For each divergence:
+  1. Was the attribute known when EACH outlet published? (Use the availability matrix  -  do
+     not count an unconfirmed attribute as an omission.)
+  2. Is the difference inclusion, omission, delay, quote-routing, or euphemism?
+  3. Materially relevant, or merely inflammatory?
+  4. Does one outlet individualize a party another categorizes?
+  5. Does the variance correlate with headline, sequencing, or source choices?
+  6. Could timing, privacy rules, confirmation standards, house style, or outlet policy
+     explain it?
+
+NETWORK-WIDE PATTERNS  -  RECLASSIFY, DO NOT AUTOMATICALLY DOWNGRADE. If every outlet treats
+an attribute the same way, that establishes the outlet is not an OUTLIER. It does NOT
+establish that the treatment is proportionate or non-misleading. Every outlet can inherit the
+same official euphemism, wire framing, legal convention, or shared blind spot.
+
+  DOWNGRADE: any claim that this outlet is distinctive or slanted relative to peers. DO NOT
+  DOWNGRADE: the underlying construction finding itself. RECORD SEPARATELY: a network-wide
+  convention finding, which is often the more interesting result.
+
+TEST THE SOURCE OF THE UNIFORMITY - CANONICAL FIVE-WAY CLASSIFICATION
+
+  INDEPENDENT-EDITORIAL-CONVERGENCE
+    Several newsrooms reached the treatment separately.
+
+  WIRE-INHERITANCE
+    One wire story appears under multiple mastheads.
+
+  COMMON-PRIMARY-SOURCE
+    Outlets worked from the same release, briefing, document, or speaker.
+
+  LEGAL/PROFESSIONAL-CONVENTION
+    The treatment follows an identification, sub judice, privacy, or other
+    professional convention.
+
+  SHARED-BLIND-SPOT
+    No outlet examined the material point.
+
+Only INDEPENDENT-EDITORIAL-CONVERGENCE is evidence that the treatment was
+independently chosen across outlets. The other four are non-independent for the
+D-ROLE inheritance gate and leave the substantive question open.
+
+ABSENCE CLUSTER: are the same material attributes OMITTED by outlets that otherwise share a
+framing cluster? Shared omission can be more diagnostic than shared wording, especially where
+those outlets used DIFFERENT source chains  -  independent omission is a stronger signal than
+common-source omission. Distinguish the two explicitly.
+
+-----------------------------------------------------------------
+D-ROLE - CAUSAL AND ROLE-ASSIGNMENT MAP
+[owns MEDIA-P1 axes; absorbs D8; depends on D7]
+
+Captures divergence in the narrative: what kind of event this is, why it
+happened, who occupies which role, who is responsible, whether a fix is offered,
+and how leadership or policy is characterized.
+
+Report only divergence that reflects independent editorial choice, not
+non-independent treatment and not mere register.
+
+STEP 1 - PER-OUTLET CAUSAL-ROLE MAP
+Map content, not a verdict.
+
+For each outlet, extract the assignment the article text makes on each
+[MEDIA-P1] axis.
+
+Do not infer an assignment from the headline alone. You may record an assignment
+explicitly stated in a headline as HEADLINE-ONLY; do not infer anything the
+headline does not state.
+
+Record provenance INSIDE EACH AXIS CELL. Use this form:
+
+  assignment [CHOSEN: OUTLET-ORIGINAL]
+  assignment [CHOSEN: INDEPENDENT-EDITORIAL-CONVERGENCE]
+  assignment [INHERITED: WIRE-INHERITANCE]
+  assignment [INHERITED: COMMON-PRIMARY-SOURCE]
+  assignment [INHERITED: LEGAL/PROFESSIONAL-CONVENTION]
+  assignment [INHERITED: SHARED-BLIND-SPOT]
+
+An outlet may inherit one axis and choose another. Do not assign one provenance
+label to the outlet as a whole.
+
+| Outlet | EVENT CLASSIFICATION (+ provenance) | CAUSE (+ epistemic level + provenance) | ROLE-AND-STATUS (+ provenance) | BLAME / RESPONSIBILITY (+ epistemic level + provenance) | REMEDY (+ provenance) | LEADERSHIP / POLICY (+ provenance) | Text basis |
+|---|---|---|---|---|---|---|---|
+
+TEXT BASIS
+
+  TEXT-READ
+    The full piece was read.
+
+  HEADLINE-ONLY
+    The body was not read. Only an assignment explicitly stated in the headline
+    may be recorded. It may not anchor a divergence finding and is PROVISIONAL.
+
+CAUSE AND BLAME - EPISTEMIC LEVEL
+LOCAL EXECUTION COPY - canonical in [MEDIA-P1]; must match.
+
+Classify every CAUSE and BLAME assignment:
+
+  DOCUMENTED
+    Direct statement, verified communication, or established record.
+
+  OFFICIALLY-ALLEGED
+    Law enforcement, complaint, indictment, or institutional finding.
+
+  SOURCE-INFERRED
+    Witness, advocate, expert, or interested party's inference.
+
+  OUTLET-INFERRED
+    The article's own synthesis.
+
+  UNKNOWN
+    Evidence insufficient.
+
+Test for silent upward movement: an alleged cause restated as documented, or a
+source's inference appearing later in outlet voice. Apply the ladder separately
+to CAUSE and BLAME.
+
+STEP 2 - INHERITANCE GATE
+Apply per assignment; reuse D7's canonical five-way classification.
+
+For this binary gate:
+
+  CHOSEN
+    OUTLET-ORIGINAL assignments and independently reached assignments classified
+    as INDEPENDENT-EDITORIAL-CONVERGENCE.
+
+  INHERITED
+    Assignments classified by D7 as WIRE-INHERITANCE,
+    COMMON-PRIMARY-SOURCE, LEGAL/PROFESSIONAL-CONVENTION, or
+    SHARED-BLIND-SPOT.
+
+Only CHOSEN assignments count as independent outlet framing. Record INHERITED
+assignments, but do not attribute them to the outlet as independent editorial
+choices.
+
+If D7 already classified the source of uniformity, carry that result into each
+affected axis cell. Do not re-derive it.
+
+STEP 3 - DIVERGENCE FINDING
+Prosecute CHOSEN divergence only.
+
+Report where CHOSEN assignments diverge across outlets on any [MEDIA-P1] axis.
+
+VERB-AS-TRACE
+LOCAL EXECUTION COPY - canonical in [MEDIA-P1]; must match.
+
+A verb or descriptor is reportable as causal-role framing only when it MOVES an
+assignment on one of the six axes.
+
+Examples:
+
+- "breach" assigns migrant agency against a defended boundary;
+- "waved through" reassigns cause to an authority;
+- "pour" or "surge" can classify the event as flood-like mass movement.
+
+A lexical difference that moves no assignment is REGISTER variance. Record it
+as register only; do not report it as framing.
+
+This test is distinct from causal-bridge analysis. VERB-AS-TRACE asks what
+causal-role assignment the language makes. Causal-bridge analysis asks whether
+the WHY of a sequence is present or removed.
+
+STEP 4 - GENRE / INDEPENDENCE CONDITION
+Mandatory not-firing check.
+
+State the sample's independence condition.
+
+If most relevant assignments are INHERITED, as in wire-dominated breaking
+coverage, the causal-role axis is UNDER-DETERMINED by this sample. Report:
+
+"roles largely inherited or otherwise non-independent; independent causal
+framing minimal - this genre under-determines the causal-role axis"
+
+Mark any surviving divergence finding PROVISIONAL.
+
+This axis is more likely to become testable in opinion, editorial, feature, or
+later multi-source coverage once the wire monopoly breaks.
+
+The section MUST be able to return:
+
+"axis under-determined - wrong genre"
+
+Do not manufacture divergence from register variance merely to fill the section.
+
+STEP 5 - FLIP TEST
+Symmetry and abuse guard.
+
+Cause, blame, and victim-role assignments are especially prior-sensitive. Before
+reporting any divergence finding, ask:
+
+Would you assign the identical finding if the outlets' political valence were
+reversed?
+
+Name the specific assigning text: outlet, sentence or phrase, and the assignment
+it makes. Never write only "outlet X is biased."
+
+A finding that cannot identify the assigning text, or that would not be flagged
+with valence reversed, is downgraded or dropped.
+
+STEP 6 - FINDING TABLE
+
+Each surviving CHOSEN divergence receives its own row in the standardized
+finding table.
+
+Use finding type: causal-role-framing.
+
+OWNERSHIP RULE:
+
+- causal-role-framing owns divergence on a [MEDIA-P1] axis;
+- framing-divergence is reserved for framing that does not consist of a
+  [MEDIA-P1] assignment;
+- do not emit the same divergence under both types;
+- D7 owns identity granularity and source-of-uniformity classification;
+- D-ROLE owns causal-role assignment.
+
+Cross-reference D7 where needed. Do not create a second finding from the same
+assignment.
+
+Do not fold multiple axes into one generic "framing differs" note. CAUSE and
+ROLE-AND-STATUS divergences are separate rows when independently evidenced.
+
+READ-NOT-SCORED
+
+This section produces finding-table rows for the human reader. It does not
+produce letters or concede-test verdicts.
+
+Convergence across independent CHOSEN assignments is the signal; a scored rubric
+is not.
+
+D9  -  BASELINE AND DENOMINATOR VARIANCE
+-----------------------------------------------------------------
+
+Where outlets cite figures for the same phenomenon:
+
+| Figure | Outlet | Baseline / denominator | Raw or rate | Adjustment applied | Impression supported |
+|---|---|---|---|---|---|
+
+  1. Do outlets use different comparison points for the same underlying data?
+  2. Does the choice correlate with framing cluster?
+  3. Does any outlet report the comparison basis, or do they present bare numbers?
+  4. Would a common basis change the apparent disagreement between outlets?
+
+This is often the cleanest quantitative divergence available and it is invisible without
+cross-outlet comparison.
+
+=================================================================
+SECTION D2  -  CROSS-BRANCH RESOLUTION  (run if a single-piece audit preceded this)
+=================================================================
+
+The single-piece framing audit flags items it CANNOT determine from one article and names this
+branch as the test. Those flags are the highest-value work this audit does, because they are
+the only findings in the system that can be CONFIRMED OR FALSIFIED rather than merely rated.
+
+If no single-piece audit preceded this, write "no prior single-piece audit" and skip.
+Otherwise, list every item that audit marked UNDETERMINABLE, PROVISIONAL, or "would be
+resolved by the coverage-network branch," and resolve what this sample can.
+
+THE STANDARD RESOLUTION TARGETS  -  check each explicitly:
+
+  1. SOURCE-INTERNAL ORDERING (single-piece F2 Step 5). The single-piece audit could not tell
+     whether an institutional source led with framing material or the outlet foregrounded it.
+     TEST: how did other outlets covering the same statement order it? If most led with the
+     factual account, the audited outlet's ordering was a choice. If most led with the framing
+     material, the source spoke that way and the finding collapses. Also check: does any
+     outlet quote or link a transcript, recording, or written release that fixes the order?
+
+  2. VERB AND DESCRIPTOR CHOICE. The single-piece audit can only observe that a word is milder
+     or more vivid than alternatives it imagines. TEST: what words did other outlets use for
+     the same action - and CRITICALLY, what word does the PRIMARY SOURCE use? An institution
+     often issues both a written release and a spoken briefing, and they frequently differ. A
+     verb that looks like editorial softening may be DOCUMENT DEPENDENCE: the outlet used the
+     presser, another outlet used the written report. Then route the surviving difference
+     through [MEDIA-P1]. If the wording changes no event-classification, cause,
+     role-and-status, blame, remedy, or leadership / policy assignment, record REGISTER
+     variance only. If it moves an assignment, use it as evidence for a causal-role-framing
+     finding. Both branches now emit findings in the [MEDIA-P1] vocabulary, so D2 lines them
+     up directly rather than translating between two axis sets. Resolution therefore works
+     regardless of which branch was the entry point. If document dependence explains the
+     wording, the single-piece finding is not outlet construction - it is a
+     sourcing-thoroughness observation and must be reclassified. Say so plainly.
+
+  3. AVAILABILITY OF A BALANCING VOICE. The single-piece audit cannot tell whether a
+     counter-voice was unavailable, refused, or unsought. TEST: did any outlet in the sample
+     obtain one? If several did, availability is established and the single-piece finding
+     strengthens. If NONE did, the absence is network-wide and is weak evidence about any one
+     outlet.
+
+  4. HEADLINE CHOICES. The single-piece audit judges a headline against the
+     body. TEST: what did every other headline include and omit? If EVERY outlet
+     made the same omission, downgrade the claim that the audited outlet is
+     distinctive or uniquely slanted. Do NOT automatically downgrade the
+     underlying construction finding; resolve it as NETWORK-WIDE and classify
+     the source of uniformity.
+
+  5. OMISSION vs. CONVENTION. Any fact the single-piece audit flagged as omitted. TEST: who
+     else omitted it? A fact omitted by every outlet, especially one sitting in a primary
+     document all of them had, is a NETWORK-WIDE pattern. That is a different and often more
+     interesting finding than an outlet- specific one  -  and it is not evidence of that
+     outlet's lean.
+
+Required table:
+
+| Single-piece finding | What it flagged as undeterminable | What this sample shows | Resolution |
+|---|---|---|---|
+
+RESOLUTION values  -  use exactly these: CONFIRMED ......... the sample supports the
+single-piece finding; it strengthens FALSIFIED ......... the sample shows the finding was
+wrong; it must be CUT RECLASSIFIED ...... real, but a different finding type than originally
+rated NETWORK-WIDE ...... the behavior is shared across outlets. This establishes the outlet
+is not an OUTLIER. It does NOT establish the treatment is proportionate  -  every outlet can
+inherit the same official euphemism, wire framing, legal convention, or blind spot. DOWNGRADE
+the claim that this outlet is distinctive. DO NOT DOWNGRADE the underlying construction
+finding. RECORD the network-wide convention as its own finding, and state its
+source using D7's exact values:
+INDEPENDENT-EDITORIAL-CONVERGENCE / WIRE-INHERITANCE /
+COMMON-PRIMARY-SOURCE / LEGAL/PROFESSIONAL-CONVENTION /
+SHARED-BLIND-SPOT. Only INDEPENDENT-EDITORIAL-CONVERGENCE suggests the
+convention was independently chosen; the other four are non-independent and
+leave the substantive question open. STILL UNRESOLVED .. this sample
+cannot settle it; state what would NO EVIDENCE ....... you did not retrieve material bearing
+on this item at all
+
+EVIDENCE FLOOR  -  MANDATORY. CONFIRMED, FALSIFIED, RECLASSIFIED, and NETWORK-WIDE each
+require you to NAME THE SPECIFIC EVIDENCE in the resolution cell: which outlet, which
+document, which passage. A resolution without named evidence is not a resolution.
+
+  If you did not retrieve material bearing on the item, the ONLY permitted values are STILL
+  UNRESOLVED or NO EVIDENCE.
+
+  CONFIRMED IS THE MOST DANGEROUS VALUE HERE. It ratifies an upstream finding, and it is the
+  value most easily returned by a run that simply did not look. Absence of contradicting
+  evidence is NOT confirmation. If your basis for CONFIRMED is "nothing I saw contradicted
+  it," the correct value is STILL UNRESOLVED.
+
+  Worked contrast, from actual runs of this prompt on the same event: asked whether an outlet
+  reordered a police chief's statement, one run returned CONFIRMED having obtained no primary
+  source; another returned FALSIFIED citing a specific outlet's report that the chief opened
+  his briefing that way; a third returned STILL UNRESOLVED, lacking that outlet. Only the
+  second and third were defensible.
+
+REPORT FALSIFICATIONS PROMINENTLY. A finding this branch kills is the most valuable output the
+system produces  -  it is the only place a claim gets tested against evidence rather than
+re-rated by judgment. Do not bury it. If the single-piece audit was wrong, say which finding,
+why, and what the evidence was.
+
+NOTE ON DIRECTION: this section will more often WEAKEN single-piece findings than strengthen
+them, because shared behavior is common and outlet-specific behavior is rarer than a
+single-article reading suggests. That asymmetry is expected and is not a sign the section is
+malfunctioning. If it never weakens anything across multiple runs, it is not doing its job.
+
+=================================================================
+SECTION E  -  CLUSTERING AND CORRELATION
+=================================================================
+
+  1. Do framing choices CLUSTER? Do outlets choosing one headline verb also place complicating
+     context late, quote the same category of voice, omit the same facts?
+
+  2. Describe clusters BY THEIR CHOICES FIRST, not by political valence. ("Cluster 1 leads
+     with scene, places official account after paragraph 5, quotes advocacy voices; Cluster 2
+     leads with official account, quotes officials, omits reaction.") Note any correlation
+     with lean afterward, as an observation.
+
+  3. Is there an outlet that does NOT cluster  -  mixed choices? Name it. A tidy two-cluster
+     map with no outliers is suspicious and often reflects sample selection (Section G) rather
+     than the coverage.
+
+  4. TEST NON-LEAN EXPLANATIONS BEFORE CONCLUDING LEAN. Does clustering correlate with
+     publication time, wire dependence, brief-vs-full-report, local-vs-national, or deadline?
+     Length and timing explain more variance than people expect. State which you tested and
+     what you found.
+
+=================================================================
+SECTION E2  -  PRIOR-MATCH CHECK  (MANDATORY, run before the flip test)
+=================================================================
+
+PRIOR SOURCE  -  declare this FIRST, before restating any prediction.
+
+  SUPPLIED ......... the operator stated a prior in the inputs. MODEL-GENERATED .. no prior
+  was supplied and you formed an expectation yourself about how coverage of this story type
+  typically behaves. NONE ............. no prior was supplied and you did not form one.
+
+YOU MAY GENERATE A PRIOR. An expectation that wire services lean official-sourced, or that a
+story type clusters by outlet format, is a hypothesis from domain knowledge, and testing
+hypotheses is the work. Do not suppress it. Declare it.
+
+WHAT THE LABEL CHANGES:
+
+  SUPPLIED, full match  -  the operator's expectation was confirmed. This is a
+  motivated-reasoning risk. Items 5 and 6 are REQUIRED.
+
+  MODEL-GENERATED, full match  -  WEAKER evidence than a supplied match, because the
+  expectation and the finding were produced in the same pass by the same reasoner. Note this
+  explicitly. Items 5 and 6 are still required.
+
+  NONE  -  skip items 1 through 6 and write "no prior; prior-match check skipped." Do not
+  invent one retrospectively to have something to check.
+
+Then proceed with the existing items 1-6.
+
+  1. Restate your prior's PREDICTION in one sentence: what did it lead you to expect this
+     comparison would show?
+  2. State your actual PRIMARY FINDING in one sentence.
+  3. DO THEY MATCH? [full match / partial / no match]
+  4. If FULL MATCH: not disqualifying, but the flip test and non-lean explanations carry MORE
+     weight, and items 5-6 are required.
+  5. WHAT DID YOU EXPECT AND NOT FIND? Name at least one thing your prior predicted that the
+     coverage did NOT show. A prior confirmed in every particular is a prior that was not
+     tested.
+  6. INVERSE CHECK: the single strongest piece of evidence in this coverage AGAINST your prior
+     -  not against your findings, against the prior itself.
+
+=================================================================
+SECTION F  -  FLIP TEST  (MANDATORY  -  DESIGNED TO BE COSTLY)
+=================================================================
+
+Answering "yes, I would flag the mirror" is free. This section requires producing something.
+
+STEP 1  -  WRITE THE MIRROR, AS TEXT Take your #1 divergence finding. COMPOSE the actual
+mirror  -  3-6 sentences of a headline plus lead written the way an outlet in the opposite
+cluster would have written it, using the same technique you flagged. Not a description. The
+text.
+
+STEP 2  -  AUDIT YOUR OWN MIRROR Run your Section D criteria against what you just wrote.
+Produce at least two findings against it with severity ratings. If you cannot produce findings
+at comparable severity, your original finding is PRIOR-DEPENDENT  -  downgrade it.
+
+STEP 3  -  CONSISTENCY CHECK Compare the PRINCIPLES you applied to your mirror against your
+findings on the real coverage. Classify what you find  -  two different things, resolving
+oppositely:
+
+  (A) INCONSISTENT PRINCIPLE  -  you applied a rule to the mirror you did not apply to the
+  original, or vice versa. One finding must give; state which and why. Mirror-side principles
+  are less prior-contaminated (applied without knowing which side benefited), so they usually
+  win.
+
+  (B) SYMMETRIC PHENOMENON  -  the same construction lever appears in both, pushing opposite
+  directions (e.g. either ordering constructs an impression). NO DOWNGRADE. This confirms the
+  lever is a construction lever, which makes the outlet's specific choice more meaningful, not
+  less.
+
+  DO NOT DOWNGRADE BECAUSE THE MIRROR COMMITS THE MIRROR-IMAGE VERSION. That is the expected
+  result and the reason the mirror exists  -  it tests whether you apply the same rule, not
+  whether construction is universal.
+
+| Observation | Type (A / B) | Resolution |
+|---|---|---|
+
+Downgrades are permitted here for TYPE A only.
+
+STEP 4  -  FORCED RANKING Rank all findings from MOST prior-dependent to LEAST.
+
+| Rank (1 = most prior-dependent) | Finding | Why more prior-dependent than the next |
+|---|---|---|
+
+STEP 5  -  AUTOMATIC DOWNGRADE  (not discretionary)
+
+The finding ranked #1  -  MOST prior-dependent  -  IS DOWNGRADED ONE SEVERITY STEP.
+Mechanical. No justification path, no opt-out.
+
+  MAJOR -> MODERATE / MODERATE -> MINOR / MINOR -> cut or "reported, not load-bearing"
+
+Earlier versions allowed declining the downgrade with a rebuttal. The rebuttal was always
+supplied and the downgrade never happened. A check that can be argued away is not a check.
+
+IF THE DOWNGRADE SEEMS WRONG, FIX THE RANKING IN STEP 4  -  you control it. Do not argue with
+the consequence. Do not append a parenthetical rebutting it.
+
+State in one line: "Downgrade applied: [finding] MODERATE -> MINOR." Report in Section I which
+finding was downgraded and from what to what.
+
+STEP 6  -  SCRUTINY SYMMETRY a. Point to a specific finding against an outlet you'd tend to
+trust. If you have none, state that  -  it is a result. b. Where does the coverage cut AGAINST
+what you expected? List anything. c. Name an outlet whose construction you would have flagged
+had it leaned the other way. d. For counter-evidence you listed: "would a reader who noticed
+it reach a different conclusion? If no, WHAT DOES THE COUNTER-EVIDENCE FAIL TO ADDRESS?" Name
+what is missing from it. Do not restate what the coverage does  -  that is circular. The
+phrase "noted but does not offset" is BANNED; reasoning that reduces to it downgrades the
+affected findings one step.
+
+| Finding | Mirror written? | Findings against mirror | Contradiction w/ mirror principle? | Prior-dependence rank | Verdict |
+|---|---|---|---|---|---|
+
+Findings failing the flip test are PRIOR-DEPENDENT  -  downgrade or cut, labeled.
+
+=================================================================
+SECTION G  -  SAMPLE AUDIT  (audits your own selection)
+=================================================================
+
+These findings are only as good as the sample.
+
+  1. How were pieces selected? Systematic or convenience?
+  2. What outlets covering this event are ABSENT? Name them.
+  3. Does the sample over-represent one end of the spectrum?
+  4. Would adding the missing outlets likely change the clustering?
+  5. Sample verdict: SYSTEMATIC / PARTIAL / CONVENIENCE
+
+A CONVENIENCE sample can still show real divergence  -  verb variance is verb variance
+regardless of how the pieces were found. But it CANNOT support claims about overall
+distribution ("most outlets framed it as X"). State which claims your sample supports and
+which it does not.
+
+REQUIRED: if the sample is CONVENIENCE, every distributional claim in this audit is
+PROVISIONAL. Say so in the verdict.
+
+=================================================================
+SECTION H  -  STANDARDIZED FINDING TABLE
+=================================================================
+
+| Field | Entry |
+|---|---|
+| Finding | one sentence |
+| Section | A-E |
+| Evidence | side-by-side quotes, outlet names, paragraph positions |
+| Finding type | source-chain / selection / framing-divergence / causal-role-framing / clustering |
+| Severity | none / minor / moderate / major / severe |
+| Survives flip test | yes / no |
+| Sample-dependent? | yes / no  -  would it hold with a different sample? |
+| Possible innocent explanation | MANDATORY  -  deadline, length, wire dependence, house style, genuine scoop. "None identified" if none. Never blank. |
+| What would weaken this | MANDATORY |
+| Verification state | from vocabulary |
+
+TYPE OWNERSHIP: use causal-role-framing for [MEDIA-P1] assignments.
+Use framing-divergence only for non-[MEDIA-P1] framing. Never emit the same
+divergence under both types.
+
+SEVERITY CAPS  -  enforceable, not advisory
+
+  | Condition | Cap |
+  |---|---|
+  | Missing either mandatory column | may not exceed MODERATE |
+  | Fails flip test (prior-dependent) | may not exceed MINOR |
+  | Convenience sample (G5) | no claim about overall media distribution may exceed PROVISIONAL |
+  | A load-bearing fact is single-origin in the Section B per-fact table | that fact's shared appearance may NOT be treated as independent corroboration |
+  | Source chain CHAIN-INFERRED only (textual similarity) | may not be rated SEVERE |
+  | Omission where availability is UNKNOWN | may not be called SELECTION; capped at PROVISIONAL |
+  | Sample-dependent finding | may not anchor the verdict |
+  | Explained by format/length difference (brief vs. full report) | not a finding  -  cut it |
+
+  Additional rule: if coverage is substantially uniform and proportionate, say so and submit
+  an empty table. That must be an available output.
+
+=================================================================
+SECTION I  -  VERDICT
+=================================================================
+
+RETRIEVAL DEPTH  -  REPORT BEFORE THE VERDICT
+
+Audit quality varies enormously with how much material was actually fetched, and that
+variation is invisible in the output unless stated. A thin run and a deep run produce equally
+confident-looking tables. Disclose:
+
+  - Pieces read FULL TEXT: [n, list]
+  - Pieces read SNIPPET ONLY: [n, list]
+  - Pieces NOT retrieved but referenced: [n, list]
+  - Primary source obtained: WRITTEN form? [y/n] SPOKEN form/transcript? [y/n]
+  - Searches or fetches performed: [approximate count]
+  - Material you looked for and could NOT obtain: [list]
+
+CAP: any finding resting on material you did not fetch is PROVISIONAL and may not be
+load-bearing. State which findings this affects.
+
+This is not a confession of inadequacy. A shallow run that says so is more useful than a
+shallow run that reads as thorough.
+
+  - Pieces compared:
+  - Reporting organizations producing original reporting (Section B Level 1):
+  - Upstream information origins (Section B Level 2; descriptive only):
+  - Whole-coverage ratio (descriptive only, not a verdict): [P] / [M]
+  - Per-fact amplification: [each load-bearing fact as pieces / independent
+    origins; flag every single-origin fact]
+  - Shared factual core (one sentence):
+  - DIRECTIONAL COHERENCE: of the surviving findings, how many push the same direction? [N of
+    M]. If 4+ cohere with fewer than 2 opposing, record a coherence finding at MODERATE (MAJOR
+    at 6+ with none opposing): individually defensible choices whose consistency across
+    independent levers is not. Direction-neutral  -  applies identically whichever way the
+    coherence runs.
+  - CROSS-BRANCH RESOLUTION (D2): single-piece findings CONFIRMED / FALSIFIED / RECLASSIFIED /
+    NETWORK-WIDE / STILL UNRESOLVED  -  list each. State falsifications first.
+  - Most significant framing divergence:
+  - Does framing cluster? Along what axis?
+  - Non-lean explanations tested (timing / length / wire / local):
+  - Sample verdict (G5):
+  - Findings surviving flip test:
+  - Load-bearing findings:
+  - What this audit could NOT assess:
+  - Confidence: low / moderate / high
+  - What would change this assessment:
+
+FINAL REQUIRED STATEMENT  -  one of:
+
+  "This coverage represents [N] organizations producing original reporting and
+  approximately [M] upstream information origins, across [P] published pieces.
+  Across [P] pieces, the load-bearing facts trace to these independent origins:
+  [fact - pieces / origins; ...]. [K] of these facts are single-origin;
+  apparent cross-outlet agreement on them is AMPLIFICATION, not confirmation.
+  Framing diverges materially on [dimensions]. The divergence [does / does not]
+  cluster along [axis]. This audit does not establish which framing is
+  accurate."
+
+OR
+
+  "Coverage is substantially uniform and proportionate to the available source material. No
+  material framing divergence found."
+
+The second must be genuinely available.
+
+=================================================================
+SCOPE LIMITS  -  RESTATE IN OUTPUT
+=================================================================
+
+  1. Coverage distribution is not a truth verdict. Majority framing is not
+     evidence of accuracy, particularly when a load-bearing fact is
+     single-origin in the Section B per-fact table.
+  2. One event does not establish an outlet's practice. That requires a corpus across events
+     -  a different and larger audit.
+  3. Divergence does not establish intent. Editorial choice is observable; motive is not.
+  4. Wire dependence, length, and deadline explain substantial variance. Test them before
+     attributing divergence to lean.
+  5. A convenience sample supports findings about the pieces examined, not about coverage
+     generally.
