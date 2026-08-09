@@ -40,7 +40,7 @@ An observed failure with no regression case and no replacement is not deletable.
 | Prefix | Total | Regression case exists | Never re-observed since fix |
 |---|---|---|---|
 | FAIL- | 33 | 4 | 27 |
-| TOOL- | 2 | 1 (TOOL-002 open) | 1 |
+| TOOL- | 3 | 1 (TOOL-002 open) | 2 |
 | GUARD- | 8 | 1 | n/a |
 
 Four regression cases now exist: case 11 (media acquittal, built), CE-006/007 (joint
@@ -53,7 +53,8 @@ GUARD-001 and GUARD-002 have both fired on observed runs and should be treated a
 for deletion purposes.
 
 Remaining thin: entries 001-016 have no archived originating runs and are supported by
-quoted excerpts alone. TOOL-002 is open.
+quoted excerpts alone. TOOL-002 is open. TOOL-003 was found by inspection rather than by a
+run, and has no committed regression case.
 
 ---
 
@@ -786,6 +787,50 @@ incorrect ordering (`ORDER_FAIL` never fires in any fixture), and an entirely ab
 **General principle this establishes:** a regression suite for a checking tool must include
 the failure the tool was built to catch. Testing only the failures that occurred to the
 fixture author tests the author's imagination, not the tool.
+
+### TOOL-003  -  The completion gate could not be passed by a compliant run
+**Observed:** found by reading, not by a run  -  see the status note below.
+`2-citation-network.txt` line 988 instructs the model to write
+
+```
+INCOMPLETE RUN  -  REQUIRED SECTION OMITTED: [heading(s)].
+```
+
+with an ASCII hyphen. The file contains no em dash at any position. But
+`incomplete_run_declared()` matched `\bINCOMPLETE RUN\s+—\s+REQUIRED SECTION OMITTED\b`, an
+em dash. A model that followed the prompt EXACTLY therefore scored
+`INCOMPLETE_DECLARATION_MISSING`, and, where Artifact 10 was also not withheld,
+`SILENT_OMISSION` on top of it.
+
+**Why it went unseen:** the branch only executes when a required block is missing. All three
+compliance pilots passed with zero missing blocks, so the declaration path was never reached
+in any logged run. The one scenario the completion gate exists for is the one scenario it
+could not score correctly.
+
+**Why it matters more than an ordinary typo:** it inverts the tool's verdict on a
+well-behaved run. A model that correctly detected its own omission and declared it as
+instructed was scored identically to one that omitted silently  -  which is precisely the
+distinction TOOL-001's repair was built to preserve.
+
+**Repair:** match any dash or none, with flexible surrounding whitespace, case-insensitive.
+The separator carries no meaning; only the two phrases do.
+
+**Regression condition:** the exact literal printed at `2-citation-network.txt:988`, with its
+placeholder filled, must satisfy `incomplete_run_declared()`. Em dash, en dash, colon and
+no-separator variants must also satisfy it. Prose that merely contains the words
+`INCOMPLETE`, `RUN`, `REQUIRED SECTION` and `OMITTED` in other arrangements must NOT.
+
+**Case:** none committed. Verified at fix time by extracting the literal from the prompt and
+asserting the old pattern rejected it and the new one accepts it, and by re-running the five
+committed output fixtures  -  all still PASS.
+
+**Status:** REPAIRED. Classed FAIL- rather than GUARD- because the defect is demonstrable
+from the two files as they stood, not anticipated; but note it was found by inspection, so it
+belongs to the small set of entries not sourced from a live run.
+
+**General principle this establishes:** where a prompt mandates an exact string and a checker
+matches it, the checker must be tested against the literal the prompt actually prints. Two
+files agreeing in the author's head is not agreement.
 
 ---
 
