@@ -1,0 +1,804 @@
+CONSTRUCT-VALIDITY AUDIT: CLAIM VS. MEASUREMENT
+================================================
+
+Target
+------
+Gabarrell-Pascuet, A., Coll-Planas, L., Alias, S. B., Pascual, R. M.,
+Haro, J. M., & Domenech-Abella, J. (2024). "Reducing loneliness and
+depressive symptoms in older adults during the COVID-19 pandemic: A pre-post
+evaluation of a psychosocial online intervention." PLOS ONE, 19(12), e0311883.
+https://doi.org/10.1371/journal.pone.0311883
+
+Prompt executed: prompts/research-analysis/2-construct-validity.txt at
+Provenance repository commit 955c1d98d2cdc4e532d9fa69549f6ce48345b0e8.
+
+Execution order: this audit was run after, and takes its target from,
+Gabarrell_Pascuet_2024_claim_map.txt (SHA-256
+d2bc4c8566a3d196f14cf2c867be74c653a758ddfeb5d2ed1eaf97e5a8016ee5).
+The claim map is not regenerated or replaced below.
+
+Audit date: 2026-08-08.
+
+
+APPLICABLE-CHECKS NOTE
+----------------------
+
+- Target document type: primary academic paper; non-controlled prospective
+  feasibility pilot with pre-post self-report measurement.
+- Sections that apply: 1, 2-7, 9-17.
+- Section 1A is not triggered for the claim in map Field 6 because that claim is
+  a temporal construct-change claim, not a normative claim, a claim that a
+  belief is wrong, or a causal claim that the intervention produced the change.
+  The paper's separate causal-purpose language is a mapped but deferred claim.
+- Section 8 is N/A for adjudicating the target result: no independent
+  replication or reanalysis of this pilot was located. Psychometric studies of
+  the DJGLS test the measurement object, not the target dataset.
+- The P2 pathologization branch is N/A: no belief-like item or accurate belief
+  is penalized by the selected claim.
+
+
+1. CLAIM MAP (RECEIVED)
+-----------------------
+
+Claim under audit (map Field 6):
+
+  Following BLOC, emotional loneliness decreased by 0.84 points on a 0-6 scale
+  (sex-adjusted estimated means 2.62 at T1 and 1.78 at T2; p<0.01).
+
+What was literally measured (map Field 1):
+
+  In 27 baseline and 21 post telephone interviews in a self-selected Barcelona
+  feasibility pilot, a sex-adjusted random-intercept mixed model estimated the
+  T1/T2 difference on the 0-6 sum of the six negatively keyed items in the
+  11-item De Jong Gierveld Loneliness Scale. The standard instrument items were
+  retrieved; the exact language/translation administered was not reported.
+
+Weaker defensible claim (map Field 3):
+
+  Among the observed participants, the sex-adjusted estimated mean count on the
+  six negatively keyed DJGLS items labeled "emotional loneliness" was 0.84
+  points lower at the post interview than at baseline (2.62 versus 1.78;
+  p<0.01), without adding causal or uniquely attachment-specific meaning.
+
+Target layer: source claim.
+
+MAP DISAGREEMENT: none. The measurement record supports the map's description.
+The analysis below does not replace the Field 6 claim with the broader causal
+claim that BLOC caused the decrease. Where that broader statement matters, it
+is explicitly marked MAP GAP / deferred.
+
+
+1A. CONSTRUCT ESTABLISHMENT
+---------------------------
+
+No normative or causal construct claim in map Field 6; section not triggered.
+
+The claim map nevertheless records PREVALENCE, FORM, and DOMAIN as
+ESTABLISHED-REPORTED for the selected sample, while WRONGNESS is inapplicable
+and HARM is UNKNOWN in that map. None of those properties is a load-bearing
+premise for the quantified temporal claim. The paper's separate suggestion that
+the intervention is a tool "to reduce" emotional loneliness is a causal claim,
+but evaluating it here would silently substitute a deferred claim for Field 6.
+
+Retrieval depth: target full text and supplements; scale-development full text;
+Spanish older-adult psychometric full text; later systematic-review abstract;
+selected downstream full-text citation contexts.
+
+
+2. MEASUREMENT EXTRACTION
+-------------------------
+
+Study object
+
+- Sample size: N=27 at T1; N=21 at T2.
+- Population actually observed: people aged 65 or older in Barcelona who
+  wanted to connect more/better, chose to participate, had internet and a
+  computer/smartphone, and met the stated sensory/cognitive criteria.
+- Recruitment: dissemination through nearby primary-care and older-adult
+  centres; posters, pamphlets, presentations, and calls. About 500 were offered
+  participation, 63 expressed interest, and 27 consented.
+- Exposure: eight weekly 90-120 minute facilitator-led Zoom group sessions,
+  combining community activities, peer support, cognitive-behavioural content,
+  coping, reminiscence, and purpose-in-life work.
+- Measurement occasions: telephone interview immediately before and after the
+  eight-week program, October 2021-January 2022.
+- Interviewers: two trained research-team members.
+- Primary instrument: 11-item DJGLS; total 0-11, social 0-5, emotional 0-6.
+- Outcome for Field 6: emotional-subscale score.
+- Model: maximum-likelihood two-level random-intercept mixed linear model with
+  time as the within-person factor, participant ID as random factor, and sex as
+  covariate. Reported estimated means: 2.62 (95% CI 1.98-3.27) at T1 and 1.78
+  (1.09-2.47) at T2; p<0.01.
+- Exclusions: blind or deaf people and people reporting cognitive impairment;
+  practical exclusion also follows from the required internet/device access.
+- Secondary measures: total/social loneliness, OSSS-3 social support, PHQ-8,
+  GAD-7, EQ-5D-5L, EQ-VAS, attendance, and a single open feedback question.
+
+What was not measured
+
+- No control or counterfactual trajectory.
+- No direct observation of attachment relationships, loss of an attachment
+  figure, achieved intimacy, or confidence in a specific relationship.
+- No independent emotional-loneliness instrument with balanced item keying.
+- No item-level T1/T2 results, longitudinal factor model, or measurement-
+  invariance test.
+- No blinded assessor and no explicit expectancy/demand measure.
+- No mediator measure that separates peer support, group contact, CBT content,
+  technology learning, facilitator attention, and regression/history effects.
+- No long-term follow-up and no established minimal important change for this
+  exact subscore in this target setting.
+- No probability sample of Barcelona or older adults generally.
+
+Definition-operationalization check
+
+The target defines emotional loneliness as:
+
+  "the absence of one or more attachment figures with whom one could establish
+  a close connection, and the desired level of intimacy or confidence is not
+  achieved."
+
+The retrieved standard 11-item DJGLS contains the following items (the validated
+Spanish form preserves these contents):
+
+  1. There is always someone I can talk to about day-to-day problems. [positive]
+  2. I miss having a really close friend. [negative; emotional]
+  3. I experience a general sense of emptiness. [negative; emotional]
+  4. There are plenty of people I can lean on when I have problems. [positive]
+  5. I miss the pleasure of the company of others. [negative; emotional]
+  6. I find my circle of friends and acquaintances too limited. [negative; emotional]
+  7. There are many people I can trust completely. [positive]
+  8. There are enough people I feel close to. [positive]
+  9. I miss having people around me. [negative; emotional]
+ 10. I often feel rejected. [negative; emotional]
+ 11. I can call on my friends whenever I need them. [positive]
+
+Standard scoring counts "yes" or "more or less" on the six negative items as
+loneliness; those six form the emotional subscore. It counts "no" or "more or
+less" on the five positive items as loneliness; those five form the social
+subscore.
+
+Operationalization retrieval basis: ITEMS-RETRIEVED for the published
+11-item instrument and validated Spanish form. The target does not identify its
+administered translation, so wording fidelity to that form cannot be verified.
+
+Operationalization scope result: broader.
+
+Specific out-of-definition content:
+
+- Item 3 measures general emptiness, not specifically absence of an attachment
+  figure or unmet intimacy/confidence.
+- Item 5 measures missing company generally.
+- Item 6 measures the perceived size of a friend/acquaintance circle, which the
+  target's own introduction assigns to social loneliness.
+- Item 9 measures missing people around generally.
+- Item 10 measures rejection, without identifying an attachment relationship
+  or desired intimacy/confidence.
+
+Item 2 is the closest direct fit. Because the other five emotional-subscale
+items extend past the explicit definition, this is a Definition-
+operationalization mismatch, subtype definitional scope creep.
+
+Proxy status
+
+The DJGLS subscore is direct evidence of responses to its six items and a proxy
+for the paper's attachment/intimacy construct. It is a plausible but non-unique
+proxy. In a Spanish older-adult validation, the same six "emotional" items were
+exactly the negatively worded items. Two superior models fit those items either
+as emotional-specific variance or as a negative-wording method factor, and the
+authors explained that the two interpretations cannot be empirically separated
+unless content and keying are crossed. All six negative items also had large
+discrimination on the second dimension. The scale therefore identifies a
+negative-item component, but not uniquely emotional attachment/intimacy.
+
+Pathologization/P2 check
+
+No pathologization finding. The items ask about experiences and relationships;
+the selected claim does not grade a belief as false or punish an established-
+accurate belief. No specific P2 subclaim exists; strength gate = VOID.
+
+
+3. CLAIM VS. MEASUREMENT TABLE
+------------------------------
+
+| Measured variable | Claimed construct | Are they the same? | Gap | Severity | Notes |
+|---|---|---|---|---|---|
+| Sum of six negatively keyed DJGLS items | Emotional loneliness defined as missing an attachment figure / unmet intimacy or confidence | no, not uniquely | Definition-operationalization mismatch (definitional scope creep) plus proxy ambiguity: five items reach broader experiences and facet membership is perfectly confounded with negative wording | major | This is one underlying measurement mechanism, not two independent levers. It materially narrows the construct claim to a negative-item subscore claim. |
+| Sex-adjusted estimated mean score at T1 versus T2 | A 0.84-point temporal difference on that named subscore in the analyzed pilot sample | yes | none | none | Table 2 directly reports 2.62 versus 1.78, p<0.01. |
+| Non-controlled pre/post difference | BLOC caused a 0.84-point reduction | no | MAP GAP: causal identification, not the Field 6 temporal claim | fatal-for-strong-claim | The paper itself acknowledges that absence of a control group prevents attribution. This row does not determine the Field 6 verdict. |
+
+The quantified scale-score fact is not disputed. What fails to travel unchanged
+is the interpretation that the six-item difference uniquely quantifies change
+in the paper's attachment/intimacy construct.
+
+
+4. LEVEL-OF-ANALYSIS CHECK
+--------------------------
+
+Evidence level
+
+- Individual survey respondents.
+- Telephone-administered self-report.
+- Two measurements over eight weeks.
+- Non-probability, technology-access, volunteer pilot sample.
+- Model-derived sample means.
+
+Claim level
+
+- Field 6: within-sample change in a person-level emotional-loneliness construct.
+- Deferred source claims: causal intervention capability and relevance to older
+  vulnerable populations generally.
+- Retrieved downstream claims: general loneliness, digital social support,
+  social networking/community effects, marginalized groups, and social
+  connectedness.
+
+Bridge assumptions for Field 6
+
+1. The six-item score has the same measurement structure at T1 and T2.
+2. Change in the negative-item component is change in the emotional-specific
+   attachment/intimacy construct rather than response style, generalized
+   distress, demand, or broader loneliness.
+3. Differential attrition does not materially alter the model's T2 estimand.
+
+These assumptions were implied, not tested. A domain expert could accept the
+DJGLS as a common loneliness instrument while still rejecting a uniquely
+emotional-facet interpretation without item-level longitudinal or balanced-
+keying evidence. There is no person-to-population level error in Field 6 because
+the map limits it to the pilot; population and intervention-class applications
+add untested bridges.
+
+
+5. CONFOUND AUDIT
+-----------------
+
+| Confound | Domain obvious? | Controlled? | Acknowledged? | Impact if omitted |
+|---|---|---|---|---|
+| Emotional content is perfectly aligned with negative item wording | yes, psychometric | no | no | High for interpreting the score as uniquely emotional attachment/intimacy; this is the load-bearing construct confound |
+| History, regression to the mean, maturation, pandemic-policy change, and spontaneous recovery | yes | no control group | yes | Fatal for the separate causal claim; not fatal to Field 6's temporal score statement |
+| Repeated testing, participant expectancy, social desirability, and research-team telephone interviewing | yes | no explicit control/blinding | self-report bias acknowledged generally | Moderate to high for interpreting the temporal score difference as latent change |
+| Differential attrition (27 to 21; more women dropped out) and missing-not-at-random selection | yes | sex covariate only; mixed model relies on missingness assumptions | dropout and sex difference reported | Moderate to high for generalizing the T2 change to all entrants |
+| Multiple inseparable intervention components and facilitator attention | yes | no | intervention content described | High for any mechanism claim; low for the observed temporal claim |
+| Exact administered language/translation and item wording | yes in cross-cultural measurement | no report | no | Moderate for reproducing the operationalization; the standard content/keying confound persists across the retrieved forms |
+
+The first confound is construct-side. The no-control and intervention-component
+confounds belong primarily to internal validity and do not convert the Field 6
+temporal claim into a causal claim.
+
+
+6. ECOLOGICAL VALIDITY CHECK
+----------------------------
+
+The intervention itself was a real eight-week facilitated online group rather
+than a laboratory analogue, and the scale was administered in ordinary
+telephone interviews. That gives reasonable ecological contact with this
+specific program and its volunteers.
+
+The sample does not resemble digitally excluded, sensory-impaired, cognitively
+impaired, unwilling, or randomly selected older adults. The immediate post
+time-scale does not establish durability. Self-report subscale movement is not
+the same object as observed attachment relations, durable intimacy, network
+change, or population mental-health outcomes.
+
+Verdict: ecologically valid only for the narrower claim about immediate
+post-program scores among observed, technology-access volunteers.
+
+
+7. DECISIVE-TEST CHECK
+----------------------
+
+- Measure: item-level latent change in emotional attachment/intimacy, using a
+  measure that crosses emotional/social content with positive/negative keying,
+  alongside the DJGLS and a convergent emotional-loneliness instrument.
+- Population: a larger sample of older adults recruited beyond current
+  technology users, with prespecified subgroup and accessibility plans.
+- Controls: randomized waitlist/active control; blinded or independent outcome
+  assessors; balanced attention; preregistered missing-data plan; longitudinal
+  measurement-invariance testing; and longer follow-up.
+- Outcome supporting the source's construct claim: a treatment-by-time change
+  on an invariant emotional-specific latent factor, converging across measures
+  and separable from negative-keying and general loneliness factors.
+- Outcome weakening/falsifying it: change confined to negative-keyed items,
+  failure of invariance, no difference from control, or no convergence with a
+  balanced emotional-specific measure.
+- Current source: does not run this test. It explicitly asks for an RCT but does
+  not identify the content/keying or longitudinal-measurement test.
+
+The decisive test would be: Randomize a larger, accessibility-inclusive older-
+adult sample to BLOC or an attention-matched control and test preregistered
+item-level longitudinal change on a balanced-keyed emotional-attachment factor,
+with independent assessment, measurement invariance, convergent measures, and
+long-term follow-up.
+
+
+8. CROSS-REANALYSIS OBJECT CHECK
+--------------------------------
+
+N/A for the target dataset. No independent reanalysis or replication of the
+0.84-point result was located. The retrieved psychometric papers do not
+reanalyze this pilot; they test the DJGLS's factor structure in other samples.
+
+Those psychometric results are not simple contradictions. The standard two-
+facet model can fit, while a general-loneliness-plus-negative-method-factor
+model can fit as well or better. The unresolved object is what the second
+component represents, and the perfect content/keying alignment prevents the
+existing items from settling that question.
+
+
+9. CITATION-USE AUDIT
+---------------------
+
+| Downstream use | Quoted use | Classification | Reason |
+|---|---|---|---|
+| McCarthy et al. (2025), HRB Open Research | studies since 2020 focused on "online/virtual methods" including Gabarrell-Pascuet and Yavuz & Sahin | Accurate citation / synthesis attribution | The target is in fact an online, facilitator-led intervention; the document does not assign a pooled outcome to the joint citations. |
+| First-author LinkedIn post | "Significant reductions in emotional loneliness and depressive symptoms following the intervention" and "potential" of online group interventions | Slightly inflated citation/PR framing | "Following" preserves sequence and "potential" is a hedge, but the intervention-class implication is broader than a single non-controlled pilot. |
+| Swedish nursing thesis, p. 19 | significant reduction in "self-reported loneliness and depression" and digital social support "could have a protective effect" | Major inflation / citation laundering | Total loneliness, social loneliness, and social support were non-significant; causal protection was not identified. Single audited source attribution was cross-checked. |
+| "Mental Health Impacts of AI Companions," section 2.2 | "Social networking platforms and purpose-built online communities facilitate peer support and social connectedness for older adults and marginalized groups" with the target as sole citation | Citation laundering | The target is neither a social-network platform nor an online-community study, includes no marginalized-group analysis, and found no significant change in social support or social loneliness. |
+
+Citation-use verdict: mixed. Some uses accurately identify an online method, but
+two retrieved texts assign the target broader outcomes, intervention types, or
+populations that it did not measure. Those downstream failures live at
+CITATION and do not, by themselves, invalidate map Field 6.
+
+
+10. IGNORED-LITERATURE CHECK
+----------------------------
+
+| Ignored literature / evidence | Why it matters | Was it cited? | Effect of omission |
+|---|---|---|---|
+| Buz & Perez-Arechaederra (2014), psychometric properties and invariance of the Spanish 11-item DJGLS in older adults | Directly population- and language-relevant; reports overall validity but a largely unidimensional structure and differential item functioning by marital/living arrangement | no | Moderate weakness |
+| Tomás et al. (2017), Spanish older-adult competitive CFA/IRT | Prints the actual Spanish items and shows that all "emotional" items are exactly negative-worded; best models leave emotional content confounded with method variance | no | Major evidentiary gap for facet-specific interpretation |
+| Alsubheen et al. (online 2023), systematic review of DJGLS measurement properties | Synthesizes 46 studies; abstract reports very-low-quality content-validity evidence and low-quality construct-validity evidence despite better structural-validity/internal-consistency evidence | no | Moderate weakness; ABSTRACT-CONFIRMED only |
+| Longitudinal responsiveness, measurement invariance, and a minimal important change for the 0-6 emotional subscore in this setting | Needed to interpret a pre/post numeric difference as comparable latent change and to call it "substantial" or practically meaningful | no specific evidence identified in target | Major evidentiary gap for the stronger construct/practical-significance claim |
+
+The target cites the 1985 scale-development paper and a 2010 seven-country
+validation of the short form, but not the directly relevant Spanish 11-item
+factor-structure literature. The omission does not erase the reported means;
+it leaves the emotional-specific interpretation under-argued.
+
+Post-publication corroboration, not literature the 2024 paper could have cited:
+Buchta et al. (2026) independently describes the same content/keying confound in
+a Czech validation and states that the two dimensions cannot be definitively
+distinguished under the present item design.
+
+
+11. EVIDENCE-TYPE, VERIFICATION, AND FAILURE-LOCATION CHECK
+-----------------------------------------------------------
+
+| Claim or evidence item | Evidence type | Measurement role | Verification state | Failure location | Directly measured / inferred / speculative | Source audit required? |
+|---|---|---|---|---|---|---|
+| T1/T2 emotional-subscore estimated means and p-value | Primary empirical evidence | Direct measure of scale score | FULL-TEXT-CONFIRMED | PAPER | directly measured/model-estimated | no; data/code reanalysis would increase certainty |
+| "Emotional loneliness" as attachment/intimacy | Conceptual / theoretical source plus target definition | Conceptual claim | FULL-TEXT-CONFIRMED | PAPER | conceptual definition | no |
+| Six-item emotional subscale content and scoring | Primary scale-development/validation evidence | Proxy evidence | FULL-TEXT-CONFIRMED | PAPER | directly retrieved instrument content | target's exact administered form is still needed for exact reproduction |
+| Negative-wording versus emotional-factor ambiguity in Spanish older adults | Primary psychometric study | Proxy evidence | FULL-TEXT-CONFIRMED | PAPER | directly modeled in independent sample; applied to target as construct warning | target item-level longitudinal audit required |
+| Broad COSMIN assessment of DJGLS properties | Systematic review / meta-analysis | Citation-dependent premise | ABSTRACT-CONFIRMED | PAPER | synthesis abstract | full review required before stronger detail is published |
+| BLOC caused the observed change | Author inference | Other measurement role | FULL-TEXT-CONFIRMED | PAPER | not directly measured; deferred MAP GAP | internal-validity audit required |
+| Swedish thesis general loneliness/protective-effect restatement | Secondary synthesis | Citation-dependent premise | FULL-TEXT-CONFIRMED; CROSS-SOURCE-CONFIRMED | CITATION | inferred beyond target | no for attribution; broader thesis evidence may require separate audit |
+| AI-companion paper's platform/community/social-connectedness restatement | Secondary citing literature | Citation-dependent premise | FULL-TEXT-CONFIRMED; CROSS-SOURCE-CONFIRMED | CITATION | misattributed | no for attribution; its other citations need separate audit |
+
+Directly measured: responses summarized as scale/subscale scores, attendance,
+other questionnaire scores, and immediate feedback; Table 2's model-estimated
+means are directly reported.
+
+Inferred: emotional-attachment-specific latent change; mechanism through
+confidence/intimacy; causal effect of BLOC; generalizability beyond observed
+participants.
+
+Speculative in this source: which intervention component produced any change,
+whether the effect persists, and whether a balanced emotional-specific measure
+would move similarly.
+
+Before publication of a stronger critique, obtain the exact administered
+questionnaire and item-level T1/T2 data. The scale-structure finding itself is
+not provisional because the standard item set and Spanish psychometric evidence
+were read, but its application to exact target wording retains that caveat.
+
+
+12. INTERNAL CONSISTENCY CHECK
+------------------------------
+
+The audit uses one consistent resolution:
+
+- The numerical scale-score difference is directly reported and is not
+  disputed.
+- The mapping from that score to a uniquely emotional attachment/intimacy
+  construct is not identified by the item design; this is the material
+  construct narrowing.
+- The absence of a control group is fatal only to a separate causal claim. It
+  does not defeat the mapped temporal claim.
+- Downstream citation laundering is confirmed for the two retrieved
+  single-source attributions, but it does not determine the source-claim
+  verdict.
+
+No section calls the emotional-versus-method-factor interpretation "resolved."
+The accurate characterization is that the confounding is established while the
+substantive identity of the second component is unresolved.
+
+
+13. THE CONCEDE TEST
+--------------------
+
+| Finding | Concede test: SURVIVES / NARROWS / DEFEATS | Surviving claim if NARROWS |
+|---|---|---|
+| The six-item emotional subscore is broader than the paper's attachment/intimacy definition and is perfectly confounded with negative wording | NARROWS | Among observed participants, the sex-adjusted estimated mean count on six negatively keyed DJGLS items labeled emotional was 0.84 lower at T2 than T1. |
+| Exact administered language/translation is not reported | SURVIVES | N/A; the target still reports a named standard-form subscore, though exact reproduction is weaker. |
+| No item-level longitudinal invariance or balanced-keying test was run | NARROWS | The same negative-item score-change residual; latent emotional-specific change is not established. |
+| Attrition, expectancy, repeated testing, and interviewer/reporting effects could influence the temporal score | SURVIVES | N/A; these limit interpretation but do not erase the model-reported score difference. |
+| No control group identifies a causal effect | SURVIVES | N/A for Field 6; it would DEFEAT the separate causal claim, which is a MAP GAP/deferred object. |
+| Direct Spanish psychometric literature was omitted | SURVIVES | N/A; omission explains why the construct caveat is not handled but does not change Table 2 arithmetic. |
+| Two downstream texts inflate or misattribute the result | SURVIVES | N/A; downstream use does not alter the target's measured result. |
+
+Scope-loss assessment for NARROWS results
+
+| Finding | Scope-loss level | Original claim | Surviving claim | What practical or inferential work is lost? |
+|---|---|---|---|---|
+| Definition/item-scope and content-keying confound | MATERIAL NARROWING | Following BLOC, emotional loneliness decreased 0.84 points | The six negatively keyed DJGLS items labeled emotional had a sex-adjusted estimated mean 0.84 lower at T2 than T1 in the observed pilot | Cannot treat the number as uniquely quantifying change in missing attachment figures or unmet intimacy/confidence; cannot automatically transfer it to another emotional-loneliness measure. |
+| Missing longitudinal construct test | MATERIAL NARROWING, overlapping with the same measurement mechanism | Emotional loneliness changed across time | The instrument-defined negative-item score differed across time | Loses the inference that an invariant emotional-specific latent factor changed rather than item functioning, response method, or broader loneliness. |
+
+There is no DEFEATS finding against the exact score-change remainder. The two
+material-NARROWS entries are not counted as independent votes; both arise from
+the same inability to isolate emotional content from the instrument's broader,
+negative-keyed component.
+
+
+14. VERDICT
+-----------
+
+- Claim under audit: USEFUL-FOR-NARROWER.
+- DEFEATS finding(s): none.
+- Failure mechanism: major proxy failure for the emotional-specific
+  interpretation; no fatal failure for the scale-score result.
+- Surviving residual: Among observed participants, the sex-adjusted estimated
+  mean count on the six negatively keyed DJGLS items labeled emotional was 0.84
+  points lower at T2 than at T1 (2.62 versus 1.78; p<0.01).
+- Residual usefulness grade: C.
+
+The result is numerically inspectable and survives as an instrument-score
+statement. It does not survive unchanged as a uniquely emotional attachment/
+intimacy construct because the retrieved item content is broader and the six-
+item facet is identical to negative keying. Spanish older-adult psychometrics
+establish the confound but cannot decide whether the second component is
+emotional content, method variance, or both. The proper result is therefore a
+materially narrower residual, not wholesale invalidation and not a causal
+judgment about BLOC.
+
+
+15. PAPER-SAFE WORDING
+----------------------
+
+A. Neutral summary sentence:
+
+In this non-controlled pilot, the sex-adjusted estimated mean on the six-item
+DJGLS subscale labeled emotional loneliness was 0.84 points lower immediately
+after BLOC than before it (2.62 versus 1.78 on a 0-6 scale; p<0.01).
+
+B. Direct methodological critique:
+
+The paper interprets a change in six negatively keyed, content-broad DJGLS items
+as a change in its narrower attachment/intimacy construct without showing that
+emotional content is separable from wording method effects across time.
+
+C. Strong adversarial version:
+
+The 0.84-point result establishes movement in a negative-item bundle, not a
+uniquely identified reduction in emotional loneliness, because "emotional"
+content and negative wording are perfectly confounded in the instrument.
+
+D. Decisive-test sentence:
+
+An attention-controlled randomized study with item-level longitudinal
+invariance and a balanced-keyed, convergent emotional-attachment measure would
+show whether BLOC changes emotional loneliness rather than only the DJGLS's
+negative-item component.
+
+
+16. FAILURE-MODE CLASSIFICATION
+-------------------------------
+
+[x] Untested premise
+    The analysis assumes that the named emotional subscore uniquely represents
+    attachment/intimacy change and remains comparable over time.
+
+[x] Proxy problem
+    Six content-broad, negatively keyed self-report items are used as the proxy
+    for a narrower emotional attachment/intimacy construct.
+
+[ ] Weak proxy
+
+[ ] Fatal proxy failure
+
+[ ] Level-of-analysis error
+    No error for Field 6 because it is kept at the pilot-sample level; broader
+    population applications are deferred or downstream.
+
+[ ] Ecological-validity failure
+    No failure for Field 6, which is retained at the observed-pilot level;
+    broad older-adult or digitally excluded applications are deferred objects.
+
+[x] Omitted confound
+    Negative keying is inseparable from emotional-subscale membership; repeated
+    measurement, expectancy, attrition, and interviewer/reporting effects are
+    also uncontrolled.
+
+[x] Citation laundering
+    Two retrieved downstream texts attribute general loneliness/protective
+    digital support or platform/community social connectedness claims to a
+    source that does not measure or support them.
+
+[ ] Premise laundering
+
+[x] Ignored adjacent literature
+    Direct Spanish older-adult 11-item DJGLS psychometric work was available but
+    absent from the target's references.
+
+[x] Missing decisive test
+    No balanced-keying, item-level longitudinal invariance, convergent emotional
+    measure, or controlled counterfactual test was run; this overlaps with the
+    proxy finding rather than adding an independent lever.
+
+[ ] Intervention ratchet
+
+[ ] Institutional measurement gap
+
+[x] Definition-operationalization mismatch
+    Subtype: definitional scope creep. Five of the six emotional-subscale items
+    extend beyond the source's attachment/intimacy definition.
+
+[ ] Operationalization pathologizes an accurate or nuanced version of the construct
+    P2 grade: N/A; strength gate VOID.
+
+[ ] Construct-establishment gap
+    No normative/causal construct claim in Field 6; section not triggered.
+
+[ ] Motive claim unsupported
+
+Verification flags
+
+[ ] Load-bearing evidence remains PROVISIONAL
+[ ] Full source required
+[ ] Reception check required
+
+The exact target questionnaire and item-level data would improve the audit, but
+the load-bearing item content and Spanish scale-structure evidence are
+FULL-TEXT-CONFIRMED rather than provisional.
+
+
+17. CONCISE SUMMARY
+-------------------
+
+- Claim under audit status: USEFUL-FOR-NARROWER.
+- DEFEATS finding(s), if any: none.
+- Surviving residual: Among observed participants, the sex-adjusted estimated
+  mean count on the six negatively keyed DJGLS items labeled emotional was 0.84
+  points lower at T2 than at T1 (2.62 versus 1.78; p<0.01).
+- Residual usefulness grade: C.
+- Strongest defensible claim: the exact surviving residual above.
+- Claim being overextended: that the 0.84-point negative-item score difference
+  uniquely quantifies a decrease in attachment/intimacy-defined emotional
+  loneliness.
+- Definition-operationalization mismatch: broader; subtype definitional scope
+  creep.
+- Construct-establishment gap: none for Field 6; PREVALENCE, FORM, and DOMAIN
+  were ESTABLISHED-REPORTED in the map for the selected sample, WRONGNESS was
+  inapplicable, and HARM was UNKNOWN but non-load-bearing.
+- Grade-before-assert outcome: no specific belief subclaim; P2 VOID.
+- Main proxy problem: emotional-subscale content is perfectly aligned with
+  negative wording, so the instrument cannot uniquely identify which component
+  changed.
+- Main level-of-analysis problem: none for the pilot-sample Field 6 claim;
+  population/intervention-class extrapolations require untested bridges.
+- Main omitted confound: negative-wording method variance; attrition and
+  repeated self-report/expectancy are secondary.
+- Decisive test: an attention-controlled RCT with balanced-keyed emotional
+  items, longitudinal invariance, convergent measurement, independent
+  assessment, and follow-up.
+- Citation-use verdict: mixed; one accurate synthesis, one mildly broad author
+  post, and two CROSS-SOURCE-CONFIRMED citation-laundering uses.
+- Load-bearing finding(s): the broader item content plus content/keying confound
+  as one construct mechanism.
+- Concede-test result: MATERIAL NARROWING; no DEFEATS.
+- Failure location: PAPER for the load-bearing construct move; CITATION for
+  downstream-only inflation; overall MIXED.
+- Overall verdict: the 0.84-point result is usable as a negative-item subscore
+  difference, not as uniquely identified emotional attachment/intimacy change.
+- Confidence level: Moderate.
+- What would change this assessment: the exact administered questionnaire,
+  item-level T1/T2 data demonstrating longitudinal invariance and emotional-
+  specific variance independent of keying, convergence with a balanced measure,
+  or evidence that the score change does not survive an appropriate control.
+
+
+FINAL SECTION: STANDARDIZED FINDING TABLE
+=========================================
+
+Finding 1
+---------
+
+| Field | Entry |
+|---|---|
+| Finding | The six-item DJGLS subscore does not uniquely operationalize the paper's attachment/intimacy definition because five items are broader and all six "emotional" items are exactly the negatively keyed items. |
+| Target claim | Following BLOC, emotional loneliness decreased by 0.84 points on a 0-6 scale (sex-adjusted estimated means 2.62 at T1 and 1.78 at T2; p<0.01). |
+| What was measured | T1/T2 sex-adjusted estimated mean of a six-item, negative-keyed DJGLS sum. |
+| What was claimed | A 0.84-point decrease in emotional loneliness. |
+| Failure mode | Definition-operationalization mismatch |
+| Failure-mode subtype | definitional scope creep; the same mechanism also creates a proxy problem through content/keying confounding |
+| Severity | major |
+| Concede test | NARROWS |
+| Scope loss if NARROWS | material; surviving claim: the six negatively keyed DJGLS items labeled emotional had a sex-adjusted estimated mean 0.84 lower at T2 than T1 in the observed pilot |
+| Construct property | N/A |
+| Construct-property status | N/A |
+| ESTABLISHED-CITED prosecutor split | N/A |
+| Operationalization retrieval basis | ITEMS-RETRIEVED |
+| Operationalization scope result | broader |
+| P2 belief grade | N/A |
+| P2 strength gate | N/A |
+| Evidence | Target Introduction definition, Instruments, and Table 2; De Jong-Gierveld & Kamphuls (1985); Tomás et al. (2017), Table 5 and competitive CFA/IRT results |
+| Evidence type | primary study |
+| Verification state | FULL-TEXT-CONFIRMED |
+| Possible innocent explanation | The scale developers intended the negative items to capture emotional loneliness, the two-facet model fits adequately, and the observed temporal change may genuinely be emotional even though the present item design cannot distinguish that interpretation from method variance. |
+| What would weaken this | Target item-level longitudinal analysis showing invariance and a specific emotional factor independent of keying, plus convergent change on a balanced-keyed attachment/intimacy measure. |
+| Failure location | PAPER |
+| Finding disposition | CONFIRMED |
+
+Finding 2
+---------
+
+| Field | Entry |
+|---|---|
+| Finding | The paper does not test whether the emotional subscore has invariant meaning across T1 and T2 or whether change is confined to negative-keyed items. |
+| Target claim | Following BLOC, emotional loneliness decreased by 0.84 points on a 0-6 scale (sex-adjusted estimated means 2.62 at T1 and 1.78 at T2; p<0.01). |
+| What was measured | Two summed-score interviews and a mixed-model time contrast. |
+| What was claimed | Change in emotional loneliness across time. |
+| Failure mode | Missing decisive test |
+| Failure-mode subtype | longitudinal construct invariance / balanced-keying test absent |
+| Severity | moderate |
+| Concede test | NARROWS |
+| Scope loss if NARROWS | material, overlapping Finding 1; surviving claim: the instrument-defined negative-item score differed across occasions |
+| Construct property | N/A |
+| Construct-property status | N/A |
+| ESTABLISHED-CITED prosecutor split | N/A |
+| Operationalization retrieval basis | ITEMS-RETRIEVED |
+| Operationalization scope result | broader |
+| P2 belief grade | N/A |
+| P2 strength gate | N/A |
+| Evidence | Target Instruments, Data analysis, Table 2, and supplements contain no item-level longitudinal model; Tomás et al. (2017) establishes the content/keying identification problem in the Spanish form |
+| Evidence type | primary study |
+| Verification state | FULL-TEXT-CONFIRMED |
+| Possible innocent explanation | An eight-week pilot with N=27 was designed for feasibility rather than adequately powered item-level latent modeling, and the standard subscore may be practically stable enough for exploratory use. |
+| What would weaken this | Prespecified item-level invariance results, balanced-keying data, or replicated convergence showing that only emotional-specific content—not general negative responding—changes. |
+| Failure location | PAPER |
+| Finding disposition | CONFIRMED |
+
+Finding 3
+---------
+
+| Field | Entry |
+|---|---|
+| Finding | Attrition and repeated, non-blinded research-team telephone self-report leave plausible selection and response-process explanations for the observed temporal score difference. |
+| Target claim | Following BLOC, emotional loneliness decreased by 0.84 points on a 0-6 scale (sex-adjusted estimated means 2.62 at T1 and 1.78 at T2; p<0.01). |
+| What was measured | Baseline N=27 and post N=21 telephone questionnaire responses; sex-adjusted mixed-model estimated means. |
+| What was claimed | A temporal decrease in emotional loneliness following the program. |
+| Failure mode | Omitted confound |
+| Failure-mode subtype | attrition / expectancy / repeated self-report / interviewer effects |
+| Severity | moderate |
+| Concede test | SURVIVES |
+| Scope loss if NARROWS | N/A |
+| Construct property | N/A |
+| Construct-property status | N/A |
+| ESTABLISHED-CITED prosecutor split | N/A |
+| Operationalization retrieval basis | N/A |
+| Operationalization scope result | N/A |
+| P2 belief grade | N/A |
+| P2 strength gate | N/A |
+| Evidence | Target Methods, Results, and Limitations: 22% dropout, differential dropout by sex, research-team telephone administration, self-report-bias acknowledgment |
+| Evidence type | primary study |
+| Verification state | FULL-TEXT-CONFIRMED |
+| Possible innocent explanation | Sex adjustment and mixed-effects maximum likelihood may reduce bias if missingness assumptions are approximately satisfied, and brief standardized interviews can reduce recall problems. |
+| What would weaken this | Comparable results under missing-not-at-random sensitivity analyses, blinded/independent assessment, expectancy measures, and high-retention replication. |
+| Failure location | PAPER |
+| Finding disposition | CONFIRMED |
+
+Finding 4
+---------
+
+| Field | Entry |
+|---|---|
+| Finding | The target omits directly relevant Spanish older-adult DJGLS literature that exposes the emotional-content/negative-keying ambiguity. |
+| Target claim | Following BLOC, emotional loneliness decreased by 0.84 points on a 0-6 scale (sex-adjusted estimated means 2.62 at T1 and 1.78 at T2; p<0.01). |
+| What was measured | Spanish-setting older-adult responses to a named 11-item DJGLS form. |
+| What was claimed | Facet-specific emotional-loneliness change. |
+| Failure mode | Ignored adjacent literature |
+| Failure-mode subtype | directly population- and instrument-relevant psychometrics omitted |
+| Severity | moderate |
+| Concede test | SURVIVES |
+| Scope loss if NARROWS | N/A |
+| Construct property | N/A |
+| Construct-property status | N/A |
+| ESTABLISHED-CITED prosecutor split | N/A |
+| Operationalization retrieval basis | ITEMS-RETRIEVED |
+| Operationalization scope result | broader |
+| P2 belief grade | N/A |
+| P2 strength gate | N/A |
+| Evidence | Target references cite the 1985 development and 2010 short-form paper but not Buz & Perez-Arechaederra (2014), Buz et al. (2014), or Tomás et al. (2017); those records were retrieved |
+| Evidence type | methodological critique |
+| Verification state | FULL-TEXT-CONFIRMED for target and Tomás et al.; ABSTRACT-CONFIRMED for Buz & Perez-Arechaederra |
+| Possible innocent explanation | The paper was a small intervention-feasibility report, not a scale-validation study, and space or scope may have led authors to cite only the scale's canonical sources. |
+| What would weaken this | Evidence that the exact administered version has independent facet-validity and longitudinal-invariance support that resolves the cited Spanish concern. |
+| Failure location | PAPER |
+| Finding disposition | CONFIRMED |
+
+Finding 5
+---------
+
+| Field | Entry |
+|---|---|
+| Finding | Two retrieved downstream texts assign the target general-loneliness/protective-support or platform/community/social-connectedness claims that its design and results do not support. |
+| Target claim | Following BLOC, emotional loneliness decreased by 0.84 points on a 0-6 scale (sex-adjusted estimated means 2.62 at T1 and 1.78 at T2; p<0.01). |
+| What was measured | A facilitator-led Zoom pilot with significant emotional-subscore and PHQ-8 differences but non-significant total loneliness, social loneliness, and social support differences. |
+| What was claimed | Significant loneliness generally plus protective digital social support; and efficacy of social-network platforms/online communities for social connectedness and marginalized groups. |
+| Failure mode | Citation laundering |
+| Failure-mode subtype | single-source misattribution / construct, intervention, and population expansion |
+| Severity | moderate |
+| Concede test | SURVIVES |
+| Scope loss if NARROWS | N/A; downstream misuse does not alter the source-level target claim |
+| Construct property | N/A |
+| Construct-property status | N/A |
+| ESTABLISHED-CITED prosecutor split | N/A |
+| Operationalization retrieval basis | N/A |
+| Operationalization scope result | N/A |
+| P2 belief grade | N/A |
+| P2 strength gate | N/A |
+| Evidence | Swedish nursing thesis p. 19; "Mental Health Impacts of AI Companions" section 2.2; target Table 2, Methods, and Limitations |
+| Evidence type | secondary synthesis |
+| Verification state | FULL-TEXT-CONFIRMED; CROSS-SOURCE-CONFIRMED |
+| Possible innocent explanation | The downstream authors may use "loneliness" as shorthand for the significant emotional subscale and may view the facilitated Zoom group as one example within a broad family of online community tools. |
+| What would weaken this | A different cited source in the same downstream documents that clearly supplies each broader claim, or target data showing significant total/social loneliness, social support, platform/community effects, and marginalized-group results. |
+| Failure location | CITATION |
+| Finding disposition | CONFIRMED |
+
+
+SOURCE REGISTER
+---------------
+
+S1. Target paper and supporting information:
+    https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0311883
+
+S2. De Jong-Gierveld, J., & Kamphuls, F. (1985). "The Development of a
+    Rasch-Type Loneliness Scale." Applied Psychological Measurement, 9(3),
+    289-299. https://doi.org/10.1177/014662168500900307
+
+S3. De Jong Gierveld, J., & van Tilburg, T. (2010). "The De Jong Gierveld
+    short scales for emotional and social loneliness: tested on data from 7
+    countries." European Journal of Ageing, 7, 121-130.
+    https://pmc.ncbi.nlm.nih.gov/articles/PMC2921057/
+
+S4. Buz, J., & Perez-Arechaederra, D. (2014). "Psychometric properties and
+    measurement invariance of the Spanish version of the 11-item De Jong
+    Gierveld Loneliness Scale." International Psychogeriatrics, 26, 1553-1564.
+    https://pubmed.ncbi.nlm.nih.gov/24735718/
+
+S5. Tomás, J. M., Pinazo-Hernandis, S., Donio-Bellegarde, M., & Hontangas,
+    P. M. (2017). "Validity of the de Jong Gierveld Loneliness Scale in Spanish
+    older population: competitive structural models and item response theory."
+    European Journal of Ageing, 14, 429-437.
+    https://pmc.ncbi.nlm.nih.gov/articles/PMC5684035/
+
+S6. Alsubheen, S. A., Oliveira, A., Habash, R., Goldstein, R., & Brooks, D.
+    "Measurement Properties and Cross-Cultural Adaptation of the De Jong
+    Gierveld Loneliness Scale in Adults: A Systematic Review."
+    https://doi.org/10.1027/1015-5759/a000784
+    Verification used here: ABSTRACT-CONFIRMED.
+
+S7. Buchta et al. (2026), Czech DJGLS validation and content/keying discussion:
+    https://www.nature.com/articles/s41599-026-06544-1
+
+S8. McCarthy et al. (2025), accurate online/virtual-method citation context:
+    https://hrbopenresearch.org/articles/8-51
+
+S9. Swedish nursing thesis, inflated citation context, p. 19:
+    https://www.diva-portal.org/smash/get/diva2%3A1978589/FULLTEXT01.pdf
+
+S10. "Mental Health Impacts of AI Companions," misattributed citation context,
+     section 2.2:
+     https://arxiv.org/html/2509.22505v2
+
+S11. First-author article post:
+     https://www.linkedin.com/posts/aina-gabarrell-pascuet-11254515a_reducing-loneliness-and-depressive-symptoms-activity-7275080868434497536-GVWS
