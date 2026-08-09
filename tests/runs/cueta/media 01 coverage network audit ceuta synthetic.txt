@@ -1,0 +1,1585 @@
+COVERAGE NETWORK & SOURCE-CHAIN AUDIT — MEDIA BRANCH
+Run against: CEUTA COVERAGE PACKET (8 pieces) — SYNTHETIC TEST FIXTURE, CLOSED
+Prompt: prompts/media-analysis/2-coverage-network.txt (Provenance, main)
+Run date: 2026-08-09
+Mode: closed fixture. No retrieval. No supplementation from prior knowledge.
+Primary source material: NONE.
+
+=================================================================
+FIXTURE NOTICE — READ BEFORE ANY FINDING
+=================================================================
+
+The eight items are ORIGINAL SYNTHETIC PIECES written to reproduce the STRUCTURE
+of real coverage. Quotes are stated by the fixture to be illustrative
+reconstructions. Two consequences bind this entire audit:
+
+1. NOTHING HERE IS A FINDING ABOUT REUTERS, THE ASSOCIATED PRESS, AL JAZEERA,
+   THE BBC, FRANCE 24, NPR, CBC, OR THE NEW YORK TIMES. Every finding below is
+   a finding about a constructed artifact bearing those mastheads. The fixture's
+   own instruction to relabel Outlet A–H before publication should be followed,
+   and this audit should not be circulated with the real mastheads attached.
+
+2. THE STRONGEST SOURCE-CHAIN TEST IS STRUCTURALLY UNAVAILABLE. Section B item 5
+   (identical or near-identical phrasing quoted side by side) is the highest-value
+   evidence this branch produces, and it cannot be run: the fixture paraphrases
+   rather than reproduces wire wording. Section B5 returns NOT TESTABLE, not
+   NEGATIVE. A live run would have that evidence; this one does not.
+
+WHAT THIS AUDIT CANNOT DO — RESTATED AS REQUIRED:
+It maps how a story propagated and where framings differ. It does NOT establish
+which framing is correct. Distribution across outlets is a distribution, not a
+verdict. Majority coverage is not evidence of accuracy — least of all here, where
+the quantitative core traces to one upstream origin. Adjudicating the underlying
+facts requires primary material, which is downstream of this audit and human.
+
+
+=================================================================
+INPUTS
+=================================================================
+
+EVENT UNDER AUDIT:
+A mass crossing from Morocco into the Spanish enclave of Ceuta on 29–31 July
+2026, prompting a Spanish military deployment, with disputed death tolls, disputed
+crossing totals, and disputed causation.
+
+PIECES COMPARED: 8 (fixture items [1]–[8]).
+
+PRIMARY SOURCE MATERIAL: NONE.
+  WRITTEN form obtained: NO.
+  SPOKEN form / briefing transcript obtained: NO.
+  This bounds Section B substantially and makes D8 item 3 unanswerable. See the
+  D8 CAUSE-UNDETERMINABLE note, which is the single most consequential limit on
+  this run.
+
+SELECTION METHOD — REQUIRED:
+Not selected by the auditor. Fixed, operator-supplied, closed packet; retrieval
+prohibited by the wrapper. Two compounding facts:
+  (a) The auditor performed no sampling and cannot verify representativeness.
+  (b) The fixture header states the packet was constructed to reproduce the
+      structure of coverage that PRIOR MODEL RUNS assembled. The sample therefore
+      inherits the selection behaviour of those runs, whatever it was, and that
+      behaviour is not visible from inside the fixture.
+Every distributional finding below is PROVISIONAL. See Section G.
+
+PRIOR ON THIS TOPIC: none supplied by the operator. See Section E2 — the prior
+source is declared MODEL-GENERATED, not NONE, and the check is run.
+
+
+=================================================================
+SECTION A — COVERAGE INVENTORY
+=================================================================
+
+| # | Outlet | Headline (short) | Pub date/time as given | Normalised (UTC, inferred) | Last updated | Correction note? | Headline changed? | Social/homepage variant | Byline | Wire attribution | Word count | Lead image subject |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | Reuters | "Migrants pour into Spain's Ceuta ... as Madrid sends in the military" | Wed 30 Jul 08:18 EDT | 30 Jul 12:18 | ~23h later (~31 Jul 11:18 UTC) | UNKNOWN | UNKNOWN | UNKNOWN | Reuters staff | Reuters (own) | ~150 (fixture) | UNKNOWN |
+| 2 | AP | "Spain deploys military to Ceuta after thousands breach Morocco's border; at least 9 dead" | Wed 30 Jul 20:48 MDT | 31 Jul 02:48 | none stated | UNKNOWN | UNKNOWN | UNKNOWN | Brito & Sempere | AP (own) | ~145 (fixture) | UNKNOWN |
+| 3 | Al Jazeera | "At least 18 die as thousands cross from Morocco into Ceuta" | 30 Jul (no time) | UNKNOWN | 31 Jul (no time) | UNKNOWN | UNKNOWN | UNKNOWN | AJ staff | AP + Reuters + EFE | ~90 (fixture) | UNKNOWN |
+| 4 | BBC | "Spain sends troops as thousands enter Ceuta from Morocco" | 31 Jul (no time) | UNKNOWN | none stated | UNKNOWN | UNKNOWN | UNKNOWN | Santos & Rainsford | mentions Reuters | ~120 (fixture) | UNKNOWN |
+| 5 | France 24 | "Around 60,000 cross into Spain's Ceuta as Trump blames Madrid" | 31 Jul 09:57 (CEST assumed) | 31 Jul 07:57 | modified 15:23 (→13:23 UTC) | UNKNOWN | UNKNOWN | UNKNOWN | F24 with AFP | AFP + AP + Reuters | ~130 (fixture) | UNKNOWN |
+| 6 | NPR | "18 die after a border breach between Morocco and Spain's Ceuta" | "Updated" 31 Jul 05:57 ET | 31 Jul 09:57 | update stamp only; ORIGINAL PUB TIME UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | none (AP material) | AP | ~105 (fixture) | UNKNOWN |
+| 7 | CBC | "What is Ceuta, and how was the Spanish enclave breached by 60,000 migrants?" | Posted 31 Jul 19:29 (ET assumed) | 31 Jul 23:29 | none stated | UNKNOWN | UNKNOWN | UNKNOWN | CBC staff | AFP + Reuters + AP | ~95 (fixture) | UNKNOWN |
+| 8 | NYT | "After tens of thousands enter Spanish territory, most return to Morocco" | 31 Jul (no time) | UNKNOWN — content anchored to "Friday evening" (31 Jul), so substantively latest | none stated | UNKNOWN | UNKNOWN | UNKNOWN | NYT staff | none (AP/Reuters/AFP photos) | ~125 (fixture) | photos credited AP/Reuters/AFP; subject UNKNOWN |
+
+VERSION NOTE — APPLIED, NOT SKIPPED. No archive captures are available in a
+closed fixture. Correction notes, headline revisions, and social/homepage headline
+variants are UNKNOWN for all eight pieces and are recorded as UNKNOWN rather than
+assumed absent. Word counts are FIXTURE-TEXT counts and are NOT article lengths;
+original article lengths are UNKNOWN. This blocks the length/format explanation in
+Section E4 from being tested properly — recorded there as an untested variable.
+
+TIMESTAMP INTEGRITY — A FINDING IN ITSELF.
+Three of eight pieces ([3], [4], [8]) carry a date with no time. Two ([2], [5],
+[7]) carry local times whose zone must be inferred. One ([6]) carries only an
+UPDATE stamp, so its original publication time is unknown. One ([1]) carries an
+update interval ("~23h later") rather than an update timestamp. The publication
+sequence below is therefore a RECONSTRUCTION, not a record, and every availability
+judgment in Section C inherits that uncertainty.
+
+1. PUBLICATION SEQUENCE (best reconstruction, UTC):
+   [1] Reuters ......... 30 Jul 12:18 — FIRST, unambiguously
+   [2] AP .............. 31 Jul 02:48
+   [5] France 24 ....... 31 Jul 07:57 (modified 13:23)
+   [6] NPR ............. 31 Jul 09:57 (update stamp; original may precede)
+   [7] CBC ............. 31 Jul 23:29
+   [3] Al Jazeera ...... UNPLACED — published 30 Jul, updated 31 Jul; original
+                          could precede [2]
+   [4] BBC ............. UNPLACED — 31 Jul, time unknown
+   [8] NYT ............. UNPLACED by timestamp, but LATEST substantively: it
+                          reports the state of play "by Friday evening"
+   Pieces that could have drawn on earlier ones: all of [2]–[8] could have drawn
+   on [1]; [3]–[8] could have drawn on [1] and [2].
+
+2. WIRE CREDIT vs ORIGINAL REPORTING:
+   Original wire reporting ....... [1] Reuters, [2] AP
+   Original non-wire reporting ... [8] NYT (own interview + own EU source)
+   Partial original .............. [4] BBC (one resident account, no wire credit
+                                   attached to it), credits Reuters for estimates
+   Declared single-wire derivative [6] NPR (states it is AP-based)
+   Multi-wire synthesis .......... [3] AJ (AP+Reuters+EFE), [5] F24 (AFP+AP+
+                                   Reuters), [7] CBC (AFP+Reuters+AP)
+
+3. BRIEF vs FULL REPORT:
+   Cannot be assessed. Fixture texts are uniformly condensed; original lengths are
+   UNKNOWN. [3], [6] and [7] read as the most compressed and [7] is explicitly an
+   explainer ("What is Ceuta..."), a different genre with different obligations.
+   Per the Section H severity cap, any finding that turns out to be explained by a
+   brief-vs-full-report difference must be cut — and this run CANNOT VERIFY that
+   it isn't. Recorded as a standing limit on Sections C, D8 and E.
+
+
+=================================================================
+SECTION B — SOURCE CHAIN
+=================================================================
+
+| # | Outlet | Named sources | Primary docs cited | Original reporting? | Traces to |
+|---|---|---|---|---|---|
+| 1 | Reuters | TVE (figure 2–3k); Juan Jesús Vivas; "Spanish authorities" (9 bodies); Guardia Civil spokesperson; Jadid Zacaria (migrant, direct); Omar Naji (Moroccan rights group, unnamed group); Feijóo, Tajani (X posts) | none | YES — direct interview, on-scene | Spanish officialdom + own field team + TVE + Moroccan civil society |
+| 2 | AP | Spanish Interior Ministry; Rachid Sbihi (local civil-guard association); Achraf Maimouni (migrant, direct); Vivas; Grande-Marlaska (Interior Minister); Omar Naji; AP journalists at Tarajal (direct observation) | Spanish Supreme Court ruling on sea returns REFERENCED, not cited or quoted | YES — direct observation + interview | Spanish officialdom + own field team + Moroccan civil society |
+| 3 | Al Jazeera | "Spanish officials" (18 dead); Vivas; Interior Ministry | none | NO — declared synthesis | AP + Reuters + EFE → Spanish officialdom |
+| 4 | BBC | Carmen González (resident, direct?); Interior Ministry; Reuters (for estimates); Tajani, Meloni (X); Vivas | none | PARTIAL — González has no wire credit attached | Reuters + Spanish officialdom + own resident source |
+| 5 | France 24 | Vivas (60,000); Interior Ministry (qualification); Trump; Weidel; Meloni; Nuñez; Sánchez; "34 dead" UNATTRIBUTED | none | NO — declared synthesis | AFP + AP + Reuters → Spanish officialdom + political reaction |
+| 6 | NPR | "Spanish authorities" (18 dead); Rachid Sbihi (AFFILIATION STRIPPED); Ahmed Karim (migrant); Interior Ministry; Omar Naji; Vivas | Supreme Court ruling REFERENCED | NO — declared AP-based | AP → Spanish officialdom. BUT SEE ANOMALY B-A1 |
+| 7 | CBC | Vivas (60,000); Abdelhakim and Brahim (migrants, first names only); "Spanish authorities" (returns) | none | UNRESOLVED — migrant accounts have no traceable origin | AFP + Reuters + AP → Spanish officialdom |
+| 8 | NYT | Interior Ministry (48,300 of ~50,000); Vivas; Youssef Alaoui (own interview); anonymous EU official; "57 dead" UNATTRIBUTED | none | YES — own interview + own institutional source | Spanish officialdom + own field reporting + EU institution |
+
+ANOMALY B-A1 — RECORD, DO NOT RESOLVE.
+NPR [6] declares itself based on AP reporting, yet carries a named migrant (Ahmed
+Karim) and the detail that his group "had been told the border was open" — neither
+present in the AP piece [2] in this packet. Simultaneously it STRIPS an affiliation
+AP supplied: Rachid Sbihi is "of a local civil-guard association" in [2] and has no
+affiliation at all in [6]. Within the closed fixture, the Karim material has no
+traceable origin. Most likely innocent explanation: AP files multiple versions and
+NPR used a longer or later take not in the packet. That explanation cannot be
+tested here. Status: CHAIN-PROVISIONAL for that specific material.
+
+COUNTING UNIT — STATED BEFORE ANY NUMBER.
+
+LEVEL 1 — REPORTING ORGANIZATIONS (produced original reporting: sent a journalist,
+interviewed, obtained a document, or observed directly):
+  COUNTED (4): Reuters [1], AP [2], BBC [4] (inferred from the unattributed
+    resident account), NYT [8].
+  NOT COUNTED — declared or evident synthesis/republication (3): Al Jazeera [3],
+    France 24 [5], NPR [6].
+  UNRESOLVED (1): CBC [7] — two migrant accounts appear with no attribution and
+    three wire credits; cannot determine whether CBC or a credited wire collected
+    them. NOT counted, flagged.
+  PRESENT BUT UNSAMPLED (2): AFP and EFE produced reporting that enters this
+    network through credit lines in [3], [5] and [7], but neither has a piece in
+    the packet. Their original reporting is INFERRED FROM CREDIT ALONE and cannot
+    be verified. Reported separately, not folded into the 4.
+
+  LEVEL 1 = 4 organizations with pieces in this sample, +2 credited-but-unsampled
+  (AFP, EFE), +1 unresolved (CBC).
+
+LEVEL 2 — UPSTREAM INFORMATION ORIGINS.
+Counting decision stated: the prompt's rule ("official statements from one
+government count as ONE origin regardless of how many ministries spoke") is applied
+STRICTLY, which folds Ceuta's regional presidency (Vivas) into Spanish state
+officialdom. An alternate count separating them is given because their figures
+materially conflict (see F4).
+
+  EVENT-FACT ORIGINS (11):
+   1. Spanish state officialdom — Interior Ministry, Grande-Marlaska, Sánchez,
+      "Spanish authorities", Guardia Civil spokesperson, AND Vivas (Ceuta
+      presidency, folded per rule)
+   2. Reuters field team (Zacaria interview, border observation)
+   3. AP field team (Tarajal observation, Maimouni interview)
+   4. AFP material — INFERRED from credit, unverifiable in fixture
+   5. EFE material — INFERRED from credit, unverifiable in fixture
+   6. TVE (broadcaster estimate, 2,000–3,000)
+   7. Omar Naji / unnamed Moroccan rights group
+   8. Rachid Sbihi / local civil-guard association
+   9. NYT field reporting (Alaoui interview)
+  10. EU institution (anonymous official, via NYT)
+  11. BBC resident source (González) — origin status CHAIN-INFERRED
+      [UNRESOLVED, not counted: the Karim material in [6]; the Abdelhakim/Brahim
+       material in [7]]
+
+  REACTION ORIGINS (6, contributing zero factual material about the event):
+   Trump, Meloni, Tajani, Weidel, Nuñez, Feijóo — self-published X statements.
+   Held separately so they cannot inflate the corroboration denominator.
+
+  ALTERNATE COUNT: 12 event-fact origins if the Ceuta presidency is separated from
+  the central government.
+
+REQUIRED STATEMENT:
+"This coverage represents 4 organizations producing original reporting and
+approximately 11 upstream information origins, across 8 published pieces."
+(Plus 2 credited-but-unsampled reporting organizations, 1 unresolved, and 6
+reaction-only origins held outside the count.)
+
+AMPLIFICATION RATIO (Level 2): 8 ÷ 11 = 0.73.
+  Including reaction origins: 8 ÷ 17 = 0.47.
+
+THE RATIO ABOVE IS MISLEADING ON ITS OWN AND MUST NOT BE REPORTED ALONE.
+A ratio below 1 suggests healthy origin diversity. It is an artifact of counting
+single-quote colour sources alongside the sources that carry the contested
+material. The load-bearing sub-ratio:
+
+  ALL QUANTITATIVE CLAIMS (every death toll, every crossing total, every return
+  figure): 8 ÷ 1 — Spanish officialdom.
+  Including TVE's early estimate as the sole non-official figure: 8 ÷ 2.
+
+Not one of the eight pieces contains a count from any source outside Spanish
+officialdom other than TVE's early-morning estimate. No hospital, NGO, Moroccan
+authority, UN body, or independent tally appears anywhere in the packet.
+
+ANSWERS TO B ITEMS 1–5:
+
+1. ORIGINAL REPORTING (a source or document not present in the others):
+   [1] TVE figure, Zacaria, Guardia Civil spokesperson, Feijóo — 4 unique
+   [2] Grande-Marlaska + the Supreme Court ruling attribution, Maimouni, Sbihi
+       (with affiliation), Tarajal observation — 4 unique
+   [4] Carmen González — 1 unique
+   [5] Trump, Weidel, Nuñez, Sánchez, the 60,000 figure's first appearance, the
+       ministry's qualification of it, "34 dead" — 7 unique but 5 of 7 are
+       political reaction
+   [6] Ahmed Karim + "told the border was open" — 1 unique, origin unresolved
+   [7] Abdelhakim, Brahim — 2 unique, origin unresolved
+   [8] Youssef Alaoui + the Moroccan-police account, the anonymous EU official,
+       48,300/50,000, "57 dead" — 4 unique
+   [3] ZERO unique material.
+
+2. SUBSTANTIALLY DERIVED FROM A SINGLE UPSTREAM SOURCE:
+   [6] NPR — explicitly, wholly (subject to anomaly B-A1)
+   [3] Al Jazeera — wholly derivative though from three credits; contains no
+       material absent from [1] and [2]
+   [7] CBC — derivative apart from two unresolved migrant accounts
+   [5] France 24 — derivative for all event facts; its unique content is reaction
+
+3. INDEPENDENCE COUNTS: Level 1 = 4 (+2 unsampled, +1 unresolved).
+   Level 2 = 11 event-fact origins (alternate 12), 6 reaction origins held
+   separately. NOT COLLAPSED INTO ONE NUMBER.
+
+4. INTERNAL EDGES — media equivalent of a citation cluster:
+   [4] BBC → Reuters, explicitly, for the crossing estimate. This is a direct
+       edge to piece [1] IN THIS SAMPLE.
+   [6] NPR → AP, explicitly and wholly. Direct edge to [2] in this sample.
+   [3] AJ → AP + Reuters + EFE. Two of three edges land inside this sample.
+   [5] F24 → AFP + AP + Reuters. Two of three edges land inside this sample.
+   [7] CBC → AFP + Reuters + AP. Two of three edges land inside this sample.
+   NO piece cites another OUTLET's piece (as opposed to a wire). All edges run to
+   wires. Five of eight pieces have at least one inbound edge from a piece
+   physically present in this sample — an unusually dense internal cluster.
+   Effective independent-piece count for event facts: 3 ([1], [2], [8]), plus [4]
+   partially.
+
+5. IDENTICAL OR NEAR-IDENTICAL PHRASING QUOTED SIDE BY SIDE:
+   NOT TESTABLE. The fixture paraphrases rather than reproduces wire wording, so
+   the verbatim-overlap test — the strongest evidence this section produces — is
+   structurally unavailable. This is a fixture limitation, NOT a negative result.
+   Do not read the absence of shared wording here as evidence of independence.
+
+CONSEQUENCE, STATED EXPLICITLY AS REQUIRED:
+Level 2 for the quantitative core is 1. Apparent corroboration across eight
+outlets for every figure in this story is AMPLIFICATION OF ONE UPSTREAM ORIGIN,
+NOT CONFIRMATION. "Eight outlets reported 60,000 / 18 dead / 57 dead" is one
+account repeated eight times.
+
+SOURCE-CHAIN STATUS PER PIECE:
+  [1] Reuters ...... CHAIN-CONFIRMED for its own field material (it is the origin);
+                     CHAIN-INFERRED for the TVE and official material
+  [2] AP ........... CHAIN-CONFIRMED for its own field material; CHAIN-INFERRED
+                     for official material (no release or transcript obtained)
+  [3] Al Jazeera ... CHAIN-INFERRED (fact-level comparison against [1] and [2] was
+                     possible; wording-level comparison was not)
+  [4] BBC .......... CHAIN-INFERRED for the Reuters-credited material;
+                     CHAIN-PROVISIONAL for González
+  [5] France 24 .... CHAIN-INFERRED for AP/Reuters-traceable facts;
+                     CHAIN-PROVISIONAL for AFP-only material and for "34 dead"
+  [6] NPR .......... CHAIN-INFERRED overall (declared + fact-level match);
+                     CHAIN-PROVISIONAL for the Karim material (anomaly B-A1)
+  [7] CBC .......... CHAIN-INFERRED; CHAIN-PROVISIONAL for the migrant accounts
+  [8] NYT .......... CHAIN-CONFIRMED for its own interview material; the ministry
+                     figures are CHAIN-INFERRED
+  NO PIECE reaches CHAIN-CONFIRMED against a primary document, because no primary
+  document was obtained in either form.
+
+SEVERITY CAP TRIGGERED: chain is CHAIN-INFERRED at best for all cross-outlet
+dependence → NO FINDING IN THIS AUDIT MAY BE RATED SEVERE.
+
+VERIFICATION STATE OF EVIDENCE USED (media subset):
+  Fixture texts of [1]–[8] ......... FULL-TEXT-CONFIRMED (as fixture texts)
+  Real article texts ............... NOT LOCATED (retrieval prohibited)
+  Spanish Interior Ministry release  NOT LOCATED
+  Grande-Marlaska remarks .......... NOT LOCATED
+  Vivas statement .................. NOT LOCATED
+  Supreme Court sea-returns ruling . NOT LOCATED
+  Moroccan government response ..... NOT LOCATED (may not exist)
+  TVE broadcast .................... NOT LOCATED
+  AFP / EFE wire copy .............. NOT LOCATED
+  Shared factual core .............. CROSS-OUTLET-CORROBORATED — BUT the Level 2
+    upstream-origin count for the quantitative core is 1, so per the mandatory
+    rule this label is downgraded to PROVISIONAL for all figures. The label is
+    retained only for the bare occurrence fact (a mass crossing happened), which
+    also rests on direct field observation by two independent wire teams.
+  RECEPTION-CONFIRMED: NOT USED. Correct — this branch does not use it.
+
+
+=================================================================
+SECTION C — SHARED FACTUAL CORE vs UNIQUE MATERIAL
+=================================================================
+
+1. SHARED CORE.
+   Reported by 8 of 8:
+     (a) A mass crossing from Morocco into Ceuta occurred on/around 30 July 2026.
+     (b) Ceuta president Juan Jesús Vivas characterised reception capacity as
+         overwhelmed / declared an emergency.
+   THAT IS THE ENTIRE 8-of-8 CORE. Two items, one of which is an official's
+   characterisation rather than a fact.
+
+   Reported by 6 of 8:
+     (c) People died ([1] 9, [2] 9, [3] 18, [5] 34, [6] 18, [8] 57). Absent from
+         [4] and [7] entirely.
+     (d) Spanish officials attribute causation to trafficking / smuggling /
+         criminal networks ([2][3][4][5][6], and [8] reporting it as "Madrid's
+         emphasis"). Absent from [1] and [7].
+
+   Reported by 4 of 8:
+     (e) Spain deployed military units / troops ([1][2][3][4] only). ABSENT from
+         all four of the later pieces [5][6][7][8].
+
+   MANDATORY CAVEAT: the Level 2 upstream-origin count for every figure in the
+   core is 1. The "shared core" for anything quantitative is the shared origin's
+   account, not independent corroboration. Only item (a) is supported by
+   independent direct observation (Reuters field team AND AP journalists at
+   Tarajal), and only item (a) should be treated as established by this network.
+
+   OBSERVATION ON (e): the military deployment leads three of the first four
+   headlines and then vanishes from the coverage entirely, replaced by escalating
+   figures. Whether the deployment ended, was reduced, or simply stopped being
+   newsworthy is not stated by any piece.
+
+2. UNIQUE MATERIAL.
+
+| Fact | Outlets reporting | Outlets omitting | Scoop or selection | Cuts which way |
+|---|---|---|---|---|
+| TVE estimate 2,000–3,000, early 30 Jul | [1] | all others | SCOOP (Reuters) | Against the later 60,000 framing — the only low-end anchor in the packet |
+| Guardia Civil officer: struggling to hold the line | [1] | all others | SCOOP | Toward "overwhelmed enforcement" |
+| Grande-Marlaska ties surge to Supreme Court sea-returns ruling | [2], [6] | [1][3][4][5][7][8] | SCOOP (AP), inherited by NPR | Toward a judicial/policy cause and away from Moroccan state agency |
+| Naji disputes the Supreme Court link | [2], [6] | [1][3][4][5][7][8] | SCOOP (AP), inherited by NPR | Against the ministry's causal account |
+| Naji questions whether Moroccan forces did enough | [1] | all others | SCOOP (Reuters) | Toward Moroccan state responsibility |
+| Sbihi WITH affiliation ("local civil-guard association") | [2] | [6] carries the name without affiliation | SELECTION (degradation) | Weakens reader's ability to weight the source |
+| Carmen González: police seemed unable to respond | [4] | all others | SCOOP (BBC, inferred) | Toward enforcement failure |
+| Ahmed Karim: told the border was open | [6] | all others | ORIGIN UNRESOLVED | AGAINST the trafficking-network frame |
+| Trump blames Madrid; Weidel, Nuñez commentary | [5] | all others | SCOOP (reaction, not evidence) | Toward a Spanish-government-failure frame |
+| 60,000 figure (Vivas) | [5], [7] | [1][2][3][4][6][8] | SCOOP then inherited | Toward maximal-scale framing |
+| Interior Ministry qualifies the 60,000 (many already returned) | [5] | [7] uses the figure unqualified | SELECTION by [7] | Against maximal-scale framing |
+| "Most had since returned" (no number) | [7] | [1][2][3][4][6] | SELECTION/timing | Deflationary |
+| 48,300 of ~50,000 returned | [8] | all others | SCOOP (NYT) | Strongly deflationary |
+| Alaoui: Moroccan police waved his group toward the border | [8] | all others | SCOOP (NYT) | AGAINST the trafficking-network frame; toward Moroccan state facilitation |
+| Anonymous EU official: Brussels monitoring | [8] | all others | SCOOP (content-free) | Neutral |
+| 2021 precedent invoked | [3] | all others | SELECTION | Contextualising; reduces novelty |
+| "Flashpoint on the EU's southern edge" historical frame | [7] | all others | SELECTION (explainer genre) | Contextualising |
+
+   DIRECTIONAL SUMMARY OF UNIQUE MATERIAL: the trafficking/smuggling-network
+   attribution is the dominant causal frame (6 of 8). The three items that cut
+   against it — Naji's dispute, Karim's "told the border was open", and Alaoui's
+   Moroccan-police account — appear in exactly three pieces ([2], [6], [8]), and
+   the strongest of the three appears only in the last-published piece.
+
+3. CONTRADICTIONS.
+
+   C3-a — DEATH TOLL. 9 [1][2] / 18 [3][6] / 34 [5] / 57 [8] / absent [4][7].
+     FACTUAL divergence. Innocent explanation is strong and probably correct:
+     bodies are recovered over time. BUT:
+       (i) the sequence is NOT monotonic in the timestamps available — [5] carries
+           34 at 07:57 UTC while [6] carries 18 at 09:57 UTC. This is NOT a clean
+           finding: [5] was modified at 13:23 UTC and [6]'s stamp is an update
+           stamp, so either figure may have entered at a different time than its
+           visible timestamp. UNRESOLVED, and capped PROVISIONAL.
+       (ii) NO PIECE TIMESTAMPS ITS OWN FIGURE. Not one of the six pieces
+           reporting deaths states when its toll was current. [1] alone gives a
+           period ("by midday"); [8] alone gives a span ("across the two days").
+           This is durable, mechanical, and network-wide. See F2.
+       (iii) [5] and [8] report their tolls in the agentless passive ("were
+           reported dead") with no attribution at all.
+
+   C3-b — CROSSING TOTAL. 2,000–3,000 [1] / "thousands" [2][4] / 60,000 [5][7] /
+     "tens of thousands", ~50,000 [8].
+     PART FACTUAL, PART DEFINITIONAL — and no piece says which. 60,000 (Vivas)
+     versus ~50,000 (Interior Ministry) is a ~20% gap between two arms of the same
+     government covering the same closed two-day period. It may be gross-vs-net,
+     cumulative-vs-peak, or different cut-offs. NO PIECE STATES A BASIS, and no
+     piece places the two figures in the same sentence. [5] alone notes the
+     ministry's qualification and still headlines the unqualified 60,000.
+
+   C3-c — CAUSATION. Trafficking networks [2][3] / smuggling networks [4][6] /
+     criminal networks [5] / trafficking gangs as "Madrid's emphasis" [8] / absent
+     [1][7]. Contested by Naji [1][2][6], by Karim's account [6], by Alaoui's
+     account [8]. DEFINITIONAL AND FACTUAL BOTH — see D8.
+
+   C3-d — MORAL/CAUSAL LOCUS IN HEADLINES. [2] locates the breached perimeter as
+     Morocco's; [5] locates blame with Madrid via Trump; [7] locates the enclave
+     as the passive object of 60,000 migrants; [8] locates the story in the
+     return. Four different loci, same event.
+
+AVAILABILITY MATRIX — REQUIRED BEFORE CALLING ANYTHING "SELECTION"
+
+Earliest appearance in the packet is used as the availability floor. Basis codes:
+K = known (documented time in packet), I = inferred (carried earlier by a
+credited wire in this sample), U = unknown.
+
+| Fact / material | Earliest in packet (UTC) | [1] 30 Jul 12:18 | [2] 31 Jul 02:48 | [3] UNKNOWN | [4] UNKNOWN | [5] 31 Jul 07:57 | [6] 31 Jul 09:57 | [7] 31 Jul 23:29 | [8] latest |
+|---|---|---|---|---|---|---|---|---|---|
+| 9 dead | [1] 30 Jul 12:18 (K) | origin | avail (K) | U | U | avail (K) | avail (K) | avail (K) | avail |
+| Trafficking-network attribution | [2] 31 Jul 02:48 (K) | NOT avail | origin | U | U | avail, credits AP (I-strong) | avail (I) | avail (I) | avail |
+| Naji's dispute of the ruling | [2] 31 Jul 02:48 (K) | NOT avail | origin | U | U | avail, credits AP (I-strong) | avail — carried | avail (I) | avail (I) |
+| 60,000 (Vivas) | [5] 31 Jul 07:57 (K) | NOT avail | NOT avail | U | U | origin | avail (I) | avail — carried | avail (I) |
+| Ministry qualification of 60,000 | [5] 31 Jul 07:57 (K) | NOT avail | NOT avail | U | U | origin | avail (I) | avail (I) | avail (I) |
+| 18 dead | [3] or [6] (U / K 09:57) | NOT avail | NOT avail | origin? | U | U | carried | avail (I) | avail (I) |
+| 34 dead | [5] 07:57 or 13:23 (U) | NOT avail | NOT avail | U | U | origin | U | U | U |
+| "Told the border was open" (Karim) | [6] 31 Jul 09:57 (K) | NOT avail | NOT avail | U | U | NOT avail | origin | avail (I) | avail (I) |
+| 48,300 of ~50,000 returned | [8] 31 Jul evening (U) | NOT avail | NOT avail | NOT avail | U | NOT avail | NOT avail | U | origin |
+| Alaoui / Moroccan police account | [8] 31 Jul evening (U) | NOT avail | NOT avail | NOT avail | NOT avail | NOT avail | NOT avail | U | origin |
+| 57 dead | [8] 31 Jul evening (U) | NOT avail | NOT avail | NOT avail | U | NOT avail | NOT avail | U | origin |
+| 2021 precedent | [3] (U) | U | U | origin | U | U | U | U | U |
+
+RULE APPLIED. Omissions that CANNOT be called selection, and are TIMING ARTIFACTS:
+  - Every piece's omission of the Alaoui account, the 48,300 figure, and the 57
+    toll: these originate in the last-published piece. TIMING ARTIFACT, not
+    selection, for all seven others.
+  - [1] Reuters omitting the trafficking-network attribution and the 60,000 figure:
+    both post-date it. TIMING ARTIFACT.
+  - [3] and [4]: publication times are UNKNOWN, so NO omission by either can be
+    called selection. Both are capped at PROVISIONAL throughout this audit.
+
+Omissions that CAN be called selection (availability basis I-strong or better):
+  - [5] France 24 omitting Naji's dispute and Maimouni's account while explicitly
+    crediting AP, ~5 hours after AP published both. → SELECTION (see F7).
+  - [7] CBC omitting the ministry's qualification of the 60,000 figure while
+    headlining that figure, ~16 hours after [5] published the qualification. →
+    SELECTION, though partially defensible by explainer genre.
+  - [7] CBC omitting the death toll entirely at 23:29 UTC, by which time tolls
+    were in circulation from [1], [3]/[6] and [5]. → SELECTION.
+  - [6] NPR stripping Sbihi's affiliation from the AP material it declares as its
+    source. → SELECTION (degradation), with a strong length-based innocent
+    explanation.
+
+THE KEY ASYMMETRY, INSTANTIATED: the material available to every outlet after
+31 Jul 02:48 UTC — the ministry's causal claim AND the named rebuttal to it, both
+in the same AP wire — is split. [6] took both. [5] and [7] took neither. [3] and
+[4] took the claim and not the rebuttal, but their timestamps are unknown so this
+cannot be called selection and is capped PROVISIONAL. The pattern of who carried
+the rebuttal is the load-bearing observation in Section E.
+
+
+=================================================================
+SECTION D — FRAMING DIVERGENCE MAP
+=================================================================
+
+D1 — HEADLINE VERB AND AGENCY
+
+| # | Outlet | Headline core | Grammatical agent | Active/passive | Note |
+|---|---|---|---|---|---|
+| 1 | Reuters | "Migrants pour into ... as Madrid sends in the military" | migrants; then Madrid | active; active | mass-liquid metaphor; no individual agency |
+| 2 | AP | "Spain deploys military ... after thousands breach Morocco's border; at least 9 dead" | Spain; thousands; (deaths agentless) | active; active; agentless | assigns the breached perimeter to MOROCCO |
+| 3 | Al Jazeera | "At least 18 die as thousands cross" | the dead (intransitive); thousands | intransitive; active | deaths lead; mildest crossing verb |
+| 4 | BBC | "Spain sends troops as thousands enter Ceuta" | Spain; thousands | active; active | "enter" — the most neutral verb in the set |
+| 5 | France 24 | "Around 60,000 cross ... as Trump blames Madrid" | 60,000; Trump | active; active | a foreign head of state's blame is co-headline |
+| 6 | NPR | "18 die after a border breach" | the dead; (breach nominalised) | intransitive; AGENTLESS | nobody breaches — a breach occurs |
+| 7 | CBC | "how was the Spanish enclave breached by 60,000 migrants?" | migrants (in by-phrase) | PASSIVE | enclave is the patient; interrogative explainer |
+| 8 | NYT | "After tens of thousands enter ..., most return to Morocco" | tens of thousands; most | active; active | ONLY headline foregrounding resolution, not influx |
+
+VERB LADDER FOR THE SAME ACTION, most to least forceful:
+  pour into [1] > breach [2] > was breached [7] > cross [3][5] > enter [4][8]
+Six distinct verbs across eight pieces for one action. Nominalisation in [6]
+removes the actor entirely; passivisation in [7] makes the territory the victim.
+
+D2 — KEY ACTION DESCRIPTORS, SIDE BY SIDE
+
+| Action | [1] Reuters | [2] AP | [3] AJ | [4] BBC | [5] F24 | [6] NPR | [7] CBC | [8] NYT |
+|---|---|---|---|---|---|---|---|---|
+| The crossing | poured into; swimming around breakwaters; streaming across | breached; mass crossing; waded around the sea wall | crossed | entered; sudden surge; streamed past | crossed; one of the largest such movements in years | border breach | breached; swimming around the breakwater | entered |
+| The deaths | at least nine bodies recovered by midday | left at least nine dead | at least 18 have died | ABSENT | at least 34 reported dead | 18 have died | ABSENT | at least 57 reported dead |
+| Spanish response | moved military units to the frontier | sent soldiers | deployed military units | sending troops | ABSENT | ABSENT | ABSENT | ABSENT |
+| Cause | ABSENT | trafficking networks; a Supreme Court ruling | trafficking networks | smuggling networks | criminal networks | smuggling networks; the ruling | ABSENT | trafficking gangs (as Madrid's emphasis) |
+| Returns | ABSENT | arranging returns with Rabat | coordinating returns | ABSENT | many had already returned | ABSENT | most had since returned | 48,300 of some 50,000 |
+| Reception capacity | overwhelmed reception points | overwhelmed | overwhelmed | an emergency | ABSENT | ABSENT | ABSENT | absolute humanitarian and social emergency |
+
+The deaths-descriptor row is the sharpest: recovered bodies [1] / an event that
+"left" people dead [2] / people who "have died" [3][6] / people "reported dead"
+in agentless passive with no attributor [5][8] / silence [4][7]. Five treatments,
+one fact.
+
+D3 — SEQUENCING: where does each outlet place the material that most complicates
+its own lead?
+
+| # | Outlet | Lead subject | Where complicating context appears |
+|---|---|---|---|
+| 1 | Reuters | migrants pouring in + military deployment | Naji's question about Moroccan forces — SECOND-TO-LAST sentence, before politicians |
+| 2 | AP | Spanish deployment + 9 dead | Naji's dispute placed IMMEDIATELY AFTER the ministerial claim — adjacent rebuttal, the best sequencing in the set |
+| 3 | Al Jazeera | 18 dead + thousands crossing | NONE — no complicating material anywhere in the piece |
+| 4 | BBC | troops + thousands entering | NONE — the ministry's causal claim is unrebutted; the resident account complicates enforcement, not causation |
+| 5 | France 24 | 60,000 + Trump's blame | the ministry's qualification of the 60,000 is placed in the SECOND SENTENCE but SUBORDINATED to the figure; Sánchez's condemnation appears AFTER four foreign politicians |
+| 6 | NPR | 18 dead | Naji's dispute IMMEDIATELY AFTER the ministry claim (inherited from AP); Karim's account earlier |
+| 7 | CBC | what Ceuta is + 60,000 | "most had since returned" placed AFTER the headline figure and after migrant colour; no number attached |
+| 8 | NYT | most have returned | Alaoui's account MID-PIECE with an EXPLICIT EDITORIAL FLAG that it complicates Madrid's framing — the only piece in the set that marks its own complicating material as complicating |
+
+D4 — SOURCE DISTRIBUTION
+
+| # | Outlet | Voices quoted / cited | Positions represented | Balancing voice on causation? |
+|---|---|---|---|---|
+| 1 | Reuters | migrant (1), regional official, police source, rights campaigner, 2 politicians, broadcaster | 6 categories | PARTIAL — Naji, but on Moroccan effort, not on the causal claim (which [1] does not carry) |
+| 2 | AP | migrant (1), regional official, minister, ministry, association rep, rights campaigner, own observation | 7 categories | YES — adjacent |
+| 3 | Al Jazeera | officials only (Vivas, ministry, "Spanish officials") | 1 category | NO |
+| 4 | BBC | resident (1), ministry, Reuters, 2 politicians, regional official | 5 categories, no migrant, no rights voice | NO |
+| 5 | France 24 | 5 politicians (Trump, Weidel, Meloni, Nuñez, Sánchez), regional official, ministry | 3 categories, ZERO ground-level voices | NO |
+| 6 | NPR | migrant (1), association rep, ministry, rights campaigner, regional official | 5 categories | YES — adjacent (inherited) |
+| 7 | CBC | migrants (2, first names only), regional official, authorities | 3 categories, no rights voice, no politicians | NO |
+| 8 | NYT | migrant (1), ministry, regional official, anonymous EU official | 4 categories | YES — via the Alaoui account, explicitly flagged |
+
+Balancing voice on the causal claim PRESENT: [2], [6], [8] (and [1] partially).
+ABSENT: [3], [4], [5], [7].
+Zero migrant voices: [3], [4], [5]. Note that [5] — the piece with the most named
+individuals in the packet — has the fewest categories of voice and no one who was
+at the border.
+
+D5 — ATTRIBUTED vs ASSERTED
+
+| Fact | Asserting outlets | Attributing outlets | Attribution verb |
+|---|---|---|---|
+| 9 dead | [2] (headline) | [1] "Spanish authorities said"; [2] body | said |
+| 18 dead | [3] headline, [6] headline | [3] "Spanish officials said"; [6] "Spanish authorities said" | said |
+| 34 dead | [5] — NO ATTRIBUTOR ANYWHERE | none | "were reported dead" (agentless passive) |
+| 57 dead | [8] — NO ATTRIBUTOR ANYWHERE | none | "were reported dead" (agentless passive) |
+| 60,000 | [7] headline ("breached by 60,000") | [5] to Vivas + ministry qualification; [7] body to "Spanish officials" | said / according to |
+| ~50,000 / 48,300 returned | none | [8] to Interior Ministry | said |
+| Trafficking/smuggling causation | none — all attribute | [2][3][4][5][6][8] | said / attributed / blamed / pointed to |
+
+TWO PATTERNS:
+  (i) EVERY outlet that puts a figure in a headline drops the attribution there —
+      [2], [3], [5], [6], [7]. Five of five. This is a professional convention
+      (headline compression), recorded as NETWORK-WIDE, not as an outlet finding.
+  (ii) THE TWO HIGHEST TOLLS ARE THE TWO UNATTRIBUTED ONES. 34 [5] and 57 [8]
+      appear in agentless passive with no attributor in the body either. The two
+      pieces carrying the largest casualty figures are the two that name no source
+      for them. That is not headline compression; it is body copy. Direction-
+      neutral and mechanical.
+
+D6 — HEADLINE CONTENT: which material facts reach each headline?
+
+| Fact | Appears in headline of |
+|---|---|
+| Deaths | [2] (9), [3] (18), [6] (18) — 3 of 8 |
+| A specific crossing total | [5] (60,000), [7] (60,000) — 2 of 8 |
+| A vague crossing total | [2][4] ("thousands"), [8] ("tens of thousands") — 3 of 8 |
+| Military deployment | [1][2][4] — 3 of 8 |
+| Returns / resolution | [8] — 1 of 8 |
+| A foreign politician | [5] (Trump) — 1 of 8 |
+| Causation (trafficking/smuggling) | 0 of 8 |
+| Any Moroccan state role | 0 of 8 |
+| Any Moroccan official | 0 of 8 |
+
+The dominant causal claim of the story — that trafficking networks drove it,
+carried in the body of six of eight pieces — reaches ZERO headlines. The
+deflationary fact (mass return) reaches ONE.
+
+-----------------------------------------------------------------
+D7 — NARRATIVE-FLAG AND CONTEXT VARIANCE ACROSS OUTLETS
+-----------------------------------------------------------------
+
+| Attribute / context element | [1] | [2] | [3] | [4] | [5] | [6] | [7] | [8] |
+|---|---|---|---|---|---|---|---|---|
+| EVENT CLASSIFICATION (noun chosen) | (none; implied influx) | "mass crossing" / breach | crossing | "sudden surge" | "one of the largest such movements in years" | "a border breach" | breach / "flashpoint" | entry + return |
+| Motive / cause attribution | ABSENT | trafficking networks + court ruling, CONTESTED | trafficking networks, uncontested | smuggling networks, uncontested | criminal networks, uncontested | smuggling networks + ruling, CONTESTED | ABSENT | trafficking gangs, CONTESTED by own reporting |
+| Migrant individualisation | full name + account (Zacaria) | full name + account (Maimouni) | NONE — categorical mass | NONE — categorical mass | NONE — categorical mass | full name + account (Karim) | FIRST NAMES ONLY (Abdelhakim, Brahim) | full name + interview (Alaoui) |
+| Official individualisation | Vivas full name + title | Vivas, Grande-Marlaska full names + titles | Vivas full name + title | Vivas full name + title | Vivas, Sánchez, Nuñez full names + titles | Vivas full name + title | Vivas full name + title | Vivas full name + title |
+| Demographic attributes of crossers (age, sex, nationality, minors) | NONE | NONE | NONE | NONE | NONE | NONE | NONE | NONE |
+| Cause / circumstance of the deaths | implied water ("bodies recovered") | NONE | NONE | n/a | NONE | NONE | n/a | NONE |
+| Source affiliation disclosure | Naji: "a Moroccan rights group" (UNNAMED) | Naji: "rights campaigner"; Sbihi: "local civil-guard association" | none | none | none | Naji: "rights campaigner"; Sbihi: NO AFFILIATION | none | EU official: ANONYMOUS, no reason given |
+| Credential labelling | "spokesperson", "rights group" | "Interior Minister", "association" | "officials" | "resident" | 5 political titles | "campaigner" | none | "an EU official" |
+| Precedent invoked | NONE | NONE | 2021 episode | NONE | "largest in years" (unspecified) | NONE | "long a flashpoint" (unspecified) | NONE |
+| Setting / atmospheric cues | swimming, breakwaters, dawn, an hour in the water | night walk, wading, sea wall | none | "a tense night", streaming past a building | none | none | swimming around the breakwater | none |
+| Moroccan state presence | as an object of Naji's question | as a return partner ("Rabat") | as a place | as a place | as a place | as a place | as a place | AS AN ACTOR (waved the group through) — via one migrant |
+
+FOR EACH DIVERGENCE:
+
+1. KNOWN WHEN EACH PUBLISHED? Applied via the availability matrix. Precedent
+   (2021) and demographic composition: availability UNKNOWN for all — no piece
+   establishes when composition data existed. Cause of death: availability
+   UNKNOWN. Therefore neither absence may be called SELECTION; both are capped
+   PROVISIONAL and recorded as network-wide absences instead.
+
+2. INCLUSION / OMISSION / DELAY / QUOTE-ROUTING / EUPHEMISM:
+   - The causal contest is QUOTE-ROUTED: in [2] and [6] the rebuttal is routed
+     through a named campaigner adjacent to the claim. In [3][4][5] the claim
+     runs unrouted.
+   - Sbihi's affiliation in [6] is OMISSION-BY-DEGRADATION from a declared source.
+   - "Criminal networks" [5] is the broadest formulation and functions as
+     EUPHEMISM relative to the legally specific terms in [2] and [6].
+   - The 60,000 figure in [7] is INCLUSION WITHOUT ITS QUALIFIER.
+
+3. MATERIALLY RELEVANT vs MERELY INFLAMMATORY: the causal attribution, the
+   figure basis, and the cause of death are all materially relevant. The
+   atmospheric cues (dawn, sea wall, tense night) are not inflammatory in any
+   piece; no piece uses threat vocabulary about the crossers beyond "breach".
+   Trump's inclusion in a headline [5] is relevant to a European-politics story
+   and irrelevant to what happened at Ceuta; it is the closest thing in the packet
+   to a relevance failure, and it is not inflammatory so much as displacing.
+
+4. DOES ONE OUTLET INDIVIDUALISE WHAT ANOTHER CATEGORISES? YES, sharply.
+   [1][2][6][8] give crossers full names and first-person accounts. [3][4][5]
+   render them as an undifferentiated mass with no voice at all. [7] gives first
+   names only. Meanwhile Vivas is named in full with title in 8 of 8. The
+   identity-granularity asymmetry is total: officials are individuated
+   universally; crossers are individuated in half the coverage and are nameless
+   in the other half. STRONG INNOCENT EXPLANATION: consent, safety, and legal
+   exposure of people facing return make protective naming practice standard, and
+   first-name-only is the textbook form of it. Rated MINOR for that reason.
+
+5. DOES THE VARIANCE CORRELATE WITH HEADLINE, SEQUENCING, OR SOURCE CHOICES?
+   YES, and tightly. The four pieces carrying a first-person crosser account
+   ([1][2][6][8]) are exactly the four that carry a contest to the official causal
+   account or a rebuttal to the Moroccan-effort question. The three with no
+   crosser voice ([3][4][5]) are exactly the three with an uncontested causal
+   claim. [7] breaks the pattern: two crosser voices, no causal material at all.
+
+6. COULD TIMING, PRIVACY RULES, CONFIRMATION STANDARDS, HOUSE STYLE, OR OUTLET
+   POLICY EXPLAIN IT? For migrant naming: YES, strongly (privacy/protection). For
+   demographic composition and cause of death: YES, plausibly (36-hour window,
+   official data lag). For the causal contest in [5]: NO — the rebuttal was in a
+   wire [5] credits, published five hours earlier, and space was used for five
+   politicians instead. For [3] and [4]: CANNOT BE TESTED (unknown times).
+
+NETWORK-WIDE PATTERNS — RECLASSIFIED, NOT AUTOMATICALLY DOWNGRADED.
+
+  NW-1: CAUSE OF DEATH IS ABSENT FROM ALL EIGHT PIECES. Up to 57 people are
+  reported dead and no piece states how, or where, they died. [1] alone implies
+  drowning ("bodies recovered"). No piece states that it sought this information.
+  SOURCE OF UNIFORMITY: UNDETERMINED — candidates are SHARED BLIND SPOT or
+  official silence within the window. The fixture cannot distinguish them.
+  → Not an outlier claim against any outlet. RECORDED AS A NETWORK-WIDE FINDING.
+
+  NW-2: NO MOROCCAN GOVERNMENT VOICE IN ANY OF THE EIGHT PIECES. This is a
+  bilateral border event and one of the two states involved is entirely unquoted.
+  Moroccan CIVIL SOCIETY appears (Naji, in three pieces); Rabat appears only as a
+  return counterparty in [2] and [3], and as an actor solely through one migrant's
+  account in [8]. No piece states that Morocco was approached or declined.
+  SOURCE OF UNIFORMITY: UNDETERMINED — SHARED BLIND SPOT / declined comment /
+  access constraint are all live. The fixture cannot distinguish them.
+  → RECORDED AS A NETWORK-WIDE FINDING. This is the more interesting result.
+
+  NW-3: HEADLINE DE-ATTRIBUTION OF FIGURES, 5 of 5 pieces that headline a figure.
+  SOURCE OF UNIFORMITY: PROFESSIONAL CONVENTION (headline compression).
+  → NOT a finding against any outlet. Recorded, MINOR, non-load-bearing.
+
+  NW-4: NO DEMOGRAPHIC COMPOSITION DATA IN ANY PIECE. No age, sex, nationality, or
+  minor/adult breakdown appears anywhere. SOURCE OF UNIFORMITY: UNDETERMINED,
+  availability UNKNOWN. → Recorded as a network-wide absence, capped PROVISIONAL.
+  NOTE ON DISCIPLINE: the significance of any particular composition (e.g. minors)
+  cannot be argued here, because establishing it would require importing outside
+  knowledge, which the closed-fixture rule forbids. The ABSENCE is observable;
+  its weight is not assessable in this fixture.
+
+  DOWNGRADED per the rule: any claim that a particular outlet is distinctive or
+  slanted on NW-1, NW-2, NW-3 or NW-4. NOT DOWNGRADED: the underlying construction
+  findings themselves.
+
+ABSENCE CLUSTER.
+[3], [4] and [5] share four omissions: no migrant voice, no rights voice, no
+balancing voice on causation, and (for [3][4]) no returns information. Their
+declared source chains DIFFER — [3] AP+Reuters+EFE, [4] own+Reuters, [5]
+AFP+AP+Reuters — which would ordinarily make this INDEPENDENT OMISSION and a
+stronger signal than common-source omission.
+DISTINGUISH EXPLICITLY, AS REQUIRED: the apparent independence does not hold. All
+three chains include Reuters, two of three include AP, and the pieces in question
+are the multi-wire synthesis pieces. The chains overlap on exactly the sources
+that carried the omitted material. This is CLOSER TO COMMON-SOURCE OMISSION than
+to independent omission, and the absence cluster is therefore WEAKER evidence than
+its surface pattern suggests. Downgraded accordingly.
+
+-----------------------------------------------------------------
+D8 — SYNONYM VARIANCE vs CAUSAL-CONTEXT VARIANCE
+-----------------------------------------------------------------
+
+| Event element | Outlet wordings | Synonym only? | Causal context added/removed | Effect |
+|---|---|---|---|---|
+| The crossing | pour into [1] / breach [2] / was breached [7] / cross [3][5] / enter [4][8] / border breach (nominalised) [6] | NO | "breach" imports a security-perimeter frame; "pour into" imports a mass-liquid frame with no individual agency; "enter" imports neither | The security frame supports the military-deployment response as proportionate; the neutral frame leaves it open. [6]'s nominalisation removes the actor entirely |
+| The cause | trafficking networks [2][3] / smuggling networks [4][6] / criminal networks [5] / trafficking gangs [8] | NO — LEGALLY DISTINCT | trafficking implies coercion and victims; smuggling implies a paid service and clients; "criminal networks" specifies neither | The crossers' implied status changes between VICTIM and CUSTOMER depending on the outlet, and NO PIECE MARKS THE SHIFT. This is the sharpest causal-context variance in the packet |
+| The judicial trigger | Supreme Court sea-returns ruling named [2][6] / absent [1][3][4][5][7][8] | n/a | present = a policy causal chain the reader can evaluate and that a named campaigner disputes; absent = a bare assertion of criminal agency | Six of eight readers get "networks did it" with no mechanism and no way to test it |
+| Moroccan agency | Naji questions Moroccan effort [1] / Alaoui says police waved them through [8] / absent elsewhere | n/a | present = a competing causal chain; absent = Spanish framing stands alone | The competing causal chain exists in 2 of 8 pieces |
+| Deaths | recovered [1] / left dead [2] / have died [3][6] / were reported dead [5][8] / absent [4][7] | NO | "recovered" implies retrieval from water; "left ... dead" attaches the deaths to the crossing event; "were reported dead" detaches them from everything | The passive-unattributed form in the two highest-toll pieces detaches the largest figures from any actor, location, or source |
+| Returns | arranging returns [2] / coordinating [3] / already returned [5] / since returned [7] / 48,300 of ~50,000 [8] | NO | only [8] supplies a rate | Reader's sense of the event's magnitude varies by ~35x — see D9 |
+
+WHAT THE NETWORK ADDS — STATED PRECISELY. The network shows that the alternative
+wording was FEASIBLE AND COMMONLY SELECTED. "Enter" was available and chosen by
+two outlets; "breach" was available and chosen by three. The milder formulation
+was not forced by the source in either direction. That is the whole of what the
+network establishes here.
+
+CAVEAT APPLIED: outlets repeating the same wire sentence do not independently
+demonstrate anything. Level 2 for the causal formulations is 1 (Spanish Interior
+Ministry), so the CONSISTENCY of the trafficking/smuggling framing across six
+outlets is amplification of one ministry's framing, not six newsrooms agreeing.
+
+1. WHO INCLUDES THE CAUSAL BRIDGE? [2] and [6] (ministry claim + named mechanism
+   + named rebuttal). [8] supplies a COMPETING bridge (Moroccan facilitation).
+   WHO OMITS IT? [3], [4], [5] assert a cause with no mechanism and no rebuttal.
+   [1] and [7] carry no causal claim at all — which is not omission of a rebuttal,
+   since there is nothing to rebut.
+
+2. DOES INCLUSION CORRELATE WITH SEQUENCING, SOURCING, OR FRAMING CLUSTER? YES —
+   with sourcing depth. Inclusion tracks original reporting ([2], [8]) or
+   single-wire dependence on a piece that had it ([6]). Omission tracks multi-wire
+   synthesis ([3], [5]) and, for [4], partial synthesis. See Section E.
+
+3. CRITICAL — CHECK THE PRIMARY SOURCE IN BOTH FORMS.
+   *** NOT POSSIBLE. THIS IS THE BINDING LIMIT ON THIS RUN. ***
+   No written release and no briefing transcript was obtained, because none exists
+   in the fixture. Per the prompt's own statement, verb and descriptor divergence
+   across outlets is UNINTERPRETABLE without both forms: an outlet using
+   "smuggling" where another used "trafficking" may be exercising editorial choice
+   OR may be faithfully reproducing whichever document it worked from — the
+   ministry may have used both words in different forums.
+   THEREFORE: the DIVERGENCE in D8 is OBSERVED and reportable. Its CAUSE —
+   editorial construction vs. document dependence — is UNDETERMINABLE in this
+   fixture. Every D8 finding is labelled accordingly and none may be characterised
+   as construction. Findings that would have been rated as construction are
+   reclassified as SOURCING-THOROUGHNESS OBSERVATIONS.
+
+4. RANKING: causal-context variance is ranked ABOVE synonym variance throughout.
+   The trafficking/smuggling/criminal substitution ranks highest because it
+   changes the reader's model of who the crossers are, not merely how the crossing
+   is described.
+
+-----------------------------------------------------------------
+D9 — BASELINE AND DENOMINATOR VARIANCE
+-----------------------------------------------------------------
+
+| Figure | Outlet | Baseline / denominator | Raw or rate | Adjustment applied | Impression supported |
+|---|---|---|---|---|---|
+| 2,000–3,000 | [1] | "early morning" of 30 Jul only; source TVE | raw | none | significant but bounded |
+| "thousands" | [2] | unstated period | raw | none | large, unbounded |
+| "thousands" | [4] | unstated period; "sudden surge" | raw | none | large, unbounded |
+| 18 dead | [3], [6] | unstated period | raw | none | mass-casualty |
+| 34 dead | [5] | unstated period, no attributor | raw | none | mass-casualty, doubled |
+| 57 dead | [8] | "across the two days" | raw | none | mass-casualty, tripled |
+| 9 dead | [1] | "by midday" — ONLY toll in the packet with a stated cut-off | raw | none | early partial count, correctly bounded |
+| ~60,000 | [5] | "over two days"; attributed to Vivas | raw GROSS | PARTIAL — ministry qualification noted in body | very large influx, partly reversed |
+| ~60,000 | [7] | NO PERIOD STATED ("this week"); headline | raw GROSS | NONE | very large influx, standing |
+| ~50,000 crossed / 48,300 returned | [8] | "this week", by "Friday evening" | raw + implied NET (~1,700) | YES — explicit return figure | a large influx substantially reversed |
+| "most had since returned" | [7] | no number | vague | partial | indeterminate |
+
+1. DO OUTLETS USE DIFFERENT COMPARISON POINTS FOR THE SAME DATA? YES.
+   The single most consequential divergence in the packet: [7] presents 60,000 as
+   the count of migrants who breached the enclave, in the headline, with NO period,
+   NO denominator, and NO net figure. [8] presents ~50,000 with 48,300 returned,
+   implying roughly 1,700 net. Same event, same week. The impression a reader takes
+   away differs by a factor of roughly 35.
+
+2. DOES THE CHOICE CORRELATE WITH FRAMING CLUSTER? Partially. The unqualified
+   gross figure appears in the two pieces with no causal contest and no rights
+   voice ([5] headline, [7]); the net figure appears in the piece with the
+   competing causal account ([8]). But n=3, and [7] has no causal framing at all,
+   so the correlation is weak and is not load-bearing.
+
+3. DOES ANY OUTLET REPORT THE COMPARISON BASIS? Almost none.
+   Basis stated: [1] ("by midday", "early-morning"), [5] ("over two days", plus
+   the ministry's qualification), [8] ("across the two days", plus the return
+   figure). Basis NOT stated: [2], [3], [4], [6], [7]. Bare numbers dominate.
+
+4. WOULD A COMMON BASIS CHANGE THE APPARENT DISAGREEMENT? Partly, and this is the
+   important answer: normalising to gross crossings over 30–31 July still leaves
+   60,000 (Vivas) against ~50,000 (Interior Ministry) — a ~20% gap between two
+   arms of the same government, for the same closed period, both current
+   simultaneously. A common basis NARROWS the disagreement; it does NOT close it.
+   And no piece in the packet places the two figures side by side or addresses the
+   residual. That residual gap is the cleanest quantitative finding available here
+   and it is invisible without cross-outlet comparison.
+
+ADDITIONAL: no outlet computes any rate — deaths per thousand crossing, return
+rate as a percentage (only [8] supplies the raw materials for it), or comparison
+to any prior episode. [3] invokes 2021 without a single number attached to it.
+
+
+=================================================================
+SECTION D2 — CROSS-BRANCH RESOLUTION
+=================================================================
+
+NO PRIOR SINGLE-PIECE AUDIT. No framing_construction_audit_media run preceded
+this one on any piece in the packet, and the wrapper supplies none. Section
+skipped per the prompt's instruction.
+
+RECORDED FOR A FUTURE RUN: this fixture would support a productive single-piece
+audit of [5] or [7] followed by this branch, because the four standard resolution
+targets all have live evidence here — source-internal ordering ([2] vs [5] on
+where the ministry's qualification sits), verb choice (six variants for one
+action), balancing-voice availability (obtained by three outlets, so availability
+would be ESTABLISHED and a single-piece finding would STRENGTHEN), and omission-
+vs-convention (cause of death is omitted by 8 of 8, so any single-piece finding on
+it would resolve NETWORK-WIDE).
+
+
+=================================================================
+SECTION E — CLUSTERING AND CORRELATION
+=================================================================
+
+1. DO FRAMING CHOICES CLUSTER? Yes, but not along the axis a first reading
+   suggests.
+
+2. CLUSTERS DESCRIBED BY THEIR CHOICES FIRST.
+
+   CLUSTER 1 — GROUND-SOURCED, CAUSALLY CONTESTED: [1], [2], [6], [8].
+   Carries at least one first-person crosser account; carries a named voice
+   contesting or complicating the official causal account; places that contest
+   adjacent to or explicitly flagged against the claim; carries scene-level detail
+   from the border; treats political reaction as trailing material or omits it.
+
+   CLUSTER 2 — OFFICIAL-SOURCED, CAUSALLY UNCONTESTED: [3], [4], [5].
+   No crosser voice; official and political voices only; the causal claim is
+   asserted without mechanism and without rebuttal; no returns figure ([3], [4])
+   or an unqualified gross figure ([5]); no rights voice.
+
+3. THE OUTLET THAT DOES NOT CLUSTER — NAMED, AS REQUIRED: [7] CBC.
+   It carries two crosser voices (a Cluster 1 trait) but no causal material of any
+   kind, no rights voice, and an unqualified gross headline figure (Cluster 2
+   traits). It is also the only piece with a definitional/explainer frame and the
+   only one to give crossers first names only. It refuses the partition, and its
+   existence is the correct check on a tidy two-cluster map.
+   [1] Reuters also straddles: ground voice and rights voice present, but no
+   ministry causal claim at all and a politician-trailing close.
+   A tidy two-cluster map with no outliers would be suspicious. This map has two
+   partial outliers out of eight, which is the expected texture.
+
+4. NON-LEAN EXPLANATIONS TESTED BEFORE CONCLUDING LEAN.
+
+   WIRE DEPENDENCE — TESTED, AND IT IS THE ANSWER.
+   Cluster 1 membership is almost perfectly predicted by SOURCING DEPTH:
+     [1] original wire reporting
+     [2] original wire reporting
+     [8] original non-wire reporting
+     [6] single-wire dependence on a piece that carried the contest
+   Cluster 2 membership is predicted by MULTI-WIRE SYNTHESIS:
+     [3] three credits, zero unique material
+     [5] three credits, unique material is political reaction only
+     [4] partial synthesis (Reuters-credited) with one original resident voice
+   The clustering is explained by HOW THE PIECE WAS ASSEMBLED, not by political
+   lean. Synthesis across multiple wires strips the counter-voice: each wire's
+   rebuttal is a paragraph deep, and compression takes the claim and drops the
+   rebuttal. That mechanism is content-neutral and would strip a counter-voice
+   pointing the other way just as efficiently.
+
+   PUBLICATION TIME — TESTED, NOT PREDICTIVE. Cluster 2 spans [3] (earliest or
+   near-earliest) to [5] (mid). Cluster 1 spans [1] (first) to [8] (last). Time
+   does not sort the clusters.
+
+   LENGTH / BRIEF-vs-FULL — NOT TESTABLE. Original article lengths are UNKNOWN;
+   fixture texts are uniformly condensed. This is a real gap: if [3] and [7] are
+   200-word briefs in reality, several findings against them must be CUT under the
+   Section H cap. Recorded as an untested variable, and findings against [3] are
+   capped accordingly.
+
+   LOCAL vs NATIONAL — NOT TESTABLE. All eight are national or international. No
+   local Ceuta outlet, no Spanish-domestic outlet, and no Moroccan outlet is in
+   the sample. See Section G.
+
+   GENRE — TESTED, AND PARTIALLY EXPLANATORY. [7] is an explainer, which
+   legitimately deprioritises breaking causal detail. Findings against [7]'s causal
+   omission are reduced on this basis. Its omission of the death toll at 23:29 UTC
+   is less well explained by genre.
+
+   RESIDUAL NOT EXPLAINED BY ANY NON-LEAN FACTOR: [5] France 24. Synthesis
+   compression explains dropping the rebuttal only if space was scarce. Space was
+   not scarce — it was spent on five named politicians, four of them foreign to
+   both countries involved, while a named rebuttal sitting in a wire [5] credits,
+   published five hours earlier, was dropped. That is a positive substitution of
+   reaction for evidence, not passive compression. It is the one clustering-related
+   observation that survives the non-lean tests.
+
+
+=================================================================
+SECTION E2 — PRIOR-MATCH CHECK
+=================================================================
+
+PRIOR SOURCE — DECLARED FIRST: **MODEL-GENERATED.**
+No prior was supplied by the operator. I formed one on reading the fixture header
+(which names "figure escalation" as a structural feature) and on general
+expectations about wire-driven breaking coverage. Declaring NONE would be false.
+
+MODEL-GENERATED, and the match is PARTIAL. Note as required: a model-generated
+prior that matches is WEAKER evidence than a supplied prior that matches, because
+the expectation and the finding were produced in the same pass by the same
+reasoner. Items 5 and 6 are run regardless.
+
+1. PRIOR'S PREDICTION, ONE SENTENCE: that coverage would trace to very few
+   upstream origins — predominantly Spanish officialdom — and that death and
+   crossing figures would escalate monotonically with publication time as a
+   wire-amplification artifact, with the later and more derivative pieces the most
+   inflated and the least balanced.
+
+2. ACTUAL PRIMARY FINDING, ONE SENTENCE: the quantitative core traces to a single
+   upstream origin class amplified across all eight pieces (8 ÷ 1 for every
+   figure), while the framing split is predicted by SOURCING DEPTH — multi-wire
+   synthesis strips the causal counter-voice — rather than by lean or by
+   derivativeness.
+
+3. DO THEY MATCH? **PARTIAL.**
+
+4. Not a full match, so items 5–6 are informative rather than remedial. Run
+   anyway.
+
+5. WHAT DID THE PRIOR PREDICT THAT THE COVERAGE DID NOT SHOW? Three things:
+   (a) MONOTONIC ESCALATION FAILED. Against the timestamps available, [5] carries
+       34 dead at 07:57 UTC while [6] carries 18 at 09:57 UTC. The escalation
+       ladder the prior expected is not cleanly present. (Both stamps are
+       ambiguous, so this is not a positive finding either — but it is a clear
+       failure of the prediction to be confirmed.)
+   (b) THE LAST PIECE WAS THE MOST DEFLATIONARY, NOT THE MOST INFLATED. The prior
+       predicted the latest coverage would carry the largest, least-qualified
+       numbers. [8], the substantively latest piece, is the ONLY one to headline
+       the return, the ONLY one to supply a net figure, and the ONLY one to carry
+       an account cutting against the official causal frame. It is the opposite of
+       what the prior expected.
+   (c) DERIVATIVENESS DID NOT PREDICT IMBALANCE. The prior expected the most
+       derivative piece to be the most flattened. [6] NPR — zero original
+       reporting, a declared single-wire republication — carries the fullest causal
+       contest in the packet.
+
+6. INVERSE CHECK — the single strongest piece of evidence in this coverage AGAINST
+   THE PRIOR ITSELF (not against my findings):
+   **NPR [6] versus France 24 [5].** A wholly derivative republication carries the
+   ministry's claim, its named mechanism, a named campaigner's rebuttal, AND a
+   crosser's account that the border was believed open. A piece crediting three
+   wires including the one NPR used carries none of that and five politicians
+   instead. If amplification-through-derivation flattened coverage as the prior
+   assumed, this pairing would be reversed. It is not. The flattening happens at
+   the SYNTHESIS step, where an editor chooses among several wires, not at the
+   REPUBLICATION step, where there is nothing to choose. That directly falsifies
+   the mechanism the prior assumed and it is the reason Section E's conclusion is
+   about sourcing depth rather than about wire dependence per se.
+
+
+=================================================================
+SECTION F — FLIP TEST
+=================================================================
+
+#1 DIVERGENCE FINDING SELECTED: [5] France 24's headline elevates a foreign head
+of state's blame attribution to co-equal billing with the event, and the piece
+prints five named political-reaction voices and zero ground-level, rights, or
+counter-voices — while crediting AP, which had published both a crosser account
+and a named rebuttal to the official causal claim roughly five hours earlier.
+
+STEP 1 — THE MIRROR, WRITTEN AS TEXT
+
+  HEADLINE: "Rights groups condemn Ceuta 'militarisation' as Spain sends troops
+  to the border"
+
+  LEAD: Human rights organisations across Europe condemned Spain's decision to
+  deploy the military at Ceuta on Wednesday, calling it a disproportionate
+  response to people seeking safety. The UN refugee agency's regional
+  representative said the deployment risked criminalising asylum seekers, and
+  Amnesty International's Spain director warned that summary returns at the
+  breakwater would breach international law. MEPs from three parliamentary
+  groupings said the scenes exposed the failure of the European Union's
+  externalisation deals with Rabat, while Spain's own left-wing coalition partners
+  called for the troops to be withdrawn. Ceuta's president said reception points
+  were overwhelmed. Spanish authorities said an unspecified number of people had
+  died.
+
+This is the same technique pushed the other way: a reaction stack in place of
+ground voices, a headline that elevates commentary above the event, the official
+causal account dropped entirely, and the casualty figure demoted to the last
+sentence and stripped of its number.
+
+STEP 2 — AUDIT OF MY OWN MIRROR (Section D criteria applied)
+
+  M1 — SOURCE DISTRIBUTION (D4). Five reaction voices (UNHCR, Amnesty, three MEP
+  groupings, plus coalition partners), zero crosser voices, zero Guardia Civil or
+  Spanish enforcement voice, zero Moroccan voice, zero government-of-Spain
+  response to the criticism. SEVERITY: MODERATE. Identical defect to [5], opposite
+  direction.
+
+  M2 — ATTRIBUTED vs ASSERTED (D5). "Militarisation" is placed in the headline in
+  scare quotes, which imports the characterisation while formally disclaiming it,
+  and the body never attributes that noun to any named source. SEVERITY: MODERATE.
+  This is a technique NO real piece in the packet uses — the mirror is worse than
+  the coverage on this axis.
+
+  M3 — BASELINE / DENOMINATOR (D9). "An unspecified number of people had died"
+  acknowledges the deaths and withholds the figure. That is a WORSE failure than
+  anything in the packet: [4] and [7] omit the toll entirely, which at least does
+  not signal that a number exists and is being withheld. SEVERITY: MAJOR.
+
+  M4 — EVENT CLASSIFICATION / STATUS ASSIGNMENT (D7). "People seeking safety" and
+  "asylum seekers" assign a legal status that no source establishes — exactly the
+  defect I flagged in the real coverage's "trafficking networks", which assigns
+  the status of trafficked victim on the same evidence (none). SEVERITY: MODERATE.
+
+  Findings against the mirror: one MAJOR, three MODERATE. Comparable severity is
+  achieved, so the original finding against [5] is NOT prior-dependent on this
+  test.
+
+STEP 3 — CONSISTENCY CHECK
+
+| Observation | Type (A / B) | Resolution |
+|---|---|---|
+| The "reaction stack replaces ground voice" rule was applied to both the mirror (M1) and to [5] | B — SYMMETRIC PHENOMENON | NO DOWNGRADE. The lever pushes both directions, which confirms it IS a construction lever and makes [5]'s specific choice more meaningful, not less |
+| The "unestablished status assignment" rule was applied to the mirror's "people seeking safety" (M4) and to the coverage's "trafficking networks" (D8) | B — SYMMETRIC PHENOMENON | NO DOWNGRADE |
+| I flagged the mirror's unattributed headline noun (M2) but did NOT flag [2] AP's headline locating the breached perimeter as "Morocco's border" — an unattributed locus assignment with no basis in [2]'s body, which places the failure on the Moroccan side while the body places it with overwhelmed Spanish border forces and trafficking networks | **A — INCONSISTENT PRINCIPLE** | The mirror-side principle WINS (applied without knowing who benefited). A NEW FINDING IS ADDED AGAINST [2] — see F10. Note that this is a finding against the best-sourced, best-sequenced piece in the packet, produced only because the flip test forced it |
+| I rated the mirror's withheld death figure MAJOR (M3) while rating [7] CBC's total omission of the death toll — at 23:29 UTC, with tolls in circulation since 30 Jul — only MINOR | **A — INCONSISTENT PRINCIPLE (partial)** | The mirror-side principle wins. [7]'s death-toll omission is RAISED from MINOR to MODERATE |
+| I applied the "no denominator stated" rule to [7]'s 60,000 and to the mirror's withheld figure | B — SYMMETRIC | NO DOWNGRADE |
+
+Downgrades permitted here for TYPE A only — and note that both Type A resolutions
+here produced NEW or STRENGTHENED findings against the coverage rather than
+downgrades of them, because in both cases the mirror-side principle was the
+STRICTER one and the real coverage had been let off.
+
+STEP 4 — FORCED RANKING (1 = MOST prior-dependent)
+
+| Rank | Finding | Why more prior-dependent than the next |
+|---|---|---|
+| 1 | The two-cluster map and its characterisation (ground-sourced/contested vs official-sourced/uncontested) | I chose which traits define the clusters; a different trait selection produces different membership, [7] already refuses the partition, and Section E4 shows a non-lean factor (synthesis depth) explains most of it. Most dependent on my framing choices of anything here |
+| 2 | The [5] France 24 reaction-substitution finding | Depends on my judgment that reaction-stacking is a defect rather than a legitimate international-desk beat. Defensible, but a judgment |
+| 3 | The trafficking / smuggling / criminal status-shift finding (D8) | Depends on a legal distinction I imported; no source in the packet states it. Less dependent than #2 because the wording variance itself is on the page |
+| 4 | The [7] denominator finding (60,000 with no basis vs ~1,700 net) | Requires my judgment about what impression a reader forms, but the underlying figures are printed |
+| 5 | The [2] headline locus-assignment finding (F10) | Reads off the headline text against the body text; minimal interpretation, but "Morocco's border" is geographically defensible |
+| 6 | The no-piece-timestamps-its-own-figure finding (F2) | Mechanical. Either the pieces state when their figures were current or they do not. They do not |
+| 7 | The upstream-origin concentration finding (8 ÷ 1 for every figure) | Least prior-dependent. It is a count of attributions and anyone can check it against the packet in five minutes |
+
+STEP 5 — AUTOMATIC DOWNGRADE (NOT DISCRETIONARY)
+
+Rank #1 is the two-cluster map and its characterisation, currently MODERATE.
+
+**Downgrade applied: two-cluster framing finding MODERATE → MINOR.**
+
+Applied mechanically. No rebuttal appended, no justification path taken. Recorded
+in Section I.
+
+STEP 6 — SCRUTINY SYMMETRY
+
+  a. A FINDING AGAINST AN OUTLET I'D TEND TO TRUST. Two, and neither is
+     incidental. [2] AP — the best-sourced and best-sequenced piece in the packet,
+     and the only one to place a rebuttal adjacent to the claim it rebuts — carries
+     a headline that assigns the breached perimeter to Morocco with no attribution
+     and no support in its own body, and asserts "at least 9 dead" in the headline
+     with the attribution appearing only in the body. [8] NYT — the piece I would
+     rate best overall on this packet — carries the only anonymous source in the
+     set, and that source contributes nothing but the observation that Brussels was
+     monitoring. Content-free anonymity is a real defect: it grants a shield with
+     no informational return, and [8] gives no reason for the grant.
+
+  b. WHERE THE COVERAGE CUTS AGAINST WHAT I EXPECTED. (i) The most derivative piece
+     ([6]) carries the fullest causal contest. (ii) The last-published piece ([8])
+     is the most deflationary, not the most escalated. (iii) The highest death
+     figure appears in the piece with the most complicating detail, not in the most
+     sensational one. (iv) No piece in the packet uses threat or invasion
+     vocabulary about the crossers beyond the word "breach" — the packet is less
+     lurid than the structure of the coverage led me to expect. (v) [5], the piece
+     I rate worst on sourcing, is also the only piece that flags the ministry's
+     qualification of the 60,000 figure, which [7] then drops.
+
+  c. AN OUTLET WHOSE CONSTRUCTION I WOULD HAVE FLAGGED HAD IT LEANED THE OTHER WAY.
+     [5] France 24 — I have written the opposite-leaning version above and rated it
+     at comparable severity (one MAJOR, three MODERATE against my own mirror).
+     Also [8] NYT: its explicit flag-line marking the Alaoui account as
+     complicating Madrid's framing is good practice, and it is applied in ONE
+     DIRECTION ONLY. No piece in the packet flags a source as complicating the
+     campaigners' or the crossers' account — and [8] had the material to do so, in
+     that its own ministry figures complicate the maximal-scale framing that [5]
+     and [7] carried. I would flag the mirror-image use of that device and I record
+     that I am not flagging this one as a defect, only as an asymmetry.
+
+  d. COUNTER-EVIDENCE, AND WHAT IT FAILS TO ADDRESS.
+     COUNTER-EVIDENCE: the strongest case against this whole audit is that figure
+     divergence is exactly what a fast-moving mass-casualty border event produces.
+     Bodies are recovered over hours; crossing counts are revised; returns
+     accumulate. On that reading, 9→18→34→57 and 2,000→60,000→50,000 record real
+     information flow, and treating them as construction is an error.
+     WOULD A READER WHO NOTICED THIS REACH A DIFFERENT CONCLUSION? On the death
+     toll and on the crossing total in isolation — YES, substantially. That
+     counter-evidence should reduce confidence in any escalation reading, and it
+     does; F2 has been rewritten around it.
+     WHAT THE COUNTER-EVIDENCE FAILS TO ADDRESS — NAMED, NOT RESTATED:
+       (i) It does not explain the absence of any TIMESTAMP ON A FIGURE. If the
+           defence is "the numbers changed over time", then the numbers needed
+           times attached, and six of eight pieces attach none. The defence is in
+           tension with the practice it defends.
+       (ii) It does not explain the 60,000 / ~50,000 gap. Both figures cover the
+           same closed two-day period and were current simultaneously; time flow
+           cannot generate a 20% gap between two arms of one government for a
+           period that has already ended.
+       (iii) It does not explain why the two HIGHEST tolls are the two with NO
+           attributor at all. Revision over time does not remove sources.
+       (iv) It does not explain the absence of any cause-of-death information in
+           any piece, which is not a figure and does not revise.
+       (v) It does not touch the source-distribution findings — who was quoted,
+           who was not, whether the causal claim was contested. Those are
+           independent of figure timing entirely, and they are where the
+           load-bearing findings sit.
+     The phrase "noted but does not offset" is not used and no reasoning above
+     reduces to it; each item names a specific thing the counter-evidence leaves
+     unaddressed.
+
+| Finding | Mirror written? | Findings against mirror | Contradiction w/ mirror principle? | Prior-dependence rank | Verdict |
+|---|---|---|---|---|---|
+| F7 [5] reaction-substitution | YES, full text | 4 (1 MAJOR, 3 MODERATE) | No | 2 | SURVIVES |
+| F12 two-cluster map | covered by same mirror | n/a | No | 1 | SURVIVES BUT AUTO-DOWNGRADED MODERATE → MINOR |
+| F1 origin concentration | n/a — not a construction finding | n/a | No | 7 | SURVIVES |
+| F2 no figure timestamps | n/a | n/a | No | 6 | SURVIVES |
+| F3 net-vs-gross | mirror M3 tests the same principle | 1 MAJOR | No | 4 | SURVIVES |
+| F4 60,000 vs 50,000 gap | n/a | n/a | No | (unranked — mechanical) | SURVIVES |
+| F5 cause of death absent | mirror M3 adjacent | 1 MAJOR | No | (unranked — mechanical) | SURVIVES |
+| F6 no Moroccan state voice | mirror M1 (mirror also omits it) | 1 MODERATE | No — mirror commits the same omission, which confirms it as a network-level blind spot rather than an outlet choice | (unranked) | SURVIVES, reclassified network-wide |
+| F8 NPR chain anomaly | n/a | n/a | No | (unranked) | SURVIVES at reduced severity |
+| F9 headline de-attribution | n/a | mirror commits it (M2, worse) | No | (unranked) | SURVIVES as convention, not as outlet finding |
+| F10 [2] headline locus | ADDED BY THE FLIP TEST | n/a | YES — Type A, resolved against the coverage | 5 | NEW FINDING |
+| F11 identity granularity | mirror omits crossers entirely | 1 MODERATE | No | (unranked) | SURVIVES at MINOR |
+
+NOTE ON DIRECTION: this section did not weaken the findings much, which the prompt
+warns is a possible sign of malfunction. Two mitigating observations: the automatic
+downgrade DID fire on the highest-ranked finding, and the flip test DID surface a
+new finding against the best-performing outlet in the packet, which is evidence the
+mirror was doing work rather than rubber-stamping. But a single flip test on a
+synthetic packet is weak evidence that the section is calibrated, and if repeated
+runs of this branch never weaken anything, that is the signal to attend to.
+
+
+=================================================================
+SECTION G — SAMPLE AUDIT
+=================================================================
+
+1. HOW WERE PIECES SELECTED? Not by the auditor. Fixed operator-supplied packet;
+   retrieval prohibited. The nearest true value on the prompt's scale is
+   CONVENIENCE, and it is worse than a normal convenience sample in one specific
+   way: the fixture header states the packet was built to reproduce the STRUCTURE
+   of what prior model runs assembled. The sample therefore inherits the selection
+   behaviour of those runs — search terms, aggregator, language, outlet
+   familiarity — none of which is visible from inside the fixture. The sample's
+   bias is not merely unknown; it is a copy of an unknown bias.
+
+2. OUTLETS ABSENT — NAMED:
+   - ALL Spanish domestic press. No El País, El Mundo, ABC, La Vanguardia, eldiario,
+     El Confidencial. EFE appears only as a credit line, never as a published piece.
+   - ALL Moroccan press. No MAP, Hespress, Le360, TelQuel, Yabiladi.
+   - ALL local Ceuta press. No El Faro de Ceuta, no Ceuta Actualidad.
+   - AFP, credited twice, has no piece in the sample despite being an upstream
+     origin for two of the eight.
+   - TVE, cited as the source of the earliest figure, is not sampled.
+   - No broadcast transcripts, no wire raw copy, no EU institutional communication,
+     no UN or IOM/UNHCR statement, no NGO statement.
+   - LANGUAGE SKEW: seven of eight pieces are Anglophone; the eighth is
+     francophone. ZERO Spanish-language and ZERO Arabic-language pieces, for an
+     event on Spanish territory involving Moroccan departures.
+
+3. DOES THE SAMPLE OVER-REPRESENT ONE END? Not obviously along a left-right axis.
+   It over-represents ANGLOPHONE INTERNATIONAL DESKS AND WIRE SYNTHESIS, and
+   under-represents both countries whose territory, forces, and citizens are
+   involved. That is the axis on which this sample is skewed, and it is a skew the
+   audit's own findings are sensitive to: NW-2 (no Moroccan government voice) is
+   partly a finding about the SAMPLE, not only about the coverage.
+
+4. WOULD ADDING THE MISSING OUTLETS CHANGE THE CLUSTERING? Almost certainly, and
+   in predictable directions: Spanish domestic coverage would supply the domestic
+   political axis (Feijóo, Sánchez) that appears here only as X posts, and would
+   likely carry the Supreme Court ruling in far more depth than two pieces do.
+   Moroccan coverage would supply the Rabat position that is 0-for-8 here, which
+   would directly test NW-2. Local Ceuta coverage would supply reception-capacity
+   detail that currently exists only as Vivas's characterisation, which would
+   directly test the one item in the 8-of-8 shared core that is not a fact. The
+   two-cluster map should not be expected to survive any of that.
+
+5. **SAMPLE VERDICT: CONVENIENCE** (operator-fixed variant).
+
+REQUIRED CONSEQUENCE: every distributional claim in this audit is PROVISIONAL.
+  Specifically PROVISIONAL: "6 of 8 attributed causation to trafficking networks",
+  "3 of 8 carried a balancing voice", "0 of 8 quoted a Moroccan official", "5 of 5
+  headlines with figures dropped attribution", the two-cluster map, the absence
+  cluster, and the directional-coherence count in Section I.
+  NOT distributional and therefore NOT capped by G5: the source-chain structure of
+  the individual pieces, the verb variance itself, the 60,000/50,000 gap, the
+  absence of figure timestamps, and the D9 denominator divergence — these are
+  findings about the pieces examined and hold regardless of what else was published.
+
+
+=================================================================
+SECTION H — STANDARDIZED FINDING TABLE
+=================================================================
+
+--- F1 ---
+| Field | Entry |
+|---|---|
+| Finding | Every quantitative claim in the packet — all four death tolls, all crossing totals, and the return figure — traces to a single upstream origin class (Spanish officialdom), with TVE's early estimate the only exception; no independent count appears in any of the eight pieces. |
+| Section | B |
+| Evidence | 9 dead: "Spanish authorities said" [1], headline-asserted [2]. 18: "Spanish officials said" [3], "Spanish authorities said" [6]. 34: unattributed [5]. 57: unattributed [8]. 60,000: attributed to Vivas [5][7]. ~50,000 / 48,300: Interior Ministry [8]. 2,000–3,000: TVE [1]. No hospital, NGO, UN, Moroccan, or independent tally anywhere. |
+| Finding type | source-chain |
+| Severity | MAJOR (SEVERE unavailable — chain is CHAIN-INFERRED only) |
+| Survives flip test | YES — ranked least prior-dependent (rank 7) |
+| Sample-dependent? | NO for the packet claim; YES for any generalisation beyond it |
+| Possible innocent explanation | In a border emergency the state is the only actor with access to count; no other body could plausibly produce a tally within 36 hours. This is a strong explanation and probably the correct one — which does not change the consequence for readers. |
+| What would weaken this | Any piece citing a count from a hospital, NGO, Moroccan authority, UN body, or independent tally; or the real articles containing such a citation that the fixture dropped. |
+| Verification state | CROSS-OUTLET-CORROBORATED downgraded to PROVISIONAL per the mandatory rule (Level 2 for figures = 1); chain CHAIN-INFERRED |
+
+--- F2 ---
+| Field | Entry |
+|---|---|
+| Finding | No piece in the packet timestamps its own figures: six pieces report a death toll and only two state any period for it, so the reader cannot tell whether divergent tolls reflect revision over time or disagreement. |
+| Section | C / D9 |
+| Evidence | Period stated: [1] "by midday", [8] "across the two days". No period: [3], [5], [6] for tolls; [2], [3], [4], [6], [7] for crossing totals. Compounding: [5] carries 34 at 07:57 UTC while [6] carries 18 at 09:57 UTC, but [5] was modified at 13:23 UTC and [6]'s stamp is an update stamp, so the apparent non-monotonicity CANNOT be resolved. |
+| Finding type | framing-divergence (network-wide) |
+| Severity | MODERATE |
+| Survives flip test | YES — rank 6, near-mechanical |
+| Sample-dependent? | NO |
+| Possible innocent explanation | Newsroom convention treats the publication timestamp as covering the whole piece, and readers are expected to infer currency from it. Update-stamping practice varies by CMS and is often outside the reporter's control. |
+| What would weaken this | Real articles carrying "as of" language that the fixture condensed away; or a CMS-level timestamp on the figure paragraph. |
+| Verification state | FULL-TEXT-CONFIRMED as to the fixture texts; the underlying timestamp question is PROVISIONAL |
+
+--- F3 ---
+| Field | Entry |
+|---|---|
+| Finding | The same event supports impressions differing by roughly 35x depending on which piece the reader sees: [7] headlines 60,000 with no period, no denominator and no net figure, while [8] reports ~50,000 crossed and 48,300 returned, implying about 1,700 net. |
+| Section | D9 |
+| Evidence | [7] headline: enclave "breached by 60,000 migrants"; body: "most had since returned" with no number. [8]: returns "at about 48,300 of some 50,000 who had crossed". [5] alone notes the ministry's qualification and still headlines the unqualified figure. |
+| Finding type | framing-divergence |
+| Severity | MODERATE |
+| Survives flip test | YES — the mirror's M3 tests the same principle and was rated MAJOR against my own text |
+| Sample-dependent? | NO — both figures are printed in the sample |
+| Possible innocent explanation | [7] published at 23:29 UTC and [8]'s exact time is unknown; the 48,300 figure may not have been available to [7]. Explainer genre also legitimately deprioritises breaking numbers. The gross figure was the official figure at the time it was given. |
+| What would weaken this | Establishing that the 48,300 figure post-dates [7]; or [7]'s real article carrying a returns number the fixture dropped. |
+| Verification state | FULL-TEXT-CONFIRMED (fixture); availability of 48,300 to [7] UNKNOWN → the SELECTION characterisation is capped PROVISIONAL, the divergence itself is not |
+
+--- F4 ---
+| Field | Entry |
+|---|---|
+| Finding | Two arms of Spanish officialdom give crossing totals differing by roughly 20% for the same closed two-day period — 60,000 from the Ceuta presidency, ~50,000 from the Interior Ministry — and no piece in the packet places the two figures together or addresses the gap. |
+| Section | C / D9 |
+| Evidence | 60,000 attributed to Vivas [5], carried unqualified in [7]'s headline. ~50,000 attributed to the Interior Ministry [8]. [5] notes only that the ministry said the figure "included many who had already returned" — a qualification about composition, not about the total. No piece prints both numbers. |
+| Finding type | source-chain / framing-divergence |
+| Severity | MODERATE |
+| Survives flip test | YES — mechanical, reads off the printed figures |
+| Sample-dependent? | NO |
+| Possible innocent explanation | Gross vs net, cumulative vs peak-presence, or different cut-off times would all produce a gap of this size legitimately. Neither source's basis is stated, so the gap may be entirely definitional and entirely innocent. |
+| What would weaken this | Either official defining their figure's basis; or a piece outside this sample reconciling them. |
+| Verification state | FULL-TEXT-CONFIRMED (fixture); the underlying figures are PROVISIONAL (Level 2 = 1) |
+
+--- F5 ---
+| Field | Entry |
+|---|---|
+| Finding | Not one of the eight pieces states how or where the dead died, though the highest reported toll is 57. |
+| Section | D7 (NW-1) |
+| Evidence | [1] alone implies water ("at least nine bodies had been recovered by midday"). [2] "left at least nine dead". [3][6] "have died". [5][8] "were reported dead". [4][7] silent on deaths entirely. No piece states drowning, crush injury, fall, or any location for any death, and no piece states that it sought this. |
+| Finding type | selection (NETWORK-WIDE) |
+| Severity | MODERATE |
+| Survives flip test | YES — the mirror commits a worse version (M3) and was rated MAJOR |
+| Sample-dependent? | PARTIALLY — a Spanish or Ceuta-local outlet might well carry it |
+| Possible innocent explanation | Cause of death is typically not released within 36 hours; coroners and maritime rescue services report on their own schedule. Authorities may simply have said nothing. This is a strong explanation. |
+| What would weaken this | Any release within the window stating cause or location of death; or any outlet outside the sample carrying it. |
+| Verification state | FULL-TEXT-CONFIRMED as an absence in the fixture; the source of the uniformity is UNDETERMINED |
+
+--- F6 ---
+| Field | Entry |
+|---|---|
+| Finding | No Moroccan government voice appears in any of the eight pieces covering a bilateral border event; Rabat appears only as a return counterparty and, in one piece, as an actor via a single migrant's account. |
+| Section | D7 (NW-2) |
+| Evidence | Moroccan civil society appears three times (Naji, [1][2][6]) with the group never named. Rabat as counterparty: [2] "arranging returns with Rabat", [3] "coordinating returns with Morocco". Rabat as actor: [8] only, via Alaoui, that police "waved his group toward the border". No Moroccan official is quoted, paraphrased, or reported as declining comment in any piece. |
+| Finding type | selection (NETWORK-WIDE) |
+| Severity | MODERATE |
+| Survives flip test | YES — and note that my own mirror commits the identical omission, which supports reading this as a network-level blind spot rather than an outlet-level choice |
+| Sample-dependent? | **YES, HEAVILY** — the sample contains zero Moroccan outlets and zero Spanish outlets. This finding is partly a finding about the sample. |
+| Possible innocent explanation | Rabat may have issued nothing in the window; Moroccan official access is frequently slow and is routinely mediated through MAP, which is not in this sample. |
+| What would weaken this | Evidence that Morocco issued a statement in the window; or any Moroccan or Spanish outlet carrying one. |
+| Verification state | FULL-TEXT-CONFIRMED as an absence in the fixture; source of uniformity UNDETERMINED; capped by the G5 convenience verdict |
+
+--- F7 ---
+| Field | Entry |
+|---|---|
+| Finding | France 24 [5] prints five named political-reaction voices and zero ground-level, rights, enforcement, or counter-voices, while crediting AP — which had published both a crosser's account and a named rebuttal to the official causal claim roughly five hours earlier. |
+| Section | C / D4 / E |
+| Evidence | [5] voices: Trump, Weidel, Meloni, Nuñez, Sánchez, plus Vivas and the Interior Ministry. Absent: Maimouni (in [2], 31 Jul 02:48 UTC), Naji's dispute (in [2], same), Zacaria (in [1], 30 Jul 12:18 UTC), Sbihi (in [2]). [5] published 31 Jul 07:57 UTC and credits AP by name. Availability basis: INFERRED-STRONG (credited wire, earlier timestamp). |
+| Finding type | selection |
+| Severity | MODERATE |
+| Survives flip test | YES — full mirror written and rated at comparable severity (1 MAJOR, 3 MODERATE against my own text) |
+| Sample-dependent? | NO for the piece-level claim; the comparative claim ("worst in the set") is sample-dependent |
+| Possible innocent explanation | France 24's international desk may treat European political reaction as its beat, and a same-day synthesis under deadline compresses toward what is quotable and already in text form — X posts are faster to verify than a wire interview subject. This is a real and substantial explanation. |
+| What would weaken this | Establishing that [5]'s real article carried ground voices the fixture dropped; establishing that the AP take [5] used did not contain Naji or Maimouni; or an editorial policy statement scoping the piece as a reaction round-up. |
+| Verification state | CHAIN-INFERRED; the availability judgment is INFERRED-STRONG, not KNOWN |
+
+--- F8 ---
+| Field | Entry |
+|---|---|
+| Finding | NPR [6], which declares itself AP-based, carries material absent from the AP piece in the packet (Ahmed Karim, and the account that his group had been told the border was open) while stripping an affiliation AP supplied (Rachid Sbihi's civil-guard association). |
+| Section | B (anomaly B-A1) |
+| Evidence | [6]: "Rachid Sbihi described overwhelmed services"; [2]: "Rachid Sbihi, of a local civil-guard association". [6]: "Ahmed Karim, who crossed with his brother, said they had been told the border was open" — no counterpart in [2]. [6] closes: "This report is based on reporting by The Associated Press." |
+| Finding type | source-chain |
+| Severity | MINOR |
+| Survives flip test | YES, though it was not stress-tested by the mirror |
+| Sample-dependent? | **YES** — one longer AP take would dissolve it entirely |
+| Possible innocent explanation | AP files multiple and lengthening versions of a breaking story; NPR almost certainly used a later or fuller take than the one in this packet. Affiliation labels are routinely cut for length. Both explanations are strong and this finding should be expected to dissolve on real material. |
+| What would weaken this | The full AP wire carrying Karim and the affiliation. |
+| Verification state | CHAIN-PROVISIONAL for the Karim material |
+
+--- F9 ---
+| Field | Entry |
+|---|---|
+| Finding | Every piece that puts a figure in its headline drops the attribution there — five of five — and separately, the two highest death tolls in the packet are the two carried with no attributor anywhere, including in the body. |
+| Section | D5 |
+| Evidence | Headline de-attribution: [2] "at least 9 dead", [3] "At least 18 die", [5] "Around 60,000 cross", [6] "18 die", [7] "breached by 60,000 migrants". Body de-attribution: [5] "At least 34 people were reported dead"; [8] "At least 57 people were reported dead" — agentless passive, no attributor in either. |
+| Finding type | framing-divergence (first clause NETWORK-WIDE convention; second clause outlet-level) |
+| Severity | MINOR for the headline convention; MODERATE for the body-copy de-attribution of the two highest tolls |
+| Survives flip test | YES — my own mirror commits a worse version (M2) |
+| Sample-dependent? | NO |
+| Possible innocent explanation | Headline compression is universal practice and not a defect. For the body clause: "were reported dead" may reflect an aggregation across sources the outlet could not attribute cleanly, which is a defensible reason to use the passive. |
+| What would weaken this | Real articles attributing the 34 and 57 figures in text the fixture condensed. |
+| Verification state | FULL-TEXT-CONFIRMED (fixture); source of the headline uniformity classified as PROFESSIONAL CONVENTION |
+
+--- F10 --- (ADDED BY THE FLIP TEST, STEP 3, TYPE A)
+| Field | Entry |
+|---|---|
+| Finding | AP [2]'s headline locates the breached perimeter as Morocco's ("thousands breach Morocco's border") — an unattributed locus assignment that its own body does not support, since the body locates the failure with overwhelmed Spanish border forces and with trafficking networks. |
+| Section | D1 / D5 |
+| Evidence | Headline: "Spain deploys military to Ceuta after thousands breach Morocco's border". Body: "The Spanish Interior Ministry said border forces were overwhelmed"; Grande-Marlaska "blamed trafficking networks". No sentence in [2] attributes the breach to Moroccan perimeter failure. |
+| Finding type | framing-divergence |
+| Severity | MINOR |
+| Survives flip test | YES — it was PRODUCED by the flip test, against the best-performing piece in the packet |
+| Sample-dependent? | NO |
+| Possible innocent explanation | **STRONG.** The crossers physically exited Moroccan territory, so "Morocco's border" is geographically accurate and carries no necessary implication about fault. Headline space forces a possessive. This explanation may well be sufficient, and the finding is held at MINOR because of it. |
+| What would weaken this | Evidence that AP house style uses the departure state's possessive as standard for crossings; or the real headline differing from the fixture's. |
+| Verification state | FULL-TEXT-CONFIRMED (fixture) |
+
+--- F11 ---
+| Field | Entry |
+|---|---|
+| Finding | Identity granularity is asymmetric: Vivas is named in full with title in 8 of 8 pieces, while crossers are fully named in four, given first names only in one, and given no identity at all in three. |
+| Section | D7 |
+| Evidence | Officials: Vivas 8/8; Grande-Marlaska, Sánchez, Nuñez with titles. Crossers: Zacaria [1], Maimouni [2], Karim [6], Alaoui [8] full names; Abdelhakim and Brahim [7] first names only; none in [3], [4], [5]. |
+| Finding type | framing-divergence |
+| Severity | MINOR |
+| Survives flip test | YES — my mirror omits crossers entirely, which is worse |
+| Sample-dependent? | NO |
+| Possible innocent explanation | **STRONG.** Consent, safety, and legal exposure of people facing return make protective naming standard practice; first-name-only is the textbook form of it, and declining to name at all is often the most protective choice, not the least respectful one. Officials speaking in an official capacity have no comparable claim. The asymmetry may be entirely correct practice. |
+| What would weaken this | Essentially any evidence about consent practice; this finding is recorded for completeness and should not be leaned on. |
+| Verification state | FULL-TEXT-CONFIRMED (fixture) |
+
+--- F12 --- (AUTO-DOWNGRADED, SECTION F STEP 5)
+| Field | Entry |
+|---|---|
+| Finding | The pieces divide into a ground-sourced/causally-contested group ([1][2][6][8]) and an official-sourced/causally-uncontested group ([3][4][5]), with [7] refusing the partition — and the division is predicted by sourcing depth (original reporting or single-wire dependence vs multi-wire synthesis), not by political lean. |
+| Section | E |
+| Evidence | Cluster 1 = the two original wire teams, the one original non-wire reporter, and the declared single-wire republication. Cluster 2 = the three-credit synthesis pieces plus BBC. Crosser-voice presence and causal-contest presence coincide exactly across [1][2][6][8] and are jointly absent across [3][4][5]. |
+| Finding type | clustering |
+| Severity | **MODERATE → MINOR** (automatic downgrade applied, F Step 5) |
+| Survives flip test | YES, but ranked MOST prior-dependent |
+| Sample-dependent? | **YES** — [7] already breaks it at n=8, and the Section G4 analysis expects it not to survive the addition of Spanish, Moroccan or local outlets |
+| Possible innocent explanation | The whole finding is itself the innocent explanation: synthesis compression strips counter-voices mechanically and content-neutrally, and would strip a counter-voice pointing the other way just as efficiently. Untested variable: original article length, which is UNKNOWN and could account for the remainder. |
+| What would weaken this | Adding outlets; establishing that [3] and [7] are short briefs, in which case the Section H format cap requires CUTTING findings against them rather than downgrading. |
+| Verification state | PROVISIONAL (G5 convenience sample; distributional) |
+
+--- COHERENCE FINDING (Section I mechanism) ---
+| Field | Entry |
+|---|---|
+| Finding | Of the surviving findings, six push the same direction — that the coverage systematically privileges the Spanish official account and under-represents both the Moroccan side and the crossers' own accounts (F1, F4, F5, F6, F7, F11) — against two that cut the other way (F8, and the counter-direction material in [6] and [8]). |
+| Section | I |
+| Evidence | As per each finding above. |
+| Finding type | clustering |
+| Severity | MODERATE (MAJOR unavailable — 2 findings oppose; MAJOR requires 6+ cohering with NONE opposing) |
+| Survives flip test | Not separately mirrored |
+| Sample-dependent? | **YES** |
+| Possible innocent explanation | **This is the important entry.** Four of the six cohering findings have independently strong innocent explanations — state monopoly on counting (F1), definitional gross/net gap (F4), a 36-hour lag on cause-of-death data (F5), and protective naming practice (F11). Coherence among findings that are each separately well explained is much weaker evidence than coherence among findings that are not, and the coherence rule risks laundering a stack of individually-explained items into a pattern. Recorded at MODERATE and explicitly NOT load-bearing for that reason. |
+| What would weaken this | Any of the four innocent explanations being confirmed; or the addition of Spanish/Moroccan outlets, which would directly test F6. |
+| Verification state | PROVISIONAL (G5) |
+
+SEVERITY CAPS — APPLIED AND LOGGED
+
+| Condition | Cap | Applied to |
+|---|---|---|
+| Missing either mandatory column | max MODERATE | None — no finding above has a blank mandatory column |
+| Fails flip test (prior-dependent) | max MINOR | None failed outright; F12 auto-downgraded to MINOR by Step 5 |
+| Convenience sample (G5) | distributional claims PROVISIONAL | F6, F12, coherence finding, and every "N of 8" count in this audit |
+| Low Level 2 upstream-origin count (B3) | shared core NOT independent corroboration | Applied throughout Section C; CROSS-OUTLET-CORROBORATED downgraded to PROVISIONAL for all figures |
+| Chain CHAIN-INFERRED only | may not be SEVERE | ALL findings — no SEVERE rating appears anywhere in this audit |
+| Omission where availability UNKNOWN | not SELECTION; capped PROVISIONAL | All omissions by [3] and [4] (times unknown); the composition and cause-of-death absences; [7]'s omission of the 48,300 figure |
+| Sample-dependent finding | may not anchor the verdict | F6, F8, F12, coherence finding — all excluded from load-bearing |
+| Explained by format/length | CUT | **AT RISK, NOT YET APPLICABLE.** Original lengths are UNKNOWN. If [3] and [7] are short briefs, findings resting on their omissions must be CUT, not downgraded. Flagged in Section I. |
+
+
+=================================================================
+SECTION I — VERDICT
+=================================================================
+
+RETRIEVAL DEPTH — REPORTED BEFORE THE VERDICT
+
+- Pieces read FULL TEXT: 8 of 8 — **but "full text" means the full FIXTURE text.**
+  Actual article full text read: **0 of 8.** The fixture texts are condensed
+  synthetic reconstructions and are not the articles.
+- Pieces read SNIPPET ONLY: 0
+- Pieces NOT retrieved but referenced within the network: AFP copy (credited in
+  [5], [7]), EFE copy (credited in [3]), the TVE broadcast (source of the earliest
+  figure in [1]), the AP take NPR actually used, archive captures of any piece.
+- Primary source obtained: WRITTEN form? **NO.** SPOKEN form / transcript? **NO.**
+- Searches or fetches performed: **1** (the audit prompt itself). **0** against the
+  event — retrieval prohibited by the wrapper.
+- Material looked for and could NOT obtain: Spanish Interior Ministry release;
+  Grande-Marlaska's remarks in either form; Vivas's statement; the Spanish Supreme
+  Court sea-returns ruling; any Moroccan government statement; the TVE broadcast;
+  original AP/Reuters/AFP/EFE wire copy; original publication times for [3], [4],
+  [8]; original publication time (as opposed to update time) for [6]; word counts;
+  lead images; correction notes; social and homepage headline variants; archive
+  captures.
+
+CAP APPLIED. Findings resting on material not fetched are PROVISIONAL and NOT
+load-bearing. This affects: F2 (timestamp integrity), F3 (the selection
+characterisation, though not the divergence), F7 (the availability judgment rests
+on an inferred wire relationship), F8 (dissolves on one longer AP take), and — most
+consequentially — **the entire D8 verb and descriptor analysis**, whose CAUSE
+(editorial construction vs. document dependence) is UNDETERMINABLE without the
+primary source in both forms. The verb divergence is reported as OBSERVED; it is
+NOT characterised as construction anywhere in this audit.
+
+This is not a confession of inadequacy. It is the correct output for a closed
+fixture with no primary material, and a run that reported these findings as
+confidently grounded would be the failing run.
+
+- Pieces compared: **8**
+- Reporting organizations producing original reporting (B3 Level 1): **4**
+  (+2 credited but unsampled: AFP, EFE; +1 unresolved: CBC)
+- Upstream information origins (B3 Level 2): **~11** event-fact origins
+  (alternate 12 if the Ceuta presidency is separated from the central government);
+  6 reaction-only origins held separately
+- Amplification ratio (pieces ÷ upstream origins): **8 ÷ 11 = 0.73** overall.
+  **CRITICAL SUB-RATIO: 8 ÷ 1 for every quantitative claim in the story**
+  (8 ÷ 2 if TVE's early estimate is included). The headline ratio understates the
+  dependence; the sub-ratio is the one that bears.
+- Shared factual core (one sentence): a mass crossing from Morocco into Ceuta
+  occurred on or around 30 July 2026 and Ceuta's regional president said reception
+  capacity was overwhelmed — and only the first half is supported by independent
+  direct observation (two wire teams at the border), the second being an official's
+  characterisation reported by all eight.
+
+- DIRECTIONAL COHERENCE: **6 of 8 surviving substantive findings cohere** (F1, F4,
+  F5, F6, F7, F11), **2 oppose** (F8, plus the counter-direction material carried
+  by [6] and [8]). Threshold met for a coherence finding at **MODERATE**; MAJOR is
+  NOT available because 2 findings oppose. Recorded at MODERATE, PROVISIONAL under
+  G5, and explicitly NOT load-bearing — four of the six cohering findings have
+  independently strong innocent explanations, and coherence among separately-
+  explained items is weak evidence. Direction-neutral: the same threshold and the
+  same discount would apply had the coherence run the other way.
+
+- CROSS-BRANCH RESOLUTION (D2): **NO PRIOR SINGLE-PIECE AUDIT.** No CONFIRMED, no
+  FALSIFIED, no RECLASSIFIED, no NETWORK-WIDE, no STILL UNRESOLVED to report from
+  that section. Nothing was ratified and nothing was killed, because there was
+  nothing upstream to test. The four network-wide patterns (NW-1 to NW-4) are
+  recorded in D7 as original findings of this branch, not as resolutions.
+
+- Most significant framing divergence: **the denominator and baseline variance
+  (D9)** — 60,000 headlined with no period, no denominator and no net figure in
+  [7], against ~1,700 net implied by [8], with an unreconciled ~20% gap between two
+  Spanish official figures underneath both. It is the cleanest quantitative
+  divergence in the packet, it is invisible without cross-outlet comparison, and it
+  survives every non-lean explanation tested.
+
+- Does framing cluster? Along what axis? **YES — along SOURCING DEPTH, not lean.**
+  Original reporting and single-wire dependence carry the causal contest; multi-wire
+  synthesis strips it. [7] refuses the partition and [1] partly straddles it. This
+  finding was AUTO-DOWNGRADED to MINOR as the most prior-dependent finding in the
+  set, and it is sample-dependent, so it does not anchor the verdict.
+
+- Non-lean explanations tested (timing / length / wire / local / genre):
+  TIMING — tested, not predictive of cluster.
+  WIRE DEPENDENCE — tested, and IS the explanation.
+  GENRE — tested, partially explanatory for [7].
+  LENGTH — **NOT TESTABLE**; original lengths UNKNOWN. This is the largest untested
+  variable in the audit and could require CUTTING findings against [3] and [7].
+  LOCAL vs NATIONAL — not testable; no local or domestic outlet in the sample.
+
+- Sample verdict (G5): **CONVENIENCE** (operator-fixed variant, inheriting an
+  unknown prior-run selection). Every distributional claim above is PROVISIONAL.
+
+- Findings surviving flip test: F1, F2, F3, F4, F5, F6, F7, F8, F9, F11, and F12
+  (downgraded). **F10 was ADDED by the flip test**, against the best-sourced piece
+  in the packet.
+  **Downgrade applied: two-cluster framing finding (F12) MODERATE → MINOR.**
+
+- LOAD-BEARING FINDINGS (four, all resting on what is present or absent in the
+  packet itself rather than on unfetched material or on distribution):
+  **F1** — every figure traces to one upstream origin class; eight outlets is one
+          account eight times.
+  **F4** — the 60,000 / ~50,000 gap between two Spanish official sources, never
+          reconciled by any piece.
+  **F5** — cause of death absent from all eight pieces at up to 57 dead.
+  **F3** — the ~35x impression gap between the gross-headline and net-reporting
+          pieces.
+  NOT load-bearing: F6, F8, F12, and the coherence finding (all sample-dependent);
+  F2, F7 (rest partly on unfetched material); F9, F10, F11 (MINOR).
+
+- WHAT THIS AUDIT COULD NOT ASSESS:
+  1. Whether any framing is ACCURATE. Nothing here adjudicates what happened at
+     Ceuta.
+  2. Whether verb and descriptor divergence is editorial construction or document
+     dependence — the binding limit, absent both forms of the primary source.
+  3. Whether shared wording exists across outlets (Section B5 NOT TESTABLE on a
+     paraphrasing fixture) — the strongest source-chain evidence this branch
+     normally produces.
+  4. Whether the omissions by [3] and [4] are selection or timing artifacts —
+     publication times unknown.
+  5. Whether any finding against [3] or [7] survives the brief-vs-full-report cap —
+     original lengths unknown.
+  6. Whether the network-wide absences (cause of death, Moroccan state voice,
+     demographic composition) reflect shared blind spot, official silence, or
+     access constraint.
+  7. Anything about the real outlets named in the fixture. This audit assesses a
+     constructed artifact.
+  8. Whether the packet is representative of the real coverage of this event, or
+     of anything.
+
+- CONFIDENCE: **LOW overall.** MODERATE for the four load-bearing in-packet
+  structural findings (F1, F3, F4, F5), which any reader can verify against the
+  packet in minutes. LOW for everything distributional, causal, or comparative
+  across outlets.
+
+- WHAT WOULD CHANGE THIS ASSESSMENT:
+  Obtaining the Spanish Interior Ministry's written release AND any briefing
+  transcript — this alone would move D8 from "divergence observed, cause
+  undeterminable" to a real construction-vs-document-dependence verdict, and it is
+  the single highest-value acquisition. Then: real article texts with real
+  timestamps (resolves F2, F3, F7, and the [3]/[4] availability gaps); the full AP
+  wire (resolves F8, probably by dissolving it); original article lengths (may
+  require cutting findings against [3] and [7]); and Spanish-domestic, Ceuta-local
+  and Moroccan coverage (directly tests F6 and would very likely break F12's
+  cluster map).
+
+FINAL REQUIRED STATEMENT:
+
+"This coverage represents 4 organizations producing original reporting and
+approximately 11 upstream information origins, across 8 published pieces. Framing
+diverges materially on event classification and crossing verb, causal attribution
+and whether that attribution is contested, figure baseline and denominator, source
+distribution and the presence of a ground-level voice, and identity granularity.
+The divergence does cluster, along a sourcing-depth axis — original reporting and
+single-wire dependence versus multi-wire synthesis — rather than along a political
+axis. This audit does not establish which framing is accurate."
+
+
+=================================================================
+SCOPE LIMITS — RESTATED
+=================================================================
+
+1. Coverage distribution is not a truth verdict. Majority framing is not evidence
+   of accuracy, and here the majority shares one upstream origin for every number
+   in the story (8 ÷ 1). Eight outlets reporting a figure is one source reported
+   eight times.
+
+2. One event does not establish an outlet's practice. Nothing above is a claim
+   about how Reuters, AP, Al Jazeera, the BBC, France 24, NPR, CBC or the New York
+   Times generally behave. Establishing that requires a corpus across events — a
+   different and much larger audit.
+
+3. Divergence does not establish intent. Editorial choice is observable in the
+   text; motive is not, and none is imputed here.
+
+4. Wire dependence, length, deadline and genre explain substantial variance. Wire
+   dependence was tested and turned out to be the main explanation for the
+   clustering. Length could NOT be tested and is the largest open variable.
+
+5. A convenience sample supports findings about the pieces examined, not about
+   coverage generally. This sample is convenience-grade and additionally inherits
+   an unknown prior-run selection.
+
+6. **FIXTURE LIMIT, ADDED FOR THIS RUN.** The pieces are synthetic. Findings are
+   about a constructed artifact bearing real mastheads, and the fixture's own
+   instruction to relabel outlets A–H before publication should be followed. The
+   paraphrasing fixture also disables the verbatim-overlap test, which is normally
+   this branch's strongest evidence, and supplies no primary source in either form,
+   which the prompt itself identifies as making verb divergence uninterpretable.
+   A live run would be materially stronger on both counts.
+
+=================== END OF AUDIT ===================
