@@ -1,0 +1,445 @@
+CLAIM EXTRACTION / INFLATION MAP
+================================
+
+Target
+------
+Gabarrell-Pascuet, A., Coll-Planas, L., Alias, S. B., Pascual, R. M.,
+Haro, J. M., & Domenech-Abella, J. (2024). "Reducing loneliness and
+depressive symptoms in older adults during the COVID-19 pandemic: A pre-post
+evaluation of a psychosocial online intervention." PLOS ONE, 19(12), e0311883.
+https://doi.org/10.1371/journal.pone.0311883
+
+Document type: academic paper; non-controlled prospective feasibility pilot
+with pre-post measurement.
+
+Prompt executed: prompts/1-claim-extraction.txt at Provenance repository commit
+955c1d98d2cdc4e532d9fa69549f6ce48345b0e8.
+
+Audit date: 2026-08-08.
+
+User-supplied downstream text: none. Field 4 was populated by retrieval.
+
+Claim that prompted this audit: not separately stated. Under the prompt's
+default selection rule, Field 6 therefore uses the paper's most precisely
+quantified emotional-loneliness result.
+
+
+1. WHAT WAS LITERALLY MEASURED
+------------------------------
+
+Design, population, sample, and time
+
+- A non-controlled prospective pilot conducted in Barcelona, Spain, from
+  October 2021 through January 2022.
+- Recruitment was by posters, pamphlets, calls, and presentations through
+  primary-care and older-adult centres. Approximately 500 people with the
+  relevant profile were offered participation; 63 expressed interest and were
+  screened; 27 consented; 21 supplied the post-intervention interview.
+- Eligibility required age 65 or older, a stated wish to "connect more and
+  better," willingness to participate, and internet plus computer/smartphone
+  access. Blindness, deafness, and self-reported cognitive impairment were
+  exclusions.
+- Baseline N = 27; mean age 74.26 years (range 66-88); 74% women. Post N = 21;
+  reported dropout = 22%.
+- Participants attended eight weekly Zoom sessions of 90-120 minutes in groups
+  of 6-8, led by two gerontologist facilitators. The intervention combined a
+  community/social-activity component with peer support, cognitive-behavioural
+  activities, coping strategies, reminiscence, and purpose-in-life work.
+- Outcomes were elicited by telephone before and after the eight-week program
+  by two trained members of the research team.
+- Unit of analysis: participant repeated measures. The paper fitted random-
+  intercept mixed linear models with time as the repeated factor, participant
+  ID as a random factor, and sex as a covariate.
+
+Primary outcome used for the selected claim
+
+- The named instrument was the 11-item De Jong Gierveld Loneliness Scale
+  (DJGLS): total score 0-11, social subscore 0-5, and emotional subscore 0-6.
+- The target article does not print the items, state the administered language,
+  identify a translation, or report item-level responses. It reports an
+  emotional-subscale alpha of 0.7409 in S2 Table.
+- Table 2 reports sex-adjusted estimated means for the emotional subscale of
+  2.62 (95% CI 1.98-3.27) at T1 and 1.78 (1.09-2.47) at T2, a difference of
+  0.84 points, p<0.01. For comparison, total loneliness was 4.32 versus 3.86,
+  p=0.218, and social loneliness was 1.70 versus 2.03, p=0.128.
+
+Definition-operationalization check
+
+The source explicitly defines the construct as follows:
+
+  "Emotional loneliness refers to the absence of one or more attachment
+  figures with whom one could establish a close connection, and the desired
+  level of intimacy or confidence is not achieved." (Introduction)
+
+The standard 11-item form and the validated Spanish wording were retrieved from
+the original scale record and Tomás et al. (2017), Table 5. The target paper's
+exact administered translation remains unreported. The six items assigned to
+the emotional subscale are the negatively worded items:
+
+  2. "I miss having a really close friend."
+  3. "I experience a general sense of emptiness."
+  5. "I miss the pleasure of the company of others."
+  6. "I find my circle of friends and acquaintances too limited."
+  9. "I miss having people around me."
+ 10. "I often feel rejected."
+
+The other five, positively worded items are assigned to the social subscale:
+
+  1. "There is always someone I can talk to about my day-to-day problems."
+  4. "There are plenty of people I can lean on when I have problems."
+  7. "There are many people I can trust completely."
+  8. "There are enough people I feel close [to]."
+ 11. "I can call on my friends whenever I need [them]."
+
+The standard coding treats "yes" and "more or less" on negative items as
+loneliness and "no" and "more or less" on positive items as loneliness. Thus,
+the emotional score is also exactly the count of six negatively keyed items.
+
+Operationalization retrieval basis: ITEMS-RETRIEVED. This applies to the
+published 11-item DJGLS and its validated Spanish form; the target's exact
+administered translation was not supplied.
+
+Operationalization scope result: broader.
+
+The definition is specifically about missing an attachment figure and unmet
+intimacy/confidence. Items 3 (general emptiness), 5 (company), 6 (limited circle
+of friends/acquaintances), 9 (people around), and 10 (rejection) extend beyond
+that stated attachment/intimacy definition. Item 2 is the closest direct match.
+
+Map content: Definition-operationalization mismatch.
+Subtype: definitional scope creep.
+
+Other measured outcomes
+
+- Total and social loneliness; Oslo Social Support Scale (OSSS-3); PHQ-8
+  depressive symptoms; GAD-7 anxiety; EQ-5D-5L quality of life; EQ-VAS health;
+  attendance; and one open feedback prompt.
+- The selected claim is not a claim about these secondary outcomes.
+
+Construct-establishment check
+
+The paper makes causal-sounding statements elsewhere (for example, that the
+pilot tested a tool "to reduce" emotional loneliness), so the construct-side
+handoff records the five properties. Field 6 itself is a temporal construct-
+change claim, not a belief-wrongness or harm claim.
+
+- PREVALENCE: ESTABLISHED-REPORTED for this selected sample. The paper reports
+  44% moderate and 15% severe total loneliness at baseline. This is not a
+  population prevalence estimate.
+- FORM: ESTABLISHED-REPORTED at scale/subscale level. Baseline total, social,
+  and emotional scores are reported; item-level endorsement patterns are not.
+- DOMAIN: ESTABLISHED-REPORTED. The setting, pandemic period, age eligibility,
+  desire-to-connect criterion, technology access, and exclusions are stated.
+- WRONGNESS: UNKNOWN / not applicable. No belief-like subclaim is graded by the
+  selected claim.
+- HARM: UNKNOWN for this run. The introduction cites adverse correlates of
+  loneliness, but the cited harm literature was not itself checked here and the
+  selected quantified claim does not depend on a harm proposition.
+
+Grade-before-assert: no specific belief subclaim exists in Field 6; P2 strength
+gate = VOID. No wrongness or pathologization assertion is entered in the map.
+
+Publication status
+
+No corrigendum, correction, retraction, or expression of concern was located on
+the PLOS record or in title/DOI notice searches as of 2026-08-08. This is a
+publication-record check, not an exhaustive reception audit.
+
+
+2. STRONGEST CLAIM THE SOURCE ITSELF MAKES
+------------------------------------------
+
+The source moves among three levels while preserving some hedges:
+
+- Results, quantified: "Emotional loneliness decreased by 0.84 points on a
+  scale of 0 to 6" (Table 2 narrative; p<0.01).
+- Discussion, stronger description: participants showed a "substantial
+  reduction in emotional loneliness" following the intervention.
+- Conclusion, causal-purpose wording with a feasibility hedge: "The present
+  pilot study tested a promising online psychology tool to reduce emotional
+  loneliness and depressive symptoms." The abstract/conclusion also states
+  that online interventions for vulnerable populations "can become essential"
+  for lessening pandemic consequences.
+
+The methods and limitations supply a countervailing hedge: the authors call the
+study a feasibility, non-controlled pilot and state that the absence of a
+control group limits attribution of results to the intervention; the results
+are preliminary and require an RCT.
+
+
+3. WEAKER DEFENSIBLE CLAIM THE EVIDENCE ACTUALLY SUPPORTS
+---------------------------------------------------------
+
+Author reconstruction from Field 1:
+
+Among the observed participants in this self-selected Barcelona pilot, the
+sex-adjusted estimated mean count on the six negatively keyed DJGLS items that
+the instrument labels "emotional loneliness" was 0.84 points lower at the
+post-intervention interview than at baseline (2.62 versus 1.78 on a 0-6 scale;
+p<0.01); this is a within-sample temporal score difference, not by itself an
+estimate of the intervention's causal effect or of change in a uniquely
+identified attachment/intimacy construct.
+
+This reconstruction tracks the retrieved items because the operationalization
+is broader than the source's definition.
+
+
+4. BROADER CLAIM ATTACHED DOWNSTREAM
+------------------------------------
+
+No downstream item was supplied by the user. The following items were
+RETRIEVED through exact-title, DOI, author-title, citation-index, and full-text
+citation-context searches. Index coverage diverged (for example, the PLOS
+metrics page and OpenAlex did not expose the same count), so this is an active
+sample of retrievable uses, not an exhaustive census.
+
+Item D1 - citing literature - RETRIEVED
+
+McCarthy et al. (2025), Implications for policy and practice:
+
+  "The limited number of studies completed since 2020 has focused on
+  online/virtual methods in the main (Gabarrell-Pascuet et al., 2024; Yavuz &
+  Sahin, 2023) or focused mainly on the wider population (Ye et al., 2022)."
+
+Locator: McCarthy et al., "A qualitative study of older adults' experiences
+during the early outbreak phase of the COVID-19 pandemic," HRB Open Research,
+section "Implications for policy and practice," paragraph containing the joint
+citation.
+https://hrbopenresearch.org/articles/8-51
+
+Attribution check: the document uses the target only to exemplify an online/
+virtual intervention; that characterization is within the target's design.
+Classification: accurate synthesis attribution. FULL-TEXT-CONFIRMED. The joint
+citation was checked at document level; no source-specific outcome is assigned
+to both papers. CROSS-SOURCE-CONFIRMED.
+
+Item D2 - author PR / social media - RETRIEVED
+
+The first author wrote:
+
+  "Key findings: * Significant reductions in emotional loneliness and
+  depressive symptoms following the intervention. * Participants highlighted
+  the intervention as a safe space for connection, personal growth, and
+  overcoming isolation."
+
+The post then says the study "underscores the potential of online group-based
+interventions to mitigate social and mental health challenges during crises."
+
+Locator: Aina Gabarrell Pascuet LinkedIn post sharing the article, post body.
+https://www.linkedin.com/posts/aina-gabarrell-pascuet-11254515a_reducing-loneliness-and-depressive-symptoms-activity-7275080868434497536-GVWS
+
+Attribution check: the result wording retains "following," while the potential
+statement broadens from this pilot to an intervention class but remains framed
+as potential. FULL-TEXT-CONFIRMED.
+
+Item D3 - citing literature / thesis - RETRIEVED
+
+The Swedish text states:
+
+  "Samtidigt visade studien av Gabarrell-Pascuet et al. (2024) en signifikant
+  minskning av både självrapporterad ensamhet och depression efter en online
+  interventionen vilket pekade på att socialt stöd även i digital form kunde ha
+  en skyddande effekt på den psykiska hälsan hos äldre."
+
+Auditor translation:
+
+  "At the same time, the study by Gabarrell-Pascuet et al. (2024) showed a
+  significant reduction in both self-reported loneliness and depression after
+  an online intervention, indicating that social support, even in digital form,
+  could have a protective effect on older adults' mental health."
+
+Locator: Swedish nursing thesis, discussion, p. 19, lines 598-600 in the
+retrieved PDF text.
+https://www.diva-portal.org/smash/get/diva2%3A1978589/FULLTEXT01.pdf
+
+Attribution check: the target found no significant change in total loneliness
+(p=0.218), social loneliness (p=0.128), or social support (p=0.840); only the
+emotional subscale and PHQ-8 result were significant. Its non-controlled design
+also did not identify a protective effect of digital social support.
+Classification: CITES THE AUDITED SOURCE MISATTRIBUTED for the total-loneliness
+and protective-effect version. CROSS-SOURCE-CONFIRMED; both texts were read.
+
+Item D4 - citing literature - RETRIEVED
+
+The AI-companion paper states:
+
+  "Social networking platforms and purpose-built online communities facilitate
+  peer support and social connectedness for older adults and marginalized
+  groups (Gabarrell-Pascuet et al., 2024) ..."
+
+Locator: "Mental Health Impacts of AI Companions," related work section 2.2,
+paragraph 3 (arXiv HTML line 116 in the retrieved version).
+https://arxiv.org/html/2509.22505v2
+
+Attribution check: the target studied a structured, facilitator-led, eight-week
+Zoom psychosocial program in older adults, not a social-networking platform or
+purpose-built online community; it reported no significant improvement in
+social support or social loneliness. The target is the sole citation attached
+to this sentence.
+Classification: CITES THE AUDITED SOURCE MISATTRIBUTED.
+CROSS-SOURCE-CONFIRMED; both texts were read.
+
+
+5. WHERE THE INFLATION BEGINS
+-----------------------------
+
+Required anchoring table
+
+| Item | Provenance state | Quotation present? | Locator present? | Attribution cross-source-confirmed, if applicable? | Anchor eligibility |
+|---|---|---|---|---|---|
+| Target Results/Table 2 | RETRIEVED | yes | yes - Results/Table 2 and DOI | N/A | ELIGIBLE |
+| Target Discussion/Conclusion | RETRIEVED | yes | yes - Discussion/Conclusion and DOI | N/A | ELIGIBLE |
+| D1 McCarthy et al. | RETRIEVED | yes | yes - Implications section and URL | yes - document-level joint-citation check | ELIGIBLE |
+| D2 first-author LinkedIn post | RETRIEVED | yes | yes - post body and URL | N/A | ELIGIBLE |
+| D3 Swedish thesis | RETRIEVED | yes | yes - p. 19 and URL | yes | ELIGIBLE |
+| D4 AI-companion paper | RETRIEVED | yes | yes - section 2.2 and URL | yes | ELIGIBLE |
+
+5A. Within-source component
+
+The first transition occurs in the paper:
+
+1. Instrument score -> named latent construct. Table 2 contains a change in the
+   six-item negative-keyed subscore, while the narrative states that "emotional
+   loneliness decreased by 0.84 points." Relative to the paper's own narrower
+   attachment/intimacy definition, this removes the broader item content and
+   the fact that subscale membership is identical to negative wording.
+
+2. Temporal difference -> intervention capability. The conclusion moves from a
+   non-controlled T1/T2 difference to a "promising online psychology tool to
+   reduce" the outcomes, while the limitations state that attribution is not
+   possible without a control group.
+
+Failure location: PAPER. Verification state: FULL-TEXT-CONFIRMED.
+
+5B. Downstream component
+
+- D3 changes a significant emotional-subscale result into significant
+  "loneliness" generally, then adds a protective-effect interpretation for
+  digital social support despite null total-loneliness, social-loneliness, and
+  social-support results. Failure location: CITATION.
+- D4 changes a facilitator-led Zoom intervention into evidence about social-
+  networking platforms and online communities facilitating social connectedness
+  for older and marginalized groups. Failure location: CITATION.
+- D1 is an accurate high-level method classification and does not add a failure
+  location. D2 largely reproduces the source's own framing; any causal-purpose
+  breadth in it begins in the paper rather than being created solely by the post.
+
+Downstream failure location: CITATION.
+Provenance: RETRIEVED.
+Verification states: FULL-TEXT-CONFIRMED and CROSS-SOURCE-CONFIRMED for D3-D4.
+
+Overall failure location: MIXED - PAPER for the score-to-construct and
+pre/post-to-tool transitions; CITATION for later general-loneliness,
+protective-effect, platform/community, and social-connectedness restatements.
+
+
+CLAIM INVENTORY - COMPLETED BEFORE FIELD 6
+------------------------------------------
+
+| Claim | Quantified? | Why it might be inflated downstream | Selected for Field 6? |
+|---|---|---|---|
+| Emotional loneliness decreased by 0.84 points on a 0-6 scale (2.62 to 1.78; p<0.01). | yes | The subscore may be restated as the narrower latent construct or as loneliness generally, and temporal sequence may be read causally. | yes |
+| Depressive symptoms decreased by 2.30 points on a 0-24 PHQ-8 scale (6.46 to 4.16; p<0.01). | yes | A pre/post symptom difference may be restated as a treatment effect or clinically meaningful improvement. | no - DEFERRED |
+| Total loneliness did not change significantly (4.32 to 3.86; p=0.218). | yes | It may disappear when downstream texts summarize only "loneliness decreased." | no - DEFERRED |
+| Social loneliness and social support did not change significantly. | yes | Downstream accounts may nevertheless describe improved social connectedness or digital social support. | no - DEFERRED |
+| The emotional-loneliness change "could be due" to the confidence and intimate environment of the group. | partly | The proposed mechanism may be repeated without the source's "could" hedge or without a mediator measure. | no - DEFERRED |
+| The pilot tested a "promising online psychology tool to reduce" emotional loneliness and depressive symptoms. | no | "Promising" may collapse into established efficacy and a pilot may become an intervention-class claim. | no - DEFERRED |
+| Online interventions for vulnerable populations "can become essential" to lessen pandemic consequences. | no | The population, intervention type, outcome, and causal scope are much broader than the pilot. | no - DEFERRED |
+| Attendance, dropout, and positive feedback indicate acceptability/feasibility. | partly | Completion among the enrolled sample may be generalized to feasibility for digitally excluded older adults. | no - DEFERRED |
+
+Selection rationale: the emotional-loneliness claim is the paper's most precise
+quantified loneliness result and directly couples a named construct to a stated
+0.84-point change. It receives priority under the prompt's default rule. The
+depression, mechanism, efficacy, and feasibility claims require separate runs
+rather than being bundled into Field 6.
+
+
+6. WHICH CLAIM IS THIS AUDIT EVALUATING?
+----------------------------------------
+
+Following BLOC, emotional loneliness decreased by 0.84 points on a 0-6 scale
+(sex-adjusted estimated means 2.62 at T1 and 1.78 at T2; p<0.01).
+
+This is one source-level, precisely quantified claim. "Following" preserves the
+observed sequence and does not add a causal "because of" clause.
+
+
+REQUIRED OUTPUT TABLE
+---------------------
+
+| Field | Content | Verification state |
+|---|---|---|
+| 1. Literally measured | In 27 baseline and 21 post interviews in a self-selected Barcelona feasibility pilot, the sex-adjusted mixed model estimated change on the 0-6 sum of six negatively keyed 11-item DJGLS items; 2.62 at T1 and 1.78 at T2, p<0.01. The standard instrument items were retrieved; exact administered translation was not reported. | FULL-TEXT-CONFIRMED; ITEMS-RETRIEVED |
+| 2. Source's strongest claim | Results: emotional loneliness decreased 0.84; Discussion: "substantial reduction"; Conclusion: a "promising" online psychology tool "to reduce" emotional loneliness and depression; generic online interventions "can become essential." | FULL-TEXT-CONFIRMED |
+| 3. Weaker defensible claim | The sex-adjusted mean count on six negative-keyed DJGLS items was 0.84 lower at the observed post interview than at baseline in this pilot; no causal or uniquely attachment-specific inference is added. | author reconstruction from Field 1 |
+| 4. Downstream claim | Retrieved uses range from accurate online-method classification (D1), through the paper's potential framing (D2), to generalized loneliness/protective digital support (D3) and social-networking/community social connectedness (D4). | FULL-TEXT-CONFIRMED; CROSS-SOURCE-CONFIRMED for D3-D4 |
+| 5A. Within-source inflation point + failure location | Negative-item subscore -> emotional attachment/intimacy construct; non-controlled temporal difference -> tool "to reduce." Failure location: PAPER. | FULL-TEXT-CONFIRMED |
+| 5B. Downstream inflation point + failure location | Emotional subscore -> loneliness generally and digital-support protective effect (D3); facilitated program -> platforms/communities and social connectedness (D4). Failure location: CITATION. | RETRIEVED; FULL-TEXT-CONFIRMED; CROSS-SOURCE-CONFIRMED |
+| 6. Claim under audit | Following BLOC, emotional loneliness decreased by 0.84 points on a 0-6 scale (sex-adjusted estimated means 2.62 at T1 and 1.78 at T2; p<0.01). | FULL-TEXT-CONFIRMED |
+
+
+REQUIRED CONSTRUCT-SIDE HANDOFF SUB-SCHEMA
+------------------------------------------
+
+| Check | Object | Retrieval status / basis | Result | Verification state | Evidence |
+|---|---|---|---|---|---|
+| Construct establishment | PREVALENCE | ESTABLISHED-REPORTED | In the selected baseline sample, 44% were moderate and 15% severe on total DJGLS; not a population estimate. | FULL-TEXT-CONFIRMED | Target Discussion, baseline prevalence paragraph |
+| Construct establishment | FORM | ESTABLISHED-REPORTED | Total/social/emotional scale means are reported; item-level endorsement pattern is not. | FULL-TEXT-CONFIRMED | Target Tables 1-2 |
+| Construct establishment | DOMAIN | ESTABLISHED-REPORTED | Barcelona, pandemic period, age 65+, desire-to-connect and technology-access criteria, stated exclusions. | FULL-TEXT-CONFIRMED | Target Methods, design and participants |
+| Construct establishment | WRONGNESS | UNKNOWN | Not applicable to the selected claim; no specific belief subclaim is graded. | FULL-TEXT-CONFIRMED | Field 6 contains no wrongness proposition |
+| Construct establishment | HARM | UNKNOWN | Harm citations appear in the introduction but were not checked for this map; Field 6 does not depend on a harm proposition. | PROVISIONAL | Target Introduction only |
+| Definition-operationalization | 11-item DJGLS emotional subscale | ITEMS-RETRIEVED | broader; items 3, 5, 6, 9, and 10 extend beyond the source's attachment/intimacy definition. Subtype: definitional scope creep. | FULL-TEXT-CONFIRMED | Target definition; De Jong-Gierveld & Kamphuls (1985); Tomás et al. (2017), Table 5 |
+| Grade-before-assert | no specific belief subclaim | full target and standard scale items retrieved | No applicable belief grade; P2 strength gate VOID. | FULL-TEXT-CONFIRMED | The selected claim is a change claim, not a belief-wrongness claim |
+
+
+HANDOFF LINES
+-------------
+
+CLAIM UNDER AUDIT: Following BLOC, emotional loneliness decreased by 0.84
+points on a 0-6 scale (sex-adjusted estimated means 2.62 at T1 and 1.78 at T2;
+p<0.01).
+
+WITHIN-SOURCE FAILURE LOCATION: PAPER - FULL-TEXT-CONFIRMED.
+
+DOWNSTREAM FAILURE LOCATION: CITATION - RETRIEVED; FULL-TEXT-CONFIRMED and
+CROSS-SOURCE-CONFIRMED for the two misattributed items.
+
+GAP TYPE: both.
+
+MAP CONFIDENCE: moderate-high. Confidence would rise with the exact
+questionnaire/language administered, item-level T1/T2 data, analysis code/data,
+and a more exhaustive citation-index export resolving divergent cited-by counts.
+
+
+SOURCE REGISTER
+---------------
+
+S1. Target full text and supporting information:
+    https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0311883
+
+S2. De Jong-Gierveld, J., & Kamphuls, F. (1985). "The Development of a
+    Rasch-Type Loneliness Scale." Applied Psychological Measurement, 9(3),
+    289-299. https://doi.org/10.1177/014662168500900307
+
+S3. De Jong Gierveld, J., & van Tilburg, T. (2010). "The De Jong Gierveld
+    short scales for emotional and social loneliness: tested on data from 7
+    countries." European Journal of Ageing, 7, 121-130.
+    https://pmc.ncbi.nlm.nih.gov/articles/PMC2921057/
+
+S4. Tomás, J. M., Pinazo-Hernandis, S., Donio-Bellegarde, M., & Hontangas,
+    P. M. (2017). "Validity of the de Jong Gierveld Loneliness Scale in Spanish
+    older population: competitive structural models and item response theory."
+    European Journal of Ageing, 14, 429-437.
+    https://pmc.ncbi.nlm.nih.gov/articles/PMC5684035/
+
+S5. McCarthy et al. (2025), HRB Open Research citation context:
+    https://hrbopenresearch.org/articles/8-51
+
+S6. Swedish nursing thesis citation context, p. 19:
+    https://www.diva-portal.org/smash/get/diva2%3A1978589/FULLTEXT01.pdf
+
+S7. "Mental Health Impacts of AI Companions," citation context, section 2.2:
+    https://arxiv.org/html/2509.22505v2
+
+S8. First-author article post:
+    https://www.linkedin.com/posts/aina-gabarrell-pascuet-11254515a_reducing-loneliness-and-depressive-symptoms-activity-7275080868434497536-GVWS
