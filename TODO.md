@@ -152,8 +152,30 @@ Recently applied, UNTESTED — these have not yet been through a run:
 
 NOTE ON SHARED PRIMITIVES: the compact copies inside each prompt are what
 actually runs; reference/shared-primitives.txt is documentation nobody loads.
-Edits must go to the prompts. Primitives should carry a header saying so, as the
-narrative-flags module does.
+Edits must go to the prompts.
+
+[x] Header saying so — APPLIED, matching the narrative-flags module.
+
+  Two things surfaced while applying it, both worse than "nobody loads it":
+
+  1. Despite the filename the file is NOT a primitives document. It is an older
+     reflowed copy of 1-claim-extraction.txt — same title, same WHY THIS STAGE
+     EXISTS structure, same field 1-6 table. It is a stale duplicate of a live
+     prompt, not reference material.
+
+  2. The `References: shared_primitives.txt Section 1 / 2 / 3` line at the top of
+     six prompts is DANGLING. Sections 1, 2 and 3 do not exist in that file or
+     anywhere else. The file's own header even carries the reference, pointing at
+     itself.
+
+[ ] Decide what to do about the six dangling reference lines. Options: point them
+    at the COMPACT VOCABULARY block in the prompt that carries them, or delete the
+    line. Not done here — it edits six live prompts and every prompt edit should
+    be run-tested, which this has not been.
+
+[ ] Consider deleting reference/shared-primitives.txt outright. It is now banner-
+    marked, but a stale copy of a live prompt is a standing invitation to read the
+    wrong version. Apply the deletion standard before cutting.
 
 COMPLIANCE GAP OBSERVED
   The MBH98 citation-network run used the fully-blocked prompt but produced zero

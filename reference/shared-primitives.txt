@@ -1,9 +1,42 @@
+=================================================================
+SUPERSEDED — NOT THE CANONICAL COPY
+=================================================================
+
+NOTHING LOADS THIS FILE. The compact copies of the primitives that live inside
+each prompt are canonical and are what actually executes.
+
+EDITS MADE HERE DO NOT PROPAGATE. If you change this file, every prompt keeps
+its old behavior. Make changes in the prompts.
+
+TWO WARNINGS BEFORE YOU READ ON:
+
+  1. Despite the filename, what follows is NOT a primitives document. It is an
+     older, reflowed copy of 1-claim-extraction.txt. Treat 1-claim-extraction.txt
+     as the live version; this one is behind it.
+
+  2. Six prompts open with a line of the form
+
+         References: shared_primitives.txt Section 1 (verification states),
+                     Section 2 (finding table), Section 3 (failure location)
+
+     Those sections DO NOT EXIST — not here and not anywhere. The reference is
+     dangling in every prompt that carries it, including in the header directly
+     below, which points at this same file. Do not go looking for Sections 1-3;
+     read the COMPACT VOCABULARY block inside the prompt you are actually
+     running.
+
+Retained for its design rationale, not as a source of truth.
+
+=================================================================
+
+
 CLAIM EXTRACTION / INFLATION MAP
 ================================
 
 Shared pre-stage. Runs AFTER target selection, BEFORE the prosecutors.
 
 References: shared_primitives.txt §1 (verification states), §3 (failure location)
+            [DANGLING — see the banner above. These sections do not exist.]
 
 -----------------------------------------------------------------
 WHY THIS STAGE EXISTS

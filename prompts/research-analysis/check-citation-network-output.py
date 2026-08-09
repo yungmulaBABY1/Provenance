@@ -165,8 +165,18 @@ def verdict_is_withheld(body: str) -> bool:
         and re.search(r"\bcompletion gate failed\b", body, re.IGNORECASE)
     )
 
+# The prompt mandates an ASCII hyphen here ("INCOMPLETE RUN  -  REQUIRED
+# SECTION OMITTED"). An earlier version of this check required an em dash, so a
+# model that followed the prompt exactly failed the declaration test in the one
+# scenario the completion gate exists for. Accept any dash, or none, and do not
+# depend on the surrounding spacing.
+INCOMPLETE_RUN_RE = re.compile(
+    r"\bINCOMPLETE RUN\s*[-‐-―−:]?\s*REQUIRED SECTION OMITTED\b",
+    re.IGNORECASE,
+)
+
 def incomplete_run_declared(text: str) -> bool:
-    return bool(re.search(r"\bINCOMPLETE RUN\s+—\s+REQUIRED SECTION OMITTED\b", text, re.IGNORECASE))
+    return bool(INCOMPLETE_RUN_RE.search(text))
 
 def main() -> int:
     if len(sys.argv) not in (2, 3):

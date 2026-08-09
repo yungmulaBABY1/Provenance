@@ -15,6 +15,31 @@ recording it so that stays checkable.
 
 Related: TODO.md (what is pending), tests/RESULTS.md (what runs actually did).
 
+## Tooling
+
+  [2026-08-09] prompts/research-analysis/check-citation-network-output.py —
+    the completion-gate declaration check required an em dash; the prompt that
+    tells the model what to write mandates an ASCII hyphen, and contains no em
+    dash anywhere. A run that followed the prompt exactly was scored
+    INCOMPLETE_DECLARATION_MISSING, and SILENT_OMISSION where Artifact 10 was
+    also not withheld. Now matches any dash or none, case-insensitively.
+    Prompted by: reading the two files against each other, NOT a live run — the
+    branch only fires when a required block is missing, and all three compliance
+    pilots passed with zero missing blocks, so it had never executed.
+    Tested: y — extracted the literal from 2-citation-network.txt:988 and
+    asserted the old pattern rejects it and the new one accepts it; re-ran the
+    five committed output fixtures, all still PASS. No committed regression case.
+    See FAILURES.md TOOL-003.
+
+  [2026-08-09] reference/shared-primitives.txt — added the SUPERSEDED banner
+    TODO.md had been asking for. While applying it: the file is not a primitives
+    document at all, it is a stale reflowed copy of 1-claim-extraction.txt, and
+    the `References: shared_primitives.txt Section 1/2/3` line carried by six
+    prompts is dangling — those sections exist nowhere. Banner records both.
+    The six prompt-side reference lines are NOT changed here; that edits live
+    prompts and should be run-tested.
+    Prompted by: review. Tested: n/a — documentation only, nothing executes it.
+
 ## Academic Branch
   MBH98 PILOT — first end-to-end run of the revised construct-validity prompt.
     THREE-WAY RESULT:
