@@ -1,0 +1,2607 @@
+<title>Provenance — Audit Examination</title>
+
+<style>
+/* ============================================================
+   TOKENS — complete light palette on bare :root
+   ============================================================ */
+:root {
+  --ground:        #E8EAEC;
+  --surface:       #F6F7F8;
+  --surface-2:     #FDFDFE;
+  --surface-sunk:  #DFE2E6;
+  --ink:           #1A1F26;
+  --ink-2:         #3D4753;
+  --ink-muted:     #5C6672;
+  --ink-faint:     #8A939E;
+  --line:          #D3D8DD;
+  --line-soft:     #E2E6EA;
+  --accent:        #2F4E6F;
+  --accent-soft:   #DCE4EC;
+  --accent-ink:    #FFFFFF;
+
+  --sev-fatal:     #8A3A2E;
+  --sev-fatal-bg:  #F3E2DE;
+  --sev-major:     #9A4436;
+  --sev-major-bg:  #F5E5E1;
+  --sev-minor:     #8A6320;
+  --sev-minor-bg:  #F3EADA;
+  --sev-sound:     #3C6A4E;
+  --sev-sound-bg:  #E0EBE3;
+  --sev-prov:      #5F6873;
+  --sev-prov-bg:   #E5E8EB;
+
+  --shadow-card:   0 1px 2px rgba(20,28,38,.05), 0 4px 14px -6px rgba(20,28,38,.10);
+  --shadow-lift:   0 2px 4px rgba(20,28,38,.07), 0 10px 28px -10px rgba(20,28,38,.18);
+  --shadow-panel:  -18px 0 48px -22px rgba(20,28,38,.35);
+
+  --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans:  ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono:  ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  --r-sm: 5px;
+  --r-md: 9px;
+  --r-lg: 14px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:        #13171C;
+    --surface:       #1A1F26;
+    --surface-2:     #212832;
+    --surface-sunk:  #0F1317;
+    --ink:           #E3E7EC;
+    --ink-2:         #C2C9D2;
+    --ink-muted:     #97A1AD;
+    --ink-faint:     #6D7783;
+    --line:          #2C343E;
+    --line-soft:     #232A33;
+    --accent:        #86AACE;
+    --accent-soft:   #23303F;
+    --accent-ink:    #0F1418;
+
+    --sev-fatal:     #D98A78;
+    --sev-fatal-bg:  #33211C;
+    --sev-major:     #D18C7C;
+    --sev-major-bg:  #2E2019;
+    --sev-minor:     #C9A462;
+    --sev-minor-bg:  #2B2517;
+    --sev-sound:     #7FB392;
+    --sev-sound-bg:  #1B2A21;
+    --sev-prov:      #9AA3AE;
+    --sev-prov-bg:   #232830;
+
+    --shadow-card:   0 1px 2px rgba(0,0,0,.30), 0 6px 18px -8px rgba(0,0,0,.50);
+    --shadow-lift:   0 2px 6px rgba(0,0,0,.36), 0 14px 34px -12px rgba(0,0,0,.62);
+    --shadow-panel:  -18px 0 52px -20px rgba(0,0,0,.72);
+  }
+}
+
+:root[data-theme="dark"] {
+  --ground:        #13171C;
+  --surface:       #1A1F26;
+  --surface-2:     #212832;
+  --surface-sunk:  #0F1317;
+  --ink:           #E3E7EC;
+  --ink-2:         #C2C9D2;
+  --ink-muted:     #97A1AD;
+  --ink-faint:     #6D7783;
+  --line:          #2C343E;
+  --line-soft:     #232A33;
+  --accent:        #86AACE;
+  --accent-soft:   #23303F;
+  --accent-ink:    #0F1418;
+
+  --sev-fatal:     #D98A78;
+  --sev-fatal-bg:  #33211C;
+  --sev-major:     #D18C7C;
+  --sev-major-bg:  #2E2019;
+  --sev-minor:     #C9A462;
+  --sev-minor-bg:  #2B2517;
+  --sev-sound:     #7FB392;
+  --sev-sound-bg:  #1B2A21;
+  --sev-prov:      #9AA3AE;
+  --sev-prov-bg:   #232830;
+
+  --shadow-card:   0 1px 2px rgba(0,0,0,.30), 0 6px 18px -8px rgba(0,0,0,.50);
+  --shadow-lift:   0 2px 6px rgba(0,0,0,.36), 0 14px 34px -12px rgba(0,0,0,.62);
+  --shadow-panel:  -18px 0 52px -20px rgba(0,0,0,.72);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button { font: inherit; color: inherit; background: none; border: none; padding: 0; cursor: pointer; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+/* ============================================================
+   SHELL
+   ============================================================ */
+.app {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  height: 100%;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 20px;
+  height: 54px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand { display: flex; align-items: baseline; gap: 11px; min-width: 0; }
+
+.brand-mark {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+}
+
+.brand-rule {
+  width: 1px;
+  height: 15px;
+  background: var(--line);
+  align-self: center;
+}
+
+.brand-tag {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13.5px;
+  color: var(--ink-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.topbar-spacer { flex: 1 1 auto; }
+
+.tbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 30px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ink-2);
+  white-space: nowrap;
+  transition: background .14s ease, border-color .14s ease, color .14s ease;
+}
+.tbtn:hover { border-color: var(--ink-faint); color: var(--ink); }
+.tbtn[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--ink); }
+
+.workspace {
+  display: grid;
+  grid-template-columns: 298px minmax(0, 1fr) 452px;
+  min-height: 0;
+}
+
+.region { min-width: 0; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+
+.region-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 18px 11px;
+  border-bottom: 1px solid var(--line-soft);
+  flex: 0 0 auto;
+}
+
+.region-count {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.scroller { overflow-y: auto; overflow-x: hidden; flex: 1 1 auto; scrollbar-width: thin; }
+.scroller::-webkit-scrollbar { width: 9px; height: 9px; }
+.scroller::-webkit-scrollbar-thumb { background: var(--line); border-radius: 9px; border: 2px solid transparent; background-clip: content-box; }
+.scroller::-webkit-scrollbar-thumb:hover { background: var(--ink-faint); background-clip: content-box; }
+
+/* ============================================================
+   LEFT — LIBRARY
+   ============================================================ */
+.library {
+  background: var(--surface);
+  border-right: 1px solid var(--line);
+}
+
+.lib-list { display: flex; flex-direction: column; gap: 8px; padding: 12px; }
+
+.lib-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px 13px 11px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+.lib-item:hover { border-color: var(--ink-faint); box-shadow: var(--shadow-card); }
+.lib-item[aria-current="true"] {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-card);
+  background: var(--surface-2);
+}
+.lib-item[aria-current="true"] .lib-title { color: var(--accent); }
+
+.lib-row { display: flex; align-items: flex-start; gap: 9px; }
+
+.lib-title {
+  font-family: var(--serif);
+  font-size: 15.5px;
+  line-height: 1.28;
+  font-weight: 600;
+  letter-spacing: -.005em;
+  margin: 0 0 5px;
+  text-wrap: balance;
+}
+
+.lib-claim {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--ink-muted);
+  margin: 0 0 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.lib-meta { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+
+.lib-date {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--ink-faint);
+}
+
+/* a verdict must never be truncated to fit; it wraps instead */
+.lib-meta .vbadge {
+  white-space: normal;
+  height: auto;
+  min-height: 19px;
+  padding: 2px 7px 3px;
+  line-height: 1.32;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.lib-meta .vbadge .vletter { padding-top: 1px; }
+
+/* ---- chips & badges ---- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 19px;
+  padding: 0 7px;
+  border-radius: 3px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.chip-tag { background: var(--surface-sunk); color: var(--ink-muted); }
+.chip-synth { background: var(--sev-prov-bg); color: var(--sev-prov); }
+
+.vbadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 19px;
+  padding: 0 7px 0 5px;
+  border-radius: 3px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.vbadge .vletter {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.v-fatal { background: var(--sev-fatal-bg); color: var(--sev-fatal); }
+.v-major { background: var(--sev-major-bg); color: var(--sev-major); }
+.v-minor { background: var(--sev-minor-bg); color: var(--sev-minor); }
+.v-sound { background: var(--sev-sound-bg); color: var(--sev-sound); }
+.v-prov  { background: var(--sev-prov-bg);  color: var(--sev-prov); }
+
+/* ============================================================
+   CENTER — EXAMINATION
+   ============================================================ */
+.centre {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  background: var(--ground);
+}
+
+.specimen { padding: 30px 44px 40px; }
+.specimen-inner { max-width: 660px; margin: 0 auto; }
+
+.spec-provenance {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 9px 12px;
+  margin: 0 0 22px;
+  border: 1px dashed var(--line);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--ink-muted);
+}
+.spec-provenance strong { color: var(--ink-2); font-weight: 600; }
+
+.spec-head { margin-bottom: 26px; }
+
+.spec-kicker { display: flex; align-items: center; gap: 9px; margin-bottom: 9px; flex-wrap: wrap; }
+
+.spec-title {
+  font-family: var(--serif);
+  font-size: 31px;
+  line-height: 1.16;
+  font-weight: 600;
+  letter-spacing: -.017em;
+  margin: 0 0 8px;
+  text-wrap: balance;
+}
+
+.spec-cite {
+  font-family: var(--serif);
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+.block { margin-bottom: 26px; }
+.block > .eyebrow { display: block; margin-bottom: 10px; }
+
+.claim-card {
+  padding: 18px 20px 19px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-card);
+}
+.claim-text {
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.44;
+  letter-spacing: -.008em;
+  margin: 0;
+  color: var(--ink);
+}
+.claim-note {
+  margin: 12px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+/* verdict */
+.verdict-card {
+  display: flex;
+  align-items: stretch;
+  gap: 18px;
+  padding: 17px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-card);
+}
+.verdict-letter {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  border-radius: var(--r-md);
+  font-family: var(--mono);
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+.verdict-body { min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 5px; }
+.verdict-label {
+  font-family: var(--serif);
+  font-size: 17.5px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -.008em;
+}
+.verdict-note { font-size: 13px; line-height: 1.55; color: var(--ink-muted); }
+
+/* failure modes */
+.modes { display: flex; flex-direction: column; gap: 1px; border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; background: var(--line-soft); }
+.mode {
+  display: grid;
+  grid-template-columns: 172px minmax(0, 1fr);
+  gap: 16px;
+  padding: 12px 15px;
+  background: var(--surface-2);
+}
+.mode-name { font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+.mode-note { font-size: 12.5px; line-height: 1.5; color: var(--ink-muted); }
+
+/* findings */
+.findings { display: flex; flex-direction: column; gap: 11px; }
+.finding {
+  padding: 15px 17px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-card);
+}
+.finding-top { display: flex; align-items: center; gap: 9px; margin-bottom: 9px; flex-wrap: wrap; }
+.finding-id { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); letter-spacing: .02em; }
+.finding-title {
+  font-family: var(--serif);
+  font-size: 16.5px;
+  line-height: 1.32;
+  font-weight: 600;
+  letter-spacing: -.008em;
+  margin: 0 0 8px;
+  text-wrap: balance;
+}
+.finding-body { font-size: 13.5px; line-height: 1.62; color: var(--ink-2); margin: 0; }
+.finding-foot {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 11.5px;
+  color: var(--ink-muted);
+  flex-wrap: wrap;
+}
+.finding-foot .k { font-family: var(--sans); font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); }
+.vstate { font-family: var(--mono); font-size: 11px; color: var(--ink-2); }
+
+.nofind {
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-card);
+}
+.nofind p { margin: 0; font-family: var(--serif); font-size: 16px; line-height: 1.55; color: var(--ink-2); }
+.nofind p + p { margin-top: 10px; font-family: var(--sans); font-size: 13px; color: var(--ink-muted); }
+
+/* ============================================================
+   BOTTOM STRIP
+   ============================================================ */
+.strip {
+  flex: 0 0 auto;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+}
+.strip-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px 0;
+}
+.strip-hint { font-size: 11.5px; color: var(--ink-faint); margin-left: auto; }
+
+.strip-rail {
+  display: flex;
+  gap: 9px;
+  padding: 10px 18px 14px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.strip-rail::-webkit-scrollbar { height: 8px; }
+.strip-rail::-webkit-scrollbar-thumb { background: var(--line); border-radius: 8px; }
+
+.run-card {
+  flex: 0 0 auto;
+  width: 158px;
+  text-align: left;
+  padding: 10px 12px 11px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+.run-card:hover { border-color: var(--ink-faint); box-shadow: var(--shadow-card); transform: translateY(-1px); }
+.run-card[aria-current="true"] { border-color: var(--accent); box-shadow: var(--shadow-lift); transform: translateY(-1px); }
+.run-card[aria-current="true"] .run-name { color: var(--accent); }
+.run-card.is-inert { background: var(--surface); }
+.run-card.is-inert .run-name { color: var(--ink-muted); }
+
+.run-stage {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--ink-faint);
+  letter-spacing: .04em;
+  display: block;
+  margin-bottom: 5px;
+}
+.run-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.32;
+  margin-bottom: 8px;
+  min-height: 33px;
+}
+.run-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.dot { width: 6px; height: 6px; border-radius: 50%; flex: 0 0 auto; }
+.dot-run    { background: var(--sev-sound); }
+.dot-flag   { background: var(--sev-minor); }
+.dot-off    { background: var(--line); border: 1px solid var(--ink-faint); }
+.dot-gap    { background: transparent; border: 1px dashed var(--ink-faint); }
+
+/* ============================================================
+   RIGHT — READOUT
+   ============================================================ */
+.readout {
+  background: var(--surface);
+  border-left: 1px solid var(--line);
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+}
+.back-btn:hover { text-decoration: underline; }
+
+.ro-body { padding: 16px 18px 34px; }
+
+.ro-section + .ro-section { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--line-soft); }
+.ro-section > .eyebrow { display: block; margin-bottom: 9px; }
+
+.ro-prose { font-size: 13.5px; line-height: 1.62; color: var(--ink-2); margin: 0; }
+.ro-prose + .ro-prose { margin-top: 10px; }
+
+.keylist { display: flex; flex-direction: column; gap: 9px; margin: 0; padding: 0; list-style: none; }
+.keylist li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 9px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.keylist .kdot { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); padding-top: 2px; }
+
+.srclist { display: flex; flex-direction: column; gap: 1px; border: 1px solid var(--line); border-radius: var(--r-sm); overflow: hidden; background: var(--line-soft); }
+.srcrow { display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; background: var(--surface-2); }
+.srcrow-top { display: flex; align-items: center; gap: 8px; }
+.srcrow-label { font-size: 12.5px; font-weight: 600; color: var(--ink); }
+.srcrow-state { margin-left: auto; font-family: var(--mono); font-size: 10px; letter-spacing: .03em; color: var(--ink-muted); text-align: right; }
+.srcrow-note { font-size: 12px; line-height: 1.5; color: var(--ink-muted); }
+
+.decisive {
+  padding: 14px 15px;
+  border: 1px solid var(--accent);
+  border-radius: var(--r-md);
+  background: var(--accent-soft);
+}
+.decisive p { margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--ink); }
+.decisive p + p { margin-top: 9px; font-size: 12.5px; color: var(--ink-2); }
+
+/* prompt output view */
+.po-head { margin-bottom: 14px; }
+.po-title {
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.24;
+  font-weight: 600;
+  letter-spacing: -.012em;
+  margin: 9px 0 8px;
+  text-wrap: balance;
+}
+.po-meta { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 11.5px; color: var(--ink-muted); }
+.po-meta .k { font-weight: 600; letter-spacing: .07em; text-transform: uppercase; font-size: 10px; color: var(--ink-faint); margin-right: 5px; }
+
+.po-note {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--sev-minor);
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.po-note.is-plain { border-left-color: var(--line); }
+
+.po-toolbar { display: flex; align-items: center; gap: 8px; margin: 14px 0 9px; }
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 27px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--ink-2);
+  transition: border-color .14s ease, color .14s ease;
+}
+.copy-btn:hover { border-color: var(--ink-faint); color: var(--ink); }
+.copy-btn.is-ok { border-color: var(--sev-sound); color: var(--sev-sound); }
+
+.po-bytes { margin-left: auto; font-family: var(--mono); font-size: 10.5px; color: var(--ink-faint); }
+
+.po-wrap {
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface-sunk);
+  overflow-x: auto;
+}
+.po-pre {
+  margin: 0;
+  padding: 14px 15px;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.66;
+  color: var(--ink-2);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  tab-size: 2;
+}
+
+.po-empty {
+  padding: 18px 18px 19px;
+  border: 1px dashed var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+}
+.po-empty p { margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--ink-2); }
+.po-empty p + p { margin-top: 10px; font-size: 12.5px; color: var(--ink-muted); }
+
+/* ============================================================
+   DOCUMENTATION OVERLAY
+   ============================================================ */
+.scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 17, 23, .34);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .22s ease;
+  z-index: 40;
+}
+.scrim.is-open { opacity: 1; pointer-events: auto; }
+
+.docs {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: min(620px, 92vw);
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border-left: 1px solid var(--line);
+  box-shadow: var(--shadow-panel);
+  transform: translateX(100%);
+  transition: transform .26s cubic-bezier(.32,.72,.3,1);
+  z-index: 50;
+}
+.docs.is-open { transform: translateX(0); }
+
+.docs-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 20px 13px;
+  border-bottom: 1px solid var(--line);
+  flex: 0 0 auto;
+}
+.docs-head h2 {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -.012em;
+  margin: 0;
+}
+.x-btn {
+  margin-left: auto;
+  width: 28px; height: 28px;
+  display: grid; place-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  color: var(--ink-muted);
+  font-size: 15px;
+  line-height: 1;
+}
+.x-btn:hover { border-color: var(--ink-faint); color: var(--ink); }
+
+.docs-nav {
+  display: flex;
+  gap: 4px;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--line-soft);
+  overflow-x: auto;
+  flex: 0 0 auto;
+}
+.docs-tab {
+  flex: 0 0 auto;
+  height: 27px;
+  padding: 0 11px;
+  border-radius: var(--r-sm);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  white-space: nowrap;
+  transition: background .14s ease, color .14s ease;
+}
+.docs-tab:hover { background: var(--surface-sunk); color: var(--ink); }
+.docs-tab[aria-selected="true"] { background: var(--accent-soft); color: var(--ink); font-weight: 600; }
+
+.docs-body { padding: 22px 26px 44px; }
+.docs-body .doc-inner { max-width: 560px; }
+
+.docs-body h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -.014em;
+  line-height: 1.24;
+  margin: 0 0 12px;
+  text-wrap: balance;
+}
+.docs-body h4 {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -.008em;
+  margin: 24px 0 8px;
+}
+.docs-body p {
+  font-size: 14px;
+  line-height: 1.66;
+  color: var(--ink-2);
+  margin: 0 0 12px;
+  max-width: 62ch;
+}
+.docs-body p.lede {
+  font-family: var(--serif);
+  font-size: 16.5px;
+  line-height: 1.58;
+  color: var(--ink);
+}
+.docs-body ul { margin: 0 0 12px; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.docs-body ul li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 62ch;
+}
+.docs-body ul li::before { content: "—"; color: var(--ink-faint); font-family: var(--mono); font-size: 12px; padding-top: 2px; }
+.docs-body strong { color: var(--ink); font-weight: 600; }
+
+.numlist { display: flex; flex-direction: column; gap: 14px; margin: 0 0 14px; }
+.numrow { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 13px; }
+.numrow .n {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  padding-top: 3px;
+  letter-spacing: -.02em;
+}
+.numrow .t { font-size: 14px; line-height: 1.62; color: var(--ink-2); max-width: 58ch; }
+.numrow .t b { color: var(--ink); font-weight: 600; }
+
+.vocab { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
+.vocab code {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  color: var(--ink-2);
+}
+
+.callout {
+  padding: 13px 15px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  margin: 0 0 16px;
+}
+.callout p { margin: 0; font-size: 13.5px; line-height: 1.6; }
+.callout p + p { margin-top: 9px; }
+
+.ladder { display: flex; flex-direction: column; gap: 1px; border: 1px solid var(--line); border-radius: var(--r-sm); overflow: hidden; background: var(--line-soft); margin: 0 0 16px; }
+.ladder-row { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 9px 13px; background: var(--surface-2); align-items: baseline; }
+.ladder-row .L { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--accent); }
+.ladder-row .D { font-size: 13px; line-height: 1.5; color: var(--ink-2); }
+
+.docs-foot {
+  margin-top: 26px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  max-width: 62ch;
+}
+.docs-foot a { color: var(--accent); }
+
+/* ============================================================
+   MOTION
+   ============================================================ */
+.fade-in { animation: fadeIn .24s cubic-bezier(.32,.72,.3,1) both; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
+  }
+}
+
+/* ============================================================
+   NARROWER DESKTOP — degrade, don't reflow to mobile
+   ============================================================ */
+@media (max-width: 1280px) {
+  .workspace { grid-template-columns: 262px minmax(0, 1fr) 396px; }
+  .specimen { padding: 26px 30px 34px; }
+}
+@media (max-width: 1080px) {
+  .workspace { grid-template-columns: 232px minmax(0, 1fr) 356px; }
+  .brand-tag { display: none; }
+  .specimen { padding: 22px 22px 30px; }
+  .spec-title { font-size: 26px; }
+}
+</style>
+
+<div class="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">Provenance</span>
+      <span class="brand-rule"></span>
+      <span class="brand-tag">It points; you judge.</span>
+    </div>
+    <div class="topbar-spacer"></div>
+    <button class="tbtn" id="docsBtn" aria-haspopup="dialog">Documentation</button>
+    <button class="tbtn" id="themeBtn" aria-pressed="false" title="Switch theme">
+      <span id="themeLabel">Dark</span>
+    </button>
+  </header>
+
+  <div class="workspace">
+
+    <!-- LEFT -->
+    <section class="region library" aria-label="Finished audits">
+      <div class="region-head">
+        <span class="eyebrow">Finished audits</span>
+        <span class="region-count" id="libCount"></span>
+      </div>
+      <div class="scroller">
+        <div class="lib-list" id="libList" role="list"></div>
+      </div>
+    </section>
+
+    <!-- CENTER -->
+    <section class="region centre" aria-label="Active audit summary">
+      <div class="scroller specimen" id="specimenScroll">
+        <div class="specimen-inner" id="specimen"></div>
+      </div>
+
+      <div class="strip">
+        <div class="strip-head">
+          <span class="eyebrow">Prompt runs</span>
+          <span class="strip-hint" id="stripHint"></span>
+        </div>
+        <div class="strip-rail" id="stripRail" role="tablist" aria-label="Prompt runs in this audit"></div>
+      </div>
+    </section>
+
+    <!-- RIGHT -->
+    <section class="region readout" aria-label="Detail readout">
+      <div class="region-head" id="roHead"></div>
+      <div class="scroller" id="roScroll">
+        <div class="ro-body" id="readout"></div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+
+<aside class="docs" id="docs" role="dialog" aria-modal="true" aria-label="Documentation" aria-hidden="true">
+  <div class="docs-head">
+    <h2>Documentation</h2>
+    <button class="x-btn" id="docsClose" aria-label="Close documentation">&#10005;</button>
+  </div>
+  <div class="docs-nav" id="docsNav" role="tablist"></div>
+  <div class="scroller docs-body" id="docsBody"></div>
+</aside>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ==========================================================
+     CONTENT LAYER
+     ----------------------------------------------------------
+     This app owns its content. Nothing is fetched at runtime.
+     Every example below is either (a) restated from this
+     toolkit's own recorded run log, or (b) a synthetic fixture
+     written for demonstration and badged as such in the UI.
+     ========================================================== */
+
+  var AUDITS = [
+
+    /* ---------------------------------------------------- 1 */
+    {
+      id: "mbh98",
+      title: "A 590-year reconstruction reported at 99.7% confidence",
+      claimShort: "Confidence stated pointwise, asserted over the maximum of a long correlated series.",
+      tag: "Paleoclimate",
+      branch: "Research",
+      date: "2026-07-14",
+      provenance: "documented",
+      provenanceNote: "Findings restated from this toolkit's own recorded run log. The methodological point is one already present in the published literature on this reconstruction; nothing here is a new allegation.",
+      source: {
+        label: "Multiproxy reconstruction of Northern Hemisphere temperature",
+        cite: "Mann, Bradley & Hughes (1998). Nature 392, 779–787. Audited across four models, 2026-06 to 2026-07."
+      },
+      verdict: { code: "E", label: "Not supported as stated", tone: "major" },
+      verdictNote: "The reconstruction is not the problem. The confidence statement attached to it is. One finding was later narrowed from E to C by the concede test.",
+      coreClaim: "The late-twentieth-century warming is unprecedented over the past six centuries, at 99.7% confidence.",
+      coreClaimNote: "Selected as the primary claim under the rule that where a source states a claim at several precisions, the audit targets the most quantified version. The abstract's unquantified phrasing was inventoried and deferred.",
+      modes: [
+        { name: "Measurement drift", note: "The statistical quantity computed is not the statistical quantity claimed. Pointwise residual variance is reported as if it bounded a maximum." },
+        { name: "Citation hardening", note: "Downstream restatement drops the reconstruction's own stated uncertainty and carries only the headline figure." }
+      ],
+      findings: [
+        {
+          id: "CV-01",
+          sev: "major",
+          sevLabel: "Major",
+          title: "A pointwise confidence interval is asserted over a series maximum",
+          body: "The 99.7% figure is derived from the residual variance of the calibration fit, which is a pointwise quantity: it describes the uncertainty of the reconstruction at a single year. The claim it is attached to concerns the maximum of a 590-year series whose values are strongly autocorrelated. The probability that at least one year in a long correlated series exceeds a threshold is not the probability that a given year exceeds it, and the gap between the two widens with series length. No simultaneous or field-significance adjustment is reported. The measurement supports a statement about individual years; the claim is made about the record as a whole.",
+          target: "Primary claim",
+          vstate: "FULL-TEXT-CONFIRMED"
+        },
+        {
+          id: "CV-02",
+          sev: "minor",
+          sevLabel: "Minor",
+          title: "Reconstruction uncertainty widens earlier in the record without a matching qualification",
+          body: "Proxy coverage thins substantially in the earliest centuries of the reconstruction, and the reported error bands widen accordingly. The comparison that carries the claim spans the full 590 years, but the qualification that early-period uncertainty is materially larger appears in the methods rather than alongside the claim. This is a placement finding, not a computation finding: the source states the limitation, it simply does not state it where the claim is made.",
+          target: "Primary claim",
+          vstate: "FULL-TEXT-CONFIRMED"
+        },
+        {
+          id: "CN-03",
+          sev: "prov",
+          sevLabel: "Narrowed by concede test",
+          title: "Downstream restatement drops the uncertainty band",
+          body: "Citing works were coded for whether they carried the reconstruction's stated uncertainty forward. A majority restate the headline conclusion without the band. The concede test then asked the strongest available counter-question: is this the source's doing, or the citing literature's? The source states its uncertainty in both the abstract and the figure captions. The finding therefore attaches to the reception, not to the source, and was narrowed from E to C on that basis.",
+          target: "Primary claim, downstream use",
+          vstate: "RECEPTION-CONFIRMED"
+        }
+      ],
+      summary: "The audit does not dispute the reconstruction. It disputes one sentence about the reconstruction: a confidence figure computed as a pointwise quantity and then asserted over the maximum of a long correlated series. That is a specific, checkable defect in the inference, not a judgment about the field or the authors.",
+      keyFindings: [
+        "The 99.7% figure describes uncertainty at a single year, not across a 590-year maximum.",
+        "No simultaneous-inference or field-significance correction is reported anywhere in the source.",
+        "Early-period uncertainty is stated in the methods, not beside the claim it qualifies.",
+        "A downstream finding was narrowed from E to C once the concede test located the fault in the citing literature rather than the source."
+      ],
+      sourceStatus: [
+        { label: "Primary article, full text", state: "FULL-TEXT-CONFIRMED", note: "Located and read in full. Method section and figure captions both checked against the abstract's phrasing." },
+        { label: "Same-author successor paper", state: "LOCATED", note: "Exists and extends the record. Relevant because it supplies the comparison the primary claim implies." },
+        { label: "National assessment report treatment", state: "RECEPTION-CONFIRMED", note: "An independent assessment body reviewed the statistical basis and its treatment of uncertainty. Used to ground the finding rather than to assert it." },
+        { label: "Citing literature sample", state: "RECEPTION-CONFIRMED", note: "Sampled for whether the uncertainty band travels with the claim. It largely does not." },
+        { label: "Underlying proxy series", state: "PROVISIONAL", note: "Not independently re-analysed. Any finding that would require re-running the reconstruction is out of this audit's reach and is marked provisional." }
+      ],
+      decisiveTest: "Recompute the exceedance probability with a simultaneous-inference correction appropriate to a 590-year autocorrelated series, and report both figures side by side.",
+      decisiveNote: "If the corrected figure remains high, the claim survives and this finding dissolves. If it drops materially, the defect is confirmed and its size is quantified. Either way the question is settled by one computation rather than by argument — which is the property that makes it decisive.",
+      runs: [
+        { stage: "0", name: "Field Diagnostic", status: "not-run", statusLabel: "Not run",
+          note: "This stage runs once per field, not once per paper. It was not re-run for this target.",
+          output: null },
+        { stage: "1", name: "Claim Extraction", status: "run", statusLabel: "Run", model: "Four models", date: "2026-07-14",
+          output: [
+
+"CLAIM EXTRACTION / INFLATION MAP",
+"Target : Multiproxy NH temperature reconstruction (1998)",
+"Run    : 2026-07-14   cold pass, no hand-written map supplied",
+"",
+"--------------------------------------------------",
+"FIELD 1 - SOURCE TYPE",
+"--------------------------------------------------",
+"Peer-reviewed research article. Statistical",
+"reconstruction with reported calibration/verification",
+"statistics and error bands.",
+"",
+"--------------------------------------------------",
+"FIELD 2 - WHAT WAS ACTUALLY MEASURED",
+"--------------------------------------------------",
+"A calibration of proxy series against the instrumental",
+"record over the overlap period, projected backward. The",
+"reported uncertainty is the residual variance of that",
+"calibration fit, expressed per year.",
+"",
+"--------------------------------------------------",
+"FIELD 3 - WHAT THE SOURCE CLAIMS",
+"--------------------------------------------------",
+"That recent warming is unprecedented across the",
+"reconstructed period, with a stated confidence level",
+"attached.",
+"",
+"--------------------------------------------------",
+"FIELD 4 - DOWNSTREAM USE            [ACTIVE SEARCH]",
+"--------------------------------------------------",
+"State: RETRIEVED",
+"Citing works and assessment-report treatments were",
+"located and read. The headline conclusion travels",
+"widely. The stated uncertainty band travels much less",
+"often. Recorded for the citation-network stage; no",
+"verdict formed here.",
+"",
+"--------------------------------------------------",
+"FIELD 5 - WHERE INFLATION BEGINS",
+"--------------------------------------------------",
+"Anchored at the source, not downstream. Only SUPPLIED or",
+"RETRIEVED material may anchor a failure location, and",
+"the anchor here is a quoted sentence in the source with",
+"a locator.",
+"",
+"Anchor quotation : the confidence statement as printed in the",
+"                   abstract, with section locator recorded.",
+"Anchor state     : RETRIEVED",
+"",
+"--------------------------------------------------",
+"CLAIM INVENTORY",
+"--------------------------------------------------",
+"C1  Recent warming is unprecedented over the reconstructed period,",
+"    at a stated confidence level.                      [SELECTED]",
+"    Why it may be inflated: the confidence figure is a pointwise",
+"    quantity and the claim is about a series maximum.",
+"",
+"C2  The reconstruction resolves multi-decadal variability across",
+"    the full period.                                    [DEFERRED]",
+"    Why it may be inflated: proxy density is not constant across",
+"    the period; resolution claims may not hold uniformly.",
+"",
+"C3  The pattern is hemispheric rather than regional.     [DEFERRED]",
+"    Why it may be inflated: spatial coverage is uneven.",
+"",
+"DEFERRED IS NOT DISMISSED. C2 and C3 are recorded so a",
+"later pass can target them. Every stage below targets C1",
+"only.",
+"",
+"--------------------------------------------------",
+"FIELD 6 - THE CLAIM UNDER AUDIT",
+"--------------------------------------------------",
+"C1, in its quantified form.",
+"",
+"RULE 1 satisfied: one claim only, no bundling.",
+"RULE 2 satisfied: the quantified statement was preferred over the",
+"abstract's unquantified phrasing.",
+"",
+"--------------------------------------------------",
+"HANDOFF",
+"--------------------------------------------------",
+"All prosecutors receive C1 as printed above. A",
+"prosecutor finding that does not declare C1 as its",
+"target must be flagged MAP GAP."
+          ].join("\n") },
+        { stage: "2", name: "Construct Validity", status: "run", statusLabel: "Run", model: "Four models", date: "2026-07-14",
+          output: [
+
+"CONSTRUCT-VALIDITY AUDIT  -  CLAIM VS. MEASUREMENT",
+"Target claim : C1 (see claim map)",
+"",
+"--------------------------------------------------",
+"PRE-AUDIT CLAIM CONFIRMATION",
+"--------------------------------------------------",
+"Claim map received. Target claim restated verbatim",
+"before analysis. No expansion of scope. C2 and C3 remain",
+"deferred and untouched.",
+"",
+"--------------------------------------------------",
+"SECTION A: WHAT THE MEASUREMENT IS",
+"--------------------------------------------------",
+"The quantity computed is the residual variance of a",
+"calibration fit between proxy series and the",
+"instrumental record over their overlap, expressed as an",
+"interval around each reconstructed year.",
+"",
+"This is a POINTWISE quantity. It answers: for a given year, how",
+"wide is the plausible range?",
+"",
+"--------------------------------------------------",
+"SECTION B: WHAT THE CLAIM REQUIRES",
+"--------------------------------------------------",
+"The claim is comparative and it is about an extremum: that recent",
+"values exceed ALL prior values in the reconstructed",
+"period.",
+"",
+"This requires a SIMULTANEOUS quantity. It answers: across 590",
+"correlated draws, what is the probability that the",
+"maximum exceeds a threshold?",
+"",
+"These are different questions. The second is strictly",
+"harder, and the gap between them grows with series",
+"length and with the degree of autocorrelation in the",
+"series.",
+"",
+"--------------------------------------------------",
+"SECTION C: THE GAP                              [PRIMARY FINDING]",
+"--------------------------------------------------",
+"The confidence figure computed in Section A is attached",
+"to the claim described in Section B. No",
+"simultaneous-inference adjustment, field-significance",
+"correction, or multiple-comparison treatment is reported",
+"anywhere in the source.",
+"",
+"This is not a dispute about the reconstruction. The",
+"reconstruction may be entirely sound and this finding",
+"still stands, because the finding concerns the inference",
+"attached to it.",
+"",
+"Verification state : FULL-TEXT-CONFIRMED",
+"Locator            : abstract, and the corresponding methods passage",
+"",
+"--------------------------------------------------",
+"SECTION D: WHAT WOULD DEFEAT THIS FINDING",
+"--------------------------------------------------",
+"Any of the following, if located, defeats or narrows it:",
+"  - a reported simultaneous or field-significance correction",
+"  - a stated argument that autocorrelation is negligible here",
+"  - a supplementary calculation carrying the adjusted figure",
+"",
+"Searched. None located in the source or its",
+"supplementary material. Absence is recorded as absence,",
+"not as evidence of intent.",
+"",
+"--------------------------------------------------",
+"SECTION E: WHAT THIS AUDIT CANNOT REACH",
+"--------------------------------------------------",
+"The proxy series were not independently re-analysed. Any",
+"claim about whether the reconstruction itself is correct",
+"is outside this audit and is not made. Stated so the",
+"reader does not infer a broader verdict than the",
+"evidence supports.",
+"",
+"--------------------------------------------------",
+"SECTION F: CONSTRUCT-VALIDITY VERDICT",
+"--------------------------------------------------",
+"E  -  the claim is not supported as stated.",
+"",
+"Narrower claim the measurement DOES support: for any given year in",
+"the reconstruction, the recent values lie outside the",
+"stated pointwise interval.",
+"",
+"--------------------------------------------------",
+"FINAL SECTION: STANDARDIZED FINDING TABLE",
+"--------------------------------------------------",
+"CV-01   target C1   MAJOR",
+"        FULL-TEXT-CONFIRMED",
+"        Pointwise CI asserted over a series maximum",
+"",
+"CV-02   target C1   MINOR",
+"        FULL-TEXT-CONFIRMED",
+"        Early-period uncertainty stated away from the",
+"        claim it qualifies"
+          ].join("\n") },
+        { stage: "2", name: "Internal Validity", status: "not-run", statusLabel: "Not run",
+          note: "The prompt is complete but has never been executed against any target. Shown here as not run rather than omitted, because an audit that silently skips a stage looks identical to one that passed it.",
+          output: null },
+        { stage: "2", name: "Citation Network", status: "flagged", statusLabel: "Run · flagged", model: "Four models", date: "2026-07-16",
+          note: "Execution-compliance gap observed on this run. Several required sections were present in the prompt but absent from the output, while other sections rendered normally. The finding below is reported; the run is not treated as complete.",
+          output: [
+
+"CITATION NETWORK AUDIT",
+"Target claim : C1 (see claim map)",
+"",
+"--------------------------------------------------",
+"PRE-AUDIT CLAIM CONFIRMATION",
+"--------------------------------------------------",
+"Claim map received. Target claim: C1. Scope is C1 only. Deferred",
+"claims C2 and C3 are not audited here and no finding",
+"below may attach to them.",
+"",
+"--------------------------------------------------",
+"SECTION C: CITATION POLARITY AND CLAIM USE",
+"--------------------------------------------------",
+"Citing works were coded for how they use the claim",
+"rather than merely whether they cite it.",
+"",
+"  supportive, uncertainty carried forward .......... few",
+"  supportive, uncertainty dropped .................. most",
+"  critical or qualifying ........................... some",
+"  incidental / background citation ................. many",
+"",
+"The dominant pattern is not misrepresentation. It is compression:",
+"the headline conclusion is portable and the error band",
+"is not.",
+"",
+"--------------------------------------------------",
+"SECTION D: CLAIM MUTATION TRACKING",
+"--------------------------------------------------",
+"Tracked wording across the chain from source to",
+"assessment report to general reference works.",
+"",
+"  source            : claim stated WITH the confidence figure and",
+"                      WITH the error band",
+"  assessment stage  : claim stated with qualification, band present",
+"                      in the accompanying figure",
+"  general reference : claim stated flatly, band absent",
+"",
+"The mutation is loss of qualification, not change of",
+"substance. Recorded as such. Overstating this as",
+"fabrication would be the prosecutorial error this stage",
+"is most prone to.",
+"",
+"--------------------------------------------------",
+"SECTION J2: THE CONCEDE TEST",
+"--------------------------------------------------",
+"Question put to the audit against itself: what is the strongest",
+"case that this finding attaches to the citing literature",
+"rather than to the source?",
+"",
+"Strongest case: the source states its uncertainty in the abstract",
+"and again in the figure captions. It does not hide the",
+"band. A reader of the source is told. The compression",
+"happens downstream, in works the source does not",
+"control.",
+"",
+"CONCEDED. This finding is reattached to the reception",
+"and narrowed from E to C. It remains a real finding",
+"about how the claim travels; it is no longer a finding",
+"about the source's own conduct.",
+"",
+"This is the outcome the concede test exists to produce.",
+"Recorded as a change, not as a formality.",
+"",
+"--------------------------------------------------",
+"EXECUTION COMPLIANCE  -  OPERATOR NOTE",
+"--------------------------------------------------",
+"Required sections A, B and E were present in the prompt",
+"and did not render in this output. Section J2 rendered",
+"normally, so this is not simple truncation at the tail.",
+"The run is logged as INCOMPLETE and no overall network",
+"verdict is issued from it.",
+"",
+"A prompt that is correct and an output that is",
+"incomplete is a distinct failure category from a prompt",
+"that is wrong. It is tracked separately and it blocks",
+"any widening of this stage's scope until it is resolved."
+          ].join("\n") },
+        { stage: "3", name: "Oppositional Counter-Audit", status: "run", statusLabel: "Run", model: "Four models", date: "2026-07-16",
+          output: [
+
+"OPPOSITIONAL COUNTER-AUDIT",
+"Object under audit : the prosecution above, not the source",
+"",
+"--------------------------------------------------",
+"SECTION E0: THE SOURCE'S OWN PRE-EMPTIONS",
+"--------------------------------------------------",
+"Before searching outside literature, search the source",
+"itself for places it already anticipates the critique.",
+"",
+"FOUND. The source states its uncertainty in the",
+"abstract, plots the band in its principal figure, and",
+"flags thinning proxy coverage in the early period in its",
+"methods.",
+"",
+"CONSEQUENCE: finding CV-02 is materially weakened. The source does",
+"state the limitation; the prosecution's complaint",
+"reduces to where it is stated rather than whether. CV-02",
+"is retained at MINOR and explicitly reframed as a",
+"placement finding.",
+"",
+"This section was added after seven runs in which the",
+"counter-audit searched the outside literature and never",
+"the source itself.",
+"",
+"--------------------------------------------------",
+"SECTION A: OPPOSITIONAL CITING PAPERS",
+"--------------------------------------------------",
+"Located works arguing the reconstruction's uncertainty",
+"treatment is adequate, and works arguing it is not. Both",
+"directions read.",
+"",
+"The strongest opposing position is not that the",
+"pointwise/ simultaneous distinction is wrong, but that",
+"the distinction was understood at the time and treated",
+"as a known limitation rather than an error. This does",
+"not defeat CV-01. It bears on how the finding should be",
+"characterised.",
+"",
+"--------------------------------------------------",
+"SECTION E: STRONGEST EVIDENCE SUPPORTING THE ORIGINAL CLAIM",
+"--------------------------------------------------",
+"Independent reconstructions using different proxy sets",
+"and different statistical methods reach broadly similar",
+"conclusions about the direction and recency of the",
+"change.",
+"",
+"CONSEQUENCE: the prosecution must not be read as a finding that the",
+"underlying conclusion is wrong. It is a finding about",
+"one inference statement. If the write-up blurs those, it",
+"overclaims.",
+"",
+"--------------------------------------------------",
+"SECTION G2: DID THE PROSECUTION ATTACK THE STRONGEST VERSION?",
+"--------------------------------------------------",
+"Checked each finding against its declared target claim.",
+"",
+"  CV-01  targets C1. On target. Attacks the quantified version,",
+"         which is the strongest form of the claim. PASS.",
+"  CV-02  targets C1. On target, but weakened by E0. PASS with",
+"         the reframing above applied.",
+"  CN-03  targets C1 downstream use. On target after the concede",
+"         test moved it. PASS.",
+"",
+"No finding attacks an easier downstream restatement in",
+"place of the source's own strongest formulation.",
+"",
+"--------------------------------------------------",
+"COUNTER-AUDIT SUMMARY",
+"--------------------------------------------------",
+"One finding survives at MAJOR (CV-01). One survives at",
+"MINOR, reframed (CV-02). One was moved from the source",
+"to its reception (CN-03).",
+"",
+"The prosecution is narrower after this stage than before",
+"it. That is the intended direction of travel."
+          ].join("\n") },
+        { stage: "—", name: "Human Adjudication", status: "human", statusLabel: "No prompt",
+          note: "This step has no prompt file, deliberately. It sits between the counter-audit and synthesis and is where a person decides which surviving findings they are prepared to stand behind. Automating it would remove the only place in the sequence where judgment is exercised rather than surfaced.",
+          output: null },
+        { stage: "4", name: "Synthesis", status: "gap", statusLabel: "Not built",
+          note: "The synthesis stage does not exist yet. It is intended to compress adjudicated findings into a single write-up — aggregation derived rather than asserted, directional coherence checked, concede-test outcomes preserved, provisional flags carried through, and no composite score. It is deliberately unbuilt until the research branch has been run enough times to show what it would be compressing.",
+          output: null },
+        { stage: "5", name: "Voice Restoration", status: "not-run", statusLabel: "Not run",
+          note: "Not run for this target. This stage audits the finished write-up for hedging and anticipatory softening, so it has nothing to act on until a synthesis exists.",
+          output: null }
+      ]
+    },
+
+    /* ---------------------------------------------------- 2 */
+    {
+      id: "ceuta",
+      title: "Six outlets, one source, one number",
+      claimShort: "A crossing figure reported as independently corroborated across a coverage network that shares a single origin.",
+      tag: "Migration coverage",
+      branch: "Media",
+      date: "2026-07-30",
+      provenance: "synthetic",
+      provenanceNote: "Synthetic fixture. The event, the outlets and the figures are invented for demonstration. No real publication is described here and no real reporting is being characterised.",
+      source: {
+        label: "Coverage network — border crossing surge, July 2026",
+        cite: "Six invented outlets, one invented agency wire, eleven pieces published over nine days. Written as a controlled fixture in which the dependency structure is known in advance."
+      },
+      verdict: { code: "C", label: "Overstated by assembly", tone: "minor" },
+      verdictNote: "Every piece in the network is factually accurate. The impression the network creates — independent confirmation — is not supported by its own source structure.",
+      coreClaim: "A figure of 4,300 crossings in a single night was independently confirmed by multiple outlets.",
+      coreClaimNote: "Selected because it is the quantified claim, and because independence is the property the coverage asserts most strongly and evidences least.",
+      modes: [
+        { name: "Amplification read as corroboration", note: "Repetition across outlets is presented, by sheer volume, as independent confirmation. The network shares one origin." },
+        { name: "Assembly", note: "Ordering, attribution placement and headline selection produce an impression the assembled facts do not support." }
+      ],
+      findings: [
+        {
+          id: "MB-01",
+          sev: "major",
+          sevLabel: "Major",
+          title: "Six outlets, one origin",
+          body: "All eleven pieces trace the 4,300 figure to a single agency wire filed on the first night. Two outlets attribute it to the wire. Three attribute it to officials, which is where the wire got it. One attributes it to reporting by the other outlets. No outlet obtained the figure independently, and no outlet states that the others did not. A reader encountering four of the six pieces would reasonably conclude the figure had been confirmed several times over.",
+          target: "Primary claim",
+          vstate: "CROSS-SOURCE-CONFIRMED"
+        },
+        {
+          id: "MB-02",
+          sev: "minor",
+          sevLabel: "Minor",
+          title: "The correction propagates less than the error",
+          body: "The originating wire issued a revision on day four, lowering the figure and widening its stated basis. Two of the six outlets carried the revision. Of those two, one placed it in a standalone follow-up and one appended it to the foot of the original piece. The four that did not carry it have unmodified pieces still bearing the original figure. This is a distribution finding and it is stated as one: the asymmetry is observable, the reason for it is not.",
+          target: "Primary claim",
+          vstate: "CROSS-SOURCE-CONFIRMED"
+        },
+        {
+          id: "MB-03",
+          sev: "prov",
+          sevLabel: "Cleared",
+          title: "Headline framing does not diverge from the network",
+          body: "Tested whether any single outlet's headline framing departed from the network's shared framing in a way that would single it out. It does not. Every headline in the set routes the claim through attribution, and the two sharpest headlines belong to outlets that also carried the revision. This was checked because the audit's initial reading suggested otherwise, and the check did not support it. Recorded as cleared rather than dropped.",
+          target: "Primary claim",
+          vstate: "CROSS-SOURCE-CONFIRMED"
+        }
+      ],
+      summary: "No piece in this network states a falsehood. The finding is about what the network implies collectively that no member of it claims individually: that a contested figure had been independently confirmed. Volume was doing the work that verification is supposed to do.",
+      keyFindings: [
+        "All eleven pieces trace to one agency wire; none obtained the figure independently.",
+        "Attribution chains differ enough across outlets to obscure the shared origin.",
+        "The day-four revision reached two of six outlets; four unmodified pieces still carry the original figure.",
+        "Headline framing was tested for outlet-specific divergence and cleared — the framing is network-wide."
+      ],
+      sourceStatus: [
+        { label: "Originating agency wire", state: "LOCATED", note: "Filed night one. Carries the figure with a single-sourced attribution and a stated caveat that the count was preliminary." },
+        { label: "Day-four revision", state: "LOCATED", note: "Lowers the figure and widens the basis. Distribution across the network was traced piece by piece." },
+        { label: "Eleven downstream pieces", state: "CROSS-SOURCE-CONFIRMED", note: "All read in full. Attribution chains mapped to origin for each." },
+        { label: "Official statement behind the wire", state: "PROVISIONAL", note: "Referenced by the wire, not independently obtainable within the fixture. Any finding depending on its exact wording is marked provisional." }
+      ],
+      decisiveTest: "For each of the six outlets, ask whether the 4,300 figure would have appeared in their piece had the agency wire not existed.",
+      decisiveNote: "If the answer is no for all six, corroboration was never present and the network's implied confirmation is an artefact of redistribution. The question is answerable from the pieces themselves, which is what makes it decisive rather than rhetorical.",
+      runs: [
+        { stage: "0", name: "Field Diagnostic", status: "not-run", statusLabel: "Not run",
+          note: "Run once per field rather than per target. Not re-run for this fixture.",
+          output: null },
+        { stage: "1", name: "Claim Extraction", status: "run", statusLabel: "Run", model: "Three models", date: "2026-07-30",
+          output: [
+
+"CLAIM EXTRACTION / INFLATION MAP  -  MEDIA BRANCH",
+"Target : coverage set, eleven pieces, six outlets, nine days",
+"Run    : 2026-07-30",
+"",
+"--------------------------------------------------",
+"FIELD 1 - SOURCE TYPE",
+"--------------------------------------------------",
+"News coverage network. Mixed wire copy, staff reporting",
+"and follow-up analysis. No single authoring entity.",
+"",
+"--------------------------------------------------",
+"FIELD 2 - WHAT IS ACTUALLY EVIDENCED",
+"--------------------------------------------------",
+"One agency wire, filed night one, carrying a preliminary",
+"count attributed to officials. Everything downstream",
+"restates it.",
+"",
+"--------------------------------------------------",
+"FIELD 3 - WHAT THE COVERAGE CLAIMS",
+"--------------------------------------------------",
+"That the figure is established. The word 'confirmed'",
+"appears in three of eleven pieces. None of the three",
+"obtained the figure independently.",
+"",
+"--------------------------------------------------",
+"FIELD 4 - DOWNSTREAM USE            [ACTIVE SEARCH]",
+"--------------------------------------------------",
+"State: RETRIEVED",
+"The figure appears in two later commentary pieces as",
+"settled background, with no attribution at all. Recorded",
+"for the coverage-network stage.",
+"",
+"--------------------------------------------------",
+"FIELD 5 - WHERE INFLATION BEGINS",
+"--------------------------------------------------",
+"NOT at the wire. The wire states its own caveat.",
+"",
+"Inflation begins at the second and third restatements,",
+"where the caveat is dropped and the attribution chain",
+"shortens from",
+"'officials, via agency' to 'officials' to 'reports'.",
+"",
+"Anchor : the first piece to drop the preliminary caveat while",
+"         retaining the figure. Quoted with locator.",
+"Anchor state : RETRIEVED",
+"",
+"--------------------------------------------------",
+"CLAIM INVENTORY",
+"--------------------------------------------------",
+"C1  The 4,300 figure was independently confirmed.     [SELECTED]",
+"    Why it may be inflated: independence is asserted by volume",
+"    rather than evidenced by sourcing.",
+"",
+"C2  The crossing represented an unprecedented single-night",
+"    total.                                             [DEFERRED]",
+"    Why it may be inflated: no comparative series is cited",
+"    anywhere in the set.",
+"",
+"C3  The response was coordinated across two administrations.",
+"                                                       [DEFERRED]",
+"",
+"--------------------------------------------------",
+"FIELD 6 - THE CLAIM UNDER AUDIT",
+"--------------------------------------------------",
+"C1. All stages below target C1 only."
+          ].join("\n") },
+        { stage: "2", name: "Framing & Construction", status: "run", statusLabel: "Run", model: "Three models", date: "2026-07-30",
+          output: [
+
+"FRAMING AND CONSTRUCTION AUDIT  -  MEDIA BRANCH",
+"Target claim : C1",
+"",
+"THIS AUDIT IS NOT fact-checking. It does not adjudicate",
+"whether the reported facts are true. It audits what the",
+"pieces do with ordering, agency, attribution, sourcing,",
+"omission and packaging.",
+"",
+"The premise: a piece can be entirely factually accurate and still",
+"mislead through assembly.",
+"",
+"--------------------------------------------------",
+"SECTION B: ATTRIBUTION PLACEMENT",
+"--------------------------------------------------",
+"Where the figure's attribution sits, per piece:",
+"",
+"  piece 01  headline attributed, wire named            .... clean",
+"  piece 02  headline attributed, wire named            .... clean",
+"  piece 03  attribution in paragraph 4                 .... noted",
+"  piece 04  attribution in paragraph 6                 .... noted",
+"  piece 05  'reports indicate', no origin named        .... FINDING",
+"  piece 06  attribution to 'officials' only            .... FINDING",
+"",
+"Pieces 05 and 06 present the figure in a form from which",
+"a reader cannot reconstruct where it came from. That is",
+"the construction finding. Whether it was intended is not",
+"observable and is not claimed.",
+"",
+"--------------------------------------------------",
+"SECTION G: OMISSION VS. DE-EMPHASIS",
+"--------------------------------------------------",
+"The wire's preliminary caveat is:",
+"  reproduced in full ......... 2 pieces",
+"  compressed to one clause ... 3 pieces",
+"  absent ..................... 6 pieces",
+"",
+"Absence in six pieces is recorded as omission.",
+"Compression in three is recorded as de-emphasis. These",
+"are kept separate because they support different",
+"findings and merging them would overstate.",
+"",
+"--------------------------------------------------",
+"SECTION J: THE FLIP TEST                          [MANDATORY]",
+"--------------------------------------------------",
+"Rewrite the finding with the political valence of the",
+"coverage reversed. Does it still fire?",
+"",
+"Flipped: a coverage network reporting a figure that cuts the other",
+"way, from one wire, with the same attribution decay.",
+"",
+"Result: fires identically. The finding is about source structure",
+"and attribution placement, neither of which has a",
+"direction.",
+"",
+"A construction audit that only fires one way is a broken",
+"instrument, and it is broken in exactly the way the",
+"pieces it audits are.",
+"",
+"PASS.",
+"",
+"--------------------------------------------------",
+"FINAL SECTION: STANDARDIZED FINDING TABLE",
+"--------------------------------------------------",
+"MB-01   target C1   MAJOR",
+"        CROSS-SOURCE-CONFIRMED",
+"        Six outlets, one origin",
+"",
+"MB-02   target C1   MINOR",
+"        CROSS-SOURCE-CONFIRMED",
+"        Revision reached two of six outlets"
+          ].join("\n") },
+        { stage: "2", name: "Coverage Network", status: "run", statusLabel: "Run", model: "Three models", date: "2026-07-31",
+          output: [
+
+"COVERAGE NETWORK AND SOURCE-CHAIN AUDIT  -  MEDIA BRANCH",
+"Target claim : C1",
+"",
+"--------------------------------------------------",
+"SECTION A: SOURCE-CHAIN MAP",
+"--------------------------------------------------",
+"",
+"   [agency wire, night 1]",
+"        |",
+"        +--> outlet A piece 01 ---> outlet D piece 07",
+"        +--> outlet B piece 02 ---> outlet E piece 09",
+"        +--> outlet C piece 03 --+-> outlet F piece 10",
+"                                 +-> outlet D piece 08",
+"",
+"Terminal independent sources : 1",
+"Outlets publishing            : 6",
+"Pieces                        : 11",
+"",
+"Every path terminates at the same node. There is no",
+"second origin.",
+"",
+"--------------------------------------------------",
+"SECTION C: AMPLIFICATION VS. INDEPENDENT CORROBORATION",
+"--------------------------------------------------",
+"This is the distinction the stage exists for.",
+"",
+"CORROBORATION requires that a second party could have",
+"produced the figure without the first. AMPLIFICATION is",
+"redistribution.",
+"",
+"Tested per outlet: would this figure appear in this piece if the",
+"wire did not exist?",
+"",
+"  outlet A .. no      outlet D .. no",
+"  outlet B .. no      outlet E .. no",
+"  outlet C .. no      outlet F .. no",
+"",
+"Six of six. No corroboration is present anywhere in the",
+"network.",
+"",
+"--------------------------------------------------",
+"SECTION E: NETWORK-WIDE UNIFORMITY IS NOT EXONERATION",
+"--------------------------------------------------",
+"Every outlet handled the claim similarly. That",
+"uniformity is sometimes read as evidence that no outlet",
+"did anything unusual, and therefore that there is no",
+"finding.",
+"",
+"Rejected. Uniformity across a network with one origin is",
+"what single-sourcing looks like from the inside. It is",
+"the finding, not its refutation.",
+"",
+"--------------------------------------------------",
+"SECTION H: REVISION PROPAGATION",
+"--------------------------------------------------",
+"  revision carried, prominent ...... 1 outlet",
+"  revision carried, appended ....... 1 outlet",
+"  revision not carried ............. 4 outlets",
+"",
+"Four outlets host unmodified pieces bearing a figure",
+"their own origin has since revised.",
+"",
+"--------------------------------------------------",
+"SECTION J: FALSE-POSITIVE AND BASELINE CHECK",
+"--------------------------------------------------",
+"Would this audit fire on ordinary, unobjectionable wire",
+"pickup?",
+"",
+"Partly. Single-origin structure is normal in breaking",
+"coverage and is not itself a finding. What lifts this",
+"above baseline is the combination of single origin WITH",
+"attribution decay WITH asymmetric revision propagation.",
+"Any one alone would not support MB-01.",
+"",
+"Stated explicitly so the finding is not read as a",
+"complaint about wire journalism as such.",
+"",
+"--------------------------------------------------",
+"NETWORK VERDICT",
+"--------------------------------------------------",
+"C  -  the claim of independent confirmation is not supported by the",
+"network's own source structure. The underlying figure is",
+"not adjudicated here and no finding above depends on it",
+"being wrong."
+          ].join("\n") },
+        { stage: "3", name: "Oppositional Counter-Audit", status: "decision", statusLabel: "By decision",
+          note: "The media branch has no counter-audit stage, and that is a design decision rather than a missing file. Balancing is built into the two media prompts themselves — the mandatory flip test in framing, and the baseline check in coverage network. A separate oppositional stage would duplicate work already done inside them.",
+          output: null },
+        { stage: "—", name: "Human Adjudication", status: "human", statusLabel: "No prompt",
+          note: "No prompt file, by design. Between the prosecutors and any write-up sits a person deciding what they will stand behind.",
+          output: null },
+        { stage: "4", name: "Synthesis", status: "gap", statusLabel: "Not built",
+          note: "Does not exist yet. Shown as a gap rather than hidden, so the sequence is not read as complete when it is not.",
+          output: null },
+        { stage: "5", name: "Voice Restoration", status: "run", statusLabel: "Run", model: "One model", date: "2026-08-01",
+          output: [
+
+"VOICE RESTORATION / ANTICIPATORY COMPLIANCE AUDIT",
+"Object : the draft write-up of this audit",
+"",
+"Not tone-policing. Not making the draft harsher. The",
+"goal is to preserve direct, accurate criticism where the",
+"evidence supports it, and to remove softening that the",
+"evidence does not require.",
+"",
+"--------------------------------------------------",
+"PATTERN 1: PRE-EMPTIVE RE-LEGITIMATION",
+"--------------------------------------------------",
+"Found 4 instances of the structure:",
+"  'X does valuable work, but ...'",
+"",
+"A confident author establishes good faith once.",
+"Re-establishing it before every sharp point is",
+"compliance softening.",
+"",
+"  para 2  ... keep. This is the one legitimate instance.",
+"  para 6  ... cut. Restates para 2 immediately before MB-01.",
+"  para 9  ... cut.",
+"  para 12 ... cut.",
+"",
+"--------------------------------------------------",
+"PATTERN 2: HEDGES WITH NO EVIDENTIAL BASIS",
+"--------------------------------------------------",
+"  'it is worth noting that' x3     ... cut, carries no content",
+"  'arguably'                x2     ... cut where the finding is",
+"                                       CROSS-SOURCE-CONFIRMED",
+"  'may perhaps suggest'     x1     ... cut one hedge, keep one",
+"",
+"--------------------------------------------------",
+"CARVE-OUT: HEDGES THAT MUST SURVIVE",
+"--------------------------------------------------",
+"Not every hedge is softening. Where a finding is marked",
+"PROVISIONAL the hedge is carrying real epistemic",
+"information and removing it would launder uncertainty",
+"into confidence.",
+"",
+"  RETAINED : the qualification on the official statement behind",
+"             the wire, which is PROVISIONAL and must stay so.",
+"  RETAINED : 'the reason for the asymmetry is not observable' in",
+"             MB-02. This is a limit, not a hedge.",
+"",
+"--------------------------------------------------",
+"RESULT",
+"--------------------------------------------------",
+"9 removals, 2 explicit retentions. No finding strengthened beyond",
+"its verification state. The draft is shorter and says",
+"exactly what it did before."
+          ].join("\n") }
+      ]
+    },
+
+    /* ---------------------------------------------------- 3 */
+    {
+      id: "cycling",
+      title: "A municipal cycling study, reported proportionately",
+      claimShort: "Control case. The instrument was run against material engineered to contain nothing of consequence.",
+      tag: "Control case",
+      branch: "Media",
+      date: "2026-08-04",
+      provenance: "synthetic",
+      provenanceNote: "Synthetic control fixture, written before the run and engineered to be proportionate. The expected result was recorded in advance: no finding of consequence. Its purpose is to test whether the instrument can decline to find.",
+      source: {
+        label: "Local coverage of a municipal cycling-infrastructure evaluation",
+        cite: "One invented 380-word news piece reporting one invented municipal study. Written as a negative control: the reporting matches the evidence at every point."
+      },
+      verdict: { code: "S", label: "Sound — nothing of consequence", short: "Sound", tone: "sound" },
+      verdictNote: "The instrument was pointed at proportionate material and returned no finding. This is the result the case was built to test for.",
+      coreClaim: "A protected-lane pilot was associated with a 12% rise in cycling trips on the affected corridor over six months.",
+      coreClaimNote: "The piece states an association, names the study's own stated limitations, and does not extrapolate beyond the corridor. There is no gap between the claim and what was measured, which is why this case exists.",
+      modes: [
+        { name: "None triggered", note: "No failure mode reached its threshold. Two were tested explicitly and cleared; the remainder did not apply to this material." }
+      ],
+      findings: [],
+      noFindingHead: "No finding of consequence.",
+      noFindingBody: "Three candidate findings were opened during the run and all three were closed against the evidence. They are recorded below rather than deleted, because a run that closes candidates is different from a run that never opened any, and only the log distinguishes them.",
+      closedCandidates: [
+        { title: "Headline reads more strongly than the body", closed: "Tested. The headline states the association and names the study. It does not assert cause. Closed." },
+        { title: "Comparison corridor omitted", closed: "Tested. The piece names the comparison corridor and its result in paragraph 5. Closed." },
+        { title: "Study funder not disclosed", closed: "Tested. Disclosed in paragraph 7, attributed and unhedged. Closed." }
+      ],
+      summary: "This is the acquittal case. Its value is not in what it found but in what it declined to find. Without at least one case like it, every conviction the toolkit produces is consistent with two very different instruments: one that detects inflation, and one that reports inflation regardless of input.",
+      keyFindings: [
+        "Three candidate findings opened; all three closed against the evidence in the piece itself.",
+        "The mandatory flip test fired and returned no directional asymmetry.",
+        "The claim is stated as an association throughout; no causal upgrade appears anywhere in the piece.",
+        "Expected result was written before the run and matched the outcome."
+      ],
+      sourceStatus: [
+        { label: "The news piece", state: "FULL-TEXT-CONFIRMED", note: "380 words, read in full. Written as a fixture with the proportionate reporting engineered in." },
+        { label: "The underlying study", state: "SUPPLIED", note: "Supplied with the fixture so that claim and measurement could be compared directly rather than inferred." },
+        { label: "Comparison corridor data", state: "SUPPLIED", note: "Included in the fixture. Reported accurately by the piece." }
+      ],
+      decisiveTest: "Run the same prompts against the paired inflated version of this fixture and confirm they convict it.",
+      decisiveNote: "An acquittal alone proves only that the instrument can stay silent. Paired with a conviction on matched material, it demonstrates discrimination — which is the property that matters. A single acquittal case can be passed by an instrument that acquits everything.",
+      runs: [
+        { stage: "0", name: "Field Diagnostic", status: "not-run", statusLabel: "Not run",
+          note: "Not applicable to a control fixture. The stage assesses whether a failure mode is plausibly present in a field and whether the auditor is positioned to challenge it; neither question applies to synthetic material.",
+          output: null },
+        { stage: "1", name: "Claim Extraction", status: "run", statusLabel: "Run", model: "Two models", date: "2026-08-04",
+          output: [
+
+"CLAIM EXTRACTION / INFLATION MAP  -  MEDIA BRANCH",
+"Target : one news piece, 380 words  [CONTROL FIXTURE]",
+"Run    : 2026-08-04",
+"",
+"--------------------------------------------------",
+"FIELD 2 - WHAT IS ACTUALLY EVIDENCED",
+"--------------------------------------------------",
+"A six-month before/after count on one corridor, with a",
+"named comparison corridor, reported by the municipality.",
+"The study states that it cannot separate the lane from a",
+"concurrent citywide increase, and the piece reproduces",
+"that.",
+"",
+"--------------------------------------------------",
+"FIELD 3 - WHAT THE COVERAGE CLAIMS",
+"--------------------------------------------------",
+"An association, stated as an association, on the",
+"corridor studied.",
+"",
+"--------------------------------------------------",
+"FIELD 5 - WHERE INFLATION BEGINS",
+"--------------------------------------------------",
+"NOWHERE LOCATED.",
+"",
+"This field is permitted to come back empty and it does.",
+"The map does not manufacture an anchor to fill it. An",
+"empty field 5 is a result, not a gap in the map.",
+"",
+"--------------------------------------------------",
+"CLAIM INVENTORY",
+"--------------------------------------------------",
+"C1  Protected lane associated with a 12% rise in trips on the",
+"    corridor over six months.                          [SELECTED]",
+"    Why it might be inflated: quantified, headline-carried, and",
+"    causally suggestive in ordinary reading.",
+"",
+"C2  The pilot will be extended to two further corridors.",
+"                                                       [DEFERRED]",
+"    Reported as a council statement, attributed. Not a claim about",
+"    evidence.",
+"",
+"--------------------------------------------------",
+"FIELD 6 - THE CLAIM UNDER AUDIT",
+"--------------------------------------------------",
+"C1."
+          ].join("\n") },
+        { stage: "2", name: "Framing & Construction", status: "run", statusLabel: "Run · clean", model: "Two models", date: "2026-08-04",
+          output: [
+
+"FRAMING AND CONSTRUCTION AUDIT  -  MEDIA BRANCH",
+"Target claim : C1",
+"Material     : CONTROL FIXTURE, proportionate by construction",
+"",
+"--------------------------------------------------",
+"SECTION B: ATTRIBUTION PLACEMENT",
+"--------------------------------------------------",
+"The study is named in the headline and again in",
+"paragraph 1. The municipality is named as the study's",
+"author in paragraph 2. The funder is named in paragraph",
+"7.",
+"",
+"No finding.",
+"",
+"--------------------------------------------------",
+"SECTION C: ORDERING AND EMPHASIS",
+"--------------------------------------------------",
+"CANDIDATE OPENED: does the headline read more strongly than the",
+"body supports?",
+"",
+"Headline states the association and names the study.",
+"Body states the same association, then the limitation,",
+"then the comparison corridor. The ordering places the",
+"qualification before the council reaction rather than",
+"after it.",
+"",
+"CANDIDATE CLOSED. The construction does not create an",
+"impression the assembled facts fail to support.",
+"",
+"--------------------------------------------------",
+"SECTION G: OMISSION VS. DE-EMPHASIS",
+"--------------------------------------------------",
+"CANDIDATE OPENED: is the comparison corridor omitted?",
+"",
+"It is not. Paragraph 5, with its figure, in the same",
+"sentence structure used for the headline figure.",
+"",
+"CANDIDATE CLOSED.",
+"",
+"CANDIDATE OPENED: is the funder undisclosed?",
+"",
+"Disclosed, paragraph 7, unhedged.",
+"",
+"CANDIDATE CLOSED.",
+"",
+"--------------------------------------------------",
+"SECTION J: THE FLIP TEST                          [MANDATORY]",
+"--------------------------------------------------",
+"Rewrite with the valence reversed: the same piece reporting that",
+"the lane was associated with a 12% FALL.",
+"",
+"Result: no finding fires in either direction. The flip test is run",
+"even on a clean result, because a test only run on",
+"convictions tells you nothing about the instrument.",
+"",
+"PASS.",
+"",
+"--------------------------------------------------",
+"VERDICT",
+"--------------------------------------------------",
+"NOTHING OF CONSEQUENCE.",
+"",
+"Three candidates opened, three closed against the text.",
+"The piece reports what the study measured, states the",
+"study's own limitation, and does not extend the claim",
+"beyond the corridor.",
+"",
+"This verdict is recorded with the same weight as a",
+"conviction. An instrument that cannot return this result",
+"is not measuring anything."
+          ].join("\n") },
+        { stage: "2", name: "Coverage Network", status: "not-run", statusLabel: "Not run",
+          note: "Not applicable. The fixture is a single piece by construction, and the coverage-network stage audits travel across a set of pieces. Running it here would produce a network of one and an uninterpretable result.",
+          output: null },
+        { stage: "3", name: "Oppositional Counter-Audit", status: "decision", statusLabel: "By decision",
+          note: "No counter-audit in the media branch, by design. Balancing is internal to the media prompts — here, the flip test in Section J, which was run and passed even though there was no finding to balance.",
+          output: null },
+        { stage: "—", name: "Human Adjudication", status: "human", statusLabel: "No prompt",
+          note: "No prompt file, by design. On a clean result the adjudication question is the harder one: is this a sound piece, or an instrument that failed to fire? The paired inflated fixture is what answers it.",
+          output: null },
+        { stage: "4", name: "Synthesis", status: "gap", statusLabel: "Not built",
+          note: "Does not exist yet.",
+          output: null },
+        { stage: "5", name: "Voice Restoration", status: "not-run", statusLabel: "Not run",
+          note: "Nothing to restore. There is no critical write-up because there was no finding.",
+          output: null }
+      ]
+    }
+  ];
+
+  /* ==========================================================
+     DOCUMENTATION — hardcoded, written for this app
+     ========================================================== */
+
+  var DOCS = [
+    {
+      id: "failures",
+      label: "The four failures",
+      render: function (r) {
+        return [
+          r.h3("The four failures"),
+          r.p("A small number of failure shapes recur across fields that share almost nothing else. The same defect that shows up in a psychology replication shows up, wearing different vocabulary, in a climate reconstruction and in a week of news coverage. That observation is the premise this toolkit is built on.", "lede"),
+          r.callout([
+            "The field-by-field argument lives in a separate companion essay and is not reproduced here. What follows is narrower and operational: the four shapes these prompts actually audit for, described in the terms the prompts use."
+          ]),
+          r.numlist([
+            ["I", "<b>Measurement drift.</b> The quantity computed is not the quantity claimed. A proxy stands in for a construct and then quietly becomes it; a statistic answering one question is attached to a different one. The source may be entirely competent and this failure still occurs, because it happens in the sentence that reports the result rather than in the work that produced it."],
+            ["II", "<b>Design latitude.</b> The result depends on analytical choices that were not fixed in advance. Exclusions, cutoffs, model specifications and outcome selection each have defensible options, and the reported result is one path through them. The failure is not that a choice was made; it is that the number of available paths is invisible in the write-up."],
+            ["III", "<b>Citation hardening.</b> A qualified finding becomes an established fact through restatement. Nobody lies. Each step drops a caveat that the previous step carried, and after enough steps the hedge is gone and the claim is load-bearing. The originating source often states its limits plainly and is cited by works that do not."],
+            ["IV", "<b>Assembly.</b> Every sentence is true and the assembled impression is not supported. Ordering, attribution placement, what leads and what is buried, which voice gets the last word. This is the failure that fact-checking cannot reach, because there is no false statement in it to find."]
+          ]),
+          r.p("The stages map onto these directly. Construct validity audits the first. Internal validity audits the second. Citation network audits the third. The two media prompts audit the fourth."),
+          r.h4("Why they need separate instruments"),
+          r.p("Each failure is invisible to the tools that catch the others. Peer review catches design latitude better than it catches assembly. Fact-checking catches falsehood but is defeated entirely by the fourth failure. Reading a paper closely catches measurement drift and tells you nothing about how the paper is being cited. Pointing one instrument at all four is how three of them get missed.")
+        ].join("");
+      }
+    },
+    {
+      id: "method",
+      label: "Methodology",
+      render: function (r) {
+        return [
+          r.h3("How the sequence works"),
+          r.p("A staged pipeline. Each stage is a long structured prompt you paste into a model of your choosing, along with the target material. The app does not run any of it — it holds the sequence, the finished outputs, and the rules about how the stages relate.", "lede"),
+          r.h4("The stages"),
+          r.numlist([
+            ["0", "<b>Field diagnostic.</b> Runs once per field, not once per target. Asks whether the failure mode is plausibly present in this field at all, and whether you are positioned to run a credible challenge. It is an on-ramp, not a gate — it routes you, it does not stop you. Its last section audits the auditor, and that part cannot be automated or externally grounded, because it is you checking your own motivated reasoning before you start."],
+            ["1", "<b>Claim extraction.</b> Produces the shared claim map every later stage receives. Without it, three prosecutors audit three different claims and the combined critique reads as incoherent. It also inventories the claims it did not select, so they are deferred rather than invisible."],
+            ["2", "<b>The prosecutors.</b> On the research branch: construct validity, internal validity, citation network. These are independent — no dependencies, any order, run one or all three. On the media branch: framing and construction, coverage network."],
+            ["3", "<b>Counter-audit.</b> Research branch only. Audits the prosecution rather than the source: did it attack the strongest version of the claim or the easiest downstream exaggeration, and does the source already pre-empt the critique somewhere the prosecutor did not look?"],
+            ["—", "<b>Human adjudication.</b> No prompt file, deliberately. This is where a person decides which surviving findings they will stand behind."],
+            ["4", "<b>Synthesis.</b> Not built yet. Shown in the interface as a gap rather than hidden."],
+            ["5", "<b>Voice restoration.</b> Audits the finished write-up for hedging and anticipatory softening — while explicitly protecting the hedges that carry real uncertainty."]
+          ]),
+          r.h4("Two decisions that look like omissions"),
+          r.p("<b>The media branch has no counter-audit.</b> Balancing is built into the two media prompts themselves: the mandatory flip test in framing, and the baseline check in coverage network. A separate oppositional stage would duplicate work already done inside them. This is a decision, and the interface states it as one."),
+          r.p("<b>Human adjudication has no file.</b> Not an oversight and not a stage waiting to be written. The sequence surfaces categories; a person decides what to do with them."),
+          r.h4("The concede test"),
+          r.p("Every prosecutor stage ends by putting the strongest available counter-question to its own findings. In the first audit in this library it moved a finding off the source and onto the citing literature, and downgraded it. A check that never changes an outcome across many runs is length without function — but you only know that if you record the times it fires.")
+        ].join("");
+      }
+    },
+    {
+      id: "vocab",
+      label: "Vocabulary",
+      render: function (r) {
+        return [
+          r.h3("Controlled vocabulary"),
+          r.p("The labels are a type system, not decoration. A finding's verification state determines what it is allowed to do downstream — which findings may anchor a failure location, which must be carried as provisional, which cannot support a verdict at all.", "lede"),
+          r.h4("Verification states"),
+          r.vocab(["LOCATED", "ABSTRACT-CONFIRMED", "FULL-TEXT-CONFIRMED", "RECEPTION-CONFIRMED", "CONTESTED", "REBUTTED", "PROVISIONAL", "CROSS-SOURCE-CONFIRMED"]),
+          r.callout([
+            "<b>Do not invent verification states.</b> The list above is the whole vocabulary. Live runs have produced confident-sounding inventions — <i>established from source</i>, <i>reconstruction from source</i> — each of which reads as authoritative and none of which is defined anywhere. An undefined label that sounds rigorous is worse than an honest gap, because nothing downstream can check it."
+          ]),
+          r.h4("Provenance states"),
+          r.p("Applied to material the audit relies on, recording how the auditor came to have it:"),
+          r.vocab(["SUPPLIED", "RETRIEVED", "RECALLED", "NONE FOUND"]),
+          r.p("The distinction is load-bearing. Only <span class=\"vstate\">SUPPLIED</span> or <span class=\"vstate\">RETRIEVED</span> material may anchor a failure location, and anchoring requires a quotation and a locator. Material a model recalls from training is marked <span class=\"vstate\">RECALLED</span> and is barred from anchoring — a rule added after a run labelled an unquoted generalisation as retrieved and built a finding on it."),
+          r.h4("Verdict ladder"),
+          r.p("The letters shown on audits in this library, in this app's own plain-language rendering:"),
+          r.ladder([
+            ["S", "Sound. Nothing of consequence found. Recorded with the same weight as a conviction."],
+            ["A", "Supported as stated."],
+            ["B", "Supported, with imprecision that does not change the substance."],
+            ["C", "Overstated. The measurement supports a narrower claim than the one made."],
+            ["D", "Overstated with a specific identified defect in the inference."],
+            ["E", "Not supported as stated by what was measured."],
+            ["F", "Contradicted by what was measured."],
+            ["G", "Cannot be assessed on available evidence. Not a finding against the source."]
+          ]),
+          r.p("<span class=\"vstate\">G</span> exists so that an audit which cannot reach a question says so, instead of converting its own limits into a verdict.")
+        ].join("");
+      }
+    },
+    {
+      id: "limits",
+      label: "Limitations",
+      render: function (r) {
+        return [
+          r.h3("What this cannot do"),
+          r.p("It points; you judge. That is not modesty framing — it describes the actual division of labour, and most of the ways this toolkit can mislead you come from forgetting it.", "lede"),
+          r.h4("It surfaces categories, not mechanisms"),
+          r.p("The prompts are good at asking whether a claim outruns its measurement. They are not good at telling you the specific thing that went wrong in a field they have no purchase on. Domain knowledge finds the mechanism; this finds the shape of the gap. A run that produces a plausible generic scaffold on unfamiliar material is doing what it does, and reading it as a complete account is the most common way to be misled by it."),
+          r.h4("It cannot tell you what it missed"),
+          r.p("There is no coverage guarantee anywhere in the sequence. A clean result means the checks that ran did not fire. It does not mean nothing is there, and the interface deliberately avoids any progress indicator or composite score that would imply otherwise."),
+          r.h4("A prompt can be right and its output still incomplete"),
+          r.p("Observed in this library: a run used a fully correct prompt and silently omitted several required sections while others rendered normally. That is a distinct failure category from a prompt being wrong, and it is the reason the second audit here is marked flagged rather than complete. An output that looks finished is not evidence that it is."),
+          r.h4("The acquittal problem"),
+          r.p("An instrument that convicts everything passes every conviction test ever put to it. The only defence is negative controls — material engineered to be proportionate, with the expected result written down before the run. The third audit in this library is one. One is not many."),
+          r.h4("Where the findings in this prototype come from"),
+          r.p("The first audit restates findings from this toolkit's own recorded run log, and its methodological point already exists in the published literature on that reconstruction. The second and third are synthetic fixtures — invented events, invented outlets, invented figures — badged as such wherever they appear. Nothing in this interface attributes an invented finding to a real person or publication.")
+        ].join("");
+      }
+    }
+  ];
+
+  /* ==========================================================
+     DOM HELPERS
+     ========================================================== */
+
+  function el(tag, cls, txt) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (txt !== undefined && txt !== null) n.textContent = txt;
+    return n;
+  }
+  function clear(node) { while (node.firstChild) node.removeChild(node.firstChild); }
+  function $(id) { return document.getElementById(id); }
+
+  var TONE_CLASS = { fatal: "v-fatal", major: "v-major", minor: "v-minor", sound: "v-sound", prov: "v-prov" };
+
+  function verdictBadge(v, brief) {
+    var b = el("span", "vbadge " + (TONE_CLASS[v.tone] || "v-prov"));
+    b.appendChild(el("span", "vletter", v.code));
+    b.appendChild(el("span", null, brief && v.short ? v.short : v.label));
+    return b;
+  }
+
+  var DOT = { run: "dot-run", flagged: "dot-flag", "not-run": "dot-off", human: "dot-gap", gap: "dot-gap", decision: "dot-gap" };
+
+  /* ==========================================================
+     STATE
+     ========================================================== */
+
+  var state = { auditId: AUDITS[0].id, runIndex: null };
+
+  function currentAudit() {
+    for (var i = 0; i < AUDITS.length; i++) if (AUDITS[i].id === state.auditId) return AUDITS[i];
+    return AUDITS[0];
+  }
+
+  /* ==========================================================
+     LEFT — LIBRARY
+     ========================================================== */
+
+  function renderLibrary() {
+    var list = $("libList");
+    clear(list);
+    $("libCount").textContent = AUDITS.length + " runs";
+
+    AUDITS.forEach(function (a) {
+      var btn = el("button", "lib-item");
+      btn.setAttribute("role", "listitem");
+      btn.setAttribute("aria-current", a.id === state.auditId ? "true" : "false");
+
+      btn.appendChild(el("h3", "lib-title", a.title));
+      btn.appendChild(el("p", "lib-claim", a.claimShort));
+
+      var meta = el("div", "lib-meta");
+      meta.appendChild(el("span", "chip chip-tag", a.tag));
+      if (a.provenance === "synthetic") meta.appendChild(el("span", "chip chip-synth", "Synthetic"));
+      meta.appendChild(el("span", "lib-date", a.date));
+      btn.appendChild(meta);
+
+      var meta2 = el("div", "lib-meta");
+      meta2.style.marginTop = "7px";
+      meta2.appendChild(verdictBadge(a.verdict, true));
+      btn.appendChild(meta2);
+
+      btn.addEventListener("click", function () {
+        if (state.auditId === a.id) return;
+        state.auditId = a.id;
+        state.runIndex = null;
+        renderAll();
+        $("specimenScroll").scrollTop = 0;
+      });
+
+      list.appendChild(btn);
+    });
+  }
+
+  /* ==========================================================
+     CENTER — SPECIMEN
+     ========================================================== */
+
+  function renderSpecimen() {
+    var a = currentAudit();
+    var root = $("specimen");
+    clear(root);
+    root.classList.remove("fade-in");
+    void root.offsetWidth;
+    root.classList.add("fade-in");
+
+    // provenance banner
+    var prov = el("div", "spec-provenance");
+    var pstrong = el("strong", null, a.provenance === "synthetic" ? "Synthetic fixture. " : "Documented run. ");
+    prov.appendChild(pstrong);
+    prov.appendChild(document.createTextNode(a.provenanceNote));
+    root.appendChild(prov);
+
+    // head
+    var head = el("div", "spec-head");
+    var kick = el("div", "spec-kicker");
+    kick.appendChild(el("span", "chip chip-tag", a.branch + " branch"));
+    kick.appendChild(el("span", "chip chip-tag", a.tag));
+    kick.appendChild(el("span", "lib-date", a.date));
+    head.appendChild(kick);
+    head.appendChild(el("h1", "spec-title", a.title));
+    head.appendChild(el("p", "spec-cite", a.source.label + ". " + a.source.cite));
+    root.appendChild(head);
+
+    // core claim
+    var b1 = el("div", "block");
+    b1.appendChild(el("span", "eyebrow", "Claim under audit"));
+    var cc = el("div", "claim-card");
+    cc.appendChild(el("p", "claim-text", "“" + a.coreClaim + "”"));
+    cc.appendChild(el("p", "claim-note", a.coreClaimNote));
+    b1.appendChild(cc);
+    root.appendChild(b1);
+
+    // verdict
+    var b2 = el("div", "block");
+    b2.appendChild(el("span", "eyebrow", "Overall verdict"));
+    var vc = el("div", "verdict-card");
+    var vl = el("div", "verdict-letter " + (TONE_CLASS[a.verdict.tone] || "v-prov"), a.verdict.code);
+    vc.appendChild(vl);
+    var vb = el("div", "verdict-body");
+    vb.appendChild(el("div", "verdict-label", a.verdict.label));
+    vb.appendChild(el("div", "verdict-note", a.verdictNote));
+    vc.appendChild(vb);
+    b2.appendChild(vc);
+    root.appendChild(b2);
+
+    // failure modes
+    var b3 = el("div", "block");
+    b3.appendChild(el("span", "eyebrow", "Primary failure modes"));
+    var modes = el("div", "modes");
+    a.modes.forEach(function (m) {
+      var row = el("div", "mode");
+      row.appendChild(el("div", "mode-name", m.name));
+      row.appendChild(el("div", "mode-note", m.note));
+      modes.appendChild(row);
+    });
+    b3.appendChild(modes);
+    root.appendChild(b3);
+
+    // findings
+    var b4 = el("div", "block");
+    b4.appendChild(el("span", "eyebrow", a.findings.length ? "Highest-severity findings" : "Result"));
+
+    if (!a.findings.length) {
+      var nf = el("div", "nofind");
+      nf.appendChild(el("p", null, a.noFindingHead));
+      nf.appendChild(el("p", null, a.noFindingBody));
+      b4.appendChild(nf);
+
+      var cand = el("div", "findings");
+      cand.style.marginTop = "11px";
+      (a.closedCandidates || []).forEach(function (c) {
+        var f = el("div", "finding");
+        var top = el("div", "finding-top");
+        top.appendChild(el("span", "vbadge v-sound", "Closed"));
+        f.appendChild(top);
+        f.appendChild(el("h3", "finding-title", c.title));
+        f.appendChild(el("p", "finding-body", c.closed));
+        cand.appendChild(f);
+      });
+      b4.appendChild(cand);
+    } else {
+      var wrap = el("div", "findings");
+      a.findings.forEach(function (f) {
+        var card = el("div", "finding");
+        var top = el("div", "finding-top");
+        top.appendChild(el("span", "finding-id", f.id));
+        var sb = el("span", "vbadge " + (TONE_CLASS[f.sev] || "v-prov"));
+        sb.appendChild(el("span", null, f.sevLabel));
+        top.appendChild(sb);
+        card.appendChild(top);
+        card.appendChild(el("h3", "finding-title", f.title));
+        card.appendChild(el("p", "finding-body", f.body));
+
+        var foot = el("div", "finding-foot");
+        foot.appendChild(el("span", "k", "Target"));
+        foot.appendChild(el("span", null, f.target));
+        var sep = el("span", "k", "·");
+        sep.style.letterSpacing = "0";
+        foot.appendChild(sep);
+        foot.appendChild(el("span", "k", "State"));
+        foot.appendChild(el("span", "vstate", f.vstate));
+        card.appendChild(foot);
+
+        wrap.appendChild(card);
+      });
+      b4.appendChild(wrap);
+    }
+    root.appendChild(b4);
+  }
+
+  /* ==========================================================
+     BOTTOM STRIP
+     ========================================================== */
+
+  function renderStrip() {
+    var a = currentAudit();
+    var rail = $("stripRail");
+    clear(rail);
+
+    var ran = 0;
+    a.runs.forEach(function (r) { if (r.status === "run" || r.status === "flagged") ran++; });
+    $("stripHint").textContent = ran + " of " + a.runs.length + " stages produced output";
+
+    a.runs.forEach(function (r, i) {
+      var inert = !r.output;
+      var card = el("button", "run-card" + (inert ? " is-inert" : ""));
+      card.setAttribute("role", "tab");
+      card.setAttribute("aria-current", state.runIndex === i ? "true" : "false");
+
+      card.appendChild(el("span", "run-stage", r.stage === "—" ? "STAGE —" : "STAGE " + r.stage));
+      card.appendChild(el("div", "run-name", r.name));
+
+      var st = el("div", "run-state");
+      st.appendChild(el("span", "dot " + (DOT[r.status] || "dot-off")));
+      st.appendChild(el("span", null, r.statusLabel));
+      card.appendChild(st);
+
+      card.addEventListener("click", function () {
+        state.runIndex = (state.runIndex === i) ? null : i;
+        renderStrip();
+        renderReadout();
+        $("roScroll").scrollTop = 0;
+      });
+
+      rail.appendChild(card);
+    });
+  }
+
+  /* ==========================================================
+     RIGHT — READOUT
+     ========================================================== */
+
+  function renderReadout() {
+    var a = currentAudit();
+    var head = $("roHead");
+    var body = $("readout");
+    clear(head);
+    clear(body);
+    body.classList.remove("fade-in");
+    void body.offsetWidth;
+    body.classList.add("fade-in");
+
+    if (state.runIndex === null) {
+      head.appendChild(el("span", "eyebrow", "Detail readout"));
+      head.appendChild(el("span", "region-count", "Audit level"));
+      renderAuditReadout(a, body);
+    } else {
+      var back = el("button", "back-btn");
+      back.appendChild(el("span", null, "←"));
+      back.appendChild(el("span", null, "Audit summary"));
+      back.addEventListener("click", function () {
+        state.runIndex = null;
+        renderStrip();
+        renderReadout();
+      });
+      head.appendChild(back);
+      head.appendChild(el("span", "region-count", "Prompt output"));
+      renderRunReadout(a.runs[state.runIndex], body);
+    }
+  }
+
+  function section(parent, label) {
+    var s = el("div", "ro-section");
+    s.appendChild(el("span", "eyebrow", label));
+    parent.appendChild(s);
+    return s;
+  }
+
+  function renderAuditReadout(a, body) {
+    var s1 = section(body, "Overall summary");
+    s1.appendChild(el("p", "ro-prose", a.summary));
+
+    var s2 = section(body, "Key findings");
+    var ul = el("ul", "keylist");
+    a.keyFindings.forEach(function (k, i) {
+      var li = el("li");
+      li.appendChild(el("span", "kdot", String(i + 1).padStart(2, "0")));
+      li.appendChild(el("span", null, k));
+      ul.appendChild(li);
+    });
+    s2.appendChild(ul);
+
+    var s3 = section(body, "Source status");
+    var sl = el("div", "srclist");
+    a.sourceStatus.forEach(function (s) {
+      var row = el("div", "srcrow");
+      var top = el("div", "srcrow-top");
+      top.appendChild(el("span", "srcrow-label", s.label));
+      top.appendChild(el("span", "srcrow-state", s.state));
+      row.appendChild(top);
+      row.appendChild(el("div", "srcrow-note", s.note));
+      sl.appendChild(row);
+    });
+    s3.appendChild(sl);
+
+    var s4 = section(body, "Recommended decisive test");
+    var d = el("div", "decisive");
+    d.appendChild(el("p", null, a.decisiveTest));
+    d.appendChild(el("p", null, a.decisiveNote));
+    s4.appendChild(d);
+  }
+
+  function renderRunReadout(run, body) {
+    var head = el("div", "po-head");
+    var kick = el("div", "spec-kicker");
+    kick.appendChild(el("span", "chip chip-tag", run.stage === "—" ? "Stage —" : "Stage " + run.stage));
+    var stChip = el("span", "run-state");
+    stChip.appendChild(el("span", "dot " + (DOT[run.status] || "dot-off")));
+    stChip.appendChild(el("span", null, run.statusLabel));
+    kick.appendChild(stChip);
+    head.appendChild(kick);
+
+    head.appendChild(el("h2", "po-title", run.name));
+
+    if (run.model || run.date) {
+      var meta = el("div", "po-meta");
+      if (run.model) {
+        var m1 = el("span");
+        m1.appendChild(el("span", "k", "Model"));
+        m1.appendChild(document.createTextNode(run.model));
+        meta.appendChild(m1);
+      }
+      if (run.date) {
+        var m2 = el("span");
+        m2.appendChild(el("span", "k", "Run"));
+        m2.appendChild(document.createTextNode(run.date));
+        meta.appendChild(m2);
+      }
+      head.appendChild(meta);
+    }
+
+    if (run.note) {
+      var n = el("div", "po-note" + (run.output ? "" : " is-plain"), run.note);
+      head.appendChild(n);
+    }
+    body.appendChild(head);
+
+    if (!run.output) {
+      var empty = el("div", "po-empty");
+      empty.appendChild(el("p", null, "No output for this stage."));
+      empty.appendChild(el("p", null, "It is listed rather than hidden. A sequence that quietly drops the stages it did not run looks identical to one that ran them all."));
+      body.appendChild(empty);
+      return;
+    }
+
+    var tools = el("div", "po-toolbar");
+    var copyBtn = el("button", "copy-btn", "Copy output");
+    tools.appendChild(copyBtn);
+    var bytes = el("span", "po-bytes", run.output.split("\n").length + " lines");
+    tools.appendChild(bytes);
+    body.appendChild(tools);
+
+    var wrap = el("div", "po-wrap");
+    var pre = el("pre", "po-pre", run.output);
+    wrap.appendChild(pre);
+    body.appendChild(wrap);
+
+    copyBtn.addEventListener("click", function () {
+      copyText(run.output, copyBtn);
+    });
+  }
+
+  function copyText(text, btn) {
+    function ok() {
+      btn.textContent = "Copied";
+      btn.classList.add("is-ok");
+      setTimeout(function () { btn.textContent = "Copy output"; btn.classList.remove("is-ok"); }, 1600);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.top = "-1000px";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); ok(); }
+      catch (e) { btn.textContent = "Select the text below"; setTimeout(function () { btn.textContent = "Copy output"; }, 2200); }
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(ok, fallback);
+    } else {
+      fallback();
+    }
+  }
+
+  /* ==========================================================
+     DOCUMENTATION
+     ========================================================== */
+
+  var R = {
+    h3: function (t) { return "<h3>" + t + "</h3>"; },
+    h4: function (t) { return "<h4>" + t + "</h4>"; },
+    p: function (t, cls) { return "<p" + (cls ? " class=\"" + cls + "\"" : "") + ">" + t + "</p>"; },
+    callout: function (ps) { return "<div class=\"callout\">" + ps.map(function (x) { return "<p>" + x + "</p>"; }).join("") + "</div>"; },
+    numlist: function (rows) {
+      return "<div class=\"numlist\">" + rows.map(function (r) {
+        return "<div class=\"numrow\"><div class=\"n\">" + r[0] + "</div><div class=\"t\">" + r[1] + "</div></div>";
+      }).join("") + "</div>";
+    },
+    vocab: function (items) {
+      return "<div class=\"vocab\">" + items.map(function (i) { return "<code>" + i + "</code>"; }).join("") + "</div>";
+    },
+    ladder: function (rows) {
+      return "<div class=\"ladder\">" + rows.map(function (r) {
+        return "<div class=\"ladder-row\"><div class=\"L\">" + r[0] + "</div><div class=\"D\">" + r[1] + "</div></div>";
+      }).join("") + "</div>";
+    }
+  };
+
+  var docTab = DOCS[0].id;
+
+  function renderDocs() {
+    var nav = $("docsNav");
+    clear(nav);
+    DOCS.forEach(function (d) {
+      var b = el("button", "docs-tab", d.label);
+      b.setAttribute("role", "tab");
+      b.setAttribute("aria-selected", d.id === docTab ? "true" : "false");
+      b.addEventListener("click", function () { docTab = d.id; renderDocs(); $("docsBody").scrollTop = 0; });
+      nav.appendChild(b);
+    });
+
+    var body = $("docsBody");
+    clear(body);
+    var inner = el("div", "doc-inner");
+    var doc = DOCS.filter(function (d) { return d.id === docTab; })[0];
+    inner.innerHTML = doc.render(R);
+
+    var foot = el("div", "docs-foot");
+    foot.textContent = "This documentation is written for and owned by this app. The companion field-map essay it descends from is separate source material and is not reproduced here.";
+    inner.appendChild(foot);
+
+    body.appendChild(inner);
+    body.classList.remove("fade-in");
+    void body.offsetWidth;
+    body.classList.add("fade-in");
+  }
+
+  function openDocs() {
+    $("docs").classList.add("is-open");
+    $("docs").setAttribute("aria-hidden", "false");
+    $("scrim").classList.add("is-open");
+    $("docsClose").focus();
+  }
+  function closeDocs() {
+    $("docs").classList.remove("is-open");
+    $("docs").setAttribute("aria-hidden", "true");
+    $("scrim").classList.remove("is-open");
+    $("docsBtn").focus();
+  }
+
+  /* ==========================================================
+     THEME
+     ========================================================== */
+
+  function prefersDark() {
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  var themeOverride = null;
+
+  function currentIsDark() {
+    return themeOverride ? themeOverride === "dark" : prefersDark();
+  }
+  function syncThemeBtn() {
+    var dark = currentIsDark();
+    $("themeLabel").textContent = dark ? "Light" : "Dark";
+    $("themeBtn").setAttribute("aria-pressed", dark ? "true" : "false");
+  }
+  function toggleTheme() {
+    themeOverride = currentIsDark() ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", themeOverride);
+    syncThemeBtn();
+  }
+
+  /* ==========================================================
+     BOOT
+     ========================================================== */
+
+  function renderAll() {
+    renderLibrary();
+    renderSpecimen();
+    renderStrip();
+    renderReadout();
+  }
+
+  $("docsBtn").addEventListener("click", openDocs);
+  $("docsClose").addEventListener("click", closeDocs);
+  $("scrim").addEventListener("click", closeDocs);
+  $("themeBtn").addEventListener("click", toggleTheme);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && $("docs").classList.contains("is-open")) closeDocs();
+  });
+  if (window.matchMedia) {
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    if (mq.addEventListener) mq.addEventListener("change", function () { if (!themeOverride) syncThemeBtn(); });
+  }
+
+  syncThemeBtn();
+  renderDocs();
+  renderAll();
+})();
+</script>
