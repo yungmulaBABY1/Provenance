@@ -1,0 +1,8 @@
+# Python bytecode. The two scripts in this repo are run directly, never
+# imported as a package, so nothing here is ever needed.
+__pycache__/
+*.py[cod]
+
+# OS cruft
+.DS_Store
+Thumbs.db
