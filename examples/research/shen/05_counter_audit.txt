@@ -1,0 +1,422 @@
+SHEN FULL-CHAIN SEQUENTIAL RUN
+STAGE 3 — OPPOSITIONAL CITATION & NEGLECTED-EVIDENCE COUNTER-AUDIT
+============================================================
+
+OPEN-QUESTION DECISION — DECLARED INPUTS USED
+============================================================
+
+The pinned counter-audit prompt's INPUTS section explicitly requests:
+
+0. Claim map
+1. Original foundational paper
+2. Citation-network audit output
+3. Construct-validity audit output
+
+It does not list the internal-validity audit output. I therefore supplied the
+unchanged Stage 1 map, Shen full text, Stage 2A construct-validity output, and
+Stage 2C citation-network output. I did NOT supply or use Stage 2B internal-
+validity. The prompt's stage-role note generically names all three prosecutors,
+but the operative input contract names only construct validity and citation
+network. Using those two is the only choice that follows the instrument's own
+stated inputs without guessing.
+
+Current thesis paragraph: none was supplied. The objects being challenged are
+the actual prosecutor verdicts: construct audit “USEFUL-FOR-NARROWER,” grade C,
+and citation audit “normal small-field clustering,” 10/30, with confirmed
+citation mutation but no Field-6 network defeater.
+
+Central claim, unchanged Stage 1 Field 6:
+
+“Based on our data from two MMOs, there is no significant gender-based
+performance disparity.”
+
+Known cluster/hub inherited from the citation audit: Ratan et al. (2015), Shen
+et al. (2016), Ratan, Shen, and Williams (2020); Rogstad (2022) as review-hub
+candidate.
+
+Retrieval state: Shen FULL-TEXT-CONFIRMED. Ratan et al. (2015) author text,
+Holl et al. (2024), UC Davis (2017), and selected recent open texts were read.
+Ratan et al. (2020) is ABSTRACT-CONFIRMED. Targeted one-level searches checked
+publisher pages/indexed reception for corrections, retractions, direct replies,
+and replication language. No formal correction/retraction/rebuttal was located
+for Shen, Ratan 2015, Ratan 2020, Holl 2024, or Rogstad 2022. These bounded
+negative reception searches are RECEPTION-CONFIRMED as searches, not proof that
+no critique exists.
+
+
+A. OPPOSITIONAL CITING PAPERS
+============================================================
+
+These are ranked by how much they challenge the prosecutors, not by whether they
+support Shen rhetorically. Only the first two supply new empirical evidence.
+
+| Paper | Year | Cites foundational/hub? | Main criticism of prosecution | Evidence quality (0–4) | Relationship to claim | Verification state | Field uptake | Strength |
+|---|---:|---|---|---:|---|---|---|---|
+| Ratan, Shen & Williams, “Men Do Not Rule the World of Tanks” | 2020 | Cites Shen and Ratan 2015; relationship verified from publisher references | Advancement is not the only outcome on which the no-gap-after-experience pattern appears: XP per match in a spatial-action game also loses its raw gender gap after prior play is controlled. | 2 (primary empirical, but only abstract/method summary checked and same-author) | Supports a broader-but-still-game-specific version; weakens CV-1 but does not validate performance generally | ABSTRACT-CONFIRMED + RECEPTION-CONFIRMED bounded search; current standing: not formally undermined in retrieved reception | Cited in recent Holl/Nolla work | moderate |
+| Holl, Wagener & Melzer, “Do Gender Stereotypes Affect Gaming Performance?” | 2024 | Cites Shen directly; full context checked | Across two casual-game experiments, raw gender differences changed with game and the Study-2 difference disappeared after gaming experience/gamer identification controls. That supports context/experience rather than sex as a stable explanation across additional tasks. | 2 (primary empirical; two task-specific experiments) | Supports a weaker contextual claim, not two-MMO equivalence | FULL-TEXT-CONFIRMED + RECEPTION-CONFIRMED bounded search; current standing: new/limited uptake, no formal rebuttal located | Low count because recent; cited in Hébert-Ratté | moderate |
+| Rogstad, “Gender in eSports Research” | 2022 | Cites Shen; exact paragraph checked | Treats the lower-skill/inherent-disparity perception as false, which is rhetorically opposed to CV-1's generalization concern. But it supplies a multi-source narrative synthesis rather than a decisive direct performance test. | 1 | Supports the original rhetoric; does not answer construct bridge | RECEPTION-CONFIRMED citation context; publisher/reception search found no correction; full methods not independently adjudicated | High indexed uptake | weak |
+| Dong et al., “Gender-Related Differences in Neural Responses to Gaming Cues” | 2018 | Cites Shen; sentence verified | Uses comparable gaming skills as a premise, apparently treating Shen's outcome as an adequate skill indicator. It does not test the construct bridge itself. | 1 | Supports rhetoric only; irrelevant after inspection as opposition to CV-1 | CROSS-SOURCE-CONFIRMED attribution; reception of this neural result not made load-bearing | Repeated in related Dong papers | weak |
+| Hébert-Ratté et al., “Women Expert Gamers” | 2025 | Cites Shen and Rogstad; full text checked | Shows substantial heterogeneity among women gamers and discusses experience/competition, which supports the importance of sample selection more than it opposes the audits. | 1 | Complicates; does not support strong Field 6 | FULL-TEXT-CONFIRMED; reception not load-bearing | Too recent to assess | weak / supports prosecution |
+
+No citing paper supplied a decisive validation that EQ2/CR3 advancement is
+coextensive with “game performance generally.” The strongest opposition is
+cross-game convergence on other game-specific outcomes, not a universal bridge.
+
+
+B. NON-CITING OPPOSITION PAPERS
+============================================================
+
+No strong, verified non-citing source was located that directly overturns the
+construct or citation findings. Keyword and adjacent-field searches located
+many gender-performance studies, but citation relationships to Shen/Rogstad
+were often unverified and their tasks were not commensurate. They are not padded
+into an opposition list.
+
+| Paper / source | Year | Does not cite hub? | Main argument | Why it matters | Evidence quality | Relationship to claim | Reception (if load-bearing) |
+|---|---:|---|---|---|---:|---|---|
+| None securely established | N/A | Unverified | N/A | The negative result prevents a false “outside field refutes audit” claim | 0 | unclear / needs verification | N/A |
+
+
+C. NEGLECTED REFERENCES THE HUB SHOULD HAVE CITED
+============================================================
+
+The strongest methodological candidate is equivalence testing, but the most
+accessible psychology primers postdate Shen. Earlier equivalence methodology
+existed, yet this counter-audit did not establish a specific pre-2016 source
+whose omission was unreasonable for these multilevel observational analyses.
+Rogstad is a narrative sociology/esports review, not a statistical methods
+review, so failure to cite a TOST tutorial cannot be made fatal.
+
+| Neglected source | Year | Relevance | Cited by foundation? | Cited by hub? | Effect of omission | Evidence quality |
+|---|---:|---|---|---|---|---:|
+| Wellek, *Testing Statistical Hypotheses of Equivalence and Noninferiority* | 2010 | General method for establishing bounded equivalence rather than reading p>.05 as equality | No | No | moderate weakness for the no-disparity inference; no proof the exact multilevel application was standard/expected | 2 |
+| Lakens, “Equivalence Tests: A Practical Primer” | 2017 | Makes absence-of-meaningful-effect claims testable with prespecified bounds | Postdates Shen | No | minor for Rogstad's narrative review; cannot be a foundational omission | 2; FULL-TEXT-CONFIRMED method, reception not needed because not verdict-anchoring |
+| Hopp & Fisher, objective/subjective FPS performance dimensions | 2017 | Demonstrates performance is multidimensional and genre-specific | Postdates Shen | Not verified | minor-to-moderate context for later hubs | 1; ABSTRACT-CONFIRMED |
+
+No “fatal omitted canonical source” is established. The counter-audit therefore
+rejects any stronger neglected-reference charge.
+
+
+D. IGNORED ADJACENT FIELDS
+============================================================
+
+The target literature is not shown to have ignored these fields entirely;
+engagement ranges from direct to partial. “Effect of neglect” therefore refers
+only to residual under-engagement.
+
+| Adjacent field | Key sources | Why relevant | Better method / measure | Decisive test suggested | Engagement by target field | Effect of neglect |
+|---|---|---|---|---|---|---|
+| Game telemetry / player-performance analytics | Ratan 2015; Shen 2016; Ratan 2020 | Supplies game-native outcomes across genres | Parallel rank, win, XP, level, encounter, and team-adjusted metrics | preregister common outcome families across games | directly engaged but measures remain game-specific | moderate for universal “performance,” none for bounded advancement |
+| Equivalence/noninferiority statistics | Wellek 2010; Lakens 2017/2018 | distinguishes nonsignificance from negligible disparity | prespecified SESOI, intervals, TOST/noninferiority | show all relevant gender contrasts lie within justified bounds | little visible uptake in checked spine | moderate |
+| Longitudinal selection/missing-data methods | general multilevel/missingness literature; no single omitted source made load-bearing | active/linkable player samples can be selected | cohort flows, attrition models, weighting, sensitivity bounds | entry-cohort and dropout-aware replication | paper acknowledges but does not solve selection | moderate |
+| Stereotype-threat experiments | Kaye & Pennington 2016; Holl 2024 | tests the paper's separate participation/performance mechanism | preregistered experiments, manipulation checks, task replication | cross-game replicated behavioral and participation effects | substantively engaged in later literature | minor for Field 6; moderate for separate causal claim |
+| Esports/tournament research | Nolla et al. 2023; Rogstad 2022 | tests competitive/social contexts beyond MMO leveling | randomized/team-context designs and actual match outcomes | reproduce effects across tournament formats and skill strata | actively engaged recently | minor |
+
+
+E. STRONGEST EVIDENCE SUPPORTING THE ORIGINAL CLAIM
+============================================================
+
+E0. SOURCE SELF-DEFENSE CHECK
+------------------------------------------------------------
+
+The source was searched before external support: Abstract, Theory, EQ2/CR3 Data,
+Measures, Analysis, Results, Discussion, Implications, Limitations, Notes, and
+References.
+
+The table uses the prosecutors' own finding language. It does not import or
+reconstruct an internal-validity finding.
+
+| Prosecutor finding | Source passage that anticipates it (quote + location) | Type | Does it answer? | Effect on finding |
+|---|---|---|---|---|
+| CV-1: “The paper’s advancement-speed items do not establish absence of a gender disparity in game performance generally.” | “The ultimate performance indicator in a game is advancement” and the Discussion calls advancement the “real performance measure”; Theory/Measures also explains why level is central and retrieves two advancement outcomes. | stated assumption / scope | partly | NARROWED — restate as: the authors deliberately define performance as advancement, but do not validate it as exhaustive of game performance generally. This is not an undisclosed proxy. |
+| CV-2: “The gender-group claim exceeds selected active/linkable character-event samples whose sex-specific selection could affect observed parity.” | Limitations: the “severe gender disparity” may mean female players “who remain in these games are more experienced and/or better performing,” and MMO/US-China boundaries are stated. | acknowledged limitation | partly | RECHARACTERIZED — selection is disclosed and expressly connected to female performance; the residual charge is inadequate correction/weighting and headline prominence, not concealment. |
+| CV-3: “Prior experience, advancement goals, actual social assistance, and selection are not directly modeled, preventing an ability or causal interpretation of the conditional advancement result.” | EQ2 models play time and guild/class/account structure; CR3 models event level/account nesting; Discussion and Limitations discuss motivation, play, social context, and self-selection. | sensitivity/model adjustment + acknowledged limitation | partly | RECHARACTERIZED — the paper models several available confounds and names others; the residual is unmeasured experience/goals/actual assistance and unknown direction, not “no confound handling.” |
+| CV-4: “The paper does not establish the prevalence/form of the inferiority belief or uncontested causal harm sufficient for its separate stereotype-to-participation claim.” | Abstract/Discussion call the stereotype a “potential” cause; Theory cites stereotype-threat and participation literature rather than claiming the two datasets estimate prevalence or causal harm. | scope / stated assumption | partly | NARROWED — the paper explicitly hedges causation and relies on external theory; the claim remains unsupported by these datasets, but it is not presented as a direct estimated effect. |
+| CN-1: “Several checked citations broaden Shen's two-MMO advancement result into general gaming skill or esports ability.” | Abstract and Limitations repeatedly specify “two MMOs,” advancement, EQ2/CR3, and genre boundaries. | scope | not at all | UNAFFECTED — a source cannot prevent later shorthand; its own qualifiers make the citation-layer mutation easier to verify. |
+| CN-2: “Hébert-Ratté et al. (2025) misclassifies Shen as qualitative/case-study evidence about harassment impacts.” | Methods plainly report quantitative behavioral records and no harassment measure. | scope / method description | not at all | UNAFFECTED — the downstream MAP-GAP misclassification remains. |
+| CN-3: “The visible Ratan/Shen/Williams recurrence is ordinary small-field clustering; functional closure is not established because complete graph metrics are unavailable and recent papers add diverse evidence.” | Author list/references show collaboration and diverse cited fields, but the paper does not claim anything about its future network. | NONE FOUND after full-section search | not at all | UNAFFECTED — this is already a cautious, non-adverse network finding. |
+| CN-4: “The UC Davis public release preserves the two-game advancement result, so a PR-only inflation pathway is not established.” | Source title/abstract and release body both retain two games and advancement. | scope | fully | DEFEATED — the adverse PR-inflation hypothesis is cut; retain CN-4 only as a green flag, not a concern. |
+
+E0 residual: 1 adverse hypothesis DEFEATED; 2 findings NARROWED (CV-1,
+CV-4); 2 RECHARACTERIZED (CV-2, CV-3); 3 UNAFFECTED (CN-1, CN-2,
+CN-3). CN-4 remains only as affirmative evidence of faithful public reporting.
+
+E1. EXTERNAL SUPPORTING EVIDENCE
+------------------------------------------------------------
+
+Source-reception gate: Ratan 2015 and Shen were searched one level for direct
+replication/correction/rebuttal language; none was located. Ratan 2020 and Holl
+2024 publisher/citing pages were likewise checked. Current standing is
+“not formally undermined in retrieved reception,” not “independently
+replicated.” Support sources receive no exemption for shared authorship or task
+differences.
+
+| Supporting source | Year | What it supports | Answers construct problem? | Runs decisive test? | Strong or narrow claim? | Verification state | Impact on audit |
+|---|---:|---|---|---|---|---|---|
+| Ratan et al., Stand by Your Man | 2015 | Women level at least as quickly in League of Legends after play/experience-related comparisons | Partly: another game makes advancement less idiosyncratic, but remains one progression metric | No equivalence or common cross-game metric | narrow, game-specific | FULL-TEXT-CONFIRMED + RECEPTION-CONFIRMED bounded search; current standing not formally undermined | narrows CV-1; same overlapping author network limits independence |
+| Ratan, Shen & Williams, World of Tanks | 2020 | Apparent XP/match gap disappears after prior play control in a spatial-action game | Partly: adds a non-level outcome and genre | No; abstract does not establish equivalence/selection correction | narrow, game-specific | ABSTRACT-CONFIRMED + RECEPTION-CONFIRMED bounded search | weakens, but does not overturn, CV-1 |
+| Holl, Wagener & Melzer | 2024 | Gender differences varied by casual-game task; experience/gamer identification explained one reported difference | Partly supports context/experience explanation | No common metric; two experiments are not MMO replication | narrow | FULL-TEXT-CONFIRMED + RECEPTION-CONFIRMED bounded search; new evidence | narrows critique slightly; also confirms heterogeneity |
+| UC Davis release | 2017 | Faithful public restatement of two-game advancement | N/A | No | same narrow result | CROSS-SOURCE-CONFIRMED | overturns any PR-only-inflation claim, which the citation prosecutor already rejected |
+
+Strongest support is genuinely useful but narrower than Field 6's unqualified
+performance label. It justifies treating advancement as a legitimate
+game-specific performance dimension, not as a near-exhaustive construct.
+
+
+F. CITATION-NETWORK UPTAKE OF OPPOSITION
+============================================================
+
+There is no verified direct critique whose low uptake can be interpreted as
+suppression. Both candidate explanations must remain visible: valid opposition
+might be marginalized, or weak/noncomparable work might be correctly discounted.
+Because no direct critique with a confirmed one-level reception record was
+found, neither suppression nor correctly discounted rebuttal is established.
+
+| Opposition / neglected source | Cited by hub? | Later uptake? | Engagement quality | Survived reception check? | Suppression vs. correctly-discounted | Network implication |
+|---|---|---|---|---|---|---|
+| Equivalence-method literature | Not located in Rogstad | Broad methods uptake is high; target-network rate unknown | not cited in checked hub paragraph/reference leads | Method is established; no reception challenge made load-bearing | Hub's narrative purpose may explain omission; lack of target uptake may also reflect underuse. Suppression not supported. | partial uptake / method gap |
+| Holl 2024 mixed stereotype-threat evidence | Postdates hub | Cited in Hébert-Ratté 2025; low count because recent | substantively engaged | Bounded search found no correction/rebuttal; too new for mature standing | Low uptake is expected for recency, not suppression | healthy early uptake |
+| Direct Shen critique | None located | Unknown | unclear / needs verification | No source to gate | Neither candidate explanation can be selected | no network implication |
+| Ratan 2020 support | N/A as support source | Cited by Holl/Nolla and later work | incorporated into broader model | Bounded reception check passed; shared authorship remains | Normal uptake of conceptual extension | field updated |
+
+
+G. SUMMARY TABLE — OPPOSITION STRENGTH
+============================================================
+
+| Category | Number Found | Strongest Example | Evidence Quality | Verification state | Impact on Central Claim |
+|---|---:|---|---:|---|---|
+| Oppositional citing papers | 5 inspected; 2 empirically useful | Ratan et al. 2020 | 2 | ABSTRACT-CONFIRMED + RECEPTION-CONFIRMED bounded search | weakens audit only by legitimating another game-specific performance outcome |
+| Non-citing opposition papers | 0 securely established | none | 0 | N/A | no effect |
+| Neglected references | 3 method/measurement candidates | Wellek 2010 equivalence methods | 2 | LOCATED; not verdict-anchoring | strengthens need for a bounded no-disparity test |
+| Ignored adjacent fields | 5 assessed; none wholly ignored | equivalence/noninferiority statistics | 2 | FULL-TEXT-CONFIRMED later primers; target uptake PROVISIONAL | strengthens/narrows audit |
+| Strongest support for original claim | 3 empirical + 1 public synthesis | Ratan et al. 2015 | 3 for its bounded field result | FULL-TEXT-CONFIRMED + RECEPTION-CONFIRMED bounded search | seriously supports a narrower multi-game advancement claim; does not overturn construct boundary |
+
+The three most threatening findings to the prosecution, in order, are:
+
+1. Ratan et al. (2015) plus Ratan et al. (2020) show the experience-adjusted
+   pattern across League of Legends advancement and World of Tanks XP/match,
+   weakening any claim that Shen's result is a one-game-metric curiosity.
+   Verification: FULL-TEXT-CONFIRMED + bounded RECEPTION-CONFIRMED for 2015;
+   ABSTRACT-CONFIRMED + bounded RECEPTION-CONFIRMED for 2020.
+2. Shen explicitly defines advancement as its performance indicator and offers
+   game-architecture reasons for doing so. Verification: FULL-TEXT-CONFIRMED +
+   bounded RECEPTION-CONFIRMED. This narrows CV-1 from “invalid proxy” toward
+   “valid dimension, overbroad label.”
+3. Shen explicitly acknowledges sex-specific self-selection and genre limits,
+   so CV-2 is a disclosed, unresolved boundary rather than a hidden design
+   discovery. Verification: FULL-TEXT-CONFIRMED + bounded RECEPTION-CONFIRMED.
+
+No PROVISIONAL source remains in the top three.
+
+
+G2. DID THE PROSECUTION ATTACK THE STRONGEST VERSION?
+============================================================
+
+Finding-level target gate:
+
+| Prosecutor | Finding | Declared target claim | Claim-map version attacked | Matches Field 6? | Failure location | Severity after re-aiming |
+|---|---|---|---|---|---|---|
+| Construct | CV-1 exact sentence quoted in E0 | Field 6 | Field 2/6 source performance claim | Yes | PAPER | major NARROWS becomes moderate-to-major: advancement is a legitimate dimension but not performance generally |
+| Construct | CV-2 exact sentence quoted in E0 | Field 6 | Field 2/6 source group claim | Yes | PAPER | moderate NARROWS survives; charge recharacterized as disclosed/unresolved selection |
+| Construct | CV-3 exact sentence quoted in E0 | Field 6 | mostly source's broader ability/causal/confounding language in Field 2; only partial bearing on Field 6 | Partial | PAPER | minor-to-moderate SURVIVES; cannot anchor Field-6 verdict |
+| Construct | CV-4 exact sentence quoted in E0 | explicitly non-load-bearing causal claim | MAP GAP / separate stereotype-participation claim | No | PAPER | minor, excluded from Field-6 verdict |
+| Citation | CN-1 exact sentence quoted in E0 | Field 6 as downstream use | downstream mutation of Field 2/6 | Yes at CITATION layer, not source-truth layer | CITATION | moderate citation error; zero paper-layer severity |
+| Citation | CN-2 exact sentence quoted in E0 | explicit MAP GAP | harassment/qualitative-evidence claim not on map | No | CITATION | moderate for downstream sentence; zero Field-6 severity |
+| Citation | CN-3 exact sentence quoted in E0 | Field 6's evidentiary reception | network-evidence claim, not bare Field 6 truth | Indirect | CITATION | minor/provisional; already exculpatory |
+| Citation | CN-4 exact sentence quoted in E0 | Field 6 | PR restatement of Field 2/6 | Yes at PR layer | PR / MEDIA | none; adverse PR hypothesis defeated |
+
+Double-count guard: CV-1 is one advancement-to-performance mechanism. CN-1 is
+not a second construct failure; it is the same scope mismatch propagating at a
+different layer and is counted once at PAPER and once only as a distinct
+verified CITATION event, not twice as proof against Field 6. CN-2 is a separate
+MAP-GAP attribution error. CV-4 is a separate deferred causal claim and cannot
+compound Field 6.
+
+1. Versions attacked: Construct CV-1/CV-2 attack the source's strongest Field-6
+   wording while retaining Field 3 as residual. CV-3 partly attacks Field 2's
+   causal/ability interpretation. CV-4 attacks a MAP GAP. Citation CN-1 attacks
+   downstream versions; CN-2 a MAP GAP; CN-3 network authority; CN-4 PR fidelity.
+
+2. Intended version: Field 6. Only CV-1 and CV-2 directly and fully bear on it at
+   the source layer. CN-1 and CN-4 bear on the same formulation at later layers,
+   not its truth.
+
+3. Failure locations: PAPER for CV-1/CV-2 and the residual of CV-3; CITATION for
+   CN-1/CN-2; PR/MEDIA is not established as a failure; MODEL/RETRIEVAL was not
+   established.
+
+4. Layer statement: The source is defensible against CN-1/CN-2 as a description
+   of what its own methods are; the failures are at the CITATION layer. The UC
+   Davis source is defensible; no PR failure was found.
+
+5. Severity after re-aiming: CV-1 and CV-2 survive but are narrowed/
+   recharacterized; CV-3 cannot carry Field 6; CV-4/CN-2 are excluded; CN-1
+   remains moderate only as a citation mutation; CN-3/CN-4 are green/cautious.
+
+| Question | Answer | Supporting prosecutor findings |
+|---|---|---|
+| Versions attacked | source strongest claim, downstream mutation, and two MAP GAPs | CV-1–4; CN-1–4 |
+| Version audit targeted | Field 6 source claim | Stage 1 Field 6; CV-1/CV-2 direct |
+| Finding-level match rate | 2/8 direct source-layer matches; 2/8 same claim at later layer; 1/8 partial; 2/8 MAP GAP/non-load-bearing; 1/8 indirect network claim | table above |
+| Failure locations | PAPER and CITATION; no verified PR/model failure | CV-1/CV-2; CN-1/CN-2; CN-4 |
+| Severity survives re-aiming? | yes but reduced for CV-1/CV-2; no Field-6 severity for MAP GAP/later-layer rows | E0 and finding table |
+| Nested findings consolidated | advancement→performance mismatch counted once as construct mechanism; downstream instances remain traceable but not independent truth levers | CV-1 with CN-1 nested across layers |
+
+MAP DISAGREEMENT: none on the main source inflation point. Stage 1 located the
+source shift at advancement → “performance,” and CV-1 confirms it. The citation
+audit adds later mutation but does not relocate the source-level failure.
+
+
+H. REVISED THESIS IMPACT
+============================================================
+
+Category B — Thesis narrowed.
+
+The critique survives, but “weak proxy” is too blunt. Advancement is a deliberate
+and substantively important game-performance dimension, supported across more
+than Shen's two games. The defensible charge is that the paper's unqualified
+“performance disparity” wording exceeds that dimension and its selected samples.
+
+1. Claims to remove: any suggestion of a functional citation cartel; any claim
+   that the UC Davis release newly invented the scope expansion; any claim that
+   the paper hid its selection/genre limits; any use of CV-4 or CN-2 to grade
+   Field 6.
+2. Claims to narrow: CV-1 from “invalid proxy” to “valid but non-exhaustive
+   performance dimension”; CV-2 to disclosed but unresolved selection; CN-1 to
+   specific downstream contexts, not a network-wide pattern.
+3. Claims to strengthen: real citation misattribution in the checked Dong,
+   Rogstad, and Hébert-Ratté contexts; the factual existence of a same-author
+   successor; the absence of evidence for closure/suppression.
+4. Claims requiring better sourcing: complete citation topology; network-wide
+   adjacent-field rates; absence of direct replication; practitioner/game-
+   mechanics critiques.
+5. Claims surviving unchanged: Field 3 is the strongest defensible claim; no
+   retrieved evidence validates general performance equivalence or population
+   representativeness; downstream citation mutation exists.
+6. Evidence most improving the thesis: Shen's own definition/limitations, which
+   makes the critique fairer and more precise; reception checked in full.
+7. Evidence most threatening the thesis: Ratan 2015/2020 cross-game evidence,
+   which shows the bounded pattern is not unique to Shen; both were reception-
+   checked to the stated depth.
+
+
+I. REVISED THESIS PARAGRAPH
+============================================================
+
+Shen et al. measured a legitimate but bounded dimension of game performance—
+advancement in selected EQ2 and CR3 character/account observations—and the
+paper openly explains that choice and acknowledges genre and sex-specific
+selection limits. Related field studies in League of Legends and World of Tanks,
+whose retrieved reception revealed no formal correction or rebuttal but which
+share authors and do not run equivalence tests, support the narrower conclusion
+that an unadjusted male advantage is not stable across several game-specific
+progression/XP outcomes once play or experience is considered. They do not
+establish the paper's unqualified “no significant gender-based performance
+disparity” formulation across performance dimensions or player populations.
+The citation record is not functionally closed, yet specific checked sources
+mutate two-MMO advancement into general gaming skill or esports ability; no
+verified direct critique was found whose low uptake could support suppression.
+The decisive test is a preregistered, selection-aware, independent multi-game
+study using comparable rank/win/progression outcomes, level- and context-specific
+contrasts, confidence intervals, and justified equivalence margins.
+
+
+J. FINAL ADVERSARIAL VERDICT
+============================================================
+
+- Strongest opposition to the foundational claim (with reception standing +
+  how assessed): none directly overturns it. Cross-game evidence is mainly
+  supportive, not oppositional; later task heterogeneity narrows any universal
+  reading. Publisher/citation/rebuttal searches were checked one level.
+- Strongest support for the foundational claim: Ratan et al. (2015), with Ratan
+  et al. (2020) as a same-author conceptual extension. The former was read and
+  both received bounded correction/rebuttal searches; current standing is not
+  formally undermined, but neither is an independent equivalence replication.
+- Strongest neglected adjacent-field evidence: equivalence/noninferiority
+  methods.
+- Strongest paper the hub should have cited: no decisive paper established;
+  Lakens 2017 would improve null/equality language but postdates Shen and is not
+  obligatory to Rogstad's narrative scope.
+- Most important non-citing opposition: none securely verified.
+- Did the field engage opposition? No direct Shen critique was found; recent
+  adjacent mixed evidence is substantively visible.
+- Critique marginalized/suppressed claim: none made; no surviving direct
+  critique with verified low uptake exists in this retrieval.
+- Did opposition change the thesis? Yes: it narrows proxy rhetoric and upgrades
+  advancement from “weak proxy” to “valid but incomplete performance dimension.”
+- Source self-defense: CN-4 adverse PR hypothesis DEFEATED; CV-1/CV-4 NARROWED;
+  CV-2/CV-3 RECHARACTERIZED; CN-1/CN-2/CN-3 UNAFFECTED. Passages are in E0.
+- Version prosecution attacked: mixed—CV-1/CV-2 strongest source claim; CV-3
+  partly broader source claim; CV-4/CN-2 MAP GAP; CN-1 downstream; CN-3 network;
+  CN-4 PR.
+- Failure location: PAPER for residual construct overreach/selection; CITATION
+  for verified downstream mutations; no PR/model failure established.
+- Does severity survive re-aiming? Partly and at reduced strength: CV-1/CV-2 do;
+  MAP-GAP and citation rows do not become paper-level severity.
+- Finding-target alignment: 2/8 direct source-layer Field-6 matches, 2/8 later-
+  layer matches, 1 partial, 2 MAP GAP/non-load-bearing, 1 indirect.
+- Double-count resolution: CV-1/CN-1 share one scope mechanism across layers;
+  CV-4 and CN-2 remain separate but excluded from Field-6 compounding.
+- Revised thesis impact category: B — Thesis narrowed.
+- Claims to remove: cartel, suppression, hidden-limit, and PR-invention claims.
+- Claims to narrow: proxy invalidity, selection-as-undisclosed, network-wide
+  mutation.
+- Claims strengthened: specific cross-source-confirmed misattributions and the
+  ordinary/nonclosed network diagnosis.
+- Three most threatening findings: (1) Ratan 2015/2020 cross-game convergence
+  [FULL/ABSTRACT + RECEPTION-CONFIRMED]; (2) Shen's explicit operationalization
+  [FULL + RECEPTION-CONFIRMED]; (3) Shen's explicit selection/genre limitations
+  [FULL + RECEPTION-CONFIRMED].
+- Main remaining source-risk: the strongest source wording treats a deliberately
+  bounded dimension and selected observations as a no-disparity result without
+  an externally validated common performance construct.
+- Confidence level: Moderate.
+- What would change this assessment: independent preregistered cross-game
+  equivalence results; complete top-50 graph/context data; validated links from
+  advancement to broad performance; selection-aware entry/attrition evidence;
+  or a retrieved direct critique/replication with mature reception.
+
+
+J2. SELF-TILT DISCLOSURE
+============================================================
+
+- Direction of tilt: toward the paper, by design of a counter-audit, but bounded
+  by refusing to treat same-author conceptual extensions as decisive.
+- Least reception-checked findings: full-network nonexistence claims, direct-
+  replication absence, and practitioner/game-mechanics under-retrieval. They
+  remain PROVISIONAL and are not top-three threats.
+- Sources introduced/promoted: Ratan 2015/2020 and Holl 2024. Each received the
+  same one-level correction/rebuttal search applied to Shen; only Ratan 2015 is
+  scored 3, and only for its bounded field result.
+- E0 search order: source first—Abstract, Theory, both Methods/Results,
+  Discussion, Implications, Limitations, Notes, References—then external
+  support. E0 did not return all UNAFFECTED.
+- Target scrutiny: re-aiming weakened several prosecution rows; I did not leave
+  citation/MAP-GAP findings at the paper layer merely because they favored an
+  expected critique.
+- Likely first flag in a counter-audit of this counter-audit: the reception gate
+  uses bounded search and negative search results, not a complete citation-
+  reception database export.
+- Assumption most likely wrong: that the accessible 15-paper packet adequately
+  represents how often downstream literature preserves Shen's outcome/game
+  boundary.
+
+
+K. FINAL ONE-PARAGRAPH SUMMARY
+============================================================
+
+The strongest counter-evidence is the combination of Shen's explicit
+operationalization/limitations and game-specific results in Ratan et al. (2015,
+2020); bounded reception checks found no formal rebuttal or correction, but the
+latter work is partly same-author and neither provides a decisive cross-game
+equivalence test. This evidence narrows the construct prosecution: advancement
+is a valid, important performance dimension, not a worthless proxy, while the
+unqualified “performance disparity” and group scope still exceed what was
+measured. The source-level critique therefore survives in sharper form. The
+citation audit also survives: specific downstream mutations are verified, but
+the network is not closed and recent papers add independent, task-specific
+evidence. No direct critique with confirmed mature reception and low uptake was
+found, so suppression is not claimed. The most defensible position is Stage 1
+Field 3 plus a demand for preregistered, selection-aware, independent multi-game
+equivalence evidence before upgrading that residual to general performance
+parity.

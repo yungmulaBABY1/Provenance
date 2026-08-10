@@ -1,0 +1,671 @@
+SHEN FULL-CHAIN SEQUENTIAL RUN
+STAGE 2A — CONSTRUCT-VALIDITY PROSECUTOR
+============================================================
+
+INDEPENDENCE DECLARATION
+------------------------
+This prosecutor received only the Shen full text and the unchanged Stage 1
+claim map. It did not receive or read the internal-validity or citation-network
+findings.
+
+RETRIEVAL DEPTH
+---------------
+FULL-TEXT-CONFIRMED for Shen et al. (2016). The publisher HTML was read in
+full. Construct-establishment support was assessed from the full introduction,
+discussion, limitations, references, checked abstracts/pages for selected cited
+sources, and later primary studies used only where this prompt explicitly asks
+whether the construct support is contested.
+
+Publisher source:
+https://academic.oup.com/jcmc/article/21/4/312/4161802
+
+
+MANDATORY VERBATIM HANDOFF FROM STAGE 1
+============================================================
+
+FIELD 3 — WEAKER DEFENSIBLE CLAIM (VERBATIM)
+
+“Among the selected, self-selected EQ2 and CR3 character/account observations
+available in the stated periods, dichotomously self-reported male status did not
+confer a consistent advancement-speed advantage under the authors’ fitted
+mixed-effects models: EQ2 character/tradeskill level conditional on accumulated
+play time, and CR3 logged-in time to the next level conditional on new level.”
+
+FIELD 6 — CLAIM UNDER AUDIT (VERBATIM)
+
+“Based on our data from two MMOs, there is no significant gender-based
+performance disparity.”
+
+Target layer: source claim.
+
+What was literally measured (map Field 1): EQ2 attained character/tradeskill
+level conditional on accumulated character play time in selected active Guk-
+server characters, and CR3 logged-in seconds between level-up events conditional
+on new level in a survey-linked selected-server sample, using mixed-effects
+models with stated nesting/random effects.
+
+MAP AGREEMENT
+-------------
+I agree with the map’s distinction: the item-level operationalization is
+advancement speed, while Field 6 uses the broader label “performance.” I do not
+replace Field 6 with the paper’s separate causal claim about stereotypes and
+participation.
+
+
+APPLICABLE-CHECKS NOTE
+============================================================
+
+- Target document type: primary academic empirical paper containing two
+  observational behavioral-data studies.
+- Sections that apply: all measurement, proxy, level-of-analysis, confound,
+  ecological-validity, decisive-test, citation-use, evidence-status,
+  consistency, concede-test, and verdict sections.
+- Sections N/A: intervention-ratchet and institutional-measurement checks are
+  N/A because the paper studies no intervention or institutional performance
+  metric. Operationalization-pathologization is N/A because the coding rules do
+  not score beliefs or penalize a viewpoint. Motive-claim analysis is N/A.
+
+
+1. CLAIM MAP
+============================================================
+
+The received map is used unchanged. Field 6 is the source-level claim quoted
+above. The prosecution tests whether advancement speed in the observed samples
+licenses “gender-based performance disparity,” not whether a later press release
+is accurate and not whether the separate stereotype-harm claim is true.
+
+
+1A. CONSTRUCT ESTABLISHMENT
+============================================================
+
+Section retrieval depth: assessed from the full paper, introduction plus
+relevant citations checked, and later primary research used to assess whether
+the cited support is contested in the respect required.
+
+| Property | Claim-map status | Does the normative / causal claim depend on it? | ESTABLISHED-CITED prosecutor split | Evidence and exact inferential load | Finding disposition |
+|---|---|---|---|---|---|
+| PREVALENCE | UNKNOWN | The separate claim that a stereotype helps cause unequal participation presupposes that the belief is present at meaningful levels; Field 6 itself does not. | N/A | Shen reports a stereotype but supplies no prevalence measure for endorsement of the specific general inferiority belief. | PROVISIONAL; not load-bearing for Field 6. |
+| FORM | UNKNOWN | The causal stereotype claim depends on whether the belief is broad/strong or conditional/genre-specific; Field 6 does not. | N/A | The paper does not itemize the belief, so “women are inferior” can range from an absolute ability claim to a contextual average claim. | PROVISIONAL; not load-bearing for Field 6. |
+| DOMAIN | ESTABLISHED-REPORTED | YES for Field 6: the empirical domain must match the claimed performance domain. | N/A | Empirical domain is advancement in two MMOs; limitations say other genres may differ. The exact inferential load is whether that domain can be called gender-based “performance” without qualification. | CONFIRMED and load-bearing through the proxy analysis below. |
+| WRONGNESS | ESTABLISHED-REPORTED for the narrow progression result; UNKNOWN generally | The separate stereotype-falsity claim depends on it; Field 6 depends only on the bounded two-game result. | N/A | The fitted models contradict a male advancement-speed advantage in these samples. They do not grade every domain-specific proposition about gaming ability. | CONFIRMED for narrow model/sample result; PROVISIONAL outside it. |
+| HARM | ESTABLISHED-CITED | The separate “potential cause of unequal participation” claim depends on it; Field 6 does not. | contested-in-respect-required | Chan (2008) reports hypothesized-direction effects but no statistically significant differences; the Shen paper cites gaming stereotype-threat pathways; Holl, Wagener & Melzer (2024) found no stereotype-threat effect on behavioral game performance in two experiments, though frustration differed in one. These sources do not establish the broad participation-causal load uncontestedly. | CONTESTED for the deferred causal claim; not load-bearing for Field 6. |
+
+Construct-establishment result
+------------------------------
+
+For Field 6, DOMAIN is the relevant established property and is prosecuted as a
+claim-versus-measurement proxy gap. PREVALENCE, FORM, and HARM do not bear on the
+selected performance-disparity claim. The paper’s separate stereotype-harm
+claim has a construct-establishment gap, but treating it as a defeater of Field 6
+would be a dependency error.
+
+MAP GAP flag: the HARM finding concerns the deferred claim “the stereotype is a
+potential cause of unequal participation,” not Field 6. It is recorded for
+traceability but capped at MINOR/SURVIVES relative to Field 6.
+
+
+2. MEASUREMENT EXTRACTION
+============================================================
+
+Study I — EQ2
+-------------
+
+- Sample/recruitment: naturally occurring game-server users, not recruited;
+  only characters active on the Guk PvE server during September 4–10, 2006.
+  The paper reports 9,483 active players; the main descriptive variables include
+  6,448 male and 1,513 female observations, with model Ns varying by guild status
+  and outcome.
+- Time scale: accumulated play since character creation through September 10,
+  combined with a September snapshot; activity data existed for January–
+  September but the key level/play-time variables were snapshot aggregates.
+- Outcomes: character level and tradeskill level, excluding level-70 cases.
+- Fixed effects: gender, total play time, gender × play time.
+- Random effects: class, account ID, and guild ID where applicable.
+- Proxy rule: higher attained level at the same accumulated play time equals
+  better/faster performance.
+
+Study II — CR3
+--------------
+
+- Sample/recruitment: voluntary website survey with a desirable in-game weapon
+  incentive, linked where possible to partial logs from selected servers and
+  noncontiguous periods; roughly 2,000 linked respondents, 90,495 level-up events.
+- Time scale: logged-in seconds from one level-up event to the next.
+- Outcome: time to level up from n to n+1.
+- Fixed effects: gender, new level, and in Model 2 gender × new level.
+- Random effects: character ID nested in account ID.
+- Proxy rule: less logged-in time to the next level equals better performance.
+
+What was not measured
+---------------------
+
+- a common direct performance outcome across both games;
+- competitive rank, win/loss, PvP success, task success under equal conditions,
+  decision quality, combat efficiency, accuracy, or coordinated-team output;
+- prior gaming/MMO experience as a measured covariate;
+- actual social assistance, team composition, grouping exposure, mentoring, or
+  resource transfers, despite EQ2’s explicitly collaborative architecture;
+- motivation and whether advancement was the player’s own goal;
+- entry cohort, dropout/attrition process, or performance of people who never
+  entered or left before the observation window;
+- a measure permitting a domain-general inference about gaming ability.
+
+Direct measure or proxy?
+------------------------
+
+The data directly measure character advancement outcomes. They are close,
+behavioral measures of advancement efficiency. They are a proxy for the broader
+construct “game performance,” because performance in a multi-activity MMO is not
+identical to time-conditioned leveling and tradeskill progression.
+
+Definition–operationalization check
+-----------------------------------
+
+Explicit definition:
+
+  “We operationalize game performance as a function of character advancement
+  (leveling) and voluntary play time …”
+
+Actual retrieved coding rules:
+
+1. EQ2 attained character level at equal accumulated play time.
+2. EQ2 attained tradeskill level at equal accumulated play time.
+3. CR3 logged-in seconds from level n to n+1 at equal new level.
+
+Operationalization retrieval basis: ITEMS-RETRIEVED.
+
+Operationalization scope result: coextensive with the paper’s explicit narrow
+definition “speed of character advancement.” It is narrower than the later
+unqualified construct label “performance disparity.”
+
+Definition-operationalization mismatch: NOT FIRED. The actual items track the
+stated advancement definition. The failure is instead the move from a narrow,
+explicitly defined proxy to a broader claimed construct. The actual items—not
+the broad word “performance”—control the defensible claim.
+
+Operationalization pathologization: NOT FIRED. No belief scale or viewpoint is
+scored.
+
+Grade-before-assert
+-------------------
+
+- “Women advance more slowly in these fitted study samples”: ESTABLISHED-FALSE
+  within the retrieved model/sample boundaries; P2 STRONG.
+- “Women are inferior gamers generally”: no stable domain-specific subclaim was
+  measured or externally graded here; P2 VOID. No domain-general wrongness
+  finding is allowed to anchor this audit.
+
+
+3. CLAIM VS. MEASUREMENT TABLE
+============================================================
+
+| Measured variable | Claimed construct | Are they the same? | Gap | Severity | Notes |
+|---|---|---|---|---|---|
+| EQ2 character/tradeskill level conditional on accumulated play time; CR3 time between level-ups conditional on new level | “gender-based performance disparity” in two MMOs | No, not without defining performance as advancement speed | Proxy problem: advancement efficiency is one game-performance dimension | major | MATERIAL NARROWING. The result supports no consistent male advantage on advancement items, not no disparity on game performance generally. |
+| Active/self-selected character and survey-linked event samples | Men and women in the two MMOs | No | Level-of-analysis/population bridge from selected characters/events to gender-group performance | moderate | The paper acknowledges severe gender disparity and possible female self-selection; the claim must remain sample-bound. |
+| Attained level vs. accumulated time in one snapshot (EQ2) | “speed,” “slope,” and “longitudinal performance” | Not exactly | Time-scale/measurement bridge: cross-character conditional association is used as a progression slope | moderate | CR3 directly observes successive level events; EQ2 does not directly observe within-character slopes. |
+| Explicit advancement definition and retrieved advancement coding rules | Speed of character advancement | Yes | No definition-operationalization mismatch | none | ITEMS-RETRIEVED; coextensive at the narrow definition level. |
+
+The first and decisive-test concerns are one underlying measurement mechanism;
+they are not counted as two independent severity levers.
+
+
+4. LEVEL-OF-ANALYSIS CHECK
+============================================================
+
+Evidence level
+--------------
+
+- naturalistic behavioral/administrative game logs;
+- character and repeated level-up events nested in accounts;
+- one active-server snapshot/conditional model in EQ2;
+- a voluntarily surveyed, partially linkable selected-server sample in CR3.
+
+Claim level
+-----------
+
+- a gender-group claim about “performance disparity” in two MMOs;
+- elsewhere in the paper, broader claims about women players, gaming generally,
+  and causal participation mechanisms.
+
+Required bridge assumptions
+---------------------------
+
+1. Character advancement efficiency represents the relevant performance
+   construct.
+2. Characters/accounts remaining active or linkable are sufficiently
+   representative of the sex/gender groups whose performance is described.
+3. Advancement goals and routes are comparable enough across gender that
+   conditional leveling reflects ability rather than goal selection or social
+   organization.
+4. EQ2’s cross-character level-by-time relation represents individual
+   progression speed.
+
+These assumptions are partly argued and partly acknowledged, not fully tested.
+A domain expert could accept advancement as an important MMO outcome while
+rejecting its use as the exhaustive meaning of performance.
+
+
+5. CONFOUND AUDIT
+============================================================
+
+| Confound | Domain obvious? | Controlled? | Acknowledged? | Impact if omitted |
+|---|---|---|---|---|
+| Prior game/MMO experience | Yes | No direct measure in either main model | Yes, in theory/discussion | High for an ability/performance interpretation; lower for the literal fitted association |
+| Player motivation and whether leveling is the player’s goal | Yes | No | Yes; the paper argues motivational differences would make the result more robust | High for treating leveling as common performance; the direction is not identified merely by asserting it |
+| Actual collaboration, grouping, mentoring, team composition, and social assistance | Yes from the paper’s own EQ2 description | Partly approximated by class/guild random effects in EQ2; unavailable in CR3 | Architecture acknowledged; actual assistance not modeled | Moderate to High because advancement is socially produced in these games |
+| Selection/survivorship into the games, active window, and linked survey-log sample | Yes | No | Yes in Limitations | High for group/general performance; can select unusually experienced women |
+| Age | Yes | Not included in stated models | Descriptively reported | Low to Moderate; two-year EQ2 and small CR3 differences are unlikely to be the sole result but remain untested |
+| Nonlinear leveling difficulty | Yes | EQ2 level-cap exclusion and level-band sensitivity; CR3 new-level covariate | Yes | Low after stated checks for the narrow advancement result |
+| Character/account/guild clustering | Yes | Yes where variables existed | Yes | Low after mixed-effects handling; guild absent in CR3 remains a boundary |
+
+The omitted-confound finding is not a clean defeater of the literal statistical
+result. It prevents the result from identifying general ability or the cause of
+the observed equality. That is why its concede result is SURVIVES for Field 6
+as a fitted-sample statement and DEFEATS only the separate causal interpretation.
+
+
+6. ECOLOGICAL VALIDITY CHECK
+============================================================
+
+The server logs have high ecological validity for real advancement behavior in
+the sampled game environments. They have only narrow construct validity for
+“performance,” and the samples do not support unrestricted population claims.
+
+Verdict: ecologically valid only for a narrower claim—advancement behavior among
+the observed active/linkable character-account samples under the specified
+models.
+
+
+7. DECISIVE-TEST CHECK
+============================================================
+
+A decisive test would measure multiple pre-registered, game-native performance
+dimensions rather than leveling alone; follow representative entrant cohorts
+prospectively through advancement and attrition; measure prior experience,
+goals, input/device familiarity, class/role, team support, and time exposure;
+and compare within-person trajectories as well as end-state outcomes.
+
+- Population: representative new entrants and continuing players in both games,
+  stratified by sex/gender and sampled before survival/retention can select the
+  observed group.
+- Outcomes supporting the source: no consistent male advantage across direct,
+  pre-specified task, combat/competitive where applicable, advancement, and
+  coordinated-team outcomes after measuring exposure and selection.
+- Outcomes weakening the source: stable domain-specific male advantages on
+  direct outcomes despite comparable experience/exposure, or equality only on
+  leveling while other important outcomes diverge.
+- Does Shen run it? No. It runs a strong naturalistic advancement test, not a
+  multidimensional performance or selection test.
+- Does the paper acknowledge the gap? Partly. It acknowledges genre limits,
+  self-selection, and the possibility of different goals, but still calls
+  advancement the “real performance measure.”
+
+The decisive test would be: a prospective, representative entrant-cohort study
+in the two games that repeatedly measures several pre-registered game-native
+performance outcomes and attrition while directly measuring experience,
+exposure, goals, role/class, social support, and input familiarity.
+
+
+8. CROSS-REANALYSIS OBJECT CHECK
+============================================================
+
+No independent reanalysis of Shen’s original EQ2/CR3 models was retrieved in
+this prosecutor run.
+
+Two nearby sources test different objects:
+
+- Ratan, Shen & Williams (2020) studies World of Tanks experience points per
+  match and controls prior play time. It is a same-author follow-on in a
+  different, spatial-action game; it is not a reanalysis or direct replication
+  of EQ2/CR3 advancement.
+- Holl, Wagener & Melzer (2024) experimentally manipulates stereotype
+  information in two casual games and tests behavioral score/frustration. It
+  bears on the separate stereotype-harm mechanism, not the Shen progression
+  models.
+
+Treating either as resolving the original proxy question would confuse objects.
+
+
+9. CITATION-USE AUDIT
+============================================================
+
+The Stage 1 eligible downstream items cite the actual advancement result and
+preserve the two-game scope. The UC Davis headline asks the broader question
+“Are Men Better Gamers Than Women?” but the body explicitly says the study found
+women advanced at least as fast in both games. A retrieved joint-cited esports
+restatement broadens toward skill/gaming performance, but it lacks the required
+full-document joint-citation check and cannot anchor a classification.
+
+Citation-use verdict: Accurate citation for the anchor-eligible items; possible
+broader synthesis use remains PROVISIONAL. No citation-laundering finding is
+established here.
+
+
+10. IGNORED-LITERATURE CHECK
+============================================================
+
+| Ignored literature / evidence | Why it matters | Was it cited? | Effect of omission |
+|---|---|---|---|
+| Game-score/task-time performance studies (e.g., Brown 1997; Bösche 2009) | Demonstrate that “performance” can be operationalized with direct task outcomes | Yes, discussed as short one-dimensional lab tasks | Minor context loss; the paper engages and distinguishes them |
+| League of Legends skill/rank and confidence work (Ratan et al. 2015) | Supplies a developer-created skill measure and progression comparison in another multiplayer game | Yes | No ignored-literature finding |
+| Multiple performance dimensions in an FPS (Hopp & Fisher 2017) | Shows objective and subjective performance dimensions can be separated | Postdates Shen; could inform future decisive tests but cannot be an omission in 2016 | No omission finding |
+| World of Tanks XP-per-match follow-on (Ratan et al. 2020) | Uses another game-native outcome in a spatial-action game | Postdates Shen and includes two Shen authors | No omission finding; different-object follow-on |
+
+No pre-2016 adjacent literature omission was verified strongly enough to anchor
+a MAJOR finding. The principal problem is not that the paper ignored an obvious
+named field; it is that it chose and defended one outcome, then let the broader
+word “performance” do more work than that outcome supports.
+
+
+11. EVIDENCE-TYPE, VERIFICATION, AND FAILURE-LOCATION CHECK
+============================================================
+
+| Claim or evidence item | Evidence type | Measurement role | Verification state | Failure location | Directly measured / inferred / speculative | Source audit required? |
+|---|---|---|---|---|---|---|
+| EQ2 conditional character/tradeskill advancement | Primary empirical evidence | Direct measure of advancement; proxy for broader performance | FULL-TEXT-CONFIRMED | PAPER when generalized to performance | Directly modeled association | Independent reanalysis/data audit would strengthen confidence |
+| CR3 time to level | Primary empirical evidence | Direct measure of progression time; proxy for broader performance | FULL-TEXT-CONFIRMED | PAPER when generalized | Directly modeled association | Independent reanalysis/data audit would strengthen confidence |
+| No gender-based “performance disparity” | Author inference from primary evidence | Proxy-based construct claim | FULL-TEXT-CONFIRMED | PAPER | Inferred beyond retrieved items | Yes for any broad publication use |
+| Stereotype potentially causes unequal participation | Citation-dependent premise/author inference | Conceptual causal claim | FULL-TEXT-CONFIRMED for Shen; ABSTRACT/FULL-TEXT-CONFIRMED for selected support/challenge | PAPER, but MAP GAP relative to Field 6 | Inferred/speculative in these datasets | Reception/causal-evidence audit required |
+| UC Davis restatement | Public reporting/institutional page | Citation use | FULL-TEXT-CONFIRMED | none established | Faithful restatement in body | No, unless headline effects are the target |
+| Broad joint-cited esports restatement | Secondary synthesis | Citation-dependent premise | PROVISIONAL | suspected CITATION only | Inferred from incomplete document context | Yes; full document/joint-citation check required |
+
+Directly measured: level, tradeskill level, accumulated play time, level-up
+times, self-reported gender, and stated grouping/nesting variables.
+
+Inferred: performance as a broad construct; absence of a gender-performance gap
+beyond advancement; contextual rather than gender causes.
+
+Speculative in these datasets: stereotype-caused unequal participation and the
+full causal vicious cycle.
+
+
+12. INTERNAL CONSISTENCY CHECK
+============================================================
+
+Resolution language is consistent: the progression findings are treated as
+FULL-TEXT-CONFIRMED; the proxy/population bridge materially narrows Field 6; the
+separate stereotype-harm mechanism is contested and non-load-bearing. No section
+calls the broad performance question “settled.”
+
+
+13. THE CONCEDE TEST
+============================================================
+
+| Finding | Concede test: SURVIVES / NARROWS / DEFEATS | Surviving claim if NARROWS |
+|---|---|---|
+| Advancement is a proxy for broader game performance | NARROWS | No consistent male advantage on the specified advancement-speed items in the observed samples/models |
+| Selected active/linkable character-event samples do not represent all players or entrants | NARROWS | The same result, restricted to observed active EQ2 and survey-linked CR3 samples |
+| EQ2 cross-character snapshot association is not a direct within-character slope | NARROWS | At equal accumulated time in the analyzed snapshot, male status did not confer a consistent higher attained-level slope under the fitted model |
+| Prior experience, goals, and actual social assistance were not directly modeled | SURVIVES | N/A; the fitted association stands, but ability/causal interpretation does not |
+| Harm/prevalence/form are not adequately established for the deferred stereotype-causation claim | SURVIVES | Field 6 does not depend on that causal claim |
+
+Scope-loss table
+----------------
+
+| Finding | Scope-loss level | Original claim | Surviving claim | What practical or inferential work is lost? |
+|---|---|---|---|---|
+| Performance proxy | material | No significant gender-based performance disparity in two MMOs | No consistent male advantage in advancement efficiency on the retrieved items/models | Cannot generalize to other game-performance dimensions or general skill |
+| Selected samples | material | Gender-group performance claim | Observed active/linkable sample result | Cannot describe entrants, dropouts, nonparticipants, or all women/men in the games |
+| EQ2 slope construction | incidental-to-material | Longitudinal speed claim | Conditional attained-level association in the snapshot | Loses direct within-person trajectory interpretation for EQ2; CR3 remains event-longitudinal |
+
+There is no DEFEATS finding because a useful item-level residual remains. There
+are MATERIAL NARROWS findings, so verdict grade C is required.
+
+
+14. VERDICT
+============================================================
+
+- Claim under audit: USEFUL-FOR-NARROWER.
+- DEFEATS finding(s): none.
+- Failure mechanism: major proxy failure for the unqualified performance
+  construct, plus material population/level-of-analysis narrowing.
+- Surviving residual: Among the selected active EQ2 and survey-linked CR3
+  character/account observations, male status did not confer a consistent
+  advantage on the paper’s advancement-speed measures under the reported
+  mixed-effects models.
+- Residual usefulness grade: C.
+
+The paper directly measures ecologically real advancement outcomes, so the
+residual is not empty. But “performance disparity” is materially broader than
+character/tradeskill progression, and the observed samples are selected at
+character/account/event levels. The strong wording is therefore invalid as a
+multidimensional performance claim while the narrower advancement result remains
+useful.
+
+
+15. PAPER-SAFE WORDING
+============================================================
+
+A. Neutral summary sentence
+
+In selected EQ2 and CR3 samples, the reported mixed-effects models found no
+consistent male advantage in character advancement speed as operationalized by
+level conditional on play time or time to the next level.
+
+B. Direct methodological critique
+
+The paper measures advancement efficiency, not game performance generally, so
+its “no gender-based performance disparity” language exceeds the retrieved
+outcomes.
+
+C. Strong adversarial version
+
+Shen et al. do not debunk a gender gap in gaming performance; they show that
+male status did not confer a consistent advantage on one progression proxy in
+two selected MMO samples.
+
+D. Decisive-test sentence
+
+The question requires representative prospective cohorts, direct repeated
+measures across several pre-specified game-performance domains, and measured
+experience, selection, goals, role, support, and exposure—not leveling alone.
+
+
+16. FAILURE-MODE CLASSIFICATION
+============================================================
+
+[x] Proxy problem — advancement speed is used for broader “performance.”
+
+[x] Weak proxy — advancement is an important but incomplete performance
+dimension.
+
+[ ] Fatal proxy failure — not checked because a useful advancement residual
+survives.
+
+[x] Level-of-analysis error — character/event samples are used for a gender-
+group performance claim without a fully tested selection bridge.
+
+[x] Ecological-validity failure — only for the broad construct; the logs are
+ecologically valid for advancement behavior.
+
+[x] Omitted confound — prior experience, goals, actual social assistance, and
+selection are not directly modeled; this blocks ability/causal interpretation.
+
+[ ] Citation laundering — not established from eligible downstream items.
+
+[x] Missing decisive test — no multidimensional, representative prospective
+performance test is run. This is nested with the proxy mechanism, not an
+independent lever.
+
+[ ] Ignored adjacent literature — no load-bearing omission verified.
+
+[ ] Definition-operationalization mismatch — actual items are coextensive with
+the explicit narrow advancement definition.
+
+[ ] Operationalization pathologizes an accurate or nuanced version — N/A; P2
+VOID for the broad belief.
+
+[x] Construct-establishment gap — HARM (ESTABLISHED-CITED but contested-in-
+respect-required), plus PREVALENCE/FORM UNKNOWN, for the deferred stereotype-
+causation claim. This does not anchor Field 6.
+
+[ ] Motive claim unsupported — no motive claim made.
+
+Verification flags
+------------------
+
+[ ] Load-bearing evidence remains PROVISIONAL.
+
+[ ] Full source required — full Shen source was retrieved.
+
+[x] Reception check required — for publication-strength use of the separate
+stereotype-harm causal claim and for the incomplete joint-cited downstream item.
+
+
+17. CONCISE SUMMARY BEFORE STANDARDIZED FINDINGS
+============================================================
+
+- Claim under audit status: USEFUL-FOR-NARROWER.
+- DEFEATS finding(s), if any: none.
+- Surviving residual: male status did not confer a consistent advantage on the
+  retrieved advancement measures in the observed samples/models.
+- Residual usefulness grade: C.
+- Strongest defensible claim: Stage 1 Field 3, quoted verbatim above.
+- Claim being overextended: “no significant gender-based performance
+  disparity.”
+- Definition-operationalization mismatch: none; ITEMS-RETRIEVED, coextensive
+  with the explicit advancement definition.
+- Construct-establishment gap: HARM, ESTABLISHED-CITED, contested-in-respect-
+  required; PREVALENCE/FORM UNKNOWN; not dependent for Field 6.
+- Grade-before-assert: narrow slower-advancement belief ESTABLISHED-FALSE,
+  STRONG; domain-general inferiority belief VOID.
+- Main proxy problem: advancement efficiency is treated as game performance.
+- Main level-of-analysis problem: selected characters/events are used for a
+  gender-group claim.
+- Main omitted confound: selection/survivorship, followed by prior experience,
+  goals, and actual social assistance.
+- Decisive test: representative prospective cohorts with several direct,
+  pre-registered game-performance outcomes and measured exposure/selection.
+- Citation-use verdict: accurate among anchor-eligible items; broader joint use
+  PROVISIONAL.
+- Load-bearing finding(s): performance-proxy and selected-sample scope gaps.
+- Concede-test result: MATERIAL NARROWS; no DEFEATS.
+- Failure location: PAPER.
+- Overall verdict: useful, ecologically real advancement evidence; invalid as
+  an unqualified multidimensional performance claim.
+- Confidence level: High for the construct/proxy classification; Moderate for
+  how much unmeasured selection changes the fitted association.
+- What would change this assessment: direct multi-outcome reanalysis or
+  prospective data showing that advancement speed strongly tracks the relevant
+  performance dimensions across representative entrants and retained players.
+
+
+FINAL SECTION — STANDARDIZED FINDING TABLES
+============================================================
+
+FINDING CV-1
+------------
+
+| Field | Entry |
+|---|---|
+| Finding | The paper’s advancement-speed items do not establish absence of a gender disparity in game performance generally. |
+| Target claim | “Based on our data from two MMOs, there is no significant gender-based performance disparity.” |
+| What was measured | EQ2 level/tradeskill level conditional on accumulated time; CR3 time between level-ups conditional on new level. |
+| What was claimed | No significant gender-based performance disparity. |
+| Failure mode | Proxy problem |
+| Failure-mode subtype | advancement-to-performance construct substitution |
+| Severity | major |
+| Concede test | NARROWS |
+| Scope loss if NARROWS | material — surviving claim is no consistent male advantage on specified advancement measures in observed samples/models |
+| Construct property | domain |
+| Construct-property status | ESTABLISHED-REPORTED |
+| ESTABLISHED-CITED prosecutor split | N/A |
+| Operationalization retrieval basis | ITEMS-RETRIEVED |
+| Operationalization scope result | coextensive with explicit advancement definition; narrower than claimed performance construct |
+| P2 belief grade | N/A |
+| P2 strength gate | N/A |
+| Evidence | Shen Theory/Operationalization; EQ2 and CR3 Measures; Discussion statement that advancement is the “real performance measure”; Limitations |
+| Evidence type | primary study |
+| Verification state | FULL-TEXT-CONFIRMED |
+| Possible innocent explanation | The authors intended “performance” as shorthand for their explicitly defined advancement outcome. |
+| What would weaken this | Evidence that advancement speed is a validated, near-exhaustive predictor of the relevant performance dimensions in both games. |
+| Failure location | PAPER |
+| Finding disposition | CONFIRMED |
+
+FINDING CV-2
+------------
+
+| Field | Entry |
+|---|---|
+| Finding | The gender-group claim exceeds selected active/linkable character-event samples whose sex-specific selection could affect observed parity. |
+| Target claim | “Based on our data from two MMOs, there is no significant gender-based performance disparity.” |
+| What was measured | Active Guk-server EQ2 characters and CR3 survey respondents linkable to partial logs; repeated events nested in characters/accounts. |
+| What was claimed | Gender-based performance parity in two MMOs. |
+| Failure mode | Level-of-analysis error |
+| Failure-mode subtype | selected character/event sample to group-performance bridge |
+| Severity | moderate |
+| Concede test | NARROWS |
+| Scope loss if NARROWS | material — restrict result to observed active/linkable samples |
+| Construct property | domain |
+| Construct-property status | ESTABLISHED-REPORTED |
+| ESTABLISHED-CITED prosecutor split | N/A |
+| Operationalization retrieval basis | N/A |
+| Operationalization scope result | N/A |
+| P2 belief grade | N/A |
+| P2 strength gate | N/A |
+| Evidence | Data and Limitations; paper explicitly notes severe gender disparity and possible selection of more experienced/better-performing women |
+| Evidence type | primary study |
+| Verification state | FULL-TEXT-CONFIRMED |
+| Possible innocent explanation | Field 6 begins “based on our data,” and the paper expressly acknowledges self-selection, so a sample-bound reading is available. |
+| What would weaken this | Entry-cohort and attrition analyses showing comparable selection processes or representative weighting that preserves the result. |
+| Failure location | PAPER |
+| Finding disposition | CONFIRMED |
+
+FINDING CV-3
+------------
+
+| Field | Entry |
+|---|---|
+| Finding | Prior experience, advancement goals, actual social assistance, and selection are not directly modeled, preventing an ability or causal interpretation of the conditional advancement result. |
+| Target claim | “Based on our data from two MMOs, there is no significant gender-based performance disparity.” |
+| What was measured | Stated advancement outcomes with time/level and available class/account/guild random effects. |
+| What was claimed | Performance parity; elsewhere, confounding rather than gender and contextual mechanisms. |
+| Failure mode | Omitted confound |
+| Failure-mode subtype | unmeasured experience/goal/social-production/selection structure |
+| Severity | moderate |
+| Concede test | SURVIVES |
+| Scope loss if NARROWS | N/A |
+| Construct property | domain |
+| Construct-property status | ESTABLISHED-REPORTED |
+| ESTABLISHED-CITED prosecutor split | N/A |
+| Operationalization retrieval basis | N/A |
+| Operationalization scope result | N/A |
+| P2 belief grade | N/A |
+| P2 strength gate | N/A |
+| Evidence | EQ2 game architecture and model variables; CR3 unavailable class/guild data; Discussion and Limitations |
+| Evidence type | primary study plus author inference |
+| Verification state | FULL-TEXT-CONFIRMED |
+| Possible innocent explanation | Some omitted factors may favor men, so their omission might make the observed female advancement parity conservative; the direction is not known. |
+| What would weaken this | Direct measurement showing these variables neither differ by gender nor alter the gender-related advancement coefficients. |
+| Failure location | PAPER |
+| Finding disposition | CONTESTED |
+
+FINDING CV-4
+------------
+
+| Field | Entry |
+|---|---|
+| Finding | The paper does not establish the prevalence/form of the inferiority belief or uncontested causal harm sufficient for its separate stereotype-to-participation claim. |
+| Target claim | Field 6 quoted above; this row is explicitly non-load-bearing because the causal claim is deferred. |
+| What was measured | No stereotype prevalence, belief-form, or causal participation outcome in Shen’s datasets. |
+| What was claimed | The stereotype is false and a potential cause of unequal participation. |
+| Failure mode | Construct-establishment gap |
+| Failure-mode subtype | PREVALENCE/FORM UNKNOWN; HARM contested-in-respect-required |
+| Severity | minor |
+| Concede test | SURVIVES |
+| Scope loss if NARROWS | N/A for Field 6 |
+| Construct property | harm |
+| Construct-property status | ESTABLISHED-CITED |
+| ESTABLISHED-CITED prosecutor split | contested-in-respect-required |
+| Operationalization retrieval basis | N/A |
+| Operationalization scope result | N/A |
+| P2 belief grade | N/A |
+| P2 strength gate | VOID for domain-general inferiority belief |
+| Evidence | Shen Introduction/Implications; Chan 2008 abstract; Holl et al. 2024 full article |
+| Evidence type | theoretical/citation-dependent premise plus primary later experiments |
+| Verification state | FULL-TEXT-CONFIRMED for Shen and Holl; ABSTRACT-CONFIRMED for Chan |
+| Possible innocent explanation | “Potential cause” is explicitly hedged and invokes a broader literature rather than claiming the two datasets estimate the causal effect. |
+| What would weaken this | Representative prevalence measures and convergent longitudinal/experimental evidence linking the specific belief to participation/attrition. |
+| Failure location | PAPER |
+| Finding disposition | CONTESTED |

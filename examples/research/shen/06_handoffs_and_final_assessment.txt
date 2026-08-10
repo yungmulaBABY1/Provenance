@@ -1,0 +1,168 @@
+SHEN FULL-CHAIN SEQUENTIAL RUN
+HANDOFFS AND FINAL VALIDATION ASSESSMENT
+============================================================
+
+HANDOFFS
+============================================================
+
+(a) Stage 1 → each independent Stage 2 prosecutor
+---------------------------------------------------
+
+1. Construct-validity opened by quoting Stage 1 Field 3 and Field 6 verbatim.
+   It then bound its item tracking to the retrieved items—EQ2 character/
+   tradeskill level conditional on accumulated play time and CR3 logged seconds
+   between level-ups conditional on new level. The definition-operationalization
+   check found the items coextensive with the paper's explicit advancement
+   definition, so no stated-definition/item mismatch fired; the problem arose
+   only when “advancement” became unqualified “performance.” Construct-
+   establishment retrieval bases were stated property by property and capped by
+   actual access.
+
+2. Internal-validity independently opened with the identical verbatim Field 3
+   and Field 6 text. It used the paper and map—not either other prosecutor—to
+   compare the exact “no significant ... disparity” wording with EQ2 Table 3 and
+   CR3 Table 5. It did not use the definition-operationalization handoff as a
+   construct test; its live use of the map was statistical target alignment.
+
+3. Citation-network independently opened with the identical verbatim Field 3
+   and Field 6 text. It used the map to keep downstream mutation separate from
+   source truth and did not use the definition-operationalization field as an
+   item audit. No construct/internal findings are referenced in its output. Its
+   25 exact headings and Completion Ledger passed the pinned repository checker.
+
+(b) Stage 2 → counter-audit
+---------------------------
+
+The counter-audit explicitly consumed only the Stage 2 construct-validity and
+citation-network outputs, because those are the two prosecutor outputs named in
+its pinned INPUTS section. It did not consume internal-validity.
+
+It quoted and tested construct findings CV-1 through CV-4 and citation findings
+CN-1 through CN-4 in their own language. E0 used Shen's operationalization,
+limitations, model adjustments, and scope statements to NARROW CV-1/CV-4,
+RECHARACTERIZE CV-2/CV-3, leave CN-1/CN-2/CN-3 UNAFFECTED, and cut an adverse
+PR-inflation hypothesis while retaining CN-4 only as a green flag. G2 then re-
+aimed each finding to Field 6: only CV-1/CV-2 were direct source-layer matches;
+CN-1 remained a citation-layer mutation; CV-4/CN-2 remained MAP GAPs. The
+counter-audit narrowed the construct thesis but did not overturn its residual.
+
+
+PRE-REGISTRATION COMPARISON
+============================================================
+
+- Field 6: substantially right. It became the paper's own sentence, “Based on
+  our data from two MMOs, there is no significant gender-based performance
+  disparity.” The exact selection was stronger and more statistically literal
+  than the preregistered paraphrase.
+- Construct-establishment trigger: right, but with an unanticipated split.
+  DOMAIN mattered to Field 6; PREVALENCE/FORM/HARM attached mainly to the
+  separate stereotype/participation claim and were correctly non-load-bearing.
+- Proxy/level-of-analysis: right. The main scope change was advancement →
+  performance generally, plus selected character/event observations → gender-
+  group language.
+- Citation attribution: wrong in an informative way. ATTRIBUTED ELSEWHERE and
+  an assessment-report/controversy trail stayed empty, but CROSS-SOURCE-
+  CONFIRMED MISATTRIBUTED entries were found in Dong, Rogstad, and Hébert-Ratté.
+  A same-author conceptual successor also exists: Ratan, Shen, and Williams
+  (2020), World of Tanks. Those entries were retrieved rather than forced.
+
+
+OVERFIT CHECK
+============================================================
+
+The overfit check did not come back “clean” in the preregistered empty-field
+sense, but it did come back unstrained. The toolkit populated only fields for
+which exact downstream text existed, left ATTRIBUTED ELSEWHERE and the expected
+MBH98-style controversy/assessment trail empty, classified the 2020 same-author
+paper as a conceptual extension rather than an attribution repair, and refused
+to call the network a cartel. The factual premise that Shen had no same-author
+successor was falsified by retrieval.
+
+
+FIRST-EVER INTERNAL-VALIDITY RESULT
+============================================================
+
+The internal-validity prompt produced the most consequential unprompted finding
+in the chain. Field 6 says there is “no significant” disparity, but Shen reports
+a significant EQ2 non-guilded character-level interaction (p<.001) and a
+significant CR3 gender×new-level interaction (p<.001) with a reported crossover
+near level 15. Remaining nonsignificant coefficients were not tested against an
+equivalence margin. The exact Field 6 claim is therefore INVALID as a statistical
+summary, while a heterogeneous, model-specific residual remains. Replication and
+publication-bias sections honestly returned unknown/provisional where retrieval
+could not support more.
+
+
+CLAIM-INVENTORY WATCH
+============================================================
+
+The new inventory was analytically useful rather than row padding. It prevented
+the prosecutors from substituting the paper's causal stereotype/participation
+claim for Field 6; CV-4 could be recorded as a non-load-bearing MAP GAP. It also
+preserved the measurement-definition claim (“real performance measure”) for E0
+self-defense and exposed the difference between the fitted advancement result,
+the confounding explanation, general wrongness, and causal harm. Not every row
+produced a downstream finding, which is appropriate: the inventory's value was
+scope control as much as finding generation.
+
+
+LABEL-VERIFICATION WATCH
+============================================================
+
+Every RETRIEVED item used to anchor a finding had an actual quotation and
+locator. The one initially retrieved joint-citation item lacking a stable
+document locator and source-disambiguation check was marked RETRIEVED — NOT
+ANCHOR-ELIGIBLE and barred from Field 5.
+
+This exposes a wording conflict in the run preamble: it said such an item “must
+be downgraded to RECALLED,” but the pinned Stage 1 instrument explicitly says,
+“Do not use anchor eligibility to relabel provenance,” and directs a directly
+accessed item with a missing locator to remain RETRIEVED — NOT ANCHOR-ELIGIBLE.
+The run followed the immutable instrument and surfaced the conflict rather than
+silently changing provenance. This is not a prompt identity collision; it is a
+stale or inaccurate expectation in the run instructions relative to the pinned
+instrument semantics.
+
+
+WHERE THE CHAIN UNDER-REACHED
+============================================================
+
+The chain under-reached rather than over-claimed in four places:
+
+1. A complete top-50 OpenAlex/Semantic Scholar edge graph was not retrievable,
+   so citation density, mutual-citation rate, and hub dependency remain UNKNOWN.
+   The citation output used a selected 15-node/19-edge packet and capped its
+   topology conclusion.
+2. No raw data/code, direct reanalysis, or direct independent replication was
+   located. The internal audit could compare reported tables with prose, but it
+   could not rerun models, recover confidence intervals, or perform equivalence
+   tests.
+3. No retrieved source made game-specific progression mechanics or practitioner
+   knowledge a documented Shen critique. The run did not plant boosting, carries,
+   AFK progression, or similar mechanisms from outside the source. That leaves a
+   real practitioner/mechanics blind spot, honestly signaled rather than filled
+   from memory.
+4. Cross-game support is heterogeneous and partly same-author. The chain cannot
+   determine a common “true” gender-performance effect across advancement,
+   XP/match, score, rank, win probability, genres, skill strata, or player-entry
+   stages.
+
+
+FINAL SHORT ASSESSMENT
+============================================================
+
+Overfit: not empty, but not strained—real misattributions and a same-author
+successor were retrieved; MBH98-specific controversy/attribution-repair fields
+remained empty and no cartel was invented.
+
+Internal validity: useful on first run—it found a verified contradiction between
+the mapped blanket claim and the paper's own significant interactions, plus the
+absence of an equivalence design.
+
+Honest limitation: the chain reaches a strong narrow conclusion and visibly
+signals what it cannot adjudicate. Its best combined position is that selected
+game-specific advancement results do not show a consistent male advantage, but
+they do not establish an unqualified absence of gender-based performance
+disparity; the paper's own heterogeneity makes that exact statement untenable,
+and the missing independent, selection-aware, multi-game equivalence test remains
+decisive.
