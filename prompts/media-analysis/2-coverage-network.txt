@@ -1,0 +1,3340 @@
+COVERAGE NETWORK & SOURCE-CHAIN AUDIT — MEDIA BRANCH
+RC2 CONSOLIDATED CANDIDATE
+====================================================
+Prosecutor stage. Document-type variant of the citation-network audit. Runs across MULTIPLE
+pieces covering the SAME event or claim.
+
+References: shared_primitives.txt Section 1 (verification states), Section 2 (finding table)
+Companion to: framing_construction_audit_media.txt (single-piece construction)
+
+-----------------------------------------------------------------
+WHAT THIS AUDITS AND WHY IT'S DIFFERENT
+-----------------------------------------------------------------
+
+The single-piece framing audit asks: is this construction proportionate? That is a judgment
+the auditor has to assert.
+
+This audit supplies a BASELINE. Across five outlets covering the same event, a verb choice
+stops being the auditor's characterization and becomes an observable choice: three wrote "drew
+a knife," one wrote "produced a knife," one wrote "allegedly had a knife." The variance is the
+evidence.
+
+Two questions this answers that a single piece cannot:
+
+  1. SOURCE INDEPENDENCE. If all coverage traces to one press release or one wire story, "five
+     outlets reported X" is not automatically five independent confirmations. The network must
+     distinguish common-source propagation, source-dependent interpretation, and claim
+     amplification at the proposition level. This is the non-independence problem from the
+     academic citation-network audit, with wire copy in place of a shared proxy network.
+
+  2. SHARED CORE vs. CONSTRUCTION. Facts every outlet reports are probably established.
+     Material unique to one outlet is either a scoop or a choice. The divergence map separates
+     them.
+
+WHAT THIS AUDIT CANNOT DO  -  STATE THIS IN THE OUTPUT: It maps how a story propagated and
+where framings differ. It does NOT establish which framing is correct. "Twelve outlets framed
+it this way, three that way" is a DISTRIBUTION, not a verdict. Majority coverage is not
+evidence of accuracy  - especially when the majority shares one source. Adjudicating the
+underlying facts requires primary material, which is downstream of this audit and human.
+
+-----------------------------------------------------------------
+INSTRUMENT PREFLIGHT — MANDATORY FOR FORMAL / LOGGED RUNS   [TOOL-004]
+-----------------------------------------------------------------
+
+This prompt is part of the audit instrument. Its provenance must be established before the
+substantive audit begins. A successful fetch indicator, repository path, branch label, or
+internally consistent rendered page does NOT by itself establish that the current version was
+retrieved. Mutable remote references can resolve to stale historical representations.
+
+Run this preflight BEFORE Section A and before any retrieval or analysis of the event.
+
+1. IDENTIFY THE INSTRUMENT ACTUALLY IN CONTEXT.
+
+   Record, where available:
+
+   - canonical prompt path or supplied filename;
+   - retrieval form: PASTED / ATTACHED / IMMUTABLE REMOTE / MUTABLE REMOTE;
+   - requested branch or ref;
+   - resolved commit SHA;
+   - resolved blob/content hash, or a locally computed cryptographic content hash;
+   - exact line count and byte count;
+   - version markers present in the retrieved representation.
+
+   For this build, the minimum discriminating markers are:
+
+     RC2 CONSOLIDATED CANDIDATE
+     [FAIL-MB-017]
+     PROMINENCE AND PACKAGING
+     [FAIL-MB-018]
+     SEMANTIC EQUIVALENCE AND EARNEDNESS GATE
+
+   Marker tags need not be echoed by later audit output. This check applies to the PROMPT
+   representation before execution.
+
+2. MUTABLE-REFERENCE RULE.
+
+   A path such as /blob/main/, /blob/master/, latest, or another moving branch/ref is a
+   locator, not an immutable version identity. For ordinary exploratory work it may be used.
+   For a formal, logged, benchmark, regression, or fixture run, resolve and record an
+   immutable instrument identity before the run counts as evidence. Prefer:
+
+     commit SHA + blob/content hash
+
+   or, where the environment cannot expose both:
+
+     immutable commit URL/ref + independently computed content hash.
+
+3. VERSION-COLLISION ATTRIBUTION GATE.
+
+   If the retrieved representation disagrees with an expected marker, hash, size, line count,
+   or known current version, classify only:
+
+     VERSION COLLISION — UNRESOLVED
+
+   A failed identity check establishes a VERSION MISMATCH. It does NOT establish where the
+   stale representation lives. Do NOT conclude any of the following from the conflicting
+   retrieval alone:
+
+     REPOSITORY STALE
+     RETRIEVAL STALE
+     LOCAL COPY STALE
+     OPERATOR COPY STALE
+
+   Attribution requires a SECOND, INDEPENDENT discriminator, such as:
+
+   - an immutable commit/blob lookup;
+   - repository/file history;
+   - a second retrieval path that does not reuse the same cache/index;
+   - direct operator confirmation supported by an immutable identity;
+   - a locally supplied file whose hash can be compared independently.
+
+   Internal self-consistency is NOT an independent discriminator. A stale representation may
+   have a mutually consistent path, branch label, line count, byte size, line gutter, content,
+   and rendered repository metadata because all were produced from the same stale snapshot.
+
+4. DISPOSITION.
+
+   FORMAL / LOGGED / REGRESSION / FIXTURE RUN:
+     If identity is CONFIRMED, continue.
+     If VERSION COLLISION — UNRESOLVED remains, STOP before substantive execution. The run
+     may not be logged as evidence for the instrument under test.
+     If no immutable identity can be established and no mismatch is observed, label
+     INSTRUMENT VERSION UNVERIFIED. The run may be exploratory but may not count as regression
+     evidence.
+
+   ORDINARY EXPLORATORY RUN:
+     The audit may continue with INSTRUMENT VERSION UNVERIFIED if no conflict is observed, but
+     the output must preserve that limitation. If a collision is observed, resolve it before
+     making claims about repository or instrument state.
+
+5. REQUIRED RUN-HEADER LINE.
+
+   Emit this before the audit body:
+
+   INSTRUMENT PREFLIGHT: [path/file] @ commit [SHA/UNAVAILABLE] | blob/hash
+   [HASH/UNAVAILABLE] | [N] lines | [N] bytes | markers [017 PRESENT/ABSENT]
+   [018 PRESENT/ABSENT] | [IDENTITY CONFIRMED / INSTRUMENT VERSION UNVERIFIED /
+   VERSION COLLISION — UNRESOLVED]
+
+   If VERSION COLLISION — UNRESOLVED is returned, also state the conflicting identities and
+   the independent discriminator required to resolve them. Do not silently choose one.
+
+GOVERNING RULE:
+
+  A failed identity check proves a version mismatch, not where the mismatch lives.
+
+=================================================================
+
+-----------------------------------------------------------------
+INPUTS
+-----------------------------------------------------------------
+
+Event or claim under audit: [One sentence. What happened, or what is asserted.]
+
+Pieces to compare (minimum 3; 5-8 is better): For each: outlet, headline, publication date AND
+TIME, full text or substantial excerpt, byline, wire attribution if any. [PASTE]
+
+Primary source material, if available: [Police statement, press release, court filing,
+official report, video, wire copy. If none available, write NONE  -  this bounds Section B
+substantially.]
+
+  RETRIEVE BOTH FORMS IF THEY EXIST. Institutions frequently issue a WRITTEN release AND hold
+  a SPOKEN briefing, and their wording differs. Outlets then inherit whichever they used.
+  Without both, verb and descriptor divergence across outlets is uninterpretable  -  you
+  cannot distinguish an editorial choice from document dependence. Note explicitly which forms
+  you obtained and which you did not.
+
+
+Companion material already supplied, if any: [Linked or cited pieces, political-reaction
+coverage, historical precedents, source statements, video, transcripts, organizer material,
+or other items materially relied upon by the audited coverage. If none, write NONE.]
+
+Fixed-packet mode: [YES / NO]
+
+  YES
+    Work only from the supplied packet. Do not retrieve additional material. Record any
+    missing companion source as unavailable within the packet.
+
+  NO
+    Apply the bounded Companion Retrieval procedure in COMPANION RETRIEVAL.
+
+Selection method  -  REQUIRED: How did you choose these pieces? Search terms, aggregator,
+outlets you already read, outlets someone else compiled? [PASTE]
+
+  THIS MATTERS AND IS NOT A FORMALITY. A sample assembled from outlets you already distrust
+  will show a pattern you already believe. See Section G, which audits this sample. If
+  selection was not systematic, every distributional finding is PROVISIONAL and must be
+  labeled so.
+
+Your prior on this topic: [Paste the operator prior verbatim, or NONE. If supplied,
+it MUST be decomposed under PRIOR DECOMPOSITION AND MAPPING before the Investigation Register begins.
+Do not compress it into one thematic prediction. If NONE is supplied, default
+to NONE; do not generate a model prior unless a specific ambiguity cannot
+otherwise be interpreted.]
+
+
+Optional investigation leads: [List operator-supplied hypotheses or questions,
+or write NONE. If a prior framing / construction audit preceded this run, paste
+its unresolved or network-testable findings and tag them PRIOR-STAGE GENERATED.
+The audit will assign Lead IDs and apply INVESTIGATION AND RESOLUTION MECHANICS.]
+
+
+
+=================================================================
+PRIOR DECOMPOSITION AND MAPPING — MANDATORY
+=================================================================
+
+Run this block whenever an operator prior is supplied.
+
+Do not evaluate an operator prior as one thematic bundle.
+Before retrieval, decompose it into the smallest independently testable
+propositions while preserving the operator's original wording, quantifiers,
+subjects, objects, comparison classes, conditions, and epistemic claims.
+
+If the operator supplies no prior, write:
+
+  PRIOR SOURCE: NONE
+  PRIOR MAPPING: NOT APPLICABLE
+
+and continue in neutral coverage mode. Do not generate a model prior unless a
+specific ambiguity cannot otherwise be interpreted. The default is NONE.
+
+REQUIRED PRIOR MAP
+
+| Prior ID | Exact operator proposition | Proposition type | Quantifier / threshold | Exact coverage object | Unit of analysis | Eligible denominator rule | Retrieval question | Required evidence | Resolution |
+|---|---|---|---|---|---|---|---|---|---|
+
+PROPOSITION TYPES
+
+1. COVERAGE-DISTRIBUTION PREDICTION
+   Predicts how many outlets will include, omit, foreground, subordinate,
+   attribute, update, or frame something.
+
+2. COVERAGE-CONSTRUCTION PREDICTION
+   Predicts how a fact, actor, cause, controversy, comparison, or event object
+   will be described.
+
+3. FACTUAL PREMISE
+   Makes a claim about the underlying event or record rather than the coverage.
+
+4. COUNTERFACTUAL OR COMPARATOR CLAIM
+   Predicts how a different person, identity, institution, or reversed case
+   would be treated.
+
+5. CAUSAL OR MOTIVE CLAIM
+   Attributes a reason for outlet, institutional, or actor behavior.
+
+6. NORMATIVE JUDGMENT
+   States that treatment was fair, unfair, proportionate, absurd, justified,
+   or equivalent.
+
+MANDATORY RULES
+
+A. PRESERVE QUANTIFIERS
+
+Do not silently replace:
+
+- "most" with "all";
+- "many" with "most";
+- "rarely" with "never";
+- "largely omit" with "completely omit";
+- "mention" with "make the governing frame";
+- "foreground" with "include anywhere."
+
+Define the operational threshold before retrieval and before examining the
+result.
+
+Unless the operator supplies another threshold:
+
+- ALL = 100%
+- NEARLY ALL = at least 80%
+- MOST = more than 50%
+- MANY = a substantial non-trivial share, operationalized before retrieval;
+  default to at least 40% or at least three eligible pieces, whichever better
+  preserves the ordinary meaning for the corpus size; state the chosen rule
+- SOME = at least two eligible items, where the corpus permits
+- FEW = less than 25%
+- NONE = 0%
+
+The threshold must not be changed after the evidence is counted.
+
+B. DEFINE DENOMINATOR ELIGIBILITY
+
+State which pieces are capable of answering each proposition.
+
+Examples:
+
+- an omission claim requires FULL-TEXT-confirmed pieces;
+- a headline-presence claim may use headline-only pieces;
+- a foregrounding claim requires headline, lede, or upper-body access;
+- an update-failure claim requires version or update evidence;
+- a conditional claim about pieces that mention culture war uses only pieces
+  that actually mention culture war.
+
+Do not place an ineligible source in the denominator.
+
+C. DO NOT MERGE DISTINCT OBJECTS
+
+Treat the following as separate propositions unless the operator explicitly
+joins them:
+
+- whether a disputed history is mentioned;
+- whether institutional enablement is mentioned;
+- whether race is mentioned;
+- whether race governs the article's framing;
+- whether culture-war context is mentioned;
+- whether that context is described accurately;
+- whether a comparator is mentioned;
+- whether the comparator claim is substantively true.
+
+Evidence against one proposition does not weaken another.
+
+D. SEPARATE COVERAGE CLAIMS FROM UNDERLYING-TRUTH CLAIMS
+
+A corpus may confirm that outlets omitted a comparator without establishing that
+the comparator would actually receive different treatment.
+
+Resolve separately:
+
+- COVERAGE RESULT: Was the comparator raised?
+- SUBSTANTIVE RESULT: Does matched evidence support the comparator?
+
+Do not mark a coverage prediction unconfirmed merely because the substantive
+counterfactual remains untested.
+
+E. ALLOW ONE PRIOR TO PRODUCE MULTIPLE LEADS
+
+A single operator sentence may contain several propositions. Assign each its own
+Prior ID and Lead ID.
+
+Example:
+
+  "Most will mention it as part of the culture war, but not accurately describe
+  why."
+
+must become at least:
+
+- P1: Most eligible pieces mention culture-war context.
+- P2: In pieces mentioning that context, it is materially relevant rather than
+  incidental.
+- P3: In pieces firing the context, the stated explanation omits or misstates
+  the mechanism identified by the operator.
+
+Each receives its own denominator, retrieval question, and resolution.
+
+F. PRESERVE CONDITIONAL STRUCTURE
+
+For a prior of the form "where X occurs, Y follows," test Y only within pieces
+where X occurs.
+
+Do not test the consequent against the entire corpus.
+
+G. MATCH EVIDENCE TO THE EXACT PREDICATE
+
+A mention of Cambridge's immediate defence does not satisfy a prior about years
+of institutional enablement and elevation.
+
+A piece satisfies a broader proposition only if it materially addresses the
+relevant chain, such as:
+
+- promotion or appointment history;
+- awards, honorary degrees, platforms, or institutional celebration;
+- earlier warnings or contradictory evidence;
+- institutional defence or shielding;
+- failure to investigate;
+- later reversal after scrutiny.
+
+Do not substitute adjacent evidence for the exact audit object.
+
+H. TRANSLATE LOADED LANGUAGE WITHOUT WEAKENING THE PREDICTION
+
+Preserve the original wording and create an auditable evidentiary translation.
+
+Example:
+
+  "history of lies"
+
+may become:
+
+  "documented disputed, corrected, contradicted, denied, or unsupported claims."
+
+The audit may refuse the moral label while still testing the underlying
+coverage-distribution prediction.
+
+I. RESOLVE EACH PRIOR BEFORE AGGREGATING
+
+Use:
+
+- CONFIRMED
+- PARTIALLY CONFIRMED
+- REFRAMED
+- NOT CONFIRMED
+- INSUFFICIENT EVIDENCE
+
+PARTIALLY CONFIRMED applies only when the same proposition is supported in part.
+
+Do not use "partial" merely because some propositions in a multi-part prior were
+confirmed and others were not.
+
+Required proposition-level result:
+
+| Prior ID | Exact proposition | Result | Corpus count / evidence | Qualification |
+|---|---|---|---|---|
+
+Only after every proposition is resolved may the audit issue one aggregate:
+
+- STRONG MAPPED MATCH
+- SUBSTANTIAL MAPPED MATCH
+- MIXED MAPPED RESULT
+- WEAK MAPPED MATCH
+- NO MAPPED MATCH
+- INSUFFICIENT TO ASSESS
+
+The aggregate must summarize the proposition-level results. It may not replace
+them.
+
+J. COUNTEREXAMPLES NARROW; THEY DO NOT AUTOMATICALLY FALSIFY
+
+For every non-universal distributional prediction, report:
+
+- number matching;
+- number not matching;
+- eligible denominator;
+- whether the stated threshold was met.
+
+Do not describe a prediction as overbroad merely because it allowed exceptions
+and exceptions occurred.
+
+PRIOR-MATCH OUTPUT
+
+For every operator prior, output:
+
+ORIGINAL PRIOR:
+[verbatim or minimally normalized text]
+
+DECOMPOSED PROPOSITIONS:
+[list of Prior IDs]
+
+PROPOSITION-LEVEL RESULTS:
+[table]
+
+AGGREGATE MAPPED RESULT:
+[result]
+
+WHAT MATCHED:
+[exact propositions]
+
+WHAT DID NOT MATCH:
+[exact propositions]
+
+WHAT REMAINS UNTESTED:
+[factual, causal, motive, normative, or comparator claims the corpus cannot
+resolve]
+
+MAPPING INTEGRITY CHECK
+
+- Were any distinct propositions merged?
+- Were any quantifiers strengthened?
+- Was "mention" confused with "foreground" or "governing frame"?
+- Was a coverage prediction confused with an underlying-truth claim?
+- Was a conditional prior tested against the wrong denominator?
+- Was a counterexample incorrectly treated as falsifying a non-universal
+  prediction?
+- Was adjacent evidence substituted for the exact object of the prior?
+
+If any answer is YES, revise the mapping before issuing the verdict.
+
+EXECUTION GATE
+
+The Investigation Register may not begin until:
+
+- every supplied prior has a Prior ID;
+- compound priors have been split;
+- each quantifier and threshold has been stated;
+- each eligible denominator rule has been stated;
+- conditional priors preserve their condition;
+- corpus-level claims have been separated from single-event claims.
+
+If this mapping is not completed, Section E2 must state:
+
+  PRIOR MAPPING FAILURE — PRIOR-MATCH VERDICT INVALID
+
+=================================================================
+
+=================================================================
+INVESTIGATION AND RESOLUTION MECHANICS
+=================================================================
+
+-----------------------------------------------------------------
+INVESTIGATION REGISTER AND LEAD ORIGIN
+-----------------------------------------------------------------
+
+The audit may begin with no hypothesis, an operator-supplied hypothesis, or a
+lead generated by an earlier stage. Retrieval may also produce a bounded
+emergent lead.
+
+Tag every lead using exactly one origin:
+
+  OPERATOR
+  PRIOR-STAGE GENERATED
+  EXTRACTOR GENERATED
+  RETRIEVAL EMERGENT
+
+For every lead, record:
+
+| Lead ID | Origin | Initial formulation | Trigger | Retrieval question | Resolution |
+|---|---|---|---|---|---|
+
+GOVERNING RULE:
+
+  Operator hypotheses influence retrieval, not conclusions.
+  Retrieval influences conclusions.
+
+A lead is not a finding. It may guide retrieval. It may not lower the
+evidentiary threshold.
+
+If no lead exists, continue in neutral coverage mode. Do not manufacture one.
+
+-----------------------------------------------------------------
+BALANCED HYPOTHESIS RETRIEVAL
+-----------------------------------------------------------------
+
+For every lead, perform a support-side and weakening-side check before
+resolution.
+
+FULL BALANCED RETRIEVAL is mandatory when the lead is:
+- OPERATOR-supplied or derived from a mapped operator prior;
+- PRIOR-STAGE GENERATED;
+- load-bearing or contested;
+- capable of materially changing retrieval scope, finding ownership, severity,
+  or the verdict.
+
+For those leads:
+
+1. Translate the lead into one or more falsifiable retrieval questions.
+2. Document the search performed for evidence that would SUPPORT it.
+3. Document the search performed for evidence that would WEAKEN, REFRAME, or
+   FALSIFY it.
+4. Apply comparable effort to both search directions.
+5. Do not resolve the lead until both search paths are documented.
+6. Searching only for confirming evidence is a procedural failure.
+
+| Lead ID | Supporting search | Weakening / disconfirming search | Evidence recovered | Missing evidence |
+|---|---|---|---|---|
+
+For a non-load-bearing RETRIEVAL EMERGENT lead, a compact paired check is enough:
+record the best supporting item and the best weakening item or state why one
+side could not be tested. Do not run a full search dossier unless the lead
+becomes load-bearing.
+
+Absence of contradicting evidence is not confirmation.
+
+-----------------------------------------------------------------
+BOUNDED EMERGENT LEADS
+-----------------------------------------------------------------
+
+A RETRIEVAL EMERGENT lead may be introduced only when required to explain an
+inconsistency, omission, attribution chain, framing divergence, or dependency
+already identified within the current audit object.
+
+It may not broaden the audit object.
+
+An emergent lead is invalid when it:
+- follows an interesting but non-load-bearing tangent;
+- opens a new controversy not required to resolve the current object;
+- expands retrieval merely because adjacent material was discovered;
+- substitutes a broader target for the supplied target.
+
+| Trigger inside current object | Why necessary | Scope boundary | Supporting search | Weakening search |
+|---|---|---|---|---|
+
+If the lead cannot state its scope boundary in one sentence, do not admit it.
+
+-----------------------------------------------------------------
+SHARED INNOCENT-EXPLANATION TEST
+-----------------------------------------------------------------
+
+Before reporting any asymmetry, selection, divergence, or failure, test whether
+it can instead be explained by a non-directional constraint.
+
+Candidate explanations include:
+- breaking-news uncertainty;
+- publication timing;
+- legal or privacy restrictions;
+- attribution limits;
+- headline economy;
+- article length or format;
+- incomplete investigation;
+- wire dependence;
+- story assignment;
+- missing primary material;
+- genuine scoop;
+- disputed facts;
+- house style or professional convention.
+
+| Candidate explanation | Evidence supporting it | Evidence weakening it | Residual difference |
+|---|---|---|---|
+
+An innocent explanation is not automatic acquittal. Report only the residual
+difference that survives the test.
+
+-----------------------------------------------------------------
+REFRAMED RESOLUTION STATE
+-----------------------------------------------------------------
+
+Use REFRAMED when the originating concern was directionally meaningful but the
+retrieved evidence identifies a materially different mechanism, location,
+scope, role, causal step, or formulation.
+
+When using REFRAMED, state:
+1. ORIGINAL FORMULATION
+2. EVIDENCE-SUPPORTED REFORMULATION
+3. WHAT MOVED
+4. WHY THE OTHER RESOLUTION STATES ARE LESS ACCURATE
+
+General investigation-lead resolution vocabulary:
+  CONFIRMED
+  PARTIALLY CONFIRMED
+  REFRAMED
+  NOT CONFIRMED
+  INSUFFICIENT EVIDENCE
+
+Section D2 retains its own formal cross-branch vocabulary:
+CONFIRMED / FALSIFIED / RECLASSIFIED / NETWORK-WIDE /
+STILL UNRESOLVED / NO EVIDENCE.
+
+A D2 RECLASSIFIED result may note that the underlying concern was REFRAMED, but
+the formal D2 value remains RECLASSIFIED.
+
+=================================================================
+
+-----------------------------------------------------------------
+COMPACT MEDIA PRIMITIVE
+-----------------------------------------------------------------
+
+[MEDIA-P1] CAUSAL-ROLE AXES + GATES
+
+CANONICAL RULE. This compact copy and every local execution copy must move
+together. Local sections may add examples, but may not rename, narrow, broaden,
+or change the disposition of these axes and gates.
+
+Six axes. For each, extract the assignment the TEXT makes. Leave the axis blank
+when the text supplies no usable assignment and the absence itself is not the
+object of analysis. When non-assignment is materially part of the construction,
+record the applicable null state rather than silently leaving it blank.
+
+Do not infer an assignment from the headline alone. An assignment explicitly
+stated in a headline may be recorded as a headline assignment; do not infer an
+unstated cause, blame, role, or motive from it.
+
+Never infer cause, blame, motive, role, or status from names, appearance,
+employer, or location.
+
+EVENT CLASSIFICATION
+  The noun or frame assigned to the event itself. The noun is a claim. Where the
+  absence of classification is materially relevant, record UNCLASSIFIED.
+
+CAUSE
+  Why the event happened: stated, alleged, or inferred motive; the explanation
+  supplied for the event; or whether the text assigns no cause. Where materially
+  relevant, record NO CAUSE ASSIGNED.
+
+ROLE-AND-STATUS
+  Who is cast as agent, victim, perpetrator, beneficiary, cost-bearer,
+  bystander, official, whistleblower, defendant, or complainant.
+
+BLAME / RESPONSIBILITY
+  Who or what is assigned fault, including whether responsibility is
+  individualized, institutionalized, diffused, or left unassigned.
+
+REMEDY
+  Whether a fix or solution is offered, whose fix it is, and who is called to
+  act. Where materially relevant, record NO REMEDY FRAMED.
+
+LEADERSHIP / POLICY
+  How leadership decisions or policy are characterized, including competent,
+  failing, humane, authoritarian, negligent, necessary, or ineffective
+  characterizations, whether stated directly, appositionally, or through a
+  source.
+
+EPISTEMIC LEVEL - CAUSE AND BLAME
+
+Classify every CAUSE and BLAME assignment:
+
+  DOCUMENTED
+    Direct statement, verified communication, or established record.
+
+  OFFICIALLY-ALLEGED
+    Law enforcement, complaint, indictment, or institutional finding.
+
+  SOURCE-INFERRED
+    Witness, advocate, expert, or interested party's inference.
+
+  OUTLET-INFERRED
+    The article's own synthesis.
+
+  UNKNOWN
+    Evidence insufficient.
+
+Test for silent upward movement: an alleged cause restated as documented, or a
+source's inference appearing later in outlet voice. Apply the ladder separately
+to CAUSE and BLAME.
+
+VERB-AS-TRACE
+(for wording-derived candidates that survive the Semantic Equivalence and Earnedness Gate)   [FAIL-MB-018]
+
+In the Coverage Network branch, apply VERB-AS-TRACE only to lexical/formulation
+candidates that survived the Semantic Equivalence and Earnedness Gate as
+MATERIAL OUTLIERS. Do not apply it to candidates already resolved as REGISTER
+VARIANCE or EARNED SPECIFICITY. This limitation does not prevent D-ROLE from
+independently discovering a substantive causal-role assignment difference.
+
+A verb or descriptor is reportable as causal-role framing only when it MOVES an
+assignment on one of the six axes.
+
+Examples:
+
+- "breach" assigns migrant agency against a defended boundary;
+- "waved through" reassigns cause to an authority;
+- "pour" or "surge" can classify the event as flood-like mass movement.
+
+A lexical difference that moves no assignment is REGISTER variance. Record it
+as register only; do not report it as framing.
+
+This test is distinct from the causal-bridge test. VERB-AS-TRACE asks what
+causal-role assignment the language makes. The causal-bridge test asks whether
+the WHY of a sequence is present or removed.
+
+BRANCH-SPECIFIC LAYERS
+
+Single-piece branch:
+  Apply the mirror and flip guard to these axes. Cause, blame, and victim-role
+  assignments are especially prior-sensitive. The branch must be able to
+  decline to find a causal-role failure.
+
+Coverage branch:
+  Add CHOSEN vs. INHERITED, TEXT-READ vs. HEADLINE-ONLY, and the genre
+  not-firing condition. These determine whose framing is being observed and
+  whether the sample can support a divergence finding.
+
+
+=================================================================
+MEDIA RETRIEVAL, CONTEXTUAL INFERENCE, AND QUOTATION PAIRS
+=================================================================
+
+-----------------------------------------------------------------
+COMPANION RETRIEVAL
+-----------------------------------------------------------------
+
+The initial event-keyword packet may omit the material that supplies the
+coverage's inherited historical, causal, political, moral, organizational, or
+classificatory frame.
+
+When Fixed-packet mode is NO, retrieve companion material meeting at least one
+of these triggers:
+
+MECHANICAL TRIGGERS
+  A. LINKED OR CITED
+     The audited piece directly links, cites, embeds, quotes, or names the item.
+
+  B. MATERIALLY RELIED UPON
+     The audited piece depends on the item for a load-bearing factual,
+     chronological, legal, causal, or attribution claim.
+
+JUDGMENT-REQUIRING TRIGGERS
+  C. INHERITED FRAME
+     The item supplies a historical analogy, precedent, moral comparison,
+     political frame, organizational characterization, or event classification
+     materially used by the audited coverage.
+
+  D. DEMONSTRABLY UPSTREAM
+     Publication sequence, explicit attribution, repeated phrasing, or source
+     tracing shows that the item is upstream of a later framing choice.
+
+Mechanical triggers qualify automatically when the item can be obtained.
+
+Judgment-requiring triggers must satisfy all of the following:
+
+  1. Name the exact framing claim or classification the companion item is needed
+     to evaluate.
+  2. Identify the passage in the audited coverage that materially relies on it.
+  3. State what the companion item could confirm, weaken, reframe, or falsify.
+  4. Bound the retrieval to that dependency.
+  5. Stop once the dependency can be resolved or further retrieval ceases to
+     change its evidentiary status.
+
+Do not retrieve an item merely because it is topically adjacent, politically
+interesting, or likely to contain useful criticism.
+
+Required table:
+
+| Companion item | Trigger (A-D) | Dependency in audited coverage | Retrieval result | Effect on finding |
+|---|---|---|---|---|
+
+GOVERNING RULE:
+
+  Retrieve inherited framing before auditing inherited framing.
+
+PACKET-BOUNDARY OUTPUT
+
+State:
+- Initial packet boundary
+- Companion items added
+- Why each qualified
+- Material sought but unavailable
+- Which findings would have differed under the initial packet alone
+
+When Fixed-packet mode is YES, do not widen retrieval. Instead state which
+potential companion dependencies remain untested because the packet is closed.
+
+-----------------------------------------------------------------
+CONTEXT-SUPPORTED IDENTITY INFERENCE
+-----------------------------------------------------------------
+
+An ideological, organizational, movement, or group characterization may be
+supported when multiple observable indicators in the retrieved material converge
+on that characterization.
+
+Do not import general background knowledge about who typically uses a tactic,
+symbol, slogan, organizational form, or style unless that background material
+was separately retrieved and shown to be relevant.
+
+INFERENCE LADDER
+
+Classify the inference at exactly one level:
+
+  1. VERIFIED ORGANIZATIONAL IDENTITY OR CONTROL
+     Direct evidence establishes identifiable membership, authorization,
+     leadership, command, governance, formal affiliation, organizational
+     responsibility, or equivalent control.
+
+  2. CONTEXT-SUPPORTED IDEOLOGICAL ALIGNMENT
+     Multiple retrieved indicators support alignment with a recognizable
+     ideological or movement framework, but formal identity or command is not
+     established.
+
+  3. CONTEXT-SUPPORTED TACTICAL OR MOVEMENT RESEMBLANCE
+     Retrieved conduct, symbols, slogans, structure, or tactics materially
+     resemble a recognizable movement pattern, but alignment and formal
+     affiliation remain unverified.
+
+  4. WEAK CONTEXTUAL RESEMBLANCE
+     One or more indicators suggest resemblance, but the evidence is limited,
+     ambiguous, heterogeneous, or nonexclusive.
+
+  5. UNSUPPORTED ATTRIBUTION
+     The retrieved record does not support the proposed characterization.
+
+FORMAL-CONTROL EVIDENCE FLOOR
+
+No combination of slogans, symbols, rhetoric, tactics, political alignment,
+movement resemblance, or accumulated lower-rung indicators may establish rung 1
+by itself.
+
+Rung 1 requires direct evidence of membership, leadership, authorization,
+command, governance, organizational responsibility, formal affiliation, or an
+equivalent organizational connection.
+
+If that evidence is absent, the classification may not exceed rung 2.
+
+MANDATORY INFERENCE-PARITY CHECK
+
+Apply this check to every affirmative classification at rungs 1 through 4.
+Rung 5 is exempt because it makes no affirmative inference.
+
+1. ENUMERATE THE ORIGINAL INDICATORS
+   List every retrieved indicator supporting the classification.
+
+2. STATE THE EXACT INFERENCE
+   Specify the rung and whether the finding asserts control, alignment,
+   resemblance, or weak resemblance.
+
+3. BUILD THE MIRROR CANDIDATE
+   Identify the strongest materially comparable inference in the opposite
+   ideological, political, organizational, or institutional direction that the
+   same retrieved record might license.
+
+4. APPLY THE SAME LADDER
+   Enumerate the mirror indicators and classify the mirror candidate using the
+   same five-rung ladder. Do not merely state that the rule could apply.
+
+5. EXPLAIN ANY DIFFERENT RESOLUTION
+   Identify the material evidentiary distinction. Political valence,
+   familiarity, presumed legitimacy, or agreement with the cause are not
+   evidentiary distinctions.
+
+6. REMOVE DIRECTIONAL FRAMING
+   Reassess the original indicators without relying on the political,
+   ideological, or institutional direction of the classification.
+
+7. CONSEQUENCE
+   If parity fails, downgrade the original inference to the highest rung
+   independently supported after directional framing is removed. Do not apply
+   an automatic one-rung decrement.
+
+   A parity failure may produce:
+   - one-level downgrade;
+   - multi-level downgrade;
+   - UNSUPPORTED ATTRIBUTION.
+
+   A finding that fails parity may not remain load-bearing unless its revised
+   classification independently supports the finding.
+
+NO VALID MIRROR
+
+If no materially comparable mirror candidate exists:
+- explain why;
+- identify the missing structural counterpart;
+- do not invent an artificial mirror.
+
+Required table:
+
+| Candidate | Retrieved indicators | Ladder classification | Evidentiary distinction |
+|---|---|---|---|
+| Original | | | |
+| Mirror | | | |
+
+Then state:
+
+  INFERENCE PARITY: PASSES / FAILS / NO VALID MIRROR
+
+If FAILS, also state:
+
+  REVISED CLASSIFICATION:
+  LOAD-BEARING STATUS: RETAINS / NARROWS / REMOVED
+
+WEAK-RESEMBLANCE LIMIT
+
+A rung-4 finding:
+- may be reported descriptively;
+- may guide additional bounded retrieval;
+- may serve as corroboration;
+- may not independently anchor a major or load-bearing conclusion;
+- may not be stacked with other rung-4 findings to imply a stronger
+  classification without separately meeting rung-2 or rung-3 requirements.
+
+-----------------------------------------------------------------
+QUOTATION-PAIR PRESERVATION
+-----------------------------------------------------------------
+
+When adjacent or same-stage formulations differ materially in specificity,
+agency, certainty, epistemic level, role, or event classification, preserve the
+pair.
+
+Do not collapse a consequential pair into a generic topical summary when the
+relation between the formulations is itself evidence.
+
+Record:
+
+| Quotation A | Quotation B | Speaker / source | Evidentiary stage | Material contrast |
+|---|---|---|---|---|
+
+Then analyze:
+- agency assignment in each;
+- categorical specificity in each;
+- attribution status;
+- whether the formulations serve different functions;
+- whether timing explains the difference;
+- residual difference after SHARED INNOCENT-EXPLANATION TEST.
+
+This applies to:
+- two statements by the same speaker;
+- written release versus spoken briefing;
+- headline versus body;
+- original version versus update;
+- source wording versus outlet paraphrase;
+- adjacent classifications that materially change interpretation.
+
+Do not force quotation pairing where the formulations concern different facts.
+
+
+=================================================================
+
+=================================================================
+SECTION A  -  COVERAGE INVENTORY
+=================================================================
+
+| Outlet | Headline | Pub date/time | Last updated | Correction note? | Headline changed? | Social/homepage headline if different | Byline | Wire attribution | Word count | Lead image subject |
+|---|---|---|---|---|---|---|---|---|---|---|
+
+VERSION NOTE: media pieces change after publication. Where a headline was revised or a
+correction appended, compare against an archive capture if available. A headline that was
+changed after publication  -  especially without a correction note  -  is itself a finding.
+Where you cannot check, write UNKNOWN rather than assuming the current version is the
+original.
+
+Then note:
+  1. Publication sequence  -  which came first? Which appeared later and could have drawn on
+     the earlier ones?
+  2. Which carry a wire credit (AP, Reuters, local wire) versus original reporting?
+  3. Which are briefs versus full reports? Length constrains what construction is even
+     possible  -  a 200-word brief cannot include balancing voices.
+
+=================================================================
+SECTION B  -  SOURCE CHAIN  (highest-value section)
+=================================================================
+
+Trace where each piece's information originates.
+
+| Outlet | Named sources | Primary docs cited | Original reporting? | Traces to |
+|---|---|---|---|---|
+
+
+Before finalizing this section, apply COMPANION RETRIEVAL to any load-bearing inherited
+analogy, organizational characterization, event classification, or upstream
+frame. Source-chain tracing is incomplete when the immediate factual source is
+known but the source of the inherited framing has not been retrieved.
+
+COUNTING UNIT - STATE IT BEFORE GIVING ANY NUMBER.   [FAIL-MB-008][FAIL-MB-009]
+
+"Independent source" is ambiguous and the ambiguity is not resolvable by judgment. Count at
+BOTH levels below and report BOTH as DESCRIPTION. Neither whole-coverage number carries a
+claim-amplification verdict. Proposition-level network classification is determined by the
+per-fact table further down. Do not skip that table.
+
+LEVEL 1 - REPORTING ORGANIZATIONS (descriptive; comparatively stable) How many distinct
+organizations produced original reporting - sent a journalist, conducted an interview,
+obtained a document, or made a direct observation? An outlet that only republishes or
+synthesizes does not count.
+
+LEVEL 2 - UPSTREAM INFORMATION ORIGINS (descriptive; granularity-sensitive) How many
+distinct origins does the reported material trace back to? Report it, but DO NOT read the
+Level-1-vs-Level-2 relationship as a finding. Level 1 counts only original reporters (often
+few); Level 2 counts every upstream origin (often many), so Level 2 routinely EXCEEDS Level
+1. That direction carries no meaning, and the whole-coverage count is not comparable
+run-to-run - the same coverage is defensibly counted at very different granularities.
+
+WHOLE-COVERAGE RATIO - DESCRIPTIVE ONLY. NOT AN AMPLIFICATION VERDICT. pieces / Level 2 is
+granularity-sensitive and misleads. A ratio near or below 1 is NOT evidence of independence:
+a story can trace every disputed number to one source while its total origin count looks
+large. State the number if you wish; it may not support any corroboration or claim-
+amplification conclusion. The next table determines proposition-level network classification.
+
+SINGLE-ORIGIN PROPAGATION VS. CLAIM AMPLIFICATION — LOAD-BEARING STEP, DO NOT SKIP
+
+A fact appearing in many pieces but tracing to one origin is SINGLE-ORIGIN
+PROPAGATION. That is a source-chain description, not automatically an
+amplification finding.
+
+Source dependence describes where information came from.
+Amplification describes what repetition does to the apparent evidentiary weight
+of a contestable claim.
+
+Build this table for every load-bearing or contested fact:
+
+| Fact or claim | Pieces asserting it | Origins located | Origin completeness | Single-origin confirmed? | Origin authority | Claim contestability | Attribution behavior | Apparent-corroboration risk | Network classification |
+|---|---:|---:|---|---|---|---|---|---|---|
+
+
+ORIGIN COMPLETENESS — DO NOT TURN POSITIVE TRACING INTO AN ABSENCE CLAIM
+
+"Origins located" is a positive count and may be reported whenever the origins
+are actually retrieved or preserved.
+
+"Single-origin confirmed" is stronger: it asserts that no additional origin
+appears in the eligible source range. Set it to YES only when retrieval is
+sufficiently complete to support that negative determination.
+
+Use:
+
+- COMPLETE — eligible source range is sufficiently retrieved for origin
+  exclusivity.
+- PARTIAL — one or more relevant pieces or upstream dependencies are incomplete.
+- UNKNOWN — completeness cannot be assessed.
+
+When completeness is PARTIAL or UNKNOWN:
+
+- report the origins actually located;
+- write SINGLE-ORIGIN CONFIRMED: NOT ESTABLISHED;
+- do not convert the located-origin count into an exclusivity claim;
+- classify the network behavior from the evidence actually available, using
+  CHAIN UNRESOLVED where the missing origin structure is load-bearing.
+
+This rule preserves positive source tracing under partial retrieval without
+weakening the absence-claim evidence floor.
+
+ORIGIN AUTHORITY IS PROPOSITION-SPECIFIC
+
+A source may be authoritative for the occurrence of its own act, statement,
+decision, filing, publication, or status while remaining non-authoritative for:
+
+- external facts;
+- causal explanations;
+- motive;
+- responsibility;
+- legality;
+- justification;
+- scale;
+- or the truth of allegations about another actor.
+
+PERMITTED NETWORK CLASSIFICATIONS
+
+COMMON-SOURCE PROPAGATION
+
+Use when the origin is directly authoritative about an act, statement,
+decision, proceeding, publication, filing, or status within its control.
+
+Examples:
+
+- a person announces their resignation;
+- an institution announces that it opened an investigation;
+- a court reports that it entered an order;
+- an agency publishes its own policy.
+
+Common-source propagation is non-independent reporting. It is not claim
+amplification merely because only one origin exists.
+
+SOURCE-DEPENDENT INTERPRETATION
+
+Use when the underlying act or status is established, but its cause, meaning,
+motive, responsibility, or significance comes from one interested or
+non-independent source.
+
+Example:
+
+- the resignation occurred, but the resigning party's explanation of why it
+  occurred remains that party's account.
+
+Do not treat repetition of the interpretation as independent confirmation.
+
+CLAIM AMPLIFICATION
+
+Use only when ALL are true:
+
+1. The claim concerns a disputed, uncertain, inferential, causal, quantitative,
+   reputational, classificatory, or externally verifiable proposition.
+2. The originating source is not independently authoritative to establish that
+   proposition merely by stating it.
+3. Multiple pieces repeat the claim from the same origin in a way that may create
+   the appearance of cross-outlet corroboration.
+
+Examples:
+
+- disputed casualty, attendance, financial, crime, prevalence, or scale figures;
+- allegations of misconduct;
+- claims about motive, responsibility, affiliation, or control;
+- analytical findings produced by one investigation;
+- causal explanations;
+- contested event classifications.
+
+CROSS-OUTLET CORROBORATION
+
+Use only where the fact has two or more genuinely independent origins capable of
+supporting the proposition at issue.
+
+CONTESTED
+
+Use when retrieved origins materially conflict.
+
+CHAIN UNRESOLVED
+
+Use when the immediate or upstream origin cannot be established well enough to
+classify the network behavior.
+
+APPARENT-CORROBORATION RISK
+
+Code:
+
+- LOW
+- MODERATE
+- HIGH
+
+A plainly attributed repetition such as "Arday said the scrutiny was racially
+motivated" generally carries lower apparent-corroboration risk than multiple
+outlets stating "the scrutiny was racially motivated" in outlet voice.
+
+RULES FOR THE TABLE
+
+- Count origins PER FACT and distinguish ORIGINS LOCATED from origin completeness.
+- Do not pool facts.
+- Do not average a single-origin claim against a well-corroborated one.
+- Many pieces / one origin is not automatically amplification.
+- A single statement may contain multiple proposition types:
+  - the speaker made the statement: COMMON-SOURCE PROPAGATION;
+  - the explanation inside it: SOURCE-DEPENDENT INTERPRETATION or CLAIM
+    AMPLIFICATION.
+- Preserve attribution behavior. Attribution that weakens or disappears across
+  the network increases apparent-corroboration risk.
+
+FINDING CONSEQUENCES
+
+- COMMON-SOURCE PROPAGATION: ordinarily descriptive only.
+- SOURCE-DEPENDENT INTERPRETATION: eligible for a finding only when attribution
+  weakens, disappears, or the interpretation becomes load-bearing.
+- CLAIM AMPLIFICATION: eligible for a source-chain finding.
+- CROSS-OUTLET CORROBORATION: may weaken or defeat an amplification concern.
+- CHAIN UNRESOLVED: capped and may not anchor a strong finding.
+
+REQUIRED STATEMENT — use this form:
+
+"Across [P] pieces, the load-bearing facts trace to these located origins:
+[fact — pieces / origins located / origin completeness / classification; ...].
+[N] facts are COMMON-SOURCE PROPAGATION, [M] are SOURCE-DEPENDENT
+INTERPRETATIONS, and [K] qualify as CLAIM AMPLIFICATION. Only the last category
+represents apparent cross-outlet agreement that may falsely resemble independent
+confirmation. Identify any source-dependent interpretation whose attribution
+weakened or disappeared across the network, and any fact for which
+SINGLE-ORIGIN CONFIRMED is NOT ESTABLISHED."
+
+SOURCE-CHAIN STATUS  -  a SEPARATE axis from verification state (Do NOT use
+RECEPTION-CONFIRMED here. In shared_primitives Section 1 that means a source's own later
+reception was checked  -  replies, replications, corrections. Comparing an article to a
+press release is source-chain verification, a different operation entirely.)
+
+  CHAIN-CONFIRMED ... primary source material or wire copy was available and directly
+  compared against the piece CHAIN-INFERRED .... chain inferred from attribution,
+  publication timing, or textual similarity, without the upstream document in hand
+  CHAIN-PROVISIONAL . upstream source cannot be established
+
+VERIFICATION STATE OF THE EVIDENCE USED  -  media branch subset:
+
+  LOCATED ..................... the item exists; content unverified
+  FULL-TEXT-CONFIRMED ......... you read the full source and it supports the claim
+  CROSS-OUTLET-CORROBORATED ... the fact is supported by 2+ INDEPENDENT origins
+                                across outlets; state the per-fact origin count
+  CONTESTED ................... outlets report it incompatibly
+  PROVISIONAL ................. asserted from memory, or source not retrieved
+
+  RECEPTION-CONFIRMED IS NOT USED IN THIS BRANCH. In shared_primitives Section 1 it means a
+  source's own scholarly reception was checked  -  replies, replications, corrigenda. News
+  coverage does not have reception in that sense. If you reach for it, you want
+  CROSS-OUTLET-CORROBORATED or CHAIN-CONFIRMED.
+
+  CROSS-OUTLET-CORROBORATED MUST CARRY THE PER-FACT ORIGIN COUNT. A fact may be labeled
+  CROSS-OUTLET-CORROBORATED only if it has 2+ INDEPENDENT origins capable of supporting the
+  proposition at issue on its own row in the per-fact table. A fact carried by many outlets
+  but tracing to ONE origin is SINGLE-ORIGIN PROPAGATION and must be classified under the
+  Section B taxonomy. It is not automatically CLAIM AMPLIFICATION and may not be called
+  corroborated. State the per-fact origin count and network classification alongside every
+  use of this label.
+
+Apply this subset separately to the documents supporting a finding. The two axes combine  -
+e.g. the police statement may be FULL-TEXT-CONFIRMED while the outlet's dependence on it is
+only CHAIN-INFERRED.
+
+Report both when both apply.
+
+
+=================================================================
+EVENT OBJECT CONSTRUCTION AND EXTRACTION
+=================================================================
+
+-----------------------------------------------------------------
+PARTY ENUMERATION
+-----------------------------------------------------------------
+
+Before language, role, or event-classification analysis begins, enumerate every
+analytically significant party.
+
+Eligible parties include:
+
+- primary actors;
+- counterparts;
+- affected parties;
+- organizations or collectives;
+- institutions;
+- government;
+- law enforcement;
+- media;
+- physical sites;
+- disputed objects;
+- event classifications when they carry independent framing significance.
+
+A party is analytically significant when at least one is true:
+
+- labels materially diverge across sources;
+- agency assignment materially diverges;
+- competing evaluative packages exist;
+- treatment changes after an evidentiary update;
+- the party is implicated by an investigation lead;
+- the party is necessary to explain a finding.
+
+Do not omit collectives merely because no individual member is named.
+
+Required table:
+
+| Party / object | Why analytically significant | Relevant outlets / sources | Planned analysis location |
+|---|---|---|---|
+
+A party omitted at this stage may not later become the basis of a load-bearing
+finding unless the auditor explicitly adds it to the table and explains why it
+was missed.
+
+-----------------------------------------------------------------
+COMPETING EVENT CLASSIFICATIONS
+-----------------------------------------------------------------
+
+Before judging framing, enumerate all materially different classifications
+applied to the same event, site, action, or dispute.
+
+For each classification, record:
+
+| Classification | Outlet / source | Placement | Attribution status | Facts available when used | Dimension captured | Dimension omitted |
+|---|---|---|---|---|---|---|
+
+Permitted dimension labels:
+
+- FUNCTION
+- STRUCTURE
+- ROLE
+- LEGAL STATUS
+- MORAL EVALUATION
+- CAUSAL INTERPRETATION
+- OTHER
+
+Do not select one label before extraction is complete.
+
+A label may be factually true on one dimension while incomplete as the governing
+event classification.
+
+-----------------------------------------------------------------
+FUNCTION / STRUCTURE COMPLETENESS TEST
+-----------------------------------------------------------------
+
+For every contested event classification, determine whether it describes:
+
+- what the event or site did;
+- how it operated;
+- how it related to nonparticipants;
+- what authority, control, restriction, or access structure existed;
+- whether the label is complete enough to govern the article's event identity.
+
+Required table:
+
+| Label | Function captured | Structure captured | Function omitted | Structure omitted | Complete enough to govern event identity? |
+|---|---|---|---|---|---|
+
+Do not treat a functionally true label as a complete event description when
+structurally significant characteristics are omitted.
+
+Examples:
+
+- memorial vs. occupation;
+- community hub vs. autonomous zone;
+- protest vs. blockade;
+- tragedy vs. gang-related shootout.
+
+If two labels capture different valid dimensions, preserve both rather than
+forcing a false binary.
+
+
+SCOPE LIMIT
+
+Apply Function vs. Structure only to labels describing:
+
+- the event;
+- the site;
+- an institution;
+- a collective action;
+- or a disputed social object.
+
+Do not apply it to ordinary factual sequence components, such as the steps of a
+physical altercation, unless the competing labels themselves constitute distinct
+functional versus structural descriptions of the event or site.
+
+Ordinary sequence completeness belongs in source-chain, causal-role,
+epistemic-level, or chronology analysis.
+
+-----------------------------------------------------------------
+SAME-STAGE CLASSIFICATION TEST
+-----------------------------------------------------------------
+
+Timing explains many language differences.
+It does not explain different classifications used under substantially the same
+evidentiary conditions.
+
+Whenever competing labels appear after the same material facts are available,
+classify the difference as SAME-STAGE CLASSIFICATION DIVERGENCE.
+
+Required output:
+
+| Label | Evidentiary stage | Dimension captured | Dimension omitted | Attribution status | Timing explains difference? | Residual divergence |
+|---|---|---|---|---|---|---|
+
+Distinguish:
+
+- temporal update;
+- function / structure difference;
+- legal-status difference;
+- moral-evaluation difference;
+- factual disagreement;
+- same-stage abstraction.
+
+Apply SHARED INNOCENT-EXPLANATION TEST before reporting the residual divergence.
+
+For same-stage abstraction, preserve both the specific and abstract forms before
+judgment. Record:
+
+- the more specific form;
+- the more abstract form;
+- whether both were available at the same evidentiary stage;
+- what categorical specificity changes at the point of agency assignment;
+- whether attribution, genre, or source dependence explains the difference.
+
+Preferred neutral wording when specificity is reduced without evidence of motive:
+
+  "Reduces categorical specificity at the point of agency assignment."
+
+Do not infer sanitization, laundering, concealment, or intent from abstraction
+alone.
+
+-----------------------------------------------------------------
+FINDING OWNERSHIP FOR EVENT CLASSIFICATION
+-----------------------------------------------------------------
+
+Use finding type:
+
+  event-classification-divergence
+
+when the finding concerns competing labels for the event, site, action, or
+dispute and does not consist solely of a [MEDIA-P1] causal-role assignment.
+
+If the classification directly moves a [MEDIA-P1] axis, cross-reference D-ROLE
+and emit only one finding.
+
+Do not duplicate the same classification divergence under:
+- framing-divergence;
+- causal-role-framing;
+- event-classification-divergence.
+
+Choose the owner by the primary analytical effect.
+
+=================================================================
+
+=================================================================
+SECTION C  -  SHARED FACTUAL CORE vs. UNIQUE MATERIAL
+=================================================================
+
+  1. SHARED CORE: facts reported by all or nearly all pieces. List them.
+     For each shared-core fact, check its row in the per-fact table in Section B.
+     Shared appearance does not itself establish independence. Carry forward the
+     Section B network classification: COMMON-SOURCE PROPAGATION,
+     SOURCE-DEPENDENT INTERPRETATION, CLAIM AMPLIFICATION,
+     CROSS-OUTLET CORROBORATION, CONTESTED, or CHAIN UNRESOLVED.
+
+  2. UNIQUE MATERIAL: facts appearing in only one or two pieces. For each:
+     - which outlet
+     - scoop (original reporting) or selection (chose to include what others had available and
+       omitted)?
+     - does it cut for or against the dominant framing?
+
+  3. CONTRADICTIONS: where pieces report the same fact differently. Quote both. Note whether
+     the contradiction is factual (incompatible claims) or definitional (same event, different
+     terms).
+
+| Fact | Outlets reporting | Outlets omitting | Scoop or selection | Cuts which way |
+|---|---|---|---|---|
+
+AVAILABILITY MATRIX  -  REQUIRED BEFORE CALLING ANYTHING "SELECTION"
+(CROSS-PIECE OMISSION ONLY — does not govern within-piece prominence;
+ see PROMINENCE AND PACKAGING below)
+
+Outlets publish at different times with different information. Comparing a later piece (more
+available) against an earlier brief (less available) and calling the difference "selection" is
+the network-branch version of the timing error.
+
+| Fact / source material | Available when A published? | B? | C? | D? |
+|---|---|---|---|---|
+
+RULE: a fact may be called SELECTION only if it was AVAILABLE before that piece published and
+the piece still omitted it. Otherwise it is a TIMING ARTIFACT and must be labeled so.
+
+
+ABSENCE-CLAIM EVIDENCE FLOOR
+
+Claims using "only," "none," "no outlet," "unique," "absent," "omitted," or an
+equivalent absence / exclusivity formulation require FULL-TEXT-CONFIRMED status
+for every source included in the claimed range.
+
+A HEADLINE-ONLY, SNIPPET-ONLY, unretrieved, or otherwise partial source:
+
+- may support a presence claim about the preserved text;
+- may not support absence, omission, exclusivity, source-distribution
+  completeness, sequencing completeness, or "only / none" claims;
+- must be excluded from the denominator of the absence claim.
+
+If excluding partial sources makes the claimed range incomplete, the absence
+claim is UNAVAILABLE, not merely PROVISIONAL.
+
+Do not convert silence in a summary, snippet, reconstruction, or prior audit into
+evidence that the underlying article lacked the material.
+
+State availability basis for each: known (documented release time) / inferred (other coverage
+carried it earlier) / unknown. Unknown availability caps the finding at PROVISIONAL.
+
+
+MANDATORY AVAILABILITY CITATION FOR SELECTION CLAIMS
+
+Any finding that uses "selection" or an equivalent formulation — including:
+
+- selectively amplified;
+- chose to include;
+- chose to omit;
+- foregrounded despite availability;
+- withheld despite availability;
+
+must cite an explicit Availability Matrix row inside the finding itself.
+
+Use this form:
+
+  AVAILABILITY ROW CITED:
+  [fact or source] available by [date/time] — [outlet] published [date/time].
+
+The cited row must establish that the material was available before the outlet
+published.
+
+Without this citation, the audit may describe:
+
+- inclusion;
+- non-inclusion;
+- source-distribution difference;
+- availability unknown;
+- timing artifact;
+- timing untested.
+
+It may not call the difference selection.
+
+THE KEY ASYMMETRY: a fact available to all outlets  -  present in the primary source or in
+earlier coverage  -  that some include and some omit, where the pattern correlates with
+framing. That is selection, and unlike a single-piece omission finding, it is demonstrable
+rather than asserted.
+
+A second, distinct object is also demonstrable. Where a fact is carried anywhere
+in a FULL-TEXT-CONFIRMED piece but is absent from a more prominent layer under
+comparison — or where competing facts or factual dimensions receive materially
+different placement priority across headline, lede, and body — the piece itself
+establishes possession of the fact. No cross-piece availability reconstruction is
+required. That object is PROMINENCE, not SELECTION, and it is governed below.
+
+-----------------------------------------------------------------
+PROMINENCE AND PACKAGING  (within-piece placement)   [FAIL-MB-017]
+-----------------------------------------------------------------
+
+OBJECT
+
+SELECTION asks:
+  Did outlet A omit a fact that outlet B carried, and was that fact demonstrably
+  available to A when A published?
+
+PROMINENCE asks:
+  Where, inside a piece that carries the fact, was it placed? Did competing facts
+  or dimensions receive materially different placement priority across headline,
+  lede, and body?
+
+These are different objects and have different evidentiary preconditions.
+
+-----------------------------------------------------------------
+EVIDENTIARY FLOOR
+-----------------------------------------------------------------
+
+A piece must be FULL-TEXT-CONFIRMED to support a prominence finding.
+
+HEADLINE-ONLY or SNIPPET-ONLY pieces may not support a within-piece placement
+finding because the hierarchy cannot be established without the whole piece.
+
+Exclude such pieces from the prominence table. Do not mark their placement UNKNOWN.
+
+Cross-piece availability:
+  NOT APPLICABLE BY CONSTRUCTION.
+
+Do not build, cite, or require an Availability Matrix row for a
+prominence-packaging finding. The fact's presence somewhere in the piece
+establishes that the piece possessed it.
+
+A prominence candidate may compare:
+- HEADLINE vs LEDE
+- HEADLINE vs BODY
+- LEDE vs LATER BODY, where materially relevant
+
+A fact need not be absent from both headline and lede. Absence from a more
+prominent layer under comparison is sufficient to create a candidate.
+
+-----------------------------------------------------------------
+PROMINENCE TABLE
+-----------------------------------------------------------------
+
+| Piece | Fact / dimension carried | Placement (headline / lede / body para n) | Competing fact / dimension occupying the more prominent layer | Packaging provenance | Cuts which way |
+|---|---|---|---|---|---|
+
+PACKAGING PROVENANCE vocabulary:
+- CHOSEN
+- INHERITED
+- MIXED
+- UNKNOWN
+
+Build a row for every load-bearing or contested fact that:
+- appears in Section B's per-fact table; or
+- appears in Section C's contradictions; or
+- directly qualifies, complicates, or reverses a figure or factual dimension
+  foregrounded in the same piece.
+
+Do not build rows for ordinary low-value facts merely because they appear lower
+in the article.
+
+-----------------------------------------------------------------
+WHAT MAKES THIS A FINDING, NOT AN OBSERVATION
+-----------------------------------------------------------------
+
+Headlines and ledes cannot carry everything. Lower placement is normal and is
+NOT by itself a finding.
+
+A prominence finding requires BOTH:
+
+  (a) MATERIALITY:
+      the fact is load-bearing or contested, OR directly qualifies, complicates,
+      reverses, or changes the interpretation of a competing fact/dimension
+      foregrounded in the same piece;
+
+AND
+
+  (b) ASYMMETRY:
+      EITHER:
+      - different pieces foreground different sides of the same fact-pair or
+        factual dimension;
+      OR:
+      - one piece's headline or lede foregrounds a proposition/figure that its
+        own lower text materially qualifies.
+
+Where only (a) holds, record the row and stop:
+
+  PROMINENCE RECORDED — NO MATERIAL ASYMMETRY ESTABLISHED.
+
+Candidate generation may be broad. Finding generation is not.
+The (a)+(b) trigger is mandatory.
+
+-----------------------------------------------------------------
+PACKAGING PROVENANCE — CHOSEN / INHERITED GATE
+-----------------------------------------------------------------
+
+A prominence pattern may be observed even when inherited. But claims about
+editorial or outlet choice require provenance.
+
+CHOSEN:
+  The outlet's packaging choice is independently attributable to the outlet.
+  A prominence-packaging finding may describe outlet choice.
+
+INHERITED:
+  The placement pattern is inherited from a wire, common source package, or other
+  upstream structure.
+  Record the pattern if analytically relevant, but do NOT attribute the packaging
+  decision to the outlet.
+  SOURCE-CHAIN owns the inheritance explanation.
+
+MIXED:
+  Identify the chosen and inherited components separately.
+  A finding may attribute only the chosen component to the outlet.
+
+UNKNOWN:
+  The prominence pattern may be described, but attribution to outlet choice is
+  capped at PROVISIONAL.
+
+A prominence finding about outlet editorial choice requires:
+- CHOSEN provenance; or
+- MIXED provenance with the chosen component identified.
+
+Do not infer CHOSEN merely because the outlet has its own byline.
+
+-----------------------------------------------------------------
+FACT-TIMING / VERSION CHECK — INNOCENT EXPLANATION
+-----------------------------------------------------------------
+
+Cross-piece availability does not govern prominence, but publication/update
+timing can explain why a fact appears lower in a piece than in its headline.
+
+This is a narrower question than SELECTION:
+
+  Could the subordinated or qualifying fact have entered the article only AFTER
+  the headline was originally set?
+
+Before attributing a prominence pattern to a deliberate same-version packaging
+choice, check Section A and any already-retrieved timestamped material for:
+- initial publication time;
+- last-updated time;
+- correction/update note;
+- whether the headline changed;
+- whether version history is known;
+- whether the subordinated/qualifying fact demonstrably predates initial
+  publication, demonstrably emerged later, or has unknown timing.
+
+Use three states:
+
+FACT TIMING: PREDATES INITIAL PUBLICATION
+  The fact is shown by timestamped packet material, a timestamped primary source,
+  or clearly earlier packet coverage to have existed before the piece's initial
+  publication.
+  Result:
+  - later-body-update explanation is RULED OUT for that fact;
+  - unknown headline-version history does NOT by itself create a same-version
+    caveat.
+
+FACT TIMING: EMERGED AFTER INITIAL PUBLICATION
+  The fact is shown to have emerged after initial publication and before a later
+  body update.
+  Result:
+  - later-body-update explanation is LIVE;
+  - the observed prominence pattern remains real;
+  - attribution to a deliberate same-version packaging choice is limited unless
+    headline/version history resolves it.
+
+FACT TIMING: UNKNOWN
+  The available packet does not establish whether the fact predated initial
+  publication.
+  Result:
+  - prominence remains observable;
+  - same-version editorial attribution remains unresolved.
+
+Where the later-body-update explanation is live or timing is unknown, report as
+appropriate:
+
+  PROMINENCE OBSERVED; SAME-VERSION PACKAGING ATTRIBUTION UNRESOLVED.
+
+Do NOT convert this into a cross-piece availability failure.
+
+Unknown version history is not an automatic caveat when fact timing already
+rules out the later-body-update explanation.
+
+-----------------------------------------------------------------
+PROMINENCE SYMMETRY CHECK / PACKET INVERSE  (mandatory)
+-----------------------------------------------------------------
+
+This is NOT Section F's constructed mirror.
+
+It is an observed inverse within the packet.
+
+For every prominence finding:
+
+1. State the foregrounded fact/dimension.
+2. State the subordinated or qualifying fact/dimension.
+3. Search the eligible comparison set for a reversed prominence relationship.
+4. Classify the inverse:
+
+   FULL
+   The comparison piece materially reverses the prominence relationship at a
+   comparable placement level.
+
+   PARTIAL
+   The comparison piece reverses the relationship incompletely — for example,
+   the qualifying fact reaches the lede but not the headline.
+
+   NONE
+   No inverse is located in the eligible FULL-TEXT-CONFIRMED comparison set.
+
+5. Name the inverse piece(s), where present.
+
+Required output states:
+
+  PACKET INVERSE: FULL — [piece(s)]
+  PACKET INVERSE: PARTIAL — [piece(s)]
+  PACKET INVERSE: NONE AMONG [N] FULL-TEXT-CONFIRMED ELIGIBLE PIECES
+
+A one-directional finding where an available FULL or PARTIAL inverse exists but is
+not acknowledged is incomplete and must be downgraded.
+
+A PARTIAL PACKET INVERSE fully satisfies the symmetry requirement.
+FULL / PARTIAL / NONE is descriptive and does NOT mechanically raise or lower
+severity. Severity follows materiality, evidentiary support, provenance, and the
+ordinary severity rules. Do not downgrade merely because the observed inverse is
+PARTIAL.
+
+-----------------------------------------------------------------
+ABSENCE FLOOR FOR "NO PACKET INVERSE"
+-----------------------------------------------------------------
+
+"NO PACKET INVERSE" is an absence claim.
+
+It therefore inherits the ABSENCE-CLAIM EVIDENCE FLOOR for the claimed comparison
+range.
+
+An unqualified packet-wide NONE claim requires every eligible source in the
+claimed range to be FULL-TEXT-CONFIRMED.
+
+If some eligible pieces are not fully retrieved, report instead:
+
+  NO PACKET INVERSE LOCATED AMONG [N] FULL-TEXT-CONFIRMED PIECES;
+  [M] ELIGIBLE PIECES EXCLUDED FROM INVERSE TEST.
+
+Do not treat excluded snippet/headline-only pieces as evidence of absence.
+
+
+SEMANTIC-GATE INTERACTION
+
+A prominence finding must be grounded in PLACEMENT PRIORITY among substantive
+facts or factual dimensions, not merely in different wording for the same fact.
+If the candidate contrast is itself a lexical/formulation difference, record the
+placement observation but defer any finding until the SEMANTIC EQUIVALENCE AND
+EARNEDNESS GATE resolves the wording. If that gate returns REGISTER VARIANCE or
+EARNED SPECIFICITY with no moved substantive assignment, the wording difference
+may not anchor a prominence-packaging finding.
+
+-----------------------------------------------------------------
+RELATIONSHIP TO OTHER SECTIONS — TYPE OWNERSHIP / NO DOUBLE-COUNT
+-----------------------------------------------------------------
+
+SOURCE-CHAIN / CLAIM-AMPLIFICATION owns:
+- removal or restoration of source attribution;
+- removal or restoration of epistemic status;
+- source-cue compression;
+- packaging that is materially inherited from an upstream source/wire.
+
+If the only headline/body difference is that the headline strips or restores
+attribution, source provenance, or epistemic qualification, do NOT emit a
+prominence-packaging finding for the same analytical object.
+
+D-ROLE / CAUSAL-ROLE-FRAMING owns:
+- different event-classification assignments;
+- different causal assignments;
+- different role/status assignments;
+- different blame/responsibility assignments;
+- different remedy assignments;
+- different leadership/policy assignments.
+
+PROMINENCE-PACKAGING owns:
+- placement priority among substantive facts or competing factual dimensions that
+  the piece itself carries without contradiction across its layers.
+
+A single piece may support both a source-chain finding and a prominence finding
+only where the analytical objects differ.
+
+Example:
+
+  "60,000" headline strips Vivas attribution
+    -> SOURCE-CHAIN / CLAIM-AMPLIFICATION.
+
+  "60,000" headline foregrounds gross arrivals while the same piece carries
+  return context lower in the text
+    -> PROMINENCE-PACKAGING.
+
+
+-----------------------------------------------------------------
+SEMANTIC EQUIVALENCE AND EARNEDNESS GATE   [FAIL-MB-018]
+-----------------------------------------------------------------
+
+JURISDICTION — IMPORTANT
+
+This gate governs:
+
+- lexical / formulation differences proposed as framing evidence;
+- language-package expansion triggered by wording variance;
+- VERB-AS-TRACE candidates;
+- event-classification findings whose evidentiary object is a wording difference;
+- D-ROLE expansion triggered by a lexical/formulation difference.
+
+This gate does NOT govern D-ROLE's independent substantive scan.
+
+D-ROLE must remain able to discover semantic assignment differences directly,
+including differences such as:
+
+  "smugglers caused the crossing"
+  versus
+  "police facilitated the crossing"
+
+Those are substantive CAUSE / BLAME assignments even if no lexical comparison
+generated them.
+
+RULE:
+
+  A bucketed lexical difference may not TRIGGER D-ROLE.
+  D-ROLE may independently DISCOVER a substantive assignment difference.
+
+Do not condition the six-axis causal-role scan on survival of a word-bucketing
+step.
+
+=================================================================
+STEP 0 — COMPARABILITY GATE
+=================================================================
+
+Before bucketing formulations together, establish that they are actually
+comparable.
+
+Two formulations may enter the same semantic comparison only when they refer to:
+
+- the same underlying actor / party or materially equivalent actor class;
+- the same event or action;
+- the same relevant object;
+- the same or materially comparable evidentiary stage;
+- the same or materially comparable event stage / time slice.
+
+Do NOT normalize across real event evolution.
+
+Examples of invalid comparisons:
+
+- early "crossing" versus later "return";
+- allegation-stage "suspect" versus post-charge "defendant" where status changed;
+- "two groups firing" versus a later classification based on newly available
+  evidence, unless same-stage comparability is separately established.
+
+Where timing, referent, or evidentiary stage explains the difference, route the
+object to the appropriate timing/update/same-stage logic. Do not treat it as
+semantic synonym variance.
+
+=================================================================
+STEP 1 — BUILD THE COMMON BUCKET
+=================================================================
+
+For each contested or load-bearing event/action, collect the comparable
+formulations used across the packet.
+
+The unit of analysis is the SEMANTIC ASSIGNMENT, not the word.
+
+Group formulations into one COMMON BUCKET only when:
+
+- they describe the same underlying proposition;
+- they refer to the same/comparable actor, action, object, and stage under STEP 0;
+- the semantic content needed for the shared proposition is supported by the
+  retrieved packet;
+- they do not materially alter:
+  * EVENT CLASSIFICATION
+  * AGENCY
+  * ROLE / STATUS
+  * CAUSE
+  * BLAME / RESPONSIBILITY
+  * REMEDY
+  * LEADERSHIP / POLICY
+  * EPISTEMIC LEVEL
+  * MORAL / EVALUATIVE CLASSIFICATION
+  * another substantive reader model of the event.
+
+Required compact output:
+
+| Underlying event/action | Common bucket | Candidate specificity / outliers | Resolution |
+|---|---|---|---|
+
+Record each resolved bucket ONCE.
+
+Do not reproduce every bucketed formulation in later sections.
+
+=================================================================
+STEP 2 — DECOMPOSE ADDED SEMANTIC CONTENT
+=================================================================
+
+Before deciding that a more vivid, specific, or forceful formulation is EARNED
+SPECIFICITY or a MATERIAL OUTLIER, state what semantic content it adds beyond the
+common bucket.
+
+Required form:
+
+  CANDIDATE: [word/formulation]
+  COMMON PROPOSITION: [shared proposition]
+  ADDED SEMANTIC PREDICATE(S): [what additional claim/classification the candidate adds]
+
+Examples:
+
+  "breach"
+    common proposition:
+      people crossed a boundary
+    candidate added predicates may include:
+      - the boundary was restricted / defended / controlled;
+      - the crossing occurred contrary to that control;
+      - the boundary/control was overcome.
+
+  "riot"
+    common proposition:
+      public gathering / confrontation occurred
+    added predicate:
+      serious disorder / violence sufficient to alter event classification.
+
+  "waved through"
+    common proposition:
+      people crossed
+    added predicate:
+      an authority facilitated or permitted the crossing.
+
+If no additional semantic predicate can be named, the candidate is not a
+material outlier. Return it to the common bucket as REGISTER VARIANCE.
+
+=================================================================
+STEP 3 — EARNED SPECIFICITY
+=================================================================
+
+A formulation with additional semantic content is EARNED SPECIFICITY — not
+framing divergence — only when the added predicate is:
+
+1. supported by material in the retrieved packet;
+2. supported independently of the formulation being tested;
+3. uncontested across the relevant packet material.
+
+EARNED IS A PACKET TEST, NOT A TRUTH TEST.
+
+The Coverage Network branch does not adjudicate what actually happened outside
+the retrieved object.
+
+"Supported" means:
+  retrieved packet material provides evidence for the added predicate.
+
+"Uncontested" means:
+  no relevant piece in the packet disputes the predicate or presents materially
+  incompatible evidence.
+
+-----------------------------------------------------------------
+NON-CIRCULAR SUPPORT RULE — MANDATORY
+-----------------------------------------------------------------
+
+The candidate formulation may NOT count as evidence that its own added predicate
+is supported.
+
+Neither may:
+- the same word repeated by another outlet;
+- a synonymous restatement that merely presupposes the same added meaning;
+- an inference whose only premise is the candidate wording itself.
+
+Support for EARNED SPECIFICITY must come from packet material independent of the
+formulation being tested.
+
+Example:
+
+  Candidate: "breach"
+
+  NOT sufficient:
+  - AP says "breach";
+  - NPR repeats "border breach";
+  - CBC says "breached".
+
+  Potentially sufficient:
+  - independently reported facts describing a controlled/restricted boundary;
+  - observed barrier or controlled crossing point;
+  - independently described actions showing the control/barrier was overcome;
+  - no relevant packet item disputes those underlying predicates.
+
+If the only "support" for a forceful term is other outlets repeating that term,
+EARNED SPECIFICITY is NOT established.
+
+If the underlying predicate is contested among the pieces:
+
+  DO NOT adjudicate the dispute in order to award earnedness.
+
+The candidate remains a MATERIAL OUTLIER and proceeds to downstream evidence,
+source-chain, inheritance, and assignment analysis.
+
+Where earnedness is established, record:
+
+  EARNED SPECIFICITY — [candidate] adds [predicate]; independently supported by
+  [packet evidence]; uncontested in eligible packet material.
+
+Then stop the lexical-framing path for that candidate.
+
+Precision is not rhetoric merely because it is more specific.
+
+=================================================================
+STEP 4 — STOP ON ORDINARY VARIANCE
+=================================================================
+
+Formulations remaining inside the common bucket are REGISTER VARIANCE.
+
+Record them once.
+
+They DO NOT propagate as lexical candidates into:
+
+- language trajectory;
+- language-package expansion;
+- VERB-AS-TRACE;
+- lexical-triggered D-ROLE expansion;
+- the flip test;
+- Section H;
+- Section I.
+
+Do not re-derive, re-test, or re-report them downstream.
+
+If every comparable formulation resolves inside the common bucket or as earned
+specificity and no substantive assignment moves, write:
+
+  SEMANTIC NORMALIZATION: [event/action] — no material assignment difference;
+  wording resolved as register variance and/or earned specificity;
+  language-package analysis NOT TRIGGERED by this wording object.
+
+This is a valid and expected null result.
+
+=================================================================
+STEP 5 — CARRY FORWARD ONLY MATERIAL OUTLIERS
+=================================================================
+
+A lexical/formulation candidate advances only if its added semantic content
+materially moves at least one named substantive assignment.
+
+For every surviving outlier, state:
+
+| Outlier | Added semantic predicate | Assignment moved | Direction of movement | Why not bucketed / earned |
+|---|---|---|---|---|
+
+An outlier with no named moved assignment is not an outlier.
+
+Return it to the common bucket.
+
+Surviving wording-derived outliers may then proceed to the relevant downstream
+tests, including:
+
+- VERB-AS-TRACE;
+- source / wire inheritance;
+- CHOSEN / INHERITED ownership;
+- epistemic classification where applicable;
+- same-stage checks not already resolved;
+- innocent-explanation tests;
+- D-ROLE where the wording genuinely moves a MEDIA-P1 assignment;
+- flip/symmetry;
+- standardized finding table.
+
+=================================================================
+STEP 6 — BUCKETING SYMMETRY CHECK
+=================================================================
+
+Bucketing is itself a judgment surface.
+
+Aggressive bucketing can suppress real divergence.
+Narrow bucketing can manufacture divergence.
+
+Before finalizing the bucket, ask:
+
+  Would these same formulations be bucketed identically if outlet identities
+  were permuted?
+
+  Would the bucket remain the same if the apparent political valence were
+  reversed?
+
+If not, rebuild the bucket.
+
+Do not ask the model to declare which outlet it finds sympathetic or
+unsympathetic.
+
+Required output:
+
+  BUCKETING SYMMETRY CHECK: PASS
+
+or, if the first classification changed:
+
+  BUCKETING SYMMETRY CHECK: REBUILT — [brief reason]
+
+A bucket that fails the permutation/valence test may not govern downstream
+suppression.
+
+=================================================================
+PROVENANCE HANDOFF — CHOSEN / INHERITED
+=================================================================
+
+This patch does NOT promote CHOSEN / INHERITED into a new shared primitive.
+
+The recurring coupling is logged for later review.
+
+Important distinction:
+
+  semantic status
+      !=
+  provenance of the wording choice
+
+This gate answers:
+  Are the formulations semantically equivalent, earned, or materially different?
+
+It does NOT by itself answer:
+  Whose wording choice was this?
+
+For a surviving MATERIAL OUTLIER, downstream Coverage Network provenance rules
+still determine whether the wording was:
+
+- CHOSEN
+- INHERITED
+- MIXED
+- UNKNOWN
+
+Do not attribute a surviving lexical choice to an outlet merely because the
+semantic gate found it material.
+
+Likewise, uniform wire inheritance does not make a material semantic difference
+disappear; it changes ownership of the framing choice.
+
+GUARD NOTE:
+
+The CHOSEN/INHERITED coupling has now appeared in both:
+- PROMINENCE / PACKAGING;
+- semantic / language analysis.
+
+Log this recurrence. Do not independently redefine the provenance vocabulary in
+this gate. Consider shared-primitive promotion only if another independent
+module requires the same coupling or the architecture review otherwise justifies
+promotion.
+
+=================================================================
+WORKED EXAMPLES
+=================================================================
+
+EXAMPLE A — likely common bucket
+
+  Event:
+    large-scale entry into Ceuta
+
+  Comparable formulations:
+    cross / enter / move into
+
+  Resolution:
+    COMMON BUCKET if no substantive assignment moves.
+
+  Candidate:
+    pour / stream
+
+  Added semantic predicate:
+    sustained or high-volume movement, potentially with flood-like imagery.
+
+  Test:
+    If scale/continuity predicates are independently established and the wording
+    changes no substantive assignment, mark EARNED SPECIFICITY or REGISTER
+    VARIANCE as appropriate.
+    If it materially adds a flood/threat classification not earned by independent
+    packet evidence, carry it forward.
+
+EXAMPLE B — "breach"
+
+  Candidate:
+    breach
+
+  Added semantic predicates:
+    restricted/defended boundary + crossing contrary to control + control/barrier
+    overcome.
+
+  Do NOT award earnedness because multiple articles say "breach."
+
+  Award EARNED SPECIFICITY only if independent packet facts establish the added
+  predicates and no relevant piece contests them.
+
+  Otherwise:
+    MATERIAL OUTLIER -> downstream evidence / provenance / assignment analysis.
+
+EXAMPLE C — event classification dispute
+
+  Common formulations:
+    protest / demonstration / rally
+
+  Candidate:
+    riot
+
+  Added predicate:
+    serious disorder / violence sufficient to alter event classification.
+
+  If the packet disputes whether that predicate occurred:
+    NOT EARNED.
+    Carry forward as MATERIAL OUTLIER.
+
+EXAMPLE D — D-ROLE independent discovery
+
+  Piece A:
+    official source says smugglers caused the movement.
+
+  Piece B:
+    witness says police facilitated the movement.
+
+  This is a substantive CAUSE / BLAME divergence.
+
+  D-ROLE must detect it even if no lexical/formulation candidate survived the
+  semantic gate.
+
+=================================================================
+LANGUAGE TRAJECTORY AND DESCRIPTIVE TREATMENT
+=================================================================
+
+-----------------------------------------------------------------
+LANGUAGE TRAJECTORY AND UPDATE TEST
+-----------------------------------------------------------------
+
+For each analytically significant party identified in PARTY ENUMERATION, record:
+
+- HEADLINE LABEL
+- FIRST-REFERENCE LABEL
+- LEDE LABEL
+- LATER-UPDATE LABELS
+- WHEN EACH MATERIAL FACT BECAME AVAILABLE
+- UPDATE BEHAVIOR
+- COUNTERPART / AFFECTED-PARTY TREATMENT
+
+Material-fact availability includes, where relevant:
+
+- identity or category membership;
+- role;
+- alleged or confirmed conduct;
+- institutional affiliation or status;
+- ideological or organizational alignment;
+- prior history or record;
+- charging, disciplinary, investigative, or formal status.
+
+SINGLE-EVENT RULE
+
+A single-event audit may document:
+
+- observed labels;
+- package direction;
+- timing;
+- persistence;
+- update behavior;
+- counterpart treatment;
+- plausible innocent explanations.
+
+It may not conclude systematic differential treatment by race, ideology, group,
+institutional status, or other social category without a matched corpus.
+
+CORPUS-LEVEL HYPOTHESIS FORM
+
+When appropriate, record only as a future corpus-level hypothesis:
+
+  Outlets retain softer or category-protective labels longer for Group A while
+  promoting stronger role, conduct, or identity labels earlier in otherwise
+  comparable cases involving Group B.
+
+Do not resolve that hypothesis in a single-event audit.
+
+
+UPDATE TRIGGER AND PERSISTENCE
+
+For every significant package shift or non-shift, identify:
+
+UPDATE TRIGGER
+- What newly available fact should reasonably have caused the package to change?
+- When did that fact become available?
+- Was it available before the relevant headline, lede, body, or update?
+
+PERSISTENCE
+- Did the earlier package remain unchanged?
+- Did it partially change?
+- Did it fully change?
+- Was persistence justified by uncertainty, legal limits, attribution rules,
+  article format, or other SHARED INNOCENT-EXPLANATION TEST explanation?
+- Did the package remain mismatched to the strongest available facts?
+
+Required table:
+
+| Party | Prior package | Update trigger | Later package | Persistence result | Residual issue |
+|---|---|---|---|---|---|
+
+If no new fact separates two packages, classify the difference as same-stage
+divergence rather than update failure.
+
+Any claim that an outlet failed to update must cite the relevant availability
+row and publication/update time.
+
+-----------------------------------------------------------------
+LANGUAGE PACKAGE
+-----------------------------------------------------------------
+
+For each party selected for full analysis, record:
+
+- SOFTENING LANGUAGE
+  Age-based, protective, euphemistic, minimizing, depersonalizing, or passive
+  constructions.
+
+- HARDENING LANGUAGE
+  Agentive, moralized, criminalizing, pathologizing, delegitimizing, or
+  categorical constructions.
+
+- AGENCY ASSIGNMENT
+  Who acts, causes, chooses, suffers, receives, or is acted upon.
+
+- ACTIVE / PASSIVE CONSTRUCTION
+  Whether grammatical form changes responsibility or role visibility.
+
+- EVALUATIVE FRAMING
+  Victimized, threatening, legitimate, illegitimate, competent, failed,
+  credible, deceptive, heroic, suspect, or equivalent coloring.
+
+- ATTRIBUTION TYPE
+  Outlet voice, direct quotation, paraphrase, official allegation, source
+  inference, or independently established fact.
+
+- SPECIFICITY
+  Whether categorical detail is increased, reduced, or replaced by abstraction.
+
+- TEMPORAL UPDATE PATTERN
+  Whether the package changes across updates, corrections, or related coverage.
+
+- UPDATE TRIGGER
+  The specific new fact that should reasonably have caused a change.
+
+- PERSISTENCE
+  Whether the package remains unchanged despite stronger or updated facts.
+
+COMPOSITE ANALYSIS RULE
+
+Do not interpret a noun in isolation.
+
+Record the verbs, modifiers, attribution structure, sequencing, certainty,
+agency, and evaluative framing that jointly construct the party's role.
+
+A nominally soft label may coexist with strong agency and severe conduct.
+A nominally hard label may coexist with protective or exculpatory framing.
+
+Do not infer motive from package differences.
+
+Preferred neutral descriptive wording for same-stage abstraction:
+
+  "Reduces categorical specificity at the point of agency assignment."
+
+Avoid "sanitizes," "launders," "disguises," or similar motive/effect language
+unless independent evidence supports the claimed effect or intent.
+
+-----------------------------------------------------------------
+ADAPTIVE DETAIL
+-----------------------------------------------------------------
+
+Do not apply the full language-package schema to every party by default.
+
+For every analytically significant party, first complete the compressed table:
+
+| Party | Label trajectory | Package direction (SOFT / MIXED / HARD / NEUTRAL) | Update behavior |
+|---|---|---|---|
+
+Expand to the full LANGUAGE PACKAGE schema only when at least one is true:
+
+- an investigation lead specifically targets the party;
+- soft and hard language are in genuine tension;
+- competing packages materially diverge;
+- same-stage divergence is present;
+- updates materially change treatment;
+- persistence after a material update may be consequential;
+- the compressed record is ambiguous;
+- the party becomes load-bearing to a finding.
+
+For every expanded party, state the trigger for expansion.
+
+The default is compressed coding with conditional deep dive, not a full dossier
+on every actor or institution.
+
+
+-----------------------------------------------------------------
+COUNTERPART AND AFFECTED-PARTY TREATMENT
+-----------------------------------------------------------------
+
+For every load-bearing party, compare treatment of the counterpart or affected
+party.
+
+Record:
+
+- whether each party is individualized or categorized;
+- whether biography, role, status, or prior history is supplied;
+- whether conduct is described with comparable specificity;
+- whether agency separation is clear;
+- whether one party's prior history is included while the other's is omitted;
+- whether one party receives direct voice and the other is paraphrased;
+- whether equivalent uncertainty is preserved.
+
+Do not infer asymmetry from a missing detail unless the absence evidence floor
+and availability requirements are satisfied.
+
+-----------------------------------------------------------------
+LANGUAGE-PACKAGE FINDINGS
+-----------------------------------------------------------------
+
+Use finding type:
+
+  language-package-divergence
+
+only when the overall descriptive package materially diverges after:
+
+- timing;
+- availability;
+- attribution;
+- genre;
+- source dependence;
+- and SHARED INNOCENT-EXPLANATION TEST innocent explanations
+
+have been evaluated.
+
+Do not issue a language-package finding for:
+
+- isolated noun substitution;
+- wording already resolved as register variance or earned specificity at the Semantic Equivalence and Earnedness Gate;
+- a difference already owned by event-classification-divergence;
+- a [MEDIA-P1] causal-role assignment already owned by D-ROLE;
+- a timing artifact;
+- a package difference explained by article length or genre.
+
+FINDING OWNERSHIP
+
+- D-ROLE owns causal-role assignments.
+- event-classification-divergence owns competing labels for the event, site,
+  institution, collective action, or disputed social object.
+- language-package-divergence owns descriptive treatment of parties that does
+  not reduce to either of the above.
+
+When one passage bears on multiple modules, cross-reference the secondary
+effects but emit one finding only.
+
+SEVERITY FACTORS
+
+Severity depends on:
+
+- persistence;
+- evidentiary availability;
+- magnitude of divergence;
+- headline or lede placement;
+- effect on role perception;
+- same-stage versus timing-driven difference;
+- survival after innocent explanations;
+- whether the package is load-bearing.
+
+A rung-4 weak contextual resemblance under CONTEXT-SUPPORTED IDENTITY INFERENCE may not independently
+anchor a language-package finding.
+
+=================================================================
+
+
+=================================================================
+LANGUAGE-TRAJECTORY EXECUTION GATE
+=================================================================
+
+Before proceeding to Section D:
+
+1. Output the compressed Language Trajectory table from ADAPTIVE DETAIL for EVERY party
+   enumerated in PARTY ENUMERATION.
+
+2. For each party, state whether full LANGUAGE PACKAGE expansion is required.
+
+3. If no party qualifies for full expansion, state exactly:
+
+   NO FULL-PACKAGE EXPANSIONS
+
+   Then give one sentence explaining why no party met the expansion triggers.
+
+4. If one or more parties qualify, complete the full language-package schema for
+   each and name the trigger for expansion.
+
+Section D, Section H, and the verdict may not proceed until this gate is
+completed.
+
+Failure to output the compressed table is a PROCEDURAL FAILURE. Any downstream
+claim about language, labels, descriptive treatment, counterpart treatment,
+softening, hardening, update behavior, or package divergence is invalid until
+the gate is completed.
+
+=================================================================
+
+=================================================================
+SECTION D  -  FRAMING DIVERGENCE MAP
+=================================================================
+
+Where the baseline pays off. For each dimension, line up every outlet.
+
+
+Before completing Section D, carry forward:
+- the Party Enumeration from PARTY ENUMERATION;
+- the Competing Event Classifications from COMPETING EVENT CLASSIFICATIONS;
+- the function / structure results from FUNCTION / STRUCTURE COMPLETENESS TEST;
+- any same-stage divergence from SAME-STAGE CLASSIFICATION TEST.
+
+Do not discover the event object for the first time while writing findings.
+
+  1. HEADLINE VERB AND AGENCY
+     | Outlet | Headline | Grammatical agent | Active/passive |
+
+  2. KEY ACTION DESCRIPTORS  -  pick the 3-5 contested actions and show every outlet's wording
+     side by side.
+     | Action | Outlet A | Outlet B | Outlet C | ... |
+
+     This is an inventory, not yet a framing verdict. Register variance and
+     earned specificity are resolved at the Semantic Equivalence and Earnedness
+     Gate and do not reach this section as lexical framing candidates.
+
+  3. SEQUENCING  -  where does each outlet place the material that most complicates its own
+     lead?
+     | Outlet | Lead subject | paragraph  where complicating context appears |
+
+  4. SOURCE DISTRIBUTION
+     | Outlet | Voices quoted | Positions represented | Balancing voice present? |
+
+  5. ATTRIBUTED vs. ASSERTED
+     | Fact | Outlets asserting | Outlets attributing | Attribution verb |
+
+  6. HEADLINE CONTENT  -  which material facts reach each headline?
+     | Fact | Appears in headline of |
+
+D7  -  NARRATIVE-FLAG AND CONTEXT VARIANCE ACROSS OUTLETS
+-----------------------------------------------------------------
+
+| Attribute / context element | Outlet A | Outlet B | Outlet C | ... |
+|---|---|---|---|---|
+
+Compare across outlets, where each is materially relevant: demographic attributes;
+affiliation, funding, and interest disclosures; credential labels ("expert" vs. "critic");
+biography and individualization; which prior episode is invoked as precedent; setting and
+atmospheric cues.
+
+The [MEDIA-P1] causal-role axes - EVENT CLASSIFICATION, CAUSE, ROLE-AND-STATUS, BLAME /
+RESPONSIBILITY, REMEDY, and LEADERSHIP / POLICY - are owned by D-ROLE.
+
+D7's inheritance test, TEST THE SOURCE OF THE UNIFORMITY, remains the shared
+primitive both sections use.
+
+D7 retains individualization/categorization because it measures identity
+granularity, not causal-role assignment. Where the same text bears on both,
+cross-reference the second section and record each distinct effect once.
+
+For each divergence:
+  1. Was the attribute known when EACH outlet published? (Use the availability matrix  -  do
+     not count an unconfirmed attribute as an omission.)
+  2. Is the difference inclusion, omission, delay, quote-routing, or euphemism?
+  3. Materially relevant, or merely inflammatory?
+  4. Does one outlet individualize a party another categorizes?
+  5. Does the variance correlate with headline, sequencing, or source choices?
+  6. Could timing, privacy rules, confirmation standards, house style, or outlet policy
+     explain it?
+
+NETWORK-WIDE PATTERNS  -  RECLASSIFY, DO NOT AUTOMATICALLY DOWNGRADE. If every outlet treats
+an attribute the same way, that establishes the outlet is not an OUTLIER. It does NOT
+establish that the treatment is proportionate or non-misleading. Every outlet can inherit the
+same official euphemism, wire framing, legal convention, or shared blind spot.
+
+  DOWNGRADE: any claim that this outlet is distinctive or slanted relative to peers. DO NOT
+  DOWNGRADE: the underlying construction finding itself. RECORD SEPARATELY: a network-wide
+  convention finding, which is often the more interesting result.
+
+TEST THE SOURCE OF THE UNIFORMITY - CANONICAL FIVE-WAY CLASSIFICATION
+
+  INDEPENDENT-EDITORIAL-CONVERGENCE
+    Several newsrooms reached the treatment separately.
+
+  WIRE-INHERITANCE
+    One wire story appears under multiple mastheads.
+
+  COMMON-PRIMARY-SOURCE
+    Outlets worked from the same release, briefing, document, or speaker.
+
+  LEGAL/PROFESSIONAL-CONVENTION
+    The treatment follows an identification, sub judice, privacy, or other
+    professional convention.
+
+  SHARED-BLIND-SPOT
+    No outlet examined the material point.
+
+Only INDEPENDENT-EDITORIAL-CONVERGENCE is evidence that the treatment was
+independently chosen across outlets. The other four are non-independent for the
+D-ROLE inheritance gate and leave the substantive question open.
+
+ABSENCE CLUSTER: are the same material attributes OMITTED by outlets that otherwise share a
+framing cluster? Shared omission can be more diagnostic than shared wording, especially where
+those outlets used DIFFERENT source chains  -  independent omission is a stronger signal than
+common-source omission. Distinguish the two explicitly.
+
+-----------------------------------------------------------------
+D-ROLE - CAUSAL AND ROLE-ASSIGNMENT MAP
+[owns MEDIA-P1 axes; absorbs D8; depends on D7]
+
+Captures divergence in the narrative: what kind of event this is, why it
+happened, who occupies which role, who is responsible, whether a fix is offered,
+and how leadership or policy is characterized.
+
+Report only divergence that reflects independent editorial choice, not
+non-independent treatment and not mere register.
+
+STEP 1 - PER-OUTLET CAUSAL-ROLE MAP
+Map content, not a verdict.
+
+For each outlet, extract the assignment the article text makes on each
+[MEDIA-P1] axis.
+
+Do not infer an assignment from the headline alone. You may record an assignment
+explicitly stated in a headline as HEADLINE-ONLY; do not infer anything the
+headline does not state.
+
+Record provenance INSIDE EACH AXIS CELL. Use this form:
+
+  assignment [CHOSEN: OUTLET-ORIGINAL]
+  assignment [CHOSEN: INDEPENDENT-EDITORIAL-CONVERGENCE]
+  assignment [INHERITED: WIRE-INHERITANCE]
+  assignment [INHERITED: COMMON-PRIMARY-SOURCE]
+  assignment [INHERITED: LEGAL/PROFESSIONAL-CONVENTION]
+  assignment [INHERITED: SHARED-BLIND-SPOT]
+
+An outlet may inherit one axis and choose another. Do not assign one provenance
+label to the outlet as a whole.
+
+| Outlet | EVENT CLASSIFICATION (+ provenance) | CAUSE (+ epistemic level + provenance) | ROLE-AND-STATUS (+ provenance) | BLAME / RESPONSIBILITY (+ epistemic level + provenance) | REMEDY (+ provenance) | LEADERSHIP / POLICY (+ provenance) | Text basis |
+|---|---|---|---|---|---|---|---|
+
+TEXT BASIS
+
+  TEXT-READ
+    The full piece was read.
+
+  HEADLINE-ONLY
+    The body was not read. Only an assignment explicitly stated in the headline
+    may be recorded. It may not anchor a divergence finding and is PROVISIONAL.
+
+CAUSE AND BLAME - EPISTEMIC LEVEL
+LOCAL EXECUTION COPY - canonical in [MEDIA-P1]; must match.
+
+Classify every CAUSE and BLAME assignment:
+
+  DOCUMENTED
+    Direct statement, verified communication, or established record.
+
+  OFFICIALLY-ALLEGED
+    Law enforcement, complaint, indictment, or institutional finding.
+
+  SOURCE-INFERRED
+    Witness, advocate, expert, or interested party's inference.
+
+  OUTLET-INFERRED
+    The article's own synthesis.
+
+  UNKNOWN
+    Evidence insufficient.
+
+Test for silent upward movement: an alleged cause restated as documented, or a
+source's inference appearing later in outlet voice. Apply the ladder separately
+to CAUSE and BLAME.
+
+STEP 2 - INHERITANCE GATE
+Apply per assignment; reuse D7's canonical five-way classification.
+
+For this binary gate:
+
+  CHOSEN
+    OUTLET-ORIGINAL assignments and independently reached assignments classified
+    as INDEPENDENT-EDITORIAL-CONVERGENCE.
+
+  INHERITED
+    Assignments classified by D7 as WIRE-INHERITANCE,
+    COMMON-PRIMARY-SOURCE, LEGAL/PROFESSIONAL-CONVENTION, or
+    SHARED-BLIND-SPOT.
+
+Only CHOSEN assignments count as independent outlet framing. Record INHERITED
+assignments, but do not attribute them to the outlet as independent editorial
+choices.
+
+If D7 already classified the source of uniformity, carry that result into each
+affected axis cell. Do not re-derive it.
+
+STEP 3 - DIVERGENCE FINDING
+Prosecute CHOSEN divergence only.
+
+Report where CHOSEN assignments diverge across outlets on any [MEDIA-P1] axis.
+
+Apply VERB-AS-TRACE (compact primitive) to surviving wording-derived outliers only.
+Register variance and earned specificity are resolved at the Semantic Equivalence
+and Earnedness Gate and do not reach this section as lexical framing candidates.
+D-ROLE's independent substantive six-axis scan remains required.   [FAIL-MB-018]
+
+STEP 4 - GENRE / INDEPENDENCE CONDITION
+Mandatory not-firing check.
+
+State the sample's independence condition.
+
+If most relevant assignments are INHERITED, as in wire-dominated breaking
+coverage, the causal-role axis is UNDER-DETERMINED by this sample. Report:
+
+"roles largely inherited or otherwise non-independent; independent causal
+framing minimal - this genre under-determines the causal-role axis"
+
+Mark any surviving divergence finding PROVISIONAL.
+
+This axis is more likely to become testable in opinion, editorial, feature, or
+later multi-source coverage once the wire monopoly breaks.
+
+The section MUST be able to return:
+
+"axis under-determined - wrong genre"
+
+Register variance and earned specificity are resolved at the Semantic Equivalence and Earnedness Gate and do not reach this section as lexical framing candidates.
+
+STEP 5 - FLIP TEST
+Symmetry and abuse guard.
+
+Cause, blame, and victim-role assignments are especially prior-sensitive. Before
+reporting any divergence finding, ask:
+
+Would you assign the identical finding if the outlets' political valence were
+reversed?
+
+Name the specific assigning text: outlet, sentence or phrase, and the assignment
+it makes. Never write only "outlet X is biased."
+
+A finding that cannot identify the assigning text, or that would not be flagged
+with valence reversed, is downgraded or dropped.
+
+STEP 6 - FINDING TABLE
+
+Each surviving CHOSEN divergence receives its own row in the standardized
+finding table.
+
+Use finding type: causal-role-framing.
+
+OWNERSHIP RULE:
+
+- causal-role-framing owns divergence on a [MEDIA-P1] axis;
+- framing-divergence is reserved for framing that does not consist of a
+  [MEDIA-P1] assignment;
+- do not emit the same divergence under both types;
+- D7 owns identity granularity and source-of-uniformity classification;
+- D-ROLE owns causal-role assignment.
+
+Cross-reference D7 where needed. Do not create a second finding from the same
+assignment.
+
+Do not fold multiple axes into one generic "framing differs" note. CAUSE and
+ROLE-AND-STATUS divergences are separate rows when independently evidenced.
+
+READ-NOT-SCORED
+
+This section produces finding-table rows for the human reader. It does not
+produce letters or concede-test verdicts.
+
+Convergence across independent CHOSEN assignments is the signal; a scored rubric
+is not.
+
+D9  -  BASELINE AND DENOMINATOR VARIANCE
+-----------------------------------------------------------------
+
+Where outlets cite figures for the same phenomenon:
+
+| Figure | Outlet | Baseline / denominator | Raw or rate | Adjustment applied | Impression supported |
+|---|---|---|---|---|---|
+
+  1. Do outlets use different comparison points for the same underlying data?
+  2. Does the choice correlate with framing cluster?
+  3. Does any outlet report the comparison basis, or do they present bare numbers?
+  4. Would a common basis change the apparent disagreement between outlets?
+
+This is often the cleanest quantitative divergence available and it is invisible without
+cross-outlet comparison.
+
+=================================================================
+SECTION D2  -  CROSS-BRANCH RESOLUTION  (run if a single-piece audit preceded this)
+=================================================================
+
+The single-piece framing audit flags items it CANNOT determine from one article and names this
+branch as the test. Those flags are the highest-value work this audit does, because they are
+the only findings in the system that can be CONFIRMED OR FALSIFIED rather than merely rated.
+
+If no single-piece audit preceded this, write "no prior single-piece audit" and skip.
+Otherwise, list every item that audit marked UNDETERMINABLE, PROVISIONAL, or "would be
+resolved by the coverage-network branch," and resolve what this sample can.
+
+-----------------------------------------------------------------
+PROMINENCE CROSS-BRANCH OWNERSHIP   [FAIL-MB-017]
+-----------------------------------------------------------------
+
+The single-piece framing branch and the Coverage Network branch can both observe
+within-piece packaging. Do not emit duplicate findings for the same placement
+object.
+
+If a prior single-piece audit already identified a headline/lede/body packaging
+finding:
+
+- the SINGLE-PIECE branch owns the within-piece placement finding;
+- CN does NOT emit a duplicate prominence-packaging row for that same object;
+- CN may add only what comparison across pieces contributes:
+  * packet asymmetry;
+  * FULL / PARTIAL PACKET INVERSE;
+  * provenance comparison;
+  * evidence that the pattern is network-wide or countered elsewhere;
+  * evidence that the single-piece interpretation should be reclassified.
+
+Resolve the prior finding in D2 using the ordinary cross-branch states:
+- CONFIRMED
+- FALSIFIED
+- RECLASSIFIED
+- NETWORK-WIDE
+- STILL UNRESOLVED
+- NO EVIDENCE
+
+Cross-reference the original single-piece finding.
+
+If no prior single-piece audit exists:
+- CN may originate the prominence-packaging finding itself.
+
+Branch order must not create duplicate findings or change the substantive object.
+
+THE STANDARD RESOLUTION TARGETS  -  check each explicitly:
+
+  1. SOURCE-INTERNAL ORDERING (single-piece F2 Step 5). The single-piece audit could not tell
+     whether an institutional source led with framing material or the outlet foregrounded it.
+     TEST: how did other outlets covering the same statement order it? If most led with the
+     factual account, the audited outlet's ordering was a choice. If most led with the framing
+     material, the source spoke that way and the finding collapses. Also check: does any
+     outlet quote or link a transcript, recording, or written release that fixes the order?
+
+  2. VERB AND DESCRIPTOR CHOICE. The single-piece audit can only observe that a word is milder
+     or more vivid than alternatives it imagines. TEST: what words did other outlets use for
+     the same action - and CRITICALLY, what word does the PRIMARY SOURCE use? An institution
+     often issues both a written release and a spoken briefing, and they frequently differ. A
+     verb that looks like editorial softening may be DOCUMENT DEPENDENCE: the outlet used the
+     presser, another outlet used the written report. Then route the surviving difference
+     through [MEDIA-P1]. Apply VERB-AS-TRACE (compact primitive) only if the
+     wording survived the Semantic Equivalence and Earnedness Gate as a MATERIAL
+     OUTLIER; otherwise the lexical object is already resolved upstream. If the
+     surviving wording moves an assignment, use it as evidence for a causal-role-framing
+     finding. Both branches now emit findings in the [MEDIA-P1] vocabulary, so D2 lines them
+     up directly rather than translating between two axis sets. Resolution therefore works
+     regardless of which branch was the entry point. If document dependence explains the
+     wording, the single-piece finding is not outlet construction - it is a
+     sourcing-thoroughness observation and must be reclassified. Say so plainly.
+
+  3. AVAILABILITY OF A BALANCING VOICE. The single-piece audit cannot tell whether a
+     counter-voice was unavailable, refused, or unsought. TEST: did any outlet in the sample
+     obtain one? If several did, availability is established and the single-piece finding
+     strengthens. If NONE did, the absence is network-wide and is weak evidence about any one
+     outlet.
+
+  4. HEADLINE CHOICES. The single-piece audit judges a headline against the
+     body. TEST: what did every other headline include and omit? If EVERY outlet
+     made the same omission, downgrade the claim that the audited outlet is
+     distinctive or uniquely slanted. Do NOT automatically downgrade the
+     underlying construction finding; resolve it as NETWORK-WIDE and classify
+     the source of uniformity.
+
+  5. OMISSION vs. CONVENTION. Any fact the single-piece audit flagged as omitted. TEST: who
+     else omitted it? A fact omitted by every outlet, especially one sitting in a primary
+     document all of them had, is a NETWORK-WIDE pattern. That is a different and often more
+     interesting finding than an outlet- specific one  -  and it is not evidence of that
+     outlet's lean.
+
+Required table:
+
+| Single-piece finding | What it flagged as undeterminable | What this sample shows | Resolution |
+|---|---|---|---|
+
+RESOLUTION values  -  use exactly these: CONFIRMED ......... the sample supports the
+single-piece finding; it strengthens FALSIFIED ......... the sample shows the finding was
+wrong; it must be CUT RECLASSIFIED ...... real, but a different finding type than originally
+rated NETWORK-WIDE ...... the behavior is shared across outlets. This establishes the outlet
+is not an OUTLIER. It does NOT establish the treatment is proportionate  -  every outlet can
+inherit the same official euphemism, wire framing, legal convention, or blind spot. DOWNGRADE
+the claim that this outlet is distinctive. DO NOT DOWNGRADE the underlying construction
+finding. RECORD the network-wide convention as its own finding, and state its
+source using D7's exact values:
+INDEPENDENT-EDITORIAL-CONVERGENCE / WIRE-INHERITANCE /
+COMMON-PRIMARY-SOURCE / LEGAL/PROFESSIONAL-CONVENTION /
+SHARED-BLIND-SPOT. Only INDEPENDENT-EDITORIAL-CONVERGENCE suggests the
+convention was independently chosen; the other four are non-independent and
+leave the substantive question open. STILL UNRESOLVED .. this sample
+cannot settle it; state what would NO EVIDENCE ....... you did not retrieve material bearing
+on this item at all
+
+EVIDENCE FLOOR  -  MANDATORY. CONFIRMED, FALSIFIED, RECLASSIFIED, and NETWORK-WIDE each
+require you to NAME THE SPECIFIC EVIDENCE in the resolution cell: which outlet, which
+document, which passage. A resolution without named evidence is not a resolution.
+
+  If you did not retrieve material bearing on the item, the ONLY permitted values are STILL
+  UNRESOLVED or NO EVIDENCE.
+
+  CONFIRMED IS THE MOST DANGEROUS VALUE HERE. It ratifies an upstream finding, and it is the
+  value most easily returned by a run that simply did not look. Absence of contradicting
+  evidence is NOT confirmation. If your basis for CONFIRMED is "nothing I saw contradicted
+  it," the correct value is STILL UNRESOLVED.
+
+  Worked contrast, from actual runs of this prompt on the same event: asked whether an outlet
+  reordered a police chief's statement, one run returned CONFIRMED having obtained no primary
+  source; another returned FALSIFIED citing a specific outlet's report that the chief opened
+  his briefing that way; a third returned STILL UNRESOLVED, lacking that outlet. Only the
+  second and third were defensible.
+
+REPORT FALSIFICATIONS PROMINENTLY. A finding this branch kills is the most valuable output the
+system produces  -  it is the only place a claim gets tested against evidence rather than
+re-rated by judgment. Do not bury it. If the single-piece audit was wrong, say which finding,
+why, and what the evidence was.
+
+NOTE ON DIRECTION: this section will more often WEAKEN single-piece findings than strengthen
+them, because shared behavior is common and outlet-specific behavior is rarer than a
+single-article reading suggests. That asymmetry is expected and is not a sign the section is
+malfunctioning. If it never weakens anything across multiple runs, it is not doing its job.
+
+=================================================================
+SECTION E  -  CLUSTERING AND CORRELATION
+=================================================================
+
+  1. Do framing choices CLUSTER? Do outlets choosing one headline verb also place complicating
+     context late, quote the same category of voice, omit the same facts?
+
+  2. Describe clusters BY THEIR CHOICES FIRST, not by political valence. ("Cluster 1 leads
+     with scene, places official account after paragraph 5, quotes advocacy voices; Cluster 2
+     leads with official account, quotes officials, omits reaction.") Note any correlation
+     with lean afterward, as an observation.
+
+  3. Is there an outlet that does NOT cluster  -  mixed choices? Name it. A tidy two-cluster
+     map with no outliers is suspicious and often reflects sample selection (Section G) rather
+     than the coverage.
+
+  4. TEST NON-LEAN EXPLANATIONS BEFORE CONCLUDING LEAN. Does clustering correlate with
+     publication time, wire dependence, brief-vs-full-report, local-vs-national, or deadline?
+     Length and timing explain more variance than people expect. State which you tested and
+     what you found.
+
+=================================================================
+SECTION E2  -  MAPPED PRIOR-MATCH CHECK  (MANDATORY BEFORE FLIP TEST)
+=================================================================
+
+PRIOR SOURCE must be one of:
+
+  SUPPLIED
+  MODEL-GENERATED
+  NONE
+
+Default to NONE when no operator prior was supplied.
+A MODEL-GENERATED prior is permitted only when a specific ambiguity could not be
+interpreted without an explicit expectation. State why it was necessary. A
+model-generated match is weaker evidence than a supplied match.
+
+If PRIOR SOURCE = NONE:
+
+  write "no prior; prior-match check skipped."
+
+Do not invent one retrospectively.
+
+If PRIOR SOURCE = SUPPLIED:
+
+1. Reproduce the completed PRIOR DECOMPOSITION AND MAPPING map.
+2. Resolve every Prior ID separately.
+3. Preserve the exact quantifier, denominator, eligible-source rule, and
+   conditional structure.
+4. Do not collapse the priors into one synthetic prediction.
+5. Do not substitute:
+   - mention for foregrounding;
+   - immediate reversal for long-term enablement;
+   - comparator omission for comparator truth;
+   - counterexamples for threshold failure.
+
+Required proposition-level table:
+
+| Prior ID | Exact proposition | Eligible denominator | Threshold | Count / evidence | Result | Qualification |
+|---|---|---|---|---|---|---|
+
+Permitted results:
+
+- CONFIRMED
+- PARTIALLY CONFIRMED
+- REFRAMED
+- NOT CONFIRMED
+- INSUFFICIENT EVIDENCE
+
+After proposition-level resolution, provide:
+
+AGGREGATE MAPPED RESULT:
+- STRONG MAPPED MATCH
+- SUBSTANTIAL MAPPED MATCH
+- MIXED MAPPED RESULT
+- WEAK MAPPED MATCH
+- NO MAPPED MATCH
+- INSUFFICIENT TO ASSESS
+
+Then state:
+
+WHAT MATCHED:
+[Prior IDs and exact propositions]
+
+WHAT DID NOT MATCH:
+[Prior IDs and exact propositions]
+
+WHAT REMAINS UNTESTED:
+[factual, causal, motive, normative, or comparator claims]
+
+STRONGEST COUNTEREVIDENCE:
+[the single strongest evidence against the mapped priors]
+
+MAPPING INTEGRITY CHECK:
+
+- Were any distinct propositions merged?
+- Were any quantifiers strengthened?
+- Was "mention" confused with "foreground" or "governing frame"?
+- Was a coverage prediction confused with an underlying-truth claim?
+- Was a conditional prior tested against the wrong denominator?
+- Was a counterexample incorrectly treated as falsifying a non-universal
+  prediction?
+- Was adjacent evidence substituted for the exact audit object?
+
+If any answer is YES, revise the mapping before issuing the verdict.
+
+If PRIOR DECOMPOSITION AND MAPPING was not completed, write:
+
+  PRIOR MAPPING FAILURE — PRIOR-MATCH VERDICT INVALID
+
+and do not issue an aggregate prior verdict.
+
+=================================================================
+SECTION F  -  FLIP TEST  (MANDATORY  -  DESIGNED TO BE COSTLY)
+=================================================================
+
+Answering "yes, I would flag the mirror" is free. This section requires producing something.
+
+STEP 1  -  WRITE THE MIRROR, AS TEXT Take your #1 divergence finding. COMPOSE the actual
+mirror  -  3-6 sentences of a headline plus lead written the way an outlet in the opposite
+cluster would have written it, using the same technique you flagged. Not a description. The
+text.
+
+STEP 2  -  AUDIT YOUR OWN MIRROR Run your Section D criteria against what you just wrote.
+Produce at least two findings against it with severity ratings. If you cannot produce findings
+at comparable severity, your original finding is PRIOR-DEPENDENT  -  downgrade it.
+
+STEP 3  -  CONSISTENCY CHECK Compare the PRINCIPLES you applied to your mirror against your
+findings on the real coverage. Classify what you find  -  two different things, resolving
+oppositely:
+
+  (A) INCONSISTENT PRINCIPLE  -  you applied a rule to the mirror you did not apply to the
+  original, or vice versa. One finding must give; state which and why. Mirror-side principles
+  are less prior-contaminated (applied without knowing which side benefited), so they usually
+  win.
+
+  (B) SYMMETRIC PHENOMENON  -  the same construction lever appears in both, pushing opposite
+  directions (e.g. either ordering constructs an impression). NO DOWNGRADE. This confirms the
+  lever is a construction lever, which makes the outlet's specific choice more meaningful, not
+  less.
+
+  DO NOT DOWNGRADE BECAUSE THE MIRROR COMMITS THE MIRROR-IMAGE VERSION. That is the expected
+  result and the reason the mirror exists  -  it tests whether you apply the same rule, not
+  whether construction is universal.
+
+| Observation | Type (A / B) | Resolution |
+|---|---|---|
+
+Downgrades are permitted here for TYPE A only.
+
+STEP 4  -  FORCED RANKING Rank all findings from MOST prior-dependent to LEAST.
+
+| Rank (1 = most prior-dependent) | Finding | Why more prior-dependent than the next |
+|---|---|---|
+
+STEP 5  -  AUTOMATIC DOWNGRADE  (not discretionary)
+
+The finding ranked #1  -  MOST prior-dependent  -  IS DOWNGRADED ONE SEVERITY STEP.
+Mechanical. No justification path, no opt-out.
+
+  MAJOR -> MODERATE / MODERATE -> MINOR / MINOR -> cut or "reported, not load-bearing"
+
+Earlier versions allowed declining the downgrade with a rebuttal. The rebuttal was always
+supplied and the downgrade never happened. A check that can be argued away is not a check.
+
+IF THE DOWNGRADE SEEMS WRONG, FIX THE RANKING IN STEP 4  -  you control it. Do not argue with
+the consequence. Do not append a parenthetical rebutting it.
+
+State in one line: "Downgrade applied: [finding] MODERATE -> MINOR." Report in Section I which
+finding was downgraded and from what to what.
+
+STEP 6  -  SCRUTINY SYMMETRY a. Point to a specific finding against an outlet you'd tend to
+trust. If you have none, state that  -  it is a result. b. Where does the coverage cut AGAINST
+what you expected? List anything. c. Name an outlet whose construction you would have flagged
+had it leaned the other way. d. For counter-evidence you listed: "would a reader who noticed
+it reach a different conclusion? If no, WHAT DOES THE COUNTER-EVIDENCE FAIL TO ADDRESS?" Name
+what is missing from it. Do not restate what the coverage does  -  that is circular. The
+phrase "noted but does not offset" is BANNED; reasoning that reduces to it downgrades the
+affected findings one step.
+
+| Finding | Mirror written? | Findings against mirror | Contradiction w/ mirror principle? | Prior-dependence rank | Verdict |
+|---|---|---|---|---|---|
+
+Findings failing the flip test are PRIOR-DEPENDENT  -  downgrade or cut, labeled.
+
+=================================================================
+SECTION G  -  SAMPLE AUDIT  (audits your own selection)
+=================================================================
+
+These findings are only as good as the sample.
+
+  1. How were pieces selected? Systematic or convenience?
+  2. What outlets covering this event are ABSENT? Name them.
+  3. Does the sample over-represent one end of the spectrum?
+  4. Would adding the missing outlets likely change the clustering?
+  5. Sample verdict: SYSTEMATIC / PARTIAL / CONVENIENCE
+
+
+  6. CLAIM-RELEVANT SAMPLE CHECK
+
+     This check is distinct from the absence-claim evidence floor. The floor asks
+     whether the retrieved text can support an absence claim. This check asks
+     whether the sample contains the comparison cluster required by the claim.
+     Either may independently defeat a finding.
+
+     For every finding claiming that a voice, frame, outlet type, ideological
+     position, institutional position, or source category is absent, rare,
+     unique, or disproportionately represented:
+
+     a. Does the sample contain outlets reasonably expected to carry the
+        allegedly missing comparison position?
+     b. How many such outlets are present?
+     c. Are they FULL-TEXT-CONFIRMED?
+     d. Does the finding survive after excluding partial sources?
+     e. Is the sample capable of supporting the claimed distribution?
+
+     A sample containing no member of the relevant comparison cluster may not
+     support "only," "none," "unique," or network-distribution claims about that
+     cluster.
+
+Required table:
+
+| Finding | Comparison cluster required | Cluster present in sample? | Full-text sources in cluster | Claim supportable? |
+|---|---|---|---:|---|
+
+A CONVENIENCE sample can still show real divergence  -  verb variance is verb variance
+regardless of how the pieces were found. But it CANNOT support claims about overall
+distribution ("most outlets framed it as X"). State which claims your sample supports and
+which it does not.
+
+REQUIRED: if the sample is CONVENIENCE, every distributional claim in this audit is
+PROVISIONAL. Say so in the verdict.
+
+=================================================================
+SECTION H  -  STANDARDIZED FINDING TABLE
+=================================================================
+
+| Field | Entry |
+|---|---|
+| Finding | one sentence |
+| Section | A-E |
+| Evidence | side-by-side quotes, outlet names, paragraph positions |
+| Finding type | common-source-propagation / source-dependent-interpretation / claim-amplification / source-chain / selection / prominence-packaging / framing-divergence / causal-role-framing / event-classification-divergence / language-package-divergence / clustering |
+| Severity | none / minor / moderate / major / severe |
+| Survives flip test | yes / no |
+| Sample-dependent? | yes / no  -  would it hold with a different sample? |
+| Possible innocent explanation | MANDATORY  -  deadline, length, wire dependence, house style, genuine scoop. "None identified" if none. Never blank. |
+| Availability row cited | REQUIRED for any SELECTION (cross-piece omission) claim; exact fact/source availability time and outlet publication time. Write NOT APPLICABLE for all non-selection findings, INCLUDING prominence-packaging findings — for prominence, the fact's presence in the FULL-TEXT-CONFIRMED piece establishes possession; no cross-piece Availability Matrix row exists or is required. |
+| What would weaken this | MANDATORY |
+| Verification state | from vocabulary |
+
+TYPE OWNERSHIP: use causal-role-framing for [MEDIA-P1] assignments.
+Use framing-divergence only for non-[MEDIA-P1] framing. Never emit the same
+divergence under both types.
+
+Use prominence-packaging only for within-piece placement priority among
+substantive facts or factual dimensions already carried by the piece. Do not use
+it for cross-piece omission, source-attribution compression, epistemic
+compression, causal-role reassignment, or inherited wire packaging attributed as
+outlet choice.   [FAIL-MB-017]
+
+SEVERITY CAPS  -  enforceable, not advisory
+
+  | Condition | Cap |
+  |---|---|
+  | Missing either mandatory column | may not exceed MODERATE |
+  | Fails flip test (prior-dependent) | may not exceed MINOR |
+  | Convenience sample (G5) | no claim about overall media distribution may exceed PROVISIONAL |
+  | A load-bearing fact is single-origin in the Section B per-fact table | it may not be treated as independent corroboration; classify it as COMMON-SOURCE PROPAGATION, SOURCE-DEPENDENT INTERPRETATION, CLAIM AMPLIFICATION, or CHAIN UNRESOLVED |
+  | COMMON-SOURCE PROPAGATION without another construction failure | descriptive only; may not anchor a pathology finding |
+  | SOURCE-DEPENDENT INTERPRETATION with attribution preserved and low apparent-corroboration risk | descriptive unless the interpretation becomes load-bearing |
+  | Source chain CHAIN-INFERRED only (textual similarity) | may not be rated SEVERE |
+  | Omission where availability is UNKNOWN | may not be called SELECTION; capped at PROVISIONAL |
+  | Selection claim without an explicit Availability Matrix row cited inside the finding | may not be called selection; relabel as inclusion / non-inclusion, availability unknown, timing artifact, or timing untested |
+  | Prominence-packaging finding | cross-piece availability caps DO NOT APPLY; requires FULL-TEXT-CONFIRMED status for the finding piece, packaging provenance, and a FULL / PARTIAL / NONE packet-inverse statement; omitted symmetry statement caps the finding at PROVISIONAL |
+  | Prominence finding attributed to outlet choice with packaging provenance UNKNOWN | attribution to outlet choice capped at PROVISIONAL |
+  | INHERITED prominence pattern | may be described, but may not be attributed to outlet editorial choice; SOURCE-CHAIN owns inheritance |
+  | PACKET INVERSE: NONE where the eligible comparison range is not fully FULL-TEXT-CONFIRMED | may not be stated as an unqualified packet-wide absence |
+  | Wording-derived language/event-classification candidate not carried forward as a MATERIAL OUTLIER by the Semantic Equivalence Gate | may not be reported as a framing finding; record only as register variance / earned specificity |
+  | Formulation marked EARNED SPECIFICITY | may not by itself anchor framing-divergence, event-classification-divergence, language-package-divergence, or causal-role-framing |
+  | MATERIAL OUTLIER with no named moved assignment | invalid outlier; return to common bucket |
+  | Language-trajectory execution gate not completed | all language-package / label-trajectory / descriptive-treatment findings invalid; Section I must report Language-trajectory module completed: NO |
+  | Absence / exclusivity claim with any partial source in its denominator | claim unavailable; cut it |
+  | Sample contains no member of the comparison cluster required by the claim | "only / none / unique" or distribution claim unavailable; cut or narrow |
+  | Sample-dependent finding | may not anchor the verdict |
+  | Explained by format/length difference (brief vs. full report) | not a finding  -  cut it |
+
+  Additional rule: if coverage is substantially uniform and proportionate, say so and submit
+  an empty table. That must be an available output.
+
+=================================================================
+SECTION I  -  VERDICT
+=================================================================
+
+RETRIEVAL DEPTH  -  REPORT BEFORE THE VERDICT
+
+Audit quality varies enormously with how much material was actually fetched, and that
+variation is invisible in the output unless stated. A thin run and a deep run produce equally
+confident-looking tables. Disclose:
+
+  - Pieces read FULL TEXT: [n, list]
+  - Pieces read SNIPPET ONLY: [n, list]
+  - Pieces NOT retrieved but referenced: [n, list]
+  - Primary source obtained: WRITTEN form? [y/n] SPOKEN form/transcript? [y/n]
+  - Searches or fetches performed: [approximate count]
+  - Material you looked for and could NOT obtain: [list]
+  - Fixed-packet mode: [YES / NO]
+  - Companion items added: [n, list, with COMPANION RETRIEVAL trigger A-D]
+  - Inherited framing dependencies still untested: [list]
+
+CAP: any finding resting on material you did not fetch is PROVISIONAL and may not be
+load-bearing. State which findings this affects.
+
+This is not a confession of inadequacy. A shallow run that says so is more useful than a
+shallow run that reads as thorough.
+
+  - Pieces compared:
+  - Reporting organizations producing original reporting (Section B Level 1):
+  - Upstream information origins (Section B Level 2; descriptive only):
+  - Whole-coverage ratio (descriptive only, not a verdict): [P] / [M]
+  - Per-fact network classification: [each load-bearing fact as pieces /
+    independent origins / COMMON-SOURCE PROPAGATION / SOURCE-DEPENDENT
+    INTERPRETATION / CLAIM AMPLIFICATION / CROSS-OUTLET CORROBORATION /
+    CONTESTED / CHAIN UNRESOLVED; state apparent-corroboration risk]
+  - Shared factual core (one sentence):
+  - DIRECTIONAL COHERENCE: of the surviving findings, how many push the same direction? [N of
+    M]. If 4+ cohere with fewer than 2 opposing, record a coherence finding at MODERATE (MAJOR
+    at 6+ with none opposing): individually defensible choices whose consistency across
+    independent levers is not. Direction-neutral  -  applies identically whichever way the
+    coherence runs.
+  - CROSS-BRANCH RESOLUTION (D2): single-piece findings CONFIRMED / FALSIFIED / RECLASSIFIED /
+    NETWORK-WIDE / STILL UNRESOLVED  -  list each. State falsifications first.
+  - Competing event classifications:
+  - Function / structure resolution:
+  - Same-stage classification divergences:
+  - Language trajectories reviewed:
+  - Parties expanded to full language-package analysis:
+  - Language-package divergences:
+  - Language-trajectory module completed: YES / NO
+  - Prior mapping completed: YES / NO / NOT APPLICABLE
+  - Most significant framing divergence:
+  - Does framing cluster? Along what axis?
+  - Non-lean explanations tested (timing / length / wire / local):
+  - Sample verdict (G5):
+  - Investigation leads resolved: CONFIRMED / PARTIALLY CONFIRMED /
+    REFRAMED / NOT CONFIRMED / INSUFFICIENT EVIDENCE - list each
+    with its origin tag:
+  - Findings surviving flip test:
+  - Load-bearing findings:
+  - What this audit could NOT assess:
+  - Confidence: low / moderate / high
+  - What would change this assessment:
+
+FINAL REQUIRED STATEMENT  -  one of:
+
+  "This coverage represents [N] organizations producing original reporting and
+  approximately [M] upstream information origins, across [P] published pieces.
+  Across [P] pieces, the load-bearing facts trace to these independent origins:
+  [fact - pieces / origins located / origin completeness / network classification; ...].
+  [N1] facts are
+  COMMON-SOURCE PROPAGATION, [N2] are SOURCE-DEPENDENT INTERPRETATIONS, and
+  [N3] qualify as CLAIM AMPLIFICATION. Only the last category represents
+  apparent cross-outlet agreement that may falsely resemble independent
+  confirmation. Framing diverges materially on [dimensions]. The divergence
+  [does / does not] cluster along [axis]. This audit does not establish which
+  framing is accurate."
+
+OR
+
+  "Coverage is substantially uniform and proportionate to the available source material. No
+  material framing divergence found."
+
+The second must be genuinely available.
+
+=================================================================
+SCOPE LIMITS  -  RESTATE IN OUTPUT
+=================================================================
+
+  1. Coverage distribution is not a truth verdict. Majority framing is not
+     evidence of accuracy, particularly where a load-bearing proposition is
+     source-dependent, claim-amplified, or has unresolved origin completeness
+     in Section B.
+  2. One event does not establish an outlet's practice. That requires a corpus across events
+     -  a different and larger audit.
+  3. Divergence does not establish intent. Editorial choice is observable; motive is not.
+  4. Wire dependence, length, and deadline explain substantial variance. Test them before
+     attributing divergence to lean.
+  5. A convenience sample supports findings about the pieces examined, not about coverage
+     generally.
