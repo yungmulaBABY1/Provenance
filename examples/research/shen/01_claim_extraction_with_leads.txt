@@ -1,0 +1,592 @@
+SHEN PARTIAL RERUN WITH OPERATOR-SUPPLIED LEADS
+STAGE 1 — UPDATED CLAIM EXTRACTION / INFLATION MAP
+============================================================
+
+RUN DISPOSITION
+---------------
+This is a lead-informed rerun beside, not a replacement for,
+01_claim_extraction.txt. It uses the immutable instruments and locked
+pre-registration recorded in 06_leads_comparison.txt. Leads are hypotheses,
+not findings; each exercised lead received a confirming and disconfirming
+search. Lead 4 is filed but deliberately unexercised because citation-network
+was not rerun.
+
+Target
+------
+Cuihua Shen, Rabindra A. Ratan, Y. Dora Cai, and Alex Leavitt (2016),
+“Do Men Advance Faster Than Women? Debunking the Gender Performance Gap in
+Two Massively Multiplayer Online Games,” Journal of Computer-Mediated
+Communication 21(4): 312–329. DOI: 10.1111/jcc4.12159.
+
+Document type: academic paper.
+
+Retrieval depth
+---------------
+FULL-TEXT-CONFIRMED INDEPENDENTLY FOR THIS RERUN. The complete publisher HTML
+was retrieved again and read, including abstract,
+theory, both studies’ data/measures/analysis/results, discussion, limitations,
+notes, and references. The publisher PDF was also located. The substantive
+locators below use the stable publisher article plus section and distinctive
+paragraph because the HTML is the text actually read.
+
+Publisher article:
+https://academic.oup.com/jcmc/article/21/4/312/4161802
+
+Publisher PDF:
+https://academic.oup.com/jcmc/article-pdf/21/4/312/22316382/jjcmcom0312.pdf
+
+No downstream text was supplied by the user. Field 4 was searched actively.
+
+Instrument preflight: all three rerun instruments were identity-confirmed at
+commit d0f2a6c26ff729f428990b9e6abfd4429a5ba579; the complete line/byte/blob
+ledger is in 06_leads_comparison.txt. The pinned counter-audit expressly names
+internal-validity as Input 4.
+
+Claim that prompted the audit
+------------------------------
+The paper’s central claim that, based on two MMOs, there is no gender-based
+performance disparity and that the apparent disparity is attributable to
+factors confounded with gender rather than gender itself.
+
+
+1. WHAT WAS LITERALLY MEASURED
+============================================================
+
+Study I — EverQuest II (EQ2)
+----------------------------
+
+- Data source and period: Sony Online Entertainment server records from 2006.
+  Player variables were a September 2006 snapshot; activity logs covered
+  January–September 2006. The analysis included characters active at least once
+  on the Guk PvE server during September 4–10, 2006.
+- Population/sample: the paper reports 9,483 active players in the selected
+  week; descriptive/model Ns vary with available variables and the split
+  between guilded and nonguilded characters. In the descriptive table, gender
+  information was available for 6,448 male and 1,513 female players for several
+  measures. Women were 18% of the active sample.
+- Gender variable: voluntarily self-reported demographic gender at profile
+  registration, coded dichotomously (male = 1).
+- Outcomes: attained character level and attained tradeskill level, with all
+  level-70 cases removed because capped characters could not progress further.
+- Main conditioning variable: accumulated character play time from character
+  creation through September 10, 2006. The paper defines this as total seconds
+  the character spent playing the game; it does not restrict the denominator
+  to time spent pursuing character or tradeskill advancement.
+- Model: linear mixed-effects models. Fixed effects were gender, total play
+  time, and gender × total-play-time. Random effects were character class,
+  account ID, and guild ID where applicable. Models were run separately for
+  guilded and nonguilded characters and for character and tradeskill level.
+- Unit of analysis: character observations nested in player accounts; guild and
+  class were additional random effects. The paper often calls these “players,”
+  but explicitly states that most variables are at character level and that an
+  account may contain multiple characters.
+- Operational performance rule: at equal accumulated play time, the character
+  at the higher character/tradeskill level is treated as having advanced faster.
+  This is an inferred conditional slope from an attained-level snapshot, not a
+  directly observed within-character progression trajectory.
+
+Study II — Chevaliers’ Romance III (CR3)
+----------------------------------------
+
+- Data source and period: a five-week website survey in late 2011 plus partial
+  behavioral logs from selected servers for May–September 2010 and
+  December 2011–June 2012.
+- Population/sample: about 18,000 valid survey responses; the main linked
+  behavioral sample was about 2,000 respondents (reported descriptively as
+  1,639 men and 545 women for minimum/maximum level). The model used 90,495
+  level-up event observations. Women were 23.34% of the linked sample.
+- Gender variable: survey self-report, coded dichotomously (male = 1).
+- Outcome: logged-in seconds between a character reaching level n and level
+  n+1, derived algorithmically from login, logout, and level-up timestamps.
+  The paper reports no keyboard/mouse/action-event input and no AFK, idle, or
+  macro filter. That absence is a reporting fact; it is not evidence that AFK
+  time was common or gender-differential.
+- Model: linear mixed-effects models predicting time to level up. Fixed effects
+  were gender and new level, with a second model adding gender × new-level.
+  Random effects were character ID nested in account ID. Character class and
+  guild membership were unavailable and therefore not modeled.
+- Unit of analysis: repeated level-up events nested in characters nested in
+  accounts.
+- Operational performance rule: at the same new level, the character requiring
+  fewer logged-in seconds to reach that level is treated as performing better.
+
+Definition–operationalization check
+-----------------------------------
+
+Central named construct: game performance.
+
+Source’s explicit operational definition (Theory and Prior Research, final
+paragraphs before Study I):
+
+  “We operationalize game performance as a function of character advancement
+  (leveling) and voluntary play time …”
+
+The two study-specific rules are then stated as: (a) higher EQ2 level at equal
+total play time and (b) less CR3 time from level n to n+1.
+
+Actual items/coding rules retrieved:
+
+1. EQ2 attained character level conditional on total character play time.
+2. EQ2 attained tradeskill level conditional on total character play time.
+3. CR3 logged-in seconds between successive level-up events conditional on the
+   new level reached.
+
+Operationalization retrieval basis: ITEMS-RETRIEVED.
+
+Operationalization scope result: coextensive with the paper’s explicit narrow
+definition “speed of character advancement,” but narrower than the paper’s
+unqualified later wording “game performance” or “performance disparity.” The
+map therefore preserves both layers rather than pretending the label and the
+operational definition are identical in scope.
+
+No definitional-scope-creep subtype is entered at this map stage because the
+actual coding rules do track the stated speed-of-advancement definition. The
+construct prosecutor must separately decide whether substituting that defined
+measure for broader game performance is defensible.
+
+Construct-establishment check
+-----------------------------
+
+TRIGGERED. The paper does more than report advancement associations. It states
+that a stereotype is false and “a potential cause for unequal participation,”
+and it describes contextual/cultural factors as the likely explanation. Those
+are wrongness and causal/harm claims.
+
+- PREVALENCE — UNKNOWN. The introduction reports that women are perceived as
+  inferior and cites gender/gaming literature, but neither this paper nor the
+  checked cited abstracts supplied a prevalence estimate for endorsement of the
+  specific belief “women are inferior players.” A full targeted prevalence
+  review was not performed at this stage.
+- FORM — UNKNOWN. Retrieved text does not establish whether the target belief is
+  a coherent strong claim about general ability, a weak average-difference
+  belief, a genre-specific belief, or scattered context-dependent judgments.
+- DOMAIN — ESTABLISHED-REPORTED. The paper’s empirical domain is advancement in
+  EQ2 and CR3. The stereotype language expands to female players/gaming in
+  general, while the limitations explicitly say other genres, including more
+  challenging esports games, may or may not follow the observed pattern.
+- WRONGNESS — ESTABLISHED-REPORTED for the narrow study-sample belief that women
+  advance more slowly under the fitted models; UNKNOWN for a domain-general
+  belief about women’s gaming ability or performance.
+- HARM — ESTABLISHED-CITED, coarse map status only. The paper cites Chan (2008),
+  Vermeulen et al. (2014), and Ratan et al. (2015) for competence, stress,
+  stereotype-threat, and STEM-perception pathways. The checked Chan abstract
+  reports effects in the predicted direction but no statistically significant
+  differences; the retrieved Ratan conference description concerns gendered
+  gaming stereotypes and STEM perceptions. Whether this support is contested
+  or strong enough for the paper’s causal language is deliberately left to the
+  construct prosecutor.
+
+Grade-before-assert
+-------------------
+
+- Specific narrow belief: “Women in the two analyzed samples advance more
+  slowly than men under the paper’s fitted advancement models.”
+  Grade: ESTABLISHED-FALSE within the model/sample boundaries.
+  P2 strength gate: STRONG for that narrow claim only.
+- Specific broad belief: “Women are inferior video-game players in general.”
+  Grade: not established from the retrieved material because “inferior” lacks a
+  fixed outcome/domain and the paper measured only advancement in two MMOs.
+  P2 strength gate: VOID for a domain-general wrongness finding at this stage.
+
+Publication status
+------------------
+
+No corrigendum, correction, retraction, or expression of concern was located.
+The publisher article contains no linked notice, and targeted searches of the
+title and DOI with correction/corrigendum/retraction terms returned none. This
+is a factual publication-record search, not a reception verdict.
+
+
+OPERATOR-SUPPLIED INVESTIGATION REGISTER
+============================================================
+
+Every lead below retains origin OPERATOR-SUPPLIED. “Partially confirmed” means
+the measurement vulnerability or game mechanic was verified while the proposed
+prevalence/differential-distortion claim was not. None is allowed to outrank the
+retrieved paper evidence.
+
+Lead 1 — power-leveling / mentoring / carries (EQ2 character level)
+-------------------------------------------------------------------
+
+- Confirming retrieval: the official EQ2 “New Mentoring System” notice of
+  March 8, 2005 says an apprentice receives an experience bonus, up to five
+  mentors can increase it, and mentors help lower-level allies “advance
+  faster.” The official February 2, 2006 update confirms mentoring remained in
+  the period immediately preceding the paper’s 2006 Guk snapshot. Shen’s game
+  description also states that EQ2 supports collaboration, mentoring, grouping,
+  guild coordination, trade, and quest credit.
+- Disconfirming retrieval: Shen’s EQ2 models split guilded/nonguilded players
+  and include current guild ID as a random effect for guilded characters. This
+  accounts for average clustering by recorded guild but is not an event-level
+  mentoring/group-assistance measure. No solo-only restriction, mentor flag,
+  group-event filter, or assistance-exclusion rule was reported. No retrieved
+  source estimated how common mentoring/power-leveling was on Guk in 2006 or
+  whether access differed by reported gender.
+- Resolution: PARTIALLY CONFIRMED. Socially assisted acceleration was an
+  official game mechanic and was not isolated by the reported operationalization.
+  The stronger claims that it was common, materially biased the estimates, or
+  differed by gender remain UNCONFIRMED and may not anchor severity.
+- Sources:
+  https://www.everquest2.com/news/imported-eq2-enus-396
+  https://www.everquest2.com/news/imported-eq2-enus-699
+
+Lead 2 — AFK / macro / low-engagement time (CR3)
+-------------------------------------------------
+
+- Confirming retrieval: CR3 supplied level-up, login, and logout timestamps;
+  the authors computed seconds between successive levels from those events.
+  The paper reports no action-input stream and no idle/AFK/macro exclusion.
+- Disconfirming retrieval: offline periods can be bounded by login/logout, so
+  this is not elapsed wall-clock time across disconnected sessions. The full
+  Methods, Results, Discussion, Limitations, and Notes were searched for an
+  active-input filter; none was retrieved. The cited Xiong (2012) source was
+  also traced: its retrieved abstract describes the 18,819-person web survey,
+  not the behavioral-log timing algorithm, and supplies no active-time filter.
+  No source was found establishing material AFK/macro prevalence in CR3, much
+  less a gender difference in such time.
+- Resolution: PARTIALLY CONFIRMED. The reported denominator is logged-in
+  session time rather than verified engaged-action time. The hypothesized
+  magnitude and group-differential bias remain UNCONFIRMED.
+- Source:
+  https://academic.oup.com/jcmc/article/21/4/312/4161802
+  (Study II, Data; Measures, “Time to level up”; Limitations)
+  https://doi.org/10.4101/jvwr.v5i2.6282 (ABSTRACT-CONFIRMED; survey only)
+
+Lead 3 — non-leveling activity inside EQ2's total-play-time denominator
+-----------------------------------------------------------------------
+
+Operator clarification after the first with-leads pass: “fishing” was an
+example of time spent on an activity other than racing through character
+levels. The hypothesis was not that fishing raises tradeskill level. The first
+disconfirmation therefore tested the wrong formulation and is superseded.
+
+- Confirming retrieval: Shen defines EQ2 total play time as all seconds a
+  character spent playing from creation to September 10, 2006, then judges the
+  higher-level character at equal total play time to have performed better. The
+  model does not separate time spent killing monsters or completing advancement
+  quests from time spent fishing, gathering, trading, chatting, mentoring, or
+  otherwise pursuing a different in-game goal. Official EQ2 documentation from
+  2005–06 confirms fishing and gathering as ordinary harvesting activities and
+  distinguishes them from character-advancement XP.
+- Disconfirming/self-defense retrieval: the paper calls character advancement
+  the primary goal of many MMO activities, includes tradeskill level to capture
+  a secondary advancement route, and explicitly asks whether men and women
+  pursue different goals. It argues that prior evidence of greater male
+  achievement motivation and greater female social motivation would predict
+  women lagging, so observed female parity would be conservative. That defense
+  is relevant but not an observed activity-allocation test: the paper does not
+  measure which sampled characters were trying to level, how their logged time
+  was divided among activities, or whether those shares differed by gender.
+- Resolution: PARTIALLY CONFIRMED. The denominator demonstrably mixes time on
+  the advancement task with time spent doing other things, so EQ2's inferred
+  slope measures realized advancement per total game time—not leveling ability
+  or performance under a common task and goal. The magnitude and any gender-
+  differential distortion remain UNCONFIRMED. The result may still describe an
+  ecologically real outcome of heterogeneous play choices.
+- Sources:
+  https://academic.oup.com/jcmc/article/21/4/312/4161802
+  https://www.everquest2.com/news/imported-eq2-enus-307
+  https://www.everquest2.com/news/imported-eq2-enus-395
+  https://www.everquest2.com/news/imported-eq2-enus-820
+
+Lead 4 — same-author/adjacent EQ2 social-facilitation literature
+----------------------------------------------------------------
+
+- Resolution: NOT EXERCISED THIS RUN — FILED AND PENDING.
+- Reason: this is a neglected-reference/citation-network question. The user
+  required 04_citation_network.txt to remain verbatim and prohibited resolving
+  this lead inside claim extraction or construct validity. No supporting or
+  disconfirming citation-network search was conducted here.
+
+
+2. STRONGEST CLAIM THE SOURCE ITSELF MAKES
+============================================================
+
+The strongest central performance claim appears in “Gender Performance Gap
+Debunked”:
+
+  “The rigor of our method allows us to debunk the gender gap with confidence:
+  Based on our data from two MMOs, there is no significant gender-based
+  performance disparity.”
+
+The paper then makes two stronger interpretive claims:
+
+- Abstract/conclusion: perceived performance disparities “seem to result” from
+  factors confounded with gender, not gender itself.
+- Abstract/conclusion: “The stereotype of female players as inferior is not
+  only false, but it is also a potential cause for unequal participation in
+  digital gaming.”
+
+The hedges are preserved: “based on our data from two MMOs,” “seem,” and
+“potential.” The paper is less hedged when it calls the answer “indisputably
+negative,” says “controlling for all factors,” and says the former explanation
+(inability/innate differences) is false while contextual explanations are
+likely true.
+
+Verification: FULL-TEXT-CONFIRMED.
+
+
+3. WEAKER DEFENSIBLE CLAIM THE EVIDENCE ACTUALLY SUPPORTS
+============================================================
+
+Among the selected, self-selected EQ2 and CR3 character/account observations
+available in the stated periods, dichotomously self-reported male status did not
+confer a consistent advancement-speed advantage under the authors’ fitted
+mixed-effects models: EQ2 character/tradeskill level conditional on accumulated
+play time, and CR3 logged-in time to the next level conditional on new level.
+
+This reconstruction tracks the ACTUAL ITEMS: attained character/tradeskill
+levels and time between level-up events. It does not substitute “general gaming
+skill,” competitive success, psychomotor ability, strategic performance, or
+participation causation for those items.
+
+Description: author reconstruction from Field 1.
+
+
+4. BROADER CLAIM ATTACHED DOWNSTREAM
+============================================================
+
+Item 4.1 — UC Davis Department of Communication (PR / media layer)
+------------------------------------------------------------------
+
+Provenance: RETRIEVED — ANCHOR-ELIGIBLE.
+
+Title/date: “Are Men Better Gamers Than Women?” May 10, 2017.
+
+Quotation:
+
+  “Results suggest that the perception of women as poor gamers is fueled by
+  other factors besides gender, such as the total amount of play. When they
+  statistically adjusted for such confounding factors, they found that women
+  advance at least as fast as men do in both games.”
+
+Locator:
+https://communication.ucdavis.edu/news/are-men-better-gamers-women
+paragraphs 143–146 in the retrieved page.
+
+Attribution check: the page directly links Shen et al. and the quoted body
+preserves the two-game/advancement scope. The broad interrogative headline is
+packaging, but the body does not attribute a different empirical result to the
+paper. FULL-TEXT-CONFIRMED for both downstream page and source paper.
+
+Item 4.2 — “Women and video games” summary (model/retrieval layer)
+------------------------------------------------------------------
+
+Provenance: RETRIEVED — ANCHOR-ELIGIBLE.
+
+Quotation:
+
+  “Researchers found that, after controlling for confounds such as the amount
+  of play time and guild membership, women players advance at least as fast as
+  men do in two MMOs, the Western EverQuest II and the Chinese Chevaliers’
+  Romance III.”
+
+Locator:
+https://en.wikipedia.org/wiki/Women_and_video_games
+section discussing skill/performance and the 2016 study.
+
+Attribution check: faithful scope. No inflation classified.
+
+Item 4.3 — competitive-gaming/esports chapter restatement
+---------------------------------------------------------
+
+Provenance: RETRIEVED — NOT ANCHOR-ELIGIBLE.
+
+Quotation visible in the retrieved ResearchGate record:
+
+  “In reality, the myth of men being superior to women in terms of skill and
+  gaming performance by their birthright has already been debunked on multiple
+  occasions (Ratan et al., 2015; Ruotsalainen & Friman, 2018; Shen et al.,
+  2016).”
+
+Locator available only to the ResearchGate record/snippet:
+https://www.researchgate.net/publication/389841991_There_Are_No_Women_and_They_All_Play_Mercy_Understanding_and_Explaining_the_Lack_of_Women%27s_Presence_in_Esports_and_Competitive_Gaming
+
+Why not anchor-eligible: the sentence is a joint citation, the complete source
+document/page locator was not retrieved, and the required document-level check
+for whether the authors distinguish the cited sources elsewhere could not be
+completed. It therefore cannot be classified MISATTRIBUTED, ATTRIBUTED
+ELSEWHERE, or SYNTHESIS ATTRIBUTION. It is evidence of a possible broader
+downstream restatement, not an established failure location.
+
+Search-scope note
+-----------------
+
+Targeted searches covered the title, DOI, author-year forms, “found that,”
+“performance,” “skill,” “women gamers,” correction/retraction terms, a same-
+author 2020 follow-on paper, an institutional release, reviews, dissertations,
+and summary pages. No assessment-report or policy use was surfaced. This is a
+scope note, not a claim of exhaustive nonexistence.
+
+
+5. WHERE THE INFLATION BEGINS
+============================================================
+
+Anchoring table
+---------------
+
+| Item | Provenance state | Quotation present? | Locator present? | Attribution cross-source-confirmed, if applicable? | Anchor eligibility |
+|---|---|---|---|---|---|
+| Shen abstract/conclusion/performance claim | RETRIEVED | yes | yes — publisher article, abstract; Discussion “Gender Performance Gap Debunked”; Conclusion | N/A | ELIGIBLE |
+| UC Davis page | RETRIEVED | yes | yes — dated page, paragraphs 143–146 | N/A; direct faithful attribution checked | ELIGIBLE |
+| Women-and-video-games summary | RETRIEVED | yes | yes — named section and URL | N/A; direct faithful attribution checked | ELIGIBLE |
+| Competitive-gaming joint citation | RETRIEVED | yes | no stable document page/section | no — document-level joint-citation check incomplete | NOT ELIGIBLE — locator and cross-source attribution check incomplete |
+
+5A. Within-source component
+----------------------------
+
+The first scope transition occurs in the paper:
+
+  character/tradeskill advancement conditional on observed time/level
+  → “game performance” / “gender-based performance disparity.”
+
+The further inferential transition is:
+
+  conditional associations in selected self-selected samples
+  → the general stereotype is false and is a potential cause of unequal
+    participation.
+
+Failure-location mapping (not a severity verdict): PAPER.
+Verification: FULL-TEXT-CONFIRMED.
+
+5B. Downstream component
+------------------------
+
+No additional downstream failure location is established from the anchor-
+eligible items. The UC Davis headline packages the question broadly, but its
+body restores the advancement/two-game scope; the retrieved general summary is
+also scoped. A broader esports/skill restatement is SUSPECTED, not established:
+its joint citation lacks a complete document-level disambiguation check.
+
+
+CLAIM INVENTORY — COMPLETED BEFORE FIELD 6
+============================================================
+
+| Claim | Quantified? | Why it might be inflated | Selected for Field 6? |
+|---|---|---|---|
+| Women advance at least as fast as men in both studied games under the fitted models. | Yes — coefficients/p-values are reported separately by model. | “Advance” can become “perform” or “are equally skilled” without the leveling definition. | No; this narrower claim remains the empirical base. |
+| “Based on our data from two MMOs, there is no significant gender-based performance disparity.” | Significance language, with model-specific coefficients/p-values in results. | “Performance” can escape the paper’s advancement definition and the two-game samples. | YES. |
+| Perceived disparities seem to result from factors confounded with gender, not gender itself. | No single causal estimate. | Conditional adjustment can be restated as identification of the causal source of the disparity. | No — deferred mechanism/causal claim. |
+| The stereotype of female players as inferior is false. | No domain-general quantity. | A two-MMO advancement result can be restated as disproving any average sex difference in any gaming skill/domain. | No — deferred wrongness claim. |
+| The stereotype is a potential cause of unequal participation in digital gaming. | No causal effect reported in these datasets. | “Potential cause” can become an established causal explanation. | No — deferred harm claim. |
+| Contextual/cultural factors rather than innate inability are likely responsible. | No mechanism estimate. | Candidate explanations can become demonstrated mechanisms. | No — deferred mechanism claim. |
+| Slope/speed of progression is the “real” or effective performance measure. | Partly — operational/model claim. | One task-specific proxy can become the canonical definition of gaming performance. | No — deferred measurement claim. |
+| EQ2 character advancement isolates the focal character’s own performance. | No assistance quantity is reported. | Official mentoring/group mechanics can make attained level socially produced; prevalence and gender differential are unverified. | No — Lead 1 is a construct subproblem nested under Field 6. |
+| CR3 logged-in seconds equal engaged play time. | No active-input measure is reported. | Login-session seconds can include idle time; prevalence and differential bias are unverified. | No — Lead 2 is a construct subproblem nested under Field 6. |
+| EQ2 total play time equals time spent trying to advance character/tradeskill level. | No activity-allocation or goal-engagement quantity is reported. | Total logged play includes fishing, gathering, social, and other activity by players who were not necessarily attempting the same race. | No — corrected Lead 3 is a construct subproblem nested under Field 6. |
+| Same-author/adjacent EQ2 work documents neglected social facilitation. | Unknown. | Could identify a citation omission if verified. | No — Lead 4 FILED/PENDING; citation network not rerun. |
+
+Selection rationale
+-------------------
+
+Field 6 selects the paper’s central, significance-bearing source claim rather
+than a causal mechanism or downstream restatement. It is more precise than the
+domain-general “women are equally skilled” formulation, while still containing
+the construct substitution that this validation run is meant to test. Selecting
+only one claim keeps the three prosecutors aligned. The causal stereotype/
+participation claim is analytically important but deferred to a second chain.
+
+
+6. WHICH CLAIM IS THIS AUDIT EVALUATING?
+============================================================
+
+“Based on our data from two MMOs, there is no significant gender-based
+performance disparity.”
+
+This is the source’s own claim (Field 2), not a downstream restatement.
+
+
+REQUIRED OUTPUT TABLE
+============================================================
+
+| Field | Content | Verification state |
+|---|---|---|
+| 1. Literally measured | EQ2 attained character/tradeskill level conditional on accumulated character play time in selected active Guk-server characters; CR3 logged-in seconds between level-up events conditional on new level in a survey-linked selected-server sample; mixed-effects models with the stated nesting/random effects. | FULL-TEXT-CONFIRMED |
+| 2. Source’s strongest claim | “Based on our data from two MMOs, there is no significant gender-based performance disparity.” The paper also says perceived disparity “seem[s]” confounded and the stereotype is false and a “potential” cause. | FULL-TEXT-CONFIRMED |
+| 3. Weaker defensible claim | In the selected samples and fitted models, dichotomously self-reported male status did not confer a consistent advantage on the retrieved advancement items. | author reconstruction from Field 1 |
+| 4. Downstream claim | Institutional and summary items retrieved mostly preserve the two-game advancement scope. One joint-cited esports/skill restatement is broader but not anchor-eligible. | FULL-TEXT-CONFIRMED for Items 4.1–4.2; PROVISIONAL for 4.3 attribution |
+| 5A. Within-source inflation point + failure location | Advancement-speed items → unqualified “performance disparity”; observational conditional result → broad wrongness/causal language. PAPER. | FULL-TEXT-CONFIRMED |
+| 5B. Downstream inflation point + failure location | None established from anchor-eligible items. Broader esports/skill restatement SUSPECTED only; joint-citation check incomplete. | PROVISIONAL for suspected item |
+| 6. Claim under audit | “Based on our data from two MMOs, there is no significant gender-based performance disparity.” | FULL-TEXT-CONFIRMED |
+
+Operator-lead attachment to the claim map
+-----------------------------------------
+
+| Lead | Map attachment | Resolution | Permitted downstream use |
+|---|---|---|---|
+| 1 — assisted EQ2 leveling | Field 1 EQ2 character-level item; Field 6 proxy bridge | PARTIALLY CONFIRMED | Construct may test whether the item isolates individual performance; may not assert prevalence, effect magnitude, or gender differential. |
+| 2 — CR3 idle/AFK time | Field 1 CR3 time item; Field 6 proxy bridge | PARTIALLY CONFIRMED | Construct may distinguish logged-in session time from engaged-action time; may not assert AFK prevalence or differential bias. |
+| 3 — non-leveling activity in EQ2 total play time | Field 1 EQ2 denominator and Field 6 proxy bridge | PARTIALLY CONFIRMED after operator clarification | Construct may distinguish realized advancement per total game time from performance under equal leveling engagement; may not assert effect magnitude or gender-differential bias. |
+| 4 — neglected social-facilitation literature | Potential Field 5B/citation layer | NOT EXERCISED — FILED/PENDING | Preserve for a future citation-network rerun only. |
+
+
+REQUIRED CONSTRUCT-SIDE HANDOFF SUB-SCHEMA
+============================================================
+
+| Check | Object | Retrieval status / basis | Result | Verification state | Evidence |
+|---|---|---|---|---|---|
+| Construct establishment | PREVALENCE | UNKNOWN | No prevalence estimate for endorsement of the specific inferiority belief was established. | PROVISIONAL | Full introduction read; selected cited abstracts checked, but no complete prevalence review. |
+| Construct establishment | FORM | UNKNOWN | Strong/general versus weak/contextual form of the belief is not established. | PROVISIONAL | The paper uses broad stereotype language without an itemized belief measure. |
+| Construct establishment | DOMAIN | ESTABLISHED-REPORTED | Empirical domain is advancement in EQ2/CR3; rhetoric extends to female gamers/digital gaming; limitations say other genres may differ. | FULL-TEXT-CONFIRMED | Theory, Discussion, Limitations. |
+| Construct establishment | WRONGNESS | ESTABLISHED-REPORTED | Narrow slower-advancement belief is contradicted under fitted models; domain-general inferiority belief remains ungraded. | FULL-TEXT-CONFIRMED for narrow result; PROVISIONAL beyond it | EQ2 Tables 2–3; CR3 Table 5; Discussion. |
+| Construct establishment | HARM | ESTABLISHED-CITED | Prior studies are cited for competence/stress/STEM-perception pathways; strength and reception not yet adjudicated. | ABSTRACT-CONFIRMED for checked cited support | Chan abstract; Ratan conference description; paper’s cited discussion. |
+| Definition-operationalization | game performance / speed of advancement | ITEMS-RETRIEVED | coextensive with the explicit speed-of-advancement definition; narrower than unqualified “game performance” wording | FULL-TEXT-CONFIRMED | EQ2 and CR3 Measures/Analysis sections. |
+| Operator lead 1 | assisted EQ2 character advancement | PAPER + OFFICIAL-MECHANIC RETRIEVAL | permitted mentoring can accelerate apprentices; reported models do not isolate event-level help; prevalence/gender differential unresolved | FULL-TEXT-CONFIRMED for paper; LOCATED for official period notices | EQ2 architecture/measures/models; official 2005 and 2006 mentoring notices. |
+| Operator lead 2 | CR3 engaged-time denominator | ITEMS-RETRIEVED | login/logout/level events reported; no action-event/idle filter reported; AFK prevalence/differential unresolved | FULL-TEXT-CONFIRMED | CR3 Data/Measures/Limitations. |
+| Operator lead 3, corrected | activity-allocation content of EQ2 total play time | ITEMS-RETRIEVED + OFFICIAL-MECHANIC RETRIEVAL | total seconds are not decomposed into advancement-directed and other play; goal difference is acknowledged and directionally defended but not measured | FULL-TEXT-CONFIRMED for paper and official period notices | EQ2 Total play time, Performance, Discussion “different goals”; official fishing/harvesting notices. |
+| Operator lead 4 | possible neglected citation | NOT EXERCISED | filed and pending; citation-network territory | PROVISIONAL | No search permitted in this partial rerun. |
+| Grade-before-assert | women advance more slowly in these fitted study samples | paper full text/models retrieved | ESTABLISHED-FALSE | FULL-TEXT-CONFIRMED | P2: STRONG for narrow model/sample claim only. |
+| Grade-before-assert | women are inferior gamers generally | insufficient domain-specific retrieved grading | no valid grade | PROVISIONAL | P2: VOID; drop domain-general wrongness finding at this stage. |
+
+
+HANDOFF LINES
+============================================================
+
+CLAIM UNDER AUDIT: “Based on our data from two MMOs, there is no significant
+gender-based performance disparity.”
+
+WITHIN-SOURCE FAILURE LOCATION: paper — FULL-TEXT-CONFIRMED.
+
+DOWNSTREAM FAILURE LOCATION: none established; one broader joint-cited item is
+suspected only — RETRIEVED but PROVISIONAL and not anchor-eligible.
+
+GAP TYPE: source overclaims in construct scope; no additional downstream
+inflation established from eligible items.
+
+LEAD HANDOFF: Lead 1 PARTIALLY CONFIRMED (mechanic/reporting gap confirmed;
+prevalence and gender differential unconfirmed); Lead 2 PARTIALLY CONFIRMED
+(session-time/engaged-time distinction confirmed; prevalence and differential
+bias unconfirmed); corrected Lead 3 PARTIALLY CONFIRMED (activity-allocation
+mixing confirmed; magnitude and gender differential unconfirmed); Lead 4
+FILED/PENDING and barred from this construct run.
+
+MAP CONFIDENCE: moderate-high for the paper/measurement map; moderate for the
+downstream map. Full citing-document retrieval and a broader citation-context
+sample would raise downstream confidence.
+
+
+LABEL-VERIFICATION WATCH
+============================================================
+
+Every RETRIEVED downstream item above includes an actual quotation and URL.
+Item 4.3 lacks a stable source-document page/section and is therefore explicitly
+NOT ANCHOR-ELIGIBLE; it has not been silently upgraded. No RECALLED item is used
+to anchor Fields 5 or 6.
+
+
+CLAIM-INVENTORY WATCH
+============================================================
+
+The new inventory was analytically useful. It separated the selected
+performance-disparity claim from at least four distinct deferred claims:
+confounding/causal explanation, stereotype wrongness, participation harm, and
+the assertion that progression slope is the real performance measure. Those are
+not filler rows: they have different evidence bases and would produce different
+prosecutor chains.
+
+In this rerun it also prevented hypothesis laundering: Leads 1 and 2 attach to
+the actual EQ2-character and CR3-time items with explicit caps. The operator's
+post-run clarification showed that Lead 3 had initially been attached to the
+wrong item; the corrected lead now binds to the total-play-time denominator,
+while its unverified magnitude and gender differential remain capped. Lead 4
+remains visible without being forced into a stage that did not test it.

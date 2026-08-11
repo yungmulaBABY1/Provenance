@@ -1,0 +1,149 @@
+SHEN PARTIAL RERUN WITH OPERATOR-SUPPLIED LEADS
+INSTRUMENT PREFLIGHT, LOCKED PREREGISTRATION, AND COMPARISON
+============================================================
+
+RUN DATE
+--------
+2026-08-10 (America/Los_Angeles)
+
+IMMUTABLE INSTRUMENT IDENTITY (TOOL-004)
+============================================================
+
+Repository: yungmulaBABY1/Provenance
+
+Current main was confirmed through the repository's descending commit history,
+not inferred from a rendered prompt page. The current main commit was:
+
+d0f2a6c26ff729f428990b9e6abfd4429a5ba579
+
+Line counts are newline counts in the repository payload. Byte counts are the
+UTF-8 repository payload counts. “markers” means explicit embedded instrument-
+identity/sentinel markers such as TOOL-004 or START/END marker strings; none
+were present. Identity was confirmed by immutable commit, exact path, title,
+and blob SHA.
+
+INSTRUMENT PREFLIGHT: prompts/1-claim-extraction.txt @ commit d0f2a6c26ff729f428990b9e6abfd4429a5ba579 | 916 lines | 38632 bytes | markers ABSENT | IDENTITY CONFIRMED
+Blob SHA: 7ae034cf68e4c617a41419027a793ecf74bce928
+
+INSTRUMENT PREFLIGHT: prompts/research-analysis/2-construct-validity.txt @ commit d0f2a6c26ff729f428990b9e6abfd4429a5ba579 | 1092 lines | 36326 bytes | markers ABSENT | IDENTITY CONFIRMED
+Blob SHA: b9c31b80bc2da1507c685bd553aa867d1296fd78
+
+INSTRUMENT PREFLIGHT: prompts/research-analysis/3-counter-audit.txt @ commit d0f2a6c26ff729f428990b9e6abfd4429a5ba579 | 793 lines | 36811 bytes | markers ABSENT | IDENTITY CONFIRMED
+Blob SHA: 2f6101694e01e05034927f088acb62cbd944226b
+
+Corrected-counter confirmation: PASSED. The pinned counter-audit declares
+“Internal-validity audit output” as named Input 4 and requires supplied internal
+findings to receive E0 and G2 rows. No VERSION COLLISION — UNRESOLVED result
+occurred.
+
+
+LOCKED PRE-REGISTERED EXPECTATIONS — WRITTEN BEFORE PAPER/LEAD RETRIEVAL
+============================================================
+
+The following expectations are fixed and must not be revised after retrieval:
+
+- Lead 1 will probably be PARTIALLY CONFIRMED: assisted/power-leveling is likely
+  a real possible EQ2 progression path and Shen probably does not screen it,
+  but this run is unlikely to retrieve a period/server prevalence estimate or
+  show a gender differential. It should refine the social-production confound,
+  not independently establish a major new finding.
+- Lead 2 will probably be PARTIALLY CONFIRMED: CR3 appears likely to use raw
+  logged-in session time rather than input/action-filtered engaged time, but
+  actual AFK/macro prevalence and group differences will probably remain
+  unestablished. The measurement vulnerability may be confirmed while the
+  proposed empirical distortion remains unconfirmed.
+- Lead 3 is the most likely to be DISCONFIRMED or substantially reformulated.
+  It is unclear before retrieval whether fishing/gathering actually advances
+  EQ2 tradeskill level rather than a separate harvesting skill. Even if
+  crafting is repetitive, the specific fishing-to-tradeskill mechanism may not
+  survive.
+- I expect construct-validity's overall USEFUL-FOR-NARROWER / grade-C result to
+  remain unchanged. The confound table and item-specific proxy analysis will
+  likely become more precise, but the leads probably will not erase the useful
+  advancement residual or create an independent fatal construct lever.
+- I expect the corrected counter-audit's bottom-line category to remain MIXED:
+  construct criticism narrowed/refined, exact Field 6 still invalid because of
+  the unchanged internal-validity findings. A verdict movement would require a
+  lead to become load-bearing after both confirming and disconfirming searches.
+
+LOCK: The text above was written before independent paper retrieval or any
+supporting/disconfirming lead search in this rerun.
+
+
+ACTUAL OUTCOME — APPEND AFTER ALL THREE RERUN STAGES
+============================================================
+
+The first delivered pass appeared to match the pre-registration on Lead 3 only
+because the lead's original wording was interpreted as a claim that fishing
+directly advanced tradeskill level. The operator then clarified that the actual
+hypothesis concerned non-leveling activity inside the total-play-time
+denominator. The initial Lead-3 disposition is therefore superseded, not
+retained as the result of testing the intended hypothesis.
+
+- Lead 1 landed at PARTIALLY CONFIRMED: official 2005–06 EQ2 documentation
+  verifies that mentors could grant apprentices bonus XP and accelerate their
+  advancement, and Shen reports no event-level assistance filter. No retrieved
+  source established 2006 Guk prevalence, coefficient impact, or a gender
+  differential.
+- Lead 2 landed at PARTIALLY CONFIRMED: Shen’s CR3 method uses login/logout/
+  level-up events and reports no action-input/idle filter. Offline time is
+  bounded, but AFK/macro prevalence and differential bias were not established.
+- Corrected Lead 3 landed at PARTIALLY CONFIRMED: EQ2 attainment is conditioned
+  on all character play seconds since creation, not measured time spent trying
+  to level, and official period documentation confirms that fishing and other
+  harvesting were ordinary activities. The paper anticipates different player
+  goals and argues their expected direction would make parity more robust, but
+  it does not measure actual activity allocation, advancement-directed time,
+  magnitude, or a gender differential.
+- Construct-validity remained USEFUL-FOR-NARROWER, grade C. The overall major
+  proxy row CV-1 did not escalate. Three new item-specific, nested rows were
+  added: CV-5 (EQ2 social production/individual attribution, Lead 1) and CV-6
+  (CR3 login-session versus engaged-action time, Lead 2), plus CV-7 (EQ2 total
+  play time versus advancement-directed time, corrected Lead 3). Each is
+  moderate, NARROWS, and explicitly barred from asserting observed gender bias.
+  CV-5 and CV-7 are nested under CV-1/CV-3; CV-6 under CV-1.
+- The counter-audit’s bottom-line verdict did not move relative to
+  05_counter_audit_v3_all_prosecutors.txt: category F — MIXED; construct
+  criticism is more precise but not more severe, while unchanged IV-1/IV-2
+  still make exact Field 6 invalid because significant interactions coexist
+  with blanket “no significant disparity” wording and no equivalence design.
+  Citation-network remains unchanged: specific downstream mutation, ordinary
+  clustering, no functional closure, cartel, or suppression finding.
+- E0/G2 handoff was completed for all three new construct findings. E0 NARROWED
+  CV-5 because Shen openly describes social architecture and controls current
+  guild clustering but does not isolate event-level help; CV-6 was UNAFFECTED
+  because disclosure of login/logout timing does not establish engaged-action
+  time; CV-7 was RECHARACTERIZED because Shen anticipates different goals and
+  gives a directional defense but does not measure actual activity allocation.
+  G2 found all three directly aimed at Field 6, then consolidated them as nested
+  descendants of CV-1 rather than independent severity votes.
+- Lead 4 remains FILED AND UNEXERCISED, pending a future citation-network
+  rerun. No same-author/adjacent-literature search was smuggled into Stage 1,
+  construct-validity, or counter-audit.
+
+
+PER-LEAD RESOLUTION — REQUIRED ONE-LINE LEDGER
+============================================================
+
+Lead 1 — PARTIALLY CONFIRMED.
+
+Lead 2 — PARTIALLY CONFIRMED.
+
+Lead 3 — PARTIALLY CONFIRMED (corrected activity-allocation formulation; the
+initial tradeskill-path disposition is superseded).
+
+Lead 4 — NOT EXERCISED; FILED AND PENDING.
+
+
+BOTTOM LINE
+============================================================
+
+The leads improved construct diagnosis but did not change its grade or the
+terminal verdict. The useful residual is now more exact: the study supports no
+consistent male advantage on socially situated EQ2 advancement per total
+character play time and CR3 login-session-timed advancement in the analyzed
+samples/models. It does not isolate individual contribution, comparable
+leveling-directed effort, verified active-play efficiency, or multidimensional
+game performance. The stronger reason exact Field 6 fails is still internal,
+not construct: the unchanged reported interaction structure and absence of an
+equivalence test.
