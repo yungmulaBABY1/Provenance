@@ -21,13 +21,13 @@ recorded, mark it UNKNOWN rather than reconstructing it\.
 
 |Metric                                   |Count      |Notes                                                                           |
 |-----------------------------------------|-----------|--------------------------------------------------------------------------------|
-|Total runs logged                        |42         |23 research rows and 19 media rows                                              |
-|Distinct sources audited                 |6          |MBH98, Donovan et al., Madison, Seattle, Ceuta, and the closed synthetic fixture|
+|Total runs logged                        |44         |25 research rows and 19 media rows                                              |
+|Distinct sources audited                 |7          |MBH98, Donovan et al., Gabarrell-Pascuet et al., Madison, Seattle, Ceuta, and the closed synthetic fixture|
 |Runs returning “nothing of consequence”  |1          |claude-mhb-1, GAP TYPE “neither apparent”                                       |
-|Upstream findings killed downstream      |8          |see KILLS below                                                                 |
+|Upstream findings killed downstream      |9          |see KILLS below                                                                 |
 |Checks that have never altered an outcome|see DORMANT|                                                                                |
 
-**OVERFIT WARNING:** 19 of 42 logged rows are one paper\. MBH98 has a same\-author successor, a famous controversy, and an assessment\-report trail\. The attribution apparatus remains heavily shaped by that case\. Donovan et al\. adds a second research target, while Madison, Seattle, Ceuta, and the closed fixture broaden the media branch\. The next research targets should test whether the specialized fields and gates return cleanly empty outside those two paper families\.
+**OVERFIT WARNING:** 19 of 44 logged rows are one paper\. MBH98 has a same\-author successor, a famous controversy, and an assessment\-report trail\. The attribution apparatus remains heavily shaped by that case\. Donovan et al\. adds a second research target, while Madison, Seattle, Ceuta, and the closed fixture broaden the media branch\. The next research targets should test whether the specialized fields and gates return cleanly empty outside those two paper families\.
 
 ---
 
@@ -45,6 +45,7 @@ The clearest evidence the pipeline works rather than accumulates\.
 |6|The detained teen carried the clearest role-update problem                               |Party enumeration + cross-party trajectory                     |The stronger persistence mismatch was relocated to the deceased suspected gunman remaining inside collective victim/memorial language after role differentiation.                                                                               |
 |7|New York Post BLM / occupation characterization had no evidentiary origin                |Companion Retrieval + contextual-inference ladder              |Expanded retrieval supplied BLM indicators, autonomous-zone self-labeling, access control, organizer participation, and governance evidence. Formal Antifa command remained unverified, so the finding was narrowed rather than simply reversed.|
 |8|Scope-creep finding (MAJOR) - operationalization broader than Donovan’s stated definition|NSF PAR instrument retrieval (R23)                             |Actual battery (PHGV/GARD/BGE) targets discreteness, uniformity, proportion, and strong genetic-causation claims - different items from the GESR-family set the finding assumed. The audit had inferred, not retrieved, the scale content.      |
+|9|Auditor prediction that the operationalization was COEXTENSIVE|Item retrieval (Sol run, R24)|The pre-run oracle reasoned that dimensional correspondence (Weiss two-factor definition ↔ DJGLS two-subscale instrument) settled the def-op question without needing item wordings. Retrieved items show 5 of 6 emotional-subscale items exceed the stated definition. Same mechanism as FAIL-CV-004, committed by the auditor rather than the audit.|
 
 Do not increment KILLS for FAIL\-MB\-018 merely because a finding present in an
 older prompt version disappears under the repaired instrument\. The KILLS table
@@ -125,6 +126,13 @@ semantic gate, not by FAIL\-MB\-016\.
 |R21|08-01|claim map + construct-validity             |+ scope-creep own-row repair   |unspecified / relayed|same                                                                                    |C/D hybrid|scope-creep own row; concede test NARROWS                  |Scope creep elevated to primary MAJOR. Operator follow-up triggered design of the construct-establishment check (FAIL-CV-002).                                                                                                           |
 |R22|08-02|claim map + construct-validity             |+ construct-establishment check|unspecified / relayed|same                                                                                    |C/D hybrid|construct-establishment check; all five properties ASSERTED|**Over-fired.** Rated major/fatal off abstract-only retrieval while its own metadata admitted full text could overturn it. Triggered FAIL-CV-003.                                                                                        |
 |R23|08-02|manual retrieval check (not a prompt stage)|n/a - web verification         |Claude               |n/a                                                                                     |n/a       |external verification, not a prompt mechanism              |NSF PAR open-copy retrieval of predecessor-paper instruments (PHGV/GARD/BGE). Harm-in-effect and prevalence flipped ASSERTED -> ESTABLISHED-CITED. Scope-creep finding did not survive the actual instrument text. Triggered FAIL-CV-004.|
+
+### Research branch \- Gabarrell\-Pascuet et al\. 2024 \(loneliness\)
+
+|#|Date|Stage|Prompt ver|Model|Field 6|Verdict|Checks that fired|Notes|
+|---|---|---|---|---|---|---|---|---|
+|R24|08-08|claim map + construct-validity|commit 955c1d9|Sol|Quantified temporal claim: emotional loneliness -0.84 on 0-6 (2.62→1.78, p<0.01)|USEFUL-FOR-NARROWER; no DEFEATS; residual C|def-op ITEMS-RETRIEVED → **broader** (scope creep); proxy (content/keying confound); omitted confound; ignored adjacent literature; citation laundering ×2 (CROSS-SOURCE-CONFIRMED)|Retrieved all 11 DJGLS items + Spanish psychometrics (Tomás 2017) + 2026 Czech replication. Found 5 of 6 “emotional” items exceed the paper's attachment/intimacy definition, AND that the emotional facet is perfectly confounded with negative keying. Declined to double-count Findings 1–2 as independent levers.|
+|R25|08-08|claim map + construct-validity|commit 955c1d9 (TRUNCATED — see TOOL-005)|Claude|same claim, same Rule 2 selection|INVALID as causal claim; residual C; 1 DEFEATS + 2 material narrowings|DEFEATS on absent counterfactual; F4 power-vs-outcome finding|Sharpest finding was F4: sample size powered for ≥1.7-unit difference (SD 2.33, consistent with the 0–11 global score); the reported significant result is 0.84 on the 0–6 emotional subscale, one of seven outcome families, no multiplicity adjustment, no pre-specified primary endpoint. Construct-establishment returned mostly UNKNOWN — citations read as citations, not fetched (honest per [P1]).|
 
 ### Media branch \- Madison / Corey Ruiz, Ceuta, and Seattle
 
@@ -246,6 +254,19 @@ semantic gate, not by FAIL\-MB\-016\.
     optimization\. Optimization should therefore be justified primarily by drift
     reduction, output clarity, or an identified execution\-cardinality mechanism,
     not by prompt size alone\.
+
+17. **The retrieve\-don't\-infer failure is executor\-agnostic\.** It has now been
+    observed in the audit \(FAIL\-CV\-003/004\), in a prompt\-review model, and in
+    the auditor writing the pre\-run oracle for this test\. Dimensional or
+    structural correspondence is not a substitute for item retrieval\.
+
+18. **Selective non\-firing is demonstrated; clean acquittal is not\.** The Sol run
+    declined on construct\-establishment \(not triggered\), P2 \(VOID\),
+    level\-of\-analysis, ecological validity, weak/fatal proxy, premise
+    laundering, intervention ratchet, institutional gap, and motive claim, and
+    refused to double\-count two findings sharing one mechanism\. That is dense
+    differential behavior\. But no research\-branch run has yet returned a clean
+    result, so the acquittal question remains open\.
 
 ### Regression case note
 

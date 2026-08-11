@@ -125,6 +125,54 @@ python3 prompts/research-analysis/check-citation-network-output.py audit-output.
 
 It checks required structure and gate behavior, not substantive correctness\.
 
+## Choosing a model for a manual run
+
+Written vendor\-neutral so it stays useful as model names change; the concrete
+mapping below is one example, current as of 2026\-08\.
+
+### Match reasoning effort to the stage, not to the document
+
+Reasoning effort should scale with ADJUDICATION LOAD, not with source length\. The
+stages differ sharply on this, and over\-provisioning is expensive in wall\-clock
+time without improving the output\.
+
+|Stage|Effort tier|Why|
+|---|---|---|
+|Claim map (1-claim-extraction)|mid-to-high|Extraction and disciplined scope selection. Bounded, largely mechanical: read the source, fill the fields, apply the Rule 1/Rule 2 selection. Extra effort does not buy more discipline here — the rules do that.|
+|Prosecutors (construct / internal / citation-network)|high|Sustained retrieval plus adversarial argument against a fixed object. Retrieval depth is the binding constraint, not raw reasoning.|
+|Whole sequence in one model|high|Default when running end to end.|
+|Counter-audit, contested adjudication, final synthesis|max|Reserve the top tier for stages that genuinely weigh competing findings against each other. This is the only place prolonged reasoning changes the answer.|
+
+Example mapping \(ChatGPT tiers, 2026\-08\): claim map → Terra High; prosecutors →
+Sol High; whole sequence → Sol High; counter\-audit / synthesis → Sol Max\.
+
+COST NOTE, observed: a construct\-validity run executed at max effort took \~25
+minutes\. The same stage at high effort is materially faster and, in the runs
+logged here, not visibly worse\. Max effort on a prosecutor stage is a poor trade
+— prosecutor quality is dominated by what was retrieved, not by how long the
+model deliberated\.
+
+Running several audits in parallel is a good reason to drop a tier, not a reason
+to raise one\.
+
+### Why the sequence is worth splitting across models
+
+Multi\-model runs have repeatedly surfaced failures a single model could not:
+the same input has produced divergent independence counts \(FAIL\-MB\-008\),
+flipped amplification verdicts \(FAIL\-MB\-009\), and flipped construct verdicts
+\(FAIL\-CV\-005\)\. Where two models on the same object disagree, the disagreement
+is itself the finding — it usually locates an unspecified convention in the
+prompt rather than a difference of evidence\.
+
+### Retrieval matters more than model choice
+
+Every construct\-side check is gated on what was actually fetched\. An abstract\-
+only run will not produce a weaker version of a full\-text audit; it produces a
+differently\-wrong one \(FAIL\-CV\-003\)\. If the instruments, the introduction, and
+the cited establishment literature cannot be retrieved, say so and let the
+findings cap at PROVISIONAL rather than substituting background knowledge\.
+
+
 ## Repository map
 
 |Path                                                                          |Role                                                               |

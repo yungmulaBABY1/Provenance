@@ -468,6 +468,18 @@ for comparison\.
 Individual findings have been cleared; no paper has\. This is the acquittal
 test and it is the one validation the toolkit has never had\.
 
+&#91; &#93; CAND\-006 construct\-side acquittal test — ATTEMPTED, NOT ACHIEVED\. The
+chosen target \(Gabarrell\-Pascuet et al\. 2024\) turned out to have a genuine
+construct problem: definitional scope creep plus a content/keying confound\. The
+next attempt needs a target vetted at ITEM level before the run, not at
+dimensional level\. NOTE: the CAND\- register itself is not in this repository
+yet, so this label is pending reconciliation rather than resolvable\.
+
+&#91; &#93; Settle the FAIL\-CV\-005 scope boundary before the next acquittal attempt\.
+Two models on the same source and the same Field 6 claim returned incompatible
+verdicts on a scope convention rather than on evidence\. A verdict that flips on
+convention makes any acquittal result unfalsifiable\.
+
 ## DEFERRED — not v1
 
 Tool 2 field\-context generator \(built: field\_context\_generator\_v2\.txt, unrun\)
