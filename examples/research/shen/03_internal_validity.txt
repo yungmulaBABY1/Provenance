@@ -1,0 +1,573 @@
+SHEN FULL-CHAIN SEQUENTIAL RUN
+STAGE 2B — INTERNAL-VALIDITY PROSECUTOR (FIRST RUN OF THIS INSTRUMENT)
+============================================================
+
+INDEPENDENCE DECLARATION
+------------------------
+This prosecutor received only the Shen full text and the unchanged Stage 1
+claim map. It did not receive or read either of the other Stage 2 prosecutors'
+findings. The output below therefore does not borrow construct-validity or
+citation-network conclusions.
+
+RETRIEVAL DEPTH AND DATA-HONESTY BASELINE
+-----------------------------------------
+Shen et al. (2016) is FULL-TEXT-CONFIRMED. I read the complete publisher HTML,
+including theory, both studies' data/measures/models/results, discussion,
+limitations, notes, and references. Design and analysis statements below are
+reported in that paper unless a row says otherwise.
+
+Publisher source:
+https://academic.oup.com/jcmc/article/21/4/312/4161802
+
+Reception checks were targeted rather than exhaustive: publisher correction
+notices, title/author searches for replications and reanalyses, PubPeer-style
+post-publication flags, and public data/code records were searched. No direct
+replication, reanalysis, public data/code package, correction, retraction, or
+expression of concern was located. Those are search results, not proof of
+nonexistence, and are labeled PROVISIONAL or RECEPTION-CONFIRMED only to the
+extent stated. A same-author World of Tanks study was retrieved at abstract
+level; it is a conceptual follow-on using a different game and outcome, not a
+direct replication.
+
+
+MANDATORY VERBATIM HANDOFF FROM STAGE 1
+============================================================
+
+FIELD 3 — WEAKER DEFENSIBLE CLAIM (VERBATIM)
+
+“Among the selected, self-selected EQ2 and CR3 character/account observations
+available in the stated periods, dichotomously self-reported male status did not
+confer a consistent advancement-speed advantage under the authors’ fitted
+mixed-effects models: EQ2 character/tradeskill level conditional on accumulated
+play time, and CR3 logged-in time to the next level conditional on new level.”
+
+FIELD 6 — CLAIM UNDER AUDIT (VERBATIM)
+
+“Based on our data from two MMOs, there is no significant gender-based
+performance disparity.”
+
+Claim under audit (map Field 6): quoted verbatim immediately above.
+
+What was literally measured (map Field 1): EQ2 attained character/tradeskill
+level conditional on accumulated character play time in selected active Guk-
+server characters; CR3 logged-in seconds between level-up events conditional on
+new level in a survey-linked selected-server sample; mixed-effects models with
+the stated nesting/random effects.
+
+Weaker defensible claim (map Field 3): quoted verbatim immediately above.
+
+Target layer: source claim.
+
+
+FIRST-RUN DIAGNOSTIC
+============================================================
+
+This prompt produced a non-generic, load-bearing result. The exact Field 6
+wording says there is “no significant” disparity, but the paper itself reports
+significant gender-dependent disparities:
+
+1. EQ2 Table 3: the play-time × male interaction for character level among
+   non-guilded characters is beta = -0.008, p < .001 (the paper interprets the
+   slope as women leveling faster there).
+2. CR3 Table 5: new level × male is beta = -8.289, p < .001. The paper says the
+   fitted gender difference changes direction at approximately level 15, after
+   which men take less logged-in time per level than women.
+
+These are not external mechanics planted into the audit. They are the paper's
+reported coefficients and interpretation. They do not show one uniform male
+advantage; they do defeat the literal blanket statement that there is no
+statistically significant gender-based disparity. The equality/no-disparity
+language also rests partly on nonsignificant coefficients without confidence
+intervals, an equivalence margin, or an equivalence/noninferiority test.
+
+
+SECTION A: DATA GENERATION AUDIT
+============================================================
+
+A1. Collection and design
+-------------------------
+
+EQ2 is an observational analysis of Sony Online Entertainment administrative
+logs plus account-level demographics. The population was the Guk player-versus-
+environment server, and “active” meant playing at least once during September
+4–10, 2006. Outcomes and covariates were drawn from a September snapshot and
+January–September activity logs. The paper reports 9,483 active players; the
+analysis uses substantially fewer observations where variables are complete.
+Gender was dichotomous and self-reported.
+
+CR3 combines a late-2011 online survey (about 18,000 valid respondents) with
+partial administrative logs from selected servers and noncontiguous periods
+(May–September 2010 and December 2011–June 2012). Roughly 2,000 respondents
+could be linked; the multilevel model uses 90,495 level-up events. Gender was
+dichotomous and self-reported.
+
+Both studies are observational. The central fitted associations are generally
+described as conditional comparisons, but the discussion's explanation that
+apparent disparity is confounded by play time and motivation approaches causal
+language not identified by random assignment.
+
+A2. Selection
+-------------
+
+EQ2 selects one server, current active characters, and surviving accounts. It
+does not represent people who never entered, left before the active window, or
+played on other servers/games. CR3 first selects voluntary survey respondents,
+then those on log-covered servers/time windows who supplied linkable account
+information. The paper itself notes severe gender imbalance and the possibility
+that women who self-select into these games are unusually experienced or strong
+players. That is a directional threat to population-level equality claims.
+
+A3. Missingness
+---------------
+
+EQ2 reports different Ns across descriptives/models but does not give a complete
+missing-data flow or an MCAR/MAR/MNAR analysis. CR3's link from about 18,000
+valid responses to roughly 2,000 logged accounts is a large observed attrition/
+coverage step. The paper compares the linked sample with the full survey mainly
+on gender proportion, which is insufficient to establish ignorable missingness
+for performance-related traits. Missingness mechanism is therefore unknown and
+plausibly related to server, tenure, survey completion, linkage, or activity.
+
+A4. Incentives
+--------------
+
+The paper reports academic research using company-provided behavioral records;
+no result-contingent sponsor incentive is reported. The platform's logging and
+server-coverage decisions nonetheless determine what is observable. Incentive
+risk is low-to-moderate, while measurement/coverage dependence on the platform
+is material.
+
+A5. AI-specific checks
+----------------------
+
+N/A to the 2016 analysis: no AI-assisted analysis is reported. For this audit,
+the adversarial check was run against the retrieved tables and prose. It
+surfaced the mismatch between the blanket “no significant” sentence and the
+significant interactions.
+
+| Data source | Collection method | Selection bias risk | Missingness pattern | Incentive structure risk | AI-analysis check run |
+|---|---|---|---|---|---|
+| EQ2 account/character logs and self-reported account gender | Retrospective observational platform records; one PvE server; active-week filter | High for general-player inference; moderate for the selected-server association | Quantity varies by variable/model; mechanism not reported; cannot classify as MCAR/MAR/MNAR | Low-to-moderate; no reported result-contingent incentive, but platform logging defines observability | N/A to original; Yes for this audit |
+| CR3 survey linked to partial server logs | Voluntary survey plus retrospective/prospective-to-survey log coverage across noncontiguous periods | High: voluntary survey and roughly 2,000 linkable of about 18,000 valid respondents | Large linkage/coverage loss; only limited linked-vs-full comparison; mechanism unknown and plausibly nonrandom | Low-to-moderate; academic study, but coverage/linkage architecture filters the sample | N/A to original; Yes for this audit |
+
+
+SECTION B: PRE-REGISTRATION AND ANALYSIS PLAN
+============================================================
+
+No preregistration or prospective analysis-plan identifier is reported in the
+paper. Targeted title/author searches did not locate one. This means status is
+UNKNOWN / NOT REPORTED, not a claim that no record exists.
+
+The EQ2 analyses follow explicit research questions rather than directional
+hypotheses. Two advancement outcomes are split by guild status, with sex main
+effects and sex × play-time interactions. The paper reports the four focal
+models and notes a level-band sensitivity analysis in Note 1, but does not
+enumerate every model attempted.
+
+The CR3 sex × new-level interaction is expressly introduced as exploratory.
+The paper reports main-effect and interaction models, but there is no registered
+primary contrast or familywise/multiple-testing plan. A simple probability that
+“at least one” test is significant cannot be calculated honestly because the
+number and dependence of all attempted analyses are unknown. If four independent
+tests were the complete family, the nominal probability would be
+1 - .95^4 = 18.5%; that illustration is not an estimate for the actual workflow.
+
+| Pre-registration status | Analysis match | Outcomes tested | Outcomes reported | Post-hoc subgroups | P-hacking risk |
+|---|---|---|---|---|---|
+| Unknown / not reported; no record located in targeted search (PROVISIONAL) | Cannot assess against a plan | At least four focal EQ2 outcome-by-guild models plus CR3 main/interaction models; total attempted unknown | Character level, tradeskill level, CR3 time-to-next-level models and related descriptives | Guild split built into EQ2 reporting; CR3 level interaction explicitly exploratory | Moderate / Cannot assess fully |
+
+
+SECTION C: EFFECT SIZE AND STATISTICAL POWER
+============================================================
+
+The paper reports unstandardized mixed-model coefficients and p-values, not a
+single standardized effect size, confidence interval, smallest effect size of
+interest, or prospective power calculation.
+
+EQ2 Table 3 reports play-time × male interactions of approximately -0.001
+(p=.059) for guilded character level, -0.008 (p<.001) for non-guilded character
+level, -0.001 (p=.135) for guilded tradeskill level, and 0.0002 (p=.871) for
+non-guilded tradeskill level. The coefficient units depend on the paper's play-
+time scale, so practical magnitude cannot be recovered from p-values alone.
+
+CR3 Table 5 reports male = -57.419 seconds (p=.484) in the no-interaction model;
+with the interaction, male = 121.815 seconds (p=.194) and new level × male =
+-8.289 seconds per level (p<.001). Because the interaction model's main male
+coefficient is the contrast when new level equals zero, outside the observed
+leveling range, it is not an average gender difference. The meaningful gender
+contrast is level-specific. The authors report a crossover near level 15.
+
+Large event counts make some slope differences detectable, but 90,495 events
+are clustered within roughly 2,000 respondents/characters; events are not
+90,495 independent people. Power for rejecting exact zero is not power for
+establishing practical equivalence. With no equivalence margin and no intervals,
+the “no disparity” inference has no reported power target.
+
+| Reported effect size | Field typical range | Corrected meta-analysis estimate | Sample size | Estimated power | Winner's curse risk |
+|---|---|---|---|---|---|
+| Unstandardized coefficients above; no standardized effect or CI | Not established from retrieved evidence | No directly applicable meta-analysis located | EQ2: 9,483 active before analysis-specific missingness; reported descriptive/model Ns smaller. CR3: ~2,000 linked, 90,495 clustered events | Cannot calculate from reporting; likely high for some model coefficients, unknown for equivalence/practical thresholds | Low for the p<.001 interaction's sign within this specification; cannot assess magnitude; equality claim not power-defined |
+
+Best current effect estimate: there is no defensible single cross-game “true
+effect” estimate. The retrieved studies report heterogeneous level-, guild-,
+outcome-, and game-specific coefficients. The most direct bounded estimate is
+the reported set above, not a pooled zero.
+
+
+SECTION D: HARKING
+============================================================
+
+The paper poses research questions and predicts/examines whether controls remove
+an apparent gap. No preregistered directional hypothesis was located. The CR3
+interaction is explicitly exploratory, which is appropriate at the point of
+analysis, but the discussion folds its crossover into an “indisputably
+negative” answer and blanket no-disparity language. That is an interpretation
+escalation, not proof of intentional HARKing.
+
+| Hypothesis type | Pre-registered? | HARKing indicators | HARKing risk |
+|---|---|---|---|
+| EQ2 research questions; CR3 interaction expressly exploratory | Unknown / not reported | Flexible RQ framing; exploratory level interaction incorporated into headline; no prospective directional record | Moderate; intent cannot be inferred |
+
+
+SECTION D2: FORKING PATHS / ANALYTICAL-CHOICE MULTIVERSE
+============================================================
+
+No multiverse/specification-curve analysis was located. Robustness is therefore
+UNTESTED except for the specific level-band check reported in Note 1.
+
+| Decision point | Choice made | Pre-specified? | Defensible alternatives | Result under alternatives | Fragility |
+|---|---|---|---|---|---|
+| EQ2 inclusion | Active on Guk during one September week; complete cases by model | Not preregistered; rule reported | Other active windows, servers, tenure thresholds, inverse-probability weighting, missingness models | Unknown | Untested |
+| EQ2 outcome/model | Raw attained level modeled against accumulated play time in linear mixed models; level cap removed | Not preregistered; reported | Progress increments/rates, time-to-level models, nonlinear time, capped-player sensitivity, transformed play time | Level-band sensitivity reportedly similar; most other branches unknown | Mixed / mostly untested |
+| EQ2 guild stratification | Separate guilded/non-guilded models | Not preregistered | Interaction in pooled model, time-varying guild status, matched comparisons | Reported significance differs by guild status, so headline depends on aggregation/contrast | Mixed |
+| CR3 time outcome | Logged-in seconds between observed level events | Not preregistered | Log/survival model for positive skew, censoring-aware model, trim/winsorize, nonlinear level effect | Unknown; diagnostics/transform sensitivity not reported | Untested |
+| CR3 dependency structure | Random intercepts for character nested in account | Not preregistered | Random slopes, autocorrelation by character, robust cluster inference | Unknown | Untested |
+| CR3 gender interpretation | Main-effect model plus linear new-level × male interaction | Interaction called exploratory | Center level at meaningful values, spline/nonlinear interaction, report level-specific contrasts and intervals | The reported interaction already reverses the contrast around level 15; single no-gap summary does not hold across levels | Fragile for blanket wording; model result itself mixed |
+| Covariates | EQ2 includes available class/account/guild structure; CR3 lacks guild/class controls | Not preregistered | Alternative covariate sets, propensity/matching, experience/motivation controls where observed | Unknown | Untested |
+
+Overall forking-path assessment: MIXED for the bounded coefficients and FRAGILE
+for the blanket Field 6 interpretation. The paper's own specification shows a
+level-dependent reversal, while most plausible alternatives were not run.
+
+
+SECTION E: SELECTIVE REPORTING
+============================================================
+
+Registered outcomes cannot be checked because no preregistration was located.
+The focal outcomes and the inconvenient significant crossover are reported,
+which weighs against a crude claim of hidden unfavorable results. The problem is
+selective interpretation: the significant interactions are disclosed but the
+abstract/discussion compress them into “no significant disparity.”
+
+| Outcomes registered | Outcomes reported | Missing outcomes | Subgroup selectivity | Publication bias indicators |
+|---|---|---|---|---|
+| Unknown / none located | Both EQ2 advancement outcomes, guild splits, CR3 event-time models including exploratory interaction | Cannot assess attempted-vs-reported set | Significance varies by guild status and level; both are reported, but headline suppresses the heterogeneity | Published headline is counter-stereotypical rather than a conventional positive main effect; no direct replication set or meta-analysis located; publication bias cannot be estimated |
+
+
+SECTION F: REPLICATION STATUS
+============================================================
+
+Targeted reception search did not locate a direct, preregistered independent
+replication using the same games, sampling frame, operationalizations, and
+models. Ratan, Shen, and Williams (2020), “Men Do Not Rule the World of Tanks,”
+was retrieved from the publisher abstract. It analyzes experience points per
+match in another game and controls prior experience/play time. It is a same-
+author conceptual follow-on, not a direct replication of the EQ2/CR3 estimates.
+
+Holl, Wagener, and Melzer (2024) was read in full as a later primary study about
+stereotype threat in video-game performance. It reports no stereotype-threat
+effect on behavioral performance in two experiments (and frustration in one),
+but it does not replicate Shen's observational advancement models.
+
+| Direct replications | Success rate | Pre-registered reps | Independent reps | Meta-analytic estimate | Effect shrinkage | Verification state |
+|---|---|---|---|---|---|---|
+| None located in targeted search; exhaustive count unknown | Not estimable | None located | None located | None directly applicable located | Not estimable | RECEPTION-CONFIRMED for the retrieved follow-on/adjacent study's relation; PROVISIONAL for the negative search claim |
+
+
+SECTION G: DATA AND CODE AVAILABILITY
+============================================================
+
+The article provides no public data/code link or availability statement. A
+targeted title/author/repository search did not locate a package. Proprietary
+game logs may explain nondisclosure but do not enable independent reanalysis.
+The publisher page contains no linked correction, retraction, or expression of
+concern. Targeted searches located no reanalysis or PubPeer record. Each
+negative search is bounded and is not proof that none exists.
+
+| Data available | Code available | Reanalysis attempted | Reanalysis result | PubPeer flags | Corrections issued | Verification state |
+|---|---|---|---|---|---|---|
+| Not provided with paper; no public package located | Not provided; none located | None located | N/A | None located | None on publisher page or located in targeted search | FULL-TEXT-CONFIRMED for article disclosures/publisher page; PROVISIONAL for repository, reanalysis, and flag nonexistence |
+
+
+SECTION H: SUMMARY TABLE — INTERNAL VALIDITY
+============================================================
+
+| Dimension | Assessment | Severity | Notes |
+|---|---|---|---|
+| Data generation quality | Valuable behavioral records, but observational and coverage-limited | Moderate | Administrative logs reduce self-report of play outcomes but platform coverage is selective |
+| Selection bias | Active single-server EQ2 and voluntary survey-linked CR3 samples | Major for population-general reading; moderate for sample-bounded result | Paper acknowledges severe sex imbalance and possible unusually experienced female selection |
+| Missingness handling | Incomplete flow/diagnosis; CR3 linkage loss is large | Moderate | Missingness mechanism and outcome-related selection not modeled |
+| Incentive structure risk | No result-contingent incentive reported | Minor | Platform decisions govern what is logged/linkable |
+| Pre-registration | Unknown/not reported | Moderate / Cannot assess | No prospective plan located; absence not proven |
+| Analysis plan compliance | Cannot assess | Cannot assess | No plan against which to compare |
+| P-hacking risk | Multiple models/contrasts; full attempted set unknown | Moderate | Significant and nonsignificant results both reported, reducing but not eliminating concern |
+| Effect size plausibility | Unstandardized, heterogeneous coefficients; practical size unclear | Moderate | No CIs/standardized effects |
+| Statistical power | Large clustered datasets; equality not power-defined | Major for no-disparity inference | Nonsignificance is not equivalence; no margin/test |
+| Winner's curse risk | Strong interaction likely not a threshold artifact; magnitude uncertain | Minor-to-moderate | No replication estimate |
+| HARKing risk | Exploratory interaction disclosed but generalized in conclusion | Moderate | No preregistration; no claim about intent |
+| Forking-paths fragility | Most branches untested; own interaction changes sign by level | Major for blanket claim | Bounded coefficient set remains reported; universal interpretation does not |
+| Selective reporting | Outcome omission cannot be assessed; selective interpretation visible | Major for Field 6 wording | Significant heterogeneity is in tables/prose but disappears from blanket sentence |
+| Replication success rate | No direct replication located | Cannot assess | Conceptual follow-on is not direct |
+| Effect size trajectory | No comparable sequence | Cannot assess | No pooled current estimate |
+| Data/code availability | Not public/located | Moderate | Independent reproduction unavailable |
+| Post-publication flags | None located | None established | Bounded negative search only |
+
+
+SECTION H2: THE CONCEDE TEST
+============================================================
+
+Consolidated findings
+---------------------
+
+| Finding | Concede test | Surviving claim if NARROWS |
+|---|---|---|
+| IV-1. The paper reports statistically significant gender interactions while Field 6 says there is no significant gender-based disparity. | DEFEATS | N/A. The exact no-significant-disparity claim cannot coexist with the reported significant subgroup/level contrasts. |
+| IV-2. Nonsignificant coefficients are treated as evidence of no disparity without equivalence/noninferiority tests, intervals, or a smallest effect size of interest. | DEFEATS | N/A for an equality/no-disparity claim; failure to reject zero does not establish sufficiently small differences. |
+| IV-3. Selected active/linkable observations and incompletely characterized missingness do not identify a population-wide gender equality result. | NARROWS | A conditional association limited to the observed EQ2 and CR3 samples. |
+| IV-4. Most defensible model branches are untested; the reported CR3 interaction itself produces level-dependent reversal. | NARROWS | The specific reported coefficients under the chosen models, with level/guild heterogeneity retained. |
+| IV-5. No direct independent replication or public reanalysis was located. | SURVIVES | N/A. Lack of located replication lowers confidence but is not itself a failed replication. |
+
+Scope-loss assessment
+---------------------
+
+| Finding | Scope-loss level | Original claim | Surviving claim | What practical or inferential work is lost? |
+|---|---|---|---|---|
+| IV-3 | Material | “Based on our data from two MMOs, there is no significant gender-based performance disparity.” | Selected-sample, model-conditional associations only | Generalization to all players, entrants, women, men, or games is lost |
+| IV-4 | Material | One no-disparity conclusion | Four EQ2 interaction estimates plus a CR3 level-varying estimate | A single direction/equality summary and cross-level stability are lost |
+
+The two DEFEATS findings overlap and are consolidated for verdict purposes:
+Field 6's null/equality language is unsupported both because significant
+heterogeneity exists and because remaining nonsignificant tests were not tests
+of equivalence. This is one inferential failure, not two votes.
+
+
+SECTION I: INTERNAL VALIDITY VERDICT
+============================================================
+
+- Claim under audit: INVALID.
+- DEFEATS finding(s): IV-1/IV-2, consolidated — the paper's own significant
+  gender interactions contradict “no significant ... disparity,” while its
+  nonsignificant results do not establish equivalence.
+- Surviving residual: “In EQ2, the reported play-time × male slopes were
+  nonpositive across the four focal models and statistically significant only
+  for non-guilded character level; in CR3, the average no-interaction male
+  coefficient was nonsignificant, but the gender contrast changed with level
+  and the fitted direction reversed around level 15.”
+- Internal-validity grade: E (Invalid for the exact Field 6 claim).
+
+The grade does not mean the logged observations are fabricated or that every
+coefficient is unreal. It means the adequately verified analysis as reported
+DEFEATS the exact blanket claim selected upstream. A narrower, heterogeneous
+set of conditional results remains usable.
+
+1. Is the foundational finding likely real?
+   The reported within-model coefficients are likely real as descriptions of
+   the fitted samples, but the singular “no significant disparity” finding is
+   not a faithful statistical summary of them.
+
+2. Is its magnitude sufficient for the downstream claim?
+   No cross-game equality magnitude was estimated. Practical sufficiency is
+   undefined without intervals and an equivalence margin.
+
+3. Best current estimate of the true effect size?
+   No single defensible estimate. Use the model-specific coefficients reported
+   in Section C and retain their guild/level heterogeneity.
+
+4. What would upgrade the grade?
+   A prospective, public analysis plan; representative or transparently
+   weighted sampling; complete flow/missingness accounting; centered,
+   level-specific contrasts with confidence intervals; a justified equivalence
+   margin and equivalence tests; robustness across survival/nonlinear models;
+   and direct independent replication with accessible code/results.
+
+5. What decisive test has not been run?
+   A preregistered multi-game equivalence design that estimates gender contrasts
+   at meaningful levels/subgroups with confidence intervals and tests them
+   against a justified practically negligible margin, while addressing sample
+   selection and clustered longitudinal dependence.
+
+6. Did this audit's adversarial check surface failures missed by the original
+   summary?
+   Yes. It placed the exact Field 6 sentence beside Tables 3 and 5 and found the
+   contradiction. The paper reports the interactions but its headline does not
+   preserve them.
+
+7. Is the finding fragile to defensible analytical choices?
+   The blanket wording is fragile; most alternatives are UNTESTED, and the
+   chosen CR3 interaction already changes the direction with level.
+
+8. Does a usable residual remain?
+   Yes; it is stated verbatim in the split verdict above.
+
+
+SECTION J: INTEGRATION WITH CONSTRUCT VALIDITY AUDIT
+============================================================
+
+The construct prosecutor's output was not supplied to this independent run, so
+no actual construct finding is imported or endorsed here. Conditional
+integration only: because this internal audit grades the exact Field 6 claim E,
+any independently established construct failure would compound rather than
+replace the statistical failure. If the measurement-to-construct bridge were
+sound, Field 6 would still fail as a summary of its reported interactions. If
+that bridge also fails, the study would both misstate the statistical pattern
+and overextend what the outcome represents.
+
+Decisive-test sentence: The exact foundational no-disparity finding is not
+supported by its reported significance pattern, independent construct validity
+has not been supplied to this prosecutor, and the selected observational data
+do not support unqualified population generalization — meaning any broader use
+would rest on a heterogeneous, sample-bound result being compressed into an
+equality claim.
+
+
+SECTION K: ONE-PARAGRAPH SUMMARY
+============================================================
+
+The paper's model-specific observations may be real, but the Field 6 claim is
+INVALID because the paper itself reports significant gender interactions in
+EQ2 non-guilded character leveling and CR3 level-dependent event time, while
+other nonsignificant coefficients were not tested for equivalence. There is no
+single current effect estimate: the best verified evidence is the heterogeneous
+coefficient set, including CR3's reversal near level 15. No direct independent
+replication, applicable meta-analysis, or public reanalysis was located in the
+targeted reception search; that negative search is PROVISIONAL, not a failed
+replication. Behavioral logs are a strength, but the one-server active EQ2
+sample and roughly 2,000 survey-log-linked CR3 sample create material selection
+and missingness limits. The grade is E for the exact claim, with a surviving
+residual of model-specific, guild- and level-dependent associations. Forking-
+paths robustness is mostly UNTESTED and the blanket interpretation is FRAGILE.
+The load-bearing Concede Test is DEFEATS. Independent construct findings were
+not available to this prosecutor; if they also fail, the errors compound. The
+decisive test is a preregistered, selection-aware, multi-game equivalence study
+with level-specific contrasts, justified margins, robustness checks, and direct
+independent replication.
+
+
+FINAL SECTION: STANDARDIZED FINDING TABLE
+============================================================
+
+FINDING IV-1
+------------
+
+| Field | Entry |
+|---|---|
+| Finding | The blanket “no significant gender-based performance disparity” sentence conflicts with the paper's own significant gender interactions. |
+| Target claim | “Based on our data from two MMOs, there is no significant gender-based performance disparity.” |
+| What was measured | EQ2 play-time × male interactions for two level outcomes split by guild status; CR3 logged seconds between level-ups modeled with new level × male. |
+| What was claimed | No statistically significant gender-based performance disparity in the two MMOs. |
+| Failure mode | Selective interpretation / interaction-main-summary contradiction |
+| Severity | fatal-for-strong-claim |
+| Concede test | DEFEATS |
+| Scope loss if NARROWS | N/A; exact blanket claim fails, while heterogeneous coefficients remain separately usable |
+| Evidence | Shen EQ2 Table 3: non-guilded character-level play-time × male beta=-0.008, p<.001; CR3 Table 5: new level × male beta=-8.289, p<.001; CR3 text reports crossover around level 15; Discussion supplies Field 6 sentence |
+| Evidence type | primary study |
+| Verification state | FULL-TEXT-CONFIRMED |
+| Possible innocent explanation | The authors may mean “no consistent overall male advantage,” not the literal absence of every significant gender-dependent contrast. |
+| What would weaken this | An erratum showing those p-values/coefficients are transcription errors, or a prespecified omnibus equivalence criterion demonstrating that “no significant disparity” was defined at another aggregation level and passed. |
+| Failure location | PAPER |
+| Status | confirmed |
+
+FINDING IV-2
+------------
+
+| Field | Entry |
+|---|---|
+| Finding | Nonsignificant coefficients are interpreted as no disparity without an equivalence/noninferiority design. |
+| Target claim | Field 6 quoted above |
+| What was measured | Null-hypothesis tests of coefficients equal to zero in fitted mixed models |
+| What was claimed | Absence of a meaningful gender-based disparity |
+| Failure mode | Absence-of-evidence treated as evidence-of-equivalence; undefined practical margin |
+| Severity | fatal-for-strong-claim, consolidated with IV-1 |
+| Concede test | DEFEATS |
+| Scope loss if NARROWS | N/A for equality; individual coefficient estimates remain reportable |
+| Evidence | EQ2/CR3 model tables and discussion; no confidence intervals, equivalence margin, TOST, or noninferiority analysis reported |
+| Evidence type | primary study / author inference |
+| Verification state | FULL-TEXT-CONFIRMED |
+| Possible innocent explanation | With very large samples, the authors may have regarded nonsignificance plus directionally non-male-favoring estimates as sufficient for the narrower “no consistent male advantage” question. |
+| What would weaken this | Recovered intervals and a preregistered, substantively justified equivalence margin showing all relevant level/guild contrasts fall inside the negligible range. |
+| Failure location | PAPER |
+| Status | confirmed |
+
+FINDING IV-3
+------------
+
+| Field | Entry |
+|---|---|
+| Finding | Active/linkable selection and incompletely diagnosed missingness materially restrict population inference. |
+| Target claim | Field 6 quoted above |
+| What was measured | One-server active EQ2 characters and a much smaller survey-log-linked CR3 subset |
+| What was claimed | Gender-based disparity in the two games without an explicit selected-sample qualifier in the central sentence |
+| Failure mode | Selection/survivorship and unknown missingness mechanism |
+| Severity | major |
+| Concede test | NARROWS |
+| Scope loss if NARROWS | material — retains only conditional associations in observed samples |
+| Evidence | Data sections; CR3 survey/linkage counts; Limitations acknowledge severe gender imbalance and possible unusually experienced/better female selection |
+| Evidence type | primary study |
+| Verification state | FULL-TEXT-CONFIRMED |
+| Possible innocent explanation | Field 6 begins “Based on our data,” and the authors expressly flag self-selection, supporting a bounded reading. |
+| What would weaken this | Complete cohort-flow tables, response/linkage models, probability weights, and replication across servers showing negligible selection effects. |
+| Failure location | PAPER |
+| Status | confirmed |
+
+FINDING IV-4
+------------
+
+| Field | Entry |
+|---|---|
+| Finding | The blanket interpretation is analytically fragile because most model branches are untested and the chosen CR3 model itself yields a level-dependent reversal. |
+| Target claim | Field 6 quoted above |
+| What was measured | Selected linear mixed-model specifications for attained level and raw inter-level logged time |
+| What was claimed | One stable no-disparity conclusion |
+| Failure mode | Forking-paths fragility / unmodeled heterogeneity |
+| Severity | major |
+| Concede test | NARROWS |
+| Scope loss if NARROWS | material — only model-specific, level/guild-dependent coefficients survive |
+| Evidence | Methods, EQ2 Note 1 sensitivity, Tables 3 and 5; no multiverse or broad diagnostics reported |
+| Evidence type | primary study |
+| Verification state | FULL-TEXT-CONFIRMED for chosen specifications; UNTESTED for alternatives |
+| Possible innocent explanation | Data access and journal-space constraints may have limited robustness reporting, and Note 1 reports one supportive level-band check. |
+| What would weaken this | A preregistered specification curve showing consistent practically negligible gender contrasts across nonlinear, survival, centering, missingness, and dependency choices. |
+| Failure location | PAPER |
+| Status | contested as to magnitude, confirmed as to untested robustness |
+
+FINDING IV-5
+------------
+
+| Field | Entry |
+|---|---|
+| Finding | No direct independent replication or public reanalysis was located in the targeted reception search. |
+| Target claim | Field 6 quoted above |
+| What was measured | Search result/reception record, not a new performance estimate |
+| What was claimed | Evidentiary maturity of the source claim |
+| Failure mode | Replication and transparency gap |
+| Severity | minor |
+| Concede test | SURVIVES |
+| Scope loss if NARROWS | N/A |
+| Evidence | Publisher page; targeted title/author, replication, repository, correction, and post-publication searches; Ratan et al. 2020 abstract is a different-game conceptual follow-on |
+| Evidence type | reception search / primary-study abstract |
+| Verification state | PROVISIONAL negative search; RECEPTION-CONFIRMED for classification of retrieved follow-on |
+| Possible innocent explanation | Direct replications or private reanalyses may exist outside indexed/accessible sources; proprietary logs constrain sharing. |
+| What would weaken this | Retrieval of a direct replication, registered report, public reproduction package, or reanalysis of the original data. |
+| Failure location | PAPER |
+| Status | provisional |
+
+
+FIRST-EVER-PROMPT ASSESSMENT
+============================================================
+
+This internal-validity instrument produced something useful on its first run.
+Its most valuable operation was not generic “wrong population” scaffolding; it
+forced a literal statistical-consistency check between the mapped target claim
+and the reported interaction models. That exposed a verified DEFEATS finding.
+The weaker modules were replication trajectory and publication bias: because no
+direct replication set or applicable meta-analysis was retrieved, those
+sections correctly return “cannot assess” rather than padded conclusions.
