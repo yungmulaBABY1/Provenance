@@ -1,5 +1,127 @@
 INTERNAL VALIDITY & REPLICATION AUDIT PROMPT
 
+-----------------------------------------------------------------
+INSTRUMENT PREFLIGHT — MANDATORY FOR FORMAL / LOGGED RUNS   [TOOL-004]
+-----------------------------------------------------------------
+
+This prompt is part of the audit instrument. Establish the exact instrument version BEFORE
+substantive retrieval, extraction, analysis, or verdict work begins.
+
+A successful fetch indicator, correct repository path, branch label, plausible line count,
+matching rendered metadata, or internally self-consistent page does NOT by itself establish
+that the intended/current artifact was retrieved. A mutable remote reference can return a
+historical representation that is internally self-consistent in every visible field.
+
+PROMPT IDENTITY MARKERS
+
+  - INTERNAL VALIDITY & REPLICATION AUDIT PROMPT
+
+These markers confirm the prompt family / expected structural features. They do NOT by
+themselves establish version currency: an older version may share the same title or markers.
+
+1. RECORD THE INSTRUMENT ACTUALLY IN CONTEXT.
+
+   Record, where available:
+
+   - canonical prompt path or supplied filename;
+   - retrieval form: PASTED / ATTACHED / IMMUTABLE REMOTE / MUTABLE REMOTE;
+   - requested branch or ref;
+   - intended immutable commit/ref, if the run claims a repository version;
+   - resolved commit SHA;
+   - resolved blob/content hash, or a locally computed cryptographic content hash;
+   - exact line count and byte count;
+   - prompt identity markers present / absent.
+
+   If a pasted or attached artifact is itself the declared instrument under test, its computed
+   content hash may serve as its identity. Do not claim it is the current canonical repository
+   version unless that relationship is independently established.
+
+2. MUTABLE-REFERENCE / CURRENCY RULE.
+
+   A path such as /blob/main/, /blob/master/, latest, or another moving branch/ref is a LOCATOR,
+   not an immutable version identity.
+
+   Ordinary exploratory work may use a mutable locator with the limitation preserved.
+
+   A FORMAL / LOGGED / BENCHMARK / REGRESSION / FIXTURE run that claims the current repository
+   instrument must establish an immutable intended identity independently of the mutable-content
+   fetch. Acceptable examples include:
+
+   - an operator-supplied immutable commit permalink;
+   - a branch-head / repository-history lookup independent of the content retrieval, followed by
+     retrieval of the file at that immutable commit;
+   - a second retrieval path that does not reuse the same cache/index, confirmed against an
+     immutable commit/blob identity.
+
+   A commit/hash/line-count reported only by the SAME potentially stale rendered representation
+   is NOT independent currency evidence.
+
+   If no independent immutable anchor can be established and no explicit collision is observed,
+   classify:
+
+     INSTRUMENT VERSION UNVERIFIED
+
+   Such a run may be exploratory but may not count as formal regression or benchmark evidence
+   for a claimed canonical version.
+
+3. VERSION-COLLISION ATTRIBUTION GATE.
+
+   If the retrieved representation disagrees with an expected hash, immutable ref, size, line
+   count, marker set, or independently established version, classify only:
+
+     VERSION COLLISION — UNRESOLVED
+
+   A failed identity check proves a VERSION MISMATCH. It does NOT establish where the stale
+   representation lives. Do NOT conclude from the conflicting retrieval alone:
+
+     REPOSITORY STALE
+     RETRIEVAL STALE
+     LOCAL COPY STALE
+     OPERATOR COPY STALE
+
+   Attribution requires a SECOND, INDEPENDENT discriminator, such as:
+
+   - an immutable commit/blob lookup;
+   - repository/file history;
+   - a second retrieval path that does not reuse the same cache/index;
+   - direct operator confirmation supported by an immutable identity;
+   - a locally supplied file whose hash can be compared independently.
+
+   Internal self-consistency is NOT an independent discriminator. A stale representation may
+   have a mutually consistent path, branch label, line count, byte size, line gutter, content,
+   and rendered repository metadata because all were produced from the same stale snapshot.
+
+4. DISPOSITION.
+
+   FORMAL / LOGGED / BENCHMARK / REGRESSION / FIXTURE RUN:
+     - IDENTITY CONFIRMED against the intended immutable instrument -> continue.
+     - VERSION COLLISION — UNRESOLVED -> STOP before substantive execution.
+     - INSTRUMENT VERSION UNVERIFIED -> exploratory execution may occur, but the run may not be
+       logged as evidence for the claimed canonical instrument.
+
+   ORDINARY EXPLORATORY RUN:
+     - May continue with INSTRUMENT VERSION UNVERIFIED when no collision is observed.
+     - If a collision is observed, do not make claims about repository/instrument state until
+       the collision is independently resolved.
+
+5. REQUIRED RUN-HEADER LINE.
+
+   Emit this before the substantive body:
+
+   INSTRUMENT PREFLIGHT: [path/file] @ commit [SHA/UNAVAILABLE] | blob/hash
+   [HASH/UNAVAILABLE] | [N] lines | [N] bytes | markers [PRESENT/ABSENT] |
+   [IDENTITY CONFIRMED / INSTRUMENT VERSION UNVERIFIED /
+   VERSION COLLISION — UNRESOLVED]
+
+   If VERSION COLLISION — UNRESOLVED is returned, also state the conflicting identities and the
+   independent discriminator required to resolve them. Do not silently choose one.
+
+GOVERNING RULE:
+
+  A failed identity check proves a version mismatch, not where the mismatch lives.
+
+=================================================================
+
 Purpose: This prompt audits the internal validity of a specific study or finding  -  whether
 the result itself is likely to be real, replicable, and free of analytic artifacts  -  before
 assessing what it claims or how it has been cited.

@@ -1,0 +1,53 @@
+TOOL-004 PROMPT-WIDE PROPAGATION
+Status: APPLIED; regression case still not run.
+
+prompts/0-field-diagnostic.txt
+  before_blob=08269ac9366471ba5afdf44badb8304fe9270b4a
+  after_blob=dde93e1eed113874439d908ec7129c412c829ed9
+  lines=309->431
+  bytes=14008->19472
+prompts/1-claim-extraction.txt
+  before_blob=7ae034cf68e4c617a41419027a793ecf74bce928
+  after_blob=894579a79e67508bdc4026b77c0a104681f903ad
+  lines=916->1038
+  bytes=38632->44072
+prompts/research-analysis/2-construct-validity.txt
+  before_blob=b9c31b80bc2da1507c685bd553aa867d1296fd78
+  after_blob=5fcf9e6ffce288617b3fc596356448df43624fcf
+  lines=1092->1215
+  bytes=36326->41792
+prompts/research-analysis/2-internal-validity.txt
+  before_blob=0debc23739bf7539dd22c5014a9509930b282795
+  after_blob=e57ffff06876a09b2bc810a25efde23762f902ce
+  lines=661->783
+  bytes=31395->36847
+prompts/research-analysis/2-citation-network.txt
+  before_blob=ee06277c7bca60b3dd6982af897768080e1b3dc8
+  after_blob=92958aab1c22f888453dbaf8e74b0d56847edff5
+  lines=1103->1225
+  bytes=39870->45365
+prompts/research-analysis/3-counter-audit.txt
+  before_blob=2f6101694e01e05034927f088acb62cbd944226b
+  after_blob=74357f08562a47fa8fdbbde4325657ad3c9cd871
+  lines=793->915
+  bytes=36811->42287
+prompts/media-analysis/2-framing-construction.txt
+  before_blob=5608f1df1ac2483707378703e981cd38a18b1754
+  after_blob=49c8914fef426d46bfe37f0215abf4a7d858f89b
+  lines=1537->1659
+  bytes=80452->85915
+prompts/media-analysis/2-coverage-network.txt
+  before_blob=9380b619fd16b4212dabec28971f1c6a6b3d18b6
+  after_blob=21f52b360cc26053a25cd7ab373389fd0459e377
+  lines=3340->3359
+  bytes=131417->132493
+prompts/5-voice-restoration.txt
+  before_blob=dd53283d8176587f8806d6cc13d491d04368586b
+  after_blob=09af8b2ba7277bd47ec9c8174ff642ada98a2e82
+  lines=170->292
+  bytes=7697->13161
+deferred/1-field-context-generator.txt
+  before_blob=8a1242958450b09d57a74934191e770f1b1d6962
+  after_blob=71abb149b1ff4256d01771013d3305f2a81fbef5
+  lines=237->360
+  bytes=12019->17502
