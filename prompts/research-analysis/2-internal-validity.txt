@@ -1,0 +1,970 @@
+INTERNAL VALIDITY & REPLICATION AUDIT PROMPT
+
+-----------------------------------------------------------------
+INSTRUMENT PREFLIGHT — MANDATORY FOR FORMAL / LOGGED RUNS   [TOOL-004]
+-----------------------------------------------------------------
+
+This prompt is part of the audit instrument. Establish the exact instrument version BEFORE
+substantive retrieval, extraction, analysis, or verdict work begins.
+
+A successful fetch indicator, correct repository path, branch label, plausible line count,
+matching rendered metadata, or internally self-consistent page does NOT by itself establish
+that the intended/current artifact was retrieved. A mutable remote reference can return a
+historical representation that is internally self-consistent in every visible field.
+
+PROMPT IDENTITY MARKERS
+
+  - INTERNAL VALIDITY & REPLICATION AUDIT PROMPT
+
+These markers confirm the prompt family / expected structural features. They do NOT by
+themselves establish version currency: an older version may share the same title or markers.
+
+1. RECORD THE INSTRUMENT ACTUALLY IN CONTEXT.
+
+   Record, where available:
+
+   - canonical prompt path or supplied filename;
+   - retrieval form: PASTED / ATTACHED / IMMUTABLE REMOTE / MUTABLE REMOTE;
+   - requested branch or ref;
+   - intended immutable commit/ref, if the run claims a repository version;
+   - resolved commit SHA;
+   - resolved blob/content hash, or a locally computed cryptographic content hash;
+   - exact line count and byte count;
+   - prompt identity markers present / absent.
+
+   If a pasted or attached artifact is itself the declared instrument under test, its computed
+   content hash may serve as its identity. Do not claim it is the current canonical repository
+   version unless that relationship is independently established.
+
+2. MUTABLE-REFERENCE / CURRENCY RULE.
+
+   A path such as /blob/main/, /blob/master/, latest, or another moving branch/ref is a LOCATOR,
+   not an immutable version identity.
+
+   Ordinary exploratory work may use a mutable locator with the limitation preserved.
+
+   A FORMAL / LOGGED / BENCHMARK / REGRESSION / FIXTURE run that claims the current repository
+   instrument must establish an immutable intended identity independently of the mutable-content
+   fetch. Acceptable examples include:
+
+   - an operator-supplied immutable commit permalink;
+   - a branch-head / repository-history lookup independent of the content retrieval, followed by
+     retrieval of the file at that immutable commit;
+   - a second retrieval path that does not reuse the same cache/index, confirmed against an
+     immutable commit/blob identity.
+
+   A commit/hash/line-count reported only by the SAME potentially stale rendered representation
+   is NOT independent currency evidence.
+
+   If no independent immutable anchor can be established and no explicit collision is observed,
+   classify:
+
+     INSTRUMENT VERSION UNVERIFIED
+
+   Such a run may be exploratory but may not count as formal regression or benchmark evidence
+   for a claimed canonical version.
+
+3. VERSION-COLLISION ATTRIBUTION GATE.
+
+   If the retrieved representation disagrees with an expected hash, immutable ref, size, line
+   count, marker set, or independently established version, classify only:
+
+     VERSION COLLISION — UNRESOLVED
+
+   A failed identity check proves a VERSION MISMATCH. It does NOT establish where the stale
+   representation lives. Do NOT conclude from the conflicting retrieval alone:
+
+     REPOSITORY STALE
+     RETRIEVAL STALE
+     LOCAL COPY STALE
+     OPERATOR COPY STALE
+
+   Attribution requires a SECOND, INDEPENDENT discriminator, such as:
+
+   - an immutable commit/blob lookup;
+   - repository/file history;
+   - a second retrieval path that does not reuse the same cache/index;
+   - direct operator confirmation supported by an immutable identity;
+   - a locally supplied file whose hash can be compared independently.
+
+   Internal self-consistency is NOT an independent discriminator. A stale representation may
+   have a mutually consistent path, branch label, line count, byte size, line gutter, content,
+   and rendered repository metadata because all were produced from the same stale snapshot.
+
+4. DISPOSITION.
+
+   FORMAL / LOGGED / BENCHMARK / REGRESSION / FIXTURE RUN:
+     - IDENTITY CONFIRMED against the intended immutable instrument -> continue.
+     - VERSION COLLISION — UNRESOLVED -> STOP before substantive execution.
+     - INSTRUMENT VERSION UNVERIFIED -> exploratory execution may occur, but the run may not be
+       logged as evidence for the claimed canonical instrument.
+
+   ORDINARY EXPLORATORY RUN:
+     - May continue with INSTRUMENT VERSION UNVERIFIED when no collision is observed.
+     - If a collision is observed, do not make claims about repository/instrument state until
+       the collision is independently resolved.
+
+5. REQUIRED RUN-HEADER LINE.
+
+   Emit this before the substantive body:
+
+   INSTRUMENT PREFLIGHT: [path/file] @ commit [SHA/UNAVAILABLE] | blob/hash
+   [HASH/UNAVAILABLE] | [N] lines | [N] bytes | markers [PRESENT/ABSENT] |
+   [IDENTITY CONFIRMED / INSTRUMENT VERSION UNVERIFIED /
+   VERSION COLLISION — UNRESOLVED]
+
+   If VERSION COLLISION — UNRESOLVED is returned, also state the conflicting identities and the
+   independent discriminator required to resolve them. Do not silently choose one.
+
+GOVERNING RULE:
+
+  A failed identity check proves a version mismatch, not where the mismatch lives.
+
+=================================================================
+
+Purpose: This prompt audits the internal validity of a specific study or finding  -  whether
+the result itself is likely to be real, replicable, and free of analytic artifacts  -  before
+assessing what it claims or how it has been cited.
+
+Citation laundering and proxy problems operate on the output of a study. P-hacking, HARKing
+(Hypothesizing After Results are Known), selective reporting, and underpowered designs corrupt
+the finding at the source. A finding that fails internal validity cannot support the claims
+built on it regardless of how many papers cite it.
+
+This prompt also covers AI-assisted data analysis. The failure mode is identical: a tool
+produces a confident output, the user lacks the domain knowledge to audit whether the output
+measures what the claim requires, and the output gets treated as a finding. Whether the tool
+is a regression model, a citation network, or an LLM doing exploratory analysis  -  the proxy
+failure mechanism is the same. The data generation audit below applies to both human-conducted
+and AI-assisted analysis.
+
+Run this audit before or alongside the construct validity audit. If the foundational finding
+fails internal validity, note this in the thesis. The claim is doubly weak: the study may not
+measure what it claims, and the finding may not be real.
+
+-----
+
+INPUTS
+
+Provide the following:
+
+1. Foundational paper(s) or analysis: [Paste citation, abstract, methods, results, and
+   statistical reporting where available. For AI-assisted analysis, paste the prompt used, the
+   output, and the dataset description.]
+2. Central empirical finding (fallback context if no upstream Claim Map is supplied): [State
+   the finding in one sentence: what effect was found, in what population, measured how, and
+   of what magnitude.]
+3. Claimed construct and downstream use: [What is this finding used to prove in subsequent
+   literature, policy, or decision-making? This supplies context; it does not override map
+   field 6.]
+4. Known replication attempts (if any): [Paste citations and outcomes if known. If none known,
+   state "unknown."]
+5. Pre-registration status (if known): [Was the study pre-registered? At what stage? Did the
+   published analysis match the pre-registered plan?]
+6. Optional construct-validity audit output: [Formally supply the named output, including
+   filename or stable identifier, or write NONE. Ordinary Stage-2 independent-prosecutor runs
+   should use NONE. Supplying a sibling prosecutor output makes this an integrated,
+   non-independent run.]
+
+DECLARED-INPUT BOUNDARY  [FAIL-IV-002]
+
+At the start of the output, state one pair exactly:
+
+    SIBLING-PROSECUTOR INPUT: NONE
+    INDEPENDENCE STATUS: INDEPENDENT
+
+or:
+
+    SIBLING-PROSECUTOR INPUT: FORMALLY SUPPLIED — [filename / stable ID]
+    INDEPENDENCE STATUS: INTEGRATED-NONINDEPENDENT
+
+Only materials formally listed in INPUTS may serve as evidence anywhere in this audit. A
+sibling prosecutor output that happens to be visible in session context but was not formally
+supplied is not an input. Treat it as though it does not exist: do not quote it, adopt its
+labels, repeat its specific findings, use its verdict as a premise, increase another finding's
+severity because of it, or allow it to influence the grade.
+
+If a sibling output is formally supplied, cite each imported finding as:
+
+    SUPPLIED SIBLING INPUT — [finding ID, source file / stable ID]
+
+Formal supply establishes provenance, not correctness. Imported findings remain subject to
+[IV-P1] and do not inherit ELIGIBLE status merely because a sibling prosecutor rated them
+severe. The run must remain labeled INTEGRATED-NONINDEPENDENT and may not be represented as an
+independent Stage-2 prosecutor run or independent regression result.
+
+This boundary applies globally, not only to Section J. Section J adds a special
+integration-language rule.
+
+-----
+
+SHARED CLAIM MAP  -  REQUIRED FOR FULL-SEQUENCE MODE
+
+A Claim Extraction / Inflation Map should have been produced upstream. Paste it here:
+
+[PASTE CLAIM MAP]
+
+DEGRADED STANDALONE MODE  -  USE ONLY WHEN NO UPSTREAM MAP EXISTS
+
+This prosecutor must still be runnable when no upstream map is supplied. If the map is
+missing, do not stop, but state this warning before the audit:
+
+"CLAIM MAP MISSING: running in degraded standalone mode. The target claim below is
+SELF-GENERATED and PROVISIONAL. Cross-prosecutor claim alignment cannot be assumed until an
+upstream Claim Extraction / Inflation Map is produced."
+
+Then create only this minimum fallback:
+
+CLAIM MAP: SELF-GENERATED  -  PROVISIONAL
+- Field 1  -  What was literally measured:
+- Field 3  -  Weaker defensible claim:
+- Field 6  -  Claim under audit:
+
+Do not invent the missing upstream fields. Do not present this fallback as equivalent to the
+upstream map. Its purpose is to permit a one-off audit, not to replace Stage 1. Before this
+audit is combined with the other prosecutors, the claim must be reconciled against an upstream
+map.
+
+YOU AUDIT THE CLAIM NAMED IN FIELD 6 OF THE MAP. Do not substitute the source's broadest
+statement, the media version, or a claim you find more interesting. If field 6 targets a
+downstream restatement, test whether the foundational result is internally stable enough to
+support that restatement. Do not silently retreat to the source's narrower claim. Classify the
+failure location separately: an unstable foundational result is a PAPER-level failure even
+when the target use is downstream.
+
+If you find yourself auditing a claim that is not on the map, flag it rather than substituting
+silently:
+
+"MAP GAP: this finding concerns [claim], which does not appear on the claim map. The map may
+be incomplete."
+
+That flag is information, not an error. Silent substitution is what makes different
+prosecutors produce incoherent critiques.
+
+Before Section A, confirm in one line each:
+
+- Claim under audit (map field 6):
+- What was literally measured (map field 1):
+- Weaker defensible claim (map field 3):
+- Target layer: source claim / downstream citation / PR-media / model-retrieval
+
+If the map is self-generated, repeat that it is PROVISIONAL and that cross-stage alignment
+remains unresolved.
+
+-----
+
+COMPACT VOCABULARY Full rules: shared_primitives.txt
+
+VERIFICATION STATE  -  how thoroughly a source has been checked. This is separate from
+evidence type. A peer-reviewed study can be strong in evidence type while remaining weakly
+verified.
+
+- LOCATED: source exists and metadata is confirmed; content is unverified.
+- ABSTRACT-CONFIRMED: abstract supports relevance; methods and results are not verified.
+- FULL-TEXT-CONFIRMED: full text was read and directly supports the specific claim. Do not
+  assign this merely because selected excerpts were supplied.
+- RECEPTION-CONFIRMED: replies, replications, corrections, retractions, or citation contexts
+  were checked against retrieved sources.
+- CONTESTED: credible disagreement exists; who is correct remains unresolved.
+- REBUTTED: later work directly and substantially challenges the source and the challenge was
+  not evidently answered.
+- PROVISIONAL: access or retrieval is insufficient, including unverified model memory or
+  unresolved source leads.
+
+Rules:
+
+1. Never report a verification state above what was actually checked.
+2. Evidence type and verification state are separate axes; report both.
+3. FULL-TEXT-CONFIRMED and RECEPTION-CONFIRMED may both apply.
+4. Apply the ladder symmetrically to sources supporting and opposing the claim.
+5. A PROVISIONAL source may not anchor a MAJOR or FATAL finding.
+
+FAILURE LOCATION  -  where the failure actually lives:
+
+- PAPER: the source itself overclaims or its design/analysis cannot support the finding.
+- CITATION: the source is defensible but later literature inflates it.
+- PR / MEDIA: a press release or coverage strips caveats or broadens the claim.
+- MODEL / RETRIEVAL: summarizers or search systems reproduce the inflated version.
+- MIXED: more than one layer contributes; specify which layer contributes what.
+
+Attacking a defensible paper for its press release is a category error. Classify the
+responsible layer honestly.
+
+-----
+
+[IV-P1] VERIFICATION-GATED VERDICT ELIGIBILITY  [FAIL-IV-001]
+
+Keep these axes separate for every proposed internal-validity finding:
+
+1. VERIFICATION STATE
+
+   How thoroughly the source or record was checked. Use only the canonical verification-state
+   vocabulary above.
+
+2. TECHNICAL OUTCOME STATUS
+
+   Whether the technical proposition behind the finding was independently established. Use
+   exactly one:
+
+   SOURCE-DIRECT
+     The audited source's own FULL-TEXT-CONFIRMED table, model, correction, statement, or
+     internally checkable result directly establishes the technical fact. State the exact
+     passage, table, figure, or output.
+
+   REPRODUCED
+     Retrieved data and/or code were independently executed or reanalyzed by this audit and
+     reproduced the specific technical result. State the retrieved input identities, analysis
+     steps or code, software/environment where material, resulting output, and comparison to
+     the disputed claim.
+
+   INDEPENDENT-REANALYSIS-CONFIRMED
+     A retrieved, methodologically independent third-party study — neither the audited source
+     nor this audit — states its own data, method, and specific result establishing the
+     technical fact, and was read with enough detail to state the comparison. State the
+     third-party study, its inputs and method, the result, and the exact comparison to the
+     audited claim. This is stronger than UNVERIFIED and distinct from REPRODUCED because this
+     audit did not itself execute or reanalyze the material.
+
+   ACKNOWLEDGED-CORRECTION
+     A retrieved correction, retraction, author response, or journal notice explicitly
+     acknowledges the specific technical problem. State exactly what was acknowledged and
+     what claim it affects.
+
+   UNRESOLVED
+     Competing technical analyses or interpretations were retrieved, but the dispute was not
+     independently adjudicated.
+
+   UNVERIFIED
+     The existence or reported tenor of an allegation was located, but its technical
+     correctness was not independently checked; or access remains insufficient.
+
+   Technical-outcome status is not a verification state. In particular,
+   INDEPENDENT-REANALYSIS-CONFIRMED may appear only in the technical-outcome field, never in a
+   verification-state field. A critique can be FULL-TEXT-CONFIRMED while its alleged coding
+   error remains UNVERIFIED. RECEPTION-CONFIRMED establishes the existence and reception of a
+   claim, critique, correction, or replication; by itself it does not establish that the
+   technical claim is correct.
+
+3. CONDITIONAL CONCEDE RESULT
+
+   If the finding were true and fully conceded, would the audited claim SURVIVE, NARROW, or be
+   DEFEATED? Use SURVIVES / NARROWS / DEFEATS without weakening the logical result merely
+   because verification is incomplete.
+
+4. VERDICT ELIGIBILITY
+
+   ELIGIBLE
+     The evidence and technical-outcome status are strong enough for the finding to drive
+     Section I. SOURCE-DIRECT, REPRODUCED, INDEPENDENT-REANALYSIS-CONFIRMED, or
+     ACKNOWLEDGED-CORRECTION may qualify when the cited material actually establishes the
+     claim-relevant technical proposition.
+
+   PENDING VERIFICATION
+     The finding is PROVISIONAL, RECEPTION-CONFIRMED-only on technical outcome, based solely on
+     a FULL-TEXT-CONFIRMED external allegation whose technical claim was not independently
+     checked, UNRESOLVED, or UNVERIFIED.
+
+HARD RULES
+
+- Only ELIGIBLE findings may enter Section I's "Eligible DEFEATS finding(s)" line or act as
+  adverse evidence driving grades C, D, or E.
+- A finding may have conditional concede result DEFEATS while remaining PENDING VERIFICATION.
+  Preserve both facts. Do not relabel it NARROWS merely to express uncertainty.
+- PENDING VERIFICATION findings remain visible under a separate pending line. They are
+  non-anchoring and excluded from adverse grade triggers.
+- Multiple pending findings do not aggregate into an eligible finding. Five unverified
+  technical allegations are not stronger than one.
+- If pending evidence concerns so much of the load-bearing analysis that the audit cannot
+  determine internal validity, use F (Cannot assess). Do not turn missing verification into
+  either a clean grade or an adverse grade.
+- Eligibility is determined by each finding's own evidence. It does not change because another
+  prosecutor issued a severe verdict, because several other findings exist, or because
+  unrelated material is visible in session context.
+- Where a result was computed from retrieved material, report "Derivation mode:
+  COMPUTED-FROM-RETRIEVED" with task-appropriate receipts. This is a derivation description,
+  not a verification state, and it does not upgrade UNVERIFIED inputs.
+
+-----
+
+DATA-HONESTY RULE
+
+For every claim about study design, analysis choices, or replication status, state how it was
+determined:
+
+- reported in the paper itself
+- reported in supplementary materials
+- found in pre-registration record (OSF, ClinicalTrials, AsPredicted, etc.)
+- found in replication literature
+- found in methodological critique
+- PROVISIONAL  -  model memory not checked against retrieval
+- unknown / not reported
+
+RECEPTION-MODULE CONFIRMATION RULE  -  REPLICATION AND POST-PUBLICATION CLAIMS
+
+Sections F (Replication Status) and G (Data and Code Availability, reanalysis, PubPeer,
+corrections) make claims about how a finding fared AFTER publication. These are reception
+claims. Confirm them against retrieved sources rather than asserting them from model memory.
+
+Use the citation-reception module (OpenAlex + Semantic Scholar), together with direct source
+retrieval where available, to confirm:
+
+- whether replication or failed-replication papers actually exist and how many;
+- whether citation contexts contain replication-outcome language such as "failed to
+  replicate," "we replicate," or "the effect did not hold";
+- whether formal replies, comments, corrigenda, retractions, corrections, or expressions of
+  concern appear in the citing/reply set.
+
+Apply the compact verification vocabulary:
+
+- Replication existence and tenor confirmed through retrieval: RECEPTION-CONFIRMED.
+- Replication recalled or estimated but not retrieved: PROVISIONAL.
+- Replication full text read and the technical result checked: FULL-TEXT-CONFIRMED, and also
+  RECEPTION-CONFIRMED where its relation to the foundational source was verified.
+
+Label every replication-status and post-publication claim with its verification state. A
+verdict may not be driven to E (Invalid) by a failed replication that is only PROVISIONAL.
+Confirm that the failed replication exists before allowing it to anchor the verdict.
+
+SCOPE FENCE: the module can confirm the EXISTENCE and reported TENOR of replications and
+responses. It does not by itself adjudicate the technical outcome of a disputed replication
+exchange. Determining who is right requires the relevant full texts and remains PROVISIONAL or
+CONTESTED until they are examined.
+
+Do not infer pre-registration compliance from the absence of information. If pre-registration
+status is unknown, state it clearly.
+
+-----
+
+SECTION A: DATA GENERATION AUDIT
+
+Run this section before any analysis audit. A finding built on flawed data cannot be rescued
+by clean analysis. AI-assisted analysis on flawed data produces confident wrong answers faster
+than any previous tool.
+
+1. How was this data collected?
+- Who collected it, when, and under what conditions?
+- Was collection prospective or retrospective?
+- Was it observational, experimental, or administrative?
+- Does the analysis treat it accordingly  -  or does it make causal claims from observational
+  data?
+2. What selection effects shaped the dataset?
+- Who or what is included in the data?
+- Who or what is systematically missing  -  and why?
+- Is the sample representative of the population the claim is made about?
+- What self-selection, survival, or survivorship bias might be present?
+3. What does missingness look like?
+- How much data is missing?
+- Is missingness random (MCAR), related to observed variables (MAR), or related to unobserved
+  variables (MNAR)?
+- If MNAR: does the missingness pattern systematically bias the finding in one direction?
+- How was missingness handled in the analysis  -  and was that handling appropriate?
+4. What incentive structure governed data collection?
+- Who benefits from particular findings emerging from this data?
+- Was the data collected by the same party that stands to benefit from the result?
+- Are there known cases where similar data collection incentives produced distorted findings?
+- For administrative or platform data: what organizational decisions shaped what gets recorded
+  versus what gets dropped?
+5. For AI-assisted analysis specifically:
+- Was the dataset inspected before analysis or fed directly to the model?
+- Did the model flag data quality issues or proceed without surfacing them?
+- Were the analysis outputs checked against the raw data or accepted as outputs?
+- Was the adversarial check run: "What is the strongest methodological critique of this
+  analysis? What does this measure that I might be mistaking for what I want it to measure?
+  What would falsify this finding?"
+
+Required table:
+
+|Data source|Collection method|Selection bias risk|Missingness pattern|Incentive structure risk|AI-analysis check run|
+|-----------|-----------------|-------------------|-------------------|------------------------|---------------------|
+
+Risk options: Low / Moderate / High / Cannot assess AI-analysis check: Yes / No / Partial /
+N/A
+
+-----
+
+SECTION B: PRE-REGISTRATION AND ANALYSIS PLAN
+
+1. Was the study pre-registered before data collection began?
+- If yes: where, when, and what was registered?
+- If no: was any aspect of the design registered after data collection but before analysis?
+- If unknown: note as unknown
+2. Did the published analysis match the pre-registered plan?
+- Were primary outcomes changed?
+- Were additional outcomes added post-hoc?
+- Were subgroup analyses pre-specified or exploratory?
+- Were exclusion criteria changed after data collection?
+3. If not pre-registered: how many outcomes were tested in the study?
+- How many are reported?
+- What is the probability that at least one would reach p < .05 by chance given the number
+  tested?
+
+Required table:
+
+|Pre-registration status|Analysis match|Outcomes tested|Outcomes reported|Post-hoc subgroups|P-hacking risk|
+|-----------------------|--------------|---------------|-----------------|------------------|--------------|
+
+P-hacking risk options: Low / Moderate / High / Severe / Cannot assess
+
+-----
+
+SECTION C: EFFECT SIZE AND STATISTICAL POWER
+
+1. What is the reported effect size? (r, d, OR, RR, eta2, etc.)
+2. How does this effect size compare to:
+- The field's typical effect sizes for similar constructs?
+- The minimum effect size that would be practically or clinically meaningful?
+- Later corrected meta-analyses or larger independent replications?
+3. What was the sample size?
+4. What statistical power did the study have to detect the reported effect at the reported
+   size?
+- Was the sample size determined in advance by power calculation?
+- If not, at what power level was the study operating?
+5. Winner's curse assessment: studies that barely achieve p < .05 in underpowered designs
+   systematically overestimate effect sizes. Is the reported effect size likely inflated?
+
+Required table:
+
+|Reported effect size|Field typical range|Corrected meta-analysis estimate|Sample size|Estimated power|Winner's curse risk|
+|--------------------|-------------------|--------------------------------|-----------|---------------|-------------------|
+
+Winner's curse risk options: Low / Moderate / High / Cannot assess
+
+-----
+
+SECTION D: HARKING (HYPOTHESIZING AFTER RESULTS ARE KNOWN)
+
+1. Is the central finding presented as confirmatory (testing a pre-specified hypothesis) or
+   exploratory?
+2. Does the introduction describe a specific directional hypothesis that matches the result?
+- If yes: was this hypothesis pre-registered before data collection?
+- If no: was the hypothesis direction specified in any pre-study documentation?
+3. Are there signs of post-hoc hypothesis specification?
+- Vague or multiple hypotheses in the introduction that could accommodate various outcomes?
+- Subgroup findings presented as primary results without pre-specification?
+- Effect found in unexpected direction presented as theoretically predicted?
+4. Does the discussion present exploratory findings as if they were confirmatory?
+
+Required table:
+
+|Hypothesis type|Pre-registered?|HARKing indicators|HARKing risk|
+|---------------|---------------|------------------|------------|
+
+HARKing risk options: Low / Moderate / High / Cannot assess
+
+-----
+
+SECTION D2: FORKING PATHS / ANALYTICAL-CHOICE MULTIVERSE
+
+P-hacking (Section B) and HARKing (Section D) ask whether the authors exploited flexibility.
+This section asks a different question: independent of intent, HOW SENSITIVE is the reported
+result to defensible analytical choices? A result that appears only under one specific
+pipeline, and vanishes or reverses under equally reasonable alternatives, is fragile
+regardless of whether the choice was made in good faith.
+
+Do NOT re-evaluate measurement quality or confounding here; the construct-validity audit
+handles that. Do NOT re-evaluate downstream citation use here; the citation-network audit
+handles that. This section is strictly about the sensitivity of THIS finding to THIS study's
+analytical decision points.
+
+1. Map the analytical decision points actually made in the study:
+   - Inclusion and exclusion criteria
+   - Variable operationalization and coding thresholds
+   - Model choice, covariate set, transformation, and outlier handling
+   - Which comparison or contrast was treated as primary
+   - Handling of missing or contradictory data For each, note whether it was pre-specified or
+     appears to have emerged during analysis. Cross-reference Section B.
+
+2. For each major decision point, generate the plausible alternative choices a competent
+   analyst could have defensibly made instead.
+
+3. Assess result sensitivity under those alternatives:
+   - Would the headline effect HOLD, WEAKEN, DISAPPEAR, or REVERSE?
+   - Is the result robust across most defensible branches, or does it live in one narrow
+     corner of the analytical multiverse?
+   - Where a multiverse or specification-curve analysis exists, report what it showed. Where
+     none exists, state that robustness is UNTESTED, not confirmed.
+
+4. Distinguish the cases explicitly:
+   - ROBUST: the effect survives most reasonable specifications; analytical fragility is not
+     the problem.
+   - MIXED: the effect survives some defensible specifications but changes materially in
+     magnitude, precision, subgroup, or interpretation.
+   - FRAGILE: the effect depends on a specific pipeline and weakens, disappears, or reverses
+     under defensible alternatives.
+   - UNTESTED: alternatives have not been run and the available reporting cannot establish
+     robustness.
+   - CANNOT ASSESS: the analytical pipeline is reported too incompletely to map.
+
+Required table:
+
+| Decision point | Choice made | Pre-specified? | Defensible alternatives | Result under alternatives (holds / weakens / disappears / reverses) | Fragility |
+|---|---|---|---|---|---|
+
+Fragility options: Robust / Mixed / Fragile / Untested / Cannot assess
+
+Integration rule: FRAGILE results compound with p-hacking and HARKing. If a result is fragile,
+shows p-hacking indicators, and was not pre-registered, do not count these as three
+independent minor findings. Consolidate the overlap and evaluate the combined inference: the
+reported result may be specific to the selected pipeline rather than a stable effect.
+
+-----
+
+SECTION E: SELECTIVE REPORTING
+
+1. Are all pre-registered outcomes reported?
+- If not: which outcomes are missing?
+- Is there a plausible explanation for their omission?
+2. Are there signs of selective subgroup reporting?
+- Is the reported effect found in the full sample or only in a subgroup?
+- Was the subgroup pre-specified?
+3. Are there signs of selective time-point reporting?
+- Is the reported effect found at all time points or only at one?
+- Was the reported time point pre-specified?
+4. Publication bias assessment:
+- Is this a published positive result in a high-impact journal?
+- Are there known null or negative replication attempts?
+- Is the effect size unusually large compared to later replications (consistent with
+  publication bias)?
+
+Required table:
+
+|Outcomes registered|Outcomes reported|Missing outcomes|Subgroup selectivity|Publication bias indicators|
+|-------------------|-----------------|----------------|--------------------|---------------------------|
+
+-----
+
+SECTION F: REPLICATION STATUS
+
+1. Has the finding been directly replicated?
+- How many direct replication attempts exist?
+- What proportion succeeded?
+- Were the replications pre-registered and adequately powered?
+- Were the replications conducted by independent labs?
+2. Has the finding been conceptually replicated?
+- Do meta-analyses support the effect?
+- Are meta-analyses author-run or independent?
+- Do meta-analyses show evidence of publication bias (funnel plot asymmetry, p-curve skew)?
+3. Effect size trajectory:
+- Has the reported effect size shrunk across successive replications?
+- What is the current best estimate of the true effect size?
+- Does the current best estimate support the downstream claims built on the original finding?
+
+Required table:
+
+| Direct replications | Success rate | Pre-registered reps | Independent reps | Meta-analytic estimate | Effect shrinkage | Verification state |
+|---|---|---|---|---|---|---|
+
+-----
+
+SECTION G: DATA AND CODE AVAILABILITY
+
+1. Were the data made publicly available?
+2. Was the analysis code made publicly available?
+3. Has anyone attempted a reanalysis of the original data?
+- If yes: what did the reanalysis find?
+4. Are there known data irregularities, anomalies, or concerns?
+- Has the paper been flagged on PubPeer or by post-publication peer review?
+- Have any authors issued corrections or expressions of concern?
+
+Required table:
+
+| Data available | Code available | Reanalysis attempted | Reanalysis result | PubPeer flags | Corrections issued | Verification state |
+|---|---|---|---|---|---|---|
+
+-----
+
+SECTION H: SUMMARY TABLE  -  INTERNAL VALIDITY
+
+Complete this table:
+
+|Dimension               |Assessment|Severity|Notes|
+|------------------------|----------|--------|-----|
+|Data generation quality |          |        |     |
+|Selection bias          |          |        |     |
+|Missingness handling    |          |        |     |
+|Incentive structure risk|          |        |     |
+|Pre-registration        |          |        |     |
+|Analysis plan compliance|          |        |     |
+|P-hacking risk          |          |        |     |
+|Effect size plausibility|          |        |     |
+|Statistical power       |          |        |     |
+|Winner's curse risk     |          |        |     |
+|HARKing risk            |          |        |     |
+|Forking-paths fragility |          |        |     |
+|Selective reporting     |          |        |     |
+|Replication success rate|          |        |     |
+|Effect size trajectory  |          |        |     |
+|Data/code availability  |          |        |     |
+|Post-publication flags  |          |        |     |
+
+Severity options: None / Minor / Moderate / Major / Fatal / Cannot assess
+
+-----
+
+SECTION H2: THE CONCEDE TEST
+
+Run this on every proposed finding before choosing the Section I verdict or rating the finding
+in the final table.
+
+VERDICT-ELIGIBILITY PRE-CHECK  [IV-P1; FAIL-IV-001]
+
+Before a finding can affect Section I, record its canonical verification state and, where it
+asserts a coding, model, reanalysis, replication, data-generation, or other technical outcome,
+its TECHNICAL OUTCOME STATUS under [IV-P1].
+
+The Concede Test remains conditional: classify what follows IF the finding is true. Then
+separately decide whether the finding is ELIGIBLE to drive the current verdict. Do not convert
+conditional DEFEATS into NARROWS merely because the evidence remains pending.
+
+For each finding, ask:
+
+IF THIS FINDING WERE FULLY CONCEDED  -  granted entirely, with no argument  -  WOULD THE CLAIM
+UNDER AUDIT STILL STAND?
+
+- SURVIVES: the claim still holds. This is a limitation, not a defeater. Report it, but it may
+  not be rated MAJOR or FATAL and may not anchor the verdict.
+- NARROWS: the claim survives only in smaller scope, such as a smaller population, weaker or
+  less stable effect, narrower conditions, or reduced downstream use. State the surviving
+  claim explicitly.
+- DEFEATS: the audited claim does not follow or the foundational finding is not sufficiently
+  supported. This is load-bearing.
+
+Create a table:
+
+| Finding | Verification state | Technical outcome status | Conditional concede result: SURVIVES / NARROWS / DEFEATS | Verdict eligibility: ELIGIBLE / PENDING VERIFICATION | Eligibility basis | Surviving claim if NARROWS |
+|---|---|---|---|---|---|---|
+
+- Every PENDING VERIFICATION row must state what exact retrieval, code run, reanalysis,
+  correction, or source access would make it ELIGIBLE.
+- A conditional DEFEATS / PENDING VERIFICATION row is not an eligible DEFEATS finding and may
+  not drive the grade.
+- Run the existing scope-loss assessment on NARROWS as a statement of logical effect.
+  Eligibility still controls whether that narrowing enters the verdict.
+
+Do not turn a raw count of overlapping limitations into an invalidity verdict. Consolidate
+duplicated findings and judge what scope the claim actually retains.
+
+SCOPE-LOSS ASSESSMENT  -  REQUIRED FOR EVERY NARROWS RESULT
+
+- INCIDENTAL NARROWING: precision or boundary conditions change, but the finding remains
+  substantially the same in population, direction, magnitude class, and practical use. This
+  ordinarily supports verdict B rather than C.
+- MATERIAL NARROWING: the finding survives only as a meaningfully smaller, weaker, less
+  stable, or less general result. The stronger use fails, but a useful narrower finding
+  remains. This ordinarily supports verdict C.
+- NEAR-DEFEAT NARROWING: only a trivial, tautological, or practically different remainder
+  survives. Do not use NARROWS to avoid DEFEATS. Reclassify as DEFEATS when the remainder no
+  longer performs the work for which the finding is used.
+
+For each NARROWS result, add:
+
+| Finding | Scope-loss level | Original claim | Surviving claim | What practical or inferential work is lost? |
+|---|---|---|---|---|
+
+VERDICT MAPPING
+
+- No ELIGIBLE DEFEATS and no ELIGIBLE MATERIAL NARROWING: use A or B according to the remaining
+  eligible evidence, unless inadequate coverage requires F.
+- One or more ELIGIBLE MATERIAL NARROWING findings and no ELIGIBLE DEFEATS: ordinarily use C.
+- D requires multiple ELIGIBLE, adequately verified vulnerabilities that compound, or an
+  ELIGIBLE near-defeat that remains unresolved at the claim level. Pending allegations do not
+  produce D by accumulation.
+- E requires at least one ELIGIBLE DEFEATS finding, or an ELIGIBLE verified combination
+  establishing that the result is likely an analytic or data artifact.
+- Use F when verification gaps prevent reliable assessment of load-bearing internal-validity
+  questions.
+
+-----
+
+SECTION I: INTERNAL VALIDITY VERDICT
+
+Do not return one letter when a DEFEATS finding is present. Output a split claim-space object:
+
+- Claim under audit: VALID / USEFUL-FOR-NARROWER / INVALID / WITHHELD — CANNOT ASSESS
+- Eligible DEFEATS finding(s), if any:
+- Eligible MATERIAL NARROWING finding(s), if any:
+- Findings pending verification:
+  [finding | conditional concede result | why pending | what would resolve it]
+- Pending-evidence effect on assessability: NONE / LIMITED / REQUIRES F
+- Surviving residual: [the exact narrower empirical claim left standing] OR "none" OR
+  "cannot determine pending verification"
+- Internal-validity grade: A / B / C / D / E / F
+
+Section I may list a finding under "Eligible DEFEATS finding(s)" only when its Section H2 row
+says both conditional concede result DEFEATS and verdict eligibility ELIGIBLE. Copy PENDING
+VERIFICATION findings only to the pending line. Do not silently omit them and do not count
+them toward C, D, or E.
+
+Derive the grade from eligible evidence. If the unresolved technical questions are themselves
+necessary to determine whether the finding is real, use F rather than converting uncertainty
+into either exoneration or invalidation.
+
+"None" is a REQUIRED, reachable output. A failed or artifact-driven finding may leave no
+usable residual. Do not manufacture one merely because the format asks for narrowing.
+
+Internal-validity grades:
+
+A. Strong - pre-registered, adequately powered, independently replicated, effect stable, data
+available, and data generation sound. B. Acceptable - minor design limitations, plausible
+effect size, and no load-bearing instability. C. Weak - underpowered, unreplicated, possibly
+inflated, or affected by moderate design or data-generation concerns. D. Suspect - multiple
+internal-validity problems, serious fragility, contested replication, or compromised data
+generation. E. Invalid - adequately verified replication, analysis, or data-generation failure
+DEFEATS the foundational finding. F. Cannot assess - insufficient reporting or retrieval.
+
+Derive every line from the Concede Test, [IV-P1] eligibility, and verification state of the
+load-bearing evidence. Do not average across dimensions. Do not let pending evidence create
+INVALID or an adverse grade trigger.
+
+Then answer:
+
+1. Is the foundational finding likely to be real?
+2. If it is real, is its magnitude sufficient to support the downstream claim?
+3. What is the best current estimate of the true effect size?
+4. What pre-registration and replication evidence would upgrade the grade?
+5. What decisive test has not been run?
+6. For AI-assisted analysis, did the adversarial check surface failures the original analysis
+   missed?
+7. Is the finding fragile to defensible analytical choices?
+8. Does any usable residual remain? If yes, state it exactly. If no, write "surviving
+   residual: none."
+
+SECTION J: INTEGRATION WITH CONSTRUCT VALIDITY AUDIT
+
+Begin by repeating the run-header receipt exactly:
+
+    SIBLING-PROSECUTOR INPUT: [NONE / FORMALLY SUPPLIED — identifier]
+    INDEPENDENCE STATUS: [INDEPENDENT / INTEGRATED-NONINDEPENDENT]
+
+IF NONE:
+
+Open with this exact statement:
+
+    No construct-validity output was formally supplied to this run. The following reasons only
+    from general construct concerns and does not adopt any specific sibling finding or verdict
+    visible elsewhere in session context.
+
+Reason only in general and conditional terms. Permitted form:
+
+    Even if the outcome measure's construct validity is accepted, [eligible internal-validity
+    finding] would still [narrow/defeat] [claim]. If an independently established
+    construct-validity failure were later added, it would compound with this result in
+    [specified way].
+
+Do not state or imply that a specific construct mismatch, proxy failure, severity, or sibling
+verdict has already been established.
+
+IF FORMALLY SUPPLIED:
+
+- Name the supplied file or stable identifier.
+- Cite the specific imported finding IDs as SUPPLIED SIBLING INPUT.
+- Report each imported finding's verification state and [IV-P1] eligibility.
+- Integrate only what the supplied evidence licenses.
+- Preserve the INTEGRATED-NONINDEPENDENT label.
+
+Use one of these two decisive-test forms:
+
+NO SIBLING INPUT:
+
+    The foundational finding [is / is not / cannot yet be determined to be] likely real based
+    on the eligible internal-validity evidence. Even if the construct interpretation is
+    accepted, [internal consequence]. Any specific construct-validity compounding claim remains
+    outside this independent run.
+
+FORMALLY SUPPLIED SIBLING INPUT:
+
+    The foundational finding [is / is not / cannot yet be determined to be] likely real based
+    on the eligible internal-validity evidence. The formally supplied construct finding [ID] is
+    [eligible / pending] and [does / does not yet] establish [bounded construct consequence].
+    Together, these support [bounded integrated conclusion].
+
+Do not force a does/does-not construct judgment when no construct output was formally supplied.
+
+-----
+
+SECTION K: ONE-PARAGRAPH SUMMARY
+
+Write one paragraph summarizing:
+
+- Whether the foundational finding is likely real
+- The current best estimate of the true effect size
+- The replication status
+- The data generation quality
+- The claim-under-audit status (VALID / USEFUL-FOR-NARROWER / INVALID)
+- The surviving residual, or none
+- The internal-validity grade
+- The forking-paths robustness result
+- The load-bearing Concede Test result
+- How internal-validity failures compound or modify the construct-validity assessment
+- What the decisive test would look like
+
+This paragraph should be direct, evidence-based, and free of unnecessary reassurance language.
+State the verdict plainly. Do not hedge unless the evidence genuinely requires it. If the
+finding is unlikely to be real, say so. If multiple failure modes compound, name the
+compounding explicitly rather than softening into a general "limitations" framing.
+
+-----
+
+REMINDER
+
+This prompt audits the finding itself  -  whether the result is real and stable  -  before
+asking what it proves.
+
+A finding that replicates cleanly but is overclaimed has one problem. A finding built on
+flawed data has a second problem. A finding that doesn't replicate has a third problem. A
+finding that doesn't replicate AND is overclaimed AND is built on flawed data is triply
+invalid.
+
+The toolkit now covers all three.
+
+You may begin with suspicion. You may not end with suspicion.
+
+Start wherever the anomaly appears. Finish with receipts.
+
+-----
+
+FINAL SECTION: STANDARDIZED FINDING TABLE
+
+This summarizes the findings already produced above. It does not replace the detailed
+sections. It is the inspectable layer read by the human adjudicator and the counter-audit.
+
+You are a one-directional prosecutor, and that is correct. An aggressive prosecutor still
+produces receipts. The two falsifiability fields are mandatory: naming what would undercut a
+finding does not weaken it; it makes it checkable.
+
+One row per finding:
+
+| Field | Entry |
+|---|---|
+| Finding | One sentence |
+| Target claim | Claim map field 6 |
+| What was measured | Actual data, design, and analytical operation |
+| What was claimed | Empirical finding or downstream assertion being supported |
+| Failure mode | Internal-validity taxonomy used above |
+| Severity | none / minor / moderate / major / fatal-for-strong-claim |
+| Concede test | SURVIVES / NARROWS / DEFEATS |
+| Scope loss if NARROWS | incidental / material / near-defeat, plus surviving claim |
+| Evidence | Section, table, figure, passage, preregistration, code, or data |
+| Evidence type | primary study / replication / meta-analysis / methodological critique / policy document / practitioner / journalism / commentary / theoretical / author inference |
+| Verification state | From the compact vocabulary |
+| Possible innocent explanation | MANDATORY  -  strongest non-damning reading; if none, write "none identified" |
+| What would weaken this | MANDATORY  -  specific evidence that would undercut it |
+| Failure location | PAPER / CITATION / PR-MEDIA / MODEL-RETRIEVAL / MIXED |
+| Status | confirmed / contested / provisional |
+
+RULES
+
+1. A finding missing either mandatory falsifiability field is not inspectable and may not be
+   rated MAJOR or FATAL.
+2. Severity must agree with verification state. A PROVISIONAL finding cannot be MAJOR or
+   FATAL.
+3. A SURVIVES finding cannot be MAJOR or FATAL and may not anchor the verdict.
+4. A NARROWS finding must state the surviving claim and scope-loss level. An incidental
+   narrowing does not by itself require verdict C.
+5. Target claim must match field 6 of the shared Claim Map. Use MAP GAP rather than silently
+   substituting another claim.
+6. A replication or post-publication finding must preserve its verification state. A
+   PROVISIONAL failed replication may not create verdict E.
+7. If no findings of consequence were produced, say so plainly and submit an empty table with
+   a one-line statement. A prosecutor that never returns "nothing of consequence here" is not
+   measuring anything.
