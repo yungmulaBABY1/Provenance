@@ -1,0 +1,99 @@
+CASE: FAIL-IV-001/002 — galor-ozak-cross-prosecutor-leak
+========================================================
+
+STATUS
+
+Oracle specified. Prompt repair applied. Paired source artifacts and patched
+rerun have not yet been copied into this case directory.
+
+Do not treat this file alone as a completed regression fixture. Before running,
+copy the preserved clean and contaminated outputs into a dated run directory and
+record their exact filenames, hashes, byte counts, and run dates. Do not infer or
+invent missing metadata.
+
+PURPOSE
+
+Tests two failures observed in real A/B runs of 2-internal-validity.txt on Galor
+& Özak (2016):
+
+1. a conditional DEFEATS result based on pending technical evidence entered the
+   verdict as an eligible finding; and
+2. a construct-validity output visible in ambient context, but not formally
+   supplied, was adopted as an established premise.
+
+CONTROL
+
+The preserved clean-context run with no construct-validity output visible.
+
+  Filename: [COPY FROM PRESERVED ARTIFACT]
+  SHA-256:  [COMPUTE FROM PRESERVED ARTIFACT]
+  Run date: [COPY FROM PRESERVED ARTIFACT]
+
+DIRTY BASELINE
+
+The preserved contaminated-context run with a construct-validity output visible
+but not formally supplied.
+
+  Filename: [COPY FROM PRESERVED ARTIFACT]
+  SHA-256:  [COMPUTE FROM PRESERVED ARTIFACT]
+  Run date: [COPY FROM PRESERVED ARTIFACT]
+
+PATCHED TEST CONDITION
+
+Run the patched 2-internal-validity.txt with the same construct-validity output
+visible in ambient context, but set INPUTS item 6 to NONE. Record the prompt's
+immutable identity under TOOL-004 before execution.
+
+EXPECTED RESULT — WRITE/LOCK BEFORE THE RERUN
+
+1. The coding-error and LTO-redefinition allegations retain their logically
+   correct conditional concede results, including DEFEATS where appropriate,
+   but remain PENDING VERIFICATION unless their technical outcomes are
+   independently established.
+
+2. Neither allegation appears under "Eligible DEFEATS finding(s)." Both appear
+   under "Findings pending verification" with a concrete resolution path.
+
+3. The patched grade and eligible-DEFEATS inventory equal the clean control.
+   The historical clean-control grade was C with no eligible DEFEATS, but the
+   regression oracle is relative equality so unrelated later prompt changes do
+   not make a hard-coded letter stale.
+
+4. The run header states exactly:
+
+       SIBLING-PROSECUTOR INPUT: NONE
+       INDEPENDENCE STATUS: INDEPENDENT
+
+5. Section J opens with the required no-formally-supplied statement and does not
+   assert the sibling construct-validity verdict, proxy-mismatch label, or
+   specific LTO finding as an established premise.
+
+6. No section outside Section J quotes, adopts, or increases severity from the
+   ambient sibling output.
+
+FAILURE MEANING
+
+- Conditional DEFEATS enters the eligible-DEFEATS line while technical outcome
+  is UNVERIFIED or UNRESOLVED: the IV-P1 eligibility gate failed.
+- Conditional DEFEATS is rewritten as NARROWS solely because evidence is weak:
+  the conditional-effect and eligibility axes were collapsed.
+- The grade differs from the clean control because pending allegations were
+  counted adversely: Section I propagation failed.
+- A specific sibling verdict appears anywhere despite INPUTS item 6 = NONE:
+  the declared-input boundary failed.
+- Section J lacks the required receipt or disclaimer: its local gate failed.
+- The grade differs for an unrelated newly verified reason: investigate it
+  separately; do not attribute it automatically to this failure.
+
+CHECKER LIMITATION AND FUTURE REVIEW TRIGGER
+
+The declared-input receipt is self-report. A deterministic checker can verify
+the receipt and Section J's required branch, but cannot prove that ambient
+content did not shape the reasoning.
+
+When an internal-validity checker is built, accept a supplied lexical list of
+known sibling-output terms. If the output declares
+`INDEPENDENCE STATUS: INDEPENDENT` and contains construct/proxy-specific terms
+from that list, return `NEEDS-HUMAN-REVIEW`, including each matched term and line
+number. This is an inconsistency flag, not proof of contamination. Do not use an
+LLM quality judge for this check.
