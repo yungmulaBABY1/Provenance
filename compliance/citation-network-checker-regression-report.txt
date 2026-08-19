@@ -1,0 +1,68 @@
+CITATION-NETWORK CHECKER REGRESSION REPORT
+==========================================
+
+Date: 2026-08-16
+
+Checker:
+prompts/research-analysis/check-citation-network-output.py
+
+RESULT MATRIX
+-------------
+
+1. Known-dirty full fixture
+   Fixture: tests/cases/citation-network-checker/shen-revised-known-bad.txt
+   Expected: FAIL
+   Observed: FAIL
+
+   Verification-vocabulary violations:
+   - GRAPH-VERIFIED: 37, with line numbers
+   - CONTEXT-VERIFIED: 24, with line numbers
+   - SOURCE-VERIFIED: 9, with line numbers
+   - RECEPTION-VERIFIED: 1, with line number
+
+   Other deterministic failures include:
+   - explicit RISK BAND line absent;
+   - source-lock method and seven-field lock record absent;
+   - source-class column absent;
+   - aggregation-status column and arithmetic absent; and
+   - internal density is SCORED, but the complete node list, internal edge list,
+     density numerator, density denominator, input coverage, corpus definition,
+     inference scope, and derivation-mode receipt are absent.
+
+   Structural layer: PASS
+   Content-form layer: FAIL
+
+2. Clean whitelist control
+   Fixture: tests/cases/citation-network-checker/shen-v1-whitelist-clean.txt
+   Mode: --vocab-only
+   Expected: PASS
+   Observed: PASS
+   Canonical confirmed-state tokens found: 43
+
+3. Complete clean control
+   Fixture: tests/cases/citation-network-checker/complete-clean-control.md
+   Expected: PASS
+   Observed: PASS
+   Structural layer: PASS
+   Content-form layer: PASS
+   Pending review items: 0
+
+4. Complete review-routing control
+   Fixture: tests/cases/citation-network-checker/locked-source-review-control.md
+   Expected: PASS-WITH-REVIEW: 1 items
+   Observed: PASS-WITH-REVIEW: 1 items
+   Targeted item: SOURCE_LOCK_TRUTH, with the seven-field lock record extracted
+   inline.
+
+SCOPE
+-----
+
+The checker is deterministic. It verifies structure and content form. It does
+not judge whether a source lock is truthful, a source is correctly classified
+as DIRECTLY-ADJUDICATING, or a nesting decision is substantively correct. Those
+constraints are surfaced as targeted review items. No LLM-in-the-loop quality
+checker was added.
+
+Regression command result:
+PASS — dirty full fixture failed; Shen V1 whitelist control passed; clean
+fixture returned PASS; review fixture returned PASS-WITH-REVIEW.
