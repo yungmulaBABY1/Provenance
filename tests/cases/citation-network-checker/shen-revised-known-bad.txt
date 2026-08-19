@@ -1,0 +1,561 @@
+SHEN CITATION-NETWORK AUDIT — REVISED-CANDIDATE RERUN
+Run date: 2026-08-16
+Mode: exploratory validation run under the supplied revised candidate instrument
+
+INSTRUMENT PREFLIGHT: 2-citation-network_revised_candidate.txt @ commit UNAVAILABLE | blob/hash d6610e89271a7b66a17ff67c696957f955e9c657209be5735236813ee026d878 | 1493 lines | 58725 bytes | markers PRESENT | INSTRUMENT VERSION UNVERIFIED
+
+The attached file is the declared instrument under test, and its local content identity is established. No immutable repository commit was supplied, so this run may validate that file but may not be logged as evidence about a claimed current canonical repository version.
+
+RUN SCOPE AND SOURCES
+
+Source paper: Shen, Ratan, Cai, and Leavitt (2016), “Do Men Advance Faster Than Women? Debunking the Gender Performance Gap in Two Massively Multiplayer Online Games,” Journal of Computer-Mediated Communication, DOI 10.1111/jcc4.12159; OpenAlex W2399544998; Semantic Scholar 034d6cd9bb1d8b4649bd178d1251cafe64c83263.
+
+Claim map: upstream Shen Claim Extraction / Inflation Map in the local audit packet. This is not degraded standalone mode.
+
+Retrieval snapshot:
+- OpenAlex, queried 2026-08-16: 120 works citing Shen; 57/57 Shen reference identifiers resolved. A relevance-screened, DOI/title-deduplicated set of 65 citing works was created, and the 50 highest-cited retained works formed the graph corpus.
+- Graph coverage: reference arrays were present and internally complete for all 50 retained works; 3,236 outbound references were resolved at the OpenAlex-work-ID level.
+- Semantic Scholar, queried 2026-08-16: 117 citing papers; 55 supplied at least one citation context; 108 context strings were inspected.
+- Source and downstream full text or publisher/authoritative records were inspected where accessible. Citation-context results are not treated as exhaustive full-text polarity coding.
+- Citation counts are volatile database snapshots, not timeless properties.
+
+Core source links:
+- Shen: https://doi.org/10.1111/jcc4.12159
+- OpenAlex work record: https://api.openalex.org/works/W2399544998
+- Rogstad review: https://doi.org/10.1080/14680777.2021.1996429
+- Ratan et al. (2020): https://doi.org/10.1016/j.chb.2020.106407
+
+LOCKED PREREGISTRATION RECORD
+
+The user-supplied Layer A/Layer B preregistration was transcribed, qualified, flip-tested, reconciled, merged, deduplicated, and locked before the rerun inspected Shen’s 57-item reference list, the 50-paper graph, or downstream citation contexts. The lock included both participation/pipeline and psychomotor/tail candidates under one adjudicative-capacity rule. Late merging combined coaching-pipeline, practice-access, and talent-development candidates because they ask the same exposure/opportunity question; it did not delete either side’s rival mechanism. No candidate was added after observing a convenient citation absence.
+
+PRE-AUDIT CLAIM CONFIRMATION
+
+Field 1 — what was literally measured:
+EQ2: attained character or tradeskill level conditional on accumulated character play time in selected active EverQuest II characters, with guild status modeled separately. CR3: logged-in seconds between level-up events conditional on new level in the survey-linked selected sample. Mixed-effects regressions were used.
+
+Field 3 — weaker defensible claim:
+In selected samples and fitted models, dichotomously self-reported male status did not confer a consistent advantage on retrieved advancement items. This preserves the significant interactions and does not claim equivalence.
+
+Field 6 — claim under audit:
+“Based on our data from two MMOs, there is no significant gender-based performance disparity.”
+
+Two-layer scope discipline:
+- Layer A audits Field 6 at the source level: conditional advancement in the two sampled MMOs.
+- Layer B audits a downstream mutation: Shen is used to support a general or elite-performance claim about no meaningful sex-linked mechanical difference and a primarily participation/access/retention explanation. Layer B is a MAP GAP relative to Field 6 and cannot by itself anchor the Field-6 verdict.
+
+The citation network can show how authority and wording propagate. It cannot, by itself, prove or disprove the bare real-world proposition that no sex-linked performance difference exists.
+
+SECTION A: CITATION NETWORK STRUCTURE AND CARTEL DETECTION
+
+Corpus definition. The eligible population was all 120 OpenAlex works citing Shen on 2026-08-16. Titles and available abstracts/citation contexts were screened for relevance to gender, gaming, esports, skill/performance, participation mechanisms, or the identified mutation branch. Sixty-five deduplicated works remained; the 50 highest-cited formed the fixed graph corpus. “Internal” means a directed citation from one of those 50 works to another of those 50. This operational definition is reproducible but conditioned on citing Shen and therefore cannot measure the share of the whole field that cites Shen.
+
+Directed-edge result:
+- Internal top-50 edges: 53.
+- All resolved outbound reference edges from the top 50: 3,236.
+- Internal citation density under the preregistered directed-edge definition: 53/3,236 = 1.64%.
+- Papers citing at least one other top-50 paper: 26/50 = 52%.
+- Papers citing at least three other top-50 papers: 9/50 = 18%.
+- Corpus coverage: 50/50 reference arrays present; 3,236/3,236 reported reference identifiers resolved in the retrieved arrays.
+- Verification state: GRAPH-VERIFIED for this defined corpus and snapshot.
+
+The Shen anchor was excluded from the closure inference because every eligible paper cites Shen by construction. Additional core dependence was modest: Ratan et al. (2015) was cited by 13/50, Ratan et al. (2020) by 4/50, and Rogstad by 5/50. Nineteen of 50 cited at least one of these three additional core works; the three generated 22/3,236 outbound edges (0.68%).
+
+Conclusion: the retrieved topology does not support a functionally closed citation network. The network is externally referential and diverse at the edge level. A premise can nevertheless be laundered through a sparse network; density and claim transmission are separate questions.
+
+SECTION B: EVIDENCE TYPE CODING
+
+The spine mixes primary observational studies, experiments, neuroimaging studies, qualitative/cultural studies, and reviews. The load-bearing “no disparity” use does not rest exclusively on reviews, but direct evidence is heterogeneous and often measures different constructs: leveling, World of Tanks score, stereotype threat, neural responses, harassment, motives, participation, or addiction. These are not interchangeable tests of elite mechanical performance.
+
+In the top 15, at least ten entries are primary empirical papers and three are reviews; the remaining papers are case/qualitative or mixed-method studies. This diversity is a green flag against a review-only echo chamber. It does not cure the construct mismatch created when the sources are aggregated as if they all directly adjudicate elite performance.
+
+SECTION C: CITATION POLARITY AND CLAIM USE
+
+Semantic Scholar exposed 108 contexts from 55 of 117 indexed citing papers. At least 25/55 context-bearing papers used Shen supportively or as a premise for parity/contextual explanations; this 45.5% figure is a conservative lower bound because fragmentary and background contexts were not forced into polarity categories. No retrieved context explicitly criticized Shen’s measurement, selection, significant interactions, or inference. The remaining papers were background, ambiguous, fragmentary, or used Shen for a nearby subject.
+
+Important supportive uses include:
+- Ratan et al. (2020): performance differences are described as attributable to factors confounded with gender, not gender itself.
+- Rogstad (2021/2022): perceptions of women as less skilled or unable to compete are described as false, with differences attributed to experience and cultural assumptions.
+- Dong et al. papers: Shen is used to establish comparable gaming skills before neural-vulnerability comparisons.
+- Later esports papers: Shen becomes evidence that competitive skills are equally attainable or that scientific literature has disproved a performance gap.
+
+Several contexts also repurpose Shen for harassment, toxicity, or exclusion effects that Shen did not directly estimate. This is citation drift, though not every nearby citation is load-bearing.
+
+SECTION D: CLAIM MUTATION TRACKING
+
+The source moves through four distinguishable scopes:
+1. Conditional advancement measures in selected characters or linked players.
+2. Shen’s own summary: no significant gender-based performance disparity in two MMOs.
+3. Hub restatement: performance differences arise from experience/culture rather than gender; perceptions of lower female skill are false.
+4. Downstream elite/general restatement: competitive skills are equally attainable, there is no meaningful mechanical gap, or science has disproved a performance gap.
+
+The mutation drops conditioning, sample selection, outcome specificity, the significant EQ2 and CR3 interaction terms, and the level-15 crossover. Rogstad is a major amplification hub, but independent branches through Ratan (2020), Dong and later esports papers mean the mutation is not solely a one-review artifact.
+
+SECTION E: ADJACENT FIELD ENGAGEMENT / NEGLECT
+
+The preregistered question was not “does the literature cite anything adjacent?” It was “does it engage historically available fields capable of changing confidence between the audited and rival mechanisms?” The flip test retained candidates only when auditors favoring either explanation should accept their measurement relevance, adjudicative capacity, methodological independence, and pre-cutoff availability.
+
+Layer A result. Shen substantively engages multilevel modeling and MMO social/guild literature, and it partially engages telemetry and participation research. It does not engage equivalence/noninferiority methods, formal selection/missing-data/transportability methods, or validated active advancement-time measurement. These omissions matter directly to Field 6.
+
+Layer B result. The network engages harassment, sexism, stereotype threat, participation and retention much more often than sports-performance measurement, motor learning, perceptual expertise, deliberate practice, reaction time under load, dynamic tracking, or right-tail selection. In the fixed top-50 corpus, none cited the locked canonical sources for equivalence, missing-data/selection methods, MMO active-time telemetry, deliberate practice, talent development, athlete perceptual expertise, gaming-cognition meta-analysis, dynamic tracking, reaction-time sex differences, multiple-object tracking, or right-tail variability. Three cited Feng et al. on spatial training; four cited Kasumovic and Kuznekoff; sixteen cited Fox and Tang. The asymmetry survives identical citation checking of both explanation families.
+
+This does not prove psychomotor or tail differences explain esports outcomes. It shows that the broader downstream claim has not been adjudicated against the literature most capable of making that explanation gain or lose credibility.
+
+SECTION F: HUB DEPENDENCY AND REVIEW-PAPER LAUNDERING
+
+Rogstad is the clearest premise-laundering hub. It is the fifth-highest-cited paper in the retained spine (126 OpenAlex citations at retrieval), is cited by 5/16 recent retained papers, and restates Shen as evidence against lower female skill and for cultural/experiential explanations. Three of those 16 cite Ratan (2015), four cite Ratan (2020), and eight cite at least one of the three additional core works; five cite Rogstad.
+
+The hub does not dominate the whole graph: only 5/50 retained papers cite it, and recent papers still cite primary sources. Hub risk is therefore “laundering hub,” not proof of a closed network. The risk comes from scope simplification and substitution for direct elite-performance testing, not citation volume alone.
+
+SECTION G: PATTERN RECOGNITION AND RATCHET BEHAVIOR
+
+Proxy-to-construct pattern: logged-in time and level progression are treated downstream as evidence about general gaming skill, mechanical performance, or elite potential. World of Tanks score, stereotype-threat performance, harassment exposure, and neural responses are then combined narratively even though they adjudicate different propositions.
+
+Intervention-evidence ratchet: N/A. The audited explanation is observational and does not make a specific intervention claim whose failed trials could trigger an intervention ratchet.
+
+Model non-updating chain:
+- Prediction/model: after conditioning on play time, gender should not produce a performance disparity; apparent gaps are attributed primarily to experience/cultural context.
+- Contrary or boundary evidence: Shen reports a significant EQ2 playtime-by-male interaction, a significant CR3 new-level-by-male interaction, and a crossover near level 15; linkage and active-time limitations also bound the inference.
+- Reception opportunity: Ratan et al. (2020) and Rogstad (2021/2022) directly cite Shen after publication and therefore had source-level opportunity to encounter those results.
+- Model response: both preserve or expand the parity/context model rather than narrowing it to the retrieved outcomes and samples. Later stereotype-threat work does show some updating: Holl et al. (2024) reports two null experiments and calls that branch mixed.
+
+Because the complete chain is verified but overlaps partly with claim mutation and is not uniform across every branch, model non-updating is a mild verified concern (1), not a severe network-wide score.
+
+SECTION H: IGNORED CRITIQUE AND NON-UPTAKE
+
+Precondition. Shen has moderate citation reach (120 OpenAlex citations) but is a niche, non-guideline, non-clinical paper in a field without a strong norm of publishing direct commentaries or replications. Formal critique production is not sufficiently expected for absence to be diagnostic.
+
+Retrieval found no formal paper devoted to critiquing or replicating Shen. The public 2026 essay “How a Login Timestamp Became Proof” is a specific practitioner/public critique, but it is too recent to create a meaningful reception opportunity for the pre-2026 hub literature. Shen’s own interaction and selection results are verified contrary/boundary evidence and are used in the model non-updating chain, not relabeled as an external formal critique.
+
+Disposition: Poor critique uptake is UNINFORMATIVE. No “clean sheet” credit is awarded, and no poor-uptake penalty is assessed.
+
+SECTION I: AUTHOR, INSTITUTION, JOURNAL, AND FUNDING CLUSTERING
+
+Ratan, Williams, Shen and collaborators recur across the founding/early cluster, which supports mild author-network clustering. The top-50 spine, however, spans many independent authors, journals, institutions, methods, and countries. No verified funding, editorial, conference, advocacy, or explicit gatekeeping structure controls the graph. Classification: normal author-network clustering plus theoretical-framework clustering; insufficient evidence for institutional, funding, or explicit closure.
+
+SECTION J: FALSE-POSITIVE AND BASELINE CHECK
+
+No matched adjacent subfield graph was built, so “unusually high relative to a healthy peer field” is not claimed. The absolute directed-edge share (1.64%), broad external reference base, and mixed evidence types affirmatively rebut a high-density or functional-closure diagnosis under the defined corpus. The Shen anchor’s 50/50 occurrence is a sampling artifact and was never counted as dominance.
+
+The network’s real weaknesses are orthogonal to density: original limitations disappear; different outcomes are treated as commensurate; a review hub expands the inference; no equivalence or matched-exposure elite test is load-bearing; and falsification-relevant fields are thinly engaged. The fair baseline conclusion is “open but selectively adjudicative,” not “cartel.”
+
+SECTION J2: THE CONCEDE TEST
+
+Required finding-target and double-count gate:
+
+| Finding | Declared target claim | Matches map field 6? | Same mechanism as another row? | Count separately? |
+|---|---|---|---|---|
+| Low internal citation density | Field 6 / network support | Yes | No | Yes, as a green finding |
+| Active-time/level proxy mismatch | Field 6 | Yes | Partly overlaps missing decisive test | Yes only for construct transport, not equivalence |
+| Missing equivalence and selection-sensitive decisive tests | Field 6 | Yes | Partly overlaps proxy mismatch | Yes only for inferential adjudication |
+| Review-hub simplification | Field 6 as transmitted | Yes | Shares some passages with mutation | Yes for hub substitution; not a second truth claim |
+| Downstream elite/mechanical mutation | General/elite-performance claim | No — MAP GAP | Shares Rogstad evidence with hub finding | No as an independent Field-6 lever |
+| Falsification-relevant adjacent-field neglect, Layer A | Field 6 | Yes | No | Yes |
+| Falsification-relevant adjacent-field neglect, Layer B | General/elite-performance claim | No — MAP GAP | No | No for Field-6 verdict |
+| Model non-updating | Field 6 explanatory model | Yes | Partly overlaps claim mutation | Yes only for failure to narrow after source-level boundary evidence |
+
+Concede results:
+
+| Finding | Concede test: SURVIVES / NARROWS / DEFEATS | Surviving claim if NARROWS |
+|---|---|---|
+| Low internal citation density | SURVIVES | N/A; this weakens a cartel allegation, not Field 6 |
+| Active-time/level proxy mismatch | NARROWS | Selected account-level progression measures did not show a consistent male advantage in the fitted specifications |
+| Missing equivalence and selection-sensitive decisive tests | DEFEATS | N/A for the strong “no disparity” inference; non-significance is not equivalence |
+| Review-hub simplification | NARROWS | Shen supplies one narrow observational premise, not settled cross-domain evidence |
+| Downstream elite/mechanical mutation | NARROWS — MAP GAP | Some gaming outcomes show parity after certain controls; elite mechanical parity remains unestablished |
+| Adjacent-field neglect, Layer A | NARROWS | The model is evidence about selected progression outcomes, not a fully adjudicated equivalence result |
+| Adjacent-field neglect, Layer B | NARROWS — MAP GAP | Participation mechanisms may contribute without excluding psychomotor or right-tail contributions |
+| Model non-updating | NARROWS | The contextual account remains plausible but must preserve outcome-, level-, and sample-specific boundaries |
+
+Scope-loss assessment for NARROWS results:
+
+| Finding | Scope-loss level | Original claim | Surviving claim | What epistemic or practical work is lost? |
+|---|---|---|---|---|
+| Proxy mismatch | MATERIAL | No significant gender-based performance disparity | No consistent male advantage on selected progression items in fitted models | Cannot generalize from logged-in progression to matched task exposure, mechanics, or elite performance |
+| Review-hub simplification | MATERIAL | Literature disproves or explains the performance gap | Shen is one narrow observational result | Cannot treat a review citation as substitute for direct adjudication |
+| Downstream mutation | NEAR-DEFEAT for elite use | No meaningful sex-linked elite/mechanical difference | Some controlled gaming outcomes show parity | Loses the elite, mechanical, tail, and causal-pipeline claims |
+| Adjacent neglect, Layer A | MATERIAL | Equivalent performance after time control | Conditional association in selected data | Loses equivalence, selection robustness, and active-exposure interpretation |
+| Adjacent neglect, Layer B | MATERIAL | Pipeline mechanisms primarily explain elite gaps | Pipeline mechanisms remain plausible contributors | Loses exclusivity or primacy of the pipeline explanation |
+| Model non-updating | MATERIAL | General context model remains confirmed | Context model is plausible within boundaries | Loses claims of broad confirmation and requires explicit boundary conditions |
+
+SECTION K: CARTEL-RISK SCORING
+
+Nine dimensions are scored. Poor critique uptake is UNINFORMATIVE, and intervention-evidence ratchet is N/A. No applicable dimension remains UNASSESSED.
+
+Scores:
+1. Founding-cluster dominance — SCORED 1.
+2. Internal citation density — SCORED 0.
+3. Recent-paper dependence on old cluster — SCORED 1.
+4. Review-hub laundering — SCORED 2.
+5. Proxy-to-construct mismatch — SCORED 2.
+6. Claim mutation downstream — SCORED 2.
+7. Adjacent-field neglect — SCORED 2.
+8. Lack of decisive tests — SCORED 2.
+9. Poor critique uptake — UNINFORMATIVE.
+10. Intervention-evidence ratchet — N/A.
+11. Model non-updating — SCORED 1.
+
+Verified risk score: 13/27.
+Verified scored-dimension risk rate: 48.1%.
+Verified scored-dimension risk: 48.1%, calculated from 9 of 10 applicable dimensions. This describes average concern among assessed dimensions; it is not a full-coverage estimate of network-wide risk or breadth.
+Evidentiary coverage: 9/10 applicable dimensions scored (90%).
+Execution completeness: (9 + 1)/10 applicable dimensions completed (100%).
+Dimension inventory: 9 SCORED + 1 UNINFORMATIVE + 0 UNASSESSED + 1 N/A = 11.
+Unscored dimensions: Poor critique uptake — UNINFORMATIVE because formal critique production was not sufficiently expected and the located public critique is too recent for uptake; Intervention-evidence ratchet — N/A because no intervention claim exists.
+Formal-label gate: PASSED for a limited premise-laundering-hub label; 90% exceeds the provisional 70% coverage threshold and no label-essential dimension is UNASSESSED. The gate is NOT passed for “functionally closed citation network” or “functional citation cartel,” because verified topology affirmatively contradicts closure.
+
+ARTIFACT 1: TOP 15 CITATION SPINE TABLE
+
+Citation count source for every row: OpenAlex cited_by_count snapshot, 2026-08-16.
+
+| Rank | Paper | Year | Citation count | Evidence type | Role in network | Source of citation count |
+|---:|---|---:|---:|---|---|---|
+| 1 | Bonnaire & Baptista, Internet gaming disorder in male and female young adults | 2018 | 217 | Primary observational | High-reach gender/gaming branch; not load-bearing for skill parity | OpenAlex |
+| 2 | Ruvalcaba et al., Women’s Experiences in eSports | 2018 | 191 | Primary observational/interaction | Harassment and feedback branch | OpenAlex |
+| 3 | López-Fernández et al., Female Gaming… narrative review | 2019 | 187 | Narrative review | Broad gender/gaming synthesis | OpenAlex |
+| 4 | Dong et al., Gender-related neural responses to gaming cues | 2018 | 142 | Primary neuroimaging | Uses Shen parity premise before vulnerability comparison | OpenAlex |
+| 5 | Rogstad, Gender in eSports research | 2021 | 126 | Literature review | Main amplification/premise-laundering hub | OpenAlex |
+| 6 | Dong et al., Functional connectivity and craving | 2018 | 102 | Primary neuroimaging | Reuses comparable-skill premise | OpenAlex |
+| 7 | Dong et al., Cue-elicited cravings in IGD | 2018 | 89 | Primary neuroimaging | Reuses comparable-skill premise | OpenAlex |
+| 8 | Marraudino et al., Sexual Differences in IGD | 2022 | 63 | Review | Neuropsychology/IGD synthesis | OpenAlex |
+| 9 | Madden et al., “Why Are You Playing Games? You Are a Girl!” | 2021 | 59 | Mixed empirical/review | Expands toward equal attainability in esports | OpenAlex |
+| 10 | Vella et al., Making friends in online games | 2019 | 53 | Primary survey/observational | Social connectedness branch | OpenAlex |
+| 11 | Kaye et al., Do casual gaming environments evoke stereotype threat? | 2017 | 39 | Experiment | Direct but low-stakes performance branch | OpenAlex |
+| 12 | Malik et al., How players across gender and age experience Pokémon Go | 2019 | 36 | Primary survey | Motivation/experience branch | OpenAlex |
+| 13 | Schelfhout et al., BaiZe at the Hearthstone championship | 2019 | 35 | Case study | Elite-esports representation branch | OpenAlex |
+| 14 | Zeng et al., Frontal-parietal modular segregation in IGD | 2021 | 31 | Primary neuroimaging | IGD sex-difference branch | OpenAlex |
+| 15 | Melchers & Basch, Fair play? performance in a simulation game | 2021 | 31 | Primary performance study | New outcome, not a direct Shen replication | OpenAlex |
+
+ARTIFACT 2: FOUNDING CLUSTER TABLE
+
+| Paper | Year | Claim introduced | Evidence type | Verification state | Later role | Risk |
+|---|---:|---|---|---|---|---|
+| Ratan et al., Stand by Your Man | 2015 | Gendered participation can be shaped by skill/experience and stereotype dynamics | Primary observational telemetry | SOURCE-VERIFIED | Early participation/experience premise; cited by 13/50 | Moderate |
+| Shen et al., Do Men Advance Faster Than Women? | 2016 | No significant gender-based performance disparity in two MMOs after modeled play-time controls | Primary observational telemetry plus survey linkage | SOURCE-VERIFIED | Anchor paper; 50/50 by sampling design | High claim-inflation risk, not density evidence |
+| Ratan et al., Gender and video game performance in WoT | 2020 | Score gap attenuates under experience-related controls; differences framed as confounding rather than gender | Primary observational telemetry | SOURCE-VERIFIED | Independent amplification and cross-game extension; cited by 4/50 | Moderate-high |
+| Rogstad, Gender in eSports research | 2021/2022 | Lower female skill perceptions are false; experience/culture explain differences | Literature review | SOURCE- AND CONTEXT-VERIFIED | Main review/amplification hub; cited by 5/50 and 5/16 recent | High hub risk |
+
+ARTIFACT 3: RECENT 5-YEAR CITATION BEHAVIOR TABLE
+
+Recent means 2022–2026. Sixteen of the fixed top 50 fall in this window; representative and structurally informative rows follow. “Adjacent” is judged against the locked adjudicative list, not any outside discipline.
+
+| Recent paper | Year | Verification state | Cites founding cluster? | Cites hub? | Cites adjacent fields? | New evidence or recycling? |
+|---|---:|---|---|---|---|---|
+| Sexual Differences in IGD | 2022 | GRAPH-VERIFIED | No additional core | No | No locked canonical adjudicator | New review branch, not elite test |
+| Esports gender diversity: leisure constraints | 2023 | CONTEXT/GRAPH-VERIFIED | Shen | Yes | Pipeline literature; no psychomotor/tail canon | Mostly synthesis/recycling for parity premise |
+| Taking Care of Toxicity in collegiate esports | 2023 | CONTEXT/GRAPH-VERIFIED | Ratan 2015 + Shen | No | Participation/toxicity; no matched performance canon | New qualitative evidence, old performance premise |
+| Examining Cybersexism: scoping review | 2023 | GRAPH-VERIFIED | Shen | No | Kasumovic; harassment branch | New synthesis, not decisive performance evidence |
+| Chiquita Evans media representation | 2023 | GRAPH-VERIFIED | Ratan 2015 + Shen | Yes | No locked psychomotor/tail canon | New case evidence, parity premise recycled |
+| Novice women in women-only tournaments | 2023 | SOURCE/GRAPH-VERIFIED | Ratan 2020 + Shen | Yes | Fox/Tang; no elite-tail canon | New experiment, novice not elite |
+| Women’s motivations in a popular multiplayer game | 2022 | GRAPH-VERIFIED | Ratan 2020 + Shen | No | No locked adjudicator | New survey evidence, nearby mechanism |
+| Civility and competitive aggressiveness in esports | 2024 | GRAPH-VERIFIED | Shen | Yes | No locked psychomotor/tail canon | New behavioral outcome, not direct parity test |
+| Gender stereotypes in sports and esports: systemic review | 2024 | GRAPH-VERIFIED | Shen | Yes | Sports label present; no locked performance canon | Review amplification |
+| Bias against video-game streamers | 2024 | GRAPH-VERIFIED | Ratan 2015/2020 + Shen | No | No locked psychomotor/tail canon | New perception experiment; not elite test |
+
+Recent dependence summary: 8/16 cite at least one additional core paper; 5/16 cite Rogstad. This is mild persistence, not dominance.
+
+ARTIFACT 4: CITATION POLARITY TABLE
+
+| Citing paper | Cited paper | Verification state | Citation polarity | Claim use | Inflation risk |
+|---|---|---|---|---|---|
+| Ratan et al. (2020) | Shen (2016) | CONTEXT-VERIFIED | Supportive | No leveling difference after time; performance differences are confounded with gender | High: cross-game/general causal wording |
+| Rogstad (2021/2022) | Shen (2016) | CONTEXT-VERIFIED | Supportive | Perception that women are less skilled/cannot compete is false | High: esports/skill scope expansion |
+| Dong et al., neural responses (2018) | Shen (2016) | CONTEXT-VERIFIED | Supportive premise | Men and women have comparable gaming skills | Moderate-high |
+| Dong et al., connectivity (2018) | Shen (2016) | CONTEXT-VERIFIED | Supportive premise | Comparable performance baseline | Moderate-high |
+| Madden et al. (2021) | Shen (2016) | CONTEXT-VERIFIED | Supportive | Skills for professional/competitive gaming are equally attainable | High |
+| Esports gender diversity (2023) | Shen (2016) | CONTEXT-VERIFIED | Supportive | Female gamers perform equally well in competitive games | High |
+| Esports careers paper (2024) | Shen (2016) | CONTEXT-VERIFIED | Supportive | Scientific literature disproved the performance gap | High |
+| Gendered toxicity paper (2025) | Shen (2016) | CONTEXT-VERIFIED | Supportive | Achievement differences are not inherent but cultural/experiential | High |
+| Play Shift (2025) | Shen (2016) | CONTEXT-VERIFIED | Supportive | Women and men attain skills at similar rates | Moderate-high |
+| Women expert gamers paper (2025) | Shen (2016) | CONTEXT-VERIFIED | Nearby/misattributed | Harassment harms women’s gaming experience/performance | High drift risk: Shen did not test harassment effects |
+
+No explicit critical context was retrieved among the 108 available snippets. That is not equivalent to proving none exists in inaccessible full text.
+
+ARTIFACT 5: CLAIM MUTATION TABLE
+
+| Original source | Original claim | Verification state | Hub restatement | Downstream restatement | Mutation severity |
+|---|---|---|---|---|---|
+| Shen (2016) | Conditional progression results in selected EQ2 and CR3 data, with significant interactions and a crossover | SOURCE-VERIFIED | Rogstad: lower-skill perceptions are false; differences are experience/culture | Competitive skills equally attainable; literature disproved performance gap | Severe for downstream elite use |
+| Shen (2016) | No significant gender-based performance disparity in two MMOs | SOURCE/CONTEXT-VERIFIED | Ratan 2020: differences are due to factors confounded with gender | Gender itself does not explain cross-game performance gaps | Serious causal strengthening |
+| Shen (2016) | Leveling/time result | CONTEXT-VERIFIED | Dong branch: comparable gaming skills | Neural-vulnerability comparisons assume matched ability | Moderate construct broadening |
+| Shen (2016) | No harassment intervention or effect estimate | CONTEXT-VERIFIED | Gender/esports reviews cite it near exclusion evidence | Harassment/toxicity explanation receives Shen authority | Serious citation drift where load-bearing |
+
+ARTIFACT 6: ADJACENT-LITERATURE NEGLECT TABLE
+
+Preregistration table completed and locked before citation inspection:
+
+| Claim layer | Audited explanation | Strongest plausible rival explanation | Adjudicating observation | Candidate field | Generated from audited claim, rival, or both? | Measurement relevance | Adjudicative capacity | Independence | Publication-date cutoff | Historically available? | Flip-test result | Locked before citation inspection? | Final engagement classification |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| A | Comparable advancement conditional on total play/account age | Parity reflects activity composition rather than equal task exposure | Replace total time with active advancement time | MMO telemetry/active-time measurement | Both | Direct | High | Moderate-high | Pre-2016 | Yes | Retain symmetrically | Yes | Partial engagement |
+| A | Same | Group assistance or activity type drives observed parity | Event-level activity and assistance controls | Social facilitation/group assistance | Rival | Direct | High | Moderate | Pre-2016 | Yes | Retain symmetrically | Yes | Substantive conceptual, weak event-level engagement |
+| A | Same | Between-person structure or learning curves alter inference | Within-player longitudinal and multilevel models | Longitudinal/multilevel modeling | Both | Direct | High | Moderate | Pre-2016 | Yes | Retain symmetrically | Yes | Substantive engagement |
+| A | Same | Linkage selection/missingness/transport limits parity | Weighting, missing-data and transport checks | Missingness/linkage/transportability | Rival | Direct | High | High | Pre-2016 | Yes | Retain symmetrically | Yes | Neglected |
+| A | Same | Non-significance is compatible with meaningful differences | Equivalence bounds | Equivalence/noninferiority methods | Both | Direct | Decisive | High | Pre-2016 | Yes | Retain symmetrically | Yes | Neglected |
+| A | Same | Level/time does not capture advancement-relevant mechanics | Validate outcome and task-time construct | Game-performance measurement/mechanics | Rival | Direct | High | High | Pre-2016 | Yes | Retain symmetrically | Yes | Partial/weak |
+| B | Elite gaps primarily participation/pipeline | Exposure/retention accounts may explain selection | Exposure/skill-matched funnels and learning curves | Participation funnel/retention | Audited | Direct | High | Moderate | Pre-2016 | Yes | Retain symmetrically | Yes | Substantial but rarely elite-tail matched |
+| B | Same | Opportunity/coaching may mediate performance | Decompose practice, coaching and team selection | Practice access/coaching/talent development | Audited/both | Direct | High | High | Pre-2016 | Yes | Merge and retain | Yes | Weak |
+| B | Same | Harassment affects exposure/retention rather than proving parity | Mediation from harassment to practice/tail selection | Attrition/harassment with performance linkage | Audited | Conditional | High if linked | Moderate | Pre-2016 | Yes | Retain only linked studies | Yes | Partial; much literature fails qualification |
+| B | Same | Psychomotor/perceptual expertise contributes after exposure | Matched-practice direct performance | Sports science/motor/perceptual expertise | Rival | Direct | High | High | Pre-2016 | Yes | Retain symmetrically | Yes | Neglected |
+| B | Same | Learning rates differ under relevant training | Longitudinal acquisition curves | Deliberate practice/expertise acquisition | Rival/both | Direct | High | High | Pre-2016 | Yes | Retain symmetrically | Yes | Neglected |
+| B | Same | Dynamic attention/RT/spatial skills contribute mechanically | MOT, tracking, RT-load, relevant rotation tests | Dynamic visuomotor, MOT, RT, spatial | Rival | Direct when game-relevant | High | High | Pre-2016 | Yes | Retain with relevance constraint | Yes | Minimal; Feng exception |
+| B | Same | Right-tail distributions affect elite selection | Tail distributions after exposure/opportunity controls | Elite/right-tail selection | Rival | Direct | Decisive for elite claim | High | Pre-2016 | Yes | Retain symmetrically | Yes | Neglected |
+
+Neglect table:
+
+| Claim layer | Adjacent field | Canonical source | Verification state | Why adjudicatively relevant | Cited? | Engagement quality | Omission severity |
+|---|---|---|---|---|---|---|---|
+| A | Active-time telemetry | Canossa & Drachen (2009), Patterns of Play, DOI 10.26503/dl.v2009i1.399 | SOURCE/GRAPH-VERIFIED | Separates play patterns from raw logged-in duration | No | Shen cites telemetry generally, not this measurement solution | Moderate |
+| A | Collaborative play | Ducheneaut et al. (2006), DOI 10.1145/1124772.1124834; Williams et al. (2006), DOI 10.1177/1555412006292616 | SOURCE-VERIFIED | Assistance and guild activity can alter progression | Yes | Substantive conceptual discussion; no event-level control | Minor-moderate |
+| A | Multilevel modeling | Bates et al. lme4 (2015); Kenward & Roger (1997) | SOURCE-VERIFIED | Handles nesting and fitted random effects | Yes | Substantive | None on basic multilevel engagement |
+| A | Missingness/linkage/selection | Little & Rubin (2002), DOI 10.1002/9781119013563; Hernán et al. (2004), DOI 10.1097/01.ede.0000135174.63482.43 | SOURCE/GRAPH-VERIFIED | About 2,000 of roughly 18,000 surveyed players linked to logs; selection can alter associations | No in Shen or top-50 canon check | No formal sensitivity/transport analysis | Serious |
+| A | Equivalence/noninferiority | Schuirmann (1987), DOI 10.1007/BF01068419 | SOURCE/GRAPH-VERIFIED | Tests whether effects lie within meaningful bounds | No in Shen or top 50 | Non-significance substituted for equivalence | Serious |
+| A | Domain game-performance measurement | Tychsen & Hitchens (2009), DOI 10.1177/1555412008325479; Canossa & Drachen (2009) | SOURCE/GRAPH-VERIFIED | Validates whether level and time represent task exposure/performance | No canonical source | Outcome justification only; practitioner mechanics underused | Moderate-serious |
+| B | Participation/skill exposure | Ratan et al. (2015), DOI 10.1177/1555412014567228 | SOURCE/GRAPH-VERIFIED | Tests participation and performance together | Yes: Shen and 13/50 | Substantive | None as general engagement; elite mediation still missing |
+| B | Harassment linked to observed performance | Kasumovic & Kuznekoff (2015), DOI 10.1371/journal.pone.0131613 | SOURCE/GRAPH-VERIFIED | Performance-conditioned interactions can test mechanism | No in Shen; 4/50 | Present downstream, not integrated as decisive mediation | Moderate |
+| B | Sexism attitudes | Fox & Tang (2014), DOI 10.1016/j.chb.2013.07.014 | SOURCE/GRAPH-VERIFIED | Relevant to social climate but not sufficient to adjudicate mechanical parity | Yes in Shen; 16/50 | High citation, limited adjudicative capacity | Not neglect; weak fit to elite claim |
+| B | Perceptual expertise/sports science | Mann et al. (2007), DOI 10.1123/jsep.29.4.457; Voss et al. (2010), DOI 10.1002/acp.1588; Faubert (2013), DOI 10.1038/srep01154 | SOURCE/GRAPH-VERIFIED | Directly measures elite perceptual-cognitive performance and learning | No in Shen or top-50 canon check | Absent | Serious for elite use |
+| B | Deliberate practice/talent development | Ericsson et al. (1993), DOI 10.1037/0033-295X.100.3.363; Vaeyens et al. (2008), DOI 10.2165/00007256-200838090-00001 | SOURCE/GRAPH-VERIFIED | Separates exposure, learning and selection | No in Shen or top 50 | Absent | Serious for pipeline-versus-performance adjudication |
+| B | Spatial training | Feng et al. (2007), DOI 10.1111/j.1467-9280.2007.01990.x; Voyer et al. (1995), DOI 10.1037/0033-2909.117.2.250 | SOURCE/GRAPH-VERIFIED | Shows both baseline differences and training responsiveness | Feng 3/50; Voyer 0/50 | Minimal, not integrated with elite claim | Moderate |
+| B | Reaction time/dynamic tracking/MOT | Dykiert et al. (2012), DOI 10.1037/a0027550; Pylyshyn & Storm (1988), DOI 10.1163/156856888X00122; Faubert (2013) | SOURCE/GRAPH-VERIFIED | Tests mechanically relevant speed and tracking under load | No in Shen or top 50 | Absent | Serious for mechanical claim |
+| B | Right-tail selection | Hedges & Nowell (1995), DOI 10.1126/science.7604277 | SOURCE/GRAPH-VERIFIED | Elite selection concerns tails, not only means | No in Shen or top 50 | Absent | Serious for elite use |
+
+ARTIFACT 7: CRITIQUE-UPTAKE TABLE
+
+| Expected-production precondition | Critique / contrary evidence | Year | Source type | Main objection | Verification state | Reception opportunity | Cited? | Uptake status | Dimension disposition | Effect on consensus |
+|---|---|---:|---|---|---|---|---|---|---|---|
+| Low-moderate: niche field, moderate reach, no guideline/policy centrality | No formal Shen-focused critique or replication located | — | Formal literature search result | No object available for uptake test | NOT LOCATED; absence non-diagnostic | None established | Unknown | Unknown | UNINFORMATIVE | No clean-sheet credit and no penalty |
+| High: source readers necessarily encounter results table | Shen’s own significant interactions and level-15 crossover | 2016 | Primary source boundary evidence | Summary suppresses nonuniform modeled effects | SOURCE-VERIFIED | Ratan 2020 and Rogstad 2021/22 cite Shen | Yes, source cited | Preserved/expanded model without visible narrowing | Counted under model non-updating, not critique uptake | Weakens broad consensus wording |
+| Too recent for field response | “How a Login Timestamp Became Proof” | 2026 | Public/practitioner critique | Logged-in time, selection, equivalence and claim inflation | LOCATED; public source | No meaningful pre-2026 opportunity | Not yet established | Unknown | UNINFORMATIVE for current uptake | Future uptake test possible |
+| Moderate in stereotype-threat subbranch | Holl et al., two null stereotype-threat experiments | 2024 | Primary experiments | Null results; mixed literature | SOURCE/CONTEXT-VERIFIED | Later 2025 paper cites it | Yes in later branch | Partially incorporated | Not a Shen-specific critique score | Evidence of some updating, moderates non-updating concern |
+
+ARTIFACT 8: CARTEL-RISK SCORECARD
+
+| Dimension | Applicability | Dimension disposition | Score if SCORED | Evidence / claim state | Evidence supporting disposition and score | Retrieval coverage | Reason excluded from denominator | Effect on formal-label gate |
+|---|---|---|---:|---|---|---|---|---|
+| Founding-cluster dominance | Applies | SCORED 1 | 1 | Mild verified concern | Additional core reached 19/50; no source beyond Shen dominated | 50/50 graph | — | Does not support closure |
+| Internal citation density | Applies | SCORED 0 | 0 | Affirmative low-density finding | 53/3,236 = 1.64%; only 9/50 cite >=3 peers | Complete retrieved arrays | — | Blocks closure/cartel label |
+| Recent-paper dependence | Applies | SCORED 1 | 1 | Mild persistence | 8/16 recent cite an additional core; 5/16 cite Rogstad | All 16 recent in fixed corpus | — | Allows hub label, not network closure |
+| Review-hub laundering | Applies | SCORED 2 | 2 | Serious, source/context verified | Rogstad broadens Shen and is used by 5/16 recent retained papers | Hub text/contexts + graph | — | Supports limited premise-laundering-hub label |
+| Proxy mismatch | Applies | SCORED 2 | 2 | Serious, source/context verified | Level/logged time becomes gaming skill or elite ability | Source + multiple contexts | — | Supports material narrowing; no truth verdict |
+| Claim mutation | Applies | SCORED 2 | 2 | Serious, multi-branch context verified | Conditioning/limitations disappear across Rogstad, Ratan, Dong and later esports uses | 108 contexts from 55 papers | — | Supports laundering, partly nested with hub |
+| Adjacent-field neglect | Applies | SCORED 2 | 2 | Serious, preregistered and graph verified | Equivalence/selection canon absent; elite falsification fields nearly absent; supportive fields common | Shen 57 refs + top-50 graph | — | Supports selective-adjudication finding |
+| Lack of decisive tests | Applies | SCORED 2 | 2 | Serious, source verified | No equivalence bounds, active-task-time replacement, selection sensitivity, matched-exposure elite-tail test | Source + downstream spine | — | Load-bearing for Field-6 narrowing/defeat of strong inference |
+| Poor critique uptake | Applies | UNINFORMATIVE | — | Precondition absent | No formal critique located, but production not sufficiently expected; public critique too recent | Search completed | No diagnostic critique object/reception window | Neither supports nor blocks limited label |
+| Intervention-evidence ratchet | Does not apply | N/A | — | No intervention claim | Observational advancement claim | Claim map/source | No intervention exists | No effect |
+| Model non-updating | Applies | SCORED 1 | 1 | Mild verified concern | Complete source-boundary→opportunity→response chain, but overlaps mutation and later branch updates | Source + Ratan/Rogstad/Holl | — | Supports only limited label |
+
+Verified risk score: 13/27.
+Verified scored-dimension risk rate: 48.1%.
+Verified scored-dimension risk: 48.1%, calculated from 9 of 10 applicable dimensions. This describes average concern among assessed dimensions; it is not a full-coverage estimate of network-wide risk or breadth.
+Evidentiary coverage: 9/10 applicable dimensions scored (90%).
+Execution completeness: 10/10 applicable dimensions completed (100%).
+Dimension inventory: 9 SCORED + 1 UNINFORMATIVE + 0 UNASSESSED + 1 N/A = 11.
+Unscored-dimension reasons: Poor critique uptake is UNINFORMATIVE because critique production/reception preconditions are absent; intervention-evidence ratchet is N/A because no intervention claim exists.
+Formal-label gate result: PASSED for “premise-laundering hub”; FAILED on substantive topology requirements for “functionally closed citation network” or “functional citation cartel.”
+N-of-M scope statement: Verified scored-dimension risk: 48.1%, calculated from 9 of 10 applicable dimensions. This describes average concern among assessed dimensions; it is not a full-coverage estimate of network-wide risk or breadth.
+
+ARTIFACT 9: NETWORK MAP
+
+Edge-list convention: Source = citing work; Target = cited work. The full 53-edge corpus result is summarized by the graph metrics above; the following is a context-verified, visualization-ready load-bearing subgraph.
+
+Source | Target | Edge role | Verification
+Ratan_2020 | Shen_2016 | parity/context premise | CONTEXT-VERIFIED
+Rogstad_2021 | Shen_2016 | parity/context premise | CONTEXT-VERIFIED
+Rogstad_2021 | Ratan_2015 | experience/participation premise | GRAPH-VERIFIED
+Dong_Neural_2018 | Shen_2016 | comparable-skill premise | CONTEXT-VERIFIED
+Dong_Connectivity_2018 | Shen_2016 | comparable-performance premise | CONTEXT-VERIFIED
+Dong_Craving_2018 | Shen_2016 | comparable-skill premise | CONTEXT-VERIFIED
+Madden_2021 | Shen_2016 | equally-attainable esports skill | CONTEXT-VERIFIED
+Esports_Diversity_2023 | Rogstad_2021 | review-hub dependence | GRAPH-VERIFIED
+Esports_Diversity_2023 | Shen_2016 | competitive parity | CONTEXT-VERIFIED
+Collegiate_Toxicity_2023 | Ratan_2015 | participation/experience premise | GRAPH-VERIFIED
+Chiquita_Evans_2023 | Rogstad_2021 | review-hub dependence | GRAPH-VERIFIED
+Chiquita_Evans_2023 | Ratan_2015 | founding-cluster dependence | GRAPH-VERIFIED
+WomenOnly_Tournaments_2023 | Rogstad_2021 | review-hub dependence | GRAPH-VERIFIED
+WomenOnly_Tournaments_2023 | Ratan_2020 | performance premise | GRAPH-VERIFIED
+Civility_Esports_2024 | Rogstad_2021 | review-hub dependence | GRAPH-VERIFIED
+Stereotypes_Review_2024 | Rogstad_2021 | review-hub dependence | GRAPH-VERIFIED
+Streamer_Bias_2024 | Ratan_2015 | founding-cluster dependence | GRAPH-VERIFIED
+Streamer_Bias_2024 | Ratan_2020 | performance premise | GRAPH-VERIFIED
+Holl_2024 | Kaye_2017 | stereotype-threat test branch | SOURCE-VERIFIED
+Hebert_Ratte_2025 | Holl_2024 | null/mixed-result reception | CONTEXT-VERIFIED
+
+COMPLETION LEDGER
+
+| Required heading | Exact heading present? | Status: completed / N/A / omitted | Reason or output location |
+|---|---|---|---|
+| PRE-AUDIT CLAIM CONFIRMATION | Yes | completed | Claim map and two-layer scope |
+| SECTION A: CITATION NETWORK STRUCTURE AND CARTEL DETECTION | Yes | completed | Corpus, edges, density and core dependence |
+| SECTION B: EVIDENCE TYPE CODING | Yes | completed | Spine evidence types |
+| SECTION C: CITATION POLARITY AND CLAIM USE | Yes | completed | 108 contexts/55 papers |
+| SECTION D: CLAIM MUTATION TRACKING | Yes | completed | Four-scope mutation chain |
+| SECTION E: ADJACENT FIELD ENGAGEMENT / NEGLECT | Yes | completed | Locked two-layer adjudicative audit |
+| SECTION F: HUB DEPENDENCY AND REVIEW-PAPER LAUNDERING | Yes | completed | Rogstad hub analysis |
+| SECTION G: PATTERN RECOGNITION AND RATCHET BEHAVIOR | Yes | completed | Proxy, N/A ratchet, model chain |
+| SECTION H: IGNORED CRITIQUE AND NON-UPTAKE | Yes | completed | Precondition and UNINFORMATIVE disposition |
+| SECTION I: AUTHOR, INSTITUTION, JOURNAL, AND FUNDING CLUSTERING | Yes | completed | Closure classification |
+| SECTION J: FALSE-POSITIVE AND BASELINE CHECK | Yes | completed | Absolute topology and limitations |
+| SECTION J2: THE CONCEDE TEST | Yes | completed | Target, double-count, concede and scope-loss tables |
+| SECTION K: CARTEL-RISK SCORING | Yes | completed | Dynamic denominator and label gate |
+| ARTIFACT 1: TOP 15 CITATION SPINE TABLE | Yes | completed | 15-row table |
+| ARTIFACT 2: FOUNDING CLUSTER TABLE | Yes | completed | Four-paper cluster table |
+| ARTIFACT 3: RECENT 5-YEAR CITATION BEHAVIOR TABLE | Yes | completed | Recent representative table plus 16-paper summary |
+| ARTIFACT 4: CITATION POLARITY TABLE | Yes | completed | Context-verified polarity table |
+| ARTIFACT 5: CLAIM MUTATION TABLE | Yes | completed | Four mutation paths |
+| ARTIFACT 6: ADJACENT-LITERATURE NEGLECT TABLE | Yes | completed | Preregistration first, neglect second |
+| ARTIFACT 7: CRITIQUE-UPTAKE TABLE | Yes | completed | Production/opportunity/uptake distinctions |
+| ARTIFACT 8: CARTEL-RISK SCORECARD | Yes | completed | All 11 dimensions and dynamic metrics |
+| ARTIFACT 9: NETWORK MAP | Yes | completed | Directed edge list |
+| COMPLETION LEDGER | Yes | completed | This table |
+| ARTIFACT 10: FINAL VERDICT | Yes | completed | Immediately follows this ledger |
+| FINAL SECTION: STANDARDIZED FINDING TABLE | Yes | completed | Follows Artifact 10 |
+
+ARTIFACT 10: FINAL VERDICT
+
+- Main founding cluster: Ratan et al. (2015), Shen et al. (2016), Ratan et al. (2020), with Rogstad (2021/2022) as the later review hub.
+- Main amplification hub: Rogstad’s Gender in eSports research review.
+- Main proxy problem: logged-in duration and level progression in selected MMO data become “gaming skill,” mechanical parity, or elite potential.
+- Main adjacent fields neglected: Layer A equivalence/noninferiority, selection/missingness/transportability, and active task-time/game-mechanics validation; Layer B sports/perceptual expertise, motor learning, deliberate practice/talent development, dynamic tracking/reaction-time, and right-tail selection.
+- Main claim mutation: selected conditional advancement results become a general claim that lower female gaming skill is false and elite/competitive skills are equally attainable.
+- Most important ignored critique: none can be scored as ignored; formal critique production was not sufficiently expected, and the specific 2026 public critique is too recent for a reception test. The most important unincorporated boundary evidence is in Shen’s own interaction results.
+- Decisive test missing: equivalence within meaningful bounds using advancement-relevant active exposure, activity/assistance controls and selection sensitivity; for Layer B, matched-practice longitudinal mechanical measures and elite-tail outcomes.
+- Verified risk score: 13/27.
+- Verified scored-dimension risk rate: 48.1%.
+- Evidentiary coverage: 9/10 applicable dimensions scored (90%).
+- Execution completeness: 10/10 applicable dimensions completed (100%).
+- Dimension inventory: 9 SCORED + 1 UNINFORMATIVE + 0 UNASSESSED + 1 N/A = 11.
+- Unscored dimensions and reasons: Poor critique uptake is UNINFORMATIVE; intervention-evidence ratchet is N/A.
+- N-of-M scope statement: Verified scored-dimension risk: 48.1%, calculated from 9 of 10 applicable dimensions. This describes average concern among assessed dimensions; it is not a full-coverage estimate of network-wide risk or breadth.
+- Formal-label gate status: passed for a limited premise-laundering-hub label; closure/cartel labels rejected by verified topology.
+- Load-bearing finding(s): missing decisive equivalence/selection tests; proxy transport; multi-branch mutation; and preregistered falsification-relevant adjacent-field neglect. Layer-B findings are MAP GAP and do not independently anchor the Field-6 verdict.
+- Concede-test result: Field 6 is materially narrowed and its strong “no disparity” inference is defeated as an inference from these data; the bare real-world proposition is not defeated. The downstream elite claim is near-defeat narrowed but is outside Field 6.
+- Failure location: MIXED — PAPER for source inference and omitted tests; CITATION for scope loss and hub transmission.
+- Best formal label: premise-laundering hub.
+- Confidence level: Moderate.
+- What evidence would change this assessment: a complete alternative citation database showing materially higher internal density; full-text coding showing frequent preservation of Shen’s conditioning and interactions; pre-2016 equivalence/selection/active-time work substantively integrated into the source or dominant cluster; matched-exposure longitudinal elite-performance studies that adjudicate both mechanisms; or documented later narrowing after contrary/boundary evidence.
+
+The audit does not support “functional citation cartel.” It supports a narrower diagnosis: an open, low-density citation network containing a consequential premise-laundering hub and systematic blind spots in how the no-disparity proposition is adjudicated.
+
+FINAL SECTION: STANDARDIZED FINDING TABLE
+
+Finding 1
+
+| Field | Entry |
+|---|---|
+| Finding | The screened Shen-citing graph is affirmatively low-density rather than functionally closed. |
+| Target claim | Claim map field 6 |
+| What was measured | 53 internal directed edges among 3,236 resolved outbound edges in a fixed top-50 relevant Shen-citing corpus |
+| What was claimed | The topology does not support functional citation closure |
+| Failure mode | closure test / green finding |
+| Severity | none |
+| Concede test | SURVIVES |
+| Scope loss if NARROWS | N/A |
+| Evidence | OpenAlex reference arrays, 50/50 covered, 3,236/3,236 reported edges resolved |
+| Evidence type | bibliographic graph |
+| Verification state | GRAPH-VERIFIED |
+| Possible innocent explanation | A Shen-conditioned corpus can understate links to relevant works outside the retained set; a matched-field baseline was not built |
+| What would weaken this | Scopus/Web of Science/full-text references showing a substantially denser internal network under the same eligibility rule |
+| Failure location | MODEL-RETRIEVAL |
+| Status | confirmed |
+
+Finding 2
+
+| Field | Entry |
+|---|---|
+| Finding | Shen’s logged-in-time/level result is repeatedly transmitted as evidence of general skill or competitive parity. |
+| Target claim | Claim map field 6 |
+| What was measured | Source outcomes, source caveats, and downstream citation contexts |
+| What was claimed | Citation use expands a selected progression result beyond its measured construct |
+| Failure mode | proxy mismatch / claim mutation |
+| Severity | major |
+| Concede test | NARROWS |
+| Scope loss if NARROWS | material — surviving claim is no consistent male advantage on selected progression items in fitted models |
+| Evidence | Shen source tables; Rogstad, Ratan, Dong, Madden and later esports contexts |
+| Evidence type | primary study plus citation contexts |
+| Verification state | SOURCE- AND CONTEXT-VERIFIED |
+| Possible innocent explanation | Authors may use “skill” as informal shorthand and discuss other evidence elsewhere in full text |
+| What would weaken this | Repeated explicit preservation of outcome, sample, conditioning, significant interactions and non-equivalence caveats in the cited passages |
+| Failure location | MIXED |
+| Status | confirmed |
+
+Finding 3
+
+| Field | Entry |
+|---|---|
+| Finding | The source-level no-disparity inference lacks equivalence, selection-sensitive, and active-task-exposure adjudication. |
+| Target claim | Claim map field 6 |
+| What was measured | Shen’s methods, models and references plus locked canonical method checks |
+| What was claimed | The data do not establish the strong no-disparity conclusion without decisive robustness tests |
+| Failure mode | lack of decisive tests / adjacent-field neglect |
+| Severity | fatal-for-strong-claim |
+| Concede test | DEFEATS |
+| Scope loss if NARROWS | N/A; it defeats the strong inference, not the bare real-world possibility |
+| Evidence | No equivalence bounds; no formal linkage/selection sensitivity; raw logged-in time; significant interaction terms |
+| Evidence type | primary study and methodological literature |
+| Verification state | SOURCE-VERIFIED |
+| Possible innocent explanation | The paper may have intended an exploratory association rather than a formal equivalence claim, despite its summary wording |
+| What would weaken this | Valid equivalence tests within prespecified bounds, active task-time measures, assistance/activity controls, and selection/transport analyses yielding the same result |
+| Failure location | PAPER |
+| Status | confirmed |
+
+Finding 4
+
+| Field | Entry |
+|---|---|
+| Finding | Rogstad functions as a premise-laundering hub, but not as evidence of a closed citation cartel. |
+| Target claim | Claim map field 6 as transmitted |
+| What was measured | Review text/contexts, top-50 graph position, and 2022–2026 citation behavior |
+| What was claimed | The hub simplifies and amplifies Shen into broader esports-skill propositions |
+| Failure mode | hub laundering |
+| Severity | major |
+| Concede test | NARROWS |
+| Scope loss if NARROWS | material — Shen remains one narrow observational premise, not settled cross-domain evidence |
+| Evidence | 126 OpenAlex citations; 5/50 retained and 5/16 recent cite Rogstad; verified broadening contexts |
+| Evidence type | literature review plus bibliographic graph |
+| Verification state | SOURCE-, CONTEXT-, AND GRAPH-VERIFIED |
+| Possible innocent explanation | Reviews necessarily compress studies, and Rogstad also surveys broader cultural evidence |
+| What would weaken this | Hub passages preserving Shen’s interactions/selection/outcome boundaries, or recent papers relying primarily on direct decisive evidence rather than the restatement |
+| Failure location | CITATION |
+| Status | confirmed |
+
+Finding 5
+
+| Field | Entry |
+|---|---|
+| Finding | The downstream elite-performance claim selectively engages participation-supportive literatures while rarely engaging preregistered psychomotor, perceptual, learning and tail-selection adjudicators. |
+| Target claim | MAP GAP: downstream general/elite-performance claim, not map field 6 |
+| What was measured | Shen’s 57 references, the top-50 reference graph, and a locked two-sided canonical-source list |
+| What was claimed | The broader elite claim has not been tested against the strongest live rival mechanism |
+| Failure mode | adjacent-field neglect |
+| Severity | major |
+| Concede test | NARROWS |
+| Scope loss if NARROWS | near-defeat — some controlled gaming outcomes show parity, but elite mechanical parity and causal primacy of pipeline mechanisms remain unestablished |
+| Evidence | Zero top-50 citations to most locked sports/perceptual/practice/tail canon; Feng 3/50 versus Fox/Tang 16/50 and Ratan 2015 13/50 |
+| Evidence type | preregistered bibliographic comparison plus methodological/primary sources |
+| Verification state | GRAPH-VERIFIED for the defined canon and corpus |
+| Possible innocent explanation | Cross-field terminology and translation barriers may hide relevant engagement; some canonical sources are only indirect analogues to esports |
+| What would weaken this | A symmetric expanded search finding substantive use of these fields in the load-bearing elite-performance literature, or direct esports studies adjudicating both mechanisms |
+| Failure location | CITATION |
+| Status | confirmed |
+
+Finding 6
+
+| Field | Entry |
+|---|---|
+| Finding | Later hubs preserved or expanded the contextual-parity model despite source-level interaction and boundary evidence, though updating occurs in a later stereotype-threat branch. |
+| Target claim | Claim map field 6 explanatory model |
+| What was measured | Prediction, Shen contrary/boundary results, later reception opportunity, and model response |
+| What was claimed | Model response was insufficiently narrowing in the main amplification branch |
+| Failure mode | model non-updating |
+| Severity | moderate |
+| Concede test | NARROWS |
+| Scope loss if NARROWS | material — the context model remains plausible only with outcome-, level-, sample- and selection-specific boundaries |
+| Evidence | Shen interactions/crossover; direct later citations by Ratan and Rogstad; Holl null/mixed branch |
+| Evidence type | primary study, review and citation contexts |
+| Verification state | SOURCE- AND RECEPTION-VERIFIED |
+| Possible innocent explanation | Later authors may reasonably emphasize the overall pattern and treat interactions as secondary or game-specific |
+| What would weaken this | Explicit later sensitivity analyses or model revisions that preserve and test the source boundary conditions |
+| Failure location | MIXED |
+| Status | confirmed |
+
+END OF AUDIT
