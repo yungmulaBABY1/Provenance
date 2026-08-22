@@ -1,0 +1,66 @@
+CASE: FAIL-CV-008 — isis2-source-preflight
+==========================================
+
+STATUS
+
+Oracle specified before rerun. Prompt repair applied to the operator-supplied
+current construct-validity file. ISIS-2 input packet and prior audit output have
+not been supplied to this case directory, so the regression has not been run.
+
+Do not reconstruct the prior audit or invent its metadata. When the preserved
+artifact is added, record its exact filename, hash, byte count, and run date.
+
+SOURCE OF FAILURE
+
+An ISIS-2 (1988) calibration audit returned Verdict A with no declared source
+retrieval basis and no verification-state declarations for its specific figures.
+Independent checking later found that four of five figures were source-consistent.
+The combination effect was reported in the audit as approximately 40 percent;
+the retrieved trial figure was 42 percent ± 5. The analytical failure is not that
+the acquittal was necessarily wrong. It is that the output did not distinguish
+retrieval-grounded accuracy from confident recall.
+
+PATCHED TEST CONDITION
+
+Rerun the same ISIS-2 target using the patched construct-validity prompt and the
+same declared target claim. Do not supply the prior verdict as an answer key.
+
+EXPECTED RESULT — LOCKED BEFORE RERUN
+
+1. Before Section 1, the audit states an explicit `SOURCE RETRIEVAL BASIS:` line,
+   regardless of its eventual verdict.
+
+2. Every specific load-bearing figure quoted — including dosing, sample size,
+   percentages, effect size, and NNT — carries an individual verification state
+   and source, inline or in the required compact table.
+
+3. The combination odds-reduction figure is handled in one of these inspectable
+   ways:
+
+   - source-accurate 42 percent ± 5 is reported;
+   - approximately 40 percent is explicitly identified as a rounded summary of
+     the retrieved 42 percent ± 5 figure; or
+   - the figure is marked PROVISIONAL / recalled-not-verified when it was not
+     independently checked.
+
+4. The overall verdict may remain A. This preflight tests whether the evidentiary
+   basis is inspectable; it is not designed to force an adverse conclusion.
+
+FAILURE MEANING
+
+- No retrieval-basis line despite Verdict A: Rule 6's empty-table path improperly
+  waived the unconditional preflight.
+- Retrieval-basis line present but figures remain uncategorized individually:
+  the per-figure requirement did not execute.
+- Approximately 40 percent appears without a retrieved 42 percent ± 5 source,
+  an explicit rounding relationship, or a PROVISIONAL flag: the declaration was
+  treated as ceremony rather than a retrieval discipline.
+
+METADATA TO COMPLETE FROM PRESERVED ARTIFACTS
+
+  Prior ISIS-2 audit filename: [COPY FROM ARTIFACT]
+  Prior ISIS-2 audit SHA-256:  [COMPUTE FROM ARTIFACT]
+  Prior ISIS-2 audit run date: [COPY FROM ARTIFACT]
+  Rerun output filename:       [ADD AFTER RERUN]
+  Rerun output SHA-256:        [ADD AFTER RERUN]
+  Rerun date:                  [ADD AFTER RERUN]
