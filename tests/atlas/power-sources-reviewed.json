@@ -1,9 +1,9 @@
 {
   "schema_version": "atlas-adapter/0.1",
   "run": {
-    "id": "urn:atlas:import:power-posing-sources:2",
+    "id": "urn:atlas:import:power-posing-sources:3",
     "target_work_id": "doi:10.1177/0956797610383437",
-    "imported_at": "2026-10-30T11:46:33Z",
+    "imported_at": "2026-10-30T11:58:40Z",
     "origin": "ARCHIVED_COMPLIANCE_PILOT_OUTPUT",
     "model": {
       "identity": "UNKNOWN",
@@ -508,18 +508,18 @@
   "reviews": [
     {
       "id": "F1-S2-review-A",
-      "review_schema": "atlas-evidence-review/1",
+      "review_schema": "atlas-evidence-review/2",
       "artifact": {
         "path": "tests/atlas/reviews/power-posing/F1-S2-review-A.json",
-        "sha256": "87ae3769f881f3fc0585a1c3f0943be6eee887904abdde57d0c3633f77156399"
+        "sha256": "77140ba4e438065d830c4d1709e048183243120c1117971306829d71841f1b8b"
       }
     },
     {
       "id": "F1-S2-review-B",
-      "review_schema": "atlas-evidence-review/1",
+      "review_schema": "atlas-evidence-review/2",
       "artifact": {
         "path": "tests/atlas/reviews/power-posing/F1-S2-review-B.json",
-        "sha256": "e2e0668b8ac5b3520d0ba65894735d8883eb4529273239efe960e509513a3d22"
+        "sha256": "c7bd13001fb8a401f8e7b3089c9f2cd54eb3fca5d3f6bd41c55c4b76bac39c9d"
       }
     }
   ]

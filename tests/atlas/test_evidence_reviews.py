@@ -1,6 +1,7 @@
-"""Evidence-proposition reviews (atlas-evidence-review/1) of Finding 1's S2 clause.
+"""Evidence-proposition reviews (atlas-evidence-review/2) of Finding 1's S2 clause.
 
-A review binds to one exact proposition, finding, mapping, passages, source
+A review binds to one exact proposition, finding, mapping, passage descriptors
+(source version, component, offsets, unit, interval, quotation hash), source
 version and input bytes. Any change unbinds it (TARGET_MISMATCH, named), so a
 changed mapping never inherits an old review. A review of one clause never
 approves the finding, never adjudicates, and leaves native labels as written.
@@ -20,6 +21,7 @@ from atlas.adapter import build
 from atlas.contract import ContractError, canonical, digest, jsonl, passage_hash, sha256
 from atlas.integrity import verify_records
 from atlas.ledger import append, export, read_export
+from atlas.reviews import load_review, passage_descriptor
 from test_adapter import BASELINE, ROOT, by_type
 from test_integrity import rehash
 
@@ -80,7 +82,7 @@ class EvidenceReviewTests(unittest.TestCase):
                 review = found[review_id]
                 self.assertEqual(review["target_binding"], "MATCH")
                 self.assertEqual(review["target_mismatches"], [])
-                self.assertEqual(review["review_schema"], "atlas-evidence-review/1")
+                self.assertEqual(review["review_schema"], "atlas-evidence-review/2")
                 self.assertEqual(review["refs"], [
                     RUN, F1, f"{RUN}/passage/S2-E2", f"{RUN}/passage/S2-E3",
                     f"{F1}/evidence/S2-E2", f"{F1}/evidence/S2-E3"])
@@ -100,8 +102,13 @@ class EvidenceReviewTests(unittest.TestCase):
                          target["proposition"])
         self.assertEqual(target["check_sha256"], digest(check))
         self.assertEqual(target["output_sha256"], ORIGINAL["output"]["sha256"])
-        quotes = {p["id"]: p["quote"] for p in ORIGINAL["passages"]}
-        self.assertEqual(target["passages"], {pid: sha256(quotes[pid].encode("utf-8")) for pid in ("S2-E2", "S2-E3")})
+        passages = {p["native_id"]: p for p in original if p["type"] == "Passage"}
+        self.assertEqual(target["passages"], {pid: passage_descriptor(passages[pid]) for pid in ("S2-E2", "S2-E3")})
+        context_passages = {p["id"]: p for p in ORIGINAL["passages"]}
+        for pid, descriptor in target["passages"].items():
+            self.assertEqual((descriptor["start"], descriptor["end"], descriptor["component_id"]),
+                             (context_passages[pid]["start"], context_passages[pid]["end"],
+                              context_passages[pid]["component_id"]))
         source = next(s for s in ORIGINAL["sources"] if s["id"] == target["source_version_id"])
         self.assertEqual(target["source_input_sha256"], source["text_artifact"]["sha256"])
         # Apart from run identity and the reviews, the reviewed import is the original one.
@@ -167,6 +174,83 @@ class EvidenceReviewTests(unittest.TestCase):
         passage["normalized_sha256"] = passage_hash(passage["quote"])
         self.assert_unbound(build(self.ctx, self.root), REVIEW_A, "passages")
 
+    def shift(self, ctx, pid, by=1):
+        passage = next(p for p in ctx["passages"] if p["id"] == pid)
+        passage.update(start=passage["start"] + by, end=passage["end"] + by)
+        return ctx
+
+    def test_moved_locator_with_same_quotation_unbinds(self):
+        """Reported gap: S2-E2's offsets moved by one, everything else unchanged."""
+        for by in (1, -1):
+            with self.subTest(by=by):
+                bundle = build(self.shift(copy.deepcopy(self.ctx), "S2-E2", by), self.root)
+                passage = next(p for p in by_type(bundle, "Passage") if p["native_id"] == "S2-E2")
+                self.assertEqual(passage["match"], "MISMATCH")
+                self.assertEqual(passage["quote"], next(p["quote"] for p in REVIEWED["passages"] if p["id"] == "S2-E2"))
+                for review_id in (REVIEW_A, REVIEW_B):
+                    self.assert_unbound(bundle, review_id, "passages")
+                self.assertEqual(reviews(bundle)[REVIEW_A]["target_mismatches"], ["passages"])
+
+    def test_every_descriptor_field_is_bound(self):
+        for field, value in [("source_version_id", "doi:10.0/other/version/x"), ("component_id", "S2-E3"),
+                             ("start", 905), ("end", 1161), ("unit", "utf8_byte"), ("interval", "closed"),
+                             ("quote_sha256", "0" * 64)]:
+            with self.subTest(field=field):
+                self.ctx = copy.deepcopy(REVIEWED)
+                self.edit_review("F1-S2-review-A", lambda r: r["target"]["passages"]["S2-E2"].update({field: value}))
+                bundle = build(self.ctx, self.root)
+                self.assert_unbound(bundle, REVIEW_A, "passages")
+                self.assertEqual(reviews(bundle)[REVIEW_B]["target_binding"], "MATCH")
+
+    def test_moved_locator_stays_detached_after_export_and_restore(self):
+        bundle = build(self.shift(self.ctx, "S2-E2"), self.root)
+        db, restored_db = self.root / "ledger.sqlite", self.root / "restored.sqlite"
+        append(db, bundle["records"])
+        restored = read_export(export(db))
+        append(restored_db, restored)
+        again = read_export(export(restored_db))
+        self.assertEqual(verify_records(again)["native_projection_verified"], [RUN])
+        found = {r["id"]: r for r in again if r["type"] == "ReviewDecision"}
+        run = next(r for r in again if r["type"] == "AuditRun")
+        for review_id in (REVIEW_A, REVIEW_B):
+            self.assertEqual(found[review_id]["target_binding"], "TARGET_MISMATCH")
+            self.assertEqual(found[review_id]["target_mismatches"], ["passages"])
+            self.assertNotIn(review_id, run["refs"])
+            self.assertIn(review_id, run["mismatched_review_ids"])
+
+    def test_restore_rejects_moved_locator_with_kept_binding(self):
+        """A bundle edited to move a passage but keep the review attached is rejected."""
+        records = copy.deepcopy(self.bundle["records"])
+        passage = next(r for r in records if r["type"] == "Passage" and r["native_id"] == "S2-E2")
+        passage["locator"].update(start=passage["locator"]["start"] + 1, end=passage["locator"]["end"] + 1)
+        rehash(records, RUN)
+        with self.assertRaisesRegex(ContractError, "REVIEW_BINDING_MISMATCH"):
+            read_export(jsonl(records))
+
+    def test_v1_reviews_preserved_and_rejected(self):
+        for name in ("F1-S2-review-A", "F1-S2-review-B"):
+            v1 = (ROOT / f"tests/atlas/reviews/power-posing/v1/{name}.json").read_bytes()
+            current = json.loads((ROOT / f"tests/atlas/reviews/power-posing/{name}.json").read_text())
+            self.assertEqual(current["reissue"]["supersedes"]["sha256"], sha256(v1))
+            with self.assertRaisesRegex(ContractError, "UNSUPPORTED_REVIEW_SCHEMA: atlas-evidence-review/1"):
+                load_review(v1)
+        self.ctx["reviews"][0]["review_schema"] = "atlas-evidence-review/1"
+        with self.assertRaisesRegex(ContractError, "UNSUPPORTED_REVIEW_SCHEMA: atlas-evidence-review/1"):
+            build(self.ctx, self.root)
+        historical = ROOT / "tests/atlas/receipts/historical-4718225/power-sources-reviewed/records.jsonl"
+        with self.assertRaisesRegex(ContractError, "UNSUPPORTED_REVIEW_SCHEMA: atlas-evidence-review/1"):
+            read_export(historical.read_bytes())
+
+    def test_reissue_changed_only_the_binding(self):
+        for name in ("F1-S2-review-A", "F1-S2-review-B"):
+            v1 = json.loads((ROOT / f"tests/atlas/reviews/power-posing/v1/{name}.json").read_text())
+            v2 = json.loads((ROOT / f"tests/atlas/reviews/power-posing/{name}.json").read_text())
+            self.assertEqual(sorted(k for k in set(v1) | set(v2) if v1.get(k) != v2.get(k)),
+                             ["reissue", "schema", "target"])
+            self.assertEqual([k for k in v1["target"] if v1["target"][k] != v2["target"][k]], ["passages"])
+            self.assertEqual({pid: d["quote_sha256"] for pid, d in v2["target"]["passages"].items()},
+                             v1["target"]["passages"])
+
     def test_changed_source_bytes_unbind(self):
         path = "tests/atlas/sources/power-posing/S2-excerpts.txt"
         target = self.root / path
@@ -201,7 +285,9 @@ class EvidenceReviewTests(unittest.TestCase):
                 self.edit_review("F1-S2-review-A", lambda r: r["target"].update({field: value}))
                 self.assert_unbound(build(self.ctx, self.root), REVIEW_A, component)
         self.ctx = copy.deepcopy(REVIEWED)
-        self.edit_review("F1-S2-review-A", lambda r: r["target"]["passages"].update({"S2-E9": "0" * 64}))
+        descriptor = dict(json.loads((ROOT / self.ctx["reviews"][0]["artifact"]["path"]).read_text())
+                          ["target"]["passages"]["S2-E2"], component_id="S2-E9")
+        self.edit_review("F1-S2-review-A", lambda r: r["target"]["passages"].update({"S2-E9": descriptor}))
         bundle = build(self.ctx, self.root)
         self.assert_unbound(bundle, REVIEW_A, "passages")
         self.assertIn("mapping", reviews(bundle)[REVIEW_A]["target_mismatches"])
@@ -226,7 +312,11 @@ class EvidenceReviewTests(unittest.TestCase):
             (lambda r: r["coverage"].update(finding_level_effect="APPROVES_FINDING"), "INVALID_REVIEW"),
             (lambda r: r["locators"][0].update(quote="altered quotation"), "INVALID_REVIEW"),
             (lambda r: r.pop("strongest_contrary_interpretation"), "MISSING"),
-            (lambda r: r.update(schema="atlas-evidence-review/2"), "UNSUPPORTED_REVIEW_SCHEMA"),
+            (lambda r: r.update(schema="atlas-evidence-review/3"), "UNSUPPORTED_REVIEW_SCHEMA"),
+            (lambda r: r["target"]["passages"]["S2-E2"].pop("start"), "MISSING"),
+            (lambda r: r["target"]["passages"].update(
+                {"S2-E2": r["target"]["passages"]["S2-E2"]["quote_sha256"]}), "INVALID_CONTRACT"),
+            (lambda r: r["target"].update(passages={}), "INVALID_REVIEW"),
         ]
         for change, error in cases:
             with self.subTest(error=error):

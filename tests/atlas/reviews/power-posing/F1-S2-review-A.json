@@ -1,5 +1,5 @@
 {
-  "schema": "atlas-evidence-review/1",
+  "schema": "atlas-evidence-review/2",
   "review_id": "F1-S2-review-A",
   "target": {
     "output_sha256": "761895d49013a3a9327b60e9bf1aea437d0e6d99dfff37c4e728ba722202f58c",
@@ -14,8 +14,24 @@
     "source_version_id": "doi:10.1177/0956797614553946/version/pdf-sha256-4ae91126e56da197",
     "source_input_sha256": "f38381ce7020513995dfff9bb0a09d683ee11351a884e842f51983cf7e4ab9b6",
     "passages": {
-      "S2-E2": "3ac288641b7d0a3f5dd98f9e198580f73392c9c17f2270be934eea1eb3b284a0",
-      "S2-E3": "aa0a3676ec2b72c9654f743e6dc03f3dbe621ad0a103e0b888d286d3c52a3caa"
+      "S2-E2": {
+        "source_version_id": "doi:10.1177/0956797614553946/version/pdf-sha256-4ae91126e56da197",
+        "component_id": "S2-E2",
+        "start": 906,
+        "end": 1160,
+        "unit": "unicode_codepoint",
+        "interval": "half_open",
+        "quote_sha256": "3ac288641b7d0a3f5dd98f9e198580f73392c9c17f2270be934eea1eb3b284a0"
+      },
+      "S2-E3": {
+        "source_version_id": "doi:10.1177/0956797614553946/version/pdf-sha256-4ae91126e56da197",
+        "component_id": "S2-E3",
+        "start": 1217,
+        "end": 1514,
+        "unit": "unicode_codepoint",
+        "interval": "half_open",
+        "quote_sha256": "aa0a3676ec2b72c9654f743e6dc03f3dbe621ad0a103e0b888d286d3c52a3caa"
+      }
     }
   },
   "coverage": {
@@ -482,5 +498,15 @@
   "relation_to_other_reviews": "Review B (separate context) returned SUPPORTS for the whole and each part, noting that a stricter reading of 'no effect' would give SUPPORTS_WITH_QUALIFICATION. This review differs on parts b and c and on the whole. Both records are kept; neither overrides the other.",
   "independence": "NOT_ESTABLISHED",
   "human_adjudication": "NOT_PERFORMED",
-  "native_labels": "UNCHANGED. This disposition does not replace Finding 1's Verification state, Concede test or any native label, and does not review the S4 clause or the rest of the finding."
+  "native_labels": "UNCHANGED. This disposition does not replace Finding 1's Verification state, Concede test or any native label, and does not review the S4 clause or the rest of the finding.",
+  "reissue": {
+    "reissued_at": "2026-10-30T11:58:30Z",
+    "supersedes": {
+      "path": "tests/atlas/reviews/power-posing/v1/F1-S2-review-A.json",
+      "schema": "atlas-evidence-review/1",
+      "sha256": "87ae3769f881f3fc0585a1c3f0943be6eee887904abdde57d0c3633f77156399"
+    },
+    "change": "Binding contract only: each bound passage is now a descriptor (source version, component, start and end offsets, offset unit, interval, quotation hash) instead of a quotation hash. The reviewer's dispositions, reasons, locators and exposure are unchanged; the review was not repeated.",
+    "reissued_by": "Primary implementation session (mechanical re-issue)"
+  }
 }

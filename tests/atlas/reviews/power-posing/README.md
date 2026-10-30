@@ -23,8 +23,19 @@ independent.
 
   This is an explicit reviewer decomposition. It does not replace the clause.
 
-Each review binds to all of these identities. If any of them changes, the
-adapter marks the review `TARGET_MISMATCH` and the run stops referencing it.
+Each review binds to all of these identities. Each passage is bound by its full
+descriptor: source version, component, start and end offsets, offset unit,
+interval and quotation hash. If any of them changes, the adapter marks the
+review `TARGET_MISMATCH` and the run stops referencing it.
+
+The reviews are imported as run `urn:atlas:import:power-posing-sources:3`
+(`tests/atlas/power-sources-reviewed.json`).
+
+**Re-issue.** These artifacts were first written under `atlas-evidence-review/1`,
+which bound passages by quotation hash only, so a moved locator kept the review
+attached. They were re-issued under `/2` with only the binding changed; each
+artifact's `reissue` block names its `/1` predecessor by hash. The `/1` files are
+preserved in [v1/](v1/). Neither review was repeated.
 
 ## Not reviewed
 
@@ -37,7 +48,7 @@ adapter marks the review `TARGET_MISMATCH` and the run stops referencing it.
 Finding 1's `assessment` stays `UNREVIEWED`, its native labels stay as written,
 and every evidence relationship stays `UNADJUDICATED`.
 
-## Dispositions (`atlas-evidence-review/1`)
+## Dispositions (`atlas-evidence-review/2`)
 
 | Review | Reviewer context | Whole | (a) self-report | (b) hormones | (c) behavior |
 |---|---|---|---|---|---|

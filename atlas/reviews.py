@@ -1,13 +1,20 @@
-"""Evidence-proposition reviews: extension atlas-evidence-review/1.
+"""Evidence-proposition reviews: extension atlas-evidence-review/2.
 
 A review artifact (JSON) records one reviewer's bounded disposition on one
 proposition: an exact span of one field of one native finding, as mapped to one
 source check and its passages. It is imported as a ReviewDecision record. The
 review binds to exact identities: output bytes, the finding's native projection,
-the proposition span, the check definition (the mapping), each passage quote, the
-source version and the source input bytes. If any of those differ, the binding
-is TARGET_MISMATCH, naming the components, and the run does not reference the
-review: a changed mapping never inherits an old review.
+the proposition span, the check definition (the mapping), each passage's full
+descriptor (source version, component, start and end offsets, offset unit,
+interval and quotation hash), the source version and the source input bytes. If
+any of those differ, the binding is TARGET_MISMATCH, naming the components, and
+the run does not reference the review: a changed mapping never inherits an old
+review.
+
+Version 2 replaces /1, which bound each passage by quotation hash only: moving a
+passage's offsets while keeping its quotation left a /1 review attached. /1
+artifacts are rejected on import and restore (UNSUPPORTED_REVIEW_SCHEMA), never
+trusted.
 
 Dispositions are this extension's own versioned vocabulary. They do not replace
 native labels, do not change AuditFinding.assessment or Relationship
@@ -15,9 +22,12 @@ epistemic_status, and say nothing about parts of the finding outside the
 proposition. Version 1 records reviews, never human adjudication or independence.
 """
 
-from .contract import ContractError, digest, load_json, require, sha256
+from .contract import (EVIDENCE_REVIEW_SCHEMA, RETIRED_REVIEW_SCHEMAS, ContractError, digest,
+                       load_json, require, sha256)
 
-SCHEMA_ID = "atlas-evidence-review/1"
+SCHEMA_ID = EVIDENCE_REVIEW_SCHEMA
+PASSAGE = {"source_version_id": str, "component_id": str, "start": int, "end": int,
+           "unit": str, "interval": str, "quote_sha256": str}
 DISPOSITIONS = {"SUPPORTS", "SUPPORTS_WITH_QUALIFICATION", "CONTRADICTS",
                 "INSUFFICIENT_EVIDENCE", "PENDING"}
 TARGET = {"output_sha256": str, "finding_number": str, "finding_native_sha256": str,
@@ -36,8 +46,15 @@ def load_review(data: bytes) -> dict:
     review = load_json(data)
     require(review, REVIEW, "review")
     if review["schema"] != SCHEMA_ID:
-        raise ContractError(f"UNSUPPORTED_REVIEW_SCHEMA: {review['schema']}")
+        reason = RETIRED_REVIEW_SCHEMAS.get(review["schema"], "unknown")
+        raise ContractError(f"UNSUPPORTED_REVIEW_SCHEMA: {review['schema']} ({reason})")
     require(review["target"], TARGET, "review.target")
+    if not review["target"]["passages"]:
+        raise ContractError("INVALID_REVIEW: no passages bound")
+    for pid, descriptor in review["target"]["passages"].items():
+        require(descriptor, PASSAGE, f"review.target.passages.{pid}")
+        if set(descriptor) != set(PASSAGE):
+            raise ContractError(f"INVALID_REVIEW: passage descriptor fields {pid}")
     require(review["coverage"], {"reviewed": list, "not_reviewed": list,
                                  "finding_level_effect": str}, "review.coverage")
     require(review["reviewer"], {"identity": str, "kind": str, "context": str}, "review.reviewer")
@@ -64,6 +81,14 @@ def load_review(data: bytes) -> dict:
     return review
 
 
+def passage_descriptor(passage: dict) -> dict:
+    """The identity a review binds for one Passage record."""
+    locator = passage["locator"]
+    return {"source_version_id": passage["source_version_id"], "component_id": locator["component_id"],
+            "start": locator["start"], "end": locator["end"], "unit": locator["unit"],
+            "interval": locator["interval"], "quote_sha256": sha256(passage["quote"].encode("utf-8"))}
+
+
 def target_mismatches(target: dict, *, run_id: str, output_sha256: str, context: dict,
                       records: list[dict]) -> list[str]:
     """Compare a declared target with one run's records; return differing components."""
@@ -86,8 +111,8 @@ def target_mismatches(target: dict, *, run_id: str, output_sha256: str, context:
         mismatches.append("mapping")
     passages = {r["native_id"]: r for r in records
                 if r["type"] == "Passage" and r["id"].startswith(f"{run_id}/passage/")}
-    if any(pid not in passages or sha256(passages[pid]["quote"].encode("utf-8")) != quote_sha
-           for pid, quote_sha in target["passages"].items()):
+    if any(pid not in passages or passage_descriptor(passages[pid]) != descriptor
+           for pid, descriptor in target["passages"].items()):
         mismatches.append("passages")
     if any(pid in passages and passages[pid]["source_version_id"] != target["source_version_id"]
            for pid in target["passages"]):

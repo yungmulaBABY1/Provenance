@@ -1,0 +1,486 @@
+{
+  "schema": "atlas-evidence-review/1",
+  "review_id": "F1-S2-review-A",
+  "target": {
+    "output_sha256": "761895d49013a3a9327b60e9bf1aea437d0e6d99dfff37c4e728ba722202f58c",
+    "finding_number": "1",
+    "finding_native_sha256": "91906b2140f2910841b3711a8948dcd6bbb26b1fb9130085211cca637c42fe36",
+    "proposition": "S2 reports self-reported-power replication but no hormonal or behavioral effects",
+    "proposition_field": "Evidence",
+    "proposition_start": 0,
+    "proposition_end": 80,
+    "check_id": "S2-reported-outcomes",
+    "check_sha256": "4efb4dc86dd48fec4e8f2bd12d708f0e3be5ff29d5f53f3cf05c0d3e6aa5cda6",
+    "source_version_id": "doi:10.1177/0956797614553946/version/pdf-sha256-4ae91126e56da197",
+    "source_input_sha256": "f38381ce7020513995dfff9bb0a09d683ee11351a884e842f51983cf7e4ab9b6",
+    "passages": {
+      "S2-E2": "3ac288641b7d0a3f5dd98f9e198580f73392c9c17f2270be934eea1eb3b284a0",
+      "S2-E3": "aa0a3676ec2b72c9654f743e6dc03f3dbe621ad0a103e0b888d286d3c52a3caa"
+    }
+  },
+  "coverage": {
+    "reviewed": [
+      "Finding 1, field Evidence, characters [0, 80): the S2 clause, as mapped to check S2-reported-outcomes (passages S2-E2, S2-E3)"
+    ],
+    "not_reviewed": [
+      "Finding 1 Evidence clause about S4 (characters [82, 157)) and its check S4-evidential-value",
+      "Every other field of Finding 1, including its Concede test, Severity, Verification state and Status",
+      "Finding 2 and all its checks",
+      "Whether Finding 1 as a whole is correct"
+    ],
+    "finding_level_effect": "NONE"
+  },
+  "reviewer": {
+    "identity": "Claude (Anthropic), primary implementation session",
+    "kind": "MODEL",
+    "context": "The same session that implemented the adapter repairs, the power-posing source packet, its excerpt selection and its finding-to-check mappings.",
+    "model": "Model identifier not written here: this session's policy forbids model identifiers in repository artifacts. It is recorded in the session at https://claude.ai/code/session_017YUqUXXzUSQtCRyQUpxQkk.",
+    "session": "https://claude.ai/code/session_017YUqUXXzUSQtCRyQUpxQkk"
+  },
+  "performed_at": "2026-10-30T11:44:42Z",
+  "method": "Re-retrieved the recorded S2 PDF and confirmed its SHA-256. Read the whole article in the pinned extraction (title, opening text, Method, Results, Discussion, Fig. 1 and caption, back matter, notes, references), not the excerpts alone. Split the proposition into three parts (an explicit reviewer decomposition; the proposition itself is unchanged), assessed each against the paper's own statements, and searched the paper for qualifications: conceptual versus direct replication, protocol differences, which hormones and which behavioral tasks, significance versus absence, one- versus two-tailed tests, subgroups, exclusions, missing data, sampling, and analyses deferred to supplementary material. Judged only what S2 reports, not whether power posing works.",
+  "inputs": [
+    {
+      "what": "S2 article PDF, re-retrieved 2026-10-30T11:39:15Z",
+      "url": "https://faculty.haas.berkeley.edu/dana_carney/ranehill.pdf",
+      "sha256": "4ae91126e56da19721f44c6942a536e3c2dcb22fe3a23de727f788afeb481369",
+      "note": "same bytes as the source packet's recorded version"
+    },
+    {
+      "what": "pdftotext -enc UTF-8 (poppler 24.02.0) extraction of that PDF; locator offsets refer to it",
+      "sha256": "afc448e6323772778979bd62ade1f343752f742c69c1ee56c5b702a4d5f7b3ad"
+    },
+    {
+      "what": "pdftotext -enc UTF-8 -layout extraction of that PDF",
+      "sha256": "6985f6bb3367148c87b1c703ec347b09f82bf7a6274deb10b09314cc17d62add"
+    },
+    {
+      "what": "Finding 1 native projection, as imported",
+      "path": "tests/atlas/receipts/power-sources/records.jsonl",
+      "sha256": "91906b2140f2910841b3711a8948dcd6bbb26b1fb9130085211cca637c42fe36",
+      "note": "digest of AuditFinding.native"
+    },
+    {
+      "what": "Import context with the mapping",
+      "path": "tests/atlas/power-sources.json",
+      "sha256": "0f02533d21ee9644c21545cb38e2519e2028bb94b7349973fb92ade4d93a2da7"
+    },
+    {
+      "what": "Source packet provenance",
+      "path": "tests/atlas/sources/power-posing/SOURCES.json",
+      "sha256": "d2706909e0483ccdab5212192e5a0a799e107138ec54082d08d8f1fd4d97be70"
+    }
+  ],
+  "exposure": {
+    "summary": "Full exposure: authored the excerpt selection and mapping under review, had read the whole archived audit output and its native labels, and received review B's report before writing this artifact.",
+    "previous_findings": "Read: the archived audit output compliance/run-output.md, including Finding 1's native labels (Concede test DEFEATS, Verification state FULL-TEXT-CONFIRMED; CONTESTED) and Finding 2.",
+    "excerpt_selection": "Authored by this reviewer (S2-E1 to S2-E3, chosen after reading the findings).",
+    "implementation_rationale": "Authored by this reviewer (mapping_basis, adapter repairs, review extension).",
+    "other_reviews": "Review B's report arrived before this artifact was written. The qualifications here (conceptual replication, non-significance, supplement-only statistics, sequential sampling, authors' caveat) were noted in the session before B's report arrived; influence from B on the final wording cannot be excluded.",
+    "independence": "None. Not independent of the finding, the excerpts, the mapping or review B."
+  },
+  "examination_boundary": {
+    "read": [
+      "S2 article PDF pages 1-4 (journal pp. 653-656) in full, via the pinned extraction; layout extraction consulted for Fig. 1"
+    ],
+    "unavailable": [
+      {
+        "material": "S2 Supplemental Material (power analysis, full instructions, consent form, incentives, nonparametric, regression and sex-split analyses, comfort reanalyses, single-decision robustness)",
+        "attempted": [
+          "https://journals.sagepub.com/doi/suppl/10.1177/0956797614553946",
+          "http://pss.sagepub.com/content/by/supplemental-data"
+        ],
+        "outcome": "journals.sagepub.com returned HTTP 403 to a plain request; pss.sagepub.com is not reachable under this environment's network policy (not a host refusal). Not read."
+      },
+      {
+        "material": "S2 OSF data and materials (https://osf.io/6akvt/files/)",
+        "attempted": [
+          "https://osf.io/6akvt/files/",
+          "https://api.osf.io/v2/nodes/6akvt/files/osfstorage/"
+        ],
+        "outcome": "osf.io is not reachable under this environment's network policy (not a host refusal). Not read; no reanalysis attempted."
+      }
+    ],
+    "not_examined": [
+      "S1 (Carney et al., 2010), which S2 replicates",
+      "Raw data; no reanalysis",
+      "Any later correction or erratum (none visible in this PDF; none searched for elsewhere)"
+    ]
+  },
+  "disposition": "SUPPORTS_WITH_QUALIFICATION",
+  "part_dispositions": [
+    {
+      "part": "a",
+      "text": "S2 reports a replication of the self-reported feelings-of-power effect",
+      "disposition": "SUPPORTS",
+      "reasons": [
+        "S2 states it replicated Carney et al.'s self-reported feelings-of-power effect (two-tailed t test, p = .017, d = 0.344) and repeats this in the opening text, Method and Discussion (L04, L09, L16, L24).",
+        "Qualification noted, not disqualifying: S2 calls the study as a whole a conceptual replication (L02); self-report used a 4-point scale after the tasks (L07); 5 participants lack the measure (L20)."
+      ]
+    },
+    {
+      "part": "b",
+      "text": "S2 reports no hormonal effect of power posing",
+      "disposition": "SUPPORTS_WITH_QUALIFICATION",
+      "reasons": [
+        "S2 reports non-significant two-tailed differences for testosterone change (p = .162) and cortisol (p = .272) (L11, L12) and 'failed to confirm' effects on both (L15); its title says 'No Effect on Hormones' (L01).",
+        "Qualification: what S2 reports is the absence of significant differences in this study for two hormones, not demonstrated absence of any hormonal effect; the testosterone interval [-9.801, 1.647] does not exclude a small positive difference. The proposition's 'no hormonal effects' matches S2's own headline wording but drops 'significant' and the two-hormone scope."
+      ]
+    },
+    {
+      "part": "c",
+      "text": "S2 reports no behavioral effect of power posing",
+      "disposition": "SUPPORTS_WITH_QUALIFICATION",
+      "reasons": [
+        "S2 reports no significant effect in any of its three incentivized behavioral tasks (L05, L10, L14) and that self-reported power 'did not yield behavioral effects' (L16).",
+        "Qualification: 'behavioral' here means three laboratory tasks (gain-domain risk, loss-domain risk, willingness to compete; L03). Statistics are given only for gain-domain risk (L10); the other two are one sentence (L14), with analyses deferred to Supplemental Material that was not available (L13, L21)."
+      ]
+    }
+  ],
+  "reasons": [
+    "Read in context, S2 reports what the clause says, in S2's own words (L01, L05, L16): significant self-reported power, no significant hormonal or behavioral differences.",
+    "The clause is less precise than the paper: it drops 'significant', the conceptual-replication framing and the authors' stated limitation that protocol differences may explain the nulls (L02, L08, L17, L18). It does not misstate the direction of any result.",
+    "The mapped excerpts S2-E2 and S2-E3 are accurate quotations of S2's own summaries, but on their own they omit those qualifications, which appear in Method, Results and Discussion paragraphs that were not excerpted. A matching quotation was not treated as support; this disposition rests on the whole-paper reading."
+  ],
+  "locators": [
+    {
+      "id": "L01",
+      "pdf_page": 1,
+      "journal_page": 653,
+      "section": "Title",
+      "role": "summary",
+      "extraction_start": 101,
+      "extraction_end": 183,
+      "quote": "Assessing the Robustness of Power\nPosing: No Effect on Hormones and\nRisk Tolerance",
+      "quote_sha256": "71cc1fcc1d3fbe0a37d95216708879c3bd99fb7950c7be58d8ac1f5a1f8ebb8d"
+    },
+    {
+      "id": "L02",
+      "pdf_page": 1,
+      "journal_page": 653,
+      "section": "Opening text (no heading)",
+      "role": "qualification: design",
+      "extraction_start": 1520,
+      "extraction_end": 1590,
+      "quote": "We conducted a conceptual replication study\nwith a similar methodology",
+      "quote_sha256": "1678f9deaa310bb0b8df5136356f8cc239b70e04b3a970aadfea46300c08cdc6"
+    },
+    {
+      "id": "L03",
+      "pdf_page": 1,
+      "journal_page": 653,
+      "section": "Opening text (no heading)",
+      "role": "scope: behavioral tasks",
+      "extraction_start": 1891,
+      "extraction_end": 2060,
+      "quote": "In addition to\nthe three outcome measures that Carney et al. used, we\nalso studied two more behavioral tasks (risk taking in the\nloss domain and willingness to compete).",
+      "quote_sha256": "0434f959d6c5989151b3d365f114b905242d2c4b2560244628c907f213ac58b4"
+    },
+    {
+      "id": "L04",
+      "pdf_page": 1,
+      "journal_page": 653,
+      "section": "Opening text (no heading)",
+      "role": "support: part a",
+      "extraction_start": 2061,
+      "extraction_end": 2199,
+      "quote": "Consistent with the findings of Carney et al., our\nresults showed a significant effect of power posing on\nself-reported feelings of power.",
+      "quote_sha256": "212bc764017dfe084b55813cea60e79fbecfa7023a22c94bf253e91edce09b13"
+    },
+    {
+      "id": "L05",
+      "pdf_page": 1,
+      "journal_page": 653,
+      "section": "Opening text (no heading)",
+      "role": "support: parts b, c",
+      "extraction_start": 2200,
+      "extraction_end": 2315,
+      "quote": "However, we found no\nsignificant effect of power posing on hormonal levels or\nin any of the three behavioral tasks.",
+      "quote_sha256": "3cc57baccbbced645a20e2b604783865c7de5fc9577bea6d0edd47c7b9bc2c2e"
+    },
+    {
+      "id": "L06",
+      "pdf_page": 1,
+      "journal_page": 653,
+      "section": "Method",
+      "role": "qualification: sequential sampling",
+      "extraction_start": 2368,
+      "extraction_end": 2485,
+      "quote": "On the\nbasis of the results of these first 100 observations, we\ndecided to collect data from another 100 participants",
+      "quote_sha256": "6d316a6766379bb2b5748bf0518fe09e26e38585ae747de3a1e1df6b9b9bb227"
+    },
+    {
+      "id": "L07",
+      "pdf_page": 2,
+      "journal_page": 654,
+      "section": "Method",
+      "role": "qualification: self-report measure",
+      "extraction_start": 5127,
+      "extraction_end": 5177,
+      "quote": "self-reported feelings of power on a 4-point\nscale",
+      "quote_sha256": "a409b7456f65c26cf3e540250534f4b88215a77316755967f3467760f90af7c9"
+    },
+    {
+      "id": "L08",
+      "pdf_page": 2,
+      "journal_page": 654,
+      "section": "Method",
+      "role": "qualification: protocol difference",
+      "extraction_start": 5750,
+      "extraction_end": 5864,
+      "quote": "First, whereas participants in Carney et al.’s\nstudy held each position for 1 min, we extended this time\nto 3 min.",
+      "quote_sha256": "abc607d3b947f0663fb43053490765201bf9c025b1db0a356b7db0dcb8f77dcc"
+    },
+    {
+      "id": "L09",
+      "pdf_page": 2,
+      "journal_page": 654,
+      "section": "Results",
+      "role": "support: part a",
+      "extraction_start": 7520,
+      "extraction_end": 7622,
+      "quote": "t(193) = 2.399, p = .017, Cohen’s d = 0.344.2 This\nsuggests that the power-posing manipulation worked.",
+      "quote_sha256": "19eb074ee9e4b22d13c1de2864c672ce141591c397dbe16b258d7e97f7c68c2f"
+    },
+    {
+      "id": "L10",
+      "pdf_page": 2,
+      "journal_page": 654,
+      "section": "Results",
+      "role": "support: part c (gain-domain risk)",
+      "extraction_start": 7761,
+      "extraction_end": 7873,
+      "quote": "Two-tailed t tests\nindicated no significant impact of physical position on\neither risk-taking in the gain domain",
+      "quote_sha256": "a8b542119b580f2150ae023847d1339d01c5be65b7498b99a3066481ea6e6899"
+    },
+    {
+      "id": "L11",
+      "pdf_page": 2,
+      "journal_page": 654,
+      "section": "Results",
+      "role": "support: part b (testosterone)",
+      "extraction_start": 7978,
+      "extraction_end": 8102,
+      "quote": "changes in testosterone\n(mean difference = −4.077, 95% CI = [−9.801, 1.647]),\nt(196) = −1.405, p = .162, Cohen’s d = −0.200.",
+      "quote_sha256": "238ee4776a96c49df0ea9a9306771c5d2cbdf602013e1af16969c833dab49894"
+    },
+    {
+      "id": "L12",
+      "pdf_page": 2,
+      "journal_page": 654,
+      "section": "Results",
+      "role": "support: part b (cortisol)",
+      "extraction_start": 8104,
+      "extraction_end": 8241,
+      "quote": "We also\nfound no effect for cortisol (mean difference = −0.028,\n95% CI = [−0.078, 0.022]), t(196) = −1.101, p = .272,\nCohen’s d = −0.157.",
+      "quote_sha256": "1e6cccae06afb6badde0f2b783523427658d7b2248f9dfb9a4792746e633ee04"
+    },
+    {
+      "id": "L13",
+      "pdf_page": 2,
+      "journal_page": 654,
+      "section": "Results",
+      "role": "qualification: deferred to unavailable supplement",
+      "extraction_start": 8242,
+      "extraction_end": 8405,
+      "quote": "Complementary nonparametric and\nregression analyses yielded similar results for the whole\nsample, and for women and men separately (see the\nSupplemental Material).",
+      "quote_sha256": "273a953b19784192da1d9aa2b00e95ea776e1f9906728c9074620f6fbc303d83"
+    },
+    {
+      "id": "L14",
+      "pdf_page": 2,
+      "journal_page": 654,
+      "section": "Results",
+      "role": "support and qualification: part c (loss-domain risk, competition; no statistics given)",
+      "extraction_start": 8406,
+      "extraction_end": 8493,
+      "quote": "Neither of the other two behavioral tasks yielded significant differences by condition.",
+      "quote_sha256": "2ef0d4c5c6ea511892bcb2a0fae7c418a68f671f04b7fa64815010eab7790c53"
+    },
+    {
+      "id": "L15",
+      "pdf_page": 2,
+      "journal_page": 654,
+      "section": "Discussion",
+      "role": "support: parts b, c",
+      "extraction_start": 8794,
+      "extraction_end": 8894,
+      "quote": "we failed to confirm an effect of power posing on\ntestosterone, cortisol, and financial risk taking.",
+      "quote_sha256": "f02a424794a2d137fd3dab83b419a13d51aac3f38da5015bbe11225129344434"
+    },
+    {
+      "id": "L16",
+      "pdf_page": 2,
+      "journal_page": 654,
+      "section": "Discussion",
+      "role": "support: parts a, c",
+      "extraction_start": 8895,
+      "extraction_end": 9014,
+      "quote": "We did\nfind that power posing affected self-reported feelings of\npower; however, this did not yield behavioral effects.",
+      "quote_sha256": "92ef067889604166acfe4aefc5229ed830a919c569c42a9c0f88ba495260b1f0"
+    },
+    {
+      "id": "L17",
+      "pdf_page": 2,
+      "journal_page": 654,
+      "section": "Discussion",
+      "role": "qualification: authors' own limitation",
+      "extraction_start": 9184,
+      "extraction_end": 9281,
+      "quote": "led to the omission of factors crucial for power\nposes to influence hormonal levels and behavior.",
+      "quote_sha256": "b94fa6ecfefa33b432bdcd2aaf137d31c2d988e4172c67f713ef7a58daef14db"
+    },
+    {
+      "id": "L18",
+      "pdf_page": 3,
+      "journal_page": 655,
+      "section": "Discussion",
+      "role": "qualification: authors' conclusion is not 'no effect' in general",
+      "extraction_start": 11899,
+      "extraction_end": 12002,
+      "quote": "We conclude that more research is\nneeded to identify the precise conditions necessary for\nsuch effects.",
+      "quote_sha256": "32be42df5843ce7169adfde4c92c42cb42bcc07d3bd5812cd75c1a0fb97a1fa2"
+    },
+    {
+      "id": "L19",
+      "pdf_page": 3,
+      "journal_page": 655,
+      "section": "Fig. 1 caption",
+      "role": "context: only gain-domain risk and testosterone are plotted",
+      "extraction_start": 10510,
+      "extraction_end": 10608,
+      "quote": "Fig. 1. Mean proportion of risky choices in the gain domain (left) and mean change in testosterone",
+      "quote_sha256": "18432c86f57c9508932e5365e72075e2de29df5d8cfd538747651c98de73969d"
+    },
+    {
+      "id": "L20",
+      "pdf_page": 4,
+      "journal_page": 656,
+      "section": "Notes",
+      "role": "qualification: missing data",
+      "extraction_start": 13903,
+      "extraction_end": 13971,
+      "quote": "We did not have information on feelings of power for 5 participants.",
+      "quote_sha256": "e020e41c6e38b053f136a81f039bbeb172eb32347dadcabcf6b37cf3017aff90"
+    },
+    {
+      "id": "L21",
+      "pdf_page": 3,
+      "journal_page": 655,
+      "section": "Supplemental Material",
+      "role": "unavailable material",
+      "extraction_start": 13275,
+      "extraction_end": 13377,
+      "quote": "Additional supporting information can be found at http://pss\n.sagepub.com/content/by/supplemental-data",
+      "quote_sha256": "acbf50757542ea9ef4c8296eea7f6c3a264fc5098edfdc6edf1417315e8e33f7"
+    },
+    {
+      "id": "L22",
+      "pdf_page": 3,
+      "journal_page": 655,
+      "section": "Open Practices",
+      "role": "unavailable material",
+      "extraction_start": 12324,
+      "extraction_end": 12407,
+      "quote": "All data and materials have been made publicly available via\nOpen Science Framework",
+      "quote_sha256": "b937cbfbc1fbbe55fe2481d63bb9ed91996f5f975dafb0fdf6da1c84b7da6b03"
+    },
+    {
+      "id": "L23",
+      "pdf_page": 2,
+      "journal_page": 654,
+      "section": "Discussion",
+      "role": "qualification: comfort reanalysis deferred to supplement",
+      "extraction_start": 9738,
+      "extraction_end": 9816,
+      "quote": "This did not substantively change our results (see\nthe Supplemental Material).",
+      "quote_sha256": "b1228b98400c8ab66696cfbacda8f89887c003c6e8d544a345e24b35fb1d8392"
+    },
+    {
+      "id": "L24",
+      "pdf_page": 2,
+      "journal_page": 654,
+      "section": "Method",
+      "role": "support: part a",
+      "extraction_start": 6997,
+      "extraction_end": 7117,
+      "quote": "Notably, however, as did Carney et al., we found a significant effect of power posing on self-reported feelings of\npower",
+      "quote_sha256": "1ff66a9ddc147732009107ca8272bed1565aa564152a7c6ca719a76783daf9a7"
+    }
+  ],
+  "qualifications": [
+    {
+      "point": "Conceptual, not direct, replication with stated protocol differences (3-min poses, computer instructions, different filler task, no deception).",
+      "locators": [
+        "L02",
+        "L08"
+      ]
+    },
+    {
+      "point": "Nulls are non-significant two-tailed differences in one study, not demonstrated absence; the authors themselves allow that omitted conditions may explain them and call for more research.",
+      "locators": [
+        "L05",
+        "L15",
+        "L17",
+        "L18"
+      ]
+    },
+    {
+      "point": "Only testosterone and cortisol were measured.",
+      "locators": [
+        "L11",
+        "L12"
+      ]
+    },
+    {
+      "point": "Two of the three behavioral tasks are reported without statistics in the article; their analyses, the subgroup analyses and the comfort reanalysis are in the unavailable Supplemental Material.",
+      "locators": [
+        "L13",
+        "L14",
+        "L21",
+        "L23"
+      ]
+    },
+    {
+      "point": "Sample size was extended from 100 to 200 after looking at the first 100 observations; a design caveat that bears on evidential weight, not on what S2 reports.",
+      "locators": [
+        "L06"
+      ]
+    },
+    {
+      "point": "Self-reported power was missing for 5 participants and measured on a 4-point scale after the tasks.",
+      "locators": [
+        "L07",
+        "L20"
+      ]
+    }
+  ],
+  "contrary_search": [
+    {
+      "searched_for": "Any passage reporting a significant hormonal or behavioral effect, in the whole sample or a subgroup",
+      "found": "None in the article; subgroup results are summarized only as 'similar' (L13)."
+    },
+    {
+      "searched_for": "One-tailed tests or alternative specifications giving significance",
+      "found": "None; all reported tests are two-tailed."
+    },
+    {
+      "searched_for": "Exclusions that change results",
+      "found": "None; excluding the non-compliant participant 'yielded similar results' (Note 1) and the comfort reanalysis 'did not substantively change our results' (L23)."
+    },
+    {
+      "searched_for": "Authors' own limitations",
+      "found": "Protocol differences may have omitted crucial factors; more research needed (L17, L18)."
+    }
+  ],
+  "strongest_contrary_interpretation": "Read as a claim about power posing rather than about S2's report, 'no hormonal or behavioral effects' overstates S2: S2 found no significant differences in one conceptual replication with procedural differences, reported statistics for only one of three behavioral tasks in the article, and explicitly left open that effects arise under other conditions. A reader of the clause, or of the two mapped excerpts alone, could take S2 as showing absence of effects.",
+  "what_would_change": [
+    "The Supplemental Material or OSF data showing a significant hormonal or behavioral difference in a reported specification or subgroup (would move part b or c toward CONTRADICTS or a narrower qualification).",
+    "A correction, erratum or version of record differing from this PDF in the reported results.",
+    "How 'no ... effects' is read. If the proposition is taken to claim that S2 demonstrated the absence of any hormonal or behavioral effect, parts b and c would move to INSUFFICIENT_EVIDENCE for that stronger claim. If it is read as S2's own headline wording ('No Effect'), they would move toward SUPPORTS, as review B concluded."
+  ],
+  "relation_to_other_reviews": "Review B (separate context) returned SUPPORTS for the whole and each part, noting that a stricter reading of 'no effect' would give SUPPORTS_WITH_QUALIFICATION. This review differs on parts b and c and on the whole. Both records are kept; neither overrides the other.",
+  "independence": "NOT_ESTABLISHED",
+  "human_adjudication": "NOT_PERFORMED",
+  "native_labels": "UNCHANGED. This disposition does not replace Finding 1's Verification state, Concede test or any native label, and does not review the S4 clause or the rest of the finding."
+}

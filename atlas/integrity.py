@@ -111,7 +111,8 @@ def verify_records(records: list[dict]) -> dict:
 def verify_evidence_review(item: dict, records: list[dict], by_id: dict, run_manifest: dict) -> None:
     """Re-derive an evidence review's binding from the bundle; reject any difference."""
     if item["review_schema"] != evidence_reviews.SCHEMA_ID:
-        raise ContractError(f"UNSUPPORTED_REVIEW_SCHEMA: {item['id']}")
+        reason = evidence_reviews.RETIRED_REVIEW_SCHEMAS.get(item["review_schema"], "unknown")
+        raise ContractError(f"UNSUPPORTED_REVIEW_SCHEMA: {item['review_schema']} ({reason}): {item['id']}")
     review = evidence_reviews.verify_record(item)
     rid = item["id"].split("/review/")[0]
     if rid not in run_manifest:
