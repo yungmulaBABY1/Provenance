@@ -14,7 +14,7 @@ import re
 # Bump VERSION whenever parse() output can change for the same input text;
 # restore re-derives native records only for versions listed as supported.
 NAME = "atlas-citation-network-native"
-VERSION = "2"
+VERSION = "3"
 SUPPORTED_VERSIONS = frozenset({VERSION})
 
 FINAL = "FINAL SECTION: STANDARDIZED FINDING TABLE"
@@ -228,7 +228,8 @@ def parse(text):
         errors.append(issue("DUPLICATE_FIELD", "scorecard dimension"))
     for name in sorted(DIMENSIONS - set(names)):
         errors.append(issue("MISSING", "scorecard dimension: " + name))
-    for name in set(names) - DIMENSIONS:
+    # Sorted: set iteration order varies with the per-process hash seed.
+    for name in sorted(set(names) - DIMENSIONS, key=str):
         errors.append(issue("INVALID_LABEL", "scorecard dimension: " + str(name)))
     return {"findings": findings, "issues": errors, "scorecard": scorecard,
             "source_lock": source_lock, "null_assertion": null_assertion,
