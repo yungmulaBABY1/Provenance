@@ -37,7 +37,8 @@ RECORD_FIELDS = {
                  "output_sha256": str, "context_sha256": str, "syntax": str,
                  "source_checks": dict, "paper_clean": bool, "human_review": str,
                  "raw_output_text": str, "corpus_scope_id": str, "native_scorecard": list,
-                 "native_parse_issues": list, "producing_instrument_compliance": str},
+                 "native_parse_issues": list, "producing_instrument_compliance": str,
+                 "mismatched_review_ids": list},
     "AuditFinding": {"audit_run_id": str, "native": dict, "source_checks": list,
                      "evidence_passage_ids": list, "import_status": str, "assessment": str},
     "Relationship": {"subject_id": str, "object_id": str, "kind": str,
@@ -263,6 +264,15 @@ def validate_records(records: list[dict]) -> None:
         if (item["type"] == "AuditRun" and item["producing_instrument_compliance"]
                 not in {"UNDETERMINED", "CONFORMS", "VIOLATION"}):
             raise ContractError("INVALID_LABEL: producing_instrument_compliance")
+        if item["type"] == "AuditRun":
+            string_list(item["mismatched_review_ids"], "mismatched_review_ids")
+            for rid in item["mismatched_review_ids"]:
+                review = by_id.get(rid, {})
+                if review.get("type") != "ReviewDecision" or review.get("target_binding") != "TARGET_MISMATCH":
+                    raise ContractError(f"INVALID_CONTRACT: mismatched_review_ids: {rid}")
+            for ref in item["refs"]:
+                if by_id.get(ref, {}).get("type") == "ReviewDecision" and by_id[ref]["target_binding"] != "MATCH":
+                    raise ContractError(f"INVALID_CONTRACT: run refs a review of another output: {ref}")
         if item["type"] == "AuditRun" and sha256(item["raw_output_text"].encode("utf-8")) != item["output_sha256"]:
             raise ContractError("OUTPUT_HASH_MISMATCH")
         for ref in item["refs"]:
