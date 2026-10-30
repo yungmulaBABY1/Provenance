@@ -1,0 +1,148 @@
+{
+  "schema_version": "atlas-adapter/0.1",
+  "run": {
+    "id": "urn:atlas:import:case12-healthy:1",
+    "target_work_id": "urn:provenance:fixture-packet:case12",
+    "imported_at": "2026-10-30T09:36:48Z",
+    "origin": "LEGACY_REGRESSION_FIXTURE",
+    "model": {
+      "identity": "UNKNOWN",
+      "verification": "NOT_ESTABLISHED_FOR_THIS_ARTIFACT"
+    },
+    "runner": {
+      "identity": "UNKNOWN",
+      "verification": "NOT_ESTABLISHED_FOR_THIS_ARTIFACT"
+    },
+    "historical_instrument": {
+      "identity": "UNKNOWN",
+      "verification": "INSTRUMENT VERSION UNVERIFIED"
+    },
+    "exposure": {
+      "prior_outputs_seen": "UNKNOWN",
+      "independence": "UNKNOWN",
+      "basis": "Archived output alone does not establish exposure or independence."
+    }
+  },
+  "output": {
+    "path": "tests/cases/runs/2026-07-30-case-12-13-sol/12-output.md",
+    "sha256": "ee8f024d4e4b63d9e8aab79e291b3c04583ff08cb8ab83974a5d05daaaf153e9"
+  },
+  "works": [
+    {
+      "id": "urn:provenance:fixture-packet:case12",
+      "title": "Case 12 - Citation Network: Cartel-Shaped but Healthy",
+      "kind": "synthetic-packet",
+      "identity_basis": "Explicit packet identity at repository commit d7000315197670a59988b2d0b58bf0cdae545fc3; synthetic healthy (acquittal half) of the paired case 12/13 test, not a paper DOI. Ported from package B fixtures.json."
+    }
+  ],
+  "sources": [
+    {
+      "id": "urn:provenance:fixture-packet:case12:edition:d7000315197670a59988b2d0b58bf0cdae545fc3",
+      "work_id": "urn:provenance:fixture-packet:case12",
+      "version": "d7000315197670a59988b2d0b58bf0cdae545fc3",
+      "version_basis": "Repository edition of the supplied packet; bytes pinned by SHA-256 and git blob.",
+      "version_confidence": "EXPLICIT_FIXTURE_ASSIGNMENT",
+      "source_uri": "https://github.com/yungmulaBABY1/Provenance/blob/d7000315197670a59988b2d0b58bf0cdae545fc3/tests/cases/12-citation-network-cartel-shaped-healthy.md",
+      "accessed_at": "2026-10-30T09:36:48Z",
+      "access_outcome": "AVAILABLE",
+      "rights": "NOT_REVIEWED_FOR_PUBLIC_RELEASE",
+      "extraction": {
+        "engine": "plain-utf8",
+        "version": "1",
+        "configuration": {}
+      },
+      "text_artifact": {
+        "path": "tests/cases/12-citation-network-cartel-shaped-healthy.md",
+        "sha256": "2ec183817c16c9a8c76125a275cdf0b573591492d9919d4b35df55f77d5e321d"
+      },
+      "components": [
+        {
+          "id": "metadata",
+          "kind": "metadata",
+          "start": 758,
+          "end": 2399
+        },
+        {
+          "id": "citation_contexts",
+          "kind": "table",
+          "start": 2399,
+          "end": 4265
+        }
+      ],
+      "requested_components": [
+        "metadata",
+        "citation_contexts",
+        "methods",
+        "full_manuscripts"
+      ],
+      "warnings": [],
+      "failed_components": [],
+      "origin_id": "UNKNOWN"
+    }
+  ],
+  "passages": [],
+  "checks": [
+    {
+      "id": "packet_metadata",
+      "kind": "metadata",
+      "scope": "Packet source table only",
+      "requirements": [
+        {
+          "source_version_id": "urn:provenance:fixture-packet:case12:edition:d7000315197670a59988b2d0b58bf0cdae545fc3",
+          "component_ids": [
+            "metadata"
+          ],
+          "passage_ids": []
+        }
+      ]
+    },
+    {
+      "id": "synthetic_citation_packet",
+      "kind": "content",
+      "scope": "Packet citation-use table; metadata cannot satisfy a content check; no passage anchors declared",
+      "requirements": [
+        {
+          "source_version_id": "urn:provenance:fixture-packet:case12:edition:d7000315197670a59988b2d0b58bf0cdae545fc3",
+          "component_ids": [
+            "citation_contexts"
+          ],
+          "passage_ids": []
+        }
+      ]
+    },
+    {
+      "id": "paper_methods_audit",
+      "kind": "content",
+      "scope": "Methods and full manuscripts; synthetic packet supplies neither",
+      "requirements": [
+        {
+          "source_version_id": "urn:provenance:fixture-packet:case12:edition:d7000315197670a59988b2d0b58bf0cdae545fc3",
+          "component_ids": [
+            "methods",
+            "full_manuscripts"
+          ],
+          "passage_ids": []
+        }
+      ]
+    }
+  ],
+  "finding_checks": {},
+  "corpus": {
+    "id": "case12-packet",
+    "boundary": "Only tests/cases/12-citation-network-cartel-shaped-healthy.md; the graph is complete for this synthetic case.",
+    "selection": "Paired healthy/closed correctness fixture ported from package B; inspected during development.",
+    "retrieval_events": [],
+    "limitations": [
+      "Synthetic packet; no paper text, methods or manuscripts.",
+      "No finding-to-check mapping declared; findings stay NOT_ASSESSABLE.",
+      "Historical model, runner and producing instrument unknown."
+    ]
+  },
+  "declared_inputs": [
+    {
+      "path": "tests/cases/12-citation-network-cartel-shaped-healthy.md",
+      "sha256": "2ec183817c16c9a8c76125a275cdf0b573591492d9919d4b35df55f77d5e321d"
+    }
+  ],
+  "reviews": []
+}
