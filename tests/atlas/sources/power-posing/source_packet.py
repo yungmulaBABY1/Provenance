@@ -75,7 +75,10 @@ def fetch(url: str) -> dict:
 
 
 def poppler_version() -> str:
-    out = subprocess.run(["pdftotext", "-v"], capture_output=True, text=True)
+    try:
+        out = subprocess.run(["pdftotext", "-v"], capture_output=True, text=True)
+    except FileNotFoundError:
+        return "pdftotext not found"
     return (out.stdout + out.stderr).splitlines()[0].strip()
 
 
@@ -170,13 +173,20 @@ def write_excerpt_files() -> None:
             (HERE / f"{source_id}-excerpts.txt").write_text(text, encoding="utf-8")
 
 
-def verify() -> int:
-    data = json.loads(SOURCES.read_text())
+def verify(sources=None, directory=None, fetcher=None, extractor=None) -> int:
+    """Return 0 only if every retrieved source, its whole extraction and every excerpt match.
+
+    The keyword arguments let the offline regression test supply sources and an
+    extractor without network access or poppler.
+    """
+    sources, directory = sources or SOURCES, directory or HERE
+    fetcher, extractor = fetcher or fetch, extractor or extract
+    data = json.loads(sources.read_text())
     failures = 0
     print(f"extraction tool here: {poppler_version()}")
     for source_id, record in data["sources"].items():
         retrieval = record["retrieval"]
-        got = fetch(retrieval["requested_url"])
+        got = fetcher(retrieval["requested_url"])
         if retrieval["outcome"] != "AVAILABLE":
             print(f"{source_id}: recorded {retrieval['outcome']} (HTTP {retrieval['http_status']}); "
                   f"now HTTP {got['status']}")
@@ -185,16 +195,19 @@ def verify() -> int:
             print(f"{source_id}: FAIL source bytes differ or unavailable (HTTP {got['status']})")
             failures += 1
             continue
-        text = extract(got["data"])
+        text = extractor(got["data"])
         same = sha256(text.encode("utf-8")) == record["extraction"]["output_sha256"]
-        print(f"{source_id}: PDF SHA-256 OK; extraction output {'identical' if same else 'DIFFERS'}")
+        print(f"{source_id}: PDF SHA-256 OK; extraction output {'identical' if same else 'FAIL differs'}")
+        # A changed extraction fails even when every excerpt still matches: the
+        # recorded offsets and sections describe the whole recorded output.
+        failures += not same
         for excerpt in record["excerpts"]:
             at = text[excerpt["extraction_start"]:excerpt["extraction_end"]]
             ok = at == excerpt["text"] and sha256(at.encode("utf-8")) == excerpt["sha256"]
             print(f"  {excerpt['id']}: {'OK' if ok else 'FAIL'} at recorded offsets")
             failures += not ok
         expected, _ = excerpt_file(source_id, record)
-        committed = (HERE / f"{source_id}-excerpts.txt").read_text(encoding="utf-8")
+        committed = (directory / f"{source_id}-excerpts.txt").read_text(encoding="utf-8")
         print(f"  {source_id}-excerpts.txt: {'matches' if committed == expected else 'FAIL differs'}")
         failures += committed != expected
     return 1 if failures else 0

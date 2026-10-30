@@ -10,7 +10,9 @@ historical run read. These are offline software tests; source_packet.py
 re-verifies the excerpts against the retrieved PDFs when network is available.
 """
 
+import contextlib
 import copy
+import io
 import json
 from pathlib import Path
 import shutil
@@ -317,6 +319,67 @@ class PowerSourcePacketTests(unittest.TestCase):
                          "--root", str(self.root), "--level", level)
             self.assertEqual(replay.returncode, 0, replay.stderr)
         self.assertEqual(len(read_export((out / "records.jsonl").read_bytes())), len(self.bundle["records"]))
+
+
+class SourceVerifierTests(unittest.TestCase):
+    """source_packet.verify, offline: fake fetcher and extractor, synthetic record."""
+
+    PDF = b"%PDF-1.4 synthetic test bytes"
+    TEXT = "Running head\n\nalpha excerpt that is quoted\n\nunquoted tail paragraph\n"
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.dir = Path(self.temp.name)
+        quote = "alpha excerpt that is quoted"
+        start = self.TEXT.index(quote)
+        record = {
+            "doi": "10.0000/synthetic", "citation": "Synthetic verifier fixture", "excerpts": [{
+                "id": "X-E1", "kind": "section", "label": "synthetic", "pdf_page": 1,
+                "extraction_start": start, "extraction_end": start + len(quote),
+                "occurrences_in_extraction": 1, "sha256": sha256(quote.encode("utf-8")), "text": quote}],
+            "retrieval": {"requested_url": "https://example.invalid/x.pdf", "final_url": "https://example.invalid/x.pdf",
+                          "retrieved_at": "2026-10-30T00:00:00Z", "http_status": 200, "outcome": "AVAILABLE",
+                          "sha256": sha256(self.PDF)},
+            "extraction": {"output_sha256": sha256(self.TEXT.encode("utf-8"))}}
+        missing = {"doi": "10.0000/missing", "excerpts": [], "retrieval": {
+            "requested_url": "https://example.invalid/y", "outcome": "RETRIEVAL_FAILED", "http_status": 403}}
+        (self.dir / "SOURCES.json").write_text(json.dumps({"sources": {"X": record, "Y": missing}}))
+        (self.dir / "X-excerpts.txt").write_text(source_packet.excerpt_file("X", record)[0], encoding="utf-8")
+
+    def run_verify(self, text):
+        def fetcher(url):
+            if url.endswith("x.pdf"):
+                return {"status": 200, "final_url": url, "content_type": "application/pdf", "data": self.PDF}
+            return {"status": 403, "final_url": url, "content_type": "text/html", "data": None}
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out):
+            code = source_packet.verify(sources=self.dir / "SOURCES.json", directory=self.dir,
+                                        fetcher=fetcher, extractor=lambda pdf: text)
+        return code, out.getvalue()
+
+    def test_identical_extraction_passes(self):
+        code, out = self.run_verify(self.TEXT)
+        self.assertEqual(code, 0, out)
+        self.assertIn("extraction output identical", out)
+
+    def test_extraction_differs_outside_excerpts_fails(self):
+        changed = self.TEXT.replace("unquoted tail", "unquoted TAIL")
+        code, out = self.run_verify(changed)
+        self.assertEqual(code, 1, out)
+        self.assertIn("extraction output FAIL differs", out)
+        self.assertIn("X-E1: OK at recorded offsets", out)  # the excerpt alone would still pass
+
+    def test_extraction_differs_inside_excerpt_fails(self):
+        code, out = self.run_verify(self.TEXT.replace("alpha", "ALPHA"))
+        self.assertEqual(code, 1, out)
+        self.assertIn("X-E1: FAIL at recorded offsets", out)
+
+    def test_changed_source_bytes_fail(self):
+        self.PDF = b"%PDF-1.4 different bytes"
+        code, out = self.run_verify(self.TEXT)
+        self.assertEqual(code, 1, out)
+        self.assertIn("FAIL source bytes differ", out)
 
 
 if __name__ == "__main__":
