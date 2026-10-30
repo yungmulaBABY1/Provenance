@@ -1,0 +1,81 @@
+DISPOSITION (whole proposition): SUPPORTS
+
+The proposition closely paraphrases the paper's own summary sentence (p. 653) and its Discussion (p. 654). All three parts are reported as the proposition says. The qualifications below concern precision, not direction. The main one is that "no effect" in the paper means "no statistically significant effect". The paper itself uses "No Effect" in its title and "did not yield behavioral effects" in its Discussion. A stricter reader could grade the whole SUPPORTS_WITH_QUALIFICATION on that point alone. Nothing in the paper contradicts any part.
+
+PART (a), self-reported power replication: SUPPORTS
+- The paper explicitly says it "replicated" Carney et al.'s feelings-of-power finding. It reports a significant two-tailed effect: mean difference 0.245, 95% CI [0.044, 0.446], t(193) = 2.399, p = .017, d = 0.344.
+- It says this result is "Consistent with the findings of Carney et al." It repeats in the Method and Discussion that power posing affected self-reported power.
+- Caveats: the effect is modest (d = 0.344, lower CI bound 0.044). Data are missing for 5 participants (Note 2). The paper calls the study a "conceptual replication" overall.
+
+PART (b), no hormonal effects: SUPPORTS
+- The hormones measured were testosterone and cortisol. Neither showed a significant effect on two-tailed tests.
+  - Testosterone change: mean difference -4.077, 95% CI [-9.801, 1.647], t(196) = -1.405, p = .162, d = -0.200.
+  - Cortisol: mean difference -0.028, 95% CI [-0.078, 0.022], t(196) = -1.101, p = .272, d = -0.157.
+- The title says "No Effect on Hormones". The Discussion says "we failed to confirm an effect of power posing on testosterone, cortisol".
+
+PART (c), no behavioral effects: SUPPORTS
+- There were three behavioral tasks: risk taking in the gain domain, risk taking in the loss domain, and willingness to compete.
+- The paper reports no significant effect in "any of the three behavioral tasks". The Discussion says the power effect "did not yield behavioral effects."
+- Full statistics are given only for gain-domain risk: t(198) = -1.245, p = .215, d = -0.176.
+- The loss-domain and competition tasks are covered by one sentence and no statistics: "Neither of the other two behavioral tasks yielded significant differences by condition."
+
+LOCATORS
+- p. 653, opening section (no heading): "Consistent with the findings of Carney et al., our results showed a significant effect of power posing on self-reported feelings of power. However, we found no significant effect of power posing on hormonal levels or in any of the three behavioral tasks."
+- p. 653, opening section: "In addition to the three outcome measures that Carney et al. used, we also studied two more behavioral tasks (risk taking in the loss domain and willingness to compete)."
+- p. 653, title: "Assessing the Robustness of Power Posing: No Effect on Hormones and Risk Tolerance in a Large Sample of Men and Women"
+- pp. 653-654, Results: "Using two-tailed t tests, we replicated Carney et al.'s finding that participants in the high-power condition self-reported, on average, higher feelings of power than did participants in the low-power condition"
+- p. 654, Results: "This suggests that the power-posing manipulation worked."
+- p. 654, Results: "Two-tailed t tests indicated no significant impact of physical position on either risk-taking in the gain domain ... or changes in testosterone"
+- p. 654, Results: "We also found no effect for cortisol (mean difference = −0.028, 95% CI = [−0.078, 0.022]), t(196) = −1.101, p = .272, Cohen's d = −0.157."
+- p. 654, Results: "Neither of the other two behavioral tasks yielded significant differences by condition."
+- p. 654, Method: "Notably, however, as did Carney et al., we found a significant effect of power posing on self-reported feelings of power—which indicates that outcomes on at least one measure were not influenced by the different procedures."
+- p. 654, Discussion: "we failed to confirm an effect of power posing on testosterone, cortisol, and financial risk taking. We did find that power posing affected self-reported feelings of power; however, this did not yield behavioral effects."
+- p. 655, Fig. 1 caption: "Mean proportion of risky choices in the gain domain (left) and mean change in testosterone from before the power-pose manipulation (Time 1) to 17 min after the power-pose manipulation (Time 2; right)."
+
+QUALIFICATIONS AND CONTRARY PASSAGES
+1. Non-significance, not proven absence. The results are failures to reject on two-tailed tests ("no significant effect", "failed to confirm"). The title and Discussion do also use flat "no effect" wording. The paper reports >95% power to detect an effect "of the magnitude reported by Carney et al." (p. 653), with the details in the Supplemental Material. It does not claim power to detect smaller effects.
+2. Point estimates run opposite to Carney et al. The two effects shown in Fig. 1 point the "wrong" way: d = -0.176 for gain-domain risk and d = -0.200 for testosterone change. In Fig. 1, testosterone rises more in the low-power group (about 6.7 pg/ml) than in the high-power group (about 2.7 pg/ml). Cortisol is also negative (d = -0.157). This strengthens the "no supporting effect" reading rather than weakening it. Locators: p. 654, Results; p. 655, Fig. 1.
+3. Uneven reporting across behavioral tasks. Statistics are given only for gain-domain risk. The loss-domain risk and competition results are a single summary sentence (p. 654, Results). The title names only "Hormones and Risk Tolerance", not competition (p. 653).
+4. Which hormones. Only testosterone and cortisol were measured, so "hormonal" in the proposition covers just those two (pp. 653-654).
+5. Robustness claims, all deferred to the supplement:
+   - Using only the single decision comparable to Carney et al. "did not change our results" (p. 653, Method).
+   - Nonparametric and regression analyses "yielded similar results for the whole sample, and for women and men separately" (p. 654, Results).
+   - Restricting to participants who found the postures "somewhat" or "quite comfortable" "did not substantively change our results" (p. 654, Discussion).
+   - Excluding the one participant who did not fully comply "yielded similar results" (p. 656, Note 1).
+6. Missing data. Feelings of power were missing for 5 participants (Note 2, p. 656). One saliva sample was undetectable and another was lost (Note 3, p. 656). This is reflected in df = 193 for power and 196 for the hormone tests.
+7. Stated limitations about the protocol.
+   - The authors call it a "conceptual replication" (p. 653). Differences from Carney et al.: 3-minute poses instead of 1 minute, instructions given by computer, a different filler task, and no deception (p. 654, Method).
+   - The authors allow that "subtle differences between the experimental protocols ... led to the omission of factors crucial for power poses to influence hormonal levels and behavior" (p. 654, Discussion).
+   - They also concede it is "certainly plausible that power-posing effects generally arise only under some specific conditions—and our study failed to include one or two of these" (p. 655, Discussion).
+   - These passages limit how far the null results generalize. They do not change what the paper reports.
+8. Sequential sampling. The paper collected 100 participants, then "On the basis of the results of these first 100 observations" collected another 100 (p. 653, Method). This is a design caveat, not a contradiction.
+9. One-tailed versus two-tailed tests. I searched for this. All reported tests are two-tailed (p. 654, Results). No one-tailed analysis or one-tailed significance is mentioned anywhere.
+10. Subgroup or partial effects. I searched for any significant effect in a subsample (men, women, comfortable posers), in any single behavioral task, or in any hormone. None is reported in the main text. Subgroup results are only summarized as "similar".
+11. Passages claiming a hormonal or behavioral effect. I searched and found none.
+
+STRONGEST CONTRARY INTERPRETATION
+- The word "replication" in part (a) is fair: the paper uses "replicated" itself. A critic could still say the study is only a "conceptual replication" with a weak effect (d = 0.344, CI lower bound 0.044), and that self-report was measured at the end of the session after the tasks.
+- For parts (b) and (c), a critic could say "no effects" overstates findings that are only non-significant. Two of the three behavioral tasks are summarized without statistics. The authors themselves allow that protocol differences may have removed conditions effects need.
+- These points concern precision and generalization. None shows the proposition misstates what the paper reports. The paper's own opening summary is nearly word for word the proposition.
+
+WHAT WOULD CHANGE THIS ASSESSMENT
+- The Supplemental Material showing a significant hormonal or behavioral effect in some subsample or specification that the main text summarizes as "similar". That would move the relevant part to SUPPORTS_WITH_QUALIFICATION.
+- A correction or erratum to the paper. None is visible in this PDF.
+- An audit standard that treats "no effect" as distinct from "no significant effect". That would move (b), (c) and the overall disposition to SUPPORTS_WITH_QUALIFICATION.
+
+UNAVAILABLE MATERIAL
+- The Supplemental Material (http://pss.sagepub.com/content/by/supplemental-data). The paper relies on it for:
+  - the power analysis
+  - full instructions and the consent form
+  - the incentive details
+  - the nonparametric, regression and sex-split analyses
+  - the comfort-subsample reanalyses
+- The OSF data and materials (https://osf.io/6akvt/files/) and the Open Practices Disclosure.
+- Carney et al. (2010), which is cited for comparison.
+I did not read any of these.
+
+FILES OPENED
+- /tmp/claude-0/-home-user-Provenance/aaab5312-f1b6-563f-8a1d-2c025e1a4676/scratchpad/review/S2.layout.txt (read in full)
+- /tmp/claude-0/-home-user-Provenance/aaab5312-f1b6-563f-8a1d-2c025e1a4676/scratchpad/review/S2.pdf (pages 1-4 viewed as images, to check the extracted text and to read Fig. 1)
+
+I opened no other files, ran no other commands, and visited no web pages. I did not check the PDF's SHA-256, because that would have needed a command other than reading the two files.

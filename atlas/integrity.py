@@ -8,6 +8,7 @@ unverified, never as verified.
 """
 
 from . import native
+from . import reviews as evidence_reviews
 from .contract import ContractError, jsonl, sha256, unique
 
 SHARED_TYPES = {"Work", "SourceVersion"}
@@ -101,4 +102,28 @@ def verify_records(records: list[dict]) -> dict:
                                "parser": {"name": parser.get("name"), "version": version},
                                "reason": "recorded parser version is not supported by this code; "
                                          "native labels were not re-derived and are not trusted"})
+    for item in records:
+        if item["type"] == "ReviewDecision" and "review_schema" in item:
+            verify_evidence_review(item, records, by_id, run_manifest)
     return {"native_projection_verified": verified, "native_projection_unverified": unverified}
+
+
+def verify_evidence_review(item: dict, records: list[dict], by_id: dict, run_manifest: dict) -> None:
+    """Re-derive an evidence review's binding from the bundle; reject any difference."""
+    if item["review_schema"] != evidence_reviews.SCHEMA_ID:
+        reason = evidence_reviews.RETIRED_REVIEW_SCHEMAS.get(item["review_schema"], "unknown")
+        raise ContractError(f"UNSUPPORTED_REVIEW_SCHEMA: {item['review_schema']} ({reason}): {item['id']}")
+    review = evidence_reviews.verify_record(item)
+    rid = item["id"].split("/review/")[0]
+    if rid not in run_manifest:
+        raise ContractError(f"REVIEW_BINDING_MISMATCH: {item['id']}: run not in bundle")
+    declared = [r for r in run_manifest[rid]["input_context"]["reviews"]
+                if f"{rid}/review/{r['id']}" == item["id"]]
+    if len(declared) != 1 or declared[0]["artifact"]["sha256"] != item["raw_output_sha256"]:
+        raise ContractError(f"REVIEW_ARTIFACT_MISMATCH: {item['id']}: not the declared artifact")
+    mismatches = evidence_reviews.target_mismatches(
+        review["target"], run_id=rid, output_sha256=by_id[rid]["output_sha256"],
+        context=run_manifest[rid]["input_context"], records=records)
+    refs = [] if mismatches else evidence_reviews.review_refs(review["target"], rid, records)
+    if item["target_mismatches"] != mismatches or item["refs"] != refs:
+        raise ContractError(f"REVIEW_BINDING_MISMATCH: {item['id']}")

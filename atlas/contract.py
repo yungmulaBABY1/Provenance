@@ -18,6 +18,11 @@ READ_STATES = {"NOT_RETRIEVED", "RETRIEVAL_FAILED", "METADATA_ONLY", "PARTIAL_RE
                "READ_FOR_DECLARED_SCOPE", "EXTRACTION_UNVERIFIED"}
 ELIGIBILITY = {"ELIGIBLE", "ELIGIBLE_WITH_LIMITATIONS", "PENDING_SOURCE_VERIFICATION",
                "INELIGIBLE_MISSING_EVIDENCE", "NOT_APPLICABLE"}
+# Evidence-review binding contract (atlas/reviews.py). /1 bound passages by quotation
+# hash only, so a moved locator kept its review; it is retired, not trusted.
+EVIDENCE_REVIEW_SCHEMA = "atlas-evidence-review/2"
+RETIRED_REVIEW_SCHEMAS = {"atlas-evidence-review/1": "binds passages by quotation hash only; "
+                          "re-issue as atlas-evidence-review/2"}
 ANCHOR_STATES = {"MATCH", "NORMALIZED_MATCH_ONLY", "MISMATCH", "UNRESOLVABLE"}
 KINDS = {"metadata", "text", "page", "section", "table", "figure", "equation",
          "references", "appendix", "supplement"}
@@ -224,6 +229,13 @@ def validate_context(context: dict) -> None:
     require(context["corpus"], {"id": str, "boundary": str, "selection": str,
                                "retrieval_events": list, "limitations": list}, "corpus")
     for review in context["reviews"]:
+        if "review_schema" in review:
+            # Structured review: target and attribution live in the hashed artifact.
+            require(review, {"id": str, "artifact": dict, "review_schema": str}, "review")
+            if review["review_schema"] != EVIDENCE_REVIEW_SCHEMA:
+                reason = RETIRED_REVIEW_SCHEMAS.get(review["review_schema"], "unknown")
+                raise ContractError(f"UNSUPPORTED_REVIEW_SCHEMA: {review['review_schema']} ({reason})")
+            continue
         require(review, {"id": str, "artifact": dict, "target_output_sha256": str,
                          "reviewer": str, "exposure": str, "disposition": str}, "review")
 

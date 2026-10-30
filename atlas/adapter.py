@@ -14,6 +14,7 @@ from .contract import (NORMALIZER, ContractError, canonical, digest, jsonl, load
                        read_artifact, record, sha256, validate_context)
 from . import native
 from .native import output_span, parse
+from . import reviews as evidence_reviews
 from .sources import assess_checks, inspect_sources
 
 CHECKER = "prompts/research-analysis/check-citation-network-output.py"
@@ -169,8 +170,27 @@ def build(context: dict, root: Path) -> dict:
     review_ids, mismatched_review_ids = [], []
     for review in context["reviews"]:
         data = read_artifact(root, review["artifact"])
-        target_match = review["target_output_sha256"] == sha256(raw_bytes)
         review_id = f"{rid}/review/{review['id']}"
+        if "review_schema" in review:
+            # atlas-evidence-review/1: bound to an exact proposition and mapping, not the
+            # whole output. Any changed identity unbinds it (see atlas/reviews.py).
+            evidence = evidence_reviews.load_review(data)
+            mismatches = evidence_reviews.target_mismatches(
+                evidence["target"], run_id=rid, output_sha256=sha256(raw_bytes),
+                context=context, records=records)
+            (mismatched_review_ids if mismatches else review_ids).append(review_id)
+            records.append(record(
+                "ReviewDecision", review_id, artifact=review["artifact"], raw_output_sha256=sha256(data),
+                review_artifact_text=data.decode("utf-8"), review_schema=evidence_reviews.SCHEMA_ID,
+                review_kind="EVIDENCE_PROPOSITION", review=evidence, declared_target=evidence["target"],
+                target_binding="TARGET_MISMATCH" if mismatches else "MATCH", target_mismatches=mismatches,
+                imported_disposition=evidence["disposition"], reviewer=evidence["reviewer"]["identity"],
+                exposure=evidence["exposure"]["summary"], independence="NOT_ESTABLISHED",
+                decision_status="IMPORTED_UNVERIFIED", human_adjudication="NOT_RECORDED",
+                finding_level_effect="NONE",
+                refs=[] if mismatches else evidence_reviews.review_refs(evidence["target"], rid, records)))
+            continue
+        target_match = review["target_output_sha256"] == sha256(raw_bytes)
         (review_ids if target_match else mismatched_review_ids).append(review_id)
         records.append(record("ReviewDecision", review_id, artifact=review["artifact"],
                               raw_output_sha256=sha256(data),
