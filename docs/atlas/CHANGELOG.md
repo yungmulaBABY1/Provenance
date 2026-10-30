@@ -1,5 +1,27 @@
 # Atlas adapter changelog
 
+## Unreleased — adapter 0.2.0: first substantively reviewed evidence relationship
+
+- New review kind `atlas-evidence-review/1` (`atlas/reviews.py`), imported as a
+  `ReviewDecision`. It is bound to an exact proposition span, finding projection,
+  mapping, passages, source version and input bytes; any change gives
+  `TARGET_MISMATCH` with the components named. Restore and append re-derive the
+  binding and check the artifact. Record schema unchanged (`atlas-adapter/0.2`).
+- Reviews of Finding 1's S2 clause (`tests/atlas/reviews/power-posing/`):
+  - review A (primary session): `SUPPORTS_WITH_QUALIFICATION`;
+  - review B (separate subagent context): `SUPPORTS`.
+
+  Both are kept. Neither is independent, and neither is human adjudication.
+- `tests/atlas/power-sources-reviewed.json` imports them as run `:2`.
+- `source_packet.py verify` also re-checks review locators against a fresh
+  extraction.
+- Receipts:
+  - the five receipts current at 7c55e2c moved unchanged to
+    `tests/atlas/receipts/historical-7c55e2c/` (restorable, not replayable
+    under 0.2.0 code);
+  - current receipts regenerated (only manifests differ);
+  - new receipt `power-sources-reviewed`.
+
 ## Unreleased — power-posing real-source packet
 
 No adapter code changes; record schema, parser and normalizer unchanged.

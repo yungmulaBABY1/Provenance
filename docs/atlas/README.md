@@ -332,6 +332,65 @@ Details, coverage and limits are in
   and all sources missing. Missing evidence blocks only the checks that depend
   on it, and never yields a clean state.
 
+## Evidence-proposition reviews (`atlas-evidence-review/1`)
+
+Adapter 0.2.0 adds one versioned review kind, implemented in
+[atlas/reviews.py](../../atlas/reviews.py). It reuses the existing
+`ReviewDecision` record and import-context `reviews` list; the record schema
+stays `atlas-adapter/0.2`, and old-style output reviews are unchanged.
+
+- **Artifact.** A review is a JSON artifact with `schema: atlas-evidence-review/1`,
+  declared in the context as `{"id", "artifact", "review_schema"}`. It records:
+  - the target;
+  - coverage (reviewed and not reviewed);
+  - reviewer identity, kind and context;
+  - time, method, hashed inputs and exposure;
+  - examination boundary and unavailable material;
+  - a disposition, plus one per part;
+  - reasons and exact locators (offsets and hashes into the source extraction);
+  - qualifications and the contrary search;
+  - the strongest contrary interpretation;
+  - what would change the assessment.
+- **Dispositions:** `SUPPORTS`, `SUPPORTS_WITH_QUALIFICATION`, `CONTRADICTS`,
+  `INSUFFICIENT_EVIDENCE`, `PENDING`. These belong to this extension. They do not
+  replace native labels, do not change `AuditFinding.assessment` or
+  `Relationship.epistemic_status`, and say nothing about the rest of the finding.
+  Version 1 rejects any artifact claiming human adjudication, independence or a
+  finding-level effect.
+- **Binding.** A review targets an exact span of one native field of one finding,
+  one mapped check, its passages, one source version and its input bytes. On
+  import the adapter compares every identity with the run's own records:
+  - `output`
+  - `finding` (native-projection digest)
+  - `proposition` (span text)
+  - `mapping` (check digest, finding-to-check mapping, passage set)
+  - `passages` (quote hashes)
+  - `source_version`
+  - `source_input`
+
+  Any difference makes the review `TARGET_MISMATCH`, names the differing
+  components and drops the review from the run's refs (it is listed under
+  `mismatched_review_ids`). A changed mapping never inherits an old review.
+- **Restore and append.** Integrity re-checks every evidence review:
+  - the stored artifact text must hash to the artifact declared in the run's
+    input context;
+  - the parsed review must equal the stored fields;
+  - the binding and refs are re-derived from the bundle's records.
+
+  Any difference is rejected (`REVIEW_ARTIFACT_MISMATCH`,
+  `REVIEW_BINDING_MISMATCH`).
+- **Immutability.** A revised review under the same ID is `ID_CONTENT_CONFLICT`.
+  Revisions and disagreements are new records; earlier ones are kept.
+- **Not covered by the adapter.** It does not check that a locator's quotation
+  appears in the source PDF. `tests/atlas/sources/power-posing/source_packet.py
+  verify` does that, online.
+
+The first review pair is in
+[tests/atlas/reviews/power-posing/](../../tests/atlas/reviews/power-posing/README.md):
+Finding 1's S2 clause, imported by
+[power-sources-reviewed.json](../../tests/atlas/power-sources-reviewed.json) as run
+`urn:atlas:import:power-posing-sources:2`. Run `:1` and its receipt are unchanged.
+
 ## Validation and independent review
 
 [EXPECTED.txt](../../tests/atlas/EXPECTED.txt) was written before implementation;
