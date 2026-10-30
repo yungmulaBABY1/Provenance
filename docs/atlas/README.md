@@ -10,6 +10,11 @@ resolve disputes, approve publication, or implement Research/Media interfaces.
 No canonical prompt or existing fixture is changed. The parser is intentionally
 strict; unsupported formatting is diagnosed, never repaired by a model.
 
+This revision implements the requirements in the P0 review record
+(R1, F1–F6, R2 and the null-results rule); see [What changed](#what-changed-in-this-revision)
+and [CHANGELOG.md](CHANGELOG.md). Base commit 072fa8a was authored by Codex in a
+separate session and is kept as the first commit on the branch.
+
 ## Run it
 
 Python 3.11+; standard library only. From the repository root:
@@ -21,15 +26,26 @@ python -m unittest discover -s tests/atlas -p 'test_*.py' -v
 python -m atlas import tests/atlas/power-control.json \
   --out .atlas/power --ledger .atlas/ledger.sqlite
 python -m atlas replay .atlas/power/manifest.json .atlas/power/records.jsonl
+python -m atlas replay .atlas/power/manifest.json .atlas/power/records.jsonl --level content
 
 python -m atlas import tests/atlas/shen-known-bad.json \
   --out .atlas/shen --ledger .atlas/ledger.sqlite
 # Expected exit 1: known-bad output is retained as QUARANTINED.
+# Same for tests/atlas/case12-healthy.json and tests/atlas/case13-closed.json.
 
 python -m atlas export .atlas/ledger.sqlite .atlas/all.jsonl
 python -m atlas restore .atlas/all.jsonl .atlas/restored.sqlite
 python -m atlas export .atlas/restored.sqlite .atlas/restored.jsonl
+
+# Committed receipts (what CI replays):
+python -m atlas replay tests/atlas/receipts/power-control/manifest.json \
+  tests/atlas/receipts/power-control/records.jsonl --level content
 ```
+
+`restore` prints which runs had their native records re-derived
+(`native_projection_verified`) and which could not be
+(`native_projection_unverified`). `import` prints any notices, such as
+`VALIDATION_BASELINE_DIFFERS_FROM_WORKING_TREE`.
 
 Exit 0 means successful import, possibly PASS-WITH-REVIEW. Exit 1 means imported
 native output fails mechanical checks and is quarantined. Exit 2 means a contract,
@@ -47,6 +63,9 @@ file write fails after commit, rerun the same import to recover the export.
 Base commit: `d7000315197670a59988b2d0b58bf0cdae545fc3`.
 The clone and GitHub tree API agreed on the pinned instrument/checker blobs.
 Full SHA-256 and Git blob hashes are in [baseline.json](../../atlas/baseline.json).
+Exact copies of the ten pinned files are vendored under
+[atlas/baseline/files/](../../atlas/baseline/files/) and validation runs from those
+copies, not from the working tree.
 
 | Observed at base | Consequence |
 |---|---|
@@ -68,14 +87,17 @@ revalidated or incorporated as dependencies.
 
 ## Contract and boundaries
 
-The experimental namespace is `atlas-adapter/0.1`. It does **not** claim migration
+The experimental record schema is `atlas-adapter/0.2` (import contexts remain
+`atlas-adapter/0.1`). It does **not** claim migration
 compatibility with the proposed `atlas-core/0.1` or `atlas-decision/0.1` contracts.
 Those contracts' Claim, ClaimInstance and EvidenceAssessment distinctions remain
 design requirements. No generic finding here replaces those future objects.
 
 The executable minimum contract is [contract.py](../../atlas/contract.py).
-Import examples are [power-control.json](../../tests/atlas/power-control.json)
-and [shen-known-bad.json](../../tests/atlas/shen-known-bad.json).
+Import examples are [power-control.json](../../tests/atlas/power-control.json),
+[shen-known-bad.json](../../tests/atlas/shen-known-bad.json), and the paired case 12/13
+packet fixtures [case12-healthy.json](../../tests/atlas/case12-healthy.json) and
+[case13-closed.json](../../tests/atlas/case13-closed.json), ported from package B.
 Required fields, types, reference resolution, duplicate IDs and receipts are
 validated. Unknown extra metadata is retained in the exact input context.
 
@@ -84,13 +106,13 @@ validated. Unknown extra metadata is retained in the exact input context.
 | Work | Explicit DOI or caller-assigned stable ID; no automatic entity resolution |
 | SourceVersion | Explicit edition/assignment and confidence; never a download hash |
 | SourceReadReceipt | Run-scoped byte hash, source/version IDs, declared and extracted components, warnings, failed components, per-check eligibility and self-hash |
-| Passage | Source version + component + half-open Unicode offsets + bounded quote/hash; run-scoped verification receipt |
+| Passage | Source version + component + half-open Unicode offsets + bounded quote/hash; separate `exact_match` and `normalized_match`; run-scoped verification receipt |
 | CorpusScope | Declared input boundary, selection, retrieval log and native source-lock assertions |
-| AuditRun | Exact UTF-8 raw output, hash, native scorecard, parse/checker state, exposure and source gates |
-| AuditFinding | Original native fields/labels and source-output line anchors, mapped checks, unreviewed disposition |
+| AuditRun | Exact UTF-8 raw output, hash, native scorecard, parse/checker state, `producing_instrument_compliance`, exposure, source gates, `imported_null_assertion` and `adapter_source_eligibility` as separate fields, target-matched review refs and `mismatched_review_ids` |
+| AuditFinding | Original native fields/labels and source-output anchors (line range plus exact character span), mapped checks, unreviewed disposition |
 | Relationship | Explicit import mapping from finding to cited passage; never automatic evidentiary support |
-| ReviewDecision | Unverified imported review artifact and declared target hash; no automatic human or independent-review credit |
-| RunManifest | Base commit, prompt/checker/source hashes, adapter code hashes, exact context, environment, checker report and record-set hash |
+| ReviewDecision | Unverified imported review artifact and declared target hash; no automatic human or independent-review credit. Linked from the run only when the target binding is MATCH |
+| RunManifest | Base commit, prompt/checker/source hashes, adapter code hashes, parser identity, normalizer id, exact context, environment (including working-tree drift), checker report and record-set hash |
 
 One source origin ID can be shared by many receipts; UNKNOWN is supported. Origin
 IDs and exposure declarations are not independence proofs. Different model names,
@@ -118,6 +140,16 @@ Semicolon-separated verification states are accepted only from the native list.
 The original UTF-8 output remains byte-reconstructible in AuditRun.raw_output_text.
 Source lines point into that original, not a regenerated rendering.
 
+Rule failures against this grammar are `CURRENT_CONTRACT_MISMATCH`: they are
+relative to the grammar implemented here, not to whatever instrument produced the
+output. Archived outputs that predate the current grammar (the earlier 0–3 cartel
+scorecard, no SOURCE-LOCK block) are quarantined with that code; their native
+values are kept as written. `AuditRun.producing_instrument_compliance` is
+`UNDETERMINED` unless `run.historical_instrument` is `VERIFIED` and its identity is
+the baseline prompt's git blob; only then can it read `CONFORMS` or `VIOLATION`.
+The parser has a name and version (`atlas-citation-network-native`, version 3),
+recorded in each manifest; the version changes whenever parse output can change.
+
 Missing/invalid/duplicate fields are diagnostics; labels are never completed from
 surrounding prose. A valid enum swap can still be semantically wrong: every result
 retains SEMANTIC_REVIEW_REQUIRED. Only the exact explicit null sentence
@@ -132,8 +164,14 @@ The new tests establish parser data handling, **not** LLM prompt-injection safet
 ### Source-read and anchor profile
 
 Inputs are offline, explicitly declared relative paths beneath `--root`, with
-exact SHA-256 pins. Escaping paths/symlinks, changed source bytes and changed
-checker/prompt files fail closed. The executable checker path is fixed in code.
+exact SHA-256 pins. Escaping paths/symlinks and changed source bytes fail closed.
+The checker and prompt come from the vendored baseline, checked on SHA-256, git
+blob and byte count; a tampered vendored file fails with `BASELINE_HASH_MISMATCH`.
+If a working-tree copy differs from (or is missing relative to) the vendored
+baseline, import still succeeds and records
+`VALIDATION_BASELINE_DIFFERS_FROM_WORKING_TREE` in the manifest's environment
+block, naming each file. A modified working-tree checker is never executed.
+The executable checker path is fixed in code.
 Verified checker and output bytes are copied to a temporary snapshot; Python
 isolated mode prevents neighboring corpus files from shadowing standard modules.
 This is not an operating-system sandbox for arbitrary external executables.
@@ -153,11 +191,18 @@ components block only dependent checks; unverified versions/extraction/anchors
 remain pending. Warnings outside required components allow bounded eligibility
 with limitations, not global completeness. No percentage-of-pages threshold exists.
 
-Normalization `nfkc-whitespace/1` applies Unicode NFKC and collapses whitespace.
-It does not dehyphenate, translate, fuzzy-match or relocate. Matching requires the
-declared component and exact offsets. Normalized quote and expected hash must
-match actual source bytes after decoding. A MATCH proves that span correspondence
-only; source edition confidence and scientific adequacy remain separate.
+Anchors record two comparisons separately. `exact_match`: the code points of
+`source[start:end]` equal the quote, with no normalization. `normalized_match`:
+they agree after normalizer `nfc-whitespace/2` (Unicode NFC plus whitespace
+collapse). Only an exact match is displayed as `MATCH`. When only the normalized
+forms agree the state is `NORMALIZED_MATCH_ONLY`, which is never presented as an
+exact quotation and limits a check to `ELIGIBLE_WITH_LIMITATIONS` at best.
+Otherwise the state is `MISMATCH` or `UNRESOLVABLE`. NFKC is not used: it equated
+10² with 102, H₂O with H2O, ½ with 1⁄2 and µ with μ. Normalization does not
+dehyphenate, translate, fuzzy-match or relocate, and −0.5 (U+2212) never matches
+-0.5. Matching requires the declared component and exact offsets, and the declared
+hash must agree with the quote. A MATCH proves that span correspondence only;
+source edition confidence and scientific adequacy remain separate.
 
 Historical FULL-TEXT-CONFIRMED labels are **reported native assertions**. In the
 positive repository fixture import, only the packet's metadata is physically
@@ -173,24 +218,98 @@ conflicts roll back the whole batch. SQL triggers prohibit ordinary UPDATE/DELET
 An administrator with filesystem access can replace/drop the database: this is
 integrity checking, not tamper-proof storage or a signed transparency log.
 
+Restore and append check every bundle before committing:
+
+- every AuditRun and every record belonging to it must be listed by exactly one
+  RunManifest (Work and SourceVersion may be shared); anything uncovered is
+  `INVALID_MANIFEST_COVERAGE`;
+- for each run whose recorded parser version this code supports, native
+  findings, scorecard, parse issues, imported source lock, null assertion and
+  output anchors are re-derived from `raw_output_text` and must match exactly,
+  otherwise `NATIVE_PROJECTION_MISMATCH`;
+- a run whose recorded parser version is not supported is neither rejected nor
+  trusted: it is reported as `NATIVE_PROJECTION_UNVERIFIED`, with the version
+  named, and is never labelled verified.
+
+The manifest hash is unkeyed and can be recomputed by anyone; re-derivation, not
+the hash, is what protects native labels.
+
 Canonical JSON uses sorted keys, compact separators, UTF-8 and no NaN/Infinity;
 JSONL records are sorted by ID. This is this profile's serializer, not an RFC 8785
-implementation. Receipts pin the Python and Unicode versions. Replay requires
-matching input bytes, adapter code/baseline and environment; a changed environment
-or implementation requires a new receipt. Replay reruns the deterministic import,
-not the historical model investigation.
+implementation. Receipts pin the Python and Unicode versions. Replay reruns the
+deterministic import, not the historical model investigation, at one of two levels:
+
+- `--level strict` (default): records and manifest must be byte-identical,
+  environment included;
+- `--level content`: input context, declared input hashes, adapter code hashes,
+  parser identity, normalizer id, baseline hashes and every record except the
+  manifest's environment block must be identical; the environment delta is
+  printed.
+
+`REPLAY_MISMATCH` names the differing component(s): `input`, `records` (with
+ids), `manifest`, `parser`, `normalizer`, `adapter_code`, `baseline`,
+`declared_inputs`, or `environment` (strict only). CI runs content replay on every
+committed receipt under `tests/atlas/receipts/`, because setup-python's '3.11'
+moves between patch releases. The 072fa8a receipts in
+`tests/atlas/receipts/historical-072fa8a/` are kept as historical artifacts and
+cannot be replayed or restored by this version.
 
 Full papers are not copied into records. Explicit passage quotes and the complete
 raw audit output can still contain restricted material. All resulting records are
 local/unreviewed; there is no public release service or licensing determination.
 The flags are metadata, not implemented multi-user access control.
 
+### Null results
+
+An imported null assertion and the adapter's present-day source access are two
+separate facts. `AuditRun.imported_null_assertion` holds the exact null sentence
+(or null); `AuditRun.adapter_source_eligibility` holds per-check eligibility from
+this import. No field derives a clean or acquitted state from the two, and
+`paper_clean` is always false. The historical model's null assertion does not
+show what that model read, and the adapter's read does not show it either.
+
+## What changed in this revision
+
+| Requirement | Change | New or changed state |
+|---|---|---|
+| R1, F1, F6 | Manifest coverage; native records re-derived on restore/append; parser identity in the manifest | `INVALID_MANIFEST_COVERAGE`, `NATIVE_PROJECTION_MISMATCH`, `NATIVE_PROJECTION_UNVERIFIED` |
+| R2 | Exact versus normalized anchors; NFKC removed; normalizer `nfc-whitespace/2`; record schema 0.2 | `NORMALIZED_MATCH_ONLY` |
+| F2 | Grammar failures are contract-relative; producing-instrument compliance undetermined unless verified | `CURRENT_CONTRACT_MISMATCH` replaces `INSTRUMENT_VIOLATION`; `producing_instrument_compliance` |
+| F3 | Validation baseline vendored; working-tree drift reported, not fatal | `VALIDATION_BASELINE_DIFFERS_FROM_WORKING_TREE`, `BASELINE_HASH_MISMATCH` |
+| F4 | Strict and content replay levels; CI content-replays committed receipts | `REPLAY_MISMATCH` names components |
+| F5 | Only target-matched reviews in run refs | `mismatched_review_ids` |
+| Null rule | `clean_display` and `SCOPED_NULL_ASSERTION_ONLY` removed | `imported_null_assertion`, `adapter_source_eligibility` |
+| Port from package B | Case 12/13 paired packet fixtures; exact character spans on output anchors; contract inventories in [contracts/](contracts/) (documentation only) | `native_output_anchor.char_start/char_end` |
+| Found during regeneration | Unknown scorecard dimension issues were emitted in hash-seed order; now sorted; parser version 3 | — |
+
+### Limits
+
+- No scientific audit, counter-audit or human adjudication was performed. Model
+  agreement is not independence.
+- Source receipts show the adapter's read, not a historical model's.
+- An unsupported parser version is reported unverified, not rejected: anyone
+  editing a bundle can avoid re-derivation that way, at the cost of the run
+  being labelled `NATIVE_PROJECTION_UNVERIFIED`.
+- Re-derivation covers native projections. Adapter-computed fields (source
+  eligibility, syntax, checker report) are protected only by the unkeyed
+  manifest hash; the checker is not re-run on restore.
+- Historical outputs are parsed only against the current grammar; there are no
+  versioned historical grammars yet, so they stay quarantined.
+- Import contexts hashed under the old NFKC normalizer will show `MISMATCH` for
+  passages containing compatibility characters (fail closed).
+- `tools/embed_prompts.py --check` still returns STALE; this is pre-existing
+  baseline debt, not addressed here.
+
 ## Validation and independent review
 
-[EXPECTED.txt](../../tests/atlas/EXPECTED.txt) was written before implementation.
+[EXPECTED.txt](../../tests/atlas/EXPECTED.txt) was written before implementation;
+a dated amendment withdraws its scoped no-issue display.
 [test_adapter.py](../../tests/atlas/test_adapter.py) exercises the pre-existing
 positive, known-bad and review fixtures, plus deterministic mutations and
-synthetic source checks. These are developer-authored contract tests and known
+synthetic source checks. The review-record requirements have their own test
+files (`test_integrity.py`, `test_anchors.py`, `test_contract_labels.py`,
+`test_baseline.py`, `test_replay.py`, `test_reviews.py`, `test_paired_fixtures.py`,
+`test_output_spans.py`, `test_determinism.py`). These are developer-authored contract tests and known
 regressions, not held-out evaluations or independent scientific validation.
 
 The available earlier Shen counter-audit references the earlier citation output.
