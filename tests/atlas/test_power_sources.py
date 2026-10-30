@@ -112,11 +112,17 @@ class PowerSourcePacketTests(unittest.TestCase):
             self.assertEqual(passage["normalized_sha256"], passage_hash(passage["quote"]))
 
     def test_originals_preserved(self):
-        self.assertEqual(sha256((ROOT / "compliance/PACKET.md").read_bytes()),
+        # Pinned hashes, not git history: CI's shallow checkout lacks the base commit.
+        originals = json.loads((ROOT / PACKET_DIR / "ORIGINALS.json").read_text())
+        self.assertEqual(originals["files"]["compliance/PACKET.md"]["sha256"],
                          BASELINE["files"]["compliance/PACKET.md"]["sha256"])
-        output = subprocess.run(["git", "diff", "--quiet", "d7000315197670a59988b2d0b58bf0cdae545fc3", "--",
-                                 "compliance/", "tests/cases/"], cwd=ROOT)
-        self.assertEqual(output.returncode, 0, "original packet or archived outputs changed")
+        self.assertIn(CONTEXT["output"]["path"], originals["files"])
+        changed = []
+        for path, pin in sorted(originals["files"].items()):
+            target = ROOT / path
+            if not target.is_file() or sha256(target.read_bytes()) != pin["sha256"]:
+                changed.append(path)
+        self.assertEqual(changed, [], "original packet or archived outputs changed")
 
     def test_unretrieved_sources_recorded_as_limitations(self):
         for packet_id in ("S1", "S3"):

@@ -14,6 +14,7 @@ It points; you judge. Nothing here is a scientific assessment.
 | `SOURCES.json` | Per source: DOI, citation, requested and final URL, retrieval time, HTTP status, PDF SHA-256, byte count and pages, version, sections accessible, extraction tool and output hash, and each excerpt with PDF page, offsets in the extraction output and SHA-256 |
 | `S2-excerpts.txt`, `S4-excerpts.txt` | Bounded excerpts only (three and four short passages), each an exact substring of the extraction output. These are the files the adapter reads |
 | `source_packet.py` | Provenance tooling: `verify` re-downloads, re-hashes, re-extracts and checks every excerpt at its recorded offsets; `build` records a new retrieval. Needs network and poppler; not part of the adapter and not run in CI |
+| `ORIGINALS.json` | SHA-256 of every file under `compliance/` and `tests/cases/` at d700031 (the original packet and archived outputs), taken from git objects; the tests require them unchanged without needing git history |
 
 The import context is [tests/atlas/power-sources.json](../../power-sources.json), its
 tests are [tests/atlas/test_power_sources.py](../../test_power_sources.py), and the
