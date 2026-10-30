@@ -1,0 +1,33 @@
+Bounded excerpts from S2: Ranehill, Dreber, Johannesson, Leiberg, Sul & Weber (2015). Assessing the Robustness of Power Posing: No Effect on Hormones and Risk Tolerance in a Large Sample of Men and Women. Psychological Science 26(5), 653-656.
+DOI 10.1177/0956797614553946. Retrieved copy: https://faculty.haas.berkeley.edu/dana_carney/ranehill.pdf
+Retrieved 2026-10-30T10:58:19Z; PDF SHA-256 4ae91126e56da19721f44c6942a536e3c2dcb22fe3a23de727f788afeb481369.
+Not the full paper. Each excerpt is an exact substring of the pinned extraction
+output; its offsets there are recorded in SOURCES.json. Provenance tooling:
+source_packet.py in this directory.
+
+=== S2-E1 | metadata | PDF page 1 ===
+Psychological Science
+2015, Vol. 26(5) 653­–656
+© The Author(s) 2015
+Reprints and permissions:
+sagepub.com/journalsPermissions.nav
+DOI: 10.1177/0956797614553946
+=== end S2-E1 ===
+
+=== S2-E2 | section | PDF page 1 ===
+Consistent with the findings of Carney et al., our
+results showed a significant effect of power posing on
+self-reported feelings of power. However, we found no
+significant effect of power posing on hormonal levels or
+in any of the three behavioral tasks.
+=== end S2-E2 ===
+
+=== S2-E3 | section | PDF page 2 ===
+Using a much
+larger sample size but similar procedures as Carney et al.
+did, we failed to confirm an effect of power posing on
+testosterone, cortisol, and financial risk taking. We did
+find that power posing affected self-reported feelings of
+power; however, this did not yield behavioral effects.
+=== end S2-E3 ===
+

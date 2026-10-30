@@ -1,0 +1,174 @@
+{
+  "scope": "Every file under compliance/ and tests/cases/ at the base commit: the original power-posing packet and the archived audit outputs. Hashes were taken from git objects, so the check needs no git history.",
+  "base_commit": "d7000315197670a59988b2d0b58bf0cdae545fc3",
+  "files": {
+    "compliance/PACKET-large.md": {
+      "sha256": "56d6d6195c0f05250f8767e5ae4fcf909be76f7d094498d4e90692c3ab9922ba",
+      "bytes": 14712
+    },
+    "compliance/PACKET-medium.md": {
+      "sha256": "cabb851561fca22a7c4cfa33dccff0be961732c5f2d7cc58a3bc5920e360af2b",
+      "bytes": 8333
+    },
+    "compliance/PACKET.md": {
+      "sha256": "08f0ce60c649fa45dd10a04c22473806343be46a9bd9897b5b5f958f772a9945",
+      "bytes": 3576
+    },
+    "compliance/README.md": {
+      "sha256": "b1f43bf3b1ea34a5fae4e37b323d39818c1384bf997c7f77f60c8c47ea6ce29a",
+      "bytes": 8892
+    },
+    "compliance/checker-regression-report.txt": {
+      "sha256": "9266e67734b488844fb6a03a3fb8644d3c23ab2f28552bb09f6b72ef7a4e2267",
+      "bytes": 7749
+    },
+    "compliance/checker-report-large.txt": {
+      "sha256": "e75fb8cb7abbe9b8298b94e24105c4ee9009307763f6e13f2d103ecc8efe0367",
+      "bytes": 4483
+    },
+    "compliance/checker-report-medium.md": {
+      "sha256": "76c56004a096a1a2b206344dd1d2db34a993c04e5347d84a0cedeebdbb5aad1a",
+      "bytes": 4482
+    },
+    "compliance/checker-report.txt": {
+      "sha256": "7df412dcc75d316d0280892eca84536cd2d6f9b22c1e58377c967ac6d220808e",
+      "bytes": 3613
+    },
+    "compliance/citation-network-checker-positive-report.txt": {
+      "sha256": "c4cb75fdce136e7fa8f8de86b343a4252839b9b8b7e32a6b93862745093d7486",
+      "bytes": 3547
+    },
+    "compliance/citation-network-checker-regression-report.txt": {
+      "sha256": "ca0efd2188b94c49ed284718d225db5629ecb5b8166ccb003090be32829ebe44",
+      "bytes": 2297
+    },
+    "compliance/citation-network-exection-compliance.md": {
+      "sha256": "9464de63bd3e9a1cdc4f6ea469c710b2f4ddf61ff650a41494375ce5c3929482",
+      "bytes": 3496
+    },
+    "compliance/manual-review-large.md": {
+      "sha256": "c706e145642b908588d0f8b3a3050cc104812e14357c1eca57aefb1cefb479bc",
+      "bytes": 2571
+    },
+    "compliance/manual-review-medium.md": {
+      "sha256": "f311e23231f81fef4a32cdd207d92c39d760e274e6eb4a06199bed8dc683945b",
+      "bytes": 3149
+    },
+    "compliance/manual-review.md": {
+      "sha256": "72f79d5f03c039b2efcc40dc7c56e46102dbbc33ae095f2dd2bb6fd6cad40e74",
+      "bytes": 3893
+    },
+    "compliance/media-review.txt": {
+      "sha256": "e542462cc4d62a2a20c9f747ca9596a29d3ce05cbda23f021b64759c57b634a9",
+      "bytes": 12532
+    },
+    "compliance/power-posing-regression-oracle.md": {
+      "sha256": "735356568790f7c3fd488dae1f3602f06ac64b92185ace0bc35a8ffc7dbfeddf",
+      "bytes": 6653
+    },
+    "compliance/research-review.md": {
+      "sha256": "c74e916467f0758e18d5ca2b358fde10d04a402e5093d5a6fb1cec38b6ff6463",
+      "bytes": 11449
+    },
+    "compliance/run-output-large.txt": {
+      "sha256": "17b5d99c0e7bbe29f257ea0ad3577e6f50b39ee4e84a285318d6aceab649aa77",
+      "bytes": 39440
+    },
+    "compliance/run-output-medium.md": {
+      "sha256": "3cfc5a1afc84518b980355f2976765445544f0eed7530623159ea10ea1f657a9",
+      "bytes": 33754
+    },
+    "compliance/run-output.md": {
+      "sha256": "761895d49013a3a9327b60e9bf1aea437d0e6d99dfff37c4e728ba722202f58c",
+      "bytes": 35606
+    },
+    "compliance/shen-revised-output-checker-report.txt": {
+      "sha256": "6c2dc33efec3cda24e3d32eafe4f244aff617a242cadc2f392e0fb0252d4cc1f",
+      "bytes": 5570
+    },
+    "tests/cases/11-proportionate.md": {
+      "sha256": "e243d918566b61ad239783e1477629c803842b66400661b7ba5bae0c212c1a16",
+      "bytes": 8561
+    },
+    "tests/cases/12-13-citation-network-frozen-expected-results.md": {
+      "sha256": "fa70e544fb2788eb2152d42c3f9eda4772a44f48087d3bb874e39dc6bd3c12e1",
+      "bytes": 5488
+    },
+    "tests/cases/12-citation-network-cartel-shaped-healthy.md": {
+      "sha256": "2ec183817c16c9a8c76125a275cdf0b573591492d9919d4b35df55f77d5e321d",
+      "bytes": 4861
+    },
+    "tests/cases/13-citation-network-cartel-shaped-closed.md": {
+      "sha256": "17c3ca6b6b52ebfd614b3dee534156eebc642880371c82f79a8bcf58aa66d568",
+      "bytes": 4811
+    },
+    "tests/cases/CE-006-007-joint-citation.md": {
+      "sha256": "fd84b03c21a4ce5e6ad926321debfa24c9a9134b093199c2e1a7309743e111f5",
+      "bytes": 8138
+    },
+    "tests/cases/MIX-01-mixed-control.md": {
+      "sha256": "1f9c4f096a5f8c0136ea7bbb21bfcb2007b617b8cef86ff03643043cadee3514",
+      "bytes": 9874
+    },
+    "tests/cases/README.md": {
+      "sha256": "9dafeb2146d2be3537cd2f824108f12b6ce54dbdb6c6e6eadde7cc8f9913c574",
+      "bytes": 4115
+    },
+    "tests/cases/case_FAIL-CA-004_shen-directional-defense-symmetry.md": {
+      "sha256": "b25277b8f5f596f64c36a0b209020c20c853563fde809fbd0456d5a20b6503c1",
+      "bytes": 6041
+    },
+    "tests/cases/case_FAIL-CV-008_isis2-source-preflight.txt": {
+      "sha256": "3deccce8b57b4f9295d4061a912bdbf68059db9395a30ceccd5cc96221ab3da6",
+      "bytes": 2974
+    },
+    "tests/cases/case_FAIL-IV-001-002_galor-ozak-cross-prosecutor-leak.txt": {
+      "sha256": "3c1f41a2275b1789e55c81dd1bc70bb2bbbaedc7eaf096c4d75dbed7bef57ae7",
+      "bytes": 4160
+    },
+    "tests/cases/citation-network-checker/complete-clean-control.md": {
+      "sha256": "83883f211b959fbf98bce84b7c7c6a11c1e51b0a6b2c88a3f96a63e10a3b9cdd",
+      "bytes": 37490
+    },
+    "tests/cases/citation-network-checker/locked-source-review-control.md": {
+      "sha256": "54d50847fdd40c880121a6548b959e831803a70f33574e8301f2d9062af3d1fa",
+      "bytes": 37496
+    },
+    "tests/cases/citation-network-checker/shen-revised-known-bad.txt": {
+      "sha256": "a2d3a95f58c976c1aedb304c2b3c99c5cccda80aea0d4890a0ce91adf0df9bdf",
+      "bytes": 60949
+    },
+    "tests/cases/citation-network-checker/shen-v1-whitelist-clean.txt": {
+      "sha256": "e59149379c92a44d84720a2f28d1ab8e5a3cc719e07e07ba16b3305d6cb691bb",
+      "bytes": 48782
+    },
+    "tests/cases/fixture-structural-verification.md": {
+      "sha256": "9972a96d2d25641a4ed3b23705f758acfe0153d011570e51b438560d0b05ef5b",
+      "bytes": 446
+    },
+    "tests/cases/paired-citation-network-fixture-correctness.md": {
+      "sha256": "4715da86c384b05f2b12d9b53b6260d1362637cbb43de24cdb3503ad4611d5d6",
+      "bytes": 718
+    },
+    "tests/cases/runs/2026-07-30-case-12-13-sol/12-13-paired-citation-network-test.md": {
+      "sha256": "02ef718a9f5928c47e03e94d781d7fbf3e942ac12864070c4de019386b47bb80",
+      "bytes": 3361
+    },
+    "tests/cases/runs/2026-07-30-case-12-13-sol/12-checker-report.txt": {
+      "sha256": "3c6d416d6ec36883f1401425c1478bc165d6f0b8de12f862f477352d8ee0a29d",
+      "bytes": 4430
+    },
+    "tests/cases/runs/2026-07-30-case-12-13-sol/12-output.md": {
+      "sha256": "ee8f024d4e4b63d9e8aab79e291b3c04583ff08cb8ab83974a5d05daaaf153e9",
+      "bytes": 30078
+    },
+    "tests/cases/runs/2026-07-30-case-12-13-sol/13-checker-report.txt": {
+      "sha256": "9cbfc9267a5a3b012869893c718bc8cb0502d7283e7b6f07487554d62fe9397e",
+      "bytes": 4429
+    },
+    "tests/cases/runs/2026-07-30-case-12-13-sol/13-output.md": {
+      "sha256": "8b9b1c5b4253d51aef653d1e4670a318dc378006a8807fff04f14ae589c3cccb",
+      "bytes": 29857
+    }
+  }
+}

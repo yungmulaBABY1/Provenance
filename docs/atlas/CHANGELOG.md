@@ -1,5 +1,21 @@
 # Atlas adapter changelog
 
+## Unreleased — power-posing real-source packet
+
+No adapter code changes; record schema, parser and normalizer unchanged.
+
+- `tests/atlas/sources/power-posing/`: bounded excerpts from the two retrievable
+  packet sources (S2 publisher PDF, S4 accepted manuscript), with retrieval and
+  extraction provenance in `SOURCES.json`. S1 and S3 (HTTP 403) are recorded as
+  `RETRIEVAL_FAILED`. `source_packet.py` rebuilds or re-verifies the packet
+  against the live sources; it is not run in CI.
+- `tests/atlas/power-sources.json`: import of the archived pilot output with
+  explicit finding-to-check mappings based on each finding's Evidence field.
+- `tests/atlas/test_power_sources.py`: provenance, the three separate facts, and
+  controls for missing methods, failed extraction, changed bytes, incorrect
+  quotations, unavailable sources; CLI import/export/restore/replay.
+- `tests/atlas/receipts/power-sources/`: committed receipt, content-replayed by CI.
+
 ## Unreleased — P0 review repairs (branch `atlas/p0-adapter`)
 
 Implements the requirements in the P0 review record (sections 5 and 6) on top
