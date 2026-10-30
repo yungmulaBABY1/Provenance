@@ -1,0 +1,138 @@
+{
+  "schema_version": "atlas-adapter/0.1",
+  "run": {
+    "id": "urn:atlas:import:shen-known-bad:1",
+    "target_work_id": "doi:10.1111/jcc4.12159",
+    "imported_at": "2026-10-30T07:07:43Z",
+    "origin": "LEGACY_REGRESSION_FIXTURE",
+    "model": {
+      "identity": "UNKNOWN",
+      "verification": "NOT_ESTABLISHED_FOR_THIS_ARTIFACT"
+    },
+    "runner": {
+      "identity": "UNKNOWN",
+      "verification": "NOT_ESTABLISHED_FOR_THIS_ARTIFACT"
+    },
+    "historical_instrument": {
+      "identity": "UNKNOWN",
+      "verification": "INSTRUMENT VERSION UNVERIFIED"
+    },
+    "exposure": {
+      "prior_outputs_seen": "UNKNOWN",
+      "independence": "UNKNOWN",
+      "basis": "Archived output alone does not establish exposure or independence."
+    }
+  },
+  "output": {
+    "path": "tests/cases/citation-network-checker/shen-revised-known-bad.txt",
+    "sha256": "a2d3a95f58c976c1aedb304c2b3c99c5cccda80aea0d4890a0ce91adf0df9bdf"
+  },
+  "works": [
+    {
+      "id": "doi:10.1111/jcc4.12159",
+      "title": "Do Men Advance Faster Than Women? Debunking the Gender Performance Gap in Two Massively Multiplayer Online Games",
+      "kind": "research",
+      "identity_basis": "DOI in examples/research/shen/00_run_metadata_and_preregistration.txt; revised output relationship is a declared fixture mapping."
+    }
+  ],
+  "sources": [
+    {
+      "id": "doi:10.1111/jcc4.12159/version/unknown",
+      "work_id": "doi:10.1111/jcc4.12159",
+      "version": "UNKNOWN",
+      "version_basis": "Bibliographic metadata only; original producing run source edition unknown.",
+      "version_confidence": "UNKNOWN",
+      "source_uri": "https://doi.org/10.1111/jcc4.12159",
+      "accessed_at": "UNKNOWN",
+      "access_outcome": "NOT_RETRIEVED",
+      "rights": "NOT_REVIEWED_FOR_PUBLIC_RELEASE",
+      "extraction": {
+        "engine": "plain-utf8",
+        "version": "1",
+        "configuration": {}
+      },
+      "text_artifact": null,
+      "components": [],
+      "requested_components": [
+        "methods",
+        "results",
+        "references"
+      ],
+      "warnings": [],
+      "failed_components": [],
+      "origin_id": "UNKNOWN"
+    }
+  ],
+  "passages": [],
+  "checks": [
+    {
+      "id": "shen-content",
+      "kind": "content",
+      "scope": "Shen source and reception claims; no underlying text retrieved during import",
+      "requirements": [
+        {
+          "source_version_id": "doi:10.1111/jcc4.12159/version/unknown",
+          "component_ids": [
+            "methods",
+            "results",
+            "references"
+          ],
+          "passage_ids": []
+        }
+      ]
+    }
+  ],
+  "finding_checks": {
+    "1": [
+      "shen-content"
+    ],
+    "2": [
+      "shen-content"
+    ],
+    "3": [
+      "shen-content"
+    ],
+    "4": [
+      "shen-content"
+    ],
+    "5": [
+      "shen-content"
+    ],
+    "6": [
+      "shen-content"
+    ]
+  },
+  "corpus": {
+    "id": "shen-revised",
+    "boundary": "Archived known-bad output only; no reconstruction of external OpenAlex or citation-context arrays.",
+    "selection": "Regression with instrument-tuning exposure; excluded from unbiased method comparisons.",
+    "retrieval_events": [],
+    "limitations": [
+      "Underlying sources unavailable.",
+      "Historical model and producing instrument unknown for this revised artifact."
+    ]
+  },
+  "declared_inputs": [
+    {
+      "path": "examples/research/shen/00_run_metadata_and_preregistration.txt",
+      "sha256": "f99b791dd9be1c009ef251dadfe4596da4d2a2e43ccbd7d74bd9a47597733fe9"
+    },
+    {
+      "path": "examples/research/shen/04_citation_network.txt",
+      "sha256": "e59149379c92a44d84720a2f28d1ab8e5a3cc719e07e07ba16b3305d6cb691bb"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "earlier-shen-counter-audit",
+      "artifact": {
+        "path": "examples/research/shen/05_counter_audit_v3_all_prosecutors.txt",
+        "sha256": "975ac882bf7827bf5d570028739383cecfbc066dce596be5efb2656c28834d0f"
+      },
+      "target_output_sha256": "e59149379c92a44d84720a2f28d1ab8e5a3cc719e07e07ba16b3305d6cb691bb",
+      "reviewer": "UNKNOWN; imported earlier sequential run",
+      "exposure": "All three prosecutors supplied and consumed, according to preserved artifact.",
+      "disposition": "UNPARSED: earlier counter-audit, not a review of this revised known-bad output."
+    }
+  ]
+}

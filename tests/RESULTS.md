@@ -13,6 +13,15 @@ After enough runs this answers questions no single run can:
 **One row per run.** Add as you go. Do not backfill from memory  -  if a run’s detail is not
 recorded, mark it UNKNOWN rather than reconstructing it.
 
+## Atlas software validation — separate from research audit runs
+
+The first deterministic adapter slice is recorded in
+[atlas/validation.json](atlas/validation.json), with pre-implementation expectations
+in [atlas/EXPECTED.txt](atlas/EXPECTED.txt). These checks import existing archived
+outputs and mutate software fixtures; they do not execute a new model audit or
+change the research/media run tallies below. See
+[the implementation scope](../docs/atlas/README.md) for source-access and review limits.
+
 ---
 
 ## SUMMARY TALLIES

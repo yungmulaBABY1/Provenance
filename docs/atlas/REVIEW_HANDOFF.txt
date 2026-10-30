@@ -1,0 +1,55 @@
+PROVENANCE ATLAS — FIRST CODE SLICE / INDEPENDENT REVIEW HANDOFF
+
+Status: implemented offline adapter, developer-tested; no independent model review
+or scientific validation yet. No model comparison was performed. No dashboard,
+autonomous audit runner, public graph service or publishing workflow was built.
+
+Base repository commit: d7000315197670a59988b2d0b58bf0cdae545fc3
+Design basis: attached v0.13 master, SHA-256
+4a1dde73bb8c5795b4e50c96f6b01d0901bfa64f580304440a8c0fa44ddf03bd
+
+Suggested independent review sequence:
+1. Read tests/atlas/EXPECTED.txt, the pinned native prompt/checker, and the
+   relevant master A-02/C-02/C-03 requirements. Form your own failure hypotheses
+   before reading this implementation's rationale in docs/atlas/README.md.
+2. Inspect atlas/ and exercise the documented commands. The baseline manifest
+   contains exact SHA-256 and Git blob hashes. All source acquisition is offline.
+3. Try falsifying the guarantees: missing/duplicate labels, unknown vocabulary,
+   a valid-but-wrong label, incomplete final block, metadata masquerading as full
+   text, wrong version, repeated passage, corrupted hash/offset, arbitrary source
+   instructions, target-review mismatch, ID conflict and concurrent import.
+4. Check that a native clean/confirmed assertion never becomes an independently
+   verified source finding through import, and that no semantic verdict follows
+   from passing a deterministic test. Examine every use of MATCH and ELIGIBLE.
+5. Verify JSONL replay/restore and conflict rollback. Treat SQLite and output
+   filesystem operations as separate transactions. Inspect raw output retention
+   and rights limitations before proposing any public receipt service.
+6. Report each finding with file/line, reproducer, expected/observed behavior,
+   evidence, severity, strongest innocent explanation and falsification condition.
+   Preserve disagreements. Do not use agreement with another model as an oracle.
+
+Exposure declaration for this implementation:
+- Implementer inspected the existing fixtures and their checker oracles.
+- Same implementer authored code and new software tests.
+- Earlier Shen, Ceuta and other tuned cases are not held-out science benchmarks.
+- Historical producing model/runner/instrument remain unknown where not linked
+  to the exact imported output. Current validation pins do not backfill history.
+- Earlier Shen counter-audit is retained as a target mismatch; it reviews another
+  output. No claim of independent counter-audit survival or human adjudication.
+
+Important limits to probe:
+- Narrow citation-network Markdown profile; no arbitrary model-output parsing.
+- Sidecar component roles/identity assignments are declarations requiring review.
+- Plain UTF-8 span verification only; no PDF/OCR extraction validation.
+- Imported review target hash is a declaration, not a signed reviewer receipt.
+- No source retrieval or historical model execution is reproduced.
+- Local append-only behavior is not authentication, rights enforcement,
+  adversary-proof persistence or shared multi-user service infrastructure.
+- Generic relationships and records are an experimental adapter namespace;
+  proposed core Claim/ClaimInstance/EvidenceAssessment contracts are not replaced.
+
+Pre-existing issue left untouched:
+tools/embed_prompts.py --check returns STALE at the pinned base. This is a
+prototype prompt-snapshot parity issue, separate from adapter validation.
+
+Core philosophy: It points; you judge.

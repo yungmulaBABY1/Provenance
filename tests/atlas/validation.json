@@ -1,0 +1,164 @@
+{
+  "executed_at_utc": "2026-10-30T07:25:39.925841+00:00",
+  "base_commit": "d7000315197670a59988b2d0b58bf0cdae545fc3",
+  "scope": "Developer-authored deterministic software checks; no independent model review or scientific validation",
+  "python": "3.12.14",
+  "source_code_sha256": {
+    "atlas/__init__.py": "8b67b7b79d72069fa57b13a40fe5ec77c16aaa4f06d1f56fb238d39cda750756",
+    "atlas/__main__.py": "fedefba9273c18dbb8c043fa1b42532a08b571eaf2646bd1fd9ecf3c7e8353cb",
+    "atlas/adapter.py": "a73916f150b288f00e7ef16e1a315d4fa6befa39fd28a4e6163d8b9b68c02851",
+    "atlas/contract.py": "fb41786913b48221022fb43f98db8cb8831aa454363ed72ea331d82dc512e27a",
+    "atlas/ledger.py": "142fcca54e11672814fc491ec9c6b1ec0748fce0f6ba4a4dd1d007f4221907ca",
+    "atlas/native.py": "12cc708e74f621fe172e1e7faed551a6fe26d29888492132c295794e949a3be1",
+    "atlas/sources.py": "21d7517147e905469b65d4065c477508532cccf7e6c43447ec6d8a8c18aacd96"
+  },
+  "tests_sha256": "b620e31eda5dfd10c609731499b95e7b15231a9a5d26a1a40d4da177b70b1d94",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/atlas",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "",
+      "stderr": "test_duplicate_field (test_adapter.ParserTests.test_duplicate_field) ... ok\ntest_duplicate_finding (test_adapter.ParserTests.test_duplicate_finding) ... ok\ntest_invalid_and_cross_field_swaps (test_adapter.ParserTests.test_invalid_and_cross_field_swaps) ... ok\ntest_invalid_score_and_duplicate_dimension (test_adapter.ParserTests.test_invalid_score_and_duplicate_dimension) ... ok\ntest_mid_cell_truncation (test_adapter.ParserTests.test_mid_cell_truncation) ... ok\ntest_missing_and_duplicate_final_heading (test_adapter.ParserTests.test_missing_and_duplicate_final_heading) ... ok\ntest_missing_field_not_inferred (test_adapter.ParserTests.test_missing_field_not_inferred) ... ok\ntest_native_fields_preserved (test_adapter.ParserTests.test_native_fields_preserved) ... ok\ntest_native_verdict_consistency (test_adapter.ParserTests.test_native_verdict_consistency) ... ok\ntest_quoted_fields_are_data (test_adapter.ParserTests.test_quoted_fields_are_data) ... ok\ntest_same_name_other_section_does_not_supply_missing_field (test_adapter.ParserTests.test_same_name_other_section_does_not_supply_missing_field) ... ok\ntest_scorecard_axes_remain_distinct (test_adapter.ParserTests.test_scorecard_axes_remain_distinct) ... ok\ntest_truncation (test_adapter.ParserTests.test_truncation) ... ok\ntest_valid_enum_change_has_no_semantic_oracle (test_adapter.ParserTests.test_valid_enum_change_has_no_semantic_oracle) ... ok\ntest_absent_findings_cannot_be_null (test_adapter.PipelineTests.test_absent_findings_cannot_be_null) ... ok\ntest_cli_replay_and_quarantined_exit (test_adapter.PipelineTests.test_cli_replay_and_quarantined_exit) ... ok\ntest_concurrent_idempotent_imports (test_adapter.PipelineTests.test_concurrent_idempotent_imports) ... ok\ntest_conflict_rolls_back_entire_import (test_adapter.PipelineTests.test_conflict_rolls_back_entire_import) ... ok\ntest_conflicting_run_same_output_different_context (test_adapter.PipelineTests.test_conflicting_run_same_output_different_context) ... ok\ntest_corpus_python_files_cannot_shadow_checker_imports (test_adapter.PipelineTests.test_corpus_python_files_cannot_shadow_checker_imports) ... ok\ntest_corrupt_anchor_quote_range_hash (test_adapter.PipelineTests.test_corrupt_anchor_quote_range_hash) ... ok\ntest_counter_audit_match_does_not_establish_independence (test_adapter.PipelineTests.test_counter_audit_match_does_not_establish_independence) ... ok\ntest_deterministic_export_and_restore (test_adapter.PipelineTests.test_deterministic_export_and_restore) ... ok\ntest_duplicate_json_and_missing_contract_fields (test_adapter.PipelineTests.test_duplicate_json_and_missing_contract_fields) ... ok\ntest_existing_clean_and_metadata_boundary (test_adapter.PipelineTests.test_existing_clean_and_metadata_boundary) ... ok\ntest_existing_review_fixture_stays_review (test_adapter.PipelineTests.test_existing_review_fixture_stays_review) ... ok\ntest_existing_shen_is_quarantined_not_corrected (test_adapter.PipelineTests.test_existing_shen_is_quarantined_not_corrected) ... ok\ntest_input_boundary_and_symlink (test_adapter.PipelineTests.test_input_boundary_and_symlink) ... ok\ntest_input_hash_and_executable_pin_fail_closed (test_adapter.PipelineTests.test_input_hash_and_executable_pin_fail_closed) ... ok\ntest_instruction_in_source_is_data (test_adapter.PipelineTests.test_instruction_in_source_is_data) ... ok\ntest_invalid_list_and_calendar_date_are_contract_errors (test_adapter.PipelineTests.test_invalid_list_and_calendar_date_are_contract_errors) ... ok\ntest_metadata_mapping_cannot_enable_null_citation_result (test_adapter.PipelineTests.test_metadata_mapping_cannot_enable_null_citation_result) ... ok\ntest_metadata_mapping_cannot_promote_citation_finding (test_adapter.PipelineTests.test_metadata_mapping_cannot_promote_citation_finding) ... ok\ntest_missing_check_mapping_stays_unassessable (test_adapter.PipelineTests.test_missing_check_mapping_stays_unassessable) ... ok\ntest_missing_methods_does_not_block_metadata (test_adapter.PipelineTests.test_missing_methods_does_not_block_metadata) ... ok\ntest_missing_scope_is_not_vacuously_eligible (test_adapter.PipelineTests.test_missing_scope_is_not_vacuously_eligible) ... ok\ntest_missing_source_never_matches (test_adapter.PipelineTests.test_missing_source_never_matches) ... ok\ntest_normalizer_is_explicit_and_conservative (test_adapter.PipelineTests.test_normalizer_is_explicit_and_conservative) ... ok\ntest_null_assertion_is_scoped_and_requires_evidence (test_adapter.PipelineTests.test_null_assertion_is_scoped_and_requires_evidence) ... ok\ntest_raw_output_bytes_survive_crlf (test_adapter.PipelineTests.test_raw_output_bytes_survive_crlf) ... ok\ntest_receipt_and_export_tampering_rejected (test_adapter.PipelineTests.test_receipt_and_export_tampering_rejected) ... ok\ntest_repeated_passage_is_not_relocated (test_adapter.PipelineTests.test_repeated_passage_is_not_relocated) ... ok\ntest_same_work_version_different_local_bytes (test_adapter.PipelineTests.test_same_work_version_different_local_bytes) ... ok\ntest_source_version_uncertainty_does_not_disappear (test_adapter.PipelineTests.test_source_version_uncertainty_does_not_disappear) ... ok\ntest_sql_updates_and_deletes_blocked (test_adapter.PipelineTests.test_sql_updates_and_deletes_blocked) ... ok\ntest_synthetic_anchor_and_scoped_eligibility (test_adapter.PipelineTests.test_synthetic_anchor_and_scoped_eligibility) ... ok\ntest_two_models_do_not_create_independent_review (test_adapter.PipelineTests.test_two_models_do_not_create_independent_review) ... ok\ntest_unverified_extraction_is_pending (test_adapter.PipelineTests.test_unverified_extraction_is_pending) ... ok\ntest_warning_retained_with_limitations (test_adapter.PipelineTests.test_warning_retained_with_limitations) ... ok\ntest_wrong_source_passage_reference (test_adapter.PipelineTests.test_wrong_source_passage_reference) ... ok\n\n----------------------------------------------------------------------\nRan 50 tests in 2.404s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python",
+        "tests/test-citation-network-checker.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "PASS\tdirty full fixture failed; Shen V1 whitelist control passed; clean fixture returned PASS; review fixture returned PASS-WITH-REVIEW.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "tools/embed_prompts.py",
+        "--check"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "STALE - re-run tools/embed_prompts.py\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "atlas",
+        "import",
+        "tests/atlas/power-control.json",
+        "--out",
+        ".atlas/power",
+        "--ledger",
+        ".atlas/ledger.sqlite"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\"checker\":\"PASS\",\"records\":17,\"scientific_validation\":\"NOT_PERFORMED\",\"sha256\":\"e3cc97fa9e02b9782ed28fc6c3689c49a91d93c75ca039fcf941323323ce7c41\",\"syntax\":\"PASS\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "atlas",
+        "replay",
+        ".atlas/power/manifest.json",
+        ".atlas/power/records.jsonl"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "PASS: deterministic import replay; historical model run not reproduced\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "atlas",
+        "import",
+        "tests/atlas/shen-known-bad.json",
+        "--out",
+        ".atlas/shen",
+        "--ledger",
+        ".atlas/ledger.sqlite"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "{\"checker\":\"FAIL\",\"records\":13,\"scientific_validation\":\"NOT_PERFORMED\",\"sha256\":\"8cc00c4cfe024dd8fd2c03c5252bacce71511995749e5adc17b3ac1a9646b726\",\"syntax\":\"FAIL\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "atlas",
+        "replay",
+        ".atlas/shen/manifest.json",
+        ".atlas/shen/records.jsonl"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "PASS: deterministic import replay; historical model run not reproduced\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "atlas",
+        "export",
+        ".atlas/ledger.sqlite",
+        ".atlas/all.jsonl"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "atlas",
+        "restore",
+        ".atlas/all.jsonl",
+        ".atlas/restored.sqlite"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\"inserted\":30}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "atlas",
+        "export",
+        ".atlas/restored.sqlite",
+        ".atlas/restored.jsonl"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "roundtrip_byte_identical": true,
+  "roundtrip_sha256": "c1e7bf6d2a61883cdd54a57a71a2b7df4950964602682601d998026358bcfe71",
+  "preexisting_failure": "embed_prompts --check is STALE at base; not changed",
+  "independent_review": "NOT_PERFORMED"
+}
