@@ -332,14 +332,14 @@ Details, coverage and limits are in
   and all sources missing. Missing evidence blocks only the checks that depend
   on it, and never yields a clean state.
 
-## Evidence-proposition reviews (`atlas-evidence-review/1`)
+## Evidence-proposition reviews (`atlas-evidence-review/2`)
 
-Adapter 0.2.0 adds one versioned review kind, implemented in
+Adapter 0.3.0 has one versioned review kind, implemented in
 [atlas/reviews.py](../../atlas/reviews.py). It reuses the existing
 `ReviewDecision` record and import-context `reviews` list; the record schema
 stays `atlas-adapter/0.2`, and old-style output reviews are unchanged.
 
-- **Artifact.** A review is a JSON artifact with `schema: atlas-evidence-review/1`,
+- **Artifact.** A review is a JSON artifact with `schema: atlas-evidence-review/2`,
   declared in the context as `{"id", "artifact", "review_schema"}`. It records:
   - the target;
   - coverage (reviewed and not reviewed);
@@ -364,7 +364,10 @@ stays `atlas-adapter/0.2`, and old-style output reviews are unchanged.
   - `finding` (native-projection digest)
   - `proposition` (span text)
   - `mapping` (check digest, finding-to-check mapping, passage set)
-  - `passages` (quote hashes)
+  - `passages`: one descriptor per bound passage, compared field by field with the
+    run's Passage record. A descriptor is the source version, component, start and
+    end offsets, offset unit, interval and quotation hash, so a moved locator with
+    an unchanged quotation still unbinds
   - `source_version`
   - `source_input`
 
@@ -389,7 +392,14 @@ The first review pair is in
 [tests/atlas/reviews/power-posing/](../../tests/atlas/reviews/power-posing/README.md):
 Finding 1's S2 clause, imported by
 [power-sources-reviewed.json](../../tests/atlas/power-sources-reviewed.json) as run
-`urn:atlas:import:power-posing-sources:2`. Run `:1` and its receipt are unchanged.
+`urn:atlas:import:power-posing-sources:3`. Run `:1` and its receipt are unchanged.
+
+**Contract history.** `atlas-evidence-review/1` (adapter 0.2.0, PR #9 before the
+fix) bound each passage by quotation hash only. Moving a passage's offsets while
+keeping its quotation left the review attached. `/1` is retired:
+- import and restore reject it with `UNSUPPORTED_REVIEW_SCHEMA` rather than trust it;
+- its artifacts are preserved in `tests/atlas/reviews/power-posing/v1/`;
+- its receipt (run `:2`) is preserved in `tests/atlas/receipts/historical-4718225/`.
 
 ## Validation and independent review
 
