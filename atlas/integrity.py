@@ -65,8 +65,9 @@ def rederive(run: dict, records: list[dict], by_id: dict[str, dict]) -> None:
         mismatched.append("native_scorecard")
     if run["native_parse_issues"] != parsed["issues"]:
         mismatched.append("native_parse_issues")
-    if "null_assertion" not in run or run["null_assertion"] != parsed["null_assertion"]:
-        mismatched.append("null_assertion")
+    if ("imported_null_assertion" not in run
+            or run["imported_null_assertion"] != parsed["null_assertion"]):
+        mismatched.append("imported_null_assertion")
     corpus = by_id.get(run["corpus_scope_id"])
     if corpus is None or corpus["imported_source_lock"] != parsed["source_lock"]:
         mismatched.append("imported_source_lock")

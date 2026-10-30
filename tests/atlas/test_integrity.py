@@ -89,7 +89,8 @@ class IntegrityTests(unittest.TestCase):
                 (lambda run, corpus: run["native_scorecard"].pop(), "native_scorecard"),
                 (lambda run, corpus: run["native_parse_issues"].append(
                     {"code": "MISSING", "field": "x", "line": None}), "native_parse_issues"),
-                (lambda run, corpus: run.update(null_assertion="No findings of consequence."), "null_assertion"),
+                (lambda run, corpus: run.update(imported_null_assertion="No findings of consequence."),
+                 "imported_null_assertion"),
                 (lambda run, corpus: corpus["imported_source_lock"].update(
                     {"SOURCE-LOCK METHOD": "LOCKED QUERY"}), "imported_source_lock")]:
             with self.subTest(component=component):

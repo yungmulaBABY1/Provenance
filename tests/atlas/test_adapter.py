@@ -292,18 +292,32 @@ class PipelineTests(unittest.TestCase):
         ctx["null_check_ids"] = ["methods"]
         bundle = build(ctx, self.root)
         self.assertEqual(bundle["syntax"], "PASS")
-        self.assertEqual(by_type(bundle, "AuditRun")[0]["clean_display"], "SCOPED_NULL_ASSERTION_ONLY")
+        run = by_type(bundle, "AuditRun")[0]
+        # Both facts are shown; neither is combined into a clean state.
+        self.assertEqual(run["imported_null_assertion"], "No findings of consequence.")
+        self.assertEqual(run["adapter_source_eligibility"]["methods"], "ELIGIBLE")
+        self.assertNotIn("clean_display", run)
+        self.assertFalse(run["paper_clean"])
+        self.assertNotIn("SCOPED_NULL_ASSERTION_ONLY", bundle["jsonl"].decode())
+        derived = {k: v for k, v in run.items() if k not in {"raw_output_text", "paper_clean"}}
+        self.assertFalse([k for k in derived if "clean" in k.lower() or "acquit" in k.lower()])
+        self.assertFalse([v for v in derived.values() if isinstance(v, str)
+                          and ("CLEAN" in v or "ACQUIT" in v)])
         ctx["sources"][0]["access_outcome"] = "RETRIEVAL_FAILED"
-        failed = build(ctx, self.root)
-        self.assertEqual(by_type(failed, "AuditRun")[0]["clean_display"], "NOT_ASSESSABLE_AS_CLEAN")
-        self.assertFalse(by_type(failed, "AuditRun")[0]["paper_clean"])
+        failed = by_type(build(ctx, self.root), "AuditRun")[0]
+        self.assertEqual(failed["imported_null_assertion"], "No findings of consequence.")
+        self.assertEqual(failed["adapter_source_eligibility"]["methods"], "INELIGIBLE_MISSING_EVIDENCE")
+        self.assertFalse(failed["paper_clean"])
 
     def test_absent_findings_cannot_be_null(self):
         self.write_output(RAW.split("\nFinding 1\n")[0])
         self.context["finding_checks"] = {}
         bundle = build(self.context, self.root)
         self.assertEqual(bundle["syntax"], "FAIL")
-        self.assertEqual(by_type(bundle, "AuditRun")[0]["clean_display"], "NOT_ASSESSABLE_AS_CLEAN")
+        run = by_type(bundle, "AuditRun")[0]
+        self.assertIsNone(run["imported_null_assertion"])
+        self.assertNotIn("clean_display", run)
+        self.assertFalse(run["paper_clean"])
 
     def test_input_hash_and_executable_pin_fail_closed(self):
         path = self.root / self.context["output"]["path"]
@@ -512,7 +526,11 @@ class PipelineTests(unittest.TestCase):
         self.context["null_check_ids"] = ["S1-metadata"]
         bundle = build(self.context, self.root)
         self.assertEqual(bundle["syntax"], "PASS")
-        self.assertEqual(by_type(bundle, "AuditRun")[0]["clean_display"], "NOT_ASSESSABLE_AS_CLEAN")
+        run = by_type(bundle, "AuditRun")[0]
+        self.assertEqual(run["adapter_source_eligibility"]["S1-metadata"], "ELIGIBLE_WITH_LIMITATIONS")
+        self.assertEqual(run["adapter_source_eligibility"]["bounded-citation-content"], "INELIGIBLE_MISSING_EVIDENCE")
+        self.assertNotIn("clean_display", run)
+        self.assertFalse(run["paper_clean"])
 
 
 if __name__ == "__main__":

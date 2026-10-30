@@ -179,11 +179,6 @@ def build(context: dict, root: Path) -> dict:
     null_checks = context.get("null_check_ids", [])
     if type(null_checks) is not list or any(c not in check_results for c in null_checks):
         raise ContractError("UNRESOLVED_REFERENCE: null_check_ids")
-    scoped_null = (parsed["null_assertion"] is not None and not parsed["findings"]
-                   and syntax != "FAIL" and bool(null_checks)
-                   and any(check_results[c]["kind"] == "content" for c in null_checks)
-                   and all(check_results[c]["eligibility"] in {"ELIGIBLE", "ELIGIBLE_WITH_LIMITATIONS"}
-                           for c in null_checks))
     records.append(record("AuditRun", rid, target_work_id=run["target_work_id"],
                           origin=run["origin"], imported_at=run["imported_at"],
                           model=run["model"], runner=run["runner"],
@@ -197,8 +192,12 @@ def build(context: dict, root: Path) -> dict:
                           syntax=syntax, checker_status=checker["status"],
                           producing_instrument_compliance=compliance,
                           semantic_review="SEMANTIC_REVIEW_REQUIRED", human_review="NOT_RECORDED",
-                          clean_display="SCOPED_NULL_ASSERTION_ONLY" if scoped_null else "NOT_ASSESSABLE_AS_CLEAN",
-                          null_assertion=parsed["null_assertion"], null_check_ids=null_checks,
+                          # Two separate facts: what the historical model asserted, and
+                          # what this adapter could read today. Nothing derives a clean
+                          # or acquitted state from the pair.
+                          imported_null_assertion=parsed["null_assertion"], null_check_ids=null_checks,
+                          adapter_source_eligibility={cid: check["eligibility"]
+                                                      for cid, check in sorted(check_results.items())},
                           corpus_scope_id=corpus_id, mismatched_review_ids=mismatched_review_ids,
                           paper_clean=False, public_release="NOT_REVIEWED",
                           refs=[run["target_work_id"], corpus_id, *review_ids]))

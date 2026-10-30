@@ -45,3 +45,8 @@ The inherited citation-network fixtures have been inspected during development.
 Existing checks must remain unchanged and pass their baseline expectations.
 Pre-existing tools/embed_prompts.py --check returns STALE at d700031; record it
 separately, do not repair unrelated prompts or snapshot content in this slice.
+
+Amendment, 2026-10-30 (P0 review record, null-results rule): item 11's scoped
+no-issue display is withdrawn. An AuditRun shows two separate facts, the
+imported null assertion (text or null) and the adapter's present-day
+per-check source eligibility; no field derives a clean or acquitted state.

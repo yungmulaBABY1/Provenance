@@ -38,7 +38,7 @@ RECORD_FIELDS = {
                  "source_checks": dict, "paper_clean": bool, "human_review": str,
                  "raw_output_text": str, "corpus_scope_id": str, "native_scorecard": list,
                  "native_parse_issues": list, "producing_instrument_compliance": str,
-                 "mismatched_review_ids": list},
+                 "mismatched_review_ids": list, "adapter_source_eligibility": dict},
     "AuditFinding": {"audit_run_id": str, "native": dict, "source_checks": list,
                      "evidence_passage_ids": list, "import_status": str, "assessment": str},
     "Relationship": {"subject_id": str, "object_id": str, "kind": str,
@@ -265,6 +265,8 @@ def validate_records(records: list[dict]) -> None:
                 not in {"UNDETERMINED", "CONFORMS", "VIOLATION"}):
             raise ContractError("INVALID_LABEL: producing_instrument_compliance")
         if item["type"] == "AuditRun":
+            if type(item.get("imported_null_assertion", 0)) not in (str, type(None)):
+                raise ContractError("INVALID_CONTRACT: AuditRun.imported_null_assertion")
             string_list(item["mismatched_review_ids"], "mismatched_review_ids")
             for rid in item["mismatched_review_ids"]:
                 review = by_id.get(rid, {})
