@@ -1,5 +1,49 @@
 # Atlas adapter changelog
 
+## Unreleased — adapter 0.3.0: review binding contract `atlas-evidence-review/2`
+
+- Reviews now bind each passage by a full descriptor: source version, component,
+  start and end offsets, offset unit, interval and quotation hash. Under `/1` a
+  passage moved by one character kept the same quotation hash, so it became
+  `MISMATCH` while both reviews stayed `MATCH`. That gap is closed.
+- `/1` is retired: import and restore reject it with `UNSUPPORTED_REVIEW_SCHEMA`.
+  The `/1` artifacts are kept in `tests/atlas/reviews/power-posing/v1/`.
+- The F1-S2 reviews are re-issued as `/2`. Only the binding changed; each has a
+  `reissue` block naming its `/1` predecessor by hash, and neither review was
+  repeated. They are imported as run `:3` (`tests/atlas/power-sources-reviewed.json`).
+- Receipts:
+  - the six receipts current at 4718225 moved unchanged to
+    `tests/atlas/receipts/historical-4718225/`;
+  - the `/1`-bound run `:2` receipt there is rejected on restore, and the
+    others still restore;
+  - current receipts regenerated (only manifests differ for unreviewed runs).
+- New tests: a moved locator unbinds in both directions; every descriptor field
+  is bound; the review stays detached after export and restore; restore rejects
+  a moved locator with a kept binding; `/1` artifacts and receipts are rejected.
+  Reverting to quotation-only binding fails 10 of them.
+
+## Adapter 0.2.0 (PR #9 at 4718225, not merged): first substantively reviewed evidence relationship
+
+- New review kind `atlas-evidence-review/1` (`atlas/reviews.py`), imported as a
+  `ReviewDecision`. It is bound to an exact proposition span, finding projection,
+  mapping, passages, source version and input bytes; any change gives
+  `TARGET_MISMATCH` with the components named. Restore and append re-derive the
+  binding and check the artifact. Record schema unchanged (`atlas-adapter/0.2`).
+- Reviews of Finding 1's S2 clause (`tests/atlas/reviews/power-posing/`):
+  - review A (primary session): `SUPPORTS_WITH_QUALIFICATION`;
+  - review B (separate subagent context): `SUPPORTS`.
+
+  Both are kept. Neither is independent, and neither is human adjudication.
+- `tests/atlas/power-sources-reviewed.json` imports them as run `:2`.
+- `source_packet.py verify` also re-checks review locators against a fresh
+  extraction.
+- Receipts:
+  - the five receipts current at 7c55e2c moved unchanged to
+    `tests/atlas/receipts/historical-7c55e2c/` (restorable, not replayable
+    under 0.2.0 code);
+  - current receipts regenerated (only manifests differ);
+  - new receipt `power-sources-reviewed`.
+
 ## Unreleased — power-posing real-source packet
 
 No adapter code changes; record schema, parser and normalizer unchanged.

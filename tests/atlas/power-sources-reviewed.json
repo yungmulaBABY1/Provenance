@@ -1,0 +1,526 @@
+{
+  "schema_version": "atlas-adapter/0.1",
+  "run": {
+    "id": "urn:atlas:import:power-posing-sources:3",
+    "target_work_id": "doi:10.1177/0956797610383437",
+    "imported_at": "2026-10-30T11:58:40Z",
+    "origin": "ARCHIVED_COMPLIANCE_PILOT_OUTPUT",
+    "model": {
+      "identity": "UNKNOWN",
+      "verification": "NOT_ESTABLISHED_FOR_THIS_ARTIFACT"
+    },
+    "runner": {
+      "identity": "UNKNOWN",
+      "verification": "NOT_ESTABLISHED_FOR_THIS_ARTIFACT"
+    },
+    "historical_instrument": {
+      "identity": "UNKNOWN",
+      "verification": "INSTRUMENT VERSION UNVERIFIED"
+    },
+    "exposure": {
+      "prior_outputs_seen": "UNKNOWN",
+      "independence": "UNKNOWN",
+      "basis": "Archived output alone does not establish exposure, independence, or what the historical run read."
+    }
+  },
+  "output": {
+    "path": "compliance/run-output.md",
+    "sha256": "761895d49013a3a9327b60e9bf1aea437d0e6d99dfff37c4e728ba722202f58c"
+  },
+  "works": [
+    {
+      "id": "doi:10.1177/0956797610383437",
+      "title": "Power Posing: Brief Nonverbal Displays Affect Neuroendocrine Levels and Risk Tolerance",
+      "kind": "research",
+      "identity_basis": "Explicit DOI in compliance/PACKET.md at pinned repository commit; title display may be abbreviated."
+    },
+    {
+      "id": "doi:10.1177/0956797614553946",
+      "title": "Assessing the Robustness of Power Posing",
+      "kind": "research",
+      "identity_basis": "Explicit DOI in compliance/PACKET.md at pinned repository commit; title display may be abbreviated."
+    },
+    {
+      "id": "doi:10.1177/0956797614566855",
+      "title": "Review and Summary of Research on the Embodied Effects of Expansive (vs. Contractive) Nonverbal Displays",
+      "kind": "research",
+      "identity_basis": "Explicit DOI in compliance/PACKET.md at pinned repository commit; title display may be abbreviated."
+    },
+    {
+      "id": "doi:10.1177/0956797616658563",
+      "title": "Power Posing: P-Curving the Evidence",
+      "kind": "research",
+      "identity_basis": "Explicit DOI in compliance/PACKET.md at pinned repository commit; title display may be abbreviated."
+    }
+  ],
+  "sources": [
+    {
+      "id": "doi:10.1177/0956797610383437/version/not-retrieved",
+      "work_id": "doi:10.1177/0956797610383437",
+      "version": "UNKNOWN",
+      "version_basis": "No copy retrieved; edition unknown.",
+      "version_confidence": "UNKNOWN",
+      "source_uri": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full",
+      "accessed_at": "2026-10-30T10:58:19Z",
+      "access_outcome": "RETRIEVAL_FAILED",
+      "rights": "NOT_REVIEWED_FOR_PUBLIC_RELEASE",
+      "extraction": {
+        "engine": "plain-utf8",
+        "version": "1",
+        "configuration": {}
+      },
+      "text_artifact": null,
+      "components": [],
+      "requested_components": [
+        "full_text"
+      ],
+      "warnings": [
+        "HTTP 403 from journals.sagepub.com to a plain request on 2026-10-30T10:58:19Z; no bot-check workaround attempted."
+      ],
+      "failed_components": [],
+      "origin_id": "UNKNOWN"
+    },
+    {
+      "id": "doi:10.1177/0956797614553946/version/pdf-sha256-4ae91126e56da197",
+      "work_id": "doi:10.1177/0956797614553946",
+      "version": "PUBLISHER_PDF_AUTHOR_HOSTED; PDF SHA-256 4ae91126e56da19721f44c6942a536e3c2dcb22fe3a23de727f788afeb481369",
+      "version_basis": "PUBLISHER_PDF_AUTHOR_HOSTED: typeset journal article (journal header, volume, pages and DOI printed on page 1) hosted on a co-author's faculty page; PDF modified 2017-02-05 per its metadata. Not obtained from the publisher.",
+      "version_confidence": "BYTES_PINNED_PUBLISHER_PDF_AUTHOR_HOSTED",
+      "source_uri": "https://faculty.haas.berkeley.edu/dana_carney/ranehill.pdf",
+      "accessed_at": "2026-10-30T10:58:19Z",
+      "access_outcome": "AVAILABLE",
+      "rights": "BOUNDED_EXCERPTS_ONLY; NOT_REVIEWED_FOR_PUBLIC_RELEASE",
+      "extraction": {
+        "engine": "plain-utf8",
+        "version": "1",
+        "configuration": {}
+      },
+      "text_artifact": {
+        "path": "tests/atlas/sources/power-posing/S2-excerpts.txt",
+        "sha256": "f38381ce7020513995dfff9bb0a09d683ee11351a884e842f51983cf7e4ab9b6"
+      },
+      "components": [
+        {
+          "id": "S2-E1",
+          "kind": "metadata",
+          "start": 689,
+          "end": 849
+        },
+        {
+          "id": "S2-E2",
+          "kind": "section",
+          "start": 906,
+          "end": 1160
+        },
+        {
+          "id": "S2-E3",
+          "kind": "section",
+          "start": 1217,
+          "end": 1514
+        }
+      ],
+      "requested_components": [
+        "S2-E1",
+        "S2-E2",
+        "S2-E3",
+        "methods"
+      ],
+      "warnings": [
+        "Text artifact holds bounded excerpts transcribed from `pdftotext -enc UTF-8` (pdftotext version 24.02.0) output of the retrieved PDF (SHA-256 4ae91126e56da19721f44c6942a536e3c2dcb22fe3a23de727f788afeb481369). The adapter verifies the excerpt bytes only, not PDF rendering or extraction fidelity; re-verify with tests/atlas/sources/power-posing/source_packet.py."
+      ],
+      "failed_components": [],
+      "origin_id": "https://faculty.haas.berkeley.edu/dana_carney/ranehill.pdf"
+    },
+    {
+      "id": "doi:10.1177/0956797614566855/version/not-retrieved",
+      "work_id": "doi:10.1177/0956797614566855",
+      "version": "UNKNOWN",
+      "version_basis": "No copy retrieved; edition unknown.",
+      "version_confidence": "UNKNOWN",
+      "source_uri": "https://www.researchgate.net/publication/274458966_Review_and_Summary_of_Research_on_the_Embodied_Effects_of_Expansive_vs_Contractive_Nonverbal_Displays",
+      "accessed_at": "2026-10-30T10:58:19Z",
+      "access_outcome": "RETRIEVAL_FAILED",
+      "rights": "NOT_REVIEWED_FOR_PUBLIC_RELEASE",
+      "extraction": {
+        "engine": "plain-utf8",
+        "version": "1",
+        "configuration": {}
+      },
+      "text_artifact": null,
+      "components": [],
+      "requested_components": [
+        "full_text"
+      ],
+      "warnings": [
+        "HTTP 403 from www.researchgate.net to a plain request on 2026-10-30T10:58:19Z; no bot-check workaround attempted."
+      ],
+      "failed_components": [],
+      "origin_id": "UNKNOWN"
+    },
+    {
+      "id": "doi:10.1177/0956797616658563/version/pdf-sha256-c30b8c46120eba7d",
+      "work_id": "doi:10.1177/0956797616658563",
+      "version": "ACCEPTED_MANUSCRIPT; PDF SHA-256 c30b8c46120eba7d6b455619c6359817321d203645491ebd35953702fcd91a7f",
+      "version_basis": "ACCEPTED_MANUSCRIPT: author manuscript marked 'Forthcoming in Psychological Science' (Word, created 2016-06-17), hosted on a faculty page. Not the version of record; wording and pagination may differ from the published article.",
+      "version_confidence": "BYTES_PINNED_ACCEPTED_MANUSCRIPT",
+      "source_uri": "https://faculty.haas.berkeley.edu/dana_carney/Simmons.Simonsoh.p-curve-evidence.pdf",
+      "accessed_at": "2026-10-30T10:58:19Z",
+      "access_outcome": "AVAILABLE",
+      "rights": "BOUNDED_EXCERPTS_ONLY; NOT_REVIEWED_FOR_PUBLIC_RELEASE",
+      "extraction": {
+        "engine": "plain-utf8",
+        "version": "1",
+        "configuration": {}
+      },
+      "text_artifact": {
+        "path": "tests/atlas/sources/power-posing/S4-excerpts.txt",
+        "sha256": "074df0860103a210f446f2c4cdd49c9f63c6a2f4e9f87995a4b5bababddb91ec"
+      },
+      "components": [
+        {
+          "id": "S4-E1",
+          "kind": "metadata",
+          "start": 601,
+          "end": 755
+        },
+        {
+          "id": "S4-E2",
+          "kind": "section",
+          "start": 812,
+          "end": 1121
+        },
+        {
+          "id": "S4-E3",
+          "kind": "section",
+          "start": 1178,
+          "end": 1399
+        },
+        {
+          "id": "S4-E4",
+          "kind": "section",
+          "start": 1456,
+          "end": 1886
+        }
+      ],
+      "requested_components": [
+        "S4-E1",
+        "S4-E2",
+        "S4-E3",
+        "S4-E4"
+      ],
+      "warnings": [
+        "Text artifact holds bounded excerpts transcribed from `pdftotext -enc UTF-8` (pdftotext version 24.02.0) output of the retrieved PDF (SHA-256 c30b8c46120eba7d6b455619c6359817321d203645491ebd35953702fcd91a7f). The adapter verifies the excerpt bytes only, not PDF rendering or extraction fidelity; re-verify with tests/atlas/sources/power-posing/source_packet.py."
+      ],
+      "failed_components": [],
+      "origin_id": "https://faculty.haas.berkeley.edu/dana_carney/Simmons.Simonsoh.p-curve-evidence.pdf"
+    }
+  ],
+  "passages": [
+    {
+      "id": "S2-E1",
+      "source_version_id": "doi:10.1177/0956797614553946/version/pdf-sha256-4ae91126e56da197",
+      "component_id": "S2-E1",
+      "start": 689,
+      "end": 849,
+      "quote": "Psychological Science\n2015, Vol. 26(5) 653­–656\n© The Author(s) 2015\nReprints and permissions:\nsagepub.com/journalsPermissions.nav\nDOI: 10.1177/0956797614553946",
+      "normalized_sha256": "cad442d77db749c3dcef8cfa0218771ef12e3d3739adf9d085d87d1e23f89765",
+      "pdf_page": 1,
+      "label": "Journal, volume, pages and DOI printed on the article"
+    },
+    {
+      "id": "S2-E2",
+      "source_version_id": "doi:10.1177/0956797614553946/version/pdf-sha256-4ae91126e56da197",
+      "component_id": "S2-E2",
+      "start": 906,
+      "end": 1160,
+      "quote": "Consistent with the findings of Carney et al., our\nresults showed a significant effect of power posing on\nself-reported feelings of power. However, we found no\nsignificant effect of power posing on hormonal levels or\nin any of the three behavioral tasks.",
+      "normalized_sha256": "3e54c1df66ab87d15a335fa50c8dd8a57524099c73fe9cbb860258ae3597de20",
+      "pdf_page": 1,
+      "label": "Opening summary of the study's results (before Method)"
+    },
+    {
+      "id": "S2-E3",
+      "source_version_id": "doi:10.1177/0956797614553946/version/pdf-sha256-4ae91126e56da197",
+      "component_id": "S2-E3",
+      "start": 1217,
+      "end": 1514,
+      "quote": "Using a much\nlarger sample size but similar procedures as Carney et al.\ndid, we failed to confirm an effect of power posing on\ntestosterone, cortisol, and financial risk taking. We did\nfind that power posing affected self-reported feelings of\npower; however, this did not yield behavioral effects.",
+      "normalized_sha256": "e7408d984447e17004cd43a9574a3df8274da1d3cfb76566eb9ad2cc23ef2411",
+      "pdf_page": 2,
+      "label": "Discussion, first paragraph: results restated"
+    },
+    {
+      "id": "S4-E1",
+      "source_version_id": "doi:10.1177/0956797616658563/version/pdf-sha256-c30b8c46120eba7d",
+      "component_id": "S4-E1",
+      "start": 601,
+      "end": 755,
+      "quote": "Power Posing: P-Curving the Evidence\nJoseph P. Simmons & Uri Simonsohn\nUniversity of Pennsylvania\n\nWord Count: 3,202\n\nForthcoming in Psychological Science",
+      "normalized_sha256": "42264de6944d9489300e96d6beb703ae4d85eb7ddacd5517692f9f7cf286d386",
+      "pdf_page": 1,
+      "label": "Title, authors and publication status printed on the manuscript"
+    },
+    {
+      "id": "S4-E2",
+      "source_version_id": "doi:10.1177/0956797616658563/version/pdf-sha256-c30b8c46120eba7d",
+      "component_id": "S4-E2",
+      "start": 812,
+      "end": 1121,
+      "quote": "In their response to the failed replication, Carney, Cuddy, and Yap (2015) reviewed 33 successful\nstudies investigating the effects of expansive vs. contractive posing, focusing on differences between\nthese studies and the failed replication, to identify possible moderators that future studies could explore.",
+      "normalized_sha256": "97ab9803198890e10968d5a7859114936ad493dd7307a6ede8dc2a675e2cdd48",
+      "pdf_page": 2,
+      "label": "Introduction: S4's description of S3 (Carney et al., 2015); S4's words, not S3's"
+    },
+    {
+      "id": "S4-E3",
+      "source_version_id": "doi:10.1177/0956797616658563/version/pdf-sha256-c30b8c46120eba7d",
+      "component_id": "S4-E3",
+      "start": 1178,
+      "end": 1399,
+      "quote": "In this paper we rely on p-curve analysis to answer the following question: Does the literature\nreviewed by Carney et al. (2015) suggest the existence of an effect once we account for selective\nreporting? We conclude not.",
+      "normalized_sha256": "9219b98d418d552f981f5cb074cc5841978548e2d1a100288e316a95a6263284",
+      "pdf_page": 2,
+      "label": "Introduction: question and stated conclusion"
+    },
+    {
+      "id": "S4-E4",
+      "source_version_id": "doi:10.1177/0956797616658563/version/pdf-sha256-c30b8c46120eba7d",
+      "component_id": "S4-E4",
+      "start": 1456,
+      "end": 1886,
+      "quote": "We first evaluated if evidential value was present. As explained in Simonsohn et al. (2015), we\nconclude that a literature contains evidential value if either the half p-curve (which only analyzes critical\np-values below .025) is significantly right-skewed at the 5% level, or if both the half and full p-curve are\nsignificantly right skewed at the 10% level. Neither condition is met here (phalf=.11 and pfull=.63,\nrespectively).",
+      "normalized_sha256": "a9ef0b2cea193ee58611cc243f274cedfbc4f8539162b2112432e206fba64cc1",
+      "pdf_page": 7,
+      "label": "Results: test for evidential value"
+    }
+  ],
+  "checks": [
+    {
+      "id": "S2-reported-outcomes",
+      "kind": "content",
+      "scope": "S2's own statements of its results (two excerpts)",
+      "mapping_basis": "Finding 1 Evidence: 'S2 reports self-reported-power replication but no hormonal or behavioral effects; S4 reports no evidential value in the reviewed published-results set.'",
+      "requirements": [
+        {
+          "source_version_id": "doi:10.1177/0956797614553946/version/pdf-sha256-4ae91126e56da197",
+          "component_ids": [
+            "S2-E2",
+            "S2-E3"
+          ],
+          "passage_ids": [
+            "S2-E2",
+            "S2-E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4-evidential-value",
+      "kind": "content",
+      "scope": "S4's stated conclusion and evidential-value test (accepted manuscript)",
+      "mapping_basis": "Finding 1 Evidence: 'S2 reports self-reported-power replication but no hormonal or behavioral effects; S4 reports no evidential value in the reviewed published-results set.'",
+      "requirements": [
+        {
+          "source_version_id": "doi:10.1177/0956797616658563/version/pdf-sha256-c30b8c46120eba7d",
+          "component_ids": [
+            "S4-E3",
+            "S4-E4"
+          ],
+          "passage_ids": [
+            "S4-E3",
+            "S4-E4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S2-S4-venue",
+      "kind": "metadata",
+      "scope": "Venue printed on the S2 article and the S4 manuscript",
+      "mapping_basis": "Finding 2 Evidence: 'Independent S2 and S4 challenges appear in Psychological Science; S3 substantively engages S2 and calls for direct replications.'",
+      "requirements": [
+        {
+          "source_version_id": "doi:10.1177/0956797614553946/version/pdf-sha256-4ae91126e56da197",
+          "component_ids": [
+            "S2-E1"
+          ],
+          "passage_ids": [
+            "S2-E1"
+          ]
+        },
+        {
+          "source_version_id": "doi:10.1177/0956797616658563/version/pdf-sha256-c30b8c46120eba7d",
+          "component_ids": [
+            "S4-E1"
+          ],
+          "passage_ids": [
+            "S4-E1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S3-engages-S2",
+      "kind": "content",
+      "scope": "S3's own text; required for the S3 part of Finding 2",
+      "mapping_basis": "Finding 2 Evidence: 'Independent S2 and S4 challenges appear in Psychological Science; S3 substantively engages S2 and calls for direct replications.'",
+      "requirements": [
+        {
+          "source_version_id": "doi:10.1177/0956797614566855/version/not-retrieved",
+          "component_ids": [
+            "full_text"
+          ],
+          "passage_ids": []
+        }
+      ]
+    },
+    {
+      "id": "S4-describes-S3",
+      "kind": "content",
+      "scope": "S4's description of S3's response; S4's words, not S3's",
+      "mapping_basis": "Finding 2 Evidence: 'Independent S2 and S4 challenges appear in Psychological Science; S3 substantively engages S2 and calls for direct replications.'",
+      "requirements": [
+        {
+          "source_version_id": "doi:10.1177/0956797616658563/version/pdf-sha256-c30b8c46120eba7d",
+          "component_ids": [
+            "S4-E2"
+          ],
+          "passage_ids": [
+            "S4-E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S1-founding-results",
+      "kind": "content",
+      "scope": "S1's reported results; not mapped to a finding",
+      "mapping_basis": "Not mapped: neither finding's Evidence field cites S1 directly.",
+      "requirements": [
+        {
+          "source_version_id": "doi:10.1177/0956797610383437/version/not-retrieved",
+          "component_ids": [
+            "full_text"
+          ],
+          "passage_ids": []
+        }
+      ]
+    },
+    {
+      "id": "S2-methods",
+      "kind": "content",
+      "scope": "S2 Method section; present in the retrieved PDF but not retained as an excerpt",
+      "mapping_basis": "Not mapped: declared to show a missing component blocking only its own check.",
+      "requirements": [
+        {
+          "source_version_id": "doi:10.1177/0956797614553946/version/pdf-sha256-4ae91126e56da197",
+          "component_ids": [
+            "methods"
+          ],
+          "passage_ids": []
+        }
+      ]
+    }
+  ],
+  "finding_checks": {
+    "1": [
+      "S2-reported-outcomes",
+      "S4-evidential-value"
+    ],
+    "2": [
+      "S2-S4-venue",
+      "S3-engages-S2",
+      "S4-describes-S3"
+    ]
+  },
+  "null_check_ids": [],
+  "corpus": {
+    "id": "power-posing-four-source-excerpts",
+    "boundary": "The four sources in compliance/PACKET.md; bounded excerpts from the two retrievable copies (S2, S4) only.",
+    "selection": "Excerpts chosen to test the archived findings' Evidence fields; chosen after reading those findings, so selection is not blind.",
+    "retrieval_events": [
+      {
+        "source": "S1",
+        "requested_url": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full",
+        "final_url": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full",
+        "retrieved_at": "2026-10-30T10:58:19Z",
+        "http_status": 403,
+        "outcome": "RETRIEVAL_FAILED"
+      },
+      {
+        "source": "S2",
+        "requested_url": "https://faculty.haas.berkeley.edu/dana_carney/ranehill.pdf",
+        "final_url": "https://faculty.haas.berkeley.edu/dana_carney/ranehill.pdf",
+        "retrieved_at": "2026-10-30T10:58:19Z",
+        "http_status": 200,
+        "outcome": "AVAILABLE"
+      },
+      {
+        "source": "S3",
+        "requested_url": "https://www.researchgate.net/publication/274458966_Review_and_Summary_of_Research_on_the_Embodied_Effects_of_Expansive_vs_Contractive_Nonverbal_Displays",
+        "final_url": "https://www.researchgate.net/publication/274458966_Review_and_Summary_of_Research_on_the_Embodied_Effects_of_Expansive_vs_Contractive_Nonverbal_Displays",
+        "retrieved_at": "2026-10-30T10:58:19Z",
+        "http_status": 403,
+        "outcome": "RETRIEVAL_FAILED"
+      },
+      {
+        "source": "S4",
+        "requested_url": "https://faculty.haas.berkeley.edu/dana_carney/Simmons.Simonsoh.p-curve-evidence.pdf",
+        "final_url": "https://faculty.haas.berkeley.edu/dana_carney/Simmons.Simonsoh.p-curve-evidence.pdf",
+        "retrieved_at": "2026-10-30T10:58:19Z",
+        "http_status": 200,
+        "outcome": "AVAILABLE"
+      }
+    ],
+    "limitations": [
+      "S1 and S3 not retrieved (HTTP 403); their checks stay ineligible.",
+      "S4 is an accepted manuscript, not the version of record.",
+      "Excerpts come from PDF text extraction; extraction fidelity is re-verifiable with source_packet.py, not by the adapter.",
+      "A matching quotation shows the text is present; it does not show the passage supports the finding, or that the historical run read it."
+    ]
+  },
+  "declared_inputs": [
+    {
+      "path": "compliance/PACKET.md",
+      "sha256": "08f0ce60c649fa45dd10a04c22473806343be46a9bd9897b5b5f958f772a9945"
+    },
+    {
+      "path": "tests/atlas/sources/power-posing/SOURCES.json",
+      "sha256": "d2706909e0483ccdab5212192e5a0a799e107138ec54082d08d8f1fd4d97be70"
+    },
+    {
+      "path": "tests/atlas/sources/power-posing/S2-excerpts.txt",
+      "sha256": "f38381ce7020513995dfff9bb0a09d683ee11351a884e842f51983cf7e4ab9b6"
+    },
+    {
+      "path": "tests/atlas/sources/power-posing/S4-excerpts.txt",
+      "sha256": "074df0860103a210f446f2c4cdd49c9f63c6a2f4e9f87995a4b5bababddb91ec"
+    },
+    {
+      "path": "tests/atlas/reviews/power-posing/F1-S2-review-B.prompt.txt",
+      "sha256": "34f048ff01280f9cec7b46eff57f2c4c49d7140f7dd7fefb51cb6d3c9f77659e"
+    },
+    {
+      "path": "tests/atlas/reviews/power-posing/F1-S2-review-B.response.txt",
+      "sha256": "dbee1c4c843cb3ce685b74042f8577a11e18aefd8300d60b9ce3972f99050d5f"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "F1-S2-review-A",
+      "review_schema": "atlas-evidence-review/2",
+      "artifact": {
+        "path": "tests/atlas/reviews/power-posing/F1-S2-review-A.json",
+        "sha256": "77140ba4e438065d830c4d1709e048183243120c1117971306829d71841f1b8b"
+      }
+    },
+    {
+      "id": "F1-S2-review-B",
+      "review_schema": "atlas-evidence-review/2",
+      "artifact": {
+        "path": "tests/atlas/reviews/power-posing/F1-S2-review-B.json",
+        "sha256": "c7bd13001fb8a401f8e7b3089c9f2cd54eb3fca5d3f6bd41c55c4b76bac39c9d"
+      }
+    }
+  ]
+}

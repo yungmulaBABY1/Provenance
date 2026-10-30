@@ -1,0 +1,29 @@
+You are reviewing one bounded proposition about one published paper. Work only from the paper supplied below.
+
+PROPOSITION (verbatim; one clause from an audit finding, reproduced exactly):
+"S2 reports self-reported-power replication but no hormonal or behavioral effects"
+
+Here "S2" denotes this paper:
+Ranehill, E., Dreber, A., Johannesson, M., Leiberg, S., Sul, S., & Weber, R. A. (2015). Assessing the Robustness of Power Posing: No Effect on Hormones and Risk Tolerance in a Large Sample of Men and Women. Psychological Science, 26(5), 653-656. DOI 10.1177/0956797614553946.
+
+INPUTS (the only files you may open):
+- PDF: /tmp/claude-0/-home-user-Provenance/aaab5312-f1b6-563f-8a1d-2c025e1a4676/scratchpad/review/S2.pdf (SHA-256 4ae91126e56da19721f44c6942a536e3c2dcb22fe3a23de727f788afeb481369)
+- Text extracted from that PDF with `pdftotext -enc UTF-8 -layout`: /tmp/claude-0/-home-user-Provenance/aaab5312-f1b6-563f-8a1d-2c025e1a4676/scratchpad/review/S2.layout.txt
+
+Do not open any other file, directory, repository or web page, and do not run commands other than reading these two files. In particular do not look under /home/user/Provenance. If you open anything else, say so.
+
+TASK
+1. Read the whole paper: title, opening text, Method, Results, Discussion, notes, and any tables, figures or supplement references. Do not rely on any single sentence.
+2. Decide whether the paper, read in context, reports what the proposition says it reports. Treat the proposition as three parts: (a) self-reported power: did the paper report replicating a self-reported feelings-of-power effect? (b) hormonal outcomes: did it report no effect? (c) behavioral outcomes: did it report no effect? Assess each part separately.
+3. Actively look for qualifications, contrary passages, outcome distinctions (e.g., which behavioral tasks, which hormones, which subsamples or analyses, one-tailed vs two-tailed tests, exclusions), and stated limitations that could weaken the proposition or show it overstates or understates the paper.
+4. You are judging only what the paper REPORTS, not whether power posing works and not whether the paper is correct.
+
+OUTPUT (plain text, in this order):
+- DISPOSITION for the whole proposition: exactly one of SUPPORTS, SUPPORTS_WITH_QUALIFICATION, CONTRADICTS, INSUFFICIENT_EVIDENCE, PENDING.
+- PART (a), (b), (c): a disposition from the same list for each, with reasons.
+- LOCATORS: for each claim you rely on, page number, section, and a short exact quotation (at most two sentences) from the paper.
+- QUALIFICATIONS AND CONTRARY PASSAGES you found, with locators. Say explicitly if you searched for a kind of qualification and found none.
+- STRONGEST CONTRARY INTERPRETATION: the best case that the proposition misreports the paper.
+- WHAT WOULD CHANGE THIS ASSESSMENT.
+- UNAVAILABLE MATERIAL that the paper refers to but you could not read (e.g., supplemental material).
+- FILES OPENED: list every file you opened.
