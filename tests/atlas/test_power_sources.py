@@ -21,7 +21,8 @@ import unittest
 
 from atlas.adapter import build
 from atlas.contract import ContractError, passage_hash, sha256
-from atlas.ledger import read_export
+from atlas.integrity import verify_records
+from atlas.ledger import append, export, read_export
 from atlas.native import parse
 from test_adapter import BASELINE, ROOT, by_type
 
@@ -274,6 +275,18 @@ class PowerSourcePacketTests(unittest.TestCase):
         self.assert_no_clean_verdict(bundle)
 
     # --- import, export, restore, content replay ---------------------------
+
+    def test_shares_work_identities_with_existing_power_import(self):
+        power = json.loads((ROOT / "tests/atlas/power-control.json").read_text())
+        self.assertEqual(CONTEXT["works"], power["works"])
+        for artifact in power["declared_inputs"]:
+            shutil.copyfile(ROOT / artifact["path"], self.root / artifact["path"])
+        ledger = self.root / "ledger.sqlite"
+        append(ledger, build(power, self.root)["records"])
+        append(ledger, self.bundle["records"])
+        report = verify_records(read_export(export(ledger)))
+        self.assertEqual(report["native_projection_verified"],
+                         ["urn:atlas:import:power-control:1", "urn:atlas:import:power-posing-sources:1"])
 
     def test_import_export_restore_and_content_replay(self):
         context = self.root / "power-sources.json"
