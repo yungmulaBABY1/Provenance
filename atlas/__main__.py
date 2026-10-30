@@ -56,6 +56,7 @@ def main(argv=None):
                 write_once(args.out / name, data)
             print(canonical({"syntax": bundle["syntax"], "checker": bundle["checker_status"],
                              "records": len(bundle["records"]), "sha256": bundle["jsonl_sha256"],
+                             "notices": bundle["notices"],
                              "scientific_validation": "NOT_PERFORMED"}))
             return 1 if bundle["syntax"] == "FAIL" else 0
         if args.command == "export":

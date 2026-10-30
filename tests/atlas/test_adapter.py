@@ -311,10 +311,15 @@ class PipelineTests(unittest.TestCase):
         with self.assertRaisesRegex(ContractError, "INPUT_HASH_MISMATCH"):
             build(self.context, self.root)
         self.context["output"] = artifact(self.root, self.context["output"]["path"])
+        # The checker runs from the vendored baseline: a mutated working-tree
+        # checker is never executed, and the drift is reported, not fatal.
         checker = self.root / "prompts/research-analysis/check-citation-network-output.py"
         checker.write_text("raise RuntimeError('must never execute mutated checker')")
-        with self.assertRaisesRegex(ContractError, "INPUT_HASH_MISMATCH"):
-            build(self.context, self.root)
+        bundle = build(self.context, self.root)
+        self.assertEqual(bundle["checker_status"], "PASS")
+        drift = bundle["manifest"]["environment"]["validation_baseline_working_tree"]
+        self.assertEqual(drift["status"], "VALIDATION_BASELINE_DIFFERS_FROM_WORKING_TREE")
+        self.assertIn(checker.relative_to(self.root).as_posix(), [f["path"] for f in drift["files"]])
 
     def test_input_boundary_and_symlink(self):
         for path in ["../outside", "/etc/passwd"]:

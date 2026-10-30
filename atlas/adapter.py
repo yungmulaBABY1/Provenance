@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import platform
 from pathlib import Path
 import subprocess
@@ -18,12 +19,49 @@ from .sources import assess_checks, inspect_sources
 CHECKER = "prompts/research-analysis/check-citation-network-output.py"
 PROMPT = "prompts/research-analysis/2-citation-network.txt"
 BASELINE_PATH = Path(__file__).with_name("baseline.json")
+# Exact copies of the pinned files. The validation baseline is resolved from
+# here, never from working-tree prompts, so routine prompt edits do not break
+# import. (Git objects are not used: CI's shallow checkout lacks older blobs.)
+BASELINE_FILES = Path(__file__).with_name("baseline") / "files"
 
 
-def pinned_checker(root, raw_bytes, baseline):
+def git_blob_sha1(data: bytes) -> str:
+    return hashlib.sha1(b"blob %d\0" % len(data) + data).hexdigest()
+
+
+def vendored(entry: dict) -> bytes:
+    path = Path(entry["path"])
+    if path.is_absolute() or ".." in path.parts or not path.parts:
+        raise ContractError(f"INPUT_BOUNDARY: baseline {path}")
+    try:
+        data = (BASELINE_FILES / path).read_bytes()
+    except OSError as exc:
+        raise ContractError(f"BASELINE_UNAVAILABLE: {path}") from exc
+    if (sha256(data) != entry["sha256"] or git_blob_sha1(data) != entry["git_blob_sha1"]
+            or len(data) != entry["bytes"]):
+        raise ContractError(f"BASELINE_HASH_MISMATCH: {path}")
+    return data
+
+
+def working_tree_drift(root: Path, baseline: dict, pinned: dict[str, bytes]) -> dict:
+    """Report, never fail on, working-tree files that differ from the vendored baseline."""
+    files = []
+    for path in sorted(baseline["files"]):
+        candidate = (root / path).resolve()
+        if not candidate.is_relative_to(root.resolve()) or not candidate.is_file():
+            files.append({"path": path, "working_tree": "MISSING"})
+            continue
+        data = candidate.read_bytes()
+        if data != pinned[path]:
+            files.append({"path": path, "working_tree": "DIFFERS", "working_tree_sha256": sha256(data)})
+    if not files:
+        return {"status": "MATCHES_VENDORED_BASELINE", "files": []}
+    return {"status": "VALIDATION_BASELINE_DIFFERS_FROM_WORKING_TREE", "files": files,
+            "effect": "none; validation used the vendored baseline"}
+
+
+def pinned_checker(raw_bytes, pinned):
     # Executable path is fixed by code, never taken from the audit output/sidecar.
-    pinned = {path: read_artifact(root, baseline["files"][path])
-              for path in (CHECKER, PROMPT, "reference/shared-primitives.txt")}
     # Execute exactly the verified bytes. Do not re-open mutable user paths after
     # validation or import neighboring Python files from a corpus directory.
     with tempfile.TemporaryDirectory(prefix="atlas-check-") as directory:
@@ -57,7 +95,9 @@ def build(context: dict, root: Path) -> dict:
     except UnicodeError as exc:
         raise ContractError("OUTPUT_NOT_UTF8") from exc
     parsed = parse(raw)
-    checker = pinned_checker(root, raw_bytes, baseline)
+    pinned = {path: vendored(entry) for path, entry in sorted(baseline["files"].items())}
+    drift = working_tree_drift(root, baseline, pinned)
+    checker = pinned_checker(raw_bytes, pinned)
     # Source preflight is computed before granting any finding/display eligibility.
     source_records, receipts, anchors = inspect_sources(context, root)
     check_results = assess_checks(context, receipts, anchors)
@@ -171,7 +211,9 @@ def build(context: dict, root: Path) -> dict:
                       declared_input_receipts=inputs,
                       source_input_receipts=[r["declared_input"] for r in receipts.values() if r["declared_input"]],
                       environment={"implementation": platform.python_implementation(),
-                                   "python": platform.python_version(), "unicode": __import__("unicodedata").unidata_version},
+                                   "python": platform.python_version(), "unicode": __import__("unicodedata").unidata_version,
+                                   # The checkout an import runs in is environment, not input.
+                                   "validation_baseline_working_tree": drift},
                       checker=checker, records_before_manifest_sha256=sha256(jsonl(records)),
                       record_ids=sorted(r["id"] for r in records),
                       execution={"network": "NOT_USED; no OS-level network sandbox is claimed",
@@ -184,4 +226,5 @@ def build(context: dict, root: Path) -> dict:
     payload = jsonl(records)
     return {"records": records, "jsonl": payload, "manifest": manifest,
             "syntax": syntax, "checker_status": checker["status"],
+            "notices": [drift["status"]] if drift["files"] else [],
             "jsonl_sha256": sha256(payload)}
