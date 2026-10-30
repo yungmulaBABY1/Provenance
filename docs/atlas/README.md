@@ -300,6 +300,38 @@ show what that model read, and the adapter's read does not show it either.
 - `tools/embed_prompts.py --check` still returns STALE; this is pre-existing
   baseline debt, not addressed here.
 
+## Real-source packet: power posing
+
+The first real-source packet connects the four-source power-posing pilot
+([compliance/PACKET.md](../../compliance/PACKET.md)) to the archived pilot output
+([compliance/run-output.md](../../compliance/run-output.md)). It uses the existing
+adapter and import-context format; no new runtime or record type was added.
+Details, coverage and limits are in
+[tests/atlas/sources/power-posing/README.md](../../tests/atlas/sources/power-posing/README.md).
+
+- **Coverage (retrieved 2026-10-30):**
+  - S2 (publisher PDF, author-hosted) and S4 (accepted manuscript) were
+    retrieved and hashed; seven bounded excerpts are kept.
+  - S1 and S3 returned HTTP 403 and are recorded as `RETRIEVAL_FAILED`.
+- **Excerpt files:** each excerpt is an exact substring of pinned `pdftotext`
+  output. The adapter reads only the committed excerpt files, so every content
+  check is at most `ELIGIBLE_WITH_LIMITATIONS`. The excerpt-to-PDF link is
+  re-verified separately by `source_packet.py verify`, which needs network
+  access.
+- **Mappings:** each archived finding maps only to the sources its own Evidence
+  field names. Finding 1 is eligible for its declared checks with limitations.
+  Finding 2 is `NOT_ASSESSABLE`, because S3's own text is missing; S4's
+  description of S3 does not stand in for it.
+- **Three separate facts:** the historical assertion (`native`, e.g.
+  `FULL-TEXT-CONFIRMED`), what the adapter reads and matches now (receipts,
+  anchors, eligibility), and substantive support (`assessment: UNREVIEWED`,
+  relationships `UNADJUDICATED`). A matching quotation is not scientific support
+  and does not show what the historical run read.
+- **Controls** (`test_power_sources.py`): missing methods, failed extraction,
+  changed source bytes, incorrect or reflowed quotations, unavailable sources,
+  and all sources missing. Missing evidence blocks only the checks that depend
+  on it, and never yields a clean state.
+
 ## Validation and independent review
 
 [EXPECTED.txt](../../tests/atlas/EXPECTED.txt) was written before implementation;
@@ -322,8 +354,8 @@ See [REVIEW_HANDOFF.txt](REVIEW_HANDOFF.txt) for the independent reviewer task a
 [validation.json](../../tests/atlas/validation.json) for locally executed results.
 CI is configured; a workflow file alone is not evidence of a hosted CI pass.
 
-Next: independent adversarial code review of this pinned slice, then a rights-cleared
-real source packet with reviewable component/anchor mappings and a separately
-attributed counter-audit. Broader instrument adapters, persistent shared services,
+Next: independent review of the power-posing source packet's mappings and excerpt
+choice; versioned historical grammars so archived outputs can be read under their own
+contract; and a separately attributed counter-audit. Broader instrument adapters, persistent shared services,
 API ingestion, claims/adjudication schemas, and Research/Media interfaces remain
 proposed work.
