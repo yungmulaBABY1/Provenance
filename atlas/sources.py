@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-from .contract import passage_hash, read_artifact, record, sha256, NORMALIZER
+from .contract import normalize, passage_hash, read_artifact, record, sha256, NORMALIZER
 
 
 def inspect_sources(context: dict, root: Path) -> tuple[list[dict], dict, dict]:
@@ -71,14 +71,22 @@ def inspect_sources(context: dict, root: Path) -> tuple[list[dict], dict, dict]:
             start, end = passage["start"], passage["end"]
             status = "UNRESOLVABLE"
             actual_hash = None
+            exact = normalized = declared = False
             if text is not None and source["access_outcome"] == "AVAILABLE" and direct_text:
+                status = "MISMATCH"
                 if (comp and comp["start"] <= start < end <= comp["end"]
                         and 0 <= start < end <= len(text)):
-                    actual_hash = passage_hash(text[start:end])
-                    status = "MATCH" if (actual_hash == passage["normalized_sha256"]
-                                          == passage_hash(passage["quote"])) else "MISMATCH"
-                else:
-                    status = "MISMATCH"
+                    span, quote = text[start:end], passage["quote"]
+                    actual_hash = passage_hash(span)
+                    exact = span == quote
+                    normalized = normalize(span) == normalize(quote)
+                    # A declared hash that disagrees with the quote is an
+                    # inconsistent context, whatever the span says.
+                    declared = passage["normalized_sha256"] == passage_hash(quote)
+                    if declared and exact:
+                        status = "MATCH"
+                    elif declared and normalized:
+                        status = "NORMALIZED_MATCH_ONLY"
             anchor = record("Passage", f"{run_id}/passage/{passage['id']}",
                             native_id=passage["id"], source_version_id=sid,
                             receipt_id=receipt_id, locator={"component_id": passage["component_id"],
@@ -86,7 +94,8 @@ def inspect_sources(context: dict, root: Path) -> tuple[list[dict], dict, dict]:
                             "interval": "half_open"}, quote=passage["quote"],
                             normalizer=NORMALIZER, hash_algorithm="sha256",
                             expected_normalized_sha256=passage["normalized_sha256"],
-                            actual_normalized_sha256=actual_hash, match=status,
+                            actual_normalized_sha256=actual_hash, declared_hash_match=declared,
+                            exact_match=exact, normalized_match=normalized, match=status,
                             diagnostic="ANCHOR_MISMATCH" if status == "MISMATCH" else status,
                             version_confidence=source["version_confidence"],
                             public_release="NOT_REVIEWED", refs=[sid, receipt_id])
@@ -126,7 +135,10 @@ def assess_checks(context: dict, receipts: dict, anchors: dict) -> dict:
                     anchor = anchors[pid]
                     if anchor["locator"]["component_id"] not in requirement["component_ids"]:
                         pending.append(f"ANCHOR_OUTSIDE_CHECK_SCOPE:{pid}")
-                    if anchor["match"] != "MATCH":
+                    if anchor["match"] == "NORMALIZED_MATCH_ONLY":
+                        # Not an exact quotation: a named limitation, never full eligibility.
+                        limitations.append(f"NORMALIZED_MATCH_ONLY:{pid}")
+                    elif anchor["match"] != "MATCH":
                         pending.append(f"{anchor['diagnostic']}:{pid}")
             if receipt["warnings"] or receipt["failed_components"]:
                 limitations.append(receipt["id"])

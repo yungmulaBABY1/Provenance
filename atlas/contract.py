@@ -9,15 +9,16 @@ from pathlib import Path
 import re
 import unicodedata
 
-from . import SCHEMA
+from . import CONTEXT_SCHEMA, SCHEMA
 
-NORMALIZER = "nfkc-whitespace/1"
+NORMALIZER = "nfc-whitespace/2"
 TYPES = {"Work", "SourceVersion", "SourceReadReceipt", "Passage", "CorpusScope",
          "AuditRun", "AuditFinding", "Relationship", "ReviewDecision", "RunManifest"}
 READ_STATES = {"NOT_RETRIEVED", "RETRIEVAL_FAILED", "METADATA_ONLY", "PARTIAL_READ",
                "READ_FOR_DECLARED_SCOPE", "EXTRACTION_UNVERIFIED"}
 ELIGIBILITY = {"ELIGIBLE", "ELIGIBLE_WITH_LIMITATIONS", "PENDING_SOURCE_VERIFICATION",
                "INELIGIBLE_MISSING_EVIDENCE", "NOT_APPLICABLE"}
+ANCHOR_STATES = {"MATCH", "NORMALIZED_MATCH_ONLY", "MISMATCH", "UNRESOLVABLE"}
 KINDS = {"metadata", "text", "page", "section", "table", "figure", "equation",
          "references", "appendix", "supplement"}
 RECORD_FIELDS = {
@@ -29,7 +30,8 @@ RECORD_FIELDS = {
                           "failed_components": list, "warnings": list, "receipt_sha256": str,
                           "per_check_eligibility": dict},
     "Passage": {"source_version_id": str, "receipt_id": str, "locator": dict,
-                "quote": str, "match": str, "normalizer": str},
+                "quote": str, "match": str, "normalizer": str,
+                "exact_match": bool, "normalized_match": bool},
     "CorpusScope": {"declared": dict, "imported_source_lock": dict, "lock_verification": str},
     "AuditRun": {"target_work_id": str, "model": dict, "runner": dict, "exposure": dict,
                  "output_sha256": str, "context_sha256": str, "syntax": str,
@@ -73,8 +75,9 @@ def digest(value: object) -> str:
 
 
 def normalize(text: str) -> str:
-    # NFKC expands ligatures. Deliberately do not dehyphenate or relocate passages.
-    return " ".join(unicodedata.normalize("NFKC", text).split())
+    # NFC + whitespace collapse only. NFKC is not used: it equates 10² with 102,
+    # H₂O with H2O and µ with μ. Never dehyphenate or relocate passages.
+    return " ".join(unicodedata.normalize("NFC", text).split())
 
 
 def passage_hash(text: str) -> str:
@@ -150,7 +153,7 @@ def validate_context(context: dict) -> None:
                       "works": list, "sources": list, "passages": list,
                       "checks": list, "finding_checks": dict, "corpus": dict,
                       "declared_inputs": list, "reviews": list}, "context")
-    if context["schema_version"] != SCHEMA:
+    if context["schema_version"] != CONTEXT_SCHEMA:
         raise ContractError("UNSUPPORTED_SCHEMA")
     require(context["run"], {"id": str, "target_work_id": str, "imported_at": str,
                              "origin": str, "model": dict, "runner": dict,
@@ -249,8 +252,14 @@ def validate_records(records: list[dict]) -> None:
             expected = digest({k: v for k, v in item.items() if k != "receipt_sha256"})
             if item["receipt_sha256"] != expected:
                 raise ContractError("RECEIPT_HASH_MISMATCH")
-        if item["type"] == "Passage" and item["match"] not in {"MATCH", "MISMATCH", "UNRESOLVABLE"}:
-            raise ContractError("INVALID_LABEL: anchor match")
+        if item["type"] == "Passage":
+            if item["match"] not in ANCHOR_STATES:
+                raise ContractError("INVALID_LABEL: anchor match")
+            # Only an exact code-point match may be displayed as MATCH.
+            if ((item["match"] == "MATCH" and not item["exact_match"])
+                    or (item["match"] == "NORMALIZED_MATCH_ONLY"
+                        and (item["exact_match"] or not item["normalized_match"]))):
+                raise ContractError("INVALID_LABEL: anchor match contradicts exact/normalized fields")
         if item["type"] == "AuditRun" and sha256(item["raw_output_text"].encode("utf-8")) != item["output_sha256"]:
             raise ContractError("OUTPUT_HASH_MISMATCH")
         for ref in item["refs"]:

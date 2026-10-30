@@ -265,7 +265,9 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(by_type(second, "Passage")[0]["match"], "MATCH")
 
     def test_normalizer_is_explicit_and_conservative(self):
-        self.assertEqual(passage_hash("a  ﬁle\n b"), passage_hash("a file b"))
+        self.assertEqual(passage_hash("a  file\n b"), passage_hash("a file b"))
+        # nfc-whitespace/2: compatibility forms such as ligatures are not folded.
+        self.assertNotEqual(passage_hash("a ﬁle"), passage_hash("a file"))
         self.assertNotEqual(passage_hash("re-\nsult"), passage_hash("result"))
 
     def test_instruction_in_source_is_data(self):
@@ -370,7 +372,7 @@ class PipelineTests(unittest.TestCase):
         append(db, first["records"])
         before = export(db)
         changed = copy.deepcopy(first["records"])
-        changed.append({"schema_version": "atlas-adapter/0.1", "id": "aaa-new", "type": "Work", "metadata": {}, "refs": []})
+        changed.append({"schema_version": first["records"][0]["schema_version"], "id": "aaa-new", "type": "Work", "metadata": {}, "refs": []})
         next(r for r in changed if r["type"] == "AuditRun")["model"]["identity"] = "changed model claim"
         with self.assertRaisesRegex(ContractError, "ID_CONTENT_CONFLICT"):
             append(db, changed)
