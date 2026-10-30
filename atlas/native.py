@@ -7,6 +7,12 @@ This parser does not infer a label from prose or translate old vocabularies.
 
 import re
 
+# Bump VERSION whenever parse() output can change for the same input text;
+# restore re-derives native records only for versions listed as supported.
+NAME = "atlas-citation-network-native"
+VERSION = "1"
+SUPPORTED_VERSIONS = frozenset({VERSION})
+
 FINAL = "FINAL SECTION: STANDARDIZED FINDING TABLE"
 FIELDS = ("Finding", "Target claim", "What was measured", "What was claimed",
           "Failure mode", "Severity", "Concede test", "Scope loss if NARROWS",

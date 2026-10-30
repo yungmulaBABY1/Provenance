@@ -7,8 +7,8 @@ service, tamper-proof archive, authentication system or public release gate.
 from pathlib import Path
 import sqlite3
 
-from .contract import (ContractError, canonical, jsonl, load_json, sha256,
-                       validate_records, verify_manifest_hashes)
+from .contract import ContractError, canonical, jsonl, load_json, sha256, validate_records
+from .integrity import verify_records
 
 
 def connect(path: Path):
@@ -37,7 +37,8 @@ def append(path: Path, records: list[dict]) -> int:
             else:
                 db.execute("INSERT INTO records VALUES (?, ?, ?)", (rec["id"], payload, checksum))
                 inserted += 1
-        verify_manifest_hashes(records)
+        # Inside the transaction: any integrity failure rolls back every insert.
+        verify_records(records)
         db.commit()
         return inserted
     except BaseException:
@@ -63,7 +64,7 @@ def export(path: Path) -> bytes:
             records.append(obj)
         if not records:
             return b""
-        verify_manifest_hashes(records)
+        verify_records(records)
         return jsonl(records)
     finally:
         db.close()
@@ -72,5 +73,5 @@ def export(path: Path) -> bytes:
 def read_export(data: bytes) -> list[dict]:
     records = [load_json(line) for line in data.splitlines() if line.strip()]
     validate_records(records)
-    verify_manifest_hashes(records)
+    verify_records(records)
     return records

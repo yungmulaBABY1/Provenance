@@ -11,6 +11,7 @@ import tempfile
 from . import SCHEMA, VERSION
 from .contract import (ContractError, canonical, digest, jsonl, load_json, read_artifact,
                        record, sha256, validate_context)
+from . import native
 from .native import parse
 from .sources import assess_checks, inspect_sources
 
@@ -148,12 +149,15 @@ def build(context: dict, root: Path) -> dict:
                           semantic_review="SEMANTIC_REVIEW_REQUIRED", human_review="NOT_RECORDED",
                           clean_display="SCOPED_NULL_ASSERTION_ONLY" if scoped_null else "NOT_ASSESSABLE_AS_CLEAN",
                           null_assertion=parsed["null_assertion"], null_check_ids=null_checks,
+                          corpus_scope_id=corpus_id,
                           paper_clean=False, public_release="NOT_REVIEWED",
                           refs=[run["target_work_id"], corpus_id, *review_ids]))
     code_files = {p.name: sha256(p.read_bytes()) for p in sorted(Path(__file__).parent.glob("*.py"))}
     manifest = record("RunManifest", f"{rid}/manifest", audit_run_id=rid,
                       adapter={"name": "citation-network", "version": VERSION,
                                "code_sha256": code_files, "baseline_sha256": sha256(BASELINE_PATH.read_bytes())},
+                      parser={"name": native.NAME, "version": native.VERSION,
+                              "code_sha256": sha256(Path(native.__file__).read_bytes())},
                       validation_baseline=baseline, input_context=context,
                       declared_input_receipts=inputs,
                       source_input_receipts=[r["declared_input"] for r in receipts.values() if r["declared_input"]],

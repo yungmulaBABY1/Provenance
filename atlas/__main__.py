@@ -6,6 +6,7 @@ import sys
 
 from .adapter import build
 from .contract import ContractError, canonical, load_json, sha256
+from .integrity import verify_records
 from .ledger import append, export, read_export
 
 
@@ -60,7 +61,8 @@ def main(argv=None):
         if args.command == "export":
             write_once(args.out, export(args.ledger))
         elif args.command == "restore":
-            print(canonical({"inserted": append(args.ledger, read_export(args.jsonl.read_bytes()))}))
+            records = read_export(args.jsonl.read_bytes())
+            print(canonical({"inserted": append(args.ledger, records), **verify_records(records)}))
         else:
             manifest = load_json(args.manifest.read_bytes())
             bundle = build(manifest["input_context"], args.root.resolve())

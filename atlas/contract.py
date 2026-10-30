@@ -34,14 +34,15 @@ RECORD_FIELDS = {
     "AuditRun": {"target_work_id": str, "model": dict, "runner": dict, "exposure": dict,
                  "output_sha256": str, "context_sha256": str, "syntax": str,
                  "source_checks": dict, "paper_clean": bool, "human_review": str,
-                 "raw_output_text": str},
+                 "raw_output_text": str, "corpus_scope_id": str, "native_scorecard": list,
+                 "native_parse_issues": list},
     "AuditFinding": {"audit_run_id": str, "native": dict, "source_checks": list,
                      "evidence_passage_ids": list, "import_status": str, "assessment": str},
     "Relationship": {"subject_id": str, "object_id": str, "kind": str,
                      "relation_basis": str, "epistemic_status": str},
     "ReviewDecision": {"artifact": dict, "target_binding": str, "imported_disposition": str,
                        "independence": str, "human_adjudication": str},
-    "RunManifest": {"audit_run_id": str, "adapter": dict, "input_context": dict,
+    "RunManifest": {"audit_run_id": str, "adapter": dict, "parser": dict, "input_context": dict,
                     "environment": dict, "checker": dict, "record_ids": list,
                     "records_before_manifest_sha256": str},
 }
@@ -49,7 +50,7 @@ REFERENCE_FIELDS = {
     "SourceVersion": ("work_id",),
     "SourceReadReceipt": ("audit_run_id", "work_id", "source_version_id", "source_lock_ref"),
     "Passage": ("source_version_id", "receipt_id"),
-    "AuditRun": ("target_work_id",), "AuditFinding": ("audit_run_id",),
+    "AuditRun": ("target_work_id", "corpus_scope_id"), "AuditFinding": ("audit_run_id",),
     "Relationship": ("subject_id", "object_id"), "RunManifest": ("audit_run_id",),
 }
 
@@ -255,20 +256,6 @@ def validate_records(records: list[dict]) -> None:
         for ref in item["refs"]:
             if ref not in by_id:
                 raise ContractError(f"UNRESOLVED_REFERENCE: {item['id']} -> {ref}")
-
-
-def verify_manifest_hashes(records: list[dict]) -> None:
-    by_id = unique(records, "records")
-    for manifest in (r for r in records if r["type"] == "RunManifest"):
-        ids = manifest["record_ids"]
-        if (len(ids) != len(set(ids)) or manifest["id"] in ids
-                or any(id not in by_id for id in ids)):
-            raise ContractError("INVALID_MANIFEST_RECORD_SET")
-        if any(by_id[id]["type"] == "RunManifest" for id in ids):
-            raise ContractError("INVALID_MANIFEST_RECORD_SET")
-        payload = jsonl([by_id[id] for id in ids])
-        if sha256(payload) != manifest["records_before_manifest_sha256"]:
-            raise ContractError("MANIFEST_RECORD_HASH_MISMATCH")
 
 
 def jsonl(records: list[dict]) -> bytes:
