@@ -224,6 +224,12 @@ def validate_context(context: dict) -> None:
     require(context["corpus"], {"id": str, "boundary": str, "selection": str,
                                "retrieval_events": list, "limitations": list}, "corpus")
     for review in context["reviews"]:
+        if "review_schema" in review:
+            # Structured review: target and attribution live in the hashed artifact.
+            require(review, {"id": str, "artifact": dict, "review_schema": str}, "review")
+            if review["review_schema"] != "atlas-evidence-review/1":
+                raise ContractError(f"UNSUPPORTED_REVIEW_SCHEMA: {review['review_schema']}")
+            continue
         require(review, {"id": str, "artifact": dict, "target_output_sha256": str,
                          "reviewer": str, "exposure": str, "disposition": str}, "review")
 

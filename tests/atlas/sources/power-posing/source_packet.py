@@ -24,6 +24,7 @@ import urllib.request
 
 HERE = Path(__file__).resolve().parent
 SOURCES = HERE / "SOURCES.json"
+REVIEWS = HERE.parent.parent / "reviews" / "power-posing"
 EXTRACTION = ["pdftotext", "-enc", "UTF-8"]  # default reading-order mode, no -layout
 
 # Packet sources (compliance/PACKET.md). Excerpts are located by exact start and
@@ -173,16 +174,17 @@ def write_excerpt_files() -> None:
             (HERE / f"{source_id}-excerpts.txt").write_text(text, encoding="utf-8")
 
 
-def verify(sources=None, directory=None, fetcher=None, extractor=None) -> int:
+def verify(sources=None, directory=None, fetcher=None, extractor=None, reviews=None) -> int:
     """Return 0 only if every retrieved source, its whole extraction and every excerpt match.
 
     The keyword arguments let the offline regression test supply sources and an
     extractor without network access or poppler.
     """
-    sources, directory = sources or SOURCES, directory or HERE
+    sources, directory, reviews = sources or SOURCES, directory or HERE, reviews or REVIEWS
     fetcher, extractor = fetcher or fetch, extractor or extract
     data = json.loads(sources.read_text())
     failures = 0
+    texts = {}
     print(f"extraction tool here: {poppler_version()}")
     for source_id, record in data["sources"].items():
         retrieval = record["retrieval"]
@@ -201,6 +203,7 @@ def verify(sources=None, directory=None, fetcher=None, extractor=None) -> int:
         # A changed extraction fails even when every excerpt still matches: the
         # recorded offsets and sections describe the whole recorded output.
         failures += not same
+        texts[record["doi"]] = text
         for excerpt in record["excerpts"]:
             at = text[excerpt["extraction_start"]:excerpt["extraction_end"]]
             ok = at == excerpt["text"] and sha256(at.encode("utf-8")) == excerpt["sha256"]
@@ -210,6 +213,20 @@ def verify(sources=None, directory=None, fetcher=None, extractor=None) -> int:
         committed = (directory / f"{source_id}-excerpts.txt").read_text(encoding="utf-8")
         print(f"  {source_id}-excerpts.txt: {'matches' if committed == expected else 'FAIL differs'}")
         failures += committed != expected
+    # Review locators (atlas-evidence-review/1) cite the same pinned extraction.
+    for path in sorted(reviews.glob("*.json")) if reviews.is_dir() else []:
+        review = json.loads(path.read_text(encoding="utf-8"))
+        doi = review["target"]["source_version_id"].split("doi:", 1)[1].split("/version/")[0]
+        if doi not in texts:
+            print(f"{path.name}: FAIL no verified extraction for {doi}")
+            failures += 1
+            continue
+        bad = [loc["id"] for loc in review["locators"]
+               if texts[doi][loc["extraction_start"]:loc["extraction_end"]] != loc["quote"]
+               or sha256(loc["quote"].encode("utf-8")) != loc["quote_sha256"]]
+        print(f"{path.name}: {len(review['locators']) - len(bad)}/{len(review['locators'])} locators OK"
+              + (f"; FAIL {', '.join(bad)}" if bad else ""))
+        failures += bool(bad)
     return 1 if failures else 0
 
 

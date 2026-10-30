@@ -355,7 +355,8 @@ class SourceVerifierTests(unittest.TestCase):
         out = io.StringIO()
         with contextlib.redirect_stdout(out):
             code = source_packet.verify(sources=self.dir / "SOURCES.json", directory=self.dir,
-                                        fetcher=fetcher, extractor=lambda pdf: text)
+                                        fetcher=fetcher, extractor=lambda pdf: text,
+                                        reviews=self.dir / "reviews")
         return code, out.getvalue()
 
     def test_identical_extraction_passes(self):
@@ -374,6 +375,25 @@ class SourceVerifierTests(unittest.TestCase):
         code, out = self.run_verify(self.TEXT.replace("alpha", "ALPHA"))
         self.assertEqual(code, 1, out)
         self.assertIn("X-E1: FAIL at recorded offsets", out)
+
+    def write_review(self, quote, start):
+        (self.dir / "reviews").mkdir(exist_ok=True)
+        (self.dir / "reviews" / "r.json").write_text(json.dumps({
+            "target": {"source_version_id": "doi:10.0000/synthetic/version/x"},
+            "locators": [{"id": "L1", "extraction_start": start, "extraction_end": start + len(quote),
+                          "quote": quote, "quote_sha256": sha256(quote.encode("utf-8"))}]}))
+
+    def test_review_locators_checked(self):
+        self.write_review("unquoted tail", self.TEXT.index("unquoted tail"))
+        code, out = self.run_verify(self.TEXT)
+        self.assertEqual(code, 0, out)
+        self.assertIn("r.json: 1/1 locators OK", out)
+
+    def test_review_locator_at_wrong_offset_fails(self):
+        self.write_review("unquoted tail", self.TEXT.index("unquoted tail") + 1)
+        code, out = self.run_verify(self.TEXT)
+        self.assertEqual(code, 1, out)
+        self.assertIn("FAIL L1", out)
 
     def test_changed_source_bytes_fail(self):
         self.PDF = b"%PDF-1.4 different bytes"
