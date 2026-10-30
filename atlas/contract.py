@@ -37,7 +37,7 @@ RECORD_FIELDS = {
                  "output_sha256": str, "context_sha256": str, "syntax": str,
                  "source_checks": dict, "paper_clean": bool, "human_review": str,
                  "raw_output_text": str, "corpus_scope_id": str, "native_scorecard": list,
-                 "native_parse_issues": list},
+                 "native_parse_issues": list, "producing_instrument_compliance": str},
     "AuditFinding": {"audit_run_id": str, "native": dict, "source_checks": list,
                      "evidence_passage_ids": list, "import_status": str, "assessment": str},
     "Relationship": {"subject_id": str, "object_id": str, "kind": str,
@@ -260,6 +260,9 @@ def validate_records(records: list[dict]) -> None:
                     or (item["match"] == "NORMALIZED_MATCH_ONLY"
                         and (item["exact_match"] or not item["normalized_match"]))):
                 raise ContractError("INVALID_LABEL: anchor match contradicts exact/normalized fields")
+        if (item["type"] == "AuditRun" and item["producing_instrument_compliance"]
+                not in {"UNDETERMINED", "CONFORMS", "VIOLATION"}):
+            raise ContractError("INVALID_LABEL: producing_instrument_compliance")
         if item["type"] == "AuditRun" and sha256(item["raw_output_text"].encode("utf-8")) != item["output_sha256"]:
             raise ContractError("OUTPUT_HASH_MISMATCH")
         for ref in item["refs"]:

@@ -3,6 +3,10 @@
 Only top-level standardized finding tables, Artifact 8 scorecards and explicit
 source-lock lines are structured. Other audit text remains in the input receipt.
 This parser does not infer a label from prose or translate old vocabularies.
+
+Rule failures are CURRENT_CONTRACT_MISMATCH: they are relative to the grammar
+implemented here, not to whatever instrument produced the output. Whether the
+producing instrument was violated is decided per run, not by this parser.
 """
 
 import re
@@ -10,7 +14,7 @@ import re
 # Bump VERSION whenever parse() output can change for the same input text;
 # restore re-derives native records only for versions listed as supported.
 NAME = "atlas-citation-network-native"
-VERSION = "1"
+VERSION = "2"
 SUPPORTED_VERSIONS = frozenset({VERSION})
 
 FINAL = "FINAL SECTION: STANDARDIZED FINDING TABLE"
@@ -140,7 +144,7 @@ def parse(text):
         severe = labels.get("Severity") in {"major", "fatal-for-strong-claim"}
         if severe and (labels.get("Concede test") == "SURVIVES"
                        or "PROVISIONAL" in labels.get("Verification state", [])):
-            local.append(issue("INSTRUMENT_VIOLATION", "severity/verification/concede consistency"))
+            local.append(issue("CURRENT_CONTRACT_MISMATCH", "severity/verification/concede consistency"))
         first, last = block[0][0], block[-1][0]
         raw_block = "\n".join(text.splitlines()[first - 1:last])
         findings.append({"number": number, "fields": fields, "labels": labels,
@@ -200,12 +204,12 @@ def parse(text):
             errors.append(issue("INVALID_LABEL", "Dimension disposition", number))
         if disposition and disposition.startswith("SCORED "):
             if fields.get("Score if SCORED") != disposition[-1]:
-                errors.append(issue("INSTRUMENT_VIOLATION", "score disagrees with disposition", number))
+                errors.append(issue("CURRENT_CONTRACT_MISMATCH", "score disagrees with disposition", number))
             aggregation = fields.get("AGGREGATION STATUS", "")
             if aggregation != "INDEPENDENT" and not re.fullmatch(r"NESTED under \S.*", aggregation):
                 errors.append(issue("INVALID_LABEL", "AGGREGATION STATUS", number))
         elif fields.get("Score if SCORED") not in {"", "—", "-", "N/A"}:
-            errors.append(issue("INSTRUMENT_VIOLATION", "unscored dimension has numeric score", number))
+            errors.append(issue("CURRENT_CONTRACT_MISMATCH", "unscored dimension has numeric score", number))
         scorecard.append({"fields": fields, "line": number, "raw": line})
     names = [r["fields"].get("Dimension") for r in scorecard]
     if len(names) != len(set(names)):

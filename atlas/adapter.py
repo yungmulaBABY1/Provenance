@@ -84,6 +84,14 @@ def build(context: dict, root: Path) -> dict:
                           imported_source_lock=parsed["source_lock"], lock_verification="NOT_VERIFIED",
                           refs=[s["id"] for s in context["sources"]]))
     syntax = "FAIL" if parsed["issues"] or checker["status"] == "FAIL" else checker["status"]
+    # Compliance with the producing instrument is only decidable when that
+    # instrument is verified to be the grammar the parser and checker implement.
+    instrument = run["historical_instrument"]
+    if (instrument["verification"] == "VERIFIED"
+            and instrument["identity"] == baseline["files"][PROMPT]["git_blob_sha1"]):
+        compliance = "VIOLATION" if syntax == "FAIL" else "CONFORMS"
+    else:
+        compliance = "UNDETERMINED"
     for index, finding in enumerate(parsed["findings"], 1):
         fid = f"{rid}/finding/{index}"
         check_ids = context["finding_checks"].get(str(finding["number"]), [])
@@ -146,6 +154,7 @@ def build(context: dict, root: Path) -> dict:
                           native_scorecard=parsed["scorecard"],
                           source_checks=check_results, native_parse_issues=parsed["issues"],
                           syntax=syntax, checker_status=checker["status"],
+                          producing_instrument_compliance=compliance,
                           semantic_review="SEMANTIC_REVIEW_REQUIRED", human_review="NOT_RECORDED",
                           clean_display="SCOPED_NULL_ASSERTION_ONLY" if scoped_null else "NOT_ASSESSABLE_AS_CLEAN",
                           null_assertion=parsed["null_assertion"], null_check_ids=null_checks,

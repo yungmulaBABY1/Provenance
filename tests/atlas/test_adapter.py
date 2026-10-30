@@ -112,14 +112,14 @@ class ParserTests(unittest.TestCase):
         row = next(r for r in parsed["scorecard"] if r["fields"]["Dimension"] == "Internal citation density")
         self.assertEqual(row["fields"]["Dimension disposition"], "UNASSESSED")
         self.assertNotIn("SCORED", row["fields"]["Dimension disposition"])
-        self.assertIn("INSTRUMENT_VIOLATION", codes(parsed))
+        self.assertIn("CURRENT_CONTRACT_MISMATCH", codes(parsed))
 
     def test_invalid_score_and_duplicate_dimension(self):
         self.assertIn("INVALID_LABEL", codes(parse(RAW.replace("| SCORED 1 | 1 |", "| SCORED 9 | 9 |", 1))))
-        self.assertIn("INSTRUMENT_VIOLATION", codes(parse(RAW.replace("| SCORED 1 | 1 |", "| SCORED 1 | 3 |", 1))))
+        self.assertIn("CURRENT_CONTRACT_MISMATCH", codes(parse(RAW.replace("| SCORED 1 | 1 |", "| SCORED 1 | 3 |", 1))))
 
     def test_native_verdict_consistency(self):
-        self.assertIn("INSTRUMENT_VIOLATION", codes(parse(RAW.replace("| Concede test | DEFEATS |", "| Concede test | SURVIVES |"))))
+        self.assertIn("CURRENT_CONTRACT_MISMATCH", codes(parse(RAW.replace("| Concede test | DEFEATS |", "| Concede test | SURVIVES |"))))
 
 
 class PipelineTests(unittest.TestCase):
