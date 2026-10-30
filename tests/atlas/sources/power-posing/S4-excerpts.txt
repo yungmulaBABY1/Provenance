@@ -1,0 +1,37 @@
+Bounded excerpts from S4: Simmons & Simonsohn (2017). Power Posing: P-Curving the Evidence. Psychological Science 28(5), 687-693.
+DOI 10.1177/0956797616658563. Retrieved copy: https://faculty.haas.berkeley.edu/dana_carney/Simmons.Simonsoh.p-curve-evidence.pdf
+Retrieved 2026-10-30T10:58:19Z; PDF SHA-256 c30b8c46120eba7d6b455619c6359817321d203645491ebd35953702fcd91a7f.
+Not the full paper. Each excerpt is an exact substring of the pinned extraction
+output; its offsets there are recorded in SOURCES.json. Provenance tooling:
+source_packet.py in this directory.
+
+=== S4-E1 | metadata | PDF page 1 ===
+Power Posing: P-Curving the Evidence
+Joseph P. Simmons & Uri Simonsohn
+University of Pennsylvania
+
+Word Count: 3,202
+
+Forthcoming in Psychological Science
+=== end S4-E1 ===
+
+=== S4-E2 | section | PDF page 2 ===
+In their response to the failed replication, Carney, Cuddy, and Yap (2015) reviewed 33 successful
+studies investigating the effects of expansive vs. contractive posing, focusing on differences between
+these studies and the failed replication, to identify possible moderators that future studies could explore.
+=== end S4-E2 ===
+
+=== S4-E3 | section | PDF page 2 ===
+In this paper we rely on p-curve analysis to answer the following question: Does the literature
+reviewed by Carney et al. (2015) suggest the existence of an effect once we account for selective
+reporting? We conclude not.
+=== end S4-E3 ===
+
+=== S4-E4 | section | PDF page 7 ===
+We first evaluated if evidential value was present. As explained in Simonsohn et al. (2015), we
+conclude that a literature contains evidential value if either the half p-curve (which only analyzes critical
+p-values below .025) is significantly right-skewed at the 5% level, or if both the half and full p-curve are
+significantly right skewed at the 10% level. Neither condition is met here (phalf=.11 and pfull=.63,
+respectively).
+=== end S4-E4 ===
+

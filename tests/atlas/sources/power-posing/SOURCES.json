@@ -1,0 +1,219 @@
+{
+  "packet": "compliance/PACKET.md",
+  "sources": {
+    "S1": {
+      "doi": "10.1177/0956797610383437",
+      "retrieval": {
+        "requested_url": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full",
+        "final_url": "https://journals.sagepub.com/stoken/rbtfl/4zEmVxPysrEHI/full",
+        "retrieved_at": "2026-10-30T10:58:19Z",
+        "http_status": 403,
+        "content_type": "text/html; charset=UTF-8",
+        "outcome": "RETRIEVAL_FAILED"
+      },
+      "excerpts": [],
+      "citation": "Carney, Cuddy & Yap (2010). Power Posing: Brief Nonverbal Displays Affect Neuroendocrine Levels and Risk Tolerance. Psychological Science 21(10), 1363-1368.",
+      "version": "NOT_RETRIEVED",
+      "sections_accessible": [],
+      "notes": [
+        "Packet link (SAGE free-access token) returned HTTP 403 to a plain request; no browser emulation or bot-check workaround was attempted.",
+        "OpenAlex (queried 2026-10-30) lists no open-access copy."
+      ]
+    },
+    "S2": {
+      "doi": "10.1177/0956797614553946",
+      "retrieval": {
+        "requested_url": "https://faculty.haas.berkeley.edu/dana_carney/ranehill.pdf",
+        "final_url": "https://faculty.haas.berkeley.edu/dana_carney/ranehill.pdf",
+        "retrieved_at": "2026-10-30T10:58:19Z",
+        "http_status": 200,
+        "content_type": "application/pdf",
+        "outcome": "AVAILABLE",
+        "bytes": 374723,
+        "sha256": "4ae91126e56da19721f44c6942a536e3c2dcb22fe3a23de727f788afeb481369",
+        "pdf_pages": 4
+      },
+      "excerpts": [
+        {
+          "id": "S2-E1",
+          "kind": "metadata",
+          "label": "Journal, volume, pages and DOI printed on the article",
+          "pdf_page": 1,
+          "extraction_start": 220,
+          "extraction_end": 380,
+          "occurrences_in_extraction": 1,
+          "sha256": "545cb79fb15b0e7e11a51dd39d6510fd4028ac98207982878a7336cdd6ed3773",
+          "text": "Psychological Science\n2015, Vol. 26(5) 653­–656\n© The Author(s) 2015\nReprints and permissions:\nsagepub.com/journalsPermissions.nav\nDOI: 10.1177/0956797614553946"
+        },
+        {
+          "id": "S2-E2",
+          "kind": "section",
+          "label": "Opening summary of the study's results (before Method)",
+          "pdf_page": 1,
+          "extraction_start": 2061,
+          "extraction_end": 2315,
+          "occurrences_in_extraction": 1,
+          "sha256": "3ac288641b7d0a3f5dd98f9e198580f73392c9c17f2270be934eea1eb3b284a0",
+          "text": "Consistent with the findings of Carney et al., our\nresults showed a significant effect of power posing on\nself-reported feelings of power. However, we found no\nsignificant effect of power posing on hormonal levels or\nin any of the three behavioral tasks."
+        },
+        {
+          "id": "S2-E3",
+          "kind": "section",
+          "label": "Discussion, first paragraph: results restated",
+          "pdf_page": 2,
+          "extraction_start": 8717,
+          "extraction_end": 9014,
+          "occurrences_in_extraction": 1,
+          "sha256": "aa0a3676ec2b72c9654f743e6dc03f3dbe621ad0a103e0b888d286d3c52a3caa",
+          "text": "Using a much\nlarger sample size but similar procedures as Carney et al.\ndid, we failed to confirm an effect of power posing on\ntestosterone, cortisol, and financial risk taking. We did\nfind that power posing affected self-reported feelings of\npower; however, this did not yield behavioral effects."
+        }
+      ],
+      "extraction": {
+        "tool": "pdftotext version 24.02.0",
+        "command": [
+          "pdftotext",
+          "-enc",
+          "UTF-8",
+          "<pdf>",
+          "<out>"
+        ],
+        "output_sha256": "afc448e6323772778979bd62ade1f343752f742c69c1ee56c5b702a4d5f7b3ad",
+        "output_characters": 16898
+      },
+      "citation": "Ranehill, Dreber, Johannesson, Leiberg, Sul & Weber (2015). Assessing the Robustness of Power Posing: No Effect on Hormones and Risk Tolerance in a Large Sample of Men and Women. Psychological Science 26(5), 653-656.",
+      "version": "PUBLISHER_PDF_AUTHOR_HOSTED: typeset journal article (journal header, volume, pages and DOI printed on page 1) hosted on a co-author's faculty page; PDF modified 2017-02-05 per its metadata. Not obtained from the publisher.",
+      "sections_accessible": [
+        "title and article header",
+        "introduction",
+        "Method",
+        "Results",
+        "Discussion",
+        "Acknowledgments",
+        "Author Contributions",
+        "Open Practices",
+        "Declaration of Conflicting Interests",
+        "Funding",
+        "Notes",
+        "References"
+      ],
+      "sections_not_accessible": [
+        "Supplemental Material (referenced on pp. 1-2; not retrieved)"
+      ],
+      "notes": []
+    },
+    "S3": {
+      "doi": "10.1177/0956797614566855",
+      "retrieval": {
+        "requested_url": "https://www.researchgate.net/publication/274458966_Review_and_Summary_of_Research_on_the_Embodied_Effects_of_Expansive_vs_Contractive_Nonverbal_Displays",
+        "final_url": "https://www.researchgate.net/publication/274458966_Review_and_Summary_of_Research_on_the_Embodied_Effects_of_Expansive_vs_Contractive_Nonverbal_Displays",
+        "retrieved_at": "2026-10-30T10:58:19Z",
+        "http_status": 403,
+        "content_type": "text/html; charset=UTF-8",
+        "outcome": "RETRIEVAL_FAILED"
+      },
+      "excerpts": [],
+      "citation": "Carney, Cuddy & Yap (2015). Review and Summary of Research on the Embodied Effects of Expansive (vs. Contractive) Nonverbal Displays. Psychological Science 26(5), 657-663.",
+      "version": "NOT_RETRIEVED",
+      "sections_accessible": [],
+      "notes": [
+        "Packet link (ResearchGate author upload) returned HTTP 403 to a plain request; no browser emulation or bot-check workaround was attempted.",
+        "OpenAlex (queried 2026-10-30) lists no open-access copy.",
+        "S4-E2 is S4's description of S3; it is not S3's text and does not stand in for it."
+      ]
+    },
+    "S4": {
+      "doi": "10.1177/0956797616658563",
+      "retrieval": {
+        "requested_url": "https://faculty.haas.berkeley.edu/dana_carney/Simmons.Simonsoh.p-curve-evidence.pdf",
+        "final_url": "https://faculty.haas.berkeley.edu/dana_carney/Simmons.Simonsoh.p-curve-evidence.pdf",
+        "retrieved_at": "2026-10-30T10:58:19Z",
+        "http_status": 200,
+        "content_type": "application/pdf",
+        "outcome": "AVAILABLE",
+        "bytes": 1188244,
+        "sha256": "c30b8c46120eba7d6b455619c6359817321d203645491ebd35953702fcd91a7f",
+        "pdf_pages": 16
+      },
+      "excerpts": [
+        {
+          "id": "S4-E1",
+          "kind": "metadata",
+          "label": "Title, authors and publication status printed on the manuscript",
+          "pdf_page": 1,
+          "extraction_start": 61,
+          "extraction_end": 215,
+          "occurrences_in_extraction": 1,
+          "sha256": "5c861549bcf7cb4968f1dd307462fc609c32d9750cf8d96488d11dc678755a8b",
+          "text": "Power Posing: P-Curving the Evidence\nJoseph P. Simmons & Uri Simonsohn\nUniversity of Pennsylvania\n\nWord Count: 3,202\n\nForthcoming in Psychological Science"
+        },
+        {
+          "id": "S4-E2",
+          "kind": "section",
+          "label": "Introduction: S4's description of S3 (Carney et al., 2015); S4's words, not S3's",
+          "pdf_page": 2,
+          "extraction_start": 1164,
+          "extraction_end": 1473,
+          "occurrences_in_extraction": 1,
+          "sha256": "53258dce8d71b4d31e14f83be12b7db53bf1d9289634f41e289b98290376a26f",
+          "text": "In their response to the failed replication, Carney, Cuddy, and Yap (2015) reviewed 33 successful\nstudies investigating the effects of expansive vs. contractive posing, focusing on differences between\nthese studies and the failed replication, to identify possible moderators that future studies could explore."
+        },
+        {
+          "id": "S4-E3",
+          "kind": "section",
+          "label": "Introduction: question and stated conclusion",
+          "pdf_page": 2,
+          "extraction_start": 2046,
+          "extraction_end": 2267,
+          "occurrences_in_extraction": 1,
+          "sha256": "eef0b93856b2531618b9991c8338675d560abaf826a3032e462b1e48be6eb0f5",
+          "text": "In this paper we rely on p-curve analysis to answer the following question: Does the literature\nreviewed by Carney et al. (2015) suggest the existence of an effect once we account for selective\nreporting? We conclude not."
+        },
+        {
+          "id": "S4-E4",
+          "kind": "section",
+          "label": "Results: test for evidential value",
+          "pdf_page": 7,
+          "extraction_start": 15181,
+          "extraction_end": 15611,
+          "occurrences_in_extraction": 1,
+          "sha256": "b7af533380b25ff6221c60b70cc9f65da95a2a0cc6a31ed2e9f1cd44725e0109",
+          "text": "We first evaluated if evidential value was present. As explained in Simonsohn et al. (2015), we\nconclude that a literature contains evidential value if either the half p-curve (which only analyzes critical\np-values below .025) is significantly right-skewed at the 5% level, or if both the half and full p-curve are\nsignificantly right skewed at the 10% level. Neither condition is met here (phalf=.11 and pfull=.63,\nrespectively)."
+        }
+      ],
+      "extraction": {
+        "tool": "pdftotext version 24.02.0",
+        "command": [
+          "pdftotext",
+          "-enc",
+          "UTF-8",
+          "<pdf>",
+          "<out>"
+        ],
+        "output_sha256": "5da1a5cd238d9ccc6ee933968bd7994eee8c46af2c0d66ffd1c244ec89070a1d",
+        "output_characters": 29655
+      },
+      "citation": "Simmons & Simonsohn (2017). Power Posing: P-Curving the Evidence. Psychological Science 28(5), 687-693.",
+      "version": "ACCEPTED_MANUSCRIPT: author manuscript marked 'Forthcoming in Psychological Science' (Word, created 2016-06-17), hosted on a faculty page. Not the version of record; wording and pagination may differ from the published article.",
+      "sections_accessible": [
+        "title page",
+        "introduction",
+        "Selective Reporting",
+        "P-curve Analysis",
+        "Inferences from Observed P-curves",
+        "Results",
+        "Additional Analyses",
+        "Figure 1",
+        "Power of p-curve",
+        "Conclusion",
+        "Author Note",
+        "References",
+        "Figure 2 and appended material (PET-PEESE)"
+      ],
+      "sections_not_accessible": [
+        "Published version of record",
+        "OSF disclosure table and R code (linked, not retrieved)"
+      ],
+      "notes": []
+    }
+  }
+}
