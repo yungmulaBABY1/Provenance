@@ -1,0 +1,338 @@
+{
+  "schema_version": "atlas-adapter/0.1",
+  "run": {
+    "id": "urn:atlas:import:power-control:1",
+    "target_work_id": "doi:10.1177/0956797610383437",
+    "imported_at": "2026-10-30T07:07:43Z",
+    "origin": "LEGACY_REGRESSION_FIXTURE",
+    "model": {
+      "identity": "UNKNOWN",
+      "verification": "NOT_ESTABLISHED_FOR_THIS_ARTIFACT"
+    },
+    "runner": {
+      "identity": "UNKNOWN",
+      "verification": "NOT_ESTABLISHED_FOR_THIS_ARTIFACT"
+    },
+    "historical_instrument": {
+      "identity": "UNKNOWN",
+      "verification": "INSTRUMENT VERSION UNVERIFIED"
+    },
+    "exposure": {
+      "prior_outputs_seen": "UNKNOWN",
+      "independence": "UNKNOWN",
+      "basis": "Archived output alone does not establish exposure or independence."
+    }
+  },
+  "output": {
+    "path": "tests/cases/citation-network-checker/complete-clean-control.md",
+    "sha256": "83883f211b959fbf98bce84b7c7c6a11c1e51b0a6b2c88a3f96a63e10a3b9cdd"
+  },
+  "works": [
+    {
+      "id": "doi:10.1177/0956797610383437",
+      "title": "Power Posing: Brief Nonverbal Displays Affect Neuroendocrine Levels and Risk Tolerance",
+      "kind": "research",
+      "identity_basis": "Explicit DOI in compliance/PACKET.md at pinned repository commit; title display may be abbreviated."
+    },
+    {
+      "id": "doi:10.1177/0956797614553946",
+      "title": "Assessing the Robustness of Power Posing",
+      "kind": "research",
+      "identity_basis": "Explicit DOI in compliance/PACKET.md at pinned repository commit; title display may be abbreviated."
+    },
+    {
+      "id": "doi:10.1177/0956797614566855",
+      "title": "Review and Summary of Research on the Embodied Effects of Expansive (vs. Contractive) Nonverbal Displays",
+      "kind": "research",
+      "identity_basis": "Explicit DOI in compliance/PACKET.md at pinned repository commit; title display may be abbreviated."
+    },
+    {
+      "id": "doi:10.1177/0956797616658563",
+      "title": "Power Posing: P-Curving the Evidence",
+      "kind": "research",
+      "identity_basis": "Explicit DOI in compliance/PACKET.md at pinned repository commit; title display may be abbreviated."
+    }
+  ],
+  "sources": [
+    {
+      "id": "doi:10.1177/0956797610383437/version/unknown",
+      "work_id": "doi:10.1177/0956797610383437",
+      "version": "UNKNOWN",
+      "version_basis": "Bibliographic metadata only; original producing run source edition unknown.",
+      "version_confidence": "UNKNOWN",
+      "source_uri": "https://doi.org/10.1177/0956797610383437",
+      "accessed_at": "2026-10-30T07:07:43Z",
+      "access_outcome": "AVAILABLE",
+      "rights": "NOT_REVIEWED_FOR_PUBLIC_RELEASE",
+      "extraction": {
+        "engine": "plain-utf8",
+        "version": "1",
+        "configuration": {}
+      },
+      "text_artifact": {
+        "path": "compliance/PACKET.md",
+        "sha256": "08f0ce60c649fa45dd10a04c22473806343be46a9bd9897b5b5f958f772a9945"
+      },
+      "components": [
+        {
+          "id": "metadata",
+          "kind": "metadata",
+          "start": 1054,
+          "end": 1366
+        }
+      ],
+      "requested_components": [
+        "methods",
+        "results",
+        "references"
+      ],
+      "warnings": [
+        "Only supplied packet metadata was read; underlying paper not fetched."
+      ],
+      "failed_components": [],
+      "origin_id": "UNKNOWN"
+    },
+    {
+      "id": "doi:10.1177/0956797614553946/version/unknown",
+      "work_id": "doi:10.1177/0956797614553946",
+      "version": "UNKNOWN",
+      "version_basis": "Bibliographic metadata only; original producing run source edition unknown.",
+      "version_confidence": "UNKNOWN",
+      "source_uri": "https://doi.org/10.1177/0956797614553946",
+      "accessed_at": "2026-10-30T07:07:43Z",
+      "access_outcome": "AVAILABLE",
+      "rights": "NOT_REVIEWED_FOR_PUBLIC_RELEASE",
+      "extraction": {
+        "engine": "plain-utf8",
+        "version": "1",
+        "configuration": {}
+      },
+      "text_artifact": {
+        "path": "compliance/PACKET.md",
+        "sha256": "08f0ce60c649fa45dd10a04c22473806343be46a9bd9897b5b5f958f772a9945"
+      },
+      "components": [
+        {
+          "id": "metadata",
+          "kind": "metadata",
+          "start": 1366,
+          "end": 1751
+        }
+      ],
+      "requested_components": [
+        "methods",
+        "results",
+        "references"
+      ],
+      "warnings": [
+        "Only supplied packet metadata was read; underlying paper not fetched."
+      ],
+      "failed_components": [],
+      "origin_id": "UNKNOWN"
+    },
+    {
+      "id": "doi:10.1177/0956797614566855/version/unknown",
+      "work_id": "doi:10.1177/0956797614566855",
+      "version": "UNKNOWN",
+      "version_basis": "Bibliographic metadata only; original producing run source edition unknown.",
+      "version_confidence": "UNKNOWN",
+      "source_uri": "https://doi.org/10.1177/0956797614566855",
+      "accessed_at": "2026-10-30T07:07:43Z",
+      "access_outcome": "AVAILABLE",
+      "rights": "NOT_REVIEWED_FOR_PUBLIC_RELEASE",
+      "extraction": {
+        "engine": "plain-utf8",
+        "version": "1",
+        "configuration": {}
+      },
+      "text_artifact": {
+        "path": "compliance/PACKET.md",
+        "sha256": "08f0ce60c649fa45dd10a04c22473806343be46a9bd9897b5b5f958f772a9945"
+      },
+      "components": [
+        {
+          "id": "metadata",
+          "kind": "metadata",
+          "start": 1751,
+          "end": 2190
+        }
+      ],
+      "requested_components": [
+        "methods",
+        "results",
+        "references"
+      ],
+      "warnings": [
+        "Only supplied packet metadata was read; underlying paper not fetched."
+      ],
+      "failed_components": [],
+      "origin_id": "UNKNOWN"
+    },
+    {
+      "id": "doi:10.1177/0956797616658563/version/unknown",
+      "work_id": "doi:10.1177/0956797616658563",
+      "version": "UNKNOWN",
+      "version_basis": "Bibliographic metadata only; original producing run source edition unknown.",
+      "version_confidence": "UNKNOWN",
+      "source_uri": "https://doi.org/10.1177/0956797616658563",
+      "accessed_at": "2026-10-30T07:07:43Z",
+      "access_outcome": "AVAILABLE",
+      "rights": "NOT_REVIEWED_FOR_PUBLIC_RELEASE",
+      "extraction": {
+        "engine": "plain-utf8",
+        "version": "1",
+        "configuration": {}
+      },
+      "text_artifact": {
+        "path": "compliance/PACKET.md",
+        "sha256": "08f0ce60c649fa45dd10a04c22473806343be46a9bd9897b5b5f958f772a9945"
+      },
+      "components": [
+        {
+          "id": "metadata",
+          "kind": "metadata",
+          "start": 2190,
+          "end": 2474
+        }
+      ],
+      "requested_components": [
+        "methods",
+        "results",
+        "references"
+      ],
+      "warnings": [
+        "Only supplied packet metadata was read; underlying paper not fetched."
+      ],
+      "failed_components": [],
+      "origin_id": "UNKNOWN"
+    }
+  ],
+  "passages": [],
+  "checks": [
+    {
+      "id": "S1-metadata",
+      "kind": "metadata",
+      "scope": "S1 bibliographic entry in supplied packet only",
+      "requirements": [
+        {
+          "source_version_id": "doi:10.1177/0956797610383437/version/unknown",
+          "component_ids": [
+            "metadata"
+          ],
+          "passage_ids": []
+        }
+      ]
+    },
+    {
+      "id": "S2-metadata",
+      "kind": "metadata",
+      "scope": "S2 bibliographic entry in supplied packet only",
+      "requirements": [
+        {
+          "source_version_id": "doi:10.1177/0956797614553946/version/unknown",
+          "component_ids": [
+            "metadata"
+          ],
+          "passage_ids": []
+        }
+      ]
+    },
+    {
+      "id": "S3-metadata",
+      "kind": "metadata",
+      "scope": "S3 bibliographic entry in supplied packet only",
+      "requirements": [
+        {
+          "source_version_id": "doi:10.1177/0956797614566855/version/unknown",
+          "component_ids": [
+            "metadata"
+          ],
+          "passage_ids": []
+        }
+      ]
+    },
+    {
+      "id": "S4-metadata",
+      "kind": "metadata",
+      "scope": "S4 bibliographic entry in supplied packet only",
+      "requirements": [
+        {
+          "source_version_id": "doi:10.1177/0956797616658563/version/unknown",
+          "component_ids": [
+            "metadata"
+          ],
+          "passage_ids": []
+        }
+      ]
+    },
+    {
+      "id": "bounded-citation-content",
+      "kind": "content",
+      "scope": "Source texts and citing contexts in the S1-S4 packet; underlying texts unavailable to this import",
+      "requirements": [
+        {
+          "source_version_id": "doi:10.1177/0956797610383437/version/unknown",
+          "component_ids": [
+            "methods",
+            "results",
+            "references"
+          ],
+          "passage_ids": []
+        },
+        {
+          "source_version_id": "doi:10.1177/0956797614553946/version/unknown",
+          "component_ids": [
+            "methods",
+            "results",
+            "references"
+          ],
+          "passage_ids": []
+        },
+        {
+          "source_version_id": "doi:10.1177/0956797614566855/version/unknown",
+          "component_ids": [
+            "methods",
+            "results",
+            "references"
+          ],
+          "passage_ids": []
+        },
+        {
+          "source_version_id": "doi:10.1177/0956797616658563/version/unknown",
+          "component_ids": [
+            "methods",
+            "results",
+            "references"
+          ],
+          "passage_ids": []
+        }
+      ]
+    }
+  ],
+  "finding_checks": {
+    "1": [
+      "bounded-citation-content"
+    ],
+    "2": [
+      "bounded-citation-content"
+    ]
+  },
+  "corpus": {
+    "id": "power-four-source",
+    "boundary": "Only S1-S4 in compliance/PACKET.md. Importer has metadata and historical audit output, not full papers.",
+    "selection": "Existing mechanical positive control, inspected during development; not a held-out science benchmark.",
+    "retrieval_events": [],
+    "limitations": [
+      "No fresh source retrieval.",
+      "No inferred source-read history.",
+      "Synthetic mechanical changes to archived pilot; not a known-clean paper."
+    ]
+  },
+  "declared_inputs": [
+    {
+      "path": "compliance/PACKET.md",
+      "sha256": "08f0ce60c649fa45dd10a04c22473806343be46a9bd9897b5b5f958f772a9945"
+    }
+  ],
+  "reviews": []
+}

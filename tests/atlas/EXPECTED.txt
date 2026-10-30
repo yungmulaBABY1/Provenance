@@ -1,0 +1,52 @@
+Atlas adapter acceptance contract — written before implementation, 2026-10-29
+
+These are software/contract tests, not new research audits or a held-out benchmark.
+The inherited citation-network fixtures have been inspected during development.
+
+1. Existing complete-clean-control.md: native checker PASS; two findings retain
+   every raw field, including FULL-TEXT-CONFIRMED. No paper was retrieved in this
+   import, so native assertions do not become independently verified evidence.
+2. Existing shen-revised-known-bad.txt: native checker FAIL; invented verification
+   labels remain in raw fields with INVALID_LABEL; imported findings quarantined.
+3. Existing locked-source-review-control.md: retain PASS-WITH-REVIEW and review
+   items. Neither a lock assertion nor a second model establishes independence.
+4. Delete required finding field -> MISSING; no invented replacement.
+5. Replace an enum or swap field-specific enums -> INVALID_LABEL.
+6. Swap two valid values in the same enum -> syntax may pass; always retain
+   SEMANTIC_REVIEW_REQUIRED. A parser has no oracle for scientific correctness.
+7. Truncate a finding block -> PARTIAL_OUTPUT; retain complete preceding fields.
+8. Duplicate field/finding ID, or ambiguous tables -> explicit error, no last-write
+   wins. Empty/absent final findings cannot silently imply a clean paper.
+9. Mutate a known-source quote, range, component or hash -> ANCHOR_MISMATCH or
+   unresolved source error; missing bytes never yield MATCH.
+10. Metadata-only source permits bounded metadata checks, not methods/content
+    checks. Missing methods blocks only dependent checks. Unverified extraction,
+    parser warnings and unreadable components remain visible.
+11. Scoped no-issue display requires successful syntax, explicit null assertion,
+    at least one eligible check, and a declared examination boundary. Never
+    infer no defects from missing output or retrieval failure.
+12. Different run-local bytes may share explicitly assigned Work/SourceVersion
+    identity; Unicode/whitespace normalization is versioned, offsets disambiguate
+    repeated passages, and version identity is not inferred from text similarity.
+13. Instruction-like quoted source text is literal data, never executed or
+    promoted to parser fields. This does not test an LLM execution sandbox.
+14. Identical import is idempotent; same record/run ID with different content ->
+    ID_CONTENT_CONFLICT and atomic rollback; concurrent imports do not overwrite.
+15. Export/reimport preserves all records byte-for-byte in canonical JSONL;
+    hashes, exact inputs, repository commit, prompt/checker blobs, adapter code,
+    environment and declared exposure are present. Input mutation fails closed.
+16. Native labels, source matching, syntax, source-read eligibility, and substantive
+    human review are separate axes. No automatic score or review promotion.
+17. Declared counter-audit links must identify exact target output hashes; a
+    counter-audit of an earlier Shen run cannot validate the revised fixture.
+18. Unknown historical model, runner, prompt and source-read details stay UNKNOWN.
+    The current validation instrument is not retroactively assigned to an old run.
+
+Existing checks must remain unchanged and pass their baseline expectations.
+Pre-existing tools/embed_prompts.py --check returns STALE at d700031; record it
+separately, do not repair unrelated prompts or snapshot content in this slice.
+
+Amendment, 2026-10-30 (P0 review record, null-results rule): item 11's scoped
+no-issue display is withdrawn. An AuditRun shows two separate facts, the
+imported null assertion (text or null) and the adapter's present-day
+per-check source eligibility; no field derives a clean or acquitted state.

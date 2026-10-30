@@ -125,6 +125,16 @@ python3 prompts/research-analysis/check-citation-network-output.py audit-output.
 
 It checks required structure and gate behavior, not substantive correctness\.
 
+### Atlas development slice
+
+The [deterministic Atlas adapter](docs/atlas/README.md) imports pinned
+citation-network outputs into evidence-linked records with separate source-read
+eligibility, immutable run receipts, and JSONL export. It runs offline and keeps
+historical native labels separate from newly verified source access. It is a
+bounded backend module, not the proposed Atlas application. See its documentation
+for executable examples, regression tests, implementation limits, and the
+independent-review handoff.
+
 ## Choosing a model for a manual run
 
 Written vendor\-neutral so it stays useful as model names change; the concrete

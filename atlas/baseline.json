@@ -1,0 +1,68 @@
+{
+  "repository": "https://github.com/yungmulaBABY1/Provenance",
+  "commit": "d7000315197670a59988b2d0b58bf0cdae545fc3",
+  "files": {
+    "prompts/research-analysis/2-citation-network.txt": {
+      "path": "prompts/research-analysis/2-citation-network.txt",
+      "sha256": "dcb93491a0a2ef5716575b89963c2cd9031c43e52011bb549416c89421ff3262",
+      "git_blob_sha1": "7ac79f0da337c4d52e39e1490088d06c82a9d42b",
+      "bytes": 68231
+    },
+    "prompts/research-analysis/check-citation-network-output.py": {
+      "path": "prompts/research-analysis/check-citation-network-output.py",
+      "sha256": "f66650fe086455fa5dd80afadf1ec78685ee212825923d670d25b24e62d79f27",
+      "git_blob_sha1": "a3da0827067a2f8b47b9039db15d56f74fabd751",
+      "bytes": 34112
+    },
+    "reference/shared-primitives.txt": {
+      "path": "reference/shared-primitives.txt",
+      "sha256": "4abb56abeb3978cabb5b94719b762fdf9307f288db37e9a34c9e8f70f02206cf",
+      "git_blob_sha1": "cdf2d18b3b3e343be29e6aa9b7387d237448563a",
+      "bytes": 32909
+    },
+    "tests/cases/citation-network-checker/complete-clean-control.md": {
+      "path": "tests/cases/citation-network-checker/complete-clean-control.md",
+      "sha256": "83883f211b959fbf98bce84b7c7c6a11c1e51b0a6b2c88a3f96a63e10a3b9cdd",
+      "git_blob_sha1": "e347192eef6d24e65efac58f6bd02089eca78ebe",
+      "bytes": 37490
+    },
+    "tests/cases/citation-network-checker/locked-source-review-control.md": {
+      "path": "tests/cases/citation-network-checker/locked-source-review-control.md",
+      "sha256": "54d50847fdd40c880121a6548b959e831803a70f33574e8301f2d9062af3d1fa",
+      "git_blob_sha1": "e40f451b8bef484f8e2d0019fba41609587fa705",
+      "bytes": 37496
+    },
+    "tests/cases/citation-network-checker/shen-revised-known-bad.txt": {
+      "path": "tests/cases/citation-network-checker/shen-revised-known-bad.txt",
+      "sha256": "a2d3a95f58c976c1aedb304c2b3c99c5cccda80aea0d4890a0ce91adf0df9bdf",
+      "git_blob_sha1": "b2c829e9013155d0889f65ea2472d4b1d45f1da2",
+      "bytes": 60949
+    },
+    "tests/cases/citation-network-checker/shen-v1-whitelist-clean.txt": {
+      "path": "tests/cases/citation-network-checker/shen-v1-whitelist-clean.txt",
+      "sha256": "e59149379c92a44d84720a2f28d1ab8e5a3cc719e07e07ba16b3305d6cb691bb",
+      "git_blob_sha1": "fd66ba6d56f5b4a7a090327ea2364b6267e3a0d4",
+      "bytes": 48782
+    },
+    "compliance/PACKET.md": {
+      "path": "compliance/PACKET.md",
+      "sha256": "08f0ce60c649fa45dd10a04c22473806343be46a9bd9897b5b5f958f772a9945",
+      "git_blob_sha1": "20efb70541478956a5c7830f352b70028604d793",
+      "bytes": 3576
+    },
+    "examples/research/shen/05_counter_audit_v3_all_prosecutors.txt": {
+      "path": "examples/research/shen/05_counter_audit_v3_all_prosecutors.txt",
+      "sha256": "975ac882bf7827bf5d570028739383cecfbc066dce596be5efb2656c28834d0f",
+      "git_blob_sha1": "1131675d40a0238e80294bd4d4399d0f1ae3ee2b",
+      "bytes": 49247
+    },
+    "examples/research/shen/04_citation_network.txt": {
+      "path": "examples/research/shen/04_citation_network.txt",
+      "sha256": "e59149379c92a44d84720a2f28d1ab8e5a3cc719e07e07ba16b3305d6cb691bb",
+      "git_blob_sha1": "fd66ba6d56f5b4a7a090327ea2364b6267e3a0d4",
+      "bytes": 48782
+    }
+  },
+  "scope": "validation baseline; not proof of historical producing instrument",
+  "design_master_sha256": "4a1dde73bb8c5795b4e50c96f6b01d0901bfa64f580304440a8c0fa44ddf03bd"
+}

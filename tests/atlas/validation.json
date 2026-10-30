@@ -1,0 +1,385 @@
+{
+  "executed_at_utc": "2026-10-30T09:49:16.880323+00:00",
+  "base_commit": "d7000315197670a59988b2d0b58bf0cdae545fc3",
+  "code_commit": "1de873c2bc563c8b005b448114e1fe1c5416ded0",
+  "scope": "Developer-authored deterministic software checks; no independent model review or scientific validation",
+  "python": "3.11.17",
+  "unicode": "14.0.0",
+  "source_code_sha256": {
+    "atlas/__init__.py": "33408127f0de59c2db18b460a5bdc1350e5ce306cf3aa75799dac80dc6134f1a",
+    "atlas/__main__.py": "164988366899dc4686c2b459bf73ada00b349dcff0624dec2d595f1f84391ece",
+    "atlas/adapter.py": "e30dc06688e54957819716725e7dc63a34bdeef6d38631251cc1e361775b4c23",
+    "atlas/contract.py": "012d2f726c0493eb8d952a3bb26361ba995318ab3300954de1c517d960bf493d",
+    "atlas/integrity.py": "44abc606e2565f93cf69e6f669d055e12d0052a034dfc5650bc51ac5381c60e2",
+    "atlas/ledger.py": "d99d7b0970d5e2f56a80ccaef50e637c320aeafeb8524208c1af8215d1d73237",
+    "atlas/native.py": "3ff234d750aeaa6d588a70a543a4f092f0d2c560bf2d51c1330fa14910142410",
+    "atlas/replay.py": "ad976be1100d57ad04a381c13b2ab91ea76b10077c8a8c87bea0eaef7fec3b90",
+    "atlas/sources.py": "8d0193ea5c3c402c0a3bd0cf791917e0fc2c97bf2f36170a01f5630fce1bb18f"
+  },
+  "baseline_sha256": "43247028f5bc92d30a198173dfaeef5806c8b53db4e5fd6b7a6ce20cff648258",
+  "tests_sha256": {
+    "tests/atlas/test_adapter.py": "0f436391b9a1167f6cb17b05f91910560b1bbcd4637bc7b35e048d1a421c328d",
+    "tests/atlas/test_anchors.py": "4fa7b637976115b1671cd8bb498bc72c5b7b2057a03c69af5af1522cbe198830",
+    "tests/atlas/test_baseline.py": "fd7ba887d7af1196d304f593795341a68397dca6271347d5b598745907972a36",
+    "tests/atlas/test_contract_labels.py": "ac68205fab43818af3dfcbaa6a729d71ba3ed9cedb6e8b413980396593610845",
+    "tests/atlas/test_determinism.py": "886c8de708c7f1732509e9cb4bab307dad5409a207ce1714650cb3662242d826",
+    "tests/atlas/test_integrity.py": "c82f96575e8e58640118ce6b5064871911a16302d92335be61d8d09b7f62f962",
+    "tests/atlas/test_output_spans.py": "fdfec4eac5e323608d0b42c26d6a4878eb87ab7ca625442e723900baa2ff817b",
+    "tests/atlas/test_paired_fixtures.py": "33b9baab5c61b4e064e25b7741c6140540e9f82a50e7b1e3ca417c381c785161",
+    "tests/atlas/test_replay.py": "106cc7a06f6435f0cb3b2f7e9d34ede5863d64d37af8d084af2c6a7d9f63293e",
+    "tests/atlas/test_reviews.py": "4b707372b93512ace8893a7f62306a45eff8aaad8fee3ca8ea0e2ac71b01ae8a"
+  },
+  "receipts_sha256": {
+    "power-control": "f1b281cab58605410c82d4d117e9a2812293ac633b77769219678f3a81139fb3",
+    "shen-known-bad": "9627d3bc3b3713df1fc210e22aa48b7eba76f521f2ffbb7b5426ec8c19d55e42",
+    "case12-healthy": "fdfc48f3f464aedc0c214da7c78cea93ef4dd9a658def57af1a72c4ac8426014",
+    "case13-closed": "a07ea5c7ae12c3ebd5502c2de658672b38ee9726fdd79a67b52c36f3b0603bb3"
+  },
+  "commands": [
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/atlas",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "",
+      "stderr": "test_duplicate_field (test_adapter.ParserTests.test_duplicate_field) ... ok\ntest_duplicate_finding (test_adapter.ParserTests.test_duplicate_finding) ... ok\ntest_invalid_and_cross_field_swaps (test_adapter.ParserTests.test_invalid_and_cross_field_swaps) ... ok\ntest_invalid_score_and_duplicate_dimension (test_adapter.ParserTests.test_invalid_score_and_duplicate_dimension) ... ok\ntest_mid_cell_truncation (test_adapter.ParserTests.test_mid_cell_truncation) ... ok\ntest_missing_and_duplicate_final_heading (test_adapter.ParserTests.test_missing_and_duplicate_final_heading) ... ok\ntest_missing_field_not_inferred (test_adapter.ParserTests.test_missing_field_not_inferred) ... ok\ntest_native_fields_preserved (test_adapter.ParserTests.test_native_fields_preserved) ... ok\ntest_native_verdict_consistency (test_adapter.ParserTests.test_native_verdict_consistency) ... ok\ntest_quoted_fields_are_data (test_adapter.ParserTests.test_quoted_fields_are_data) ... ok\ntest_same_name_other_section_does_not_supply_missing_field (test_adapter.ParserTests.test_same_name_other_section_does_not_supply_missing_field) ... ok\ntest_scorecard_axes_remain_distinct (test_adapter.ParserTests.test_scorecard_axes_remain_distinct) ... ok\ntest_truncation (test_adapter.ParserTests.test_truncation) ... ok\ntest_valid_enum_change_has_no_semantic_oracle (test_adapter.ParserTests.test_valid_enum_change_has_no_semantic_oracle) ... ok\ntest_absent_findings_cannot_be_null (test_adapter.PipelineTests.test_absent_findings_cannot_be_null) ... ok\ntest_cli_replay_and_quarantined_exit (test_adapter.PipelineTests.test_cli_replay_and_quarantined_exit) ... ok\ntest_concurrent_idempotent_imports (test_adapter.PipelineTests.test_concurrent_idempotent_imports) ... ok\ntest_conflict_rolls_back_entire_import (test_adapter.PipelineTests.test_conflict_rolls_back_entire_import) ... ok\ntest_conflicting_run_same_output_different_context (test_adapter.PipelineTests.test_conflicting_run_same_output_different_context) ... ok\ntest_corpus_python_files_cannot_shadow_checker_imports (test_adapter.PipelineTests.test_corpus_python_files_cannot_shadow_checker_imports) ... ok\ntest_corrupt_anchor_quote_range_hash (test_adapter.PipelineTests.test_corrupt_anchor_quote_range_hash) ... ok\ntest_counter_audit_match_does_not_establish_independence (test_adapter.PipelineTests.test_counter_audit_match_does_not_establish_independence) ... ok\ntest_deterministic_export_and_restore (test_adapter.PipelineTests.test_deterministic_export_and_restore) ... ok\ntest_duplicate_json_and_missing_contract_fields (test_adapter.PipelineTests.test_duplicate_json_and_missing_contract_fields) ... ok\ntest_existing_clean_and_metadata_boundary (test_adapter.PipelineTests.test_existing_clean_and_metadata_boundary) ... ok\ntest_existing_review_fixture_stays_review (test_adapter.PipelineTests.test_existing_review_fixture_stays_review) ... ok\ntest_existing_shen_is_quarantined_not_corrected (test_adapter.PipelineTests.test_existing_shen_is_quarantined_not_corrected) ... ok\ntest_input_boundary_and_symlink (test_adapter.PipelineTests.test_input_boundary_and_symlink) ... ok\ntest_input_hash_and_executable_pin_fail_closed (test_adapter.PipelineTests.test_input_hash_and_executable_pin_fail_closed) ... ok\ntest_instruction_in_source_is_data (test_adapter.PipelineTests.test_instruction_in_source_is_data) ... ok\ntest_invalid_list_and_calendar_date_are_contract_errors (test_adapter.PipelineTests.test_invalid_list_and_calendar_date_are_contract_errors) ... ok\ntest_metadata_mapping_cannot_enable_null_citation_result (test_adapter.PipelineTests.test_metadata_mapping_cannot_enable_null_citation_result) ... ok\ntest_metadata_mapping_cannot_promote_citation_finding (test_adapter.PipelineTests.test_metadata_mapping_cannot_promote_citation_finding) ... ok\ntest_missing_check_mapping_stays_unassessable (test_adapter.PipelineTests.test_missing_check_mapping_stays_unassessable) ... ok\ntest_missing_methods_does_not_block_metadata (test_adapter.PipelineTests.test_missing_methods_does_not_block_metadata) ... ok\ntest_missing_scope_is_not_vacuously_eligible (test_adapter.PipelineTests.test_missing_scope_is_not_vacuously_eligible) ... ok\ntest_missing_source_never_matches (test_adapter.PipelineTests.test_missing_source_never_matches) ... ok\ntest_normalizer_is_explicit_and_conservative (test_adapter.PipelineTests.test_normalizer_is_explicit_and_conservative) ... ok\ntest_null_assertion_is_scoped_and_requires_evidence (test_adapter.PipelineTests.test_null_assertion_is_scoped_and_requires_evidence) ... ok\ntest_raw_output_bytes_survive_crlf (test_adapter.PipelineTests.test_raw_output_bytes_survive_crlf) ... ok\ntest_receipt_and_export_tampering_rejected (test_adapter.PipelineTests.test_receipt_and_export_tampering_rejected) ... ok\ntest_repeated_passage_is_not_relocated (test_adapter.PipelineTests.test_repeated_passage_is_not_relocated) ... ok\ntest_same_work_version_different_local_bytes (test_adapter.PipelineTests.test_same_work_version_different_local_bytes) ... ok\ntest_source_version_uncertainty_does_not_disappear (test_adapter.PipelineTests.test_source_version_uncertainty_does_not_disappear) ... ok\ntest_sql_updates_and_deletes_blocked (test_adapter.PipelineTests.test_sql_updates_and_deletes_blocked) ... ok\ntest_synthetic_anchor_and_scoped_eligibility (test_adapter.PipelineTests.test_synthetic_anchor_and_scoped_eligibility) ... ok\ntest_two_models_do_not_create_independent_review (test_adapter.PipelineTests.test_two_models_do_not_create_independent_review) ... ok\ntest_unverified_extraction_is_pending (test_adapter.PipelineTests.test_unverified_extraction_is_pending) ... ok\ntest_warning_retained_with_limitations (test_adapter.PipelineTests.test_warning_retained_with_limitations) ... ok\ntest_wrong_source_passage_reference (test_adapter.PipelineTests.test_wrong_source_passage_reference) ... ok\ntest_compatibility_pairs_never_match (test_anchors.AnchorTests.test_compatibility_pairs_never_match) ... ok\ntest_identical_quote_is_match (test_anchors.AnchorTests.test_identical_quote_is_match) ... ok\ntest_line_break_only_difference_is_normalized_only (test_anchors.AnchorTests.test_line_break_only_difference_is_normalized_only) ... ok\ntest_normalizer_id (test_anchors.AnchorTests.test_normalizer_id) ... ok\ntest_record_contract_rejects_match_without_exact (test_anchors.AnchorTests.test_record_contract_rejects_match_without_exact) ... ok\ntest_unicode_minus_is_mismatch (test_anchors.AnchorTests.test_unicode_minus_is_mismatch) ... ok\ntest_missing_working_tree_file_is_reported (test_baseline.BaselineTests.test_missing_working_tree_file_is_reported) ... ok\ntest_prompt_edited_in_working_tree_imports_with_drift_notice (test_baseline.BaselineTests.test_prompt_edited_in_working_tree_imports_with_drift_notice) ... ok\ntest_tampered_vendored_file_rejected (test_baseline.BaselineTests.test_tampered_vendored_file_rejected) ... ok\ntest_unchanged_tree_has_no_drift_notice (test_baseline.BaselineTests.test_unchanged_tree_has_no_drift_notice) ... ok\ntest_vendored_copies_match_pins (test_baseline.BaselineTests.test_vendored_copies_match_pins) ... ok\ntest_archived_outputs_are_current_contract_mismatches (test_contract_labels.ContractLabelTests.test_archived_outputs_are_current_contract_mismatches) ... ok\ntest_case_13_native_values_kept_as_written (test_contract_labels.ContractLabelTests.test_case_13_native_values_kept_as_written) ... ok\ntest_unverified_or_other_instrument_is_undetermined (test_contract_labels.ContractLabelTests.test_unverified_or_other_instrument_is_undetermined) ... ok\ntest_verified_instrument_can_conform_or_violate (test_contract_labels.ContractLabelTests.test_verified_instrument_can_conform_or_violate) ... ok\ntest_import_in_one_process_restores_in_another (test_determinism.DeterminismTests.test_import_in_one_process_restores_in_another) ... ok\ntest_parse_identical_across_hash_seeds (test_determinism.DeterminismTests.test_parse_identical_across_hash_seeds) ... ok\ntest_parser_version (test_determinism.DeterminismTests.test_parser_version) ... ok\ntest_concede_mutation_with_recomputed_manifest_hash_rejected (test_integrity.IntegrityTests.test_concede_mutation_with_recomputed_manifest_hash_rejected) ... ok\ntest_failed_integrity_check_rolls_back_entire_append (test_integrity.IntegrityTests.test_failed_integrity_check_rolls_back_entire_append) ... ok\ntest_missing_manifest_rejected (test_integrity.IntegrityTests.test_missing_manifest_rejected) ... ok\ntest_removed_finding_rejected (test_integrity.IntegrityTests.test_removed_finding_rejected) ... ok\ntest_run_level_projection_mutations_rejected (test_integrity.IntegrityTests.test_run_level_projection_mutations_rejected) ... ok\ntest_run_record_covered_twice_rejected (test_integrity.IntegrityTests.test_run_record_covered_twice_rejected) ... ok\ntest_uncovered_record_rejected (test_integrity.IntegrityTests.test_uncovered_record_rejected) ... ok\ntest_unsupported_parser_version_reported_unverified (test_integrity.IntegrityTests.test_unsupported_parser_version_reported_unverified) ... ok\ntest_valid_multi_run_export_restores (test_integrity.IntegrityTests.test_valid_multi_run_export_restores) ... ok\ntest_crlf_span_counts_raw_characters (test_output_spans.OutputSpanTests.test_crlf_span_counts_raw_characters) ... ok\ntest_non_ascii_offsets_are_code_points (test_output_spans.OutputSpanTests.test_non_ascii_offsets_are_code_points) ... ok\ntest_span_selects_exact_finding_block (test_output_spans.OutputSpanTests.test_span_selects_exact_finding_block) ... ok\ntest_tampered_span_rejected_on_restore (test_output_spans.OutputSpanTests.test_tampered_span_rejected_on_restore) ... ok\ntest_bundles_restore_verified (test_paired_fixtures.PairedFixtureTests.test_bundles_restore_verified) ... ok\ntest_contexts_use_package_b_pins (test_paired_fixtures.PairedFixtureTests.test_contexts_use_package_b_pins) ... ok\ntest_native_labels_preserved (test_paired_fixtures.PairedFixtureTests.test_native_labels_preserved) ... ok\ntest_quarantined_as_current_contract_mismatch (test_paired_fixtures.PairedFixtureTests.test_quarantined_as_current_contract_mismatch) ... ok\ntest_source_read_states_recorded (test_paired_fixtures.PairedFixtureTests.test_source_read_states_recorded) ... ok\ntest_changed_component_is_named (test_replay.ReplayTests.test_changed_component_is_named) ... ok\ntest_changed_input_fails_both_levels_and_names_input (test_replay.ReplayTests.test_changed_input_fails_both_levels_and_names_input) ... ok\ntest_cli_level_flag (test_replay.ReplayTests.test_cli_level_flag) ... ok\ntest_content_replay_passes_across_environment_change_and_reports_it (test_replay.ReplayTests.test_content_replay_passes_across_environment_change_and_reports_it) ... ok\ntest_strict_replay_fails_on_environment_change (test_replay.ReplayTests.test_strict_replay_fails_on_environment_change) ... ok\ntest_unchanged_replay_passes_both_levels (test_replay.ReplayTests.test_unchanged_replay_passes_both_levels) ... ok\ntest_matching_review_is_in_run_refs (test_reviews.ReviewRefTests.test_matching_review_is_in_run_refs) ... ok\ntest_record_contract_rejects_mismatched_review_in_refs (test_reviews.ReviewRefTests.test_record_contract_rejects_mismatched_review_in_refs) ... ok\ntest_shen_earlier_counter_audit_not_in_run_refs (test_reviews.ReviewRefTests.test_shen_earlier_counter_audit_not_in_run_refs) ... ok\n\n----------------------------------------------------------------------\nRan 95 tests in 15.366s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3.11",
+        "tests/test-citation-network-checker.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "PASS\tdirty full fixture failed; Shen V1 whitelist control passed; clean fixture returned PASS; review fixture returned PASS-WITH-REVIEW.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "tools/embed_prompts.py",
+        "--check"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "STALE - re-run tools/embed_prompts.py\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "import",
+        "tests/atlas/power-control.json",
+        "--out",
+        ".atlas/power-control",
+        "--ledger",
+        ".atlas/ledger.sqlite"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\"checker\":\"PASS\",\"notices\":[],\"records\":17,\"scientific_validation\":\"NOT_PERFORMED\",\"sha256\":\"f1b281cab58605410c82d4d117e9a2812293ac633b77769219678f3a81139fb3\",\"syntax\":\"PASS\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "replay",
+        ".atlas/power-control/manifest.json",
+        ".atlas/power-control/records.jsonl",
+        "--level",
+        "strict"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\"environment_delta\":{},\"level\":\"strict\",\"replay\":\"PASS\",\"scope\":\"deterministic import replay; historical model run not reproduced\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "replay",
+        ".atlas/power-control/manifest.json",
+        ".atlas/power-control/records.jsonl",
+        "--level",
+        "content"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\"environment_delta\":{},\"level\":\"content\",\"replay\":\"PASS\",\"scope\":\"deterministic import replay; historical model run not reproduced\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "import",
+        "tests/atlas/shen-known-bad.json",
+        "--out",
+        ".atlas/shen-known-bad",
+        "--ledger",
+        ".atlas/ledger.sqlite"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "{\"checker\":\"FAIL\",\"notices\":[],\"records\":13,\"scientific_validation\":\"NOT_PERFORMED\",\"sha256\":\"9627d3bc3b3713df1fc210e22aa48b7eba76f521f2ffbb7b5426ec8c19d55e42\",\"syntax\":\"FAIL\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "replay",
+        ".atlas/shen-known-bad/manifest.json",
+        ".atlas/shen-known-bad/records.jsonl",
+        "--level",
+        "strict"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\"environment_delta\":{},\"level\":\"strict\",\"replay\":\"PASS\",\"scope\":\"deterministic import replay; historical model run not reproduced\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "replay",
+        ".atlas/shen-known-bad/manifest.json",
+        ".atlas/shen-known-bad/records.jsonl",
+        "--level",
+        "content"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\"environment_delta\":{},\"level\":\"content\",\"replay\":\"PASS\",\"scope\":\"deterministic import replay; historical model run not reproduced\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "import",
+        "tests/atlas/case12-healthy.json",
+        "--out",
+        ".atlas/case12-healthy",
+        "--ledger",
+        ".atlas/ledger.sqlite"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "{\"checker\":\"FAIL\",\"notices\":[],\"records\":10,\"scientific_validation\":\"NOT_PERFORMED\",\"sha256\":\"fdfc48f3f464aedc0c214da7c78cea93ef4dd9a658def57af1a72c4ac8426014\",\"syntax\":\"FAIL\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "replay",
+        ".atlas/case12-healthy/manifest.json",
+        ".atlas/case12-healthy/records.jsonl",
+        "--level",
+        "strict"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\"environment_delta\":{},\"level\":\"strict\",\"replay\":\"PASS\",\"scope\":\"deterministic import replay; historical model run not reproduced\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "replay",
+        ".atlas/case12-healthy/manifest.json",
+        ".atlas/case12-healthy/records.jsonl",
+        "--level",
+        "content"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\"environment_delta\":{},\"level\":\"content\",\"replay\":\"PASS\",\"scope\":\"deterministic import replay; historical model run not reproduced\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "import",
+        "tests/atlas/case13-closed.json",
+        "--out",
+        ".atlas/case13-closed",
+        "--ledger",
+        ".atlas/ledger.sqlite"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "{\"checker\":\"FAIL\",\"notices\":[],\"records\":11,\"scientific_validation\":\"NOT_PERFORMED\",\"sha256\":\"a07ea5c7ae12c3ebd5502c2de658672b38ee9726fdd79a67b52c36f3b0603bb3\",\"syntax\":\"FAIL\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "replay",
+        ".atlas/case13-closed/manifest.json",
+        ".atlas/case13-closed/records.jsonl",
+        "--level",
+        "strict"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\"environment_delta\":{},\"level\":\"strict\",\"replay\":\"PASS\",\"scope\":\"deterministic import replay; historical model run not reproduced\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "replay",
+        ".atlas/case13-closed/manifest.json",
+        ".atlas/case13-closed/records.jsonl",
+        "--level",
+        "content"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\"environment_delta\":{},\"level\":\"content\",\"replay\":\"PASS\",\"scope\":\"deterministic import replay; historical model run not reproduced\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "replay",
+        "tests/atlas/receipts/power-control/manifest.json",
+        "tests/atlas/receipts/power-control/records.jsonl",
+        "--level",
+        "content"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\"environment_delta\":{},\"level\":\"content\",\"replay\":\"PASS\",\"scope\":\"deterministic import replay; historical model run not reproduced\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "replay",
+        "tests/atlas/receipts/shen-known-bad/manifest.json",
+        "tests/atlas/receipts/shen-known-bad/records.jsonl",
+        "--level",
+        "content"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\"environment_delta\":{},\"level\":\"content\",\"replay\":\"PASS\",\"scope\":\"deterministic import replay; historical model run not reproduced\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "replay",
+        "tests/atlas/receipts/case12-healthy/manifest.json",
+        "tests/atlas/receipts/case12-healthy/records.jsonl",
+        "--level",
+        "content"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\"environment_delta\":{},\"level\":\"content\",\"replay\":\"PASS\",\"scope\":\"deterministic import replay; historical model run not reproduced\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "replay",
+        "tests/atlas/receipts/case13-closed/manifest.json",
+        "tests/atlas/receipts/case13-closed/records.jsonl",
+        "--level",
+        "content"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\"environment_delta\":{},\"level\":\"content\",\"replay\":\"PASS\",\"scope\":\"deterministic import replay; historical model run not reproduced\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "export",
+        ".atlas/ledger.sqlite",
+        ".atlas/all.jsonl"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "restore",
+        ".atlas/all.jsonl",
+        ".atlas/restored.sqlite"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\"inserted\":51,\"native_projection_unverified\":[],\"native_projection_verified\":[\"urn:atlas:import:case12-healthy:1\",\"urn:atlas:import:case13-closed:1\",\"urn:atlas:import:power-control:1\",\"urn:atlas:import:shen-known-bad:1\"]}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3.11",
+        "-m",
+        "atlas",
+        "export",
+        ".atlas/restored.sqlite",
+        ".atlas/restored.jsonl"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "all_exit_codes_as_expected": true,
+  "roundtrip_byte_identical": true,
+  "roundtrip_sha256": "75d7db71e4ee923312f09d431f66060f29e6a905a6581c2ba15914e0e01f1124",
+  "preexisting_failure": "embed_prompts --check is STALE at base; not changed",
+  "independent_review": "NOT_PERFORMED"
+}
