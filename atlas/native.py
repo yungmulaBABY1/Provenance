@@ -60,6 +60,18 @@ def top_level_lines(text):
         yield number, stripped
 
 
+def output_span(text, first_line, last_line):
+    """Half-open code-point span of one-based lines, using the parser's line model.
+
+    The last line's terminator is excluded; CRLF and other separators count as
+    the characters they are.
+    """
+    lines = text.splitlines(keepends=True)
+    start = sum(len(line) for line in lines[:first_line - 1])
+    end = sum(len(line) for line in lines[:last_line - 1]) + len(lines[last_line - 1].splitlines()[0])
+    return start, end
+
+
 def cells(line):
     if not (line.startswith("|") and line.endswith("|")):
         return None

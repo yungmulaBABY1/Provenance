@@ -13,7 +13,7 @@ from . import SCHEMA, VERSION
 from .contract import (NORMALIZER, ContractError, canonical, digest, jsonl, load_json,
                        read_artifact, record, sha256, validate_context)
 from . import native
-from .native import parse
+from .native import output_span, parse
 from .sources import assess_checks, inspect_sources
 
 CHECKER = "prompts/research-analysis/check-citation-network-output.py"
@@ -134,6 +134,7 @@ def build(context: dict, root: Path) -> dict:
         compliance = "UNDETERMINED"
     for index, finding in enumerate(parsed["findings"], 1):
         fid = f"{rid}/finding/{index}"
+        char_start, char_end = output_span(raw, finding["line_start"], finding["line_end"])
         check_ids = context["finding_checks"].get(str(finding["number"]), [])
         selected = [check_results[c] for c in check_ids]
         eligible = (bool(selected) and any(c["kind"] == "content" for c in selected)
@@ -147,7 +148,10 @@ def build(context: dict, root: Path) -> dict:
                               native_output_anchor={"output_sha256": sha256(raw_bytes),
                                                     "first_line": finding["line_start"],
                                                     "last_line_inclusive": finding["line_end"],
-                                                    "unit": "one_based_line"},
+                                                    "unit": "one_based_line",
+                                                    "char_start": char_start, "char_end": char_end,
+                                                    "char_unit": "unicode_codepoint",
+                                                    "char_interval": "half_open"},
                               source_eligibility="ELIGIBLE_FOR_DECLARED_CHECKS" if eligible else "NOT_ASSESSABLE",
                               source_checks=selected,
                               source_basis="EXPLICIT_IMPORT_MAPPING; not inferred from model prose",

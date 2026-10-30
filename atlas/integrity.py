@@ -59,8 +59,18 @@ def rederive(run: dict, records: list[dict], by_id: dict[str, dict]) -> None:
     if set(findings) != set(expected):
         mismatched.append("findings")
     else:
-        mismatched.extend(f"{fid}.native" for fid in sorted(findings)
-                          if findings[fid]["native"] != expected[fid])
+        for fid in sorted(findings):
+            native_finding = expected[fid]
+            if findings[fid]["native"] != native_finding:
+                mismatched.append(f"{fid}.native")
+            start, end = native.output_span(run["raw_output_text"], native_finding["line_start"],
+                                            native_finding["line_end"])
+            if findings[fid].get("native_output_anchor") != {
+                    "output_sha256": run["output_sha256"], "first_line": native_finding["line_start"],
+                    "last_line_inclusive": native_finding["line_end"], "unit": "one_based_line",
+                    "char_start": start, "char_end": end, "char_unit": "unicode_codepoint",
+                    "char_interval": "half_open"}:
+                mismatched.append(f"{fid}.native_output_anchor")
     if run["native_scorecard"] != parsed["scorecard"]:
         mismatched.append("native_scorecard")
     if run["native_parse_issues"] != parsed["issues"]:
