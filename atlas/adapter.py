@@ -10,8 +10,8 @@ import sys
 import tempfile
 
 from . import SCHEMA, VERSION
-from .contract import (ContractError, canonical, digest, jsonl, load_json, read_artifact,
-                       record, sha256, validate_context)
+from .contract import (NORMALIZER, ContractError, canonical, digest, jsonl, load_json,
+                       read_artifact, record, sha256, validate_context)
 from . import native
 from .native import parse
 from .sources import assess_checks, inspect_sources
@@ -207,6 +207,7 @@ def build(context: dict, root: Path) -> dict:
                                "code_sha256": code_files, "baseline_sha256": sha256(BASELINE_PATH.read_bytes())},
                       parser={"name": native.NAME, "version": native.VERSION,
                               "code_sha256": sha256(Path(native.__file__).read_bytes())},
+                      normalizer=NORMALIZER,
                       validation_baseline=baseline, input_context=context,
                       declared_input_receipts=inputs,
                       source_input_receipts=[r["declared_input"] for r in receipts.values() if r["declared_input"]],

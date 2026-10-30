@@ -8,6 +8,7 @@ from .adapter import build
 from .contract import ContractError, canonical, load_json, sha256
 from .integrity import verify_records
 from .ledger import append, export, read_export
+from .replay import LEVELS, replay as replay_import
 
 
 def write_once(path: Path, data: bytes):
@@ -37,6 +38,8 @@ def main(argv=None):
     replay.add_argument("manifest", type=Path)
     replay.add_argument("jsonl", type=Path)
     replay.add_argument("--root", type=Path, default=Path.cwd())
+    replay.add_argument("--level", choices=LEVELS, default="strict",
+                        help="strict: byte-identical (default); content: all but environment")
     args = parser.parse_args(argv)
     try:
         if args.command == "import":
@@ -65,11 +68,8 @@ def main(argv=None):
             records = read_export(args.jsonl.read_bytes())
             print(canonical({"inserted": append(args.ledger, records), **verify_records(records)}))
         else:
-            manifest = load_json(args.manifest.read_bytes())
-            bundle = build(manifest["input_context"], args.root.resolve())
-            if bundle["manifest"] != manifest or bundle["jsonl"] != args.jsonl.read_bytes():
-                raise ContractError("REPLAY_MISMATCH: inputs, code, environment or records differ")
-            print("PASS: deterministic import replay; historical model run not reproduced")
+            print(canonical(replay_import(args.manifest.read_bytes(), args.jsonl.read_bytes(),
+                                          args.root.resolve(), args.level)))
         return 0
     except (ContractError, OSError, UnicodeError, KeyError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
