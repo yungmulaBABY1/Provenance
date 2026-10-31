@@ -11,6 +11,34 @@ Provenance is not an AI truth machine or an automated fact score\. It is a set o
 structured prompts, checks, fixtures, and run records designed to turn an anomaly
 into an inspectable adjudication packet\.
 
+## Status: frozen reference implementation
+
+Provenance is frozen as a reference implementation. The prompts are no longer
+maintained or extended; they remain runnable for anyone who wants to use them
+independently. Active development of the method, the failure registry and the
+regression cases is moving to a separate Atlas repository (link to follow).
+
+Known open issues:
+
+- FAIL-CV-005, verdicts flipping across models on an unsettled scope boundary:
+  repair proposed, not written ([FAILURES.md](FAILURES.md)).
+- Stage 4 synthesis is not built; no prompt file exists
+  ([current-state-inventory.md](current-state-inventory.md)).
+- The webapp is an incomplete sandbox prototype, not a supported application
+  ([TODO.md](TODO.md)).
+- Individual stages have acquitted; no full research chain has returned clean
+  ([TODO.md](TODO.md)).
+
+Project records:
+
+- [TODO.md](TODO.md): live files, pending work and state of play.
+- [FAILURES.md](FAILURES.md): numbered registry of the failures each prompt rule
+  exists to close; its entries are protected history.
+- [CHANGELOG.md](CHANGELOG.md): why each rule changed, the failure it closes and how
+  that failure was found.
+- [current-state-inventory.md](current-state-inventory.md): snapshot of what exists,
+  what executes, what has been tested and what sits outside the canonical prompts.
+
 ## What the toolkit does
 
 - stabilizes the exact claim or event before critique begins;
