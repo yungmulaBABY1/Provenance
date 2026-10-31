@@ -7,6 +7,7 @@ changed mapping never inherits an old review. A review of one clause never
 approves the finding, never adjudicates, and leaves native labels as written.
 """
 
+import contextlib
 import copy
 import json
 from pathlib import Path
@@ -381,7 +382,8 @@ class EvidenceReviewTests(unittest.TestCase):
         with self.assertRaisesRegex(ContractError, "ID_CONTENT_CONFLICT"):
             append(db, build(self.ctx, self.root)["records"])
         self.assertEqual(export(db), before)
-        with sqlite3.connect(db) as connection, self.assertRaisesRegex(sqlite3.IntegrityError, "APPEND_ONLY"):
+        with (contextlib.closing(sqlite3.connect(db)) as connection, connection,
+              self.assertRaisesRegex(sqlite3.IntegrityError, "APPEND_ONLY")):
             connection.execute("UPDATE records SET payload='{}' WHERE id=?", (REVIEW_A,))
 
     def test_cli_import_export_restore_replay(self):
