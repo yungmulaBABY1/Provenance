@@ -129,8 +129,11 @@ It checks required structure and gate behavior, not substantive correctness\.
 
 The [deterministic Atlas adapter](docs/atlas/README.md) imports pinned
 citation-network outputs into evidence-linked records with separate source-read
-eligibility, immutable run receipts, and JSONL export. It runs offline and keeps
-historical native labels separate from newly verified source access. It is a
+eligibility, hash-checked run receipts, and JSONL export. Receipts and manifests
+detect accidental or inconsistent changes; they are not tamper-proof or signed,
+because anyone can recompute the hashes (see
+[Persistence and receipts](docs/atlas/README.md#persistence-and-receipts)). It runs
+offline and keeps historical native labels separate from newly verified source access. It is a
 bounded backend module, not the proposed Atlas application. See its documentation
 for executable examples, regression tests, implementation limits, and the
 independent-review handoff.
