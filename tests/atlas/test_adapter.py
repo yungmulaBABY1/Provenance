@@ -4,6 +4,7 @@ No model runs, scientific ground-truth grading, or benchmark independence is
 claimed by this suite. Existing fixtures are development regressions.
 """
 
+import contextlib
 import copy
 from concurrent.futures import ThreadPoolExecutor
 import json
@@ -419,7 +420,8 @@ class PipelineTests(unittest.TestCase):
         bundle = build(self.context, self.root)
         db = self.root / "ledger.db"
         append(db, bundle["records"])
-        with sqlite3.connect(db) as connection:
+        # closing() closes the connection; the inner `connection` keeps its commit/rollback.
+        with contextlib.closing(sqlite3.connect(db)) as connection, connection:
             for sql in ["DELETE FROM records", "UPDATE records SET sha256='0'"]:
                 with self.assertRaisesRegex(sqlite3.IntegrityError, "APPEND_ONLY"):
                     connection.execute(sql)

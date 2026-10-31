@@ -14,7 +14,7 @@ a factual verdict\. There is no composite score\.
 Implementation state and validation state are independent\. A prompt can be
 canonical but untested\. A repair can be tested on a candidate artifact but not
 yet synchronized into the canonical prompt\. The
-[current\-state inventory](current-state-inventory.md) records both\.
+[current\-state inventory](../current-state-inventory.md) records both\.
 
 ## Hypothesis handling
 

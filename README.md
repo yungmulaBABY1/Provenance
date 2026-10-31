@@ -11,6 +11,34 @@ Provenance is not an AI truth machine or an automated fact score\. It is a set o
 structured prompts, checks, fixtures, and run records designed to turn an anomaly
 into an inspectable adjudication packet\.
 
+## Status: frozen reference implementation
+
+Provenance is frozen as a reference implementation. The prompts are no longer
+maintained or extended; they remain runnable for anyone who wants to use them
+independently. Active development of the method, the failure registry and the
+regression cases is moving to a separate Atlas repository (link to follow).
+
+Known open issues:
+
+- FAIL-CV-005, verdicts flipping across models on an unsettled scope boundary:
+  repair proposed, not written ([FAILURES.md](FAILURES.md)).
+- Stage 4 synthesis is not built; no prompt file exists
+  ([current-state-inventory.md](current-state-inventory.md)).
+- The webapp is an incomplete sandbox prototype, not a supported application
+  ([TODO.md](TODO.md)).
+- Individual stages have acquitted; no full research chain has returned clean
+  ([TODO.md](TODO.md)).
+
+Project records:
+
+- [TODO.md](TODO.md): live files, pending work and state of play.
+- [FAILURES.md](FAILURES.md): numbered registry of the failures each prompt rule
+  exists to close; its entries are protected history.
+- [CHANGELOG.md](CHANGELOG.md): why each rule changed, the failure it closes and how
+  that failure was found.
+- [current-state-inventory.md](current-state-inventory.md): snapshot of what exists,
+  what executes, what has been tested and what sits outside the canonical prompts.
+
 ## What the toolkit does
 
 - stabilizes the exact claim or event before critique begins;
@@ -93,7 +121,7 @@ This is an active research toolkit, not a finished application\.
 |Webapp                   |Incomplete sandbox prototype; useful for browsing/copying, not a supported execution surface                                                                              |
 
 For the artifact\-by\-artifact reconciliation, see the
-[current\-state inventory](reference/current-state-inventory.md)\. For observed
+[current\-state inventory](current-state-inventory.md)\. For observed
 behavior rather than architecture, see [tests/RESULTS\.md](tests/RESULTS.md)\.
 
 ## Start an audit
@@ -129,8 +157,11 @@ It checks required structure and gate behavior, not substantive correctness\.
 
 The [deterministic Atlas adapter](docs/atlas/README.md) imports pinned
 citation-network outputs into evidence-linked records with separate source-read
-eligibility, immutable run receipts, and JSONL export. It runs offline and keeps
-historical native labels separate from newly verified source access. It is a
+eligibility, hash-checked run receipts, and JSONL export. Receipts and manifests
+detect accidental or inconsistent changes; they are not tamper-proof or signed,
+because anyone can recompute the hashes (see
+[Persistence and receipts](docs/atlas/README.md#persistence-and-receipts)). It runs
+offline and keeps historical native labels separate from newly verified source access. It is a
 bounded backend module, not the proposed Atlas application. See its documentation
 for executable examples, regression tests, implementation limits, and the
 independent-review handoff.
@@ -191,7 +222,7 @@ findings cap at PROVISIONAL rather than substituting background knowledge\.
 |[`reference/philosophy.md`](reference/philosophy.md)                          |Governing epistemic commitments                                    |
 |[`reference/methodology.md`](reference/methodology.md)                        |Sequence, handoffs, evidence axes, and run discipline              |
 |[`reference/architecture-note.md`](reference/architecture-note.md)            |Cross-prompt constraints and open decisions                        |
-|[`reference/current-state-inventory.md`](reference/current-state-inventory.md)|Canonical, tested, duplicated, unfinished, and superseded state    |
+|[`reference/current-state-inventory.md`](current-state-inventory.md)|Canonical, tested, duplicated, unfinished, and superseded state    |
 |[`FAILURES.md`](FAILURES.md)                                                  |Failure registry and deletion protection                           |
 |[`CHANGELOG.md`](CHANGELOG.md)                                                |Why rules changed                                                  |
 |[`tests/`](tests/)                                                            |Regression discipline, fixed cases, raw runs, and observed behavior|

@@ -5,10 +5,10 @@ executes. These are the artifacts the run log in `tests/RESULTS.md` refers to.
 
 ## The two Ceuta folders are not the same thing
 
-They sit next to each other and their names are one letter apart. Read this
-before treating a file from either as evidence for the other.
+They sit next to each other and their names are similar. Read this before
+treating a file from either as evidence for the other.
 
-**`cueta/`  -  SYNTHETIC FIXTURES.** Closed-packet coverage fixtures written to
+**`ceuta-fixtures/`  -  SYNTHETIC FIXTURES.** Closed-packet coverage fixtures written to
 have known structure, run to test whether the coverage-network prompt returns the
 answer the fixture was built to have. Every file declares itself a fixture in its
 own header. A finding here is a statement about the INSTRUMENT.
@@ -24,9 +24,12 @@ run has no oracle and cannot. Reading a live-run finding as if it validated the
 instrument, or a fixture result as if it said something about real coverage, is
 the same category error in both directions.
 
-The `cueta` spelling in the fixture folder is a misspelling of Ceuta, retained
-for now because every path and filename inside it carries it. Fixing it is a
-rename of the folder and its three files; nothing depends on the spelling.
+The fixture folder was formerly `cueta/`, a misspelling of Ceuta. It was renamed
+`ceuta-fixtures/`, its `media 01 coverage network audit ceuta synthetic.txt` became
+`media-01-coverage-network-audit-ceuta-synthetic.txt`, and the live-run files
+`*-cueta*.txt` became `*-ceuta*.txt` (git history follows the renames). Two fixture
+filenames, `grok-cueta-closed-fixture.txt` and `sol-cueta-closed-fixture.txt`, still
+carry the old spelling; file contents were not edited.
 
 ## Naming
 
