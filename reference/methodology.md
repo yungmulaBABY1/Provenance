@@ -5,7 +5,7 @@ How an anomaly becomes an adjudication packet\.
 > **Status:** Reconciled repository reference, 2026-08-09. This document
 > describes the canonical sequence, keeps implementation distinct from
 > validation, and links unresolved state to the
-> [current-state inventory](current-state-inventory.md).
+> [current-state inventory](../current-state-inventory.md).
 
 ## Scope and source of truth
 
@@ -662,7 +662,7 @@ require broader designs with their own sampling and timing rules\.
 |[`reference/philosophy.md`](philosophy.md)                          |Governing epistemic commitments                                       |
 |[`reference/architecture-note.md`](architecture-note.md)            |Cross-prompt constraints and open decisions                           |
 |`reference/methodology.md`                                          |Current sequence and handoffs                                         |
-|[`reference/current-state-inventory.md`](current-state-inventory.md)|Canonical, tested, duplicated, unfinished, and superseded state       |
+|[`reference/current-state-inventory.md`](../current-state-inventory.md)|Canonical, tested, duplicated, unfinished, and superseded state       |
 |`FAILURES.md`                                                       |General failures and anticipated guards                               |
 |`CHANGELOG.md`                                                      |Why adopted rules changed                                             |
 |`tests/README.md`                                                   |Regression-test discipline                                            |

@@ -93,7 +93,7 @@ This is an active research toolkit, not a finished application\.
 |Webapp                   |Incomplete sandbox prototype; useful for browsing/copying, not a supported execution surface                                                                              |
 
 For the artifact\-by\-artifact reconciliation, see the
-[current\-state inventory](reference/current-state-inventory.md)\. For observed
+[current\-state inventory](current-state-inventory.md)\. For observed
 behavior rather than architecture, see [tests/RESULTS\.md](tests/RESULTS.md)\.
 
 ## Start an audit
@@ -191,7 +191,7 @@ findings cap at PROVISIONAL rather than substituting background knowledge\.
 |[`reference/philosophy.md`](reference/philosophy.md)                          |Governing epistemic commitments                                    |
 |[`reference/methodology.md`](reference/methodology.md)                        |Sequence, handoffs, evidence axes, and run discipline              |
 |[`reference/architecture-note.md`](reference/architecture-note.md)            |Cross-prompt constraints and open decisions                        |
-|[`reference/current-state-inventory.md`](reference/current-state-inventory.md)|Canonical, tested, duplicated, unfinished, and superseded state    |
+|[`reference/current-state-inventory.md`](current-state-inventory.md)|Canonical, tested, duplicated, unfinished, and superseded state    |
 |[`FAILURES.md`](FAILURES.md)                                                  |Failure registry and deletion protection                           |
 |[`CHANGELOG.md`](CHANGELOG.md)                                                |Why rules changed                                                  |
 |[`tests/`](tests/)                                                            |Regression discipline, fixed cases, raw runs, and observed behavior|

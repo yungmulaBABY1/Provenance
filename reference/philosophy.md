@@ -4,7 +4,7 @@ It points; you judge.
 
 > **Status:** Reconciled repository reference, 2026-08-09. Commitments are
 > separated from demonstrated capacities; implementation state lives in the
-> [current-state inventory](current-state-inventory.md). Uncommitted
+> [current-state inventory](../current-state-inventory.md). Uncommitted
 > off-repository philosophy notes, if later supplied, remain a separate source to
 > reconcile rather than an authority over this file.
 
