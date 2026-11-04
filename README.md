@@ -16,7 +16,9 @@ into an inspectable adjudication packet\.
 Provenance is frozen as a reference implementation. The prompts are no longer
 maintained or extended; they remain runnable for anyone who wants to use them
 independently. Active development of the method, the failure registry and the
-regression cases is moving to a separate Atlas repository (link to follow).
+regression cases has moved to
+[Provenance-Atlas](https://github.com/yungmulaBABY1/Provenance-Atlas), which
+carries this repository's full history unchanged (merged at `cb795acc`).
 
 Known open issues:
 
@@ -164,7 +166,9 @@ because anyone can recompute the hashes (see
 offline and keeps historical native labels separate from newly verified source access. It is a
 bounded backend module, not the proposed Atlas application. See its documentation
 for executable examples, regression tests, implementation limits, and the
-independent-review handoff.
+independent-review handoff. The adapter is maintained in
+[Provenance-Atlas](https://github.com/yungmulaBABY1/Provenance-Atlas) from
+`cb795acc` onward; the copy here is no longer updated.
 
 ## Choosing a model for a manual run
 
