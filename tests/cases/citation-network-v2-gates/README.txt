@@ -77,11 +77,13 @@ build_live_v2cand_fixture.py      builds the live-run fixture
     v2cand/ on Provenance-Atlas branch audit/acemoglu-colonial-origins-v2cand (commit
     84d1800faf71788c46bb4c4e968ab3cb42d24b11). The script refuses any output other than
     02c_citation_network_v2cand2.md with sha256
-    a1abbbee2b568f177913a3a7e9a89b2c04abac42d12152001d07fef4b1cd07c3, checks that output and
-    the six adjudication search responses (raw/adj1_Q1-Q6.json) against the run's SHA256SUMS,
-    reads them as data, and executes nothing from the run. Run with python3 -I. Known-item
-    recall (L4) is computed from the six responses: of the six claim-testing works the run's
-    exposure declaration names, the search returned Rodrik et al. 2004 only.
+    a1abbbee2b568f177913a3a7e9a89b2c04abac42d12152001d07fef4b1cd07c3 (also listed in the
+    run's SHA256SUMS). The six adjudication search responses (raw/adj1_Q1-Q6.json) must match
+    pinned digests taken with every abstract_inverted_index field removed, so the fixture
+    rebuilds from the run as committed or after its abstracts are stripped. Everything is read
+    as data; nothing from the run is executed. Run with python3 -I. Known-item recall (L4) is
+    computed from the six responses: of the six claim-testing works the run's exposure
+    declaration names, the search returned Rodrik et al. 2004 only.
 
 Build receipt (2026-11-04, Python 3.13 and 3.11 identical):
     acemoglu-as-run-transcribed.txt  sha256 47eb496a4c76d8a8f57ecd9bdd5b1d4b08dca82befe701064da3046034cadf57

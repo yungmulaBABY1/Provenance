@@ -3,8 +3,10 @@
 
 Input: the run directory examples/research/acemoglu-colonial-origins/citation-network-v2cand/
 on Provenance-Atlas branch audit/acemoglu-colonial-origins-v2cand (commit 84d1800). The output
-file and the six adjudication search responses must match their pinned sha256; they are read
-as data and nothing in them is executed. Run with python3 -I:
+file must match its pinned sha256. The six adjudication search responses must match pinned
+digests taken with every abstract_inverted_index field removed, so the fixture rebuilds from the
+run as committed or after its abstracts are stripped. Everything is read as data; nothing in
+the run is executed. Run with python3 -I:
 
     python3 -I build_live_v2cand_fixture.py /path/to/citation-network-v2cand OUTDIR
 
@@ -25,6 +27,16 @@ from pathlib import Path
 
 OUTPUT_SHA256 = "a1abbbee2b568f177913a3a7e9a89b2c04abac42d12152001d07fef4b1cd07c3"
 RUN_COMMIT = "84d1800faf71788c46bb4c4e968ab3cb42d24b11"
+# raw/adj1_Q1..Q6.json: sha256 of canonical JSON (sort_keys, compact separators) with every
+# abstract_inverted_index key removed, computed from the files at RUN_COMMIT.
+SEARCH_DIGESTS = {
+    1: "9292398da28f669f191f7d16b7793da447a53c3cd5117082adbfc41b49238810",
+    2: "9052c65d9c50bf8a1eb9ec51d2bc8967f6bde43969d2b32cd9bbd2985ec8632f",
+    3: "e9c999268af0d31fdbe4daf139bb77299c269b96e4a3913da7c30d5a2f9d5d3b",
+    4: "b72e03c923904430d4fbf10476377c1268593f80eaaebb266e8dbe186f254e3f",
+    5: "2a8b4a545ddc42bc8311ebeda33bc064c10705049178f9dd788a4f4d7e9dbfae",
+    6: "40a8e83d4dd4ce4855b01cfeb2b3782dcd3ee94b9207897730ed26cff269f1cc",
+}
 
 # Rules
 # L1  Version and map lines become revision 3's (2-citation-network v2-candidate.3, cn7-map-3).
@@ -68,6 +80,21 @@ def sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def without_abstracts(value):
+    if isinstance(value, dict):
+        return {k: without_abstracts(v) for k, v in value.items()
+                if k != "abstract_inverted_index"}
+    if isinstance(value, list):
+        return [without_abstracts(v) for v in value]
+    return value
+
+
+def search_digest(data) -> str:
+    canonical = json.dumps(without_abstracts(data), sort_keys=True, separators=(",", ":"),
+                           ensure_ascii=False)
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+
 def main() -> int:
     run_dir, outdir = Path(sys.argv[1]), Path(sys.argv[2])
     output = run_dir / "02c_citation_network_v2cand2.md"
@@ -83,9 +110,11 @@ def main() -> int:
     returned_ids = set()
     for q in range(1, 7):
         path = run_dir / "raw" / f"adj1_Q{q}.json"
-        if sums.get(f"raw/adj1_Q{q}.json") != sha(path):
-            raise SystemExit(f"{path.name} does not match the run's SHA256SUMS")
-        returned_ids |= {w["id"].rsplit("/", 1)[-1] for w in json.loads(path.read_text())["results"]}
+        data = json.loads(path.read_text(encoding="utf-8"))
+        if search_digest(data) != SEARCH_DIGESTS[q]:
+            raise SystemExit(f"{path.name} differs from the run's search response (abstract "
+                             "fields aside)")
+        returned_ids |= {w["id"].rsplit("/", 1)[-1] for w in data["results"]}
 
     lines = output.read_text(encoding="utf-8").splitlines()
 
