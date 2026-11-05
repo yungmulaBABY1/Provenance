@@ -9,11 +9,15 @@ Purpose: show that the v1 checker and the Atlas native parser read the combined 
 before, and record what the candidate gates say about a v1-era clean control.
 
 BEGIN VERSION
-INSTRUMENT VERSION: 2-citation-network v2-candidate.2
+INSTRUMENT VERSION: 2-citation-network v2-candidate.3
 END VERSION
 
 BEGIN BLOCK A0
 SECTION A0: CORPUS REGISTER AND SOURCE ELIGIBILITY
+
+CLAIM LAYERS AND RIVALS
+
+CLAIM LAYER: L1 — map field 6: the cited literature independently establishes reliable behavioral and physiological benefits from brief expansive power poses
 
 CORPUS ID: PACKET-1
 CORPUS ROLE: RECEPTION
@@ -23,6 +27,7 @@ CORPUS DISCOVERY: NONE — supplied packet
 SELECTED ON TARGET CITATION: NO
 CORPUS SIZE: 4
 CITATION CONTEXT COVERAGE: PACKET-1 3/4
+RECORD QUALITY: none known (supplied packet)
 
 CORPUS ID: ADJUDICATION-1
 CORPUS ROLE: ADJUDICATION
@@ -32,6 +37,7 @@ CORPUS DISCOVERY: NONE — supplied packet; supports statements about its named 
 SELECTED ON TARGET CITATION: NO
 CORPUS SIZE: 3
 CITATION CONTEXT COVERAGE: ADJUDICATION-1 2/3
+RECORD QUALITY: none known (supplied packet)
 
 SOURCE ELIGIBILITY LEDGER
 
@@ -62,7 +68,7 @@ INFERENCE LEDGER
 
 DIMENSION EVIDENCE BASIS
 
-DIMENSION CLASS MAP: cn7-map-2
+DIMENSION CLASS MAP: cn7-map-3
 
 | Scorecard dimension | Scorecard disposition | Inference IDs | Basis note |
 |---|---|---|---|

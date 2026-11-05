@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Candidate gate checker for the citation-network v2-candidate instrument, revision 2.
+"""Candidate gate checker for the citation-network v2-candidate instrument, revision 3.
 
 NOT CANONICAL. Checks SECTION A0 (corpus register and source eligibility, Gate A)
 and SECTION K0 (evidence sufficiency, Gate B) of an output, or of a fragment that
@@ -13,8 +13,9 @@ cannot establish: that a passage marked INSPECTED exists, that a code is correct
 or that a sample is representative. Those stay with a reviewer.
 
 Applicability: an output that does not contain the line
-    INSTRUMENT VERSION: 2-citation-network v2-candidate
-was not produced under this candidate, and these gates do not judge it. The
+    INSTRUMENT VERSION: 2-citation-network v2-candidate.3
+was not produced under this revision, and these gates do not judge it (outputs of
+earlier revisions included). The
 checker prints NOT_APPLICABLE and exits 3. With --require-v2 (for callers whose
 run record says the producing instrument is the candidate) the missing line FAILs.
 
@@ -30,8 +31,8 @@ import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 
-VERSION_LINE = "INSTRUMENT VERSION: 2-citation-network v2-candidate.2"
-MAP_ID = "cn7-map-2"
+VERSION_LINE = "INSTRUMENT VERSION: 2-citation-network v2-candidate.3"
+MAP_ID = "cn7-map-3"
 MAP_LINE_RE = re.compile(r"^DIMENSION CLASS MAP:\s*(\S+)\s*$")
 
 RELEVANCE = {"DIRECT", "ADJACENT", "BACKGROUND", "UNRELATED", "UNKNOWN"}
@@ -71,7 +72,7 @@ DIMENSIONS = [
     "lack of decisive tests", "poor critique uptake", "intervention-evidence ratchet",
     "model non-updating",
 ]
-# DIMENSION CLASS MAP cn7-map-2: classes that can carry concern (+) and no concern (-).
+# DIMENSION CLASS MAP cn7-map-3: classes that can carry concern (+) and no concern (-).
 # A dimension not listed accepts any class. Changing any entry is a new MAP_ID.
 CONCERN_CLASSES = {
     "internal citation density": {"GRAPH-STRUCTURE"},
@@ -80,7 +81,7 @@ CONCERN_CLASSES = {
     "review-hub laundering": {"RESTATEMENT"},
     "claim mutation": {"RESTATEMENT"},
     "proxy mismatch": {"RESTATEMENT", "CITATION-USE", "SOURCE-RESULT"},
-    "lack of decisive tests": {"ABSENCE"},
+    "lack of decisive tests": {"ABSENCE", "SOURCE-RESULT"},
     "poor critique uptake": {"ENGAGEMENT", "GRAPH-STRUCTURE"},
     "adjacent-field neglect": {"ENGAGEMENT", "GRAPH-STRUCTURE"},
 }
@@ -96,7 +97,15 @@ NO_CONCERN_CLASSES = {
     "adjacent-field neglect": {"ENGAGEMENT", "SOURCE-RESULT"},
 }
 CO_CITATION_REVIEW_DIMENSIONS = {"poor critique uptake", "adjacent-field neglect"}
-TAG_RE = re.compile(r"^(\S+)\s*\((\+|-|−)\)$")
+# cn7-map-3: dimensions whose scores in either direction need a SEARCHED adjudication corpus,
+# and dimensions where a score resting only on named works goes to review.
+EVIDENCE_BASE_DIMENSIONS = {"lack of decisive tests"}
+POPULATION_DIMENSIONS = {"poor critique uptake", "adjacent-field neglect"}
+TAG_RE = re.compile(r"^(\S+)\s*\((\+|-|−|\?)\)$")
+LAYER_LINE_RE = re.compile(r"^(CLAIM LAYER|RIVAL):\s*([LR]\d+)\b")
+LAYER_CODE_RE = re.compile(r"\b([LR]\d+)\b")
+ATTRITION_RE = re.compile(r"SAMPLE ATTRITION:\s*(\S+)\s+(\d+)\s*/\s*(\d+)")
+RECALL_RE = re.compile(r"KNOWN-ITEM RECALL:\s*(\S+)\s+(\d+)\s*/\s*(\d+)")
 LOCATOR_RE = re.compile(r"\b[A-Z]{2,6}-E\d+\b|\bpp?\.\s*\d+|\bpage\s+\d+|§\s*\d+|\bsection\s+"
                         r"\d+|\breference list\b", re.IGNORECASE)
 DISPOSITION_RE = re.compile(r"^(SCORED [0-3]|UNASSESSED|UNINFORMATIVE|N/A)$")
@@ -104,7 +113,8 @@ FINDING_STATUSES = {"confirmed", "contested", "provisional"}
 EMPTY = {"", "—", "-"}
 
 REGISTER_LABELS = ["CORPUS ROLE", "CORPUS QUESTION", "CORPUS SELECTION RULE",
-                   "CORPUS DISCOVERY", "SELECTED ON TARGET CITATION", "CORPUS SIZE"]
+                   "CORPUS DISCOVERY", "SELECTED ON TARGET CITATION", "CORPUS SIZE",
+                   "RECORD QUALITY"]
 OPTIONAL_LABELS = ["CORPUS LOCK"]
 
 
@@ -113,6 +123,7 @@ class Corpus:
     cid: str
     line: int
     labels: dict = field(default_factory=dict)
+    recall: tuple | None = None
 
     @property
     def role(self) -> str:
@@ -138,6 +149,8 @@ class Source:
     access: str
     context: str
     supported: str
+    label: str = ""
+    raw_relevance: str = ""
 
 
 @dataclass
@@ -249,8 +262,38 @@ def parse_sources(lines: list[str], report: Report) -> dict[str, Source]:
         sources[sid] = Source(
             sid, number, [m.strip() for m in row[1].split("+") if m.strip()], head(row[2]),
             [r.strip() for r in head_list(row[3])], head(row[4]), head(row[5]), head(row[6]),
-            row[7])
+            row[7], row[0], row[2])
     return sources
+
+
+def work_key(label: str) -> tuple[str, bool]:
+    """Normalised title from a Source cell, and whether the label was truncated."""
+    text = " ".join(label.split()[1:])
+    truncated = "…" in text or "..." in text
+    text = re.sub(r"\b[A-Z]\d{5,}\b", " ", text)               # record identifiers
+    text = re.sub(r"\(\s*\d{4}\s*\)|\b(19|20)\d{2}\b", " ", text)  # years
+    text = re.sub(r"(?i)\bchapter\s+\d+\b", " ", text)
+    text = re.sub(r"(?i)\b(a|an|the)\b", " ", text)
+    return re.sub(r"[^a-z0-9]", "", text.lower()), truncated
+
+
+def check_duplicate_works(sources: dict[str, Source], corpora: dict[str, Corpus],
+                          report: Report) -> None:
+    """Rows whose titles suggest the same work go to review (one row per work)."""
+    pairs = []
+    for cid in corpora:
+        members = [(s.sid, *work_key(s.label)) for s in members_of(cid, sources)]
+        for i, (a, ka, ta) in enumerate(members):
+            for b, kb, tb in members[i + 1:]:
+                short, long_, cut = (ka, kb, ta) if len(ka) <= len(kb) else (kb, ka, tb)
+                if len(short) < 25:
+                    continue
+                if short == long_ or (cut and long_.startswith(short)):
+                    pairs.append(f"{a}/{b} ({cid})")
+    if pairs:
+        report.review("POSSIBLE_DUPLICATE_WORK", f"{len(pairs)} pairs of rows look like one "
+                      "work under two records (title match only); where they are one work, "
+                      f"merge them into one row and count it once: {', '.join(pairs)}")
 
 
 def head_list(value: str) -> list[str]:
@@ -297,12 +340,13 @@ def check_sources(sources: dict[str, Source], corpora: dict[str, Corpus],
                     report.fail("NOT_CITING_IN_TARGET_CORPUS",
                                 f"{where}: {member} is SELECTED ON TARGET CITATION")
         if s.access in {"METADATA", "INACCESSIBLE"} and (
-                s.relevance not in {"UNKNOWN", ""} or s.contribution not in {"UNKNOWN", ""}):
+                s.relevance not in {"UNKNOWN", ""} or s.contribution not in {"UNKNOWN", ""}
+                or ("NOT-CITING" in s.relation and "OUTSIDE" not in s.membership)):
             metadata_coded.append(s.sid)
     if metadata_coded:
         report.review("CODED_FROM_METADATA", f"{len(metadata_coded)} rows carry a relevance "
-                      "or contribution code from METADATA-only access; confirm each record "
-                      f"shows it: {', '.join(metadata_coded)}")
+                      "or contribution code, or NOT-CITING, from METADATA-only access; confirm "
+                      f"each record shows it: {', '.join(metadata_coded)}")
 
 
 def members_of(corpus_id: str, sources: dict[str, Source]) -> list[Source]:
@@ -316,6 +360,30 @@ def check_register(lines: list[str], corpora: dict[str, Corpus],
     if not any(c.role == "ADJUDICATION" for c in corpora.values()):
         report.fail("ADJUDICATION_CORPUS_MISSING", "register an ADJUDICATION corpus, with "
                     "CORPUS DISCOVERY: NONE if no adjudication search was run")
+    for number, line in enumerate(lines, start=1):
+        match = RECALL_RE.search(line)
+        if not match:
+            continue
+        corpus = corpora.get(match[1])
+        k, n = int(match[2]), int(match[3])
+        if corpus is None:
+            report.fail("UNREGISTERED_CORPUS", f"known-item recall line {number}: {match[1]}")
+        elif k > n:
+            report.fail("KNOWN_ITEM_RECALL", f"line {number}: {match[1]} {k}/{n} returns more "
+                        "known items than were listed")
+        else:
+            corpus.recall = (k, n)
+    for c in corpora.values():
+        if c.role == "ADJUDICATION" and c.searched:
+            if c.recall is None:
+                report.fail("KNOWN_ITEM_RECALL", f"{c.cid}: a SEARCHED adjudication corpus needs "
+                            "KNOWN-ITEM RECALL: [corpus] k/n, with the known items listed before "
+                            "the search")
+            elif c.recall[0] < c.recall[1]:
+                report.review("SEARCH_RECALL", f"{c.cid}: the locked search returned "
+                              f"{c.recall[0]}/{c.recall[1]} known items; statements about the "
+                              "literature beyond the search are insufficient, and absences "
+                              "within it may be incomplete")
     for c in corpora.values():
         for label in REGISTER_LABELS:
             if not c.labels.get(label):
@@ -466,6 +534,10 @@ def recompute(inf: Inference, corpora: dict[str, Corpus], sources: dict[str, Sou
             reasons.append(f"{inf.klass} at LITERATURE scope needs an ADJUDICATION corpus with "
                            f"CORPUS DISCOVERY: SEARCHED ({corpus.cid} is {corpus.role}, "
                            f"{'SEARCHED' if corpus.searched else 'NONE'})")
+        elif corpus.recall is not None and corpus.recall[0] < corpus.recall[1]:
+            reasons.append(f"the search behind {corpus.cid} missed known items (known-item "
+                           f"recall {corpus.recall[0]}/{corpus.recall[1]}), so it cannot bound "
+                           "a statement about the literature")
 
     if inf.klass == "ABSENCE":
         if scope not in {"LITERATURE", "WITHIN-SAMPLE"}:
@@ -545,10 +617,32 @@ def check_composition(inf: Inference, members: list[Source], compositions: dict)
     return problems
 
 
+def check_attrition(inf: Inference, corpora: dict, sources: dict, attrition: dict,
+                    report: Report) -> None:
+    """A random sample that lost members is reported as such (SAMPLE ATTRITION)."""
+    members, _ = resolve_members(inf, corpora, sources)
+    if not members:
+        return
+    if inf.klass == "CITATION-USE":
+        kept = [s for s in members if s.context == "INSPECTED"]
+    else:
+        kept = [s for s in members if s.access == "FULL-TEXT"]
+    if len(kept) == len(members):
+        return
+    declared = attrition.get(inf.iid)
+    if declared != (len(kept), len(members)):
+        report.fail("SAMPLE_ATTRITION_UNREPORTED", f"{inf.iid}: {len(kept)} of {len(members)} "
+                    f"sampled members were assessed; report SAMPLE ATTRITION: {inf.iid} "
+                    f"{len(kept)}/{len(members)} (declared: "
+                    f"{'%d/%d' % declared if declared else 'none'})")
+
+
 def check_inferences(inferences: dict[str, Inference], corpora: dict[str, Corpus],
                      sources: dict[str, Source], compositions: dict,
-                     report: Report) -> dict[str, str]:
+                     report: Report, lines_cache: list[str] = ()) -> dict[str, str]:
     recomputed = {}
+    attrition = {m[1]: (int(m[2]), int(m[3])) for line in lines_cache
+                 if (m := ATTRITION_RE.search(line))}
     for inf in inferences.values():
         actual, reasons = recompute(inf, corpora, sources, compositions, report)
         recomputed[inf.iid] = actual
@@ -560,9 +654,11 @@ def check_inferences(inferences: dict[str, Inference], corpora: dict[str, Corpus
         elif declared in PASSING and actual != declared:
             report.fail("DISPOSITION_MISMATCH", f"{inf.iid}: declared {declared}, evidence "
                         f"supports {actual}")
-        elif declared == "INSUFFICIENT" and actual in PASSING:
-            report.review("OVER_WITHHELD", f"{inf.iid} ({inf.klass}) declared INSUFFICIENT but "
+        elif declared in {"INSUFFICIENT", "NOT-ASSESSED"} and actual in PASSING:
+            report.review("OVER_WITHHELD", f"{inf.iid} ({inf.klass}) declared {declared} but "
                           "its declared evidence meets the minimum; confirm the stated reason")
+        if inf.sampling == "PRESPECIFIED-RANDOM" and inf.klass in {"CITATION-USE", "ENGAGEMENT"}:
+            check_attrition(inf, corpora, sources, attrition, report)
         report.note(f"inference {inf.iid}\t{inf.klass}\t{inf.scope}\tdeclared {declared}\t"
                     f"recomputed {actual}")
     for iid, entry in compositions.items():
@@ -579,12 +675,14 @@ def split_ids(value: str) -> list[str]:
 
 
 def parse_tagged(value: str) -> tuple[list[tuple[str, str]], list[str]]:
-    """'I03 (+), I10 (-)' -> [('I03', '+'), ('I10', '-')]; untagged entries are returned apart."""
+    """'I03 (+), I10 (-), I22 (?)' -> [('I03', '+'), ('I10', '-'), ('I22', '?')]; untagged
+    entries are returned apart."""
     tagged, untagged = [], []
     for part in split_ids(value):
         match = TAG_RE.match(part)
         if match:
-            tagged.append((match[1], "-" if match[2] in {"-", "−"} else "+"))
+            tag = match[2]
+            tagged.append((match[1], "-" if tag in {"-", "−"} else tag))
         else:
             untagged.append(part)
     return tagged, untagged
@@ -663,6 +761,17 @@ def check_dimension_row(key: str, name: str, disposition: str, ids: str, note: s
     if unknown:
         report.fail("UNKNOWN_INFERENCE", f"{name}: {', '.join(unknown)}")
     tagged = [(i, t) for i, t in tagged if i in inferences]
+    partial = [i for i, t in tagged if t == "?"]
+    tagged = [(i, t) for i, t in tagged if t != "?"]
+    passing_partial = [i for i in partial if recomputed.get(i) in PASSING
+                       and inferences[i].disposition in PASSING]
+    if passing_partial:
+        report.fail("PARTIAL_TAG_ON_PASSING", f"{name}: {', '.join(passing_partial)} passes Gate "
+                    "B; tag it (+) or (-), not (?)")
+    elif partial:
+        review(key, "PARTIAL_BASIS", f"{name} is {disposition} while {', '.join(partial)}, "
+               "which bears on it, did not pass Gate B; confirm the score is stated for what "
+               "was assessed")
     if not tagged:
         if not untagged:
             report.fail("SCORED_WITHOUT_BASIS", f"{name} is {disposition} with no listed "
@@ -694,6 +803,20 @@ def check_dimension_row(key: str, name: str, disposition: str, ids: str, note: s
                 review(key, "CO_CITATION_UNSCREENED", f"{name} {disposition} also uses {i}, "
                        "a co-citation rate over an unscreened population; confirm it adds "
                        "to the qualifying evidence rather than standing in for it")
+    if key in EVIDENCE_BASE_DIMENSIONS and not any(
+            c.role == "ADJUDICATION" and c.searched for c in corpora.values()):
+        report.fail("EVIDENCE_BASE_UNSEARCHED", f"{name} is {disposition}: a score in either "
+                    "direction is a claim about the evidence base and needs an ADJUDICATION "
+                    "corpus with CORPUS DISCOVERY: SEARCHED")
+    elif key in EVIDENCE_BASE_DIMENSIONS and score == 0:
+        review(key, "DECISIVE_TEST_CLAIMED", f"{name} is SCORED 0 on "
+               f"{', '.join(side) or 'no listed inference'}; confirm the named test is decisive, "
+               "not one of several whose results conflict")
+    if key in POPULATION_DIMENSIONS and side and all(
+            inferences[i].scope in {"NAMED", "WITHIN-SAMPLE"} for i in side):
+        review(key, "NAMED_ONLY_BASIS", f"{name} is {disposition} on named works only "
+               f"({', '.join(side)}); confirm they are the population the dimension covers and "
+               "that every located critique or rival test was traced")
     if key == "recent-paper dependence":
         for i, _ in tagged:
             inf = inferences[i]
@@ -710,6 +833,23 @@ def check_dimension_row(key: str, name: str, disposition: str, ids: str, note: s
                    "results only; confirm the score is stated within the search bound")
         if inf.sampling == "PRESPECIFIED-RANDOM":
             review(key)  # its SAMPLE_DECLARED_RANDOM item is reported with the inference
+
+
+def check_claim_layers(lines: list[str], sources: dict[str, Source], report: Report) -> None:
+    defined = {m[2] for line in lines if (m := LAYER_LINE_RE.match(line.strip()))}
+    if not any(line.strip().startswith("CLAIM LAYER:") for line in lines):
+        report.fail("CLAIM_LAYERS_MISSING", "no CLAIM LAYER line; define every layer and rival "
+                    "code before the corpus register")
+    used: dict[str, list[str]] = {}
+    for s in sources.values():
+        inner = re.findall(r"\(([^)]*)\)", s.raw_relevance)
+        for code in (c for part in inner for c in LAYER_CODE_RE.findall(part)):
+            used.setdefault(code, []).append(s.sid)
+    for code in sorted(set(used) - defined):
+        rows = used[code]
+        report.fail("UNDEFINED_LAYER", f"{code} is used in {len(rows)} relevance values "
+                    f"({', '.join(rows[:6])}{' ...' if len(rows) > 6 else ''}) but has no "
+                    "CLAIM LAYER or RIVAL line")
 
 
 def coverage_lines(dispositions: dict, under_review: set, failed: set
@@ -833,11 +973,13 @@ def run(text: str, require_v2: bool) -> tuple[int, list[str]]:
     report = Report()
     corpora = parse_register(lines, report)
     sources = parse_sources(lines, report)
+    check_claim_layers(lines, sources, report)
     check_sources(sources, corpora, report)
     check_register(lines, corpora, sources, report)
+    check_duplicate_works(sources, corpora, report)
     compositions = composition_lines(lines)
     inferences = parse_inferences(lines, report)
-    recomputed = check_inferences(inferences, corpora, sources, compositions, report)
+    recomputed = check_inferences(inferences, corpora, sources, compositions, report, lines)
     dispositions, under_review, failed = check_dimensions(lines, inferences, recomputed,
                                                           corpora, report)
     if dispositions:

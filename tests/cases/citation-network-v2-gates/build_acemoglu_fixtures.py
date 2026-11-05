@@ -31,8 +31,8 @@ from pathlib import Path
 
 INPUT_SHA256 = "884887fe5a7b98d77921fbc31b488c7c9b7dc8406eb60340e4d5881436f3016c"
 INPUT_BLOB = "0c23beed0c914bea21b09c3094b33e976561f601"
-VERSION_LINE = "INSTRUMENT VERSION: 2-citation-network v2-candidate.2"
-MAP_LINE = "DIMENSION CLASS MAP: cn7-map-2"
+VERSION_LINE = "INSTRUMENT VERSION: 2-citation-network v2-candidate.3"
+MAP_LINE = "DIMENSION CLASS MAP: cn7-map-3"
 STAGE_2A_BLOB = "05599d8ce1f83bd95c6fc91127c4b15b0c18dcd7"
 
 # ---------------------------------------------------------------------------
@@ -173,6 +173,8 @@ def parse_run(lines: list[str]) -> dict:
             recent[match[1]] = {"title": match[2], "wid": match[3], "year": match[4],
                                 "state": match[5]}
     assert len(recent) == 25, len(recent)
+    layers = next(line for line in lines if "Claim layers: L1 field-6 estimate" in line)
+    assert "R2 human capital carried by s" in layers, layers[:120]
     band = next(line for line in lines if line.startswith("RISK BAND: "))
     band = band.split(" — ")[0] + " — " + band.split(" — ")[1].split(";")[0]
     assert band.startswith("RISK BAND: >20%–40% normal field clustering"), band
@@ -381,10 +383,15 @@ REPAIRS = [
      "I16 is the alternative if the dominant cluster is taken as the uptake population "
      "(instrument Section H steps 3-4); that is the executor's call, not a repair."),
     ("R15", "Lack of decisive tests SCORED 1 -> UNASSESSED: a concern score needs an absence "
-     "over a SEARCHED adjudication corpus (cn7-map-2); none was run (I12)."),
+     "over a SEARCHED adjudication corpus (cn7-map-2; under cn7-map-3 a score in either "
+     "direction needs one); none was run (I12)."),
     ("R16", "Direction tags and the DIMENSION CLASS MAP line added."),
     ("R17", "RISK BAND >20%-40% (02c line 329) -> WITHHELD: coverage after Gate B is 5/10, "
      "below the PROVISIONAL 70% gate. The arithmetic band position is unchanged."),
+    # Revision 3 (cn7-map-3): one row per work; claim layers and record quality declared.
+    ("R18", "N05 and N11 are one work (NBER WP 10481 and its Handbook chapter): one row listing "
+     "both records, VERSION-SUBSTITUTE declared; RECEPTION-1 has 49 works; I01 and I04 state "
+     "records and works."),
 ]
 
 
@@ -412,7 +419,8 @@ def register(entries: list[dict]) -> list[str]:
                 f"CORPUS QUESTION: {e['question']}", f"CORPUS SELECTION RULE: {e['rule']}",
                 f"CORPUS DISCOVERY: {e['discovery']}",
                 f"SELECTED ON TARGET CITATION: {e['selected']}", f"CORPUS SIZE: {e['size']}",
-                f"CITATION CONTEXT COVERAGE: {e['id']} {e['coverage']}", ""]
+                f"CITATION CONTEXT COVERAGE: {e['id']} {e['coverage']}",
+                f"RECORD QUALITY: {e['quality']}", ""]
     return out
 
 
@@ -420,7 +428,8 @@ def render(title: str, notes: list[str], corpora: list[dict], ledger: dict[str, 
            inferences: list[tuple], compositions: list[str], dimensions: dict,
            findings: list[tuple], tail: tuple[str, ...] = ()) -> str:
     out = [title, "", *notes, "", VERSION_LINE, "",
-           "SECTION A0: CORPUS REGISTER AND SOURCE ELIGIBILITY", "", *register(corpora),
+           "SECTION A0: CORPUS REGISTER AND SOURCE ELIGIBILITY", "", "CLAIM LAYERS AND RIVALS",
+           "", *LAYERS, "", *register(corpora),
            "SOURCE ELIGIBILITY LEDGER", ""]
     out += table(["Source", "Corpus membership", "Question relevance", "Relation to target",
                   "Evidence contribution", "Source access", "Citation context",
@@ -450,14 +459,28 @@ def provenance_notes(kind: str) -> list[str]:
     ]
 
 
-def reception_register(coverage: str) -> dict:
+# Claim layers and rivals as the run defined them in its own Section E (02c line 156).
+LAYERS = [
+    "CLAIM LAYER: L1 — the field-6 estimate (64 former colonies, 2SLS 0.94, SE 0.16)",
+    "CLAIM LAYER: L2 — the field-3 weaker defensible claim",
+    "CLAIM LAYER: L3 — downstream: institutions explain income differences",
+    "CLAIM LAYER: L4 — public wording",
+    "RIVAL: R1 — direct geography or disease channel",
+    "RIVAL: R2 — human capital carried by settlers",
+]
+RECEPTION_QUALITY = ("OpenAlex record W3124131699 conflates the 2012 Reply with AJR 2001 "
+                     "(02c line 36); AJR 2001 has 13 indexed references (02c line 31)")
+
+
+def reception_register(coverage: str, size: int = 50) -> dict:
     return {"id": "RECEPTION-1", "role": "RECEPTION",
             "question": "How AJR 2001 is cited by its most-cited citing works",
             "rule": "OpenAlex works API filter=cites:W3124166904&sort=cited_by_count:desc&"
                     "per-page=50, executed 2026-11-04, no date or type bound, no screening "
                     "(02c line 24)",
             "discovery": "SEARCHED — the OpenAlex query above (raw/top50_citers.json)",
-            "selected": "YES", "size": 50, "coverage": coverage}
+            "selected": "YES", "size": size, "coverage": coverage,
+            "quality": RECEPTION_QUALITY}
 
 
 RECENT_REGISTER = {"id": "RECENT-1", "role": "RECEPTION",
@@ -465,7 +488,26 @@ RECENT_REGISTER = {"id": "RECENT-1", "role": "RECEPTION",
                    "rule": "OpenAlex filter=cites:W3124166904,from_publication_date:2021-11-04&"
                            "sort=cited_by_count:desc&per-page=25 (02c line 365)",
                    "discovery": "SEARCHED — the OpenAlex query above (recent5y_top25.json)",
-                   "selected": "YES", "size": 25, "coverage": "0/25"}
+                   "selected": "YES", "size": 25, "coverage": "0/25",
+                   "quality": "none known"}
+
+
+def merge_handbook(ledger: dict[str, list[str]]) -> None:
+    """R18: N05 (NBER WP 10481) and N11 (the Handbook chapter) are one work: one row."""
+    row = ledger.pop("N11")
+    ledger["N05"][0] = ledger["N05"][0].replace("N05 W2108614304", "N05 W2108614304+W1580107285")
+    if ledger["N05"][5].startswith("FULL-TEXT"):
+        ledger["N05"][5] = ("FULL-TEXT (NBER WP 10481; VERSION-SUBSTITUTE for the Handbook "
+                            "chapter W1580107285)")
+    assert row[1] == ledger["N05"][1], (row, ledger["N05"])
+
+
+MERGED_STATEMENTS = {
+    "I01": "Directed density 136/2450 over the 50 records (49 works; N05 covers the WP and "
+           "Handbook records); closure beyond the corpus neither established nor excluded (02c "
+           "lines 29-34)",
+    "I04": "8/50 records (7/49 works) have an AJR author (02c line 40)",
+}
 
 
 def build(run: dict) -> dict[str, str]:
@@ -493,6 +535,7 @@ def build(run: dict) -> dict[str, str]:
         rep[sid][1] = "ADJUDICATION-1"
     rep["N42"][2] = "DIRECT (L3)"                                           # R4
     rep["N42"][4] = "INDEPENDENT-DATA"
+    merge_handbook(rep)                                                     # R18
     rep["N01"][7] = ("AJR 2012 Reply pp. 3078-80 (Stage 2a, 02a line 203): citing passage "
                      "read")                                                 # R11
     rep["AL"][7] = ("Albouy 2012 pp. 3060-72 (Stage 2a, 02a line 203): critique of the "
@@ -513,7 +556,8 @@ def build(run: dict) -> dict[str, str]:
         "discovery": "NONE — assembled from retrieved sources; supports statements about its "
                      "named members only",
         "selected": "NO", "size": len(adjudication),
-        "coverage": f"{adj_inspected}/{len(adjudication)}"}
+        "coverage": f"{adj_inspected}/{len(adjudication)}",
+        "quality": "none known; members assembled from records already retrieved"}
     replace = {
         "I05": ("I05", "CITATION-USE", "RECENT-1", "CORPUS", "PRESPECIFIED-RULE", "ALL",
                 "INSUFFICIENT", "How recent citers use AJR is not established: 0/25 citing "
@@ -541,6 +585,9 @@ def build(run: dict) -> dict[str, str]:
                 "Polarity of the 7 top-15 members whose citing passage was read and can be "
                 "located; 8 of the top 15 remain unclear"),
     }
+    for iid, text in MERGED_STATEMENTS.items():
+        old = next(i for i in AS_RUN_INFERENCES if i[0] == iid)
+        replace[iid] = (*old[:7], text)
     rep_inferences = [replace.get(i[0], i) for i in AS_RUN_INFERENCES]
     rep_dimensions = dict(AS_RUN_DIMENSIONS)
     rep_dimensions["Recent-paper dependence"] = (
@@ -551,7 +598,7 @@ def build(run: dict) -> dict[str, str]:
     rep_dimensions["Lack of decisive tests"] = (
         "UNASSESSED", "—", "A concern score needs an absence over a SEARCHED adjudication corpus "
         "(I12 INSUFFICIENT). Named statements I13 and the data-origin result I14 stand as "
-        "findings but cannot carry the score under cn7-map-2")
+        "findings but cannot carry a score in either direction under cn7-map-3")
     rep_dimensions["Adjacent-field neglect"] = (
         "UNASSESSED", "—", "Concern rested only on co-citation over unscreened citers (I11); the "
         "source layer engaged the rivals (I10). Assessable with read downstream engagement in a "
@@ -569,7 +616,8 @@ def build(run: dict) -> dict[str, str]:
         provenance_notes("repaired (expected: PASS-WITH-REVIEW; formal band withheld, coverage 5/10)")
         + ["Repairs applied to the transcription (no new retrieval):"]
         + [f"  {rid}: {text}" for rid, text in REPAIRS],
-        [reception_register(f"{rec_inspected}/50"), RECENT_REGISTER, adjudication_register], rep,
+        [reception_register(f"{rec_inspected}/49", 49), RECENT_REGISTER, adjudication_register],
+        rep,
         rep_inferences, [composition_line("I19", "RECEPTION-1", rep)], rep_dimensions,
         rep_findings, ("RISK BAND: WITHHELD — coverage after Gate B is 5/10, below the "
                        "PROVISIONAL 70% gate (R17)",))
@@ -582,8 +630,10 @@ def build(run: dict) -> dict[str, str]:
                         "METADATA", "NOT-INSPECTED", "reference list and record only"]
     ctl["N00"] = [OUTSIDE_ROWS["N00"][0], "OUTSIDE", "UNKNOWN", "NOT-CITING", "UNKNOWN",
                   "METADATA", "NOT-APPLICABLE", "database records only"]
+    merge_handbook(ctl)
     keep = {"I01", "I02", "I03", "I04"}
-    ctl_inferences = [i for i in AS_RUN_INFERENCES if i[0] in keep]
+    ctl_inferences = [(*i[:7], MERGED_STATEMENTS.get(i[0], i[7])) for i in AS_RUN_INFERENCES
+                      if i[0] in keep]
     ctl_dimensions = {}
     for name in DIMENSIONS:
         if name == "Founding-cluster dominance":
@@ -603,11 +653,11 @@ def build(run: dict) -> dict[str, str]:
             "Question: is the top-50 AJR-citing corpus internally dense, and are single-"
             "database records for AJR 2001 reliable? Reference lists and records answer both,",
             "so no citing passage is needed and none is claimed."],
-        [reception_register("0/50"),
+        [reception_register("0/49", 49),
          {"id": "ADJUDICATION-1", "role": "ADJUDICATION",
           "question": "Not needed: no evidence-base inference is made",
           "rule": "none", "discovery": "NONE — no claim-testing inference is made",
-          "selected": "NO", "size": 0, "coverage": "0/0"}],
+          "selected": "NO", "size": 0, "coverage": "0/0", "quality": "none known (no members)"}],
         ctl, ctl_inferences, [], ctl_dimensions,
         [("Finding 1", "confirmed", "I02"), ("Finding 2", "confirmed", "I01")])
     return {"acemoglu-as-run-transcribed.txt": as_run, "acemoglu-repaired.txt": repaired,

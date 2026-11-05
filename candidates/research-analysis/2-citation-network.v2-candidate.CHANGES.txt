@@ -1,14 +1,19 @@
 CITATION-NETWORK INSTRUMENT v2-CANDIDATE — CHANGE RECORDS
-Status: PROPOSED. Not canonical. Not run live. Failure link: FAIL-CN-007 (FAILURES.md).
-Current revision: 2 (INSTRUMENT VERSION: 2-citation-network v2-candidate.2; dimension class
-map cn7-map-2). Revision 1 (commit ccd6f3d) had no live outputs; revision 2 does not judge
-outputs that declare revision 1. Revision 2 changes are listed at the end and folded into the
-records below.
+Status: PROPOSED. Not canonical. Failure link: FAIL-CN-007 (FAILURES.md).
+Current revision: 3 (INSTRUMENT VERSION: 2-citation-network v2-candidate.3; dimension class
+map cn7-map-3). Revision 1 (commit ccd6f3d) had no live outputs. Revision 2 (commit 07b72b5)
+has one: Grok's run on AJR 2001 (Provenance-Atlas branch audit/acemoglu-colonial-origins-
+v2cand, commit 84d1800), which passed revision 2's gates with 3 review items. Revision 3 was
+designed from that run and has not run live. Each revision judges only outputs that declare
+it; earlier outputs are NOT_APPLICABLE. Revision 2 and 3 changes are listed at the end and
+folded into the records below. "NOT RUN LIVE" in a record below means not run live at the
+current revision.
 
 Base: prompts/research-analysis/2-citation-network.txt, git blob
 7ac79f0da337c4d52e39e1490088d06c82a9d42b, sha256
 dcb93491a0a2ef5716575b89963c2cd9031c43e52011bb549416c89421ff3262 (1665 lines).
-Candidate: 2-citation-network.v2-candidate.txt, built by make_v2_candidate.py (15 named edits).
+Candidate: 2-citation-network.v2-candidate.txt, built by make_v2_candidate.py (15 named edits),
+sha256 efc1a9fc336c30a67645ac9257701aa2ebe07dcc0be59f8e28523b0800d53064 (2001 lines).
 Diff against the base: three base lines replaced (question 1, two lines; Section B lead-in,
 one line); everything else is added text marked [FAIL-CN-007].
 
@@ -18,12 +23,12 @@ review note proposing separate reception and adjudication corpora with eligibili
 sufficiency gates. The note's line references to the base were verified; its counts were
 checked against the run (see FAIL-CN-007, Observed).
 
-Test receipt for every IMPLEMENTED rule below (revision 2): tests/test-citation-network-v2-
-gates.py, PASS 221 checks under Python 3.11 and 3.13 (225 with the Acemoglu rebuild), 2026-11-04,
-branch cn-v2-candidate-corpus-sufficiency. tests/ablate-citation-network-v2-gates.py: 58/58
-checker rules caught (each disabled alone on a temporary copy makes the suite fail). The v1 test
-suite, the Atlas unittests, the content replays and the webapp prompt-parity check pass
-unchanged.
+Test receipt for every IMPLEMENTED rule below (revision 3): tests/test-citation-network-v2-
+gates.py, PASS 293 checks under Python 3.11 and 3.13 (300 with both fixture rebuilds),
+2026-11-04, branch cn-v2-candidate-corpus-sufficiency. tests/ablate-citation-network-v2-gates.py:
+78/78 checker rules caught (each disabled alone on a temporary copy makes the suite fail). The
+v1 test suite, the Atlas unittests, the content replays and the webapp prompt-parity check pass
+unchanged. (Revision 2: 221 checks, 58/58 rules.)
 
 ----------------------------------------------------------------------------------------
 CN7-R1  Separate reception and adjudication corpora
@@ -46,7 +51,15 @@ CN7-R1  Separate reception and adjudication corpora
     base; any such claim needs a SEARCHED adjudication corpus with a CORPUS LOCK fixed before
     screening (checker: REGISTER_FIELD for a missing lock; the claim classes fail without a
     SEARCHED corpus). Results found after the lock enter only as POST HOC members.
-  Open: none known; whether a lock predates screening is a declaration, not a check.
+  Revision 3: every corpus declares RECORD QUALITY (known duplicate, conflated or changing
+    records, or "none known"; checker REGISTER_FIELD). SEARCHED is defined to include a ranked
+    citation query; NONE is hand assembly or a supplied packet (text only). A SEARCHED
+    adjudication corpus reports KNOWN-ITEM RECALL k/n against claim-testing works listed before
+    the search (checker KNOWN_ITEM_RECALL when missing or k > n; SEARCH_RECALL review when
+    k < n; LITERATURE-scope statements on that corpus become INSUFFICIENT when k < n).
+  Open: whether a lock predates screening, and whether the known-item list was written before
+    the search, are declarations, not checks. The live run labels its two ranked citation
+    queries NONE; the live fixture keeps that as observed.
 
 CN7-R2  Overlap
   Requirement: one ledger row per source with every membership; counted once per corpus;
@@ -59,7 +72,14 @@ CN7-R2  Overlap
   Acceptance: overlap-synthetic.txt passes; duplicate-row, non-citing-in-reception and
     double-count mutations fail.
   Status: IMPLEMENTED, except the no-weighting clause (NOT ENFORCED; no checkable signal).
-  Open: none known.
+  Revision 3: one row per work, not per record; several records of one work share a row that
+    lists every identifier, and a version read in place of the recorded one is marked
+    VERSION-SUBSTITUTE. Rows whose normalised titles match (or whose truncated title is a
+    prefix of another, 25 characters or more) go to review (POSSIBLE_DUPLICATE_WORK). Origin:
+    the live run counted four works twice in RECEPTION-1 (RUN_REPORT P07), inflating coverage.
+  Open: the duplicate check is a title heuristic: it misses retitled versions and flags
+    distinct works with matching openings (on the live ledger, ADJ02/ADJ20, 2007 and 2022, is
+    probably two works).
 
 CN7-R3  Source eligibility ledger (Gate A)
   Requirement: per-source relevance, relation to target, evidence contribution, access,
@@ -77,8 +97,14 @@ CN7-R3  Source eligibility ledger (Gate A)
     "reference list") in Supported inference; a passage that cannot be located again is not
     inspected, and cannot carry a CITATION-USE inference (checker: LOCATOR_MISSING; CITATION-USE
     member rule).
+  Revision 3: every layer and rival code used in a relevance value is defined in CLAIM LAYERS
+    AND RIVALS before the register (checker CLAIM_LAYERS_MISSING, UNDEFINED_LAYER). Origin: the
+    live run used L1, L3, R1 and R2 codes defined only in its v1 output. NOT-CITING assigned
+    from METADATA access joins the CODED_FROM_METADATA review (the target's own OUTSIDE row is
+    excluded). Origin: the run's NOT-CITING codes rest on OpenAlex reference lists that changed
+    between runs (RUN_REPORT P05).
   Open: the locator is checked for form, not existence. Otherwise the column is free text and
-    the checkable unit is the inference (CN7-R6). Burden: one row per source (50 + 25 +
+    the checkable unit is the inference (CN7-R6). Burden: one row per work (49 + 25 +
     adjudication rows here).
 
 CN7-R4  Citation use requires an inspected passage in a version that contains it
@@ -126,6 +152,13 @@ CN7-R6  Inference ledger and sufficiency by inference class (Gate B)
     members, with the statement giving screened/total, and a score that uses it goes to review
     (BOUNDED_ABSENCE) and counts as review-pending in the coverage sensitivity. An absence is
     never stated beyond the search that bounds it.
+  Revision 3: a PRESPECIFIED-RANDOM sample that loses members reports SAMPLE ATTRITION:
+    [inference] [kept]/[sampled] (checker SAMPLE_ATTRITION_UNREPORTED when missing or wrong);
+    the sample inference stays INSUFFICIENT and the retrieved members support only a separate
+    CONVENIENCE inference (text). Origin: live run I06, 4 of 6 sampled texts not retrieved.
+    NOT-ASSESSED is withholding too: OVER_WITHHELD now fires for NOT-ASSESSED as well as
+    INSUFFICIENT. Origin: a confirmed loophole in the revision-2 checker, found reviewing the
+    live run.
   Open: randomness and search adequacy are declarations, not checks.
 
 CN7-R7  Scores rest on passing inferences; dimension class requirements
@@ -160,9 +193,26 @@ CN7-R7  Scores rest on passing inferences; dimension class requirements
     review (BAND_CONDITIONAL).
   Effect on the repaired Acemoglu fixture: 5/10 SCORED after Gate B (revision 1: 8/10); band
     WITHHELD. Taking the dominant cluster as the uptake population gives 6/10, still withheld.
+  Revision 3 (cn7-map-3): a zero carries the same burden as a concern. Lack of decisive tests:
+    a score in either direction needs a SEARCHED adjudication corpus (EVIDENCE_BASE_UNSEARCHED);
+    the concern may also rest on SOURCE-RESULT (named tests whose results conflict); every
+    SCORED 0 goes to review (DECISIVE_TEST_CLAIMED), because the checker cannot judge
+    decisiveness. Poor critique uptake and adjacent-field neglect: a score in either direction
+    whose basis is only NAMED or WITHIN-SAMPLE inferences goes to review (NAMED_ONLY_BASIS).
+    Every INSUFFICIENT or NOT-ASSESSED inference that bears on a scored dimension is listed
+    with a (?) tag; a SCORED row with one goes to review (PARTIAL_BASIS); (?) on an inference
+    that passed fails (PARTIAL_TAG_ON_PASSING). When the band is WITHHELD, the arithmetic band
+    position is quoted only beside the word WITHHELD (text; RUN_REPORT P09). Origin: the live
+    run scored lack of decisive tests 0 on one named result (I11), uptake 0 on named
+    engagement (I18) while the Glaeser uptake (I22) was NOT-ASSESSED, and neglect 0 on I19;
+    each passed revision 2 silently.
+  Effect of revision 3: the live ledger keeps 8/10 SCORED after Gate B and falls to 4/10 with
+    review-pending dimensions withdrawn (the run's sensitivity line said 7/10); the repaired
+    Acemoglu fixture is unchanged at 5/10 (6/10 with uptake SCORED 0, which now goes to review).
   Open: (a) the map is a design judgment and the place an independent reviewer is most likely to
-    find overfitting; ratchet and model non-updating still accept any class. (b) Direction tags
-    are declarations; a mis-tagged inference is not detected.
+    find overfitting; ratchet and model non-updating still accept any class. (b) Direction and
+    (?) tags are declarations; a mis-tagged or omitted inference is not detected. (c) Revision
+    3 was designed from the one live run it is now tested on.
 
 CN7-R8  Findings rest on passing inferences
   Requirement: FINDING EVIDENCE BASIS; confirmed or contested findings list only passing
@@ -241,6 +291,8 @@ NOT IMPLEMENTED / DEFERRED
   v1 checker; v2 review items use the same line format but are not wired in.
 - Passage-level verification of INSPECTED rows (needs passage anchors). Revision 2 requires a
   locator, which makes verification possible later; it does not verify.
+- Automatic known-item lists. Recall is measured against the executor's declared list; an
+  independent list (for example from the claim map or Section E nominees) is not built.
 - Webapp embedding: deliberately not done (candidates are not embedded).
 
 REVISION 2 — DECISIONS TAKEN (2026-11-04; the five review positions plus three additions)
@@ -258,16 +310,42 @@ REVISION 2 — DECISIONS TAKEN (2026-11-04; the five review positions plus three
  7. Added: the SCORED 0 hard rule is enforced through (-) evidence. CN7-R7.
  8. Added: rule ablation script, tests/ablate-citation-network-v2-gates.py.
 
+REVISION 3 — CHANGES FROM THE LIVE RUN (2026-11-04)
+Source: Grok's revision-2 run on AJR 2001 (commit 84d1800; output sha256 a1abbbee…07c3), its
+RUN_REPORT (problems P01-P12), and the review in the Project doc
+CN007_v2cand2_Acemoglu_Live_Run_Review_2026-11-04.txt. Each item names its record above.
+ 1. Claim layers and rivals defined before the register. CN7-R3.
+ 2. RECORD QUALITY per corpus; SEARCHED/NONE defined. CN7-R1.
+ 3. KNOWN-ITEM RECALL for searched adjudication corpora; recall below n blocks LITERATURE
+    scope. CN7-R1. (Live run, computed from its six committed responses: 1/6.)
+ 4. One row per work; VERSION-SUBSTITUTE; duplicate-title review. CN7-R2.
+ 5. NOT-CITING from METADATA reviewed. CN7-R3, CN7-R9.
+ 6. SAMPLE ATTRITION. CN7-R6.
+ 7. NOT-ASSESSED counts as withholding for OVER_WITHHELD. CN7-R6.
+ 8. cn7-map-3: zero burden for lack of decisive tests and the population dimensions; (?) tags;
+    band quoting. CN7-R7.
+ 9. Fixture: live-v2cand2-acemoglu.txt, built by build_live_v2cand_fixture.py from the pinned
+    run (its ledger plus six documented declarations, L1-L6). R18 merges one duplicated work in
+    the repaired Acemoglu fixture.
+Run-report problems: P01, P02, P03, P05, P07, P08/P10 and P12 are addressed above. P09 (the
+arithmetic band quoted while the band is withheld) was classed out of scope in the review;
+revision 3 adds one sentence of instruction for it, not enforced. Not taken: P04 (an exposed
+executor cannot lock before inspection; disclosure plus a held-out case is the remedy), P06
+(inherited canonical text), P11 (the instrument lives in another repository). The run's
+abstracts in raw/ are a rights question for the Atlas branch, not an instrument change.
+
 PROMOTION — EVIDENCE THAT WOULD SUPPORT ADOPTION
 Passing these tests is not that evidence. Proposed minimum:
  1. A live v2 run on Acemoglu with the same retrieval tools: v1 checker PASS (no section
     omission under the added burden, FAIL-CN-001), gates firing where the fixtures predict,
-    and an adjudication search actually run.
+    and an adjudication search actually run. Revision 2: done once (Grok, commit 84d1800): v1
+    checker and v2 gates each PASS-WITH-REVIEW, an adjudication search run and locked first;
+    it also exposed the gaps revision 3 closes. Revision 3: not yet run.
  2. A live v2 run on a held-out case not used to tune the gates, including one where metadata
     suffices, with no unnecessary withholding (OVER_WITHHELD and reviewer judgment).
  3. An independent adversarial review of the candidate text and checker by a reviewer that did
     not write them, with disagreements recorded.
  4. Decisions on the items still open: CN7-R7(a) and (b), above all an independent review of
-    cn7-map-2.
+    cn7-map-3.
  5. Explicit adoption by the repository owner: canonical path change, CHANGELOG entry, Atlas
     baseline entry for the new instrument and checker identities.

@@ -7,9 +7,18 @@ This is a test input for the v2-candidate gates. It is not the run, not a re-gra
 Coverage line below repeats the run's own figure: citing passages retrieved for 13 of 50 top citers (02c line 686).
 The run registered no adjudication corpus; none is registered here.
 
-INSTRUMENT VERSION: 2-citation-network v2-candidate.2
+INSTRUMENT VERSION: 2-citation-network v2-candidate.3
 
 SECTION A0: CORPUS REGISTER AND SOURCE ELIGIBILITY
+
+CLAIM LAYERS AND RIVALS
+
+CLAIM LAYER: L1 — the field-6 estimate (64 former colonies, 2SLS 0.94, SE 0.16)
+CLAIM LAYER: L2 — the field-3 weaker defensible claim
+CLAIM LAYER: L3 — downstream: institutions explain income differences
+CLAIM LAYER: L4 — public wording
+RIVAL: R1 — direct geography or disease channel
+RIVAL: R2 — human capital carried by settlers
 
 CORPUS ID: RECEPTION-1
 CORPUS ROLE: RECEPTION
@@ -19,6 +28,7 @@ CORPUS DISCOVERY: SEARCHED — the OpenAlex query above (raw/top50_citers.json)
 SELECTED ON TARGET CITATION: YES
 CORPUS SIZE: 50
 CITATION CONTEXT COVERAGE: RECEPTION-1 13/50
+RECORD QUALITY: OpenAlex record W3124131699 conflates the 2012 Reply with AJR 2001 (02c line 36); AJR 2001 has 13 indexed references (02c line 31)
 
 CORPUS ID: RECENT-1
 CORPUS ROLE: RECEPTION
@@ -28,6 +38,7 @@ CORPUS DISCOVERY: SEARCHED — the OpenAlex query above (recent5y_top25.json)
 SELECTED ON TARGET CITATION: YES
 CORPUS SIZE: 25
 CITATION CONTEXT COVERAGE: RECENT-1 0/25
+RECORD QUALITY: none known
 
 SOURCE ELIGIBILITY LEDGER
 
@@ -145,7 +156,7 @@ COMPOSITION: I19 | relevance | DIRECT=4; ADJACENT=7; BACKGROUND=25; UNRELATED=0;
 
 DIMENSION EVIDENCE BASIS
 
-DIMENSION CLASS MAP: cn7-map-2
+DIMENSION CLASS MAP: cn7-map-3
 
 | Scorecard dimension | Scorecard disposition | Inference IDs | Basis note |
 |---|---|---|---|

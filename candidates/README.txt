@@ -11,8 +11,8 @@ them.
 
 research-analysis/
   2-citation-network.v2-candidate.txt          proposed v2 of the citation-network instrument
-                                               (FAIL-CN-007), revision 2 (v2-candidate.2,
-                                               class map cn7-map-2). Built from the canonical v1 file
+                                               (FAIL-CN-007), revision 3 (v2-candidate.3,
+                                               class map cn7-map-3). Built from the canonical v1 file
                                                by make_v2_candidate.py; every change is one
                                                named, single-occurrence edit there.
   2-citation-network.v2-candidate.CHANGES.txt  rule records: requirement, origin, inherited

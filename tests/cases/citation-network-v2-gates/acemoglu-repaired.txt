@@ -19,13 +19,23 @@ Repairs applied to the transcription (no new retrieval):
   R12: N08, N09 and N14 have no recorded passage locator anywhere in the run, so their citation context becomes NOT-INSPECTED and their relation CITES-UNINSPECTED. RECEPTION-1 coverage 11/50 -> 8/50; I18 keeps the 7 locatable top-15 passages.
   R13: Adjacent-field neglect SCORED 1 -> UNASSESSED: its concern rests only on co-citation over unscreened citers (I11); the source-layer evidence (I10) points the other way.
   R14: Poor critique uptake SCORED 1 -> UNASSESSED: its concern rests only on co-citation over unscreened citers (I17); the dominant cluster engaged the critique (I16). SCORED 0 on I16 is the alternative if the dominant cluster is taken as the uptake population (instrument Section H steps 3-4); that is the executor's call, not a repair.
-  R15: Lack of decisive tests SCORED 1 -> UNASSESSED: a concern score needs an absence over a SEARCHED adjudication corpus (cn7-map-2); none was run (I12).
+  R15: Lack of decisive tests SCORED 1 -> UNASSESSED: a concern score needs an absence over a SEARCHED adjudication corpus (cn7-map-2; under cn7-map-3 a score in either direction needs one); none was run (I12).
   R16: Direction tags and the DIMENSION CLASS MAP line added.
   R17: RISK BAND >20%-40% (02c line 329) -> WITHHELD: coverage after Gate B is 5/10, below the PROVISIONAL 70% gate. The arithmetic band position is unchanged.
+  R18: N05 and N11 are one work (NBER WP 10481 and its Handbook chapter): one row listing both records, VERSION-SUBSTITUTE declared; RECEPTION-1 has 49 works; I01 and I04 state records and works.
 
-INSTRUMENT VERSION: 2-citation-network v2-candidate.2
+INSTRUMENT VERSION: 2-citation-network v2-candidate.3
 
 SECTION A0: CORPUS REGISTER AND SOURCE ELIGIBILITY
+
+CLAIM LAYERS AND RIVALS
+
+CLAIM LAYER: L1 — the field-6 estimate (64 former colonies, 2SLS 0.94, SE 0.16)
+CLAIM LAYER: L2 — the field-3 weaker defensible claim
+CLAIM LAYER: L3 — downstream: institutions explain income differences
+CLAIM LAYER: L4 — public wording
+RIVAL: R1 — direct geography or disease channel
+RIVAL: R2 — human capital carried by settlers
 
 CORPUS ID: RECEPTION-1
 CORPUS ROLE: RECEPTION
@@ -33,8 +43,9 @@ CORPUS QUESTION: How AJR 2001 is cited by its most-cited citing works
 CORPUS SELECTION RULE: OpenAlex works API filter=cites:W3124166904&sort=cited_by_count:desc&per-page=50, executed 2026-11-04, no date or type bound, no screening (02c line 24)
 CORPUS DISCOVERY: SEARCHED — the OpenAlex query above (raw/top50_citers.json)
 SELECTED ON TARGET CITATION: YES
-CORPUS SIZE: 50
-CITATION CONTEXT COVERAGE: RECEPTION-1 8/50
+CORPUS SIZE: 49
+CITATION CONTEXT COVERAGE: RECEPTION-1 8/49
+RECORD QUALITY: OpenAlex record W3124131699 conflates the 2012 Reply with AJR 2001 (02c line 36); AJR 2001 has 13 indexed references (02c line 31)
 
 CORPUS ID: RECENT-1
 CORPUS ROLE: RECEPTION
@@ -44,6 +55,7 @@ CORPUS DISCOVERY: SEARCHED — the OpenAlex query above (recent5y_top25.json)
 SELECTED ON TARGET CITATION: YES
 CORPUS SIZE: 25
 CITATION CONTEXT COVERAGE: RECENT-1 0/25
+RECORD QUALITY: none known
 
 CORPUS ID: ADJUDICATION-1
 CORPUS ROLE: ADJUDICATION
@@ -53,6 +65,7 @@ CORPUS DISCOVERY: NONE — assembled from retrieved sources; supports statements
 SELECTED ON TARGET CITATION: NO
 CORPUS SIZE: 7
 CITATION CONTEXT COVERAGE: ADJUDICATION-1 5/7
+RECORD QUALITY: none known; members assembled from records already retrieved
 
 SOURCE ELIGIBILITY LEDGER
 
@@ -62,13 +75,12 @@ SOURCE ELIGIBILITY LEDGER
 | N02 W2994756033 2004 Institutions Rule: The Primacy of Institutions ... | RECEPTION-1+ADJUDICATION-1 | DIRECT | SUPPORTS+REUSES | SHARED-DATA | FULL-TEXT (NBER WP 9305) | INSPECTED | RD-E1, RD-E3, RD-E4: citing passage read |
 | N03 W2890314743 2004 Do Institutions Cause Growth? | RECEPTION-1+ADJUDICATION-1 | DIRECT | CHALLENGES+REUSES | SHARED-DATA | FULL-TEXT (NBER WP 10568) | INSPECTED | GL-E1, GL-E2: citing passage read |
 | N04 W3122778615 2003 The great reversals: the politics of ... | RECEPTION-1 | BACKGROUND | MENTIONS | NONE | FULL-TEXT (NBER w8178) | INSPECTED | reference list: citing passage read |
-| N05 W2108614304 2004 Institutions as the Fundamental Cause of ... | RECEPTION-1 | ADJACENT | PREMISE | REVIEW | FULL-TEXT (NBER WP 10481) | INSPECTED | HB-E1: citing passage read |
+| N05 W2108614304+W1580107285 2004 Institutions as the Fundamental Cause of ... | RECEPTION-1 | ADJACENT | PREMISE | REVIEW | FULL-TEXT (NBER WP 10481; VERSION-SUBSTITUTE for the Handbook chapter W1580107285) | INSPECTED | HB-E1: citing passage read |
 | N06 W3123436326 2017 Double/debiased machine learning for treatment and ... | RECEPTION-1 | UNKNOWN | SUPPORTS+REUSES | REANALYSIS | FULL-TEXT (arXiv 1608.00060) | INSPECTED | DML-E1, DML-E2: citing passage read |
 | N07 W2556507681 2016 The Theory of Economic Development | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA (LOCATED) | NOT-INSPECTED | record only; not read |
 | N08 W2064927380 2007 The Product Space Conditions the Development ... | RECEPTION-1 | BACKGROUND | CITES-UNINSPECTED | NONE | FULL-TEXT (arXiv 0708.2090) | NOT-INSPECTED | full text read; no passage locator recorded |
 | N09 W1588189399 2005 Chapter 12 Finance and Growth: Theory ... | RECEPTION-1 | BACKGROUND | CITES-UNINSPECTED | REVIEW | FULL-TEXT (NBER w10766) | NOT-INSPECTED | full text read; no passage locator recorded |
 | N10 W1484474409 2006 Institutions and the Resource Curse | RECEPTION-1 | BACKGROUND | CITES-UNINSPECTED | NONE | ABSTRACT | NOT-INSPECTED | abstract read; citation not inspected |
-| N11 W1580107285 2005 Chapter 6 Institutions as a Fundamental ... | RECEPTION-1 | ADJACENT | CITES-UNINSPECTED | REVIEW | METADATA (LOCATED) | NOT-INSPECTED | record only; not read |
 | N12 W1480274481 2008 The Role of Cognitive Skills in ... | RECEPTION-1 | ADJACENT | MENTIONS | REVIEW | FULL-TEXT (NBER w12832) | INSPECTED | HW-E1: citing passage read |
 | N13 W3125697804 2004 International Technology Diffusion | RECEPTION-1 | BACKGROUND | CITES-UNINSPECTED | REVIEW | FULL-TEXT (NBER w8573, 2001 WP) | VERSION-MISMATCH | retrieved version lacks the citation |
 | N14 W2104834906 2014 What Do We Learn from the ... | RECEPTION-1 | ADJACENT | CITES-UNINSPECTED | REVIEW | FULL-TEXT (NBER w19578) | NOT-INSPECTED | full text read; no passage locator recorded |
@@ -145,10 +157,10 @@ INFERENCE LEDGER
 
 | Inference | Class | Corpus | Claimed scope | Sampling rule | Members used | Disposition | Statement |
 |---|---|---|---|---|---|---|---|
-| I01 | GRAPH-STRUCTURE | RECEPTION-1 | CORPUS | EXHAUSTIVE | ALL | SUPPORTED | Directed density 136/2450 inside the top-50 citing corpus; closure beyond it neither established nor excluded (02c lines 29-34) |
+| I01 | GRAPH-STRUCTURE | RECEPTION-1 | CORPUS | EXHAUSTIVE | ALL | SUPPORTED | Directed density 136/2450 over the 50 records (49 works; N05 covers the WP and Handbook records); closure beyond the corpus neither established nor excluded (02c lines 29-34) |
 | I02 | DATABASE-RECORD | — | NAMED | NOT-APPLICABLE | N00, N01 | SUPPORTED | OpenAlex conflates the 2012 Reply record with AJR 2001 and indexes 13 references for AJR 2001 (02c line 36; Finding 1) |
 | I03 | CO-CITATION | POPULATION | POPULATION | NOT-APPLICABLE | UNSCREENED | SUPPORTED | Reversal of Fortune co-cited by 336/2,695 and the AJR handbook by 276/2,695 recent AJR citers (02c lines 204-205) |
-| I04 | DATABASE-RECORD | RECEPTION-1 | CORPUS | EXHAUSTIVE | ALL | SUPPORTED | 8/50 corpus members have an AJR author (02c line 40) |
+| I04 | DATABASE-RECORD | RECEPTION-1 | CORPUS | EXHAUSTIVE | ALL | SUPPORTED | 8/50 records (7/49 works) have an AJR author (02c line 40) |
 | I05 | CITATION-USE | RECENT-1 | CORPUS | PRESPECIFIED-RULE | ALL | INSUFFICIENT | How recent citers use AJR is not established: 0/25 citing passages read; needs inspected passages for a prespecified sample (02c lines 132, 142, 467) |
 | I06 | RESTATEMENT | — | NAMED | NOT-APPLICABLE | N05, N00 | SUPPORTED | The handbook working paper restates the p. 1387 magnitude without the upper-bound qualifier (HB-E1 against AJR-E2; Finding 3) |
 | I07 | CO-CITATION | POPULATION | POPULATION | NOT-APPLICABLE | UNSCREENED | SUPPORTED | 1,400/1,676 recent citers of the handbook do not cite AJR 2001 (02c line 206) |
@@ -166,11 +178,11 @@ INFERENCE LEDGER
 | I19 | COMPOSITION | RECEPTION-1 | CORPUS | EXHAUSTIVE | ALL | SUPPORTED | Relevance composition of the citing set: the three primary tests, the authors' reanalysis and N42 are DIRECT (02c lines 105, 115-117); describes the citing set, not the evidence base |
 | I20 | SOURCE-RESULT | — | NAMED | NOT-APPLICABLE | N00, SA, N03 | SUPPORTED | AJR's malaria control lowers the estimate to 0.69; Sachs rejects the null with malaria risk; Glaeser et al. find malaria significant alongside settler mortality (Finding 6) |
 
-COMPOSITION: I19 | relevance | DIRECT=5; ADJACENT=7; BACKGROUND=24; UNRELATED=0; UNKNOWN=14 | TOTAL=50
+COMPOSITION: I19 | relevance | DIRECT=5; ADJACENT=6; BACKGROUND=24; UNRELATED=0; UNKNOWN=14 | TOTAL=49
 
 DIMENSION EVIDENCE BASIS
 
-DIMENSION CLASS MAP: cn7-map-2
+DIMENSION CLASS MAP: cn7-map-3
 
 | Scorecard dimension | Scorecard disposition | Inference IDs | Basis note |
 |---|---|---|---|
@@ -181,7 +193,7 @@ DIMENSION CLASS MAP: cn7-map-2
 | Proxy mismatch | SCORED 1 | I08 (+) | 02c line 469 |
 | Claim mutation | SCORED 1 | I06 (+), I09 (+) | 02c line 470 |
 | Adjacent-field neglect | UNASSESSED | — | Concern rested only on co-citation over unscreened citers (I11); the source layer engaged the rivals (I10). Assessable with read downstream engagement in a screened population, or the dominant cluster's reference lists for the locked directly-adjudicating sources |
-| Lack of decisive tests | UNASSESSED | — | A concern score needs an absence over a SEARCHED adjudication corpus (I12 INSUFFICIENT). Named statements I13 and the data-origin result I14 stand as findings but cannot carry the score under cn7-map-2 |
+| Lack of decisive tests | UNASSESSED | — | A concern score needs an absence over a SEARCHED adjudication corpus (I12 INSUFFICIENT). Named statements I13 and the data-origin result I14 stand as findings but cannot carry a score in either direction under cn7-map-3 |
 | Poor critique uptake | UNASSESSED | — | Concern rested only on co-citation over unscreened citers (I17). The dominant cluster engaged the critique (I16), which would support SCORED 0 if that cluster is the uptake population (Section H steps 3-4); otherwise needs read uptake in screened citers that rely on the settler-mortality data |
 | Intervention-evidence ratchet | N/A | — | No intervention claim (02c line 474) |
 | Model non-updating | UNINFORMATIVE | — | Four-link gate link 2 not met: the disconfirming evidence is contested, not verified (02c line 475) |

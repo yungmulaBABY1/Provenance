@@ -6,9 +6,14 @@ It exercises sources that belong to both corpora (S2, S3), an adjudication-only 
 does not cite the target (S5), and a lightly cited direct test absent from the reception
 corpus (S6). Each corpus is counted from its own memberships only.
 
-INSTRUMENT VERSION: 2-citation-network v2-candidate.2
+INSTRUMENT VERSION: 2-citation-network v2-candidate.3
 
 SECTION A0: CORPUS REGISTER AND SOURCE ELIGIBILITY
+
+CLAIM LAYERS AND RIVALS
+
+CLAIM LAYER: L1 — the synthetic target claim T makes
+RIVAL: R1 — a synthetic rival explanation
 
 CORPUS ID: RECEPTION-1
 CORPUS ROLE: RECEPTION
@@ -18,6 +23,7 @@ CORPUS DISCOVERY: SEARCHED — synthetic query, citers of T ranked by count
 SELECTED ON TARGET CITATION: YES
 CORPUS SIZE: 4
 CITATION CONTEXT COVERAGE: RECEPTION-1 2/4
+RECORD QUALITY: none known (synthetic records)
 
 CORPUS ID: ADJUDICATION-1
 CORPUS ROLE: ADJUDICATION
@@ -27,6 +33,8 @@ CORPUS DISCOVERY: SEARCHED — synthetic topic query; 4 results, all screened
 SELECTED ON TARGET CITATION: NO
 CORPUS SIZE: 4
 CITATION CONTEXT COVERAGE: ADJUDICATION-1 2/4
+RECORD QUALITY: none known (synthetic records)
+KNOWN-ITEM RECALL: ADJUDICATION-1 2/2 (returned: S2, S5; not returned: none)
 CORPUS LOCK: synthetic search record locked before screening (sha256 0000-synthetic)
 
 SOURCE ELIGIBILITY LEDGER
@@ -60,7 +68,7 @@ COMPOSITION: O3 | relevance | DIRECT=3; ADJACENT=1; BACKGROUND=0; UNRELATED=0; U
 
 DIMENSION EVIDENCE BASIS
 
-DIMENSION CLASS MAP: cn7-map-2
+DIMENSION CLASS MAP: cn7-map-3
 
 | Scorecard dimension | Scorecard disposition | Inference IDs | Basis note |
 |---|---|---|---|

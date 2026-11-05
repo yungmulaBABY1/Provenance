@@ -1,5 +1,5 @@
 CITATION-NETWORK v2-CANDIDATE GATES — REGRESSION FIXTURES
-FAIL-CN-007 (candidate; not canonical). Candidate revision 2, dimension class map cn7-map-2.
+FAIL-CN-007 (candidate; not canonical). Candidate revision 3, dimension class map cn7-map-3.
 
 What these are
 --------------
@@ -10,25 +10,29 @@ tests/ablate-citation-network-v2-gates.py disables each checker rule in turn on 
 copy and confirms the suite fails without it.
 
 Classification (MAP-15): every fixture here is a TUNED REGRESSION or a hand-written CONTROL.
-The Acemoglu fixtures were built around the failure they test. None is a held-out case, none
-is an unadjudicated ordinary paper, and none comes from a live run of the candidate. Passing
-them shows the checker behaves as designed on these inputs; it does not validate the candidate.
+The Acemoglu fixtures were built around the failure they test. One fixture comes from a live
+run of the candidate (revision 2, on the same paper); revision 3 was designed from that run,
+so it is a regression input for revision 3, not held-out evidence. None is a held-out case and
+none is an unadjudicated ordinary paper. Passing them shows the checker behaves as designed on
+these inputs; it does not validate the candidate.
 
 The repaired fixture is public. It is close to an answer key for a v2 Acemoglu ledger, so a
 live Acemoglu run of the candidate tests executability and burden, not whether the gates catch
-errors.
+errors. The live run below was made with that key public.
 
 Files
 -----
-acemoglu-as-run-transcribed.txt   expected FAIL, 20 gate failures
+acemoglu-as-run-transcribed.txt   expected FAIL, 21 gate failures, 2 review items
     The Acemoglu Stage-2c run's own declarations, re-expressed in the candidate ledger
     format by mechanical rules, with nothing repaired. It is a test input, not a re-grade of
     the run: the run was produced under the canonical v1 instrument, and the candidate's gates
     do not judge v1 outputs (the checker returns NOT_APPLICABLE for them).
 
 acemoglu-repaired.txt             expected PASS-WITH-REVIEW, 1 item; band WITHHELD
-    The same evidence re-ledgered to comply with the candidate. Repairs R1-R17 are listed in
-    the file header and in build_acemoglu_fixtures.py. Nothing new was retrieved.
+    The same evidence re-ledgered to comply with the candidate. Repairs R1-R18 are listed in
+    the file header and in build_acemoglu_fixtures.py. Nothing new was retrieved. R18
+    (revision 3) merges N05 and N11, a working paper and its Handbook chapter, into one row:
+    RECEPTION-1 is 49 works, coverage 8/49.
 
 acemoglu-structural-control.txt   expected PASS, 0 items (clean control)
     A structural question that metadata answers (internal density of the top-50 citing
@@ -40,6 +44,17 @@ overlap-synthetic.txt             expected PASS (hand-written, invented records)
     lightly cited direct test absent from the reception corpus, and a locked adjudication
     search. Mutations in the test cover bounded absence, the uptake classes and a band that
     meets the gate only while review items are counted.
+
+live-v2cand2-acemoglu.txt         expected PASS-WITH-REVIEW, 9 items; band WITHHELD (the run's)
+    Grok's live run of candidate revision 2 on AJR 2001: its SECTION A0, SECTION K0 and RISK
+    BAND line as observed, plus only the declarations revision 3 requires, taken from the run's
+    own records (rules L1-L6 in build_live_v2cand_fixture.py). Duplicate records, zeros on
+    partial bases and the search's missed items are left as observed, so the revision-3 gates
+    show what they make visible. Not a re-grade: the run declares revision 2 and passed
+    revision 2's gates (PASS-WITH-REVIEW, 3 items); the revision-3 checker returns
+    NOT_APPLICABLE for the run itself. Without the L-rule declarations the observed ledger
+    fails 10 revision-3 gates (claim layers, record quality, known-item recall, sample
+    attrition); the test records that as a property of the new rules.
 
 power-posing-v2-blocks.txt        interaction fixture blocks
     Inserted at test time into a temporary copy of
@@ -57,12 +72,25 @@ build_acemoglu_fixtures.py        builds the three Acemoglu fixtures
     (R11) come from the same run's Stage 2a, 02a_internal_validity.md line 203 (blob
     05599d8ce1f83bd95c6fc91127c4b15b0c18dcd7); they are written into the script, not read.
 
+build_live_v2cand_fixture.py      builds the live-run fixture
+    Input: the run directory examples/research/acemoglu-colonial-origins/citation-network-
+    v2cand/ on Provenance-Atlas branch audit/acemoglu-colonial-origins-v2cand (commit
+    84d1800faf71788c46bb4c4e968ab3cb42d24b11). The script refuses any output other than
+    02c_citation_network_v2cand2.md with sha256
+    a1abbbee2b568f177913a3a7e9a89b2c04abac42d12152001d07fef4b1cd07c3, checks that output and
+    the six adjudication search responses (raw/adj1_Q1-Q6.json) against the run's SHA256SUMS,
+    reads them as data, and executes nothing from the run. Run with python3 -I. Known-item
+    recall (L4) is computed from the six responses: of the six claim-testing works the run's
+    exposure declaration names, the search returned Rodrik et al. 2004 only.
+
 Build receipt (2026-11-04, Python 3.13 and 3.11 identical):
-    acemoglu-as-run-transcribed.txt  sha256 a8c2fb4ea3ad9ce58627fe13f95d23af8a74a0f7b935e2438e857d9b97d6e3f2
-    acemoglu-repaired.txt            sha256 51199f56c9e85ad2f98d2bec83473bf6af9f4d38f140ec8478500300394a991b
-    acemoglu-structural-control.txt  sha256 04e64b43fd1d3fdbc528ac7064d5f0794fc671ad3d87db00e3aa88cf4ec2614e
-Set CN7_02C_PATH to the input file to make the test rebuild all three and compare bytes. CI
-does not fetch the Atlas branch, so CI skips the rebuild and checks the committed files.
+    acemoglu-as-run-transcribed.txt  sha256 47eb496a4c76d8a8f57ecd9bdd5b1d4b08dca82befe701064da3046034cadf57
+    acemoglu-repaired.txt            sha256 937b8e37e5e3eaa196d535e80ab739764b797a852e95b93568849c97932bb658
+    acemoglu-structural-control.txt  sha256 ebe5594883e1d96bc66dcd365b44af661305c8637b337855d3c78e564a04b4c2
+    live-v2cand2-acemoglu.txt        sha256 b7ab366572f112a122c277c582c5a9113d95bf451389658ae43ec697519f5cdb
+Set CN7_02C_PATH to the Stage-2c input, and CN7_LIVE_RUN_DIR to the live run directory, to
+make the test rebuild the fixtures and compare bytes. CI does not fetch the Atlas branches, so
+CI skips the rebuilds and checks the committed files.
 
 What the as-run transcription catches, with the run's own lines
 ---------------------------------------------------------------
@@ -86,12 +114,17 @@ What the as-run transcription catches, with the run's own lines
                            literature-wide data-origin narrowing from the reception corpus
                            (line 56); I18 polarity sample includes N11 and unlocatable passages.
   SCORED_ON_INSUFFICIENT x2  Recent-paper dependence (I05); lack of decisive tests (I12, I14).
+  EVIDENCE_BASE_UNSEARCHED  Lack of decisive tests is scored with no adjudication search
+                           (revision 3: a score in either direction needs one).
   DIMENSION_CLASS_MISSING x2  Adjacent-field neglect and poor critique uptake: the concern side
                            of each rests on co-citation over unscreened citers (I11, I17), while
                            the run's other evidence points the other way (I10, I16).
   FINDING_ON_INSUFFICIENT  Finding 2 (I14, I15).
   BAND_ISSUED_BELOW_GATE   The run's >20%-40% band (line 329). Declared coverage 9/10; after
                            Gate B 5/10, below the PROVISIONAL 70% gate.
+  Review items             CODED_FROM_METADATA (six rows coded from records);
+                           POSSIBLE_DUPLICATE_WORK (N05/N11, the Handbook chapter and its
+                           working paper).
 
 What survives in the repaired fixture: density inside the corpus (I01), the database
 conflation (I02), co-citation and authorship counts (I03, I04, I07, I11, I17), the hub
@@ -108,10 +141,34 @@ Revision 1 of these fixtures kept 8 of 10 dimensions SCORED. Revision 2 lowers t
 three reasons, each one of the open decisions now taken: a concern score cannot rest on
 co-citation alone (R13, R14); a concern score on lack of decisive tests needs an absence over a
 searched adjudication corpus (R15); and an inspected passage needs a locator (R11, R12).
+Revision 3 leaves the count at 5 and merges one duplicated work (R18).
 
 Alternative the executor may take: poor critique uptake SCORED 0 on I16, if the dominant cluster
-is taken as the uptake population (instrument Section H steps 3-4). The test confirms that it
-passes the gates. Coverage would then be 6/10, and the band is still withheld.
+is taken as the uptake population (instrument Section H steps 3-4). It passes the gates with a
+NAMED_ONLY_BASIS review item (revision 3). Coverage would then be 6/10 after Gate B, 5/10 with
+the review item withdrawn; the band is still withheld.
+
+What the live-run fixture shows under revision 3
+------------------------------------------------
+Coverage 8/10 after Gate B, as the run declared; 4/10 with review-pending dimensions withdrawn
+(the run's own sensitivity line said 7/10). The nine review items:
+  CODED_FROM_METADATA      ten ADJUDICATION-1 rows coded, or NOT-CITING, from records only;
+                           the run reports that OpenAlex reference lists changed between runs.
+  SEARCH_RECALL            the locked search returned 1 of 6 known claim-testing works
+                           (Albouy 2012, the AJR 2012 Reply, Glaeser et al. 2004,
+                           Easterly-Levine 2003 and Sachs 2003 not returned).
+  POSSIBLE_DUPLICATE_WORK  nine pairs. Four are the run's own duplicate pairs in RECEPTION-1.
+                           Five are in ADJUDICATION-1 and were not reported by the run; they
+                           are title matches only, and at least one (ADJ02/ADJ20, 2007 and
+                           2022) is probably two works.
+  SAMPLE_DECLARED_RANDOM   I06 (kept INSUFFICIENT by the run after attrition).
+  BY_CONSTRUCTION_RISK     recent-paper dependence on a target-selected set.
+  DECISIVE_TEST_CLAIMED    lack of decisive tests SCORED 0 on one named result (I11).
+  NAMED_ONLY_BASIS x2      adjacent-field neglect SCORED 0 on I19; poor critique uptake
+                           SCORED 0 on I18.
+  PARTIAL_BASIS            poor critique uptake SCORED 0 while I22 (Glaeser uptake) is
+                           NOT-ASSESSED. The run cited I22 in the basis note; rule L6 adds the
+                           (?) tag that revision 3 asks for.
 
 Contestable transcription decisions
 -----------------------------------
@@ -140,9 +197,11 @@ The canonical v1 clean control (complete-clean-control.md) passes the v1 checker
 candidate gates it fails 8 checks: recent-paper dependence and adjacent-field neglect are
 SCORED 0 with no evidence (the v1 hard rule at line 1215 forbids this, but the v1 checker does
 not enforce it); lack of decisive tests is SCORED 2 on a named source's statement, with no
-search; and the fixture records no page or section for any citing passage, so the three
-INSPECTED rows, the citation-use inference built on them and Finding 2 fail. Recorded as an
-interaction, not as a re-grade of the v1 fixture, which is unchanged.
+search (EVIDENCE_BASE_UNSEARCHED under revision 3; DIMENSION_CLASS_MISSING under revision 2);
+and the fixture records no page or section for any citing passage, so the three INSPECTED rows,
+the citation-use inference built on them and Finding 2 fail. Poor critique uptake SCORED 0 on
+one named engagement (P05) is a review item (NAMED_ONLY_BASIS). Recorded as an interaction,
+not as a re-grade of the v1 fixture, which is unchanged.
 
 Known limits of the checker
 ---------------------------
@@ -152,5 +211,10 @@ Known limits of the checker
   Passage anchors (Atlas) are the intended enforcement point; not implemented here.
 - It cannot verify that a code or a direction tag is correct, that a sample was random, that a
   search was adequate, or that a CORPUS LOCK predates screening.
-- The dimension class map cn7-map-2 is a design judgment, and the one most in need of
+- The dimension class map cn7-map-3 is a design judgment, and the one most in need of
   independent review (see the CHANGES file, CN7-R7).
+- POSSIBLE_DUPLICATE_WORK matches normalised titles (and prefixes of truncated titles). It
+  misses retitled versions and flags distinct works with matching title openings; review
+  only. Known-item recall is computed against the list the executor declares, so an
+  executor who lists nothing reports 0/0. A (?) tag is a declaration: an omitted partial
+  inference is not detected.

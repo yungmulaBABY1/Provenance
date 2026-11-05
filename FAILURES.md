@@ -47,7 +47,8 @@ Seven regression cases now exist: case 11 (media acquittal, built), CE-006/007 (
 citation, built), MIX-01 (mixed control, built), the compliance fixture set
 (FAIL-CN-001, run at three burden levels), FAIL-MB-017 (Ceuta prominence, built),
 FAIL-MB-018 (Ceuta semantic equivalence, built), and FAIL-CN-007 (candidate gate
-fixtures, tuned to the Acemoglu run; they test a candidate, not the canonical prompt).
+fixtures, tuned to the Acemoglu runs, one of them a live candidate run; they test a
+candidate, not the canonical prompt).
 
 FAIL-MB-008’s dangerous inference path is DEFUSED but its whole-coverage Level-2
 count remains convention/model dependent. FAIL-MB-009’s per-fact repair has now
@@ -1435,21 +1436,40 @@ scores and findings may rest only on passing inferences), extends the citation-u
 every polarity class, and requires coverage figures to equal ledger counts. Revision 2 adds
 direction-tagged dimension bases under a versioned class map, passage locators, bounded
 absence claims, a locked search for any evidence-base claim, and band enforcement after Gate
-B. The 70% gate value is unchanged. Rule records and open conflicts:
-`candidates/research-analysis/2-citation-network.v2-candidate.CHANGES.txt`.
+B. Revision 3 follows the first live run (below): claim layers defined before the register,
+record quality per corpus, known-item recall for the adjudication search, one row per work,
+sample attrition, NOT-ASSESSED treated as withholding, and class map cn7-map-3, under which a
+zero carries the same burden as a concern. The 70% gate value is unchanged. Rule records and
+open conflicts: `candidates/research-analysis/2-citation-network.v2-candidate.CHANGES.txt`.
 
-**Regression condition (candidate revision 2):** the as-run transcription fails on the
+**Live run (candidate revision 2, 2026-11-04, Grok; Provenance-Atlas branch
+`audit/acemoglu-colonial-origins-v2cand`, commit `84d1800`):** the run executed every section,
+ran and locked an adjudication search, withheld its band, and passed the v1 checker and the
+revision-2 gates (PASS-WITH-REVIEW, 3 items each). It also showed what revision 2 let through:
+four works counted twice in the reception corpus; a locked search that returned 1 of 6
+claim-testing works the executor already knew; lack of decisive tests, critique uptake and
+adjacent-field neglect each SCORED 0 on named works, one of them while the relevant uptake
+inference was NOT-ASSESSED; a random sample that lost 4 of 6 members; and NOT-ASSESSED
+withholding that escaped the over-withholding review. The executor had read the repaired
+fixture, so the run tests executability and burden, not detection.
+
+**Regression condition (candidate revision 3):** the as-run transcription fails on the
 coverage recount, five unlocatable inspections, N11, N31, the missing adjudication corpus, five
-overclaimed inferences, four dimensions, Finding 2 and its issued band; the same evidence
-re-ledgered passes with one review item, keeps all seven findings, keeps 5 of 10 applicable
-dimensions and withholds the band; a structural question that metadata answers passes with no
-review item; outputs of the canonical instrument are not judged (NOT_APPLICABLE).
+overclaimed inferences, four dimensions (one of them twice: insufficient basis and no search),
+Finding 2 and its issued band, and flags the duplicated Handbook chapter for review; the same
+evidence re-ledgered passes with one review item, keeps all seven findings, keeps 5 of 10
+applicable dimensions and withholds the band; a structural question that metadata answers
+passes with no review item; the live run's ledger, with only the declarations revision 3 adds,
+passes with nine review items and falls from 8/10 to 4/10 SCORED when they are withdrawn;
+outputs of the canonical instrument and of earlier candidate revisions are not judged
+(NOT_APPLICABLE).
 
 **Case:** `tests/test-citation-network-v2-gates.py`, fixtures in
-`tests/cases/citation-network-v2-gates/` (tuned to this run; no held-out case).
+`tests/cases/citation-network-v2-gates/` (tuned to these runs; no held-out case).
 
-**Status:** OBSERVED; CANDIDATE REPAIR PROPOSED, NOT ADOPTED; NOT RUN LIVE. The canonical
-prompt carries no [FAIL-CN-007] marker; the candidate does.
+**Status:** OBSERVED; CANDIDATE REPAIR PROPOSED, NOT ADOPTED. Revision 2 run live once
+(above); revision 3 not run live. The canonical prompt carries no [FAIL-CN-007] marker; the
+candidate does.
 
 ---
 

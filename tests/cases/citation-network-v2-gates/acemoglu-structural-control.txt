@@ -7,9 +7,18 @@ This is a test input for the v2-candidate gates. It is not the run, not a re-gra
 Question: is the top-50 AJR-citing corpus internally dense, and are single-database records for AJR 2001 reliable? Reference lists and records answer both,
 so no citing passage is needed and none is claimed.
 
-INSTRUMENT VERSION: 2-citation-network v2-candidate.2
+INSTRUMENT VERSION: 2-citation-network v2-candidate.3
 
 SECTION A0: CORPUS REGISTER AND SOURCE ELIGIBILITY
+
+CLAIM LAYERS AND RIVALS
+
+CLAIM LAYER: L1 — the field-6 estimate (64 former colonies, 2SLS 0.94, SE 0.16)
+CLAIM LAYER: L2 — the field-3 weaker defensible claim
+CLAIM LAYER: L3 — downstream: institutions explain income differences
+CLAIM LAYER: L4 — public wording
+RIVAL: R1 — direct geography or disease channel
+RIVAL: R2 — human capital carried by settlers
 
 CORPUS ID: RECEPTION-1
 CORPUS ROLE: RECEPTION
@@ -17,8 +26,9 @@ CORPUS QUESTION: How AJR 2001 is cited by its most-cited citing works
 CORPUS SELECTION RULE: OpenAlex works API filter=cites:W3124166904&sort=cited_by_count:desc&per-page=50, executed 2026-11-04, no date or type bound, no screening (02c line 24)
 CORPUS DISCOVERY: SEARCHED — the OpenAlex query above (raw/top50_citers.json)
 SELECTED ON TARGET CITATION: YES
-CORPUS SIZE: 50
-CITATION CONTEXT COVERAGE: RECEPTION-1 0/50
+CORPUS SIZE: 49
+CITATION CONTEXT COVERAGE: RECEPTION-1 0/49
+RECORD QUALITY: OpenAlex record W3124131699 conflates the 2012 Reply with AJR 2001 (02c line 36); AJR 2001 has 13 indexed references (02c line 31)
 
 CORPUS ID: ADJUDICATION-1
 CORPUS ROLE: ADJUDICATION
@@ -28,6 +38,7 @@ CORPUS DISCOVERY: NONE — no claim-testing inference is made
 SELECTED ON TARGET CITATION: NO
 CORPUS SIZE: 0
 CITATION CONTEXT COVERAGE: ADJUDICATION-1 0/0
+RECORD QUALITY: none known (no members)
 
 SOURCE ELIGIBILITY LEDGER
 
@@ -37,13 +48,12 @@ SOURCE ELIGIBILITY LEDGER
 | N02 W2994756033 2004 Institutions Rule: The Primacy of Institutions ... | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA | NOT-INSPECTED | reference list and record only |
 | N03 W2890314743 2004 Do Institutions Cause Growth? | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA | NOT-INSPECTED | reference list and record only |
 | N04 W3122778615 2003 The great reversals: the politics of ... | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA | NOT-INSPECTED | reference list and record only |
-| N05 W2108614304 2004 Institutions as the Fundamental Cause of ... | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA | NOT-INSPECTED | reference list and record only |
+| N05 W2108614304+W1580107285 2004 Institutions as the Fundamental Cause of ... | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA | NOT-INSPECTED | reference list and record only |
 | N06 W3123436326 2017 Double/debiased machine learning for treatment and ... | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA | NOT-INSPECTED | reference list and record only |
 | N07 W2556507681 2016 The Theory of Economic Development | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA | NOT-INSPECTED | reference list and record only |
 | N08 W2064927380 2007 The Product Space Conditions the Development ... | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA | NOT-INSPECTED | reference list and record only |
 | N09 W1588189399 2005 Chapter 12 Finance and Growth: Theory ... | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA | NOT-INSPECTED | reference list and record only |
 | N10 W1484474409 2006 Institutions and the Resource Curse | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA | NOT-INSPECTED | reference list and record only |
-| N11 W1580107285 2005 Chapter 6 Institutions as a Fundamental ... | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA | NOT-INSPECTED | reference list and record only |
 | N12 W1480274481 2008 The Role of Cognitive Skills in ... | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA | NOT-INSPECTED | reference list and record only |
 | N13 W3125697804 2004 International Technology Diffusion | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA | NOT-INSPECTED | reference list and record only |
 | N14 W2104834906 2014 What Do We Learn from the ... | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA | NOT-INSPECTED | reference list and record only |
@@ -91,15 +101,15 @@ INFERENCE LEDGER
 
 | Inference | Class | Corpus | Claimed scope | Sampling rule | Members used | Disposition | Statement |
 |---|---|---|---|---|---|---|---|
-| I01 | GRAPH-STRUCTURE | RECEPTION-1 | CORPUS | EXHAUSTIVE | ALL | SUPPORTED | Directed density 136/2450 inside the top-50 citing corpus; closure beyond it neither established nor excluded (02c lines 29-34) |
+| I01 | GRAPH-STRUCTURE | RECEPTION-1 | CORPUS | EXHAUSTIVE | ALL | SUPPORTED | Directed density 136/2450 over the 50 records (49 works; N05 covers the WP and Handbook records); closure beyond the corpus neither established nor excluded (02c lines 29-34) |
 | I02 | DATABASE-RECORD | — | NAMED | NOT-APPLICABLE | N00, N01 | SUPPORTED | OpenAlex conflates the 2012 Reply record with AJR 2001 and indexes 13 references for AJR 2001 (02c line 36; Finding 1) |
 | I03 | CO-CITATION | POPULATION | POPULATION | NOT-APPLICABLE | UNSCREENED | SUPPORTED | Reversal of Fortune co-cited by 336/2,695 and the AJR handbook by 276/2,695 recent AJR citers (02c lines 204-205) |
-| I04 | DATABASE-RECORD | RECEPTION-1 | CORPUS | EXHAUSTIVE | ALL | SUPPORTED | 8/50 corpus members have an AJR author (02c line 40) |
+| I04 | DATABASE-RECORD | RECEPTION-1 | CORPUS | EXHAUSTIVE | ALL | SUPPORTED | 8/50 records (7/49 works) have an AJR author (02c line 40) |
 
 
 DIMENSION EVIDENCE BASIS
 
-DIMENSION CLASS MAP: cn7-map-2
+DIMENSION CLASS MAP: cn7-map-3
 
 | Scorecard dimension | Scorecard disposition | Inference IDs | Basis note |
 |---|---|---|---|

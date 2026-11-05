@@ -5,9 +5,9 @@ NEGLECT
 CANDIDATE VERSION — NOT CANONICAL   [FAIL-CN-007]
 -----------------------------------------------------------------
 
-INSTRUMENT VERSION: 2-citation-network v2-candidate.2
+INSTRUMENT VERSION: 2-citation-network v2-candidate.3
 
-Revision 2 of the candidate (2026-11-04). This file is a proposed revision under review. It
+Revision 3 of the candidate (2026-11-04). This file is a proposed revision under review. It
 is derived from the canonical prompts/research-analysis/2-citation-network.txt (git blob
 7ac79f0da337c4d52e39e1490088d06c82a9d42b, sha256
 dcb93491a0a2ef5716575b89963c2cd9031c43e52011bb549416c89421ff3262). It does not replace that file, is
@@ -543,6 +543,16 @@ EXECUTION ORDER
 6. Run Sections A–K on the inferences that pass. Keep the others visible as INSUFFICIENT or
    NOT-ASSESSED, each with what would make it sufficient.
 
+CLAIM LAYERS AND RIVALS
+
+Before the corpus register, define every claim layer and rival that any code in this output
+uses (for example DIRECT (L3-R1)), one per line:
+
+CLAIM LAYER: L1 — [the claim, for example map field 6 as stated]
+RIVAL: R1 — [the strongest plausible rival explanation]
+
+A layer or rival code used in a relevance value and not defined here fails the gate.   [FAIL-CN-007]
+
 CORPUS REGISTER
 
 For each corpus, output these labels, one per line:
@@ -555,8 +565,15 @@ CORPUS DISCOVERY: SEARCHED — [search record] / NONE — [how members were asse
 SELECTED ON TARGET CITATION: YES / NO
 CORPUS SIZE: [number of members; equals the number of ledger rows naming this corpus]
 CITATION CONTEXT COVERAGE: [corpus id] [members with Citation context INSPECTED]/[members]
+RECORD QUALITY: [known problems in the records this corpus rests on: duplicate or conflated
+records, records that changed between retrievals, reference lists known to be incomplete; or
+"none known"]
 CORPUS LOCK: [timestamp or hash of the search record] (required for an ADJUDICATION corpus with
 CORPUS DISCOVERY: SEARCHED)
+
+SEARCHED means the members came from a recorded query, including a ranked citation query
+such as the top 50 works citing the target. NONE means they were assembled by hand or taken
+from a supplied packet.
 
 Register at least one ADJUDICATION corpus. If no adjudication search is run, register it with
 CORPUS DISCOVERY: NONE and list the claim-testing sources already retrieved, or none (CORPUS
@@ -565,8 +582,20 @@ for an audit that makes no claim about the evidence base. Any such claim (that a
 is absent, the composition or independence of the evidence base, lack of decisive tests) needs
 an ADJUDICATION corpus with CORPUS DISCOVERY: SEARCHED. Fix and record that search (database,
 query, bounds, screening rule) and its CORPUS LOCK before screening any result. Results located
-afterwards may be added only as POST HOC members, named as such in Supported inference. Every
-coverage figure stated anywhere in the output uses the CITATION CONTEXT COVERAGE label and
+afterwards may be added only as POST HOC members, named as such in Supported inference.
+
+KNOWN-ITEM RECALL. With the search record, before running the search, list the claim-testing
+works you already know (from the claim map, earlier stages, or prior reading). After the
+search, report for each SEARCHED adjudication corpus:
+
+KNOWN-ITEM RECALL: [corpus id] [known items the search returned]/[known items] (returned: …;
+not returned: …)
+
+Known items the search did not return enter only as POST HOC members. A search that missed a
+known item cannot support a LITERATURE-scope statement; "0/0" is the honest value when nothing
+was known in advance.
+
+Every coverage figure stated anywhere in the output uses the CITATION CONTEXT COVERAGE label and
 equals the ledger count.   [FAIL-CN-007]
 
 OVERLAP
@@ -611,9 +640,14 @@ Gate A rules:
 - REUSES (shared data, instrument or sample) requires FULL-TEXT or ABSTRACT access.
 - NOT-APPLICABLE is the Citation context of a NOT-CITING source.
 - UNKNOWN is a valid value in every coded column. Never replace it with a guess to complete a
-  count. A relevance or contribution code assigned from METADATA-only access is permitted when
-  the record genuinely shows it; say so in Supported inference. The checker lists such rows for
-  review.
+  count. A relevance or contribution code, or NOT-CITING, assigned from METADATA-only access is
+  permitted when the record genuinely shows it; say so in Supported inference. The checker lists
+  such rows for review.
+- One row per work, not per database record. When several records are the same work (a
+  working paper and its published version, or a duplicated record), give one row, list every
+  record identifier in the Source cell, and count the work once. When you read a different
+  version from the one the record describes, write VERSION-SUBSTITUTE: [version read] in
+  Source access. The checker lists rows whose titles suggest the same work for review.   [FAIL-CN-007]
 - A highly cited member can be BACKGROUND. A DIRECT test can be lightly cited or absent from the
   reception corpus. Do not let either attribute stand in for the other.
 
@@ -1381,7 +1415,10 @@ statement with k/n counts; metadata classes only); LITERATURE (beyond any define
 
 Sampling rules: EXHAUSTIVE / PRESPECIFIED-RANDOM / PRESPECIFIED-RULE / CONVENIENCE /
 NOT-APPLICABLE. A CONVENIENCE set (whatever was retrievable) supports WITHIN-SAMPLE statements
-only.
+only. A random sample that loses members it cannot retrieve is no longer random: report
+SAMPLE ATTRITION: [inference] [retrieved]/[sampled] beside it, keep the sample inference
+INSUFFICIENT, and state anything about the retrieved members as a separate CONVENIENCE
+inference.   [FAIL-CN-007]
 
 INFERENCE LEDGER
 
@@ -1400,25 +1437,33 @@ INFERENCE LEDGER
 - An INSUFFICIENT or NOT-ASSESSED inference stays in the ledger, and its statement says what
   would make it sufficient. It cannot carry a SCORED dimension or a confirmed or contested
   finding.
-- If you withhold an inference whose evidence meets the minimum, say why. The checker routes
-  that inference to review instead of accepting the withholding silently.
+- If you withhold an inference whose evidence meets the minimum, as INSUFFICIENT or as
+  NOT-ASSESSED, say why. The checker routes that inference to review instead of accepting the
+  withholding silently.
 
 DIMENSION EVIDENCE BASIS
 
 | Scorecard dimension | Scorecard disposition | Inference IDs | Basis note |
 
-Output the line DIMENSION CLASS MAP: cn7-map-2 above this table. One row for each of the 11
+Output the line DIMENSION CLASS MAP: cn7-map-3 above this table. One row for each of the 11
 Section K dimensions, with the same disposition as Artifact 8. A SCORED row lists the
 inferences its score relies on, and only those, each tagged (+) when it supports concern or
-(-) when it supports no concern, for example: I03 (+), I10 (-). An UNASSESSED, UNINFORMATIVE
-or N/A row leaves Inference IDs as — and its basis note states what is missing and what would
-make the dimension assessable.
+(-) when it supports no concern, for example: I03 (+), I10 (-). Also list, tagged (?), every
+INSUFFICIENT or NOT-ASSESSED inference that bears on the dimension: a SCORED row with a (?)
+inference is scored on a partial basis, and the checker routes it to review. An UNASSESSED,
+UNINFORMATIVE or N/A row leaves Inference IDs as — and its basis note states what is missing
+and what would make the dimension assessable.
 
 A score above 0 needs at least one (+) inference of the concern classes below. A score of 0
 needs at least one (-) inference of the no-concern classes: affirmative evidence of no concern,
-as the hard rule in Section K requires. Every listed inference must pass Gate B.
+as the hard rule in Section K requires. Every (+) and (-) inference must pass Gate B.
 
-DIMENSION CLASS MAP cn7-map-2 (dimension: concern classes / no-concern classes)
+A zero carries the same burden as a concern. Where a concern would need a searched evidence
+base, so does a zero; where a concern would need the population the dimension covers, so does a
+zero. Evidence about named works supports a score in either direction only when those works are
+that population, and the checker routes such scores to review.   [FAIL-CN-007]
+
+DIMENSION CLASS MAP cn7-map-3 (dimension: concern classes / no-concern classes)
 
 - Internal citation density: GRAPH-STRUCTURE / GRAPH-STRUCTURE.
 - Founding-cluster dominance: GRAPH-STRUCTURE, CO-CITATION, DATABASE-RECORD / the same.
@@ -1427,11 +1472,17 @@ DIMENSION CLASS MAP cn7-map-2 (dimension: concern classes / no-concern classes)
   the target.
 - Review-hub laundering; Claim mutation: RESTATEMENT / RESTATEMENT.
 - Proxy mismatch: RESTATEMENT, CITATION-USE, SOURCE-RESULT / the same.
-- Lack of decisive tests: ABSENCE / SOURCE-RESULT, DATA-ORIGIN (a named decisive test exists).
+- Lack of decisive tests: ABSENCE, SOURCE-RESULT (named tests whose results conflict, so none
+  is decisive) / SOURCE-RESULT, DATA-ORIGIN (a named test that is decisive). Either direction
+  needs an ADJUDICATION corpus with CORPUS DISCOVERY: SEARCHED. Every SCORED 0 goes to review:
+  the checker cannot judge whether a test is decisive.
 - Poor critique uptake: ENGAGEMENT, GRAPH-STRUCTURE (named dominant-cluster papers that had the
-  opportunity do not cite the critique) / ENGAGEMENT.
+  opportunity do not cite the critique) / ENGAGEMENT. A score in either direction that rests
+  only on named works goes to review: confirm they are the uptake population (Section H) and
+  that every located critique was traced, or list the untraced ones (?).
 - Adjacent-field neglect: ENGAGEMENT, GRAPH-STRUCTURE (named audited papers do not cite the
-  locked adjudicating source) / ENGAGEMENT, SOURCE-RESULT.
+  locked adjudicating source) / ENGAGEMENT, SOURCE-RESULT. The same review applies: source-layer
+  engagement alone does not cover later papers.
 - Intervention-evidence ratchet; Model non-updating: any class; their own section gates apply.
 
 A co-citation rate over a population is never a concern basis for poor critique uptake or
@@ -1509,7 +1560,8 @@ counts dimensions after this step. Its 70% value is unchanged and remains PROVIS
 coverage after Gate B; the gate checker also reports what coverage would be if each dimension
 with an open review item were withdrawn, and the formal-label gate must state whether it is met
 only on condition that those items resolve for the score. If coverage after Gate B is below
-70%, RISK BAND reads WITHHELD, whatever the arithmetic band position.   [FAIL-CN-007]
+70%, RISK BAND reads WITHHELD, whatever the arithmetic band position. When the band is
+WITHHELD, quote the arithmetic band position only beside the word WITHHELD.   [FAIL-CN-007]
 
 Dimensions:
 

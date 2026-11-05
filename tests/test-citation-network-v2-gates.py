@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
-"""Regression checks for the NON-CANONICAL citation-network v2-candidate gates (revision 2).
+"""Regression checks for the NON-CANONICAL citation-network v2-candidate gates (revision 3).
 
-Fixtures here are tuned regressions built around one observed run (Acemoglu, FAIL-CN-007)
-plus hand-written controls. Passing them shows the candidate checker behaves as designed
-on these inputs. It is not held-out validation and not evidence from a live run.
+Fixtures here are tuned regressions built around one observed v1 run (Acemoglu, FAIL-CN-007),
+one live run of candidate revision 2 on the same paper, and hand-written controls. Passing them
+shows the candidate checker behaves as designed on these inputs. It is not held-out
+validation: the live run was used to design revision 3, so it is a regression input too.
 
     python3 tests/test-citation-network-v2-gates.py
 
 Set CN7_02C_PATH to the Acemoglu Stage-2c output (Provenance-Atlas branch
-audit/acemoglu-colonial-origins) to also rebuild the Acemoglu fixtures and compare bytes.
+audit/acemoglu-colonial-origins) to also rebuild the Acemoglu fixtures and compare bytes, and
+CN7_LIVE_RUN_DIR to the live run's directory (Provenance-Atlas branch
+audit/acemoglu-colonial-origins-v2cand, examples/research/acemoglu-colonial-origins/
+citation-network-v2cand) to rebuild the live fixture.
 """
 from __future__ import annotations
 
@@ -34,6 +38,7 @@ REPAIRED = CASES / "acemoglu-repaired.txt"
 CONTROL = CASES / "acemoglu-structural-control.txt"
 OVERLAP = CASES / "overlap-synthetic.txt"
 POWER_BLOCKS = CASES / "power-posing-v2-blocks.txt"
+LIVE = CASES / "live-v2cand2-acemoglu.txt"
 
 checks = 0
 
@@ -111,6 +116,7 @@ def test_acemoglu_as_run() -> None:
         "INFERENCE_OVERCLAIMED",        # I18 polarity sample includes unread N11
         "SCORED_ON_INSUFFICIENT",       # recent-paper dependence
         "SCORED_ON_INSUFFICIENT",       # lack of decisive tests
+        "EVIDENCE_BASE_UNSEARCHED",     # lack of decisive tests scored with no adjudication search
         "DIMENSION_CLASS_MISSING",      # adjacent-field neglect: concern only from co-citation
         "DIMENSION_CLASS_MISSING",      # poor critique uptake: concern only from co-citation
         "FINDING_ON_INSUFFICIENT",      # Finding 2
@@ -118,6 +124,11 @@ def test_acemoglu_as_run() -> None:
     ])
     require(failure_codes(output) == expected, f"as-run failures changed: "
             f"{failure_codes(output)}")
+    require(review_codes(output) == ["CODED_FROM_METADATA", "POSSIBLE_DUPLICATE_WORK"],
+            f"as-run review items changed: {review_codes(output)}")
+    require("1 pairs of rows look like one work under two records" in output
+            and "N05/N11 (RECEPTION-1)" in output, "the Handbook chapter and its working paper "
+            "should be flagged as one work")
     for iid in ("I05", "I12", "I14", "I15", "I18"):
         require(f"INFERENCE_OVERCLAIMED\t{iid} " in output, f"{iid} not caught")
     require("RECEPTION-1 declared 13/50, ledger 11/50" in output, "coverage recount missing")
@@ -139,8 +150,8 @@ def test_acemoglu_repaired() -> None:
     require("PROVISIONAL_70_GATE\tNOT MET" in output, "repaired case should not meet the gate")
     # Valid findings survive: every standardized finding keeps a passing basis.
     require("FINDING_ON_INSUFFICIENT" not in output, "a valid finding was rejected")
-    require("RECEPTION-1\tRECEPTION\tmembers 50\tcontexts inspected 8" in output,
-            "reception coverage recount (11 read, 8 locatable)")
+    require("RECEPTION-1\tRECEPTION\tmembers 49\tcontexts inspected 8" in output,
+            "reception coverage recount (11 read, 8 locatable; 49 works after R18)")
     text = REPAIRED.read_text(encoding="utf-8")
     band = next(line for line in text.splitlines() if line.startswith("RISK BAND:"))
     require(band.startswith("RISK BAND: WITHHELD"), "repaired fixture must withhold the band")
@@ -250,7 +261,9 @@ def test_overlap() -> None:
         seven = mutate(seven, old, new)
     status, output = gates_text(seven + "\nRISK BAND: >20%–40% synthetic band\n")
     require(status == 0 and "COVERAGE_AFTER_GATES\t7/10" in output
-            and "COVERAGE_IF_REVIEW_ITEMS_WITHDRAWN\t6/10" in output
+            and "COVERAGE_IF_REVIEW_ITEMS_WITHDRAWN\t5/10 (50%)\twithdrawn: adjacent-field "
+                "neglect, poor critique uptake" in output
+            and "NAMED_ONLY_BASIS" in review_codes(output)
             and "PROVISIONAL_70_GATE\tMET ONLY IF REVIEW ITEMS RESOLVE FOR THE SCORE" in output
             and "BAND_CONDITIONAL" in review_codes(output),
             f"a band that meets the gate only with review-pending dimensions goes to review\n"
@@ -271,20 +284,21 @@ def test_overlap() -> None:
 
 def test_adversarial_mutations() -> None:
     text = REPAIRED.read_text(encoding="utf-8")
-    n11 = next(line for line in text.splitlines() if line.startswith("| N11 "))
+    # N11 is merged into N05 in the repaired ledger (R18); N27 is a record-only row.
+    n27 = next(line for line in text.splitlines() if line.startswith("| N27 "))
     rows = {line.split("|")[1].strip(): line for line in text.splitlines()
             if re.match(r"^\| I\d\d \|", line)}
 
     # Gate A
     expect_fail("use class without an inspected passage",
-                mutate(text, n11, n11.replace("CITES-UNINSPECTED", "PREMISE")),
+                mutate(text, n27, n27.replace("CITES-UNINSPECTED", "PREMISE")),
                 "USE_WITHOUT_CONTEXT")
     expect_fail("inspected without full text or excerpt",
-                mutate(text, n11, n11.replace("NOT-INSPECTED", "INSPECTED")),
+                mutate(text, n27, n27.replace("NOT-INSPECTED", "INSPECTED")),
                 "CONTEXT_WITHOUT_ACCESS")
     expect_fail("coverage overstated by counting passages that cannot be located",
-                mutate(text, "CITATION CONTEXT COVERAGE: RECEPTION-1 8/50",
-                       "CITATION CONTEXT COVERAGE: RECEPTION-1 11/50"), "COVERAGE_MISMATCH")
+                mutate(text, "CITATION CONTEXT COVERAGE: RECEPTION-1 8/49",
+                       "CITATION CONTEXT COVERAGE: RECEPTION-1 11/49"), "COVERAGE_MISMATCH")
     expect_fail("coverage restated wrongly elsewhere in the output",
                 text + "\nConfidence: CITATION CONTEXT COVERAGE: RECEPTION-1 13/50\n",
                 "COVERAGE_MISMATCH")
@@ -324,7 +338,7 @@ def test_adversarial_mutations() -> None:
                 mutate(text, rows["I01"], rows["I01"].replace("| CORPUS |", "| LITERATURE |")),
                 "INFERENCE_OVERCLAIMED")
     expect_fail("unknown codes dropped from a composition",
-                mutate(text, "UNKNOWN=14 | TOTAL=50", "UNKNOWN=0 | TOTAL=50"),
+                mutate(text, "UNKNOWN=14 | TOTAL=49", "UNKNOWN=0 | TOTAL=49"),
                 "INFERENCE_OVERCLAIMED")
     expect_fail("unknown rows silently reclassified in the count",
                 mutate(text, "BACKGROUND=24; UNRELATED=0; UNKNOWN=14",
@@ -348,7 +362,10 @@ def test_adversarial_mutations() -> None:
         "SCORED_ON_INSUFFICIENT")
     expect_fail("lack of decisive tests scored on named statements without a search", mutate(
         text, lack, "| Lack of decisive tests | SCORED 1 | I13 (+), I14 (+) | x |"),
-        "DIMENSION_CLASS_MISSING")
+        "EVIDENCE_BASE_UNSEARCHED")
+    expect_fail("a zero for lack of decisive tests on named results without a search", mutate(
+        text, lack, "| Lack of decisive tests | SCORED 0 | I13 (-), I14 (-) | x |"),
+        "EVIDENCE_BASE_UNSEARCHED")
     uptake = next(line for line in text.splitlines() if line.startswith("| Poor critique uptake |"))
     expect_fail("uptake concern from co-citation, with engagement pointing the other way",
                 mutate(text, uptake, "| Poor critique uptake | SCORED 1 | I16 (-), I17 (+) | x |"),
@@ -356,9 +373,12 @@ def test_adversarial_mutations() -> None:
     status, output = gates_text(mutate(text, uptake, "| Poor critique uptake | SCORED 0 | I16 (-) "
                                        "| dominant cluster engaged |"))
     require(status == 0 and "COVERAGE_AFTER_GATES\t6/10 (60%)" in output
-            and "PROVISIONAL_70_GATE\tNOT MET" in output,
-            f"the executor's alternative (uptake SCORED 0) passes and the band stays withheld\n"
-            f"{output}")
+            and "PROVISIONAL_70_GATE\tNOT MET" in output
+            and "NAMED_ONLY_BASIS" in review_codes(output)
+            and "COVERAGE_IF_REVIEW_ITEMS_WITHDRAWN\t5/10 (50%)\twithdrawn: poor critique "
+                "uptake" in output,
+            f"the executor's alternative (uptake SCORED 0 on named works) passes to review and "
+            f"the band stays withheld\n{output}")
     adjacent = next(line for line in text.splitlines()
                     if line.startswith("| Adjacent-field neglect |"))
     expect_fail("neglect concern from a rival's result plus co-citation", mutate(
@@ -373,10 +393,10 @@ def test_adversarial_mutations() -> None:
     expect_fail("a zero score with no affirmative evidence", mutate(
         text, "| Internal citation density | SCORED 0 | I01 (-) |",
         "| Internal citation density | SCORED 0 | I01 (+) |"), "NO_AFFIRMATIVE_BASIS")
-    expect_fail("map line removed", mutate(text, "DIMENSION CLASS MAP: cn7-map-2\n", ""),
+    expect_fail("map line removed", mutate(text, "DIMENSION CLASS MAP: cn7-map-3\n", ""),
                 "MAP_VERSION_MISSING")
-    expect_fail("output declares another map", mutate(text, "DIMENSION CLASS MAP: cn7-map-2",
-                                                       "DIMENSION CLASS MAP: cn7-map-1"),
+    expect_fail("output declares another map", mutate(text, "DIMENSION CLASS MAP: cn7-map-3",
+                                                       "DIMENSION CLASS MAP: cn7-map-2"),
                 "MAP_VERSION_MISMATCH")
     n02 = next(line for line in text.splitlines() if line.startswith("| N02 "))
     expect_fail("inspected row without a locator", mutate(
@@ -386,7 +406,7 @@ def test_adversarial_mutations() -> None:
         text, n08, n08.replace("| CITES-UNINSPECTED |", "| MENTIONS |").replace(
             "| NOT-INSPECTED | full text read; no passage locator recorded |",
             "| INSPECTED | citing passage read |")),
-        "CITATION CONTEXT COVERAGE: RECEPTION-1 8/50", "CITATION CONTEXT COVERAGE: RECEPTION-1 9/50"),
+        "CITATION CONTEXT COVERAGE: RECEPTION-1 8/49", "CITATION CONTEXT COVERAGE: RECEPTION-1 9/49"),
         "| N01, N02, N03, N04, N05, N06, N12 |", "| N01, N02, N03, N04, N05, N06, N08, N12 |")
     status, output = gates_text(relocated)
     require(status == 1 and "LOCATOR_MISSING" in failure_codes(output)
@@ -421,12 +441,13 @@ def test_applicability() -> None:
     require(status == 1 and "VERSION_LINE_MISSING" in output,
             "--require-v2 must fail a missing version line")
     text = REPAIRED.read_text(encoding="utf-8").replace(
-        "INSTRUMENT VERSION: 2-citation-network v2-candidate.2\n", "")
+        "INSTRUMENT VERSION: 2-citation-network v2-candidate.3\n", "")
     status, output = gates_text(text)
     require(status == 3, "a fragment without the version line is not judged")
-    status, output = gates_text(REPAIRED.read_text(encoding="utf-8").replace(
-        "v2-candidate.2\n", "v2-candidate\n"))
-    require(status == 3, "an output of candidate revision 1 is not judged by revision 2")
+    for old_revision in ("v2-candidate", "v2-candidate.2"):
+        status, output = gates_text(REPAIRED.read_text(encoding="utf-8").replace(
+            "v2-candidate.3\n", old_revision + "\n"))
+        require(status == 3, f"an output of {old_revision} is not judged by revision 3")
 
 
 def assemble_power_posing() -> str:
@@ -480,7 +501,7 @@ def test_interactions() -> None:
         require(status == 1, "candidate gates must FAIL the v1-era control")
         require(failure_codes(output) == sorted([
             "SCORED_WITHOUT_BASIS", "SCORED_WITHOUT_BASIS",       # two SCORED 0 rows, no evidence
-            "DIMENSION_CLASS_MISSING",                            # lack of decisive tests 2, no search
+            "EVIDENCE_BASE_UNSEARCHED",                           # lack of decisive tests 2, no search
             "LOCATOR_MISSING", "LOCATOR_MISSING", "LOCATOR_MISSING",  # S2-S4 have no page refs
             "INFERENCE_OVERCLAIMED",     # P02 citation use rests on those unlocatable passages
             "FINDING_ON_INSUFFICIENT"]),  # Finding 2 relies on P02
@@ -490,6 +511,9 @@ def test_interactions() -> None:
                 and "Adjacent-field neglect is SCORED 0 with no listed inference" in output,
                 "expected the two SCORED 0 rows that rest on no evidence")
         require("SCORECARD_DISAGREES" not in output, "basis table must mirror Artifact 8")
+        require(review_codes(output) == ["NAMED_ONLY_BASIS"]
+                and "Poor critique uptake is SCORED 0 on named works only (P05)" in output,
+                f"uptake SCORED 0 on a named engagement should go to review\n{output}")
         disagree = mutate(combined, "| Recent-paper dependence | SCORED 0 | — | Artifact 8 basis: "
                           "supplied packet only; no recent corpus |",
                           "| Recent-paper dependence | UNASSESSED | — | no recent corpus |")
@@ -505,7 +529,7 @@ def test_interactions() -> None:
         require("FINDING_ROWS" in failure_codes(output), "a basis row for a missing finding")
 
     vocab = re.compile(r"\b[A-Z][A-Z0-9-]*-(?:VERIFIED|CONFIRMED)\b")
-    for path in (AS_RUN, REPAIRED, CONTROL, OVERLAP, POWER_BLOCKS,
+    for path in (AS_RUN, REPAIRED, CONTROL, OVERLAP, POWER_BLOCKS, LIVE,
                  CANDIDATES / "2-citation-network.v2-candidate.txt"):
         text = path.read_text(encoding="utf-8")
         if path.name.endswith("v2-candidate.txt"):
@@ -514,6 +538,154 @@ def test_interactions() -> None:
             require(not new, f"candidate adds authority tokens: {new}")
         else:
             require(not vocab.findall(text), f"{path.name} uses -CONFIRMED/-VERIFIED tokens")
+
+
+def test_revision3_rules() -> None:
+    """Each revision-3 rule, by mutation of a fixture that passes without it."""
+    text = OVERLAP.read_text(encoding="utf-8")
+    layers = ("CLAIM LAYER: L1 — the synthetic target claim T makes\n"
+              "RIVAL: R1 — a synthetic rival explanation\n")
+    status, output = gates_text(mutate(text, layers, ""))
+    require(status == 1 and {"CLAIM_LAYERS_MISSING", "UNDEFINED_LAYER"} <= set(
+        failure_codes(output)), f"claim layers removed\n{output}")
+    s6 = next(line for line in text.splitlines() if line.startswith("| S6 "))
+    status, output = gates_text(mutate(text, s6, s6.replace("DIRECT (L1)", "DIRECT (L2)")))
+    require(status == 1 and failure_codes(output) == ["UNDEFINED_LAYER"]
+            and "L2 is used in 1 relevance values (S6" in output,
+            f"a relevance value naming an undefined layer\n{output}")
+    expect_fail("record quality missing", mutate(
+        text, "RECORD QUALITY: none known (synthetic records)\nKNOWN-ITEM", "KNOWN-ITEM"),
+        "REGISTER_FIELD")
+    recall = "KNOWN-ITEM RECALL: ADJUDICATION-1 2/2 (returned: S2, S5; not returned: none)"
+    status, output = gates_text(mutate(text, recall + "\n", ""))
+    require(status == 1 and failure_codes(output) == ["KNOWN_ITEM_RECALL"],
+            f"a SEARCHED adjudication corpus without known-item recall\n{output}")
+    expect_fail("recall above the known-item count", mutate(
+        text, recall, recall.replace("2/2", "3/2")), "KNOWN_ITEM_RECALL")
+    missed = mutate(text, recall, "KNOWN-ITEM RECALL: ADJUDICATION-1 1/2 (returned: S2; not "
+                    "returned: S5)")
+    status, output = gates_text(missed)
+    require(status == 1 and "SEARCH_RECALL" in review_codes(output)
+            and all(f"INFERENCE_OVERCLAIMED\t{i} " in output for i in ("O3", "O4", "O5"))
+            and "missed known items (known-item recall 1/2)" in output,
+            f"a search that missed a known item cannot bound literature-scope statements\n"
+            f"{output}")
+    o3 = next(line for line in missed.splitlines() if line.startswith("| O3 "))
+    o4 = next(line for line in missed.splitlines() if line.startswith("| O4 "))
+    o5 = next(line for line in missed.splitlines() if line.startswith("| O5 "))
+    bounded = missed
+    for row in (o3, o4):
+        bounded = mutate(bounded, row, row.replace("| LITERATURE |", "| CORPUS |"))
+    bounded = mutate(bounded, o5, "| O5 | ABSENCE | ADJUDICATION-1 | WITHIN-SAMPLE | "
+                     "PRESPECIFIED-RULE | SCREENED | SUPPORTED-WITHIN-SAMPLE | No preregistered "
+                     "replication among the 4/4 screened results |")
+    status, output = gates_text(bounded)
+    require(status == 0 and "SEARCH_RECALL" in review_codes(output),
+            f"statements bounded to the search survive a recall shortfall, to review\n{output}")
+
+    # A zero carries the same burden as a concern.
+    lack = next(line for line in text.splitlines() if line.startswith("| Lack of decisive tests |"))
+    zero = mutate(text, lack, "| Lack of decisive tests | SCORED 0 | O7 (-) | S5 and S6 test L1 |")
+    expect_review("a zero for lack of decisive tests on named results", zero,
+                  "DECISIVE_TEST_CLAIMED")
+    expect_fail("that zero without a searched adjudication corpus", mutate(
+        zero, "CORPUS DISCOVERY: SEARCHED — synthetic topic query; 4 results, all screened",
+        "CORPUS DISCOVERY: NONE — assembled"), "EVIDENCE_BASE_UNSEARCHED")
+    status, output = gates_text(mutate(text, lack, "| Lack of decisive tests | SCORED 1 | O7 (+) "
+                                       "| S5 and S6 conflict |"))
+    require(status == 0 and "DIMENSION_CLASS_MISSING" not in output,
+            f"conflicting source results may carry the concern under cn7-map-3\n{output}")
+    density = "| Internal citation density | SCORED 0 | O1 (-) |"
+    expect_fail("(?) on an inference that passed Gate B", mutate(
+        text, density, "| Internal citation density | SCORED 0 | O1 (-), O2 (?) |"),
+        "PARTIAL_TAG_ON_PASSING")
+    s5 = next(line for line in text.splitlines() if line.startswith("| S5 "))
+    # S5 uncoded except for NOT-CITING, from its record only (compositions then fail; the review
+    # item is what is checked here).
+    status, output = gates_text(mutate(text, s5, "| S5 synthetic earlier independent test | "
+                                       "ADJUDICATION-1 | UNKNOWN | NOT-CITING | UNKNOWN | METADATA "
+                                       "| NOT-APPLICABLE | record only |"))
+    require("CODED_FROM_METADATA" in review_codes(output)
+            and "confirm each record shows it: S5" in output,
+            f"NOT-CITING coded from a record only goes to review\n{output}")
+    expect_fail("a data-origin result standing in for a decisive-test concern", mutate(
+        text, lack, "| Lack of decisive tests | SCORED 1 | O4 (+) | one data origin |"),
+        "DIMENSION_CLASS_MISSING")
+
+    # Withholding is reviewed whichever word withholds it.
+    repaired = REPAIRED.read_text(encoding="utf-8")
+    i13 = next(line for line in repaired.splitlines() if line.startswith("| I13 "))
+    status, output = gates_text(mutate(repaired, i13, i13.replace("| SUPPORTED |",
+                                                                  "| NOT-ASSESSED |")))
+    require(status == 0 and "OVER_WITHHELD" in review_codes(output)
+            and "I13 (SOURCE-RESULT) declared NOT-ASSESSED" in output,
+            f"NOT-ASSESSED on supportable evidence must go to review\n{output}")
+
+    # One row per work.
+    n05 = next(line for line in repaired.splitlines() if line.startswith("| N05 "))
+    split = mutate(repaired, n05, n05 + "\n" + n05.replace(
+        "| N05 W2108614304+W1580107285 2004 Institutions as the Fundamental Cause of ... |",
+        "| N50 W1580107285 2005 Chapter 6 Institutions as a Fundamental Cause of ... |"))
+    split = mutate(mutate(split, "CORPUS SIZE: 49", "CORPUS SIZE: 50"),
+                   "CITATION CONTEXT COVERAGE: RECEPTION-1 8/49",
+                   "CITATION CONTEXT COVERAGE: RECEPTION-1 9/50")
+    status, output = gates_text(split)
+    require("POSSIBLE_DUPLICATE_WORK" in review_codes(output) and "N05/N50" in output,
+            f"a work entered under two records must be flagged\n{output}")
+    generic = mutate(mutate(text, "| S1 synthetic highly cited user of T for another question |",
+                            "| S1 Reply |"), "| S4 synthetic record, highly cited |",
+                     "| S4 Reply (2012) |")
+    status, output = gates_text(generic)
+    require(status == 0 and "POSSIBLE_DUPLICATE_WORK" not in output,
+            f"two short generic titles are not evidence of one work\n{output}")
+
+
+def test_live_run() -> None:
+    """Grok's live run of revision 2 (AJR 2001), with only revision 3's declarations added."""
+    text = LIVE.read_text(encoding="utf-8")
+    status, output = run_tool(GATES, str(LIVE))
+    require(status == 0 and result_line(output) == "V2_GATES_RESULT\tPASS-WITH-REVIEW\titems=9",
+            f"live fixture result changed\n{output}")
+    require(review_codes(output) == sorted([
+        "CODED_FROM_METADATA",      # ten adjudication rows coded or NOT-CITING from records
+        "SEARCH_RECALL",            # the locked search returned 1 of 6 known items
+        "POSSIBLE_DUPLICATE_WORK",  # nine record pairs that look like one work
+        "SAMPLE_DECLARED_RANDOM",   # I06
+        "BY_CONSTRUCTION_RISK",     # recent-paper dependence on a target-selected set
+        "NAMED_ONLY_BASIS",         # adjacent-field neglect SCORED 0 on I19
+        "DECISIVE_TEST_CLAIMED",    # lack of decisive tests SCORED 0 on I11
+        "PARTIAL_BASIS",            # poor critique uptake SCORED 0 while I22 is NOT-ASSESSED
+        "NAMED_ONLY_BASIS",         # poor critique uptake SCORED 0 on I18
+    ]), f"live review items changed: {review_codes(output)}")
+    require("COVERAGE_AFTER_GATES\t8/10 (80%)" in output
+            and "COVERAGE_IF_REVIEW_ITEMS_WITHDRAWN\t4/10 (40%)\twithdrawn: adjacent-field "
+                "neglect, lack of decisive tests, poor critique uptake, recent-paper "
+                "dependence" in output
+            and "PROVISIONAL_70_GATE\tMET ONLY IF REVIEW ITEMS RESOLVE FOR THE SCORE" in output,
+            f"live coverage changed\n{output}")
+    require("9 pairs of rows look like one work" in output and "returned 1/6 known items"
+            in output and "BAND_CONDITIONAL" not in output, output)
+    require(next(line for line in text.splitlines() if line.startswith("RISK BAND:"))
+            .startswith("RISK BAND: WITHHELD"), "the run withheld its band")
+    # The live run passed revision 2's gates; it would not have passed revision 3's without the
+    # declarations revision 3 adds. That is a property of the new rules, not a re-grade.
+    observed = text
+    for line in text.splitlines():
+        if line.startswith(("CLAIM LAYER:", "RIVAL:", "RECORD QUALITY:", "KNOWN-ITEM RECALL:",
+                            "SAMPLE ATTRITION:")):
+            observed = mutate(observed, line + "\n", "")
+    observed = mutate(observed, "I18 (-), I22 (?)", "I18 (-)")
+    status, output = gates_text(observed)
+    require(status == 1 and failure_codes(output) == sorted(
+        ["CLAIM_LAYERS_MISSING", "UNDEFINED_LAYER", "UNDEFINED_LAYER", "UNDEFINED_LAYER",
+         "UNDEFINED_LAYER", "REGISTER_FIELD", "REGISTER_FIELD", "REGISTER_FIELD",
+         "KNOWN_ITEM_RECALL", "SAMPLE_ATTRITION_UNREPORTED"])
+            and all(f"UNDEFINED_LAYER\t{code} is used" in output for code in ("L1", "L3", "R1",
+                                                                             "R2")),
+            f"revision-3 declarations missing from the observed ledger: {failure_codes(output)}")
+    expect_fail("attrition misreported", mutate(text, "SAMPLE ATTRITION: I06 2/6",
+                                                "SAMPLE ATTRITION: I06 3/6"),
+                "SAMPLE_ATTRITION_UNREPORTED")
 
 
 def test_candidate_reproducible() -> None:
@@ -539,10 +711,27 @@ def test_fixture_rebuild() -> None:
     print("REBUILT\tAcemoglu fixtures match their build from the pinned run output")
 
 
+def test_live_fixture_rebuild() -> None:
+    run_dir = os.environ.get("CN7_LIVE_RUN_DIR")
+    if not run_dir:
+        print("SKIP\tlive fixture rebuild (set CN7_LIVE_RUN_DIR to the live run directory)")
+        return
+    with tempfile.TemporaryDirectory() as tmp:
+        status, output = run_tool(CASES / "build_live_v2cand_fixture.py", run_dir, tmp)
+        require(status == 0, output)
+        require((Path(tmp) / LIVE.name).read_bytes() == LIVE.read_bytes(),
+                f"{LIVE.name} differs from its rebuild")
+    status, output = run_tool(GATES, str(Path(run_dir) / "02c_citation_network_v2cand2.md"))
+    require(status == 3 and output.startswith("NOT_APPLICABLE"),
+            "the revision-2 run itself is not judged by revision 3")
+    print("REBUILT\tlive fixture matches its build from the pinned run; the run is NOT_APPLICABLE")
+
+
 def main() -> int:
     for test in (test_acemoglu_as_run, test_acemoglu_repaired, test_structural_control,
-                 test_overlap, test_adversarial_mutations, test_applicability,
-                 test_interactions, test_candidate_reproducible, test_fixture_rebuild):
+                 test_overlap, test_adversarial_mutations, test_revision3_rules, test_live_run,
+                 test_applicability, test_interactions, test_candidate_reproducible,
+                 test_fixture_rebuild, test_live_fixture_rebuild):
         test()
         print(f"ok\t{test.__name__}")
     print(f"PASS\t{checks} checks")
