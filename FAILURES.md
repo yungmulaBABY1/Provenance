@@ -39,14 +39,15 @@ Update when adding entries.
 
 |Prefix|Total|Regression case exists|Never re-observed since fix|
 |------|-----|----------------------|---------------------------|
-|FAIL- |49   |6                     |31                         |
+|FAIL- |50   |7                     |31                         |
 |TOOL- |5    |1 (TOOL-002 open)     |2                          |
 |GUARD-|8    |1                     |n/a                        |
 
-Six regression cases now exist: case 11 (media acquittal, built), CE-006/007 (joint
+Seven regression cases now exist: case 11 (media acquittal, built), CE-006/007 (joint
 citation, built), MIX-01 (mixed control, built), the compliance fixture set
-(FAIL-CN-001, run at three burden levels), FAIL-MB-017 (Ceuta prominence, built), and
-FAIL-MB-018 (Ceuta semantic equivalence, built).
+(FAIL-CN-001, run at three burden levels), FAIL-MB-017 (Ceuta prominence, built),
+FAIL-MB-018 (Ceuta semantic equivalence, built), and FAIL-CN-007 (candidate gate
+fixtures, tuned to the Acemoglu run; they test a candidate, not the canonical prompt).
 
 FAIL-MB-008’s dangerous inference path is DEFUSED but its whole-coverage Level-2
 count remains convention/model dependent. FAIL-MB-009’s per-fact repair has now
@@ -61,7 +62,8 @@ repair applied at all. FAIL-CV-006 is applied and partly exercised, but its
 required `residual: none` path remains untested. FAIL-CV-007 is structurally
 verified but has no fresh run. FAIL-CV-008 is applied but awaits the ISIS-2
 regression rerun. These eleven unresolved or incompletely validated entries are
-excluded from the “Never re-observed since fix” count.
+excluded from the “Never re-observed since fix” count. FAIL-CN-007 (observed
+2026-11-04; candidate repair only, not adopted) is excluded as well.
 
 NUMBERING NOTE: the previously reserved ids are now written. TOOL-004
 (instrument preflight) and FAIL-CA-003 / FAIL-CA-004 were referenced by TODO.md,
@@ -1382,6 +1384,69 @@ PASS / PASS-WITH-REVIEW controls.
 
 **Status:** REPAIR APPLIED TO CANDIDATE; IAT VALIDATION PENDING.
 
+
+### FAIL-CN-007  -  A reception corpus answered evidence-base questions; dimension coverage stood in for evidence coverage
+
+**Observed (2026-11-04, Acemoglu AJR 2001 Stage-2c run by Grok, Provenance-Atlas branch
+`audit/acemoglu-colonial-origins`, 02c blob `0c23bee`; line numbers below are that file's):**
+
+Specification-enabled. The instrument's question 1 asks for "the top 50 most-cited papers on
+the central claim" (prompt line 524) and gives no discovery method. The run took the top 50
+works citing AJR 2001 by citation count (line 24) and said so: "the operational corpus is the
+top 50 works citing AJR 2001" (line 38). Its own Section B coding found 3 primary tests of the
+central claim among the 50, plus the authors' reanalysis (lines 115-117). The same reception
+corpus then carried evidence-base conclusions: SCORED 1 on lack of decisive tests partly on
+"no instrument-independent test of the cross-country magnitude" with no search for such tests
+(lines 472, 667), and a literature-wide narrowing of independent confirmation (line 56, Finding
+2). Evidentiary coverage was reported as 9/10 dimensions (90%) while citing passages had been
+read for 11 of 50 top citers and 0 of 25 recent citers.
+
+Execution. (a) The verdict states "citing passages retrieved for 13 of 50 top citers" (line
+686); two of those 13 retrieved versions do not contain the citation (N13, N16, line 131), so
+11 were read. (b) N11 is coded "used as premise" with "same as N05 assumed, not verified"
+(line 411), against the run's own rule that polarity is coded only where the passage was
+retrieved (line 126). (c) Recent-paper dependence is SCORED 1 on "recent citers mostly use AJR
+as background premise" (line 467) while the run records that no recent citing passage was
+retrieved and recent restatement is UNASSESSED beyond abstracts (lines 132, 142). (d) N31's
+reuse of the AJR instrument is coded from a LOCATED record (line 94) and counted among the
+shared-data re-estimates (line 56).
+
+What the run got right and must survive any repair: the corpus is fully defined (line 24),
+the density scope sentence is given verbatim (lines 32-34), the substitution is disclosed
+(line 38), four of the top 15 are left "unclear without full text", and Findings 1, 3, 4 and 7
+rest on metadata or read passages.
+
+**Classification:** both. The corpus-claim misalignment is a specification defect: the
+instrument asks one corpus to describe reception and the evidence base, and scopes only
+density inferences to the corpus (lines 517-523). Execution items (a), (b) and (d) are
+internal inconsistencies independent of that defect; (c) and the absence claim are
+specification-enabled conclusions that the run's own records do not support.
+
+**Why it matters:** a reception corpus of a canonical paper is mostly background users, and
+tests of the claim may cite it rarely or not at all. Without separate corpora and a per-
+inference evidence gate, more retrieval produces bigger, more complete-looking networks
+without proportionately stronger support, and a dimension can be counted as assessed on
+evidence the run never read.
+
+**Repair (candidate only):** `candidates/research-analysis/2-citation-network.v2-candidate.txt`
+adds SECTION A0 (registered reception and adjudication corpora, overlap rule, source
+eligibility ledger) and SECTION K0 (inference classes with minimum evidence and widest scope;
+scores and findings may rest only on passing inferences), extends the citation-use rule to
+every polarity class, and requires coverage figures to equal ledger counts. The 70% gate value
+is unchanged. Rule records and open conflicts:
+`candidates/research-analysis/2-citation-network.v2-candidate.CHANGES.txt`.
+
+**Regression condition:** the as-run transcription fails on the coverage recount, N11, N31,
+the missing adjudication corpus, five overclaimed inferences, two dimensions and Finding 2;
+the same evidence re-ledgered passes with review and keeps all seven findings and 8 of 10
+applicable dimensions; a structural question that metadata answers passes with no review
+item; outputs of the canonical instrument are not judged (NOT_APPLICABLE).
+
+**Case:** `tests/test-citation-network-v2-gates.py`, fixtures in
+`tests/cases/citation-network-v2-gates/` (tuned to this run; no held-out case).
+
+**Status:** OBSERVED; CANDIDATE REPAIR PROPOSED, NOT ADOPTED; NOT RUN LIVE. The canonical
+prompt carries no [FAIL-CN-007] marker; the candidate does.
 
 ---
 

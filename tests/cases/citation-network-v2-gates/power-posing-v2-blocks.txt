@@ -1,0 +1,83 @@
+INTERACTION FIXTURE BLOCKS — POWER-POSING CONTROL WITH V2 LEDGERS
+Hand-written. tests/test-citation-network-v2-gates.py inserts these blocks into a temporary
+copy of tests/cases/citation-network-checker/complete-clean-control.md (which is not
+modified): the version line after the title, BLOCK A0 before SECTION A, and BLOCK K0 before
+SECTION K. The ledgers transcribe that fixture's own statements and Artifact 8 dispositions.
+Purpose: show that the v1 checker and the Atlas native parser read the combined output as
+before, and record what the candidate gates say about a v1-era clean control.
+
+BEGIN VERSION
+INSTRUMENT VERSION: 2-citation-network v2-candidate
+END VERSION
+
+BEGIN BLOCK A0
+SECTION A0: CORPUS REGISTER AND SOURCE ELIGIBILITY
+
+CORPUS ID: PACKET-1
+CORPUS ROLE: RECEPTION
+CORPUS QUESTION: How the supplied packet's sources cite one another and the focal study S1
+CORPUS SELECTION RULE: supplied four-source packet S1-S4; no open-ended retrieval
+CORPUS DISCOVERY: NONE — supplied packet
+SELECTED ON TARGET CITATION: NO
+CORPUS SIZE: 4
+CITATION CONTEXT COVERAGE: PACKET-1 3/4
+
+CORPUS ID: ADJUDICATION-1
+CORPUS ROLE: ADJUDICATION
+CORPUS QUESTION: Packet sources that test the focal hormonal and behavioral claim
+CORPUS SELECTION RULE: the packet's primary tests and its methodological test (S1, S2, S4)
+CORPUS DISCOVERY: NONE — supplied packet; supports statements about its named members only
+SELECTED ON TARGET CITATION: NO
+CORPUS SIZE: 3
+CITATION CONTEXT COVERAGE: ADJUDICATION-1 2/3
+
+SOURCE ELIGIBILITY LEDGER
+
+| Source | Corpus membership | Question relevance | Relation to target | Evidence contribution | Source access | Citation context | Supported inference |
+|---|---|---|---|---|---|---|---|
+| S1 focal randomized laboratory experiment | PACKET-1+ADJUDICATION-1 | DIRECT (field 6) | NOT-CITING | INDEPENDENT-DATA | FULL-TEXT | NOT-APPLICABLE | the focal study itself |
+| S2 larger conceptual replication | PACKET-1+ADJUDICATION-1 | DIRECT (field 6) | CHALLENGES | INDEPENDENT-DATA | FULL-TEXT | INSPECTED | citing passage and results read |
+| S3 same-author narrative review of 33 experiments | PACKET-1 | ADJACENT | SUPPORTS+PREMISE | REVIEW | FULL-TEXT | INSPECTED | citing passages read |
+| S4 p-curve critique of the reviewed set | PACKET-1+ADJUDICATION-1 | DIRECT (field 6) | CHALLENGES | REANALYSIS | FULL-TEXT | INSPECTED | citing passages and analysis read |
+END BLOCK A0
+
+BEGIN BLOCK K0
+SECTION K0: EVIDENCE SUFFICIENCY LEDGER
+
+INFERENCE LEDGER
+
+| Inference | Class | Corpus | Claimed scope | Sampling rule | Members used | Disposition | Statement |
+|---|---|---|---|---|---|---|---|
+| P01 | GRAPH-STRUCTURE | PACKET-1 | CORPUS | EXHAUSTIVE | ALL | SUPPORTED | Six supplied internal edges among S1-S4 (Artifact 9) |
+| P02 | CITATION-USE | PACKET-1 | NAMED | NOT-APPLICABLE | S2, S3, S4 | SUPPORTED | Section C classifications from read citing passages |
+| P03 | RESTATEMENT | — | NAMED | NOT-APPLICABLE | S1, S3 | SUPPORTED | S3 restates S1's outcomes inside a published-success count while preserving the failed replication |
+| P04 | SOURCE-RESULT | — | NAMED | NOT-APPLICABLE | S2, S4 | SUPPORTED | S2 reports self-reported power only; S4 reports no evidential value in the reviewed set |
+| P05 | ENGAGEMENT | — | NAMED | NOT-APPLICABLE | S3 | SUPPORTED | S3 records S2's null results and calls for direct replications |
+| P06 | SOURCE-RESULT | — | NAMED | NOT-APPLICABLE | S3 | SUPPORTED | S3 states that direct replications are needed |
+| P07 | SOURCE-RESULT | — | NAMED | NOT-APPLICABLE | S3 | SUPPORTED | S3 groups heterogeneous posture outcomes under one heading |
+| P08 | DATABASE-RECORD | — | NAMED | NOT-APPLICABLE | S1, S3 | SUPPORTED | S1 and S3 share authors |
+| P09 | SOURCE-RESULT | — | NAMED | NOT-APPLICABLE | S3, S4 | SUPPORTED | S3 and S4 narrow the claim after the failed replication |
+
+DIMENSION EVIDENCE BASIS
+
+| Scorecard dimension | Scorecard disposition | Inference IDs | Basis note |
+|---|---|---|---|
+| Founding-cluster dominance | SCORED 1 | P08, P01 | same-author S1/S3 centrality |
+| Internal citation density | SCORED 0 | P01 | six supplied internal edges |
+| Recent-paper dependence | SCORED 0 | — | Artifact 8 basis: supplied packet only; no recent corpus |
+| Review-hub laundering | SCORED 1 | P03 | S3 amplification with limits preserved |
+| Proxy mismatch | SCORED 1 | P07 | heterogeneous outcomes grouped |
+| Claim mutation | SCORED 1 | P03 | S1 overreach, qualified S3 amplification |
+| Adjacent-field neglect | SCORED 0 | — | Artifact 8 basis: no neglect established in packet |
+| Lack of decisive tests | SCORED 2 | P06 | need for direct replications stated by S3 |
+| Poor critique uptake | SCORED 0 | P05 | S2 engaged by S3 |
+| Intervention-evidence ratchet | N/A | — | no intervention claim |
+| Model non-updating | SCORED 0 | P09 | visible scientific updating |
+
+FINDING EVIDENCE BASIS
+
+| Finding | Finding status | Inference IDs |
+|---|---|---|
+| Finding 1 | contested | P04, P03 |
+| Finding 2 | confirmed | P01, P02, P05 |
+END BLOCK K0

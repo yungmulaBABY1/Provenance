@@ -1,0 +1,228 @@
+CITATION-NETWORK INSTRUMENT v2-CANDIDATE — CHANGE RECORDS
+Status: PROPOSED. Not canonical. Not run live. Failure link: FAIL-CN-007 (FAILURES.md).
+
+Base: prompts/research-analysis/2-citation-network.txt, git blob
+7ac79f0da337c4d52e39e1490088d06c82a9d42b, sha256
+dcb93491a0a2ef5716575b89963c2cd9031c43e52011bb549416c89421ff3262 (1665 lines).
+Candidate: 2-citation-network.v2-candidate.txt, built by make_v2_candidate.py (15 named edits).
+Diff against the base: three base lines replaced (question 1, two lines; Section B lead-in,
+one line); everything else is added text marked [FAIL-CN-007].
+
+Origin of the change: the Acemoglu (AJR 2001) Stage-2c run by Grok (Provenance-Atlas branch
+audit/acemoglu-colonial-origins, 02c blob 0c23beed0c914bea21b09c3094b33e976561f601) and a
+review note proposing separate reception and adjudication corpora with eligibility and
+sufficiency gates. The note's line references to the base were verified; its counts were
+checked against the run (see FAIL-CN-007, Observed).
+
+Test receipt for every IMPLEMENTED rule below: tests/test-citation-network-v2-gates.py,
+PASS 161 checks under Python 3.11 and 3.13, 2026-11-04, branch
+cn-v2-candidate-corpus-sufficiency. Every checker rule was ablated one at a time; each
+ablation made the suite fail. The v1 test suite, the Atlas unittests, the content replays
+and the webapp prompt-parity check pass unchanged.
+
+----------------------------------------------------------------------------------------
+CN7-R1  Separate reception and adjudication corpora
+  Requirement: register each corpus (role, question, selection rule, discovery, whether
+    selected on target citation, size, coverage). At least one ADJUDICATION corpus, which may
+    be CORPUS DISCOVERY: NONE (size 0 allowed). Applies to every v2 run.
+  Origin: base question 1 (line 524) and questions 2-5 and Section B (line 570) reuse one
+    "top 50" for structure and evidence-base composition; only density has a scope rule
+    (lines 517-523). Run: 02c lines 24, 38.
+  Inherited: GRAPH CORPUS AND RECEIPTS (494-499) and DENSITY INFERENCE SCOPE (517-523) are
+    kept unchanged and still apply to the graph corpus.
+  Changed: question 1 now names its corpus; evidence-base questions use the ADJUDICATION
+    corpus.
+  Enforcement: model instruction (SECTION A0, question 1); checker (REGISTER_FIELD,
+    ADJUDICATION_CORPUS_MISSING, CORPUS_SIZE_MISMATCH).
+  Acceptance: as-run transcription fails ADJUDICATION_CORPUS_MISSING; repaired and controls
+    pass; mutations change role or size and fail.
+  Status: IMPLEMENTED (instruction + checker); NOT RUN LIVE.
+  Open: whether a NONE adjudication corpus should be allowed to stay empty when the audit
+    makes no evidence-base inference (the structural control does this).
+
+CN7-R2  Overlap
+  Requirement: one ledger row per source with every membership; counted once per corpus;
+    reception attributes never weight adjudication roles and vice versa; a NOT-CITING source
+    cannot belong to a corpus selected on target citation.
+  Origin: review note (a test can be lightly cited or not cite the target).
+  Inherited: none. Changed: new.
+  Enforcement: checker (DUPLICATE_SOURCE, NOT_CITING_IN_TARGET_CORPUS, per-corpus counts);
+    the no-weighting clause is model instruction only.
+  Acceptance: overlap-synthetic.txt passes; duplicate-row, non-citing-in-reception and
+    double-count mutations fail.
+  Status: IMPLEMENTED, except the no-weighting clause (NOT ENFORCED; no checkable signal).
+  Open: none known.
+
+CN7-R3  Source eligibility ledger (Gate A)
+  Requirement: per-source relevance, relation to target, evidence contribution, access,
+    citation-context state, supported inference, in a fixed vocabulary; UNKNOWN valid.
+  Origin: review note Gate A; run Section B coded relevance in prose (02c line 60).
+  Inherited: Section B evidence-type codes stay; Section E source classes (FAIL-CN-004) stay
+    and still apply only to Section E nominees.
+  Changed: new ledger; relation splits citation-use classes (need an inspected passage) from
+    CITES-UNINSPECTED.
+  Enforcement: checker (VOCABULARY, USE_WITHOUT_CONTEXT, CONTEXT_WITHOUT_ACCESS,
+    REUSE_WITHOUT_ACCESS, CONTEXT_STATE, CODED_FROM_METADATA review).
+  Acceptance: as-run fails on N11 and N31; repaired passes; mutations fail.
+  Status: IMPLEMENTED; NOT RUN LIVE.
+  Open: the Supported inference column is free text and unchecked; the checkable unit is the
+    inference (CN7-R6). Burden: one row per source (50 + 25 + adjudication rows here).
+
+CN7-R4  Citation use requires an inspected passage in a version that contains it
+  Requirement: no polarity or claim-use class other than "unclear without full text" without
+    an inspected passage; VERSION-MISMATCH is not inspected and not counted.
+  Origin: base lines 353-355 cover only "supportive". Run: N11 (02c line 411); N13, N16
+    (line 131).
+  Inherited: the base sentence is kept verbatim. Changed: extended to every class.
+  Enforcement: model instruction; checker (USE_WITHOUT_CONTEXT; CITATION-USE member rule).
+  Acceptance: as-run fails on N11 and I18; repaired passes.
+  Status: IMPLEMENTED; NOT RUN LIVE.
+  Open: the checker cannot see whether an INSPECTED passage exists (README, Known limits).
+
+CN7-R5  Coverage figures equal ledger counts
+  Requirement: CITATION CONTEXT COVERAGE per corpus; every restatement (including the
+    confidence statement) uses the label and equals the ledger count.
+  Origin: run verdict "13 of 50" (02c line 686) against 11 read.
+  Inherited: none. Changed: new label; Artifact 10 confidence must state it.
+  Enforcement: checker (COVERAGE_MISMATCH, COVERAGE_LINE_MISSING).
+  Acceptance: as-run fails 13/50 vs 11/50; mutation restating 13/50 elsewhere fails.
+  Status: IMPLEMENTED; NOT RUN LIVE.
+  Open: coverage stated in free prose without the label is not detected.
+
+CN7-R6  Inference ledger and sufficiency by inference class (Gate B)
+  Requirement: every inference a finding or score uses is listed with class, corpus, scope,
+    sampling, members and disposition; the checker recomputes the disposition from the
+    declared evidence. Ten classes with minimum evidence and widest scope (SECTION K0).
+    Metadata classes need no full text; CITATION-USE needs inspected passages; ENGAGEMENT
+    needs full text of members for whom engagement is expected; ABSENCE needs a SEARCHED
+    adjudication corpus with every member screened; LITERATURE scope needs a SEARCHED
+    adjudication corpus (or, for graph statements, a corpus not selected on target citation).
+    CONVENIENCE sets support WITHIN-SAMPLE only. INSUFFICIENT inferences stay visible.
+  Origin: review note Gate B; run dispositions at 02c lines 467, 472, 56.
+  Inherited: SCORED 0 hard rule (base line 1215), four-axis rule, nesting (FAIL-CN-005),
+    derivation mode (FAIL-CN-006) — all unchanged.
+  Changed: new.
+  Enforcement: checker (INFERENCE_OVERCLAIMED, DISPOSITION_MISMATCH, OVER_WITHHELD review,
+    SAMPLE_DECLARED_RANDOM review).
+  Acceptance: as-run fails five inferences; the structural control passes with zero items;
+    the repaired fixture keeps 17 of 20 inferences passing (I05, I12, I15 withheld); OVER_WITHHELD fires when a
+    supportable inference is withheld.
+  Status: IMPLEMENTED; NOT RUN LIVE.
+  Open: (a) ABSENCE requires zero UNKNOWN relevance in the search set — may be too strict for
+    large searches; a prespecified screening sample with stated uncertainty is the obvious
+    alternative, untested. (b) Randomness and search adequacy are declarations, not checks.
+
+CN7-R7  Scores rest on passing inferences; dimension class requirements
+  Requirement: DIMENSION EVIDENCE BASIS mirrors Artifact 8; a SCORED row lists only passing
+    inferences and at least one of its required classes; unscored rows state what would
+    unlock them. Co-citation over an unscreened population in a positive uptake or neglect score
+    goes to review; graph or co-citation evidence for recent dependence on a target-selected
+    set goes to review.
+  Origin: run Artifact 8 (02c lines 465-475); base UNASSESSED definition (1202-1204); base
+    70% gate (1289-1299) counts dimensions, not evidence within them.
+  Inherited: the 70% value, its PROVISIONAL status, label-essential rules and bands are
+    unchanged. Changed: the gate now counts dimensions after Gate B.
+  Enforcement: model instruction (Section K); checker (SCORED_WITHOUT_BASIS,
+    SCORED_ON_INSUFFICIENT, DIMENSION_CLASS_MISSING, UNSCORED_WITH_BASIS, BASIS_NOTE_MISSING,
+    DIMENSION_ROWS, SCORECARD_DISAGREES; CO_CITATION_UNSCREENED and BY_CONSTRUCTION_RISK
+    reviews).
+  Acceptance: as-run fails two dimensions; repaired keeps 8 of 10 applicable SCORED; v1 clean
+    control fails two SCORED 0 rows that rest on no evidence.
+  Status: IMPLEMENTED; NOT RUN LIVE.
+  Open: (a) the class map is a design judgment, most likely to need revision; adjacent-field
+    neglect, ratchet and model non-updating carry no class requirement. (b) Whether
+    co-citation over an unscreened population should FAIL rather than go to review.
+    (c) Interaction with the 70% gate: on the repaired Acemoglu fixture coverage moves from
+    9/10 to 8/10; the two open review items sit on SCORED 1 dimensions, and resolving both
+    against the score would leave 6/10, below the provisional gate.
+
+CN7-R8  Findings rest on passing inferences
+  Requirement: FINDING EVIDENCE BASIS; confirmed or contested findings list only passing
+    inferences; provisional findings may list insufficient ones. No new field in the
+    standardized finding table.
+  Origin: run Finding 2 (02c line 56 and finding table).
+  Inherited: standardized finding table unchanged. Changed: new basis table.
+  Enforcement: checker (FINDING_ON_INSUFFICIENT, FINDING_WITHOUT_BASIS, FINDING_ROWS).
+  Acceptance: as-run fails Finding 2; repaired keeps all seven findings.
+  Status: IMPLEMENTED; NOT RUN LIVE.
+  Open: none known.
+
+CN7-R9  Unknown is preserved
+  Requirement: UNKNOWN is valid everywhere; compositions count it and sum to the total; a
+    METADATA-only code is listed for review rather than rejected.
+  Origin: user requirement; run Section B coded LOCATED records (02c lines 74, 90, 94).
+  Inherited: base rules against converting UNKNOWN into SCORED 0 (line 1230). Changed: new
+    ledger-level rule.
+  Enforcement: checker (composition recount, CODED_FROM_METADATA review).
+  Acceptance: mutations that drop or reassign UNKNOWN counts fail; a metadata-only code goes
+    to review; the structural control (all UNKNOWN) passes clean.
+  Status: IMPLEMENTED; NOT RUN LIVE.
+
+CN7-R10  Uptake population (Section H)
+  Requirement: uptake is tested on papers for which engagement is expected; a co-citation
+    rate over all citers is a count and cannot alone carry a poor-uptake score above 0.
+  Origin: base Section H steps 3-4 (lines 959-964) name hub and dominant-cluster papers but
+    give no rule for whole-population co-citation. Run: 02c line 236, Artifact 7.
+  Inherited: Section H steps and dispositions unchanged. Changed: added paragraph.
+  Enforcement: model instruction; checker (DIMENSION_CLASS_MISSING when only co-citation;
+    CO_CITATION_UNSCREENED review; ENGAGEMENT member rule).
+  Acceptance: mutation leaving uptake on co-citation alone fails; repaired passes with review.
+  Status: IMPLEMENTED; NOT RUN LIVE.
+
+CN7-R11  Recent corpus selected on target citation
+  Requirement: report recent dependence only from citation beyond the target and from read
+    passages; otherwise UNASSESSED.
+  Origin: base question 6; run Artifact 3 ("by construction", 02c line 365).
+  Inherited: question 6 text kept. Changed: added paragraph.
+  Enforcement: model instruction; checker review BY_CONSTRUCTION_RISK; CITATION-USE rule.
+  Acceptance: as-run fails I05; mutation re-basing on co-citation goes to review.
+  Status: IMPLEMENTED; NOT RUN LIVE.
+
+CN7-R12  Section B code for empirical work on another question; evidence-base scope
+  Requirement: new Section B code; questions 11-16 describe the evidence base only on a
+    SEARCHED adjudication corpus; on a reception corpus they describe the citing set.
+  Origin: run improvised the code (02c line 60).
+  Enforcement: model instruction only. Status: IMPLEMENTED AS TEXT; NOT ENFORCED; NOT RUN.
+
+CN7-R13  Applicability and versioning
+  Requirement: v2 outputs carry the INSTRUMENT VERSION line; the candidate checker returns
+    NOT_APPLICABLE for anything else (or FAIL under --require-v2).
+  Origin: START_HERE: no new rule retroactively judges old outputs.
+  Enforcement: checker; Atlas adapter already marks producing-instrument compliance
+    UNDETERMINED for an instrument identity that is not its baseline (atlas/adapter.py,
+    compliance block), so a v2 output imports without a compliance claim.
+  Acceptance: v1 clean control returns NOT_APPLICABLE; --require-v2 fails it.
+  Status: IMPLEMENTED.
+
+CN7-R14  Placement and parser compatibility
+  Requirement: SECTION A0 after PRE-AUDIT, SECTION K0 before SECTION K; nothing after the
+    standardized finding table; no new finding fields; no token ending -CONFIRMED/-VERIFIED;
+    table headers chosen not to collide with v1 checker detection ("dimension",
+    "dimension disposition", "source class", "verification state").
+  Origin: v1 checker table detection; Atlas native parser reads everything after FINAL
+    SECTION strictly.
+  Enforcement: model instruction; interaction test.
+  Acceptance: the power-posing control with v2 blocks gives the same v1 checker result and
+    the same native-parser findings with no issues.
+  Status: IMPLEMENTED; tested on one control only.
+
+----------------------------------------------------------------------------------------
+NOT IMPLEMENTED / DEFERRED
+- Atlas contract: CorpusScope holds one declared corpus per run; v2 multi-corpus registers and
+  ledgers would stay in the raw output, unparsed. Atlas challenge records run only the vendored
+  v1 checker; v2 review items use the same line format but are not wired in.
+- Passage-level verification of INSPECTED rows (needs passage anchors).
+- Webapp embedding: deliberately not done (candidates are not embedded).
+
+PROMOTION — EVIDENCE THAT WOULD SUPPORT ADOPTION
+Passing these tests is not that evidence. Proposed minimum:
+ 1. A live v2 run on Acemoglu with the same retrieval tools: v1 checker PASS (no section
+    omission under the added burden, FAIL-CN-001), gates firing where the fixtures predict,
+    and an adjudication search actually run.
+ 2. A live v2 run on a held-out case not used to tune the gates, including one where metadata
+    suffices, with no unnecessary withholding (OVER_WITHHELD and reviewer judgment).
+ 3. An independent adversarial review of the candidate text and checker by a reviewer that did
+    not write them, with disagreements recorded.
+ 4. Decisions on the open items: CN7-R6(a), CN7-R7(a)-(c), the NONE-corpus question in R1.
+ 5. Explicit adoption by the repository owner: canonical path change, CHANGELOG entry, Atlas
+    baseline entry for the new instrument and checker identities.
