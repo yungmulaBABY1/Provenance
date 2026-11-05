@@ -83,7 +83,9 @@ build_live_v2cand_fixture.py      builds the live-run fixture
     rebuilds from the run as committed or after its abstracts are stripped. Everything is read
     as data; nothing from the run is executed. Run with python3 -I. Known-item recall (L4) is
     computed from the six responses: of the six claim-testing works the run's exposure
-    declaration names, the search returned Rodrik et al. 2004 only.
+    declaration names, the search returned Rodrik et al. 2004 only. Rebuilt byte-identically
+    from 84d1800 and from a40fbbb (the follow-up commit that nulls the run's 100 abstract
+    fields; verified independently: only abstract fields changed, the output hash unchanged).
 
 Build receipt (2026-11-04, Python 3.13 and 3.11 identical):
     acemoglu-as-run-transcribed.txt  sha256 47eb496a4c76d8a8f57ecd9bdd5b1d4b08dca82befe701064da3046034cadf57
