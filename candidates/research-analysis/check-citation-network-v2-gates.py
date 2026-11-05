@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Candidate gate checker for the citation-network v2-candidate instrument.
+"""Candidate gate checker for the citation-network v2-candidate instrument, revision 2.
 
 NOT CANONICAL. Checks SECTION A0 (corpus register and source eligibility, Gate A)
 and SECTION K0 (evidence sufficiency, Gate B) of an output, or of a fragment that
@@ -30,7 +30,9 @@ import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 
-VERSION_LINE = "INSTRUMENT VERSION: 2-citation-network v2-candidate"
+VERSION_LINE = "INSTRUMENT VERSION: 2-citation-network v2-candidate.2"
+MAP_ID = "cn7-map-2"
+MAP_LINE_RE = re.compile(r"^DIMENSION CLASS MAP:\s*(\S+)\s*$")
 
 RELEVANCE = {"DIRECT", "ADJACENT", "BACKGROUND", "UNRELATED", "UNKNOWN"}
 RELATION = {"SUPPORTS", "CHALLENGES", "QUALIFIES", "PREMISE", "MENTIONS", "REUSES",
@@ -69,23 +71,41 @@ DIMENSIONS = [
     "lack of decisive tests", "poor critique uptake", "intervention-evidence ratchet",
     "model non-updating",
 ]
-DIMENSION_CLASSES = {
+# DIMENSION CLASS MAP cn7-map-2: classes that can carry concern (+) and no concern (-).
+# A dimension not listed accepts any class. Changing any entry is a new MAP_ID.
+CONCERN_CLASSES = {
     "internal citation density": {"GRAPH-STRUCTURE"},
     "founding-cluster dominance": {"GRAPH-STRUCTURE", "CO-CITATION", "DATABASE-RECORD"},
     "recent-paper dependence": {"CITATION-USE", "GRAPH-STRUCTURE", "CO-CITATION"},
     "review-hub laundering": {"RESTATEMENT"},
     "claim mutation": {"RESTATEMENT"},
     "proxy mismatch": {"RESTATEMENT", "CITATION-USE", "SOURCE-RESULT"},
-    "lack of decisive tests": {"ABSENCE", "SOURCE-RESULT"},
+    "lack of decisive tests": {"ABSENCE"},
+    "poor critique uptake": {"ENGAGEMENT", "GRAPH-STRUCTURE"},
+    "adjacent-field neglect": {"ENGAGEMENT", "GRAPH-STRUCTURE"},
+}
+NO_CONCERN_CLASSES = {
+    "internal citation density": {"GRAPH-STRUCTURE"},
+    "founding-cluster dominance": {"GRAPH-STRUCTURE", "CO-CITATION", "DATABASE-RECORD"},
+    "recent-paper dependence": {"CITATION-USE", "GRAPH-STRUCTURE", "CO-CITATION"},
+    "review-hub laundering": {"RESTATEMENT"},
+    "claim mutation": {"RESTATEMENT"},
+    "proxy mismatch": {"RESTATEMENT", "CITATION-USE", "SOURCE-RESULT"},
+    "lack of decisive tests": {"SOURCE-RESULT", "DATA-ORIGIN"},
     "poor critique uptake": {"ENGAGEMENT"},
+    "adjacent-field neglect": {"ENGAGEMENT", "SOURCE-RESULT"},
 }
 CO_CITATION_REVIEW_DIMENSIONS = {"poor critique uptake", "adjacent-field neglect"}
+TAG_RE = re.compile(r"^(\S+)\s*\((\+|-|−)\)$")
+LOCATOR_RE = re.compile(r"\b[A-Z]{2,6}-E\d+\b|\bpp?\.\s*\d+|\bpage\s+\d+|§\s*\d+|\bsection\s+"
+                        r"\d+|\breference list\b", re.IGNORECASE)
 DISPOSITION_RE = re.compile(r"^(SCORED [0-3]|UNASSESSED|UNINFORMATIVE|N/A)$")
 FINDING_STATUSES = {"confirmed", "contested", "provisional"}
 EMPTY = {"", "—", "-"}
 
 REGISTER_LABELS = ["CORPUS ROLE", "CORPUS QUESTION", "CORPUS SELECTION RULE",
                    "CORPUS DISCOVERY", "SELECTED ON TARGET CITATION", "CORPUS SIZE"]
+OPTIONAL_LABELS = ["CORPUS LOCK"]
 
 
 @dataclass
@@ -197,7 +217,8 @@ def parse_register(lines: list[str], report: Report) -> dict[str, Corpus]:
             continue
         if current is None:
             continue
-        label = next((lab for lab in REGISTER_LABELS if line.strip().startswith(lab + ":")), None)
+        label = next((lab for lab in REGISTER_LABELS + OPTIONAL_LABELS
+                      if line.strip().startswith(lab + ":")), None)
         if label:
             current.labels[label] = line.strip()[len(label) + 1:].strip()
         elif line.strip().startswith("SOURCE ELIGIBILITY LEDGER") or line.startswith("|"):
@@ -262,6 +283,9 @@ def check_sources(sources: dict[str, Source], corpora: dict[str, Corpus],
                         f"context {s.context}; use CITES-UNINSPECTED")
         if s.context == "INSPECTED" and s.access not in {"FULL-TEXT", "EXCERPT"}:
             report.fail("CONTEXT_WITHOUT_ACCESS", f"{where}: INSPECTED with access {s.access}")
+        if s.context == "INSPECTED" and not LOCATOR_RE.search(s.supported):
+            report.fail("LOCATOR_MISSING", f"{where}: INSPECTED without a passage locator "
+                        "(evidence ID, page, section, or reference list) in Supported inference")
         if "REUSES" in s.relation and s.access not in {"FULL-TEXT", "ABSTRACT"}:
             report.fail("REUSE_WITHOUT_ACCESS", f"{where}: REUSES with access {s.access}")
         if s.context == "NOT-APPLICABLE" and "NOT-CITING" not in s.relation:
@@ -296,6 +320,9 @@ def check_register(lines: list[str], corpora: dict[str, Corpus],
         for label in REGISTER_LABELS:
             if not c.labels.get(label):
                 report.fail("REGISTER_FIELD", f"{c.cid}: {label} missing or empty")
+        if c.role == "ADJUDICATION" and c.searched and not c.labels.get("CORPUS LOCK"):
+            report.fail("REGISTER_FIELD", f"{c.cid}: a SEARCHED adjudication corpus needs CORPUS "
+                        "LOCK, fixed before any result is screened")
         if c.role and c.role not in ROLES:
             report.fail("VOCABULARY", f"{c.cid}: CORPUS ROLE {c.role!r}")
         discovery = c.labels.get("CORPUS DISCOVERY", "").upper()
@@ -376,13 +403,15 @@ def resolve_members(inf: Inference, corpora: dict[str, Corpus], sources: dict[st
     upper = value.upper()
     if inf.scope == "POPULATION":
         return [], problems
-    if upper in {"ALL", "INSPECTED"}:
+    if upper in {"ALL", "INSPECTED", "SCREENED"}:
         corpus = corpora.get(inf.corpus)
         if corpus is None:
             return None, [f"Members used {upper} needs a registered corpus, found {inf.corpus!r}"]
         members = members_of(corpus.cid, sources)
         if upper == "INSPECTED":
             members = [s for s in members if s.context == "INSPECTED"]
+        if upper == "SCREENED":
+            members = [s for s in members if s.relevance != "UNKNOWN"]
         return members, problems
     members = []
     for sid in [part.strip() for part in value.split(",") if part.strip()]:
@@ -439,10 +468,18 @@ def recompute(inf: Inference, corpora: dict[str, Corpus], sources: dict[str, Sou
                            f"{'SEARCHED' if corpus.searched else 'NONE'})")
 
     if inf.klass == "ABSENCE":
-        if scope != "LITERATURE":
-            reasons.append("ABSENCE is a LITERATURE-scope inference")
-        if corpus is not None and (corpus.role != "ADJUDICATION" or not corpus.searched):
+        if scope not in {"LITERATURE", "WITHIN-SAMPLE"}:
+            reasons.append("ABSENCE is LITERATURE-scope (all results screened) or WITHIN-SAMPLE "
+                           "(screened results only)")
+        if corpus is None or corpus.role != "ADJUDICATION" or not corpus.searched:
             reasons.append("ABSENCE needs an ADJUDICATION corpus that was SEARCHED")
+        if scope == "WITHIN-SAMPLE" and corpus is not None:
+            total = len(members_of(corpus.cid, sources))
+            screened = sum(1 for s in members_of(corpus.cid, sources) if s.relevance != "UNKNOWN")
+            if inf.members.strip().upper() != "SCREENED":
+                reasons.append("a bounded ABSENCE uses Members used SCREENED")
+            if not re.search(rf"\b{screened}\s*/\s*{total}\b", inf.statement):
+                reasons.append(f"a bounded ABSENCE states screened/total ({screened}/{total})")
         unknown = [s.sid for s in members if s.relevance == "UNKNOWN"]
         if unknown:
             reasons.append(f"ABSENCE with {len(unknown)} unscreened members (relevance "
@@ -468,6 +505,8 @@ def recompute(inf: Inference, corpora: dict[str, Corpus], sources: dict[str, Sou
             short.append(f"{s.sid} access {s.access}")
         if inf.klass == "CITATION-USE" and s.context != "INSPECTED":
             short.append(f"{s.sid} context {s.context}")
+        elif inf.klass == "CITATION-USE" and not LOCATOR_RE.search(s.supported):
+            short.append(f"{s.sid} inspected passage has no locator")
         if inf.klass == "ENGAGEMENT" and s.relevance not in {"DIRECT", "ADJACENT"}:
             short.append(f"{s.sid} relevance {s.relevance} (engagement not expected)")
     if short:
@@ -539,14 +578,44 @@ def split_ids(value: str) -> list[str]:
     return [part.strip() for part in re.split(r"[,;]", value) if part.strip()]
 
 
+def parse_tagged(value: str) -> tuple[list[tuple[str, str]], list[str]]:
+    """'I03 (+), I10 (-)' -> [('I03', '+'), ('I10', '-')]; untagged entries are returned apart."""
+    tagged, untagged = [], []
+    for part in split_ids(value):
+        match = TAG_RE.match(part)
+        if match:
+            tagged.append((match[1], "-" if match[2] in {"-", "−"} else "+"))
+        else:
+            untagged.append(part)
+    return tagged, untagged
+
+
 def check_dimensions(lines: list[str], inferences: dict[str, Inference], recomputed: dict,
-                     corpora: dict[str, Corpus], report: Report) -> dict[str, str]:
+                     corpora: dict[str, Corpus], report: Report) -> tuple[dict, set, set]:
+    """Check the basis table. Returns dispositions, dimensions with open review items, and
+    dimensions whose row failed a gate."""
+    maps = [m[1] for line in lines if (m := MAP_LINE_RE.match(line.strip()))]
+    if not maps:
+        report.fail("MAP_VERSION_MISSING", f"no DIMENSION CLASS MAP line; this checker applies "
+                    f"{MAP_ID}")
+    elif any(m != MAP_ID for m in maps):
+        report.fail("MAP_VERSION_MISMATCH", f"output declares {', '.join(sorted(set(maps)))}; "
+                    f"this checker applies {MAP_ID}")
+    report.note(f"dimension class map\t{MAP_ID}")
     rows = find_table(lines, ["Scorecard dimension", "Scorecard disposition", "Inference IDs",
                               "Basis note"])
     dispositions: dict[str, str] = {}
+    under_review: set[str] = set()
+    failed: set[str] = set()
     if rows is None:
         report.fail("DIMENSION_BASIS_MISSING", "DIMENSION EVIDENCE BASIS table not found")
-        return dispositions
+        return dispositions, under_review, failed
+
+    def review(key: str, code: str | None = None, detail: str = "") -> None:
+        under_review.add(key)
+        if code:
+            report.review(code, detail)
+
     for number, row in rows:
         if len(row) != 4:
             report.fail("DIMENSION_ROW", f"line {number}: expected 4 cells")
@@ -560,61 +629,132 @@ def check_dimensions(lines: list[str], inferences: dict[str, Inference], recompu
             report.fail("DIMENSION_ROW", f"line {number}: {name} listed twice")
             continue
         dispositions[key] = disposition
-        if not DISPOSITION_RE.match(disposition):
-            report.fail("VOCABULARY", f"line {number}: Scorecard disposition {disposition!r}")
-            continue
-        listed = split_ids(ids)
-        unknown = [i for i in listed if i not in inferences]
-        if unknown:
-            report.fail("UNKNOWN_INFERENCE", f"{name}: {', '.join(unknown)}")
-        listed = [i for i in listed if i in inferences]
-        if disposition.startswith("SCORED"):
-            if not listed:
-                report.fail("SCORED_WITHOUT_BASIS", f"{name} is {disposition} with no listed "
-                            "inference")
-                continue
-            weak = [i for i in listed if recomputed.get(i) not in PASSING
-                    or inferences[i].disposition not in PASSING]
-            if weak:
-                report.fail("SCORED_ON_INSUFFICIENT", f"{name} is {disposition} but relies on "
-                            f"{', '.join(weak)}; mark it UNASSESSED or list only passing "
-                            "inferences")
-            required = DIMENSION_CLASSES.get(key)
-            if required and not any(inferences[i].klass in required for i in listed):
-                report.fail("DIMENSION_CLASS_MISSING", f"{name} needs one of "
-                            f"{', '.join(sorted(required))}")
-            score = int(disposition.split()[1])
-            if key in CO_CITATION_REVIEW_DIMENSIONS and score > 0:
-                for i in listed:
-                    inf = inferences[i]
-                    if inf.klass == "CO-CITATION" and inf.members.strip().upper() == "UNSCREENED":
-                        report.review("CO_CITATION_UNSCREENED", f"{name} {disposition} uses {i}, "
-                                      "a co-citation rate over an unscreened population; "
-                                      "confirm engagement was expected of that population")
-            if key == "recent-paper dependence":
-                for i in listed:
-                    inf = inferences[i]
-                    corpus = corpora.get(inf.corpus)
-                    by_construction = (inf.corpus == "POPULATION"
-                                       or (corpus is not None and corpus.selected_on_target))
-                    if inf.klass in {"GRAPH-STRUCTURE", "CO-CITATION"} and by_construction:
-                        report.review("BY_CONSTRUCTION_RISK", f"{name} uses {i} on a set "
-                                      "selected on target citation; confirm it measures "
-                                      "citation beyond the target")
-        else:
-            if listed:
-                report.fail("UNSCORED_WITH_BASIS", f"{name} is {disposition} but lists "
-                            f"{', '.join(listed)}; list the inferences in the basis note")
-            if note.strip() in EMPTY:
-                report.fail("BASIS_NOTE_MISSING", f"{name} is {disposition}: state what is "
-                            "missing and what would make it assessable")
+        before = len(report.failures)
+        check_dimension_row(key, name, disposition, ids, note, number, inferences, recomputed,
+                            corpora, report, review)
+        if len(report.failures) > before:
+            failed.add(key)
     missing = [d for d in DIMENSIONS if d not in dispositions]
     if missing:
         report.fail("DIMENSION_ROWS", f"missing rows: {', '.join(missing)}")
+    return dispositions, under_review, failed
+
+
+def check_dimension_row(key: str, name: str, disposition: str, ids: str, note: str,
+                        number: int, inferences: dict, recomputed: dict, corpora: dict,
+                        report: Report, review) -> None:
+    if not DISPOSITION_RE.match(disposition):
+        report.fail("VOCABULARY", f"line {number}: Scorecard disposition {disposition!r}")
+        return
+    tagged, untagged = parse_tagged(ids)
+    if not disposition.startswith("SCORED"):
+        listed = [i for i, _ in tagged] + untagged
+        if listed:
+            report.fail("UNSCORED_WITH_BASIS", f"{name} is {disposition} but lists "
+                        f"{', '.join(listed)}; list the inferences in the basis note")
+        if note.strip() in EMPTY:
+            report.fail("BASIS_NOTE_MISSING", f"{name} is {disposition}: state what is "
+                        "missing and what would make it assessable")
+        return
+    if untagged:
+        report.fail("DIRECTION_TAG_MISSING", f"{name}: tag each inference (+) or (-): "
+                    f"{', '.join(untagged)}")
+    unknown = [i for i, _ in tagged if i not in inferences]
+    if unknown:
+        report.fail("UNKNOWN_INFERENCE", f"{name}: {', '.join(unknown)}")
+    tagged = [(i, t) for i, t in tagged if i in inferences]
+    if not tagged:
+        if not untagged:
+            report.fail("SCORED_WITHOUT_BASIS", f"{name} is {disposition} with no listed "
+                        "inference")
+        return
+    weak = [i for i, _ in tagged if recomputed.get(i) not in PASSING
+            or inferences[i].disposition not in PASSING]
+    if weak:
+        report.fail("SCORED_ON_INSUFFICIENT", f"{name} is {disposition} but relies on "
+                    f"{', '.join(weak)}; mark it UNASSESSED or list only passing "
+                    "inferences")
+    score = int(disposition.split()[1])
+    direction = "+" if score > 0 else "-"
+    side = [i for i, t in tagged if t == direction]
+    classes = (CONCERN_CLASSES if score > 0 else NO_CONCERN_CLASSES).get(key)
+    if not side:
+        code = "NO_CONCERN_BASIS" if score > 0 else "NO_AFFIRMATIVE_BASIS"
+        want = "(+) inference supporting concern" if score > 0 else (
+            "(-) inference: affirmative evidence of no concern")
+        report.fail(code, f"{name} is {disposition} but lists no {want}")
+    elif classes and not any(inferences[i].klass in classes for i in side):
+        report.fail("DIMENSION_CLASS_MISSING", f"{name} {disposition}: the {direction} side "
+                    f"needs one of {', '.join(sorted(classes))} under {MAP_ID}; found "
+                    f"{', '.join(sorted({inferences[i].klass for i in side}))}")
+    elif score > 0 and key in CO_CITATION_REVIEW_DIMENSIONS:
+        for i in side:
+            inf = inferences[i]
+            if inf.klass == "CO-CITATION" and inf.members.strip().upper() == "UNSCREENED":
+                review(key, "CO_CITATION_UNSCREENED", f"{name} {disposition} also uses {i}, "
+                       "a co-citation rate over an unscreened population; confirm it adds "
+                       "to the qualifying evidence rather than standing in for it")
+    if key == "recent-paper dependence":
+        for i, _ in tagged:
+            inf = inferences[i]
+            corpus = corpora.get(inf.corpus)
+            by_construction = (inf.corpus == "POPULATION"
+                               or (corpus is not None and corpus.selected_on_target))
+            if inf.klass in {"GRAPH-STRUCTURE", "CO-CITATION"} and by_construction:
+                review(key, "BY_CONSTRUCTION_RISK", f"{name} uses {i} on a set selected on "
+                       "target citation; confirm it measures citation beyond the target")
+    for i, t in tagged:
+        inf = inferences[i]
+        if t == "+" and inf.klass == "ABSENCE" and inf.scope == "WITHIN-SAMPLE":
+            review(key, "BOUNDED_ABSENCE", f"{name} uses {i}, an absence over screened "
+                   "results only; confirm the score is stated within the search bound")
+        if inf.sampling == "PRESPECIFIED-RANDOM":
+            review(key)  # its SAMPLE_DECLARED_RANDOM item is reported with the inference
+
+
+def coverage_lines(dispositions: dict, under_review: set, failed: set
+                   ) -> tuple[list[str], str | None]:
     applicable = [d for d, v in dispositions.items() if v != "N/A"]
-    scored = [d for d, v in dispositions.items() if v.startswith("SCORED")]
-    report.note(f"dimensions SCORED after gates\t{len(scored)}/{len(applicable)} applicable")
-    return dispositions
+    declared = [d for d, v in dispositions.items() if v.startswith("SCORED")]
+    scored = [d for d in declared if d not in failed]
+    held = sorted(d for d in scored if d in under_review)
+    a, k, k2 = len(applicable), len(scored), len(scored) - len(held)
+
+    def pct(n: int) -> str:
+        return f"{100 * n / a:.0f}%" if a else "n/a"
+    meets, meets_without = a and 100 * k >= 70 * a, a and 100 * k2 >= 70 * a
+    gate = ("MET" if meets_without else "MET ONLY IF REVIEW ITEMS RESOLVE FOR THE SCORE"
+            if meets else "NOT MET")
+    out = [f"COVERAGE_DECLARED\t{len(declared)}/{a} applicable SCORED ({pct(len(declared))})",
+           f"COVERAGE_AFTER_GATES\t{k}/{a} ({pct(k)})"
+           + (f"\tfailed: {', '.join(sorted(failed & set(declared)))}" if failed & set(declared)
+              else ""),
+           f"COVERAGE_IF_REVIEW_ITEMS_WITHDRAWN\t{k2}/{a} ({pct(k2)})"
+           + (f"\twithdrawn: {', '.join(held)}" if held else ""),
+           f"PROVISIONAL_70_GATE\t{gate}\t(engineering threshold, not validated)"]
+    return out, (gate if a else None)
+
+
+def check_band(lines: list[str], gate: str | None, report: Report) -> None:
+    """A risk band may be issued only when coverage after Gate B meets the 70% gate."""
+    bands = [(n, line.strip()) for n, line in enumerate(lines, start=1)
+             if line.strip().startswith("RISK BAND:")]
+    if gate is None or not bands:
+        report.note("no RISK BAND line; band gate not applied" if gate else
+                    "no dimension table; band gate not applied")
+        return
+    for number, line in bands:
+        withheld = line[len("RISK BAND:"):].strip().upper().startswith("WITHHELD")
+        if withheld:
+            continue
+        if gate == "NOT MET":
+            report.fail("BAND_ISSUED_BELOW_GATE", f"line {number}: a band is issued but coverage "
+                        "after Gate B is below the PROVISIONAL 70% gate; RISK BAND must read "
+                        "WITHHELD")
+        elif gate != "MET":
+            report.review("BAND_CONDITIONAL", f"line {number}: the band meets the 70% gate only "
+                          "while dimensions with open review items are counted; the formal-label "
+                          "gate status must say so")
 
 
 def check_scorecard_agreement(lines: list[str], dispositions: dict, report: Report) -> None:
@@ -698,7 +838,8 @@ def run(text: str, require_v2: bool) -> tuple[int, list[str]]:
     compositions = composition_lines(lines)
     inferences = parse_inferences(lines, report)
     recomputed = check_inferences(inferences, corpora, sources, compositions, report)
-    dispositions = check_dimensions(lines, inferences, recomputed, corpora, report)
+    dispositions, under_review, failed = check_dimensions(lines, inferences, recomputed,
+                                                          corpora, report)
     if dispositions:
         check_scorecard_agreement(lines, dispositions, report)
     check_findings(lines, inferences, recomputed, report)
@@ -707,7 +848,10 @@ def run(text: str, require_v2: bool) -> tuple[int, list[str]]:
         inspected = sum(1 for s in members if s.context == "INSPECTED")
         report.note(f"corpus {c.cid}\t{c.role}\tmembers {len(members)}\tcontexts inspected "
                     f"{inspected}\tdiscovery {'SEARCHED' if c.searched else 'NONE'}")
+    coverage, gate = coverage_lines(dispositions, under_review, failed)
+    check_band(lines, gate, report)
     out += report.info
+    out += coverage
     out += report.failures
     for number, (code, detail) in enumerate(report.reviews, start=1):
         out.append(f"REVIEW_ITEM_{number}\t{code} — {detail}")

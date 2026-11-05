@@ -15,3 +15,5 @@ jobs:
       # FAIL-CN-007 candidate. Tuned regressions and controls only; not live validation.
       # Also rebuilds the candidate prompt from the canonical v1 file and compares bytes.
       - run: python tests/test-citation-network-v2-gates.py
+      # Each checker rule disabled alone must make the suite fail.
+      - run: python tests/ablate-citation-network-v2-gates.py

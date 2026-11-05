@@ -6,7 +6,7 @@ It exercises sources that belong to both corpora (S2, S3), an adjudication-only 
 does not cite the target (S5), and a lightly cited direct test absent from the reception
 corpus (S6). Each corpus is counted from its own memberships only.
 
-INSTRUMENT VERSION: 2-citation-network v2-candidate
+INSTRUMENT VERSION: 2-citation-network v2-candidate.2
 
 SECTION A0: CORPUS REGISTER AND SOURCE ELIGIBILITY
 
@@ -27,6 +27,7 @@ CORPUS DISCOVERY: SEARCHED — synthetic topic query; 4 results, all screened
 SELECTED ON TARGET CITATION: NO
 CORPUS SIZE: 4
 CITATION CONTEXT COVERAGE: ADJUDICATION-1 2/4
+CORPUS LOCK: synthetic search record locked before screening (sha256 0000-synthetic)
 
 SOURCE ELIGIBILITY LEDGER
 
@@ -34,8 +35,8 @@ SOURCE ELIGIBILITY LEDGER
 |---|---|---|---|---|---|---|---|
 | T synthetic target study | OUTSIDE | DIRECT (L1) | NOT-CITING | INDEPENDENT-DATA | FULL-TEXT | NOT-APPLICABLE | the target itself |
 | S1 synthetic highly cited user of T for another question | RECEPTION-1 | BACKGROUND | CITES-UNINSPECTED | NONE | ABSTRACT | NOT-INSPECTED | abstract shows another question |
-| S2 synthetic reanalysis of T's data, highly cited | RECEPTION-1+ADJUDICATION-1 | DIRECT (L1) | CHALLENGES+REUSES | SHARED-DATA | FULL-TEXT | INSPECTED | citing passage read |
-| S3 synthetic review, highly cited | RECEPTION-1+ADJUDICATION-1 | ADJACENT | SUPPORTS | REVIEW | FULL-TEXT | INSPECTED | citing passage read |
+| S2 synthetic reanalysis of T's data, highly cited | RECEPTION-1+ADJUDICATION-1 | DIRECT (L1) | CHALLENGES+REUSES | SHARED-DATA | FULL-TEXT | INSPECTED | p. 4: citing passage read |
+| S3 synthetic review, highly cited | RECEPTION-1+ADJUDICATION-1 | ADJACENT | SUPPORTS | REVIEW | FULL-TEXT | INSPECTED | section 2: citing passage read |
 | S4 synthetic record, highly cited | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA | NOT-INSPECTED | record only; relevance not screened |
 | S5 synthetic earlier independent test | ADJUDICATION-1 | DIRECT (L1) | NOT-CITING | INDEPENDENT-DATA | FULL-TEXT | NOT-APPLICABLE | predates T; own result read |
 | S6 synthetic lightly cited independent test | ADJUDICATION-1 | DIRECT (L1) | CITES-UNINSPECTED | INDEPENDENT-DATA | ABSTRACT | NOT-INSPECTED | abstract reports its own data |
@@ -59,16 +60,18 @@ COMPOSITION: O3 | relevance | DIRECT=3; ADJACENT=1; BACKGROUND=0; UNRELATED=0; U
 
 DIMENSION EVIDENCE BASIS
 
+DIMENSION CLASS MAP: cn7-map-2
+
 | Scorecard dimension | Scorecard disposition | Inference IDs | Basis note |
 |---|---|---|---|
 | Founding-cluster dominance | UNASSESSED | — | synthetic case: no authorship or co-citation data |
-| Internal citation density | SCORED 0 | O1 | inside the reception corpus only |
+| Internal citation density | SCORED 0 | O1 (-) | inside the reception corpus only |
 | Recent-paper dependence | UNASSESSED | — | synthetic case: no recent corpus |
 | Review-hub laundering | UNASSESSED | — | synthetic case: no restatement compared |
 | Proxy mismatch | UNASSESSED | — | synthetic case: no construct comparison |
 | Claim mutation | UNASSESSED | — | synthetic case: no restatement compared |
 | Adjacent-field neglect | UNASSESSED | — | synthetic case: no Section E lock |
-| Lack of decisive tests | SCORED 1 | O5, O7 | independent tests exist; no preregistered replication in the searched set |
+| Lack of decisive tests | SCORED 1 | O5 (+), O7 (-) | independent tests exist; no preregistered replication in the searched set |
 | Poor critique uptake | UNASSESSED | — | synthetic case: no critique traced |
 | Intervention-evidence ratchet | N/A | — | no intervention claim |
 | Model non-updating | UNASSESSED | — | synthetic case: no model traced |

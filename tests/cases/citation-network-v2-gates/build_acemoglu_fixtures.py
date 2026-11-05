@@ -31,7 +31,9 @@ from pathlib import Path
 
 INPUT_SHA256 = "884887fe5a7b98d77921fbc31b488c7c9b7dc8406eb60340e4d5881436f3016c"
 INPUT_BLOB = "0c23beed0c914bea21b09c3094b33e976561f601"
-VERSION_LINE = "INSTRUMENT VERSION: 2-citation-network v2-candidate"
+VERSION_LINE = "INSTRUMENT VERSION: 2-citation-network v2-candidate.2"
+MAP_LINE = "DIMENSION CLASS MAP: cn7-map-2"
+STAGE_2A_BLOB = "05599d8ce1f83bd95c6fc91127c4b15b0c18dcd7"
 
 # ---------------------------------------------------------------------------
 # Transcription rules (Gate A columns), applied to the run's Section B table,
@@ -45,6 +47,10 @@ VERSION_LINE = "INSTRUMENT VERSION: 2-citation-network v2-candidate"
 #   FULL-TEXT and listed after "Version mismatch:" (02c line 131)     -> VERSION-MISMATCH
 #   FULL-TEXT otherwise                                               -> INSPECTED
 #   not FULL-TEXT                                                     -> NOT-INSPECTED
+# Passage locator (Supported inference of an INSPECTED row)
+#   the evidence IDs (for example RD-E1) or "reference list" that the run's own Artifact 4 row
+#   gives for the node; N21 from Section C question 17 (02c line 128). A node whose row gives
+#   neither has no locator, and the transcription records none.
 # Relation to target
 #   N01-N15: Artifact 4 polarity  supportive -> SUPPORTS; critical -> CHALLENGES;
 #            perfunctory, neutral/background -> MENTIONS; used as premise -> PREMISE;
@@ -85,10 +91,10 @@ OUTSIDE_ROWS = {
             "NOT-APPLICABLE", "target, read in full before this stage (02c line 9)"),
     "NP": ("NP Nobel popular background 2024", "ADJACENT", "SUPPORTS", "REVIEW",
            "FULL-TEXT (2024 popular background)", "INSPECTED",
-           "restatement read; Artifact 4 polarity inflated (02c line 416)"),
+           "NP-E1: restatement read; Artifact 4 polarity inflated (02c line 416)"),
     "NS": ("NS Nobel scientific background 2024", "ADJACENT", "SUPPORTS+QUALIFIES", "REVIEW",
            "FULL-TEXT (2024 scientific background)", "INSPECTED",
-           "restatement and critique discussion read (02c line 417)"),
+           "NS-E1, NS-E2: restatement and critique discussion read (02c line 417)"),
     "AL": ("AL W1969918011 2012 Albouy, AER Comment", "DIRECT (field 6)", "CHALLENGES",
            "REANALYSIS", "FULL-TEXT (AER 2012, read in Stage 2a)", "INSPECTED",
            "critique of the settler-mortality data (02c line 234)"),
@@ -142,16 +148,23 @@ def parse_run(lines: list[str]) -> dict:
     mismatch = set(re.findall(r"\bN\d\d\b", vm_block))
     assert mismatch == {"N13", "N16"}, mismatch
 
-    polarity = {}
+    polarity, locators = {}, {}
     start = lines.index("ARTIFACT 4: CITATION POLARITY TABLE")
     for line in lines[start:start + 25]:
         match = re.match(r"^\| (N\d\d) ", line)
         if match:
             polarity[match[1]] = cells(line)[3]
+            found = re.findall(r"\b[A-Z]{2,4}-E\d+\b|reference list", line)
+            if found:
+                locators[match[1]] = ", ".join(dict.fromkeys(found))
     assert sorted(polarity) == [f"N{i:02d}" for i in range(1, 16)], sorted(polarity)
     supportive = next(line for line in lines if line.startswith("17. Supportive:"))
     assert "N21 (EL-E1" in supportive, supportive[:80]
     polarity["N21"] = "supportive"
+    locators["N21"] = "EL-E1"
+    assert locators == {"N02": "RD-E1, RD-E3, RD-E4", "N03": "GL-E1, GL-E2",
+                        "N04": "reference list", "N05": "HB-E1", "N06": "DML-E1, DML-E2",
+                        "N12": "HW-E1", "N21": "EL-E1"}, locators
 
     recent = {}
     for line in lines:
@@ -160,8 +173,11 @@ def parse_run(lines: list[str]) -> dict:
             recent[match[1]] = {"title": match[2], "wid": match[3], "year": match[4],
                                 "state": match[5]}
     assert len(recent) == 25, len(recent)
-    return {"b": section_b, "full_text": full_text, "mismatch": mismatch,
-            "polarity": polarity, "recent": recent}
+    band = next(line for line in lines if line.startswith("RISK BAND: "))
+    band = band.split(" — ")[0] + " — " + band.split(" — ")[1].split(";")[0]
+    assert band.startswith("RISK BAND: >20%–40% normal field clustering"), band
+    return {"band": band, "b": section_b, "full_text": full_text, "mismatch": mismatch,
+            "polarity": polarity, "locators": locators, "recent": recent}
 
 
 def relevance(code: str, text: str) -> str:
@@ -213,6 +229,8 @@ def reception_rows(run: dict) -> dict[str, list[str]]:
                      "VERSION-MISMATCH": "retrieved version lacks the citation",
                      }.get(context, "abstract read; citation not inspected"
                            if access == "ABSTRACT" else "record only; not read")
+        if context == "INSPECTED" and node in run["locators"]:
+            supported = f"{run['locators'][node]}: {supported}"
         rows[node] = [f"{node} {b['wid']} {b['year']} {short_title(b['title'])}", "RECEPTION-1",
                       relevance(b["code"], b["text"]), "+".join(relation),
                       contribution(b["code"], b["text"]), access, context, supported]
@@ -300,16 +318,21 @@ AS_RUN_INFERENCES = [
      "risk; Glaeser et al. find malaria significant alongside settler mortality (Finding 6)"),
 ]
 
+# Direction tags: (+) the run used the inference as evidence of concern; (-) as evidence of no
+# concern (02c lines 465-475 and the Section E, H dispositions they summarise).
 AS_RUN_DIMENSIONS = {
-    "Founding-cluster dominance": ("SCORED 1", "I03, I04", "02c line 465"),
-    "Internal citation density": ("SCORED 0", "I01", "02c line 466"),
-    "Recent-paper dependence": ("SCORED 1", "I05", "02c line 467"),
-    "Review-hub laundering": ("SCORED 1", "I06, I07", "NESTED under claim mutation; 02c line 468"),
-    "Proxy mismatch": ("SCORED 1", "I08", "02c line 469"),
-    "Claim mutation": ("SCORED 1", "I06, I09", "02c line 470"),
-    "Adjacent-field neglect": ("SCORED 1", "I10, I11", "02c line 471"),
-    "Lack of decisive tests": ("SCORED 1", "I12, I13, I14", "02c line 472"),
-    "Poor critique uptake": ("SCORED 1", "I16, I17", "02c line 473"),
+    "Founding-cluster dominance": ("SCORED 1", "I03 (+), I04 (+)", "02c line 465"),
+    "Internal citation density": ("SCORED 0", "I01 (-)", "02c line 466"),
+    "Recent-paper dependence": ("SCORED 1", "I05 (+)", "02c line 467"),
+    "Review-hub laundering": ("SCORED 1", "I06 (+), I07 (+)",
+                              "NESTED under claim mutation; 02c line 468"),
+    "Proxy mismatch": ("SCORED 1", "I08 (+)", "02c line 469"),
+    "Claim mutation": ("SCORED 1", "I06 (+), I09 (+)", "02c line 470"),
+    "Adjacent-field neglect": ("SCORED 1", "I10 (-), I11 (+)",
+                               "source layer affirmative; downstream co-citation low (02c line 448)"),
+    "Lack of decisive tests": ("SCORED 1", "I12 (+), I13 (+), I14 (+)", "02c line 472"),
+    "Poor critique uptake": ("SCORED 1", "I16 (-), I17 (+)",
+                             "cluster engaged; citing-mass co-citation low (02c line 473)"),
     "Intervention-evidence ratchet": ("N/A", "—", "No intervention claim (02c line 474)"),
     "Model non-updating": ("UNINFORMATIVE", "—", "Four-link gate link 2 not met: the "
                            "disconfirming evidence is contested, not verified (02c line 475)"),
@@ -325,7 +348,8 @@ REPAIRS = [
     ("R1", "N11 relation PREMISE -> CITES-UNINSPECTED: the published chapter was not read and "
      "the run says its polarity was assumed from N05 (02c line 411)."),
     ("R2", "RECEPTION-1 coverage 13/50 -> 11/50: N13 and N16 retrieved versions do not contain "
-     "the citation (02c line 131); they are VERSION-MISMATCH, not inspected."),
+     "the citation (02c line 131); they are VERSION-MISMATCH, not inspected (R12 lowers it "
+     "further to 8/50)."),
     ("R3", "Register ADJUDICATION-1 with CORPUS DISCOVERY: NONE, assembled from claim-testing "
      "sources the run already retrieved (N01, N02, N03, N21, N42, AL, SA). No adjudication "
      "search is added."),
@@ -333,8 +357,8 @@ REPAIRS = [
      "independent data origin bearing on L3 (02c lines 105, 221). This is the only recoded "
      "relevance value."),
     ("R5", "I05 (recent citation use) -> INSUFFICIENT; recent-paper dependence -> UNASSESSED."),
-    ("R6", "I12 (absence of instrument-independent tests) -> INSUFFICIENT on ADJUDICATION-1; "
-     "lack of decisive tests keeps SCORED 1 on I13 and I14 only."),
+    ("R6", "I12 (absence of instrument-independent tests) -> INSUFFICIENT on ADJUDICATION-1 "
+     "(see R15 for the dimension)."),
     ("R7", "N31 relation drops REUSES and I14 drops N31: the record was located but never "
      "read (02c line 94), so its reuse of the AJR instrument is not established. I14 keeps "
      "N01, N02, N21, N06."),
@@ -343,6 +367,24 @@ REPAIRS = [
     ("R9", "I18 drops N11 from the inspected polarity sample."),
     ("R10", "I19 statement updated for R4: N42 is now DIRECT, so 5 of 50 citing-set members "
      "are DIRECT; the composition line is recomputed from the ledger."),
+    # Revision 2 (cn7-map-2, locators, bounded absence, searched adjudication for evidence-base
+    # claims). Still no new retrieval.
+    ("R11", "N01 and AL get passage locators from the same run's Stage 2a (02a_internal_"
+     "validity.md line 203: AJR 2012 pp. 3078-80; Albouy 2012 pp. 3060-72)."),
+    ("R12", "N08, N09 and N14 have no recorded passage locator anywhere in the run, so their "
+     "citation context becomes NOT-INSPECTED and their relation CITES-UNINSPECTED. RECEPTION-1 "
+     "coverage 11/50 -> 8/50; I18 keeps the 7 locatable top-15 passages."),
+    ("R13", "Adjacent-field neglect SCORED 1 -> UNASSESSED: its concern rests only on co-citation "
+     "over unscreened citers (I11); the source-layer evidence (I10) points the other way."),
+    ("R14", "Poor critique uptake SCORED 1 -> UNASSESSED: its concern rests only on co-citation "
+     "over unscreened citers (I17); the dominant cluster engaged the critique (I16). SCORED 0 on "
+     "I16 is the alternative if the dominant cluster is taken as the uptake population "
+     "(instrument Section H steps 3-4); that is the executor's call, not a repair."),
+    ("R15", "Lack of decisive tests SCORED 1 -> UNASSESSED: a concern score needs an absence "
+     "over a SEARCHED adjudication corpus (cn7-map-2); none was run (I12)."),
+    ("R16", "Direction tags and the DIMENSION CLASS MAP line added."),
+    ("R17", "RISK BAND >20%-40% (02c line 329) -> WITHHELD: coverage after Gate B is 5/10, "
+     "below the PROVISIONAL 70% gate. The arithmetic band position is unchanged."),
 ]
 
 
@@ -376,7 +418,7 @@ def register(entries: list[dict]) -> list[str]:
 
 def render(title: str, notes: list[str], corpora: list[dict], ledger: dict[str, list[str]],
            inferences: list[tuple], compositions: list[str], dimensions: dict,
-           findings: list[tuple]) -> str:
+           findings: list[tuple], tail: tuple[str, ...] = ()) -> str:
     out = [title, "", *notes, "", VERSION_LINE, "",
            "SECTION A0: CORPUS REGISTER AND SOURCE ELIGIBILITY", "", *register(corpora),
            "SOURCE ELIGIBILITY LEDGER", ""]
@@ -386,11 +428,13 @@ def render(title: str, notes: list[str], corpora: list[dict], ledger: dict[str, 
     out += ["", "SECTION K0: EVIDENCE SUFFICIENCY LEDGER", "", "INFERENCE LEDGER", ""]
     out += table(["Inference", "Class", "Corpus", "Claimed scope", "Sampling rule",
                   "Members used", "Disposition", "Statement"], [list(i) for i in inferences])
-    out += ["", *compositions, "", "DIMENSION EVIDENCE BASIS", ""]
+    out += ["", *compositions, "", "DIMENSION EVIDENCE BASIS", "", MAP_LINE, ""]
     out += table(["Scorecard dimension", "Scorecard disposition", "Inference IDs", "Basis note"],
                  [[name, *dimensions[name]] for name in DIMENSIONS])
     out += ["", "FINDING EVIDENCE BASIS", ""]
     out += table(["Finding", "Finding status", "Inference IDs"], [list(f) for f in findings])
+    if tail:
+        out += ["", *tail]
     return "\n".join(out) + "\n"
 
 
@@ -436,7 +480,8 @@ def build(run: dict) -> dict[str, str]:
             "13 of 50 top citers (02c line 686).",
             "The run registered no adjudication corpus; none is registered here."],
         [reception_register("13/50"), RECENT_REGISTER], base, AS_RUN_INFERENCES,
-        [composition_line("I19", "RECEPTION-1", base)], AS_RUN_DIMENSIONS, AS_RUN_FINDINGS)
+        [composition_line("I19", "RECEPTION-1", base)], AS_RUN_DIMENSIONS, AS_RUN_FINDINGS,
+        (run["band"],))
 
     # --- repaired: the same evidence, re-ledgered (REPAIRS R1-R9) ----------------------
     rep = {k: list(v) for k, v in base.items()}
@@ -448,6 +493,16 @@ def build(run: dict) -> dict[str, str]:
         rep[sid][1] = "ADJUDICATION-1"
     rep["N42"][2] = "DIRECT (L3)"                                           # R4
     rep["N42"][4] = "INDEPENDENT-DATA"
+    rep["N01"][7] = ("AJR 2012 Reply pp. 3078-80 (Stage 2a, 02a line 203): citing passage "
+                     "read")                                                 # R11
+    rep["AL"][7] = ("Albouy 2012 pp. 3060-72 (Stage 2a, 02a line 203): critique of the "
+                    "settler-mortality data")
+    for sid in ("N08", "N09", "N14"):                                       # R12
+        rep[sid][3] = "CITES-UNINSPECTED"
+        rep[sid][6] = "NOT-INSPECTED"
+        rep[sid][7] = "full text read; no passage locator recorded"
+    rec_inspected = sum(1 for row in rep.values()
+                        if "RECEPTION-1" in row[1].split("+") and row[6] == "INSPECTED")
     adjudication = [row for row in rep.values() if "ADJUDICATION-1" in row[1].split("+")]
     adj_inspected = sum(1 for row in adjudication if row[6] == "INSPECTED")
     adjudication_register = {
@@ -482,9 +537,9 @@ def build(run: dict) -> dict[str, str]:
                 "tests, the authors' reanalysis and N42 are DIRECT (02c lines 105, 115-117); "
                 "describes the citing set, not the evidence base"),
         "I18": ("I18", "CITATION-USE", "RECEPTION-1", "WITHIN-SAMPLE", "CONVENIENCE",
-                "N01, N02, N03, N04, N05, N06, N08, N09, N12, N14", "SUPPORTED-WITHIN-SAMPLE",
-                "Polarity of the 10 top-15 members whose citing passage was read; 5 of the top "
-                "15 remain unclear"),
+                "N01, N02, N03, N04, N05, N06, N12", "SUPPORTED-WITHIN-SAMPLE",
+                "Polarity of the 7 top-15 members whose citing passage was read and can be "
+                "located; 8 of the top 15 remain unclear"),
     }
     rep_inferences = [replace.get(i[0], i) for i in AS_RUN_INFERENCES]
     rep_dimensions = dict(AS_RUN_DIMENSIONS)
@@ -493,18 +548,31 @@ def build(run: dict) -> dict[str, str]:
         "citation is 100% by construction; 0/25 passages read (I05). Assessable with inspected "
         "passages for a prespecified sample, or with co-citation beyond the target (that "
         "evidence is owned by founding-cluster dominance and would be NESTED)")
-    rep_dimensions["Lack of decisive tests"] = ("SCORED 1", "I13, I14",
-                                                "absence claim I12 withheld; 02c line 472")
+    rep_dimensions["Lack of decisive tests"] = (
+        "UNASSESSED", "—", "A concern score needs an absence over a SEARCHED adjudication corpus "
+        "(I12 INSUFFICIENT). Named statements I13 and the data-origin result I14 stand as "
+        "findings but cannot carry the score under cn7-map-2")
+    rep_dimensions["Adjacent-field neglect"] = (
+        "UNASSESSED", "—", "Concern rested only on co-citation over unscreened citers (I11); the "
+        "source layer engaged the rivals (I10). Assessable with read downstream engagement in a "
+        "screened population, or the dominant cluster's reference lists for the locked "
+        "directly-adjudicating sources")
+    rep_dimensions["Poor critique uptake"] = (
+        "UNASSESSED", "—", "Concern rested only on co-citation over unscreened citers (I17). The "
+        "dominant cluster engaged the critique (I16), which would support SCORED 0 if that "
+        "cluster is the uptake population (Section H steps 3-4); otherwise needs read uptake in "
+        "screened citers that rely on the settler-mortality data")
     rep_findings = [("Finding 2", "confirmed", "I14") if f[0] == "Finding 2" else f
                     for f in AS_RUN_FINDINGS]
     repaired = render(
         "CANDIDATE GATE FIXTURE — ACEMOGLU REPAIRED (SAME EVIDENCE)",
-        provenance_notes("repaired (expected: PASS-WITH-REVIEW)")
+        provenance_notes("repaired (expected: PASS-WITH-REVIEW; formal band withheld, coverage 5/10)")
         + ["Repairs applied to the transcription (no new retrieval):"]
         + [f"  {rid}: {text}" for rid, text in REPAIRS],
-        [reception_register("11/50"), RECENT_REGISTER, adjudication_register], rep,
+        [reception_register(f"{rec_inspected}/50"), RECENT_REGISTER, adjudication_register], rep,
         rep_inferences, [composition_line("I19", "RECEPTION-1", rep)], rep_dimensions,
-        rep_findings)
+        rep_findings, ("RISK BAND: WITHHELD — coverage after Gate B is 5/10, below the "
+                       "PROVISIONAL 70% gate (R17)",))
 
     # --- clean control: a structural question that metadata answers -------------------
     ctl = {}
@@ -519,9 +587,10 @@ def build(run: dict) -> dict[str, str]:
     ctl_dimensions = {}
     for name in DIMENSIONS:
         if name == "Founding-cluster dominance":
-            ctl_dimensions[name] = ("SCORED 1", "I03, I04", "authorship and co-citation counts")
+            ctl_dimensions[name] = ("SCORED 1", "I03 (+), I04 (+)",
+                                    "authorship and co-citation counts")
         elif name == "Internal citation density":
-            ctl_dimensions[name] = ("SCORED 0", "I01", "inside the defined corpus only")
+            ctl_dimensions[name] = ("SCORED 0", "I01 (-)", "inside the defined corpus only")
         elif name == "Intervention-evidence ratchet":
             ctl_dimensions[name] = ("N/A", "—", "No intervention claim")
         else:

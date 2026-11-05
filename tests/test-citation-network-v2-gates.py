@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regression checks for the NON-CANONICAL citation-network v2-candidate gates.
+"""Regression checks for the NON-CANONICAL citation-network v2-candidate gates (revision 2).
 
 Fixtures here are tuned regressions built around one observed run (Acemoglu, FAIL-CN-007)
 plus hand-written controls. Passing them shows the candidate checker behaves as designed
@@ -22,7 +22,8 @@ from pathlib import Path
 TESTS = Path(__file__).resolve().parent
 REPO = TESTS.parent
 CANDIDATES = REPO / "candidates" / "research-analysis"
-GATES = CANDIDATES / "check-citation-network-v2-gates.py"
+# CN7_GATES_PATH lets tests/ablate-citation-network-v2-gates.py point the suite at a sabotaged copy.
+GATES = Path(os.environ.get("CN7_GATES_PATH", CANDIDATES / "check-citation-network-v2-gates.py"))
 V1_CHECKER = REPO / "prompts" / "research-analysis" / "check-citation-network-output.py"
 V1_PROMPT = REPO / "prompts" / "research-analysis" / "2-citation-network.txt"
 CASES = TESTS / "cases" / "citation-network-v2-gates"
@@ -94,6 +95,11 @@ def test_acemoglu_as_run() -> None:
     status, output = run_tool(GATES, str(AS_RUN))
     require(status == 1, "as-run transcription must FAIL")
     expected = sorted([
+        "LOCATOR_MISSING",              # N01: inspected, no locator in 02c
+        "LOCATOR_MISSING",              # N08
+        "LOCATOR_MISSING",              # N09
+        "LOCATOR_MISSING",              # N14
+        "LOCATOR_MISSING",              # AL
         "USE_WITHOUT_CONTEXT",          # N11 polarity assumed from N05, never read
         "REUSE_WITHOUT_ACCESS",         # N31 reuse claimed from a located record
         "ADJUDICATION_CORPUS_MISSING",  # one reception corpus did both jobs
@@ -105,13 +111,19 @@ def test_acemoglu_as_run() -> None:
         "INFERENCE_OVERCLAIMED",        # I18 polarity sample includes unread N11
         "SCORED_ON_INSUFFICIENT",       # recent-paper dependence
         "SCORED_ON_INSUFFICIENT",       # lack of decisive tests
+        "DIMENSION_CLASS_MISSING",      # adjacent-field neglect: concern only from co-citation
+        "DIMENSION_CLASS_MISSING",      # poor critique uptake: concern only from co-citation
         "FINDING_ON_INSUFFICIENT",      # Finding 2
+        "BAND_ISSUED_BELOW_GATE",       # the run's >20-40% band, with 5/10 after Gate B
     ])
     require(failure_codes(output) == expected, f"as-run failures changed: "
             f"{failure_codes(output)}")
     for iid in ("I05", "I12", "I14", "I15", "I18"):
         require(f"INFERENCE_OVERCLAIMED\t{iid} " in output, f"{iid} not caught")
     require("RECEPTION-1 declared 13/50, ledger 11/50" in output, "coverage recount missing")
+    require("COVERAGE_DECLARED\t9/10" in output and "COVERAGE_AFTER_GATES\t5/10" in output
+            and "PROVISIONAL_70_GATE\tNOT MET" in output,
+            "as-run coverage after gates should fall to 5/10, below the provisional gate")
     for iid in ("I01", "I02", "I06", "I08", "I09", "I13", "I16", "I19", "I20"):
         require(re.search(rf"inference {iid}\t\S+\t\S+\tdeclared SUPPORTED\trecomputed "
                           r"SUPPORTED$", output, re.M), f"valid inference {iid} not passed")
@@ -120,15 +132,21 @@ def test_acemoglu_as_run() -> None:
 def test_acemoglu_repaired() -> None:
     status, output = run_tool(GATES, str(REPAIRED))
     require(status == 0, f"repaired must pass gates\n{output}")
-    require(result_line(output) == "V2_GATES_RESULT\tPASS-WITH-REVIEW\titems=3", result_line(output))
-    require(review_codes(output) == sorted(["CODED_FROM_METADATA", "CO_CITATION_UNSCREENED",
-                                            "CO_CITATION_UNSCREENED"]), review_codes(output))
-    require("INFO\tdimensions SCORED after gates\t8/10 applicable" in output,
-            "repaired coverage after gates should be 8/10")
+    require(result_line(output) == "V2_GATES_RESULT\tPASS-WITH-REVIEW\titems=1", result_line(output))
+    require(review_codes(output) == ["CODED_FROM_METADATA"], review_codes(output))
+    # The formal band is withheld on this evidence: 5 of 10 applicable dimensions survive.
+    require("COVERAGE_AFTER_GATES\t5/10 (50%)" in output, "repaired coverage should be 5/10")
+    require("PROVISIONAL_70_GATE\tNOT MET" in output, "repaired case should not meet the gate")
     # Valid findings survive: every standardized finding keeps a passing basis.
     require("FINDING_ON_INSUFFICIENT" not in output, "a valid finding was rejected")
-    require("RECEPTION-1\tRECEPTION\tmembers 50\tcontexts inspected 11" in output,
-            "reception coverage recount")
+    require("RECEPTION-1\tRECEPTION\tmembers 50\tcontexts inspected 8" in output,
+            "reception coverage recount (11 read, 8 locatable)")
+    text = REPAIRED.read_text(encoding="utf-8")
+    band = next(line for line in text.splitlines() if line.startswith("RISK BAND:"))
+    require(band.startswith("RISK BAND: WITHHELD"), "repaired fixture must withhold the band")
+    expect_fail("band issued below the gate", mutate(
+        text, band, "RISK BAND: >20%–40% normal field clustering with some weaknesses"),
+        "BAND_ISSUED_BELOW_GATE")
 
 
 def test_structural_control() -> None:
@@ -180,10 +198,66 @@ def test_overlap() -> None:
             ("absence over a partial result set", "| EXHAUSTIVE |", "| CONVENIENCE |",
              "ABSENCE needs the whole search result set"),
             ("absence claimed at corpus scope", "| LITERATURE |", "| CORPUS |",
-             "ABSENCE is a LITERATURE-scope inference")):
+             "ABSENCE is LITERATURE-scope")):
         status, output = gates_text(mutate(text, o5, o5.replace(old, new)))
         require(status == 1 and "INFERENCE_OVERCLAIMED\tO5 " in output and message in output,
                 f"overlap: {name}\n{output}")
+    bounded = mutate(unscreened, o5, "| O5 | ABSENCE | ADJUDICATION-1 | WITHIN-SAMPLE | "
+                     "PRESPECIFIED-RULE | SCREENED | SUPPORTED-WITHIN-SAMPLE | No preregistered "
+                     "replication among the 3/4 screened results; 1 unscreened |")
+    status, output = gates_text(bounded)
+    require(status == 0 and "BOUNDED_ABSENCE" in review_codes(output)
+            and "COVERAGE_IF_REVIEW_ITEMS_WITHDRAWN\t1/10 (10%)\twithdrawn: lack of decisive "
+                "tests" in output,
+            f"overlap: a bounded absence must pass to review and show in sensitivity\n{output}")
+    status, output = gates_text(mutate(
+        bounded, "CORPUS DISCOVERY: SEARCHED — synthetic topic query; 4 results, all screened",
+        "CORPUS DISCOVERY: NONE — assembled"))
+    require(status == 1 and "INFERENCE_OVERCLAIMED\tO5 " in output
+            and "ABSENCE needs an ADJUDICATION corpus that was SEARCHED" in output,
+            f"overlap: a bounded absence still needs a searched corpus\n{output}")
+    expect_fail("overlap: bounded absence without screened/total", mutate(
+        bounded, "among the 3/4 screened results", "among the screened results"),
+        "INFERENCE_OVERCLAIMED")
+    expect_fail("overlap: searched adjudication corpus without a lock", mutate(
+        text, "CORPUS LOCK: synthetic search record locked before screening (sha256 "
+        "0000-synthetic)\n", ""), "REGISTER_FIELD")
+    uptake = mutate(mutate(text, "| O7 | SOURCE-RESULT |",
+                           "| O8 | ENGAGEMENT | — | NAMED | NOT-APPLICABLE | S3 | SUPPORTED | S3 "
+                           "cites S2's objection without addressing it |\n| O9 | CO-CITATION | "
+                           "POPULATION | POPULATION | NOT-APPLICABLE | UNSCREENED | SUPPORTED | "
+                           "S2 co-cited by 1/10 citers of T |\n| O7 | SOURCE-RESULT |"),
+                    "| Poor critique uptake | UNASSESSED | — | synthetic case: no critique traced |",
+                    "| Poor critique uptake | SCORED 1 | O8 (+), O9 (+) | S3 does not address S2 |")
+    status, output = gates_text(uptake)
+    require(status == 0 and "CO_CITATION_UNSCREENED" in review_codes(output)
+            and "COVERAGE_AFTER_GATES\t3/10" in output
+            and "withdrawn: poor critique uptake" in output,
+            f"overlap: co-citation beside qualifying engagement goes to review\n{output}")
+    expect_fail("overlap: uptake concern from co-citation alone", mutate(
+        uptake, "| SCORED 1 | O8 (+), O9 (+) |", "| SCORED 1 | O9 (+) |"),
+        "DIMENSION_CLASS_MISSING")
+    seven = uptake
+    for old, new in (
+            ("| Founding-cluster dominance | UNASSESSED | — | synthetic case: no authorship or "
+             "co-citation data |", "| Founding-cluster dominance | SCORED 1 | O1 (+) | x |"),
+            ("| Recent-paper dependence | UNASSESSED | — | synthetic case: no recent corpus |",
+             "| Recent-paper dependence | SCORED 1 | O6 (+) | x |"),
+            ("| Proxy mismatch | UNASSESSED | — | synthetic case: no construct comparison |",
+             "| Proxy mismatch | SCORED 1 | O7 (+) | x |"),
+            ("| Adjacent-field neglect | UNASSESSED | — | synthetic case: no Section E lock |",
+             "| Adjacent-field neglect | SCORED 1 | O8 (+) | x |")):
+        seven = mutate(seven, old, new)
+    status, output = gates_text(seven + "\nRISK BAND: >20%–40% synthetic band\n")
+    require(status == 0 and "COVERAGE_AFTER_GATES\t7/10" in output
+            and "COVERAGE_IF_REVIEW_ITEMS_WITHDRAWN\t6/10" in output
+            and "PROVISIONAL_70_GATE\tMET ONLY IF REVIEW ITEMS RESOLVE FOR THE SCORE" in output
+            and "BAND_CONDITIONAL" in review_codes(output),
+            f"a band that meets the gate only with review-pending dimensions goes to review\n"
+            f"{output}")
+    status, output = gates_text(seven + "\nRISK BAND: WITHHELD — pending review items\n")
+    require(status == 0 and "BAND_CONDITIONAL" not in review_codes(output),
+            "a withheld band raises no band review")
     status, output = gates_text(mutate(
         text, "UNKNOWN=1 | TOTAL=4", "UNKNOWN=1 | TOTAL=5"))
     require(status == 1 and "TOTAL=5, members 4" in output, "composition TOTAL not checked")
@@ -208,9 +282,9 @@ def test_adversarial_mutations() -> None:
     expect_fail("inspected without full text or excerpt",
                 mutate(text, n11, n11.replace("NOT-INSPECTED", "INSPECTED")),
                 "CONTEXT_WITHOUT_ACCESS")
-    expect_fail("coverage overstated by counting a version mismatch",
-                mutate(text, "CITATION CONTEXT COVERAGE: RECEPTION-1 11/50",
-                       "CITATION CONTEXT COVERAGE: RECEPTION-1 13/50"), "COVERAGE_MISMATCH")
+    expect_fail("coverage overstated by counting passages that cannot be located",
+                mutate(text, "CITATION CONTEXT COVERAGE: RECEPTION-1 8/50",
+                       "CITATION CONTEXT COVERAGE: RECEPTION-1 11/50"), "COVERAGE_MISMATCH")
     expect_fail("coverage restated wrongly elsewhere in the output",
                 text + "\nConfidence: CITATION CONTEXT COVERAGE: RECEPTION-1 13/50\n",
                 "COVERAGE_MISMATCH")
@@ -260,21 +334,64 @@ def test_adversarial_mutations() -> None:
                 "INFERENCE_OVERCLAIMED")
     status, output = gates_text(mutate(text, rows["I13"], rows["I13"].replace(
         "| SUPPORTED |", "| INSUFFICIENT |")))
-    require(status == 1 and "OVER_WITHHELD" in review_codes(output),
-            "withholding a supportable inference must be routed to review")
+    require(status == 0 and "OVER_WITHHELD" in review_codes(output),
+            "withholding a supportable inference must be routed to review, not accepted")
 
     # Dimensions and findings
     recent = next(line for line in text.splitlines() if line.startswith("| Recent-paper dependence |"))
     expect_fail("recent dependence scored on unread passages",
-                mutate(text, recent, "| Recent-paper dependence | SCORED 1 | I05 | 02c line 467 |"),
-                "SCORED_ON_INSUFFICIENT")
+                mutate(text, recent, "| Recent-paper dependence | SCORED 1 | I05 (+) | 02c line "
+                       "467 |"), "SCORED_ON_INSUFFICIENT")
+    lack = next(line for line in text.splitlines() if line.startswith("| Lack of decisive tests |"))
     expect_fail("lack of decisive tests scored on the withheld absence claim", mutate(
-        text, "| Lack of decisive tests | SCORED 1 | I13, I14 |",
-        "| Lack of decisive tests | SCORED 1 | I12, I13, I14 |"), "SCORED_ON_INSUFFICIENT")
+        text, lack, "| Lack of decisive tests | SCORED 1 | I12 (+), I13 (+) | x |"),
+        "SCORED_ON_INSUFFICIENT")
+    expect_fail("lack of decisive tests scored on named statements without a search", mutate(
+        text, lack, "| Lack of decisive tests | SCORED 1 | I13 (+), I14 (+) | x |"),
+        "DIMENSION_CLASS_MISSING")
     uptake = next(line for line in text.splitlines() if line.startswith("| Poor critique uptake |"))
-    expect_fail("uptake scored on co-citation alone",
-                mutate(text, uptake, uptake.replace("| I16, I17 |", "| I17 |")),
+    expect_fail("uptake concern from co-citation, with engagement pointing the other way",
+                mutate(text, uptake, "| Poor critique uptake | SCORED 1 | I16 (-), I17 (+) | x |"),
                 "DIMENSION_CLASS_MISSING")
+    status, output = gates_text(mutate(text, uptake, "| Poor critique uptake | SCORED 0 | I16 (-) "
+                                       "| dominant cluster engaged |"))
+    require(status == 0 and "COVERAGE_AFTER_GATES\t6/10 (60%)" in output
+            and "PROVISIONAL_70_GATE\tNOT MET" in output,
+            f"the executor's alternative (uptake SCORED 0) passes and the band stays withheld\n"
+            f"{output}")
+    adjacent = next(line for line in text.splitlines()
+                    if line.startswith("| Adjacent-field neglect |"))
+    expect_fail("neglect concern from a rival's result plus co-citation", mutate(
+        text, adjacent, "| Adjacent-field neglect | SCORED 1 | I11 (+), I20 (+) | x |"),
+        "DIMENSION_CLASS_MISSING")
+    founding = next(line for line in text.splitlines()
+                    if line.startswith("| Founding-cluster dominance |"))
+    expect_fail("an untagged inference", mutate(text, founding, founding.replace(
+        "I03 (+), I04 (+)", "I03, I04 (+)")), "DIRECTION_TAG_MISSING")
+    expect_fail("a concern score with only no-concern evidence", mutate(text, founding, founding.replace(
+        "I03 (+), I04 (+)", "I03 (-), I04 (-)")), "NO_CONCERN_BASIS")
+    expect_fail("a zero score with no affirmative evidence", mutate(
+        text, "| Internal citation density | SCORED 0 | I01 (-) |",
+        "| Internal citation density | SCORED 0 | I01 (+) |"), "NO_AFFIRMATIVE_BASIS")
+    expect_fail("map line removed", mutate(text, "DIMENSION CLASS MAP: cn7-map-2\n", ""),
+                "MAP_VERSION_MISSING")
+    expect_fail("output declares another map", mutate(text, "DIMENSION CLASS MAP: cn7-map-2",
+                                                       "DIMENSION CLASS MAP: cn7-map-1"),
+                "MAP_VERSION_MISMATCH")
+    n02 = next(line for line in text.splitlines() if line.startswith("| N02 "))
+    expect_fail("inspected row without a locator", mutate(
+        text, n02, n02.replace("RD-E1, RD-E3, RD-E4: ", "")), "LOCATOR_MISSING")
+    n08 = next(line for line in text.splitlines() if line.startswith("| N08 "))
+    relocated = mutate(mutate(mutate(
+        text, n08, n08.replace("| CITES-UNINSPECTED |", "| MENTIONS |").replace(
+            "| NOT-INSPECTED | full text read; no passage locator recorded |",
+            "| INSPECTED | citing passage read |")),
+        "CITATION CONTEXT COVERAGE: RECEPTION-1 8/50", "CITATION CONTEXT COVERAGE: RECEPTION-1 9/50"),
+        "| N01, N02, N03, N04, N05, N06, N12 |", "| N01, N02, N03, N04, N05, N06, N08, N12 |")
+    status, output = gates_text(relocated)
+    require(status == 1 and "LOCATOR_MISSING" in failure_codes(output)
+            and "INFERENCE_OVERCLAIMED\tI18 " in output and "has no locator" in output,
+            f"a passage without a locator cannot carry a citation-use inference\n{output}")
     expect_fail("score with no basis",
                 mutate(text, recent, "| Recent-paper dependence | SCORED 0 | — | none |"),
                 "SCORED_WITHOUT_BASIS")
@@ -292,7 +409,7 @@ def test_adversarial_mutations() -> None:
                                        "| Finding 2 | provisional | I14, I15 |"))
     require(status == 0, "a provisional finding may list an insufficient inference")
     expect_review("recent dependence re-based on co-citation over the citing population",
-                  mutate(text, recent, "| Recent-paper dependence | SCORED 1 | I03 | "
+                  mutate(text, recent, "| Recent-paper dependence | SCORED 1 | I03 (+) | "
                          "co-citation of other cluster members |"), "BY_CONSTRUCTION_RISK")
 
 
@@ -304,9 +421,12 @@ def test_applicability() -> None:
     require(status == 1 and "VERSION_LINE_MISSING" in output,
             "--require-v2 must fail a missing version line")
     text = REPAIRED.read_text(encoding="utf-8").replace(
-        "INSTRUMENT VERSION: 2-citation-network v2-candidate\n", "")
+        "INSTRUMENT VERSION: 2-citation-network v2-candidate.2\n", "")
     status, output = gates_text(text)
     require(status == 3, "a fragment without the version line is not judged")
+    status, output = gates_text(REPAIRED.read_text(encoding="utf-8").replace(
+        "v2-candidate.2\n", "v2-candidate\n"))
+    require(status == 3, "an output of candidate revision 1 is not judged by revision 2")
 
 
 def assemble_power_posing() -> str:
@@ -358,8 +478,14 @@ def test_interactions() -> None:
 
         status, output = run_tool(GATES, str(path))
         require(status == 1, "candidate gates must FAIL the v1-era control")
-        require(failure_codes(output) == ["SCORED_WITHOUT_BASIS", "SCORED_WITHOUT_BASIS"],
+        require(failure_codes(output) == sorted([
+            "SCORED_WITHOUT_BASIS", "SCORED_WITHOUT_BASIS",       # two SCORED 0 rows, no evidence
+            "DIMENSION_CLASS_MISSING",                            # lack of decisive tests 2, no search
+            "LOCATOR_MISSING", "LOCATOR_MISSING", "LOCATOR_MISSING",  # S2-S4 have no page refs
+            "INFERENCE_OVERCLAIMED",     # P02 citation use rests on those unlocatable passages
+            "FINDING_ON_INSUFFICIENT"]),  # Finding 2 relies on P02
                 f"unexpected gate result on the v1 control: {failure_codes(output)}")
+        require("INFERENCE_OVERCLAIMED\tP02 " in output, "P02 should fail on locators")
         require("Recent-paper dependence is SCORED 0 with no listed inference" in output
                 and "Adjacent-field neglect is SCORED 0 with no listed inference" in output,
                 "expected the two SCORED 0 rows that rest on no evidence")

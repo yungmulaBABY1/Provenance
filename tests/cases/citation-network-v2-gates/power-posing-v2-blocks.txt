@@ -3,11 +3,13 @@ Hand-written. tests/test-citation-network-v2-gates.py inserts these blocks into 
 copy of tests/cases/citation-network-checker/complete-clean-control.md (which is not
 modified): the version line after the title, BLOCK A0 before SECTION A, and BLOCK K0 before
 SECTION K. The ledgers transcribe that fixture's own statements and Artifact 8 dispositions.
+The fixture records no page or section for any citing passage, so the INSPECTED rows below
+carry no locator, as in the source.
 Purpose: show that the v1 checker and the Atlas native parser read the combined output as
 before, and record what the candidate gates say about a v1-era clean control.
 
 BEGIN VERSION
-INSTRUMENT VERSION: 2-citation-network v2-candidate
+INSTRUMENT VERSION: 2-citation-network v2-candidate.2
 END VERSION
 
 BEGIN BLOCK A0
@@ -60,19 +62,21 @@ INFERENCE LEDGER
 
 DIMENSION EVIDENCE BASIS
 
+DIMENSION CLASS MAP: cn7-map-2
+
 | Scorecard dimension | Scorecard disposition | Inference IDs | Basis note |
 |---|---|---|---|
-| Founding-cluster dominance | SCORED 1 | P08, P01 | same-author S1/S3 centrality |
-| Internal citation density | SCORED 0 | P01 | six supplied internal edges |
+| Founding-cluster dominance | SCORED 1 | P08 (+), P01 (+) | same-author S1/S3 centrality |
+| Internal citation density | SCORED 0 | P01 (-) | six supplied internal edges |
 | Recent-paper dependence | SCORED 0 | — | Artifact 8 basis: supplied packet only; no recent corpus |
-| Review-hub laundering | SCORED 1 | P03 | S3 amplification with limits preserved |
-| Proxy mismatch | SCORED 1 | P07 | heterogeneous outcomes grouped |
-| Claim mutation | SCORED 1 | P03 | S1 overreach, qualified S3 amplification |
+| Review-hub laundering | SCORED 1 | P03 (+) | S3 amplification with limits preserved |
+| Proxy mismatch | SCORED 1 | P07 (+) | heterogeneous outcomes grouped |
+| Claim mutation | SCORED 1 | P03 (+) | S1 overreach, qualified S3 amplification |
 | Adjacent-field neglect | SCORED 0 | — | Artifact 8 basis: no neglect established in packet |
-| Lack of decisive tests | SCORED 2 | P06 | need for direct replications stated by S3 |
-| Poor critique uptake | SCORED 0 | P05 | S2 engaged by S3 |
+| Lack of decisive tests | SCORED 2 | P06 (+) | need for direct replications stated by S3 |
+| Poor critique uptake | SCORED 0 | P05 (-) | S2 engaged by S3 |
 | Intervention-evidence ratchet | N/A | — | no intervention claim |
-| Model non-updating | SCORED 0 | P09 | visible scientific updating |
+| Model non-updating | SCORED 0 | P09 (-) | visible scientific updating |
 
 FINDING EVIDENCE BASIS
 

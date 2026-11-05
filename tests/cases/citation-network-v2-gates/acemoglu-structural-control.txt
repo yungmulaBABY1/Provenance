@@ -7,7 +7,7 @@ This is a test input for the v2-candidate gates. It is not the run, not a re-gra
 Question: is the top-50 AJR-citing corpus internally dense, and are single-database records for AJR 2001 reliable? Reference lists and records answer both,
 so no citing passage is needed and none is claimed.
 
-INSTRUMENT VERSION: 2-citation-network v2-candidate
+INSTRUMENT VERSION: 2-citation-network v2-candidate.2
 
 SECTION A0: CORPUS REGISTER AND SOURCE ELIGIBILITY
 
@@ -99,10 +99,12 @@ INFERENCE LEDGER
 
 DIMENSION EVIDENCE BASIS
 
+DIMENSION CLASS MAP: cn7-map-2
+
 | Scorecard dimension | Scorecard disposition | Inference IDs | Basis note |
 |---|---|---|---|
-| Founding-cluster dominance | SCORED 1 | I03, I04 | authorship and co-citation counts |
-| Internal citation density | SCORED 0 | I01 | inside the defined corpus only |
+| Founding-cluster dominance | SCORED 1 | I03 (+), I04 (+) | authorship and co-citation counts |
+| Internal citation density | SCORED 0 | I01 (-) | inside the defined corpus only |
 | Recent-paper dependence | UNASSESSED | — | Outside this structural question; needs read citing passages or claim-testing sources |
 | Review-hub laundering | UNASSESSED | — | Outside this structural question; needs read citing passages or claim-testing sources |
 | Proxy mismatch | UNASSESSED | — | Outside this structural question; needs read citing passages or claim-testing sources |

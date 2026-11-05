@@ -5,10 +5,10 @@ NEGLECT
 CANDIDATE VERSION — NOT CANONICAL   [FAIL-CN-007]
 -----------------------------------------------------------------
 
-INSTRUMENT VERSION: 2-citation-network v2-candidate
+INSTRUMENT VERSION: 2-citation-network v2-candidate.2
 
-This file is a proposed revision under review. It is derived from the canonical
-prompts/research-analysis/2-citation-network.txt (git blob
+Revision 2 of the candidate (2026-11-04). This file is a proposed revision under review. It
+is derived from the canonical prompts/research-analysis/2-citation-network.txt (git blob
 7ac79f0da337c4d52e39e1490088d06c82a9d42b, sha256
 dcb93491a0a2ef5716575b89963c2cd9031c43e52011bb549416c89421ff3262). It does not replace that file, is
 not embedded in the webapp, and does not judge any output produced under an earlier version.
@@ -555,12 +555,19 @@ CORPUS DISCOVERY: SEARCHED — [search record] / NONE — [how members were asse
 SELECTED ON TARGET CITATION: YES / NO
 CORPUS SIZE: [number of members; equals the number of ledger rows naming this corpus]
 CITATION CONTEXT COVERAGE: [corpus id] [members with Citation context INSPECTED]/[members]
+CORPUS LOCK: [timestamp or hash of the search record] (required for an ADJUDICATION corpus with
+CORPUS DISCOVERY: SEARCHED)
 
 Register at least one ADJUDICATION corpus. If no adjudication search is run, register it with
 CORPUS DISCOVERY: NONE and list the claim-testing sources already retrieved, or none (CORPUS
-SIZE: 0). A NONE corpus supports statements about its named members only. Every coverage figure
-stated anywhere in the output uses the CITATION CONTEXT COVERAGE label and equals the ledger
-count.
+SIZE: 0). A NONE corpus supports statements about its named members only. It is enough only
+for an audit that makes no claim about the evidence base. Any such claim (that a kind of test
+is absent, the composition or independence of the evidence base, lack of decisive tests) needs
+an ADJUDICATION corpus with CORPUS DISCOVERY: SEARCHED. Fix and record that search (database,
+query, bounds, screening rule) and its CORPUS LOCK before screening any result. Results located
+afterwards may be added only as POST HOC members, named as such in Supported inference. Every
+coverage figure stated anywhere in the output uses the CITATION CONTEXT COVERAGE label and
+equals the ledger count.   [FAIL-CN-007]
 
 OVERLAP
 
@@ -590,13 +597,17 @@ Output one row per source under the label SOURCE ELIGIBILITY LEDGER, before Sect
 - Source access: FULL-TEXT / EXCERPT / ABSTRACT / METADATA / INACCESSIBLE, with the version
   read in parentheses. EXCERPT is a retrieved citation-context passage without the full text.
 - Citation context: INSPECTED / NOT-INSPECTED / VERSION-MISMATCH / NOT-APPLICABLE.
-- Supported inference: what this record, as accessed, permits, in one short phrase.
+- Supported inference: what this record, as accessed, permits, in one short phrase. For an
+  INSPECTED row it begins with a locator for the passage: an evidence ID (for example RD-E1), a
+  page (p. 12, PDF page 44), a section (§3, section 4.2), or "reference list" when the citation
+  appears only there.
 
 Gate A rules:
 
 - SUPPORTS, CHALLENGES, QUALIFIES, PREMISE and MENTIONS describe how the citation is used. Each
   requires Citation context INSPECTED. Without an inspected passage, use CITES-UNINSPECTED.
-- INSPECTED requires FULL-TEXT or EXCERPT access to a version that contains the citation.
+- INSPECTED requires FULL-TEXT or EXCERPT access to a version that contains the citation, and
+  a locator in Supported inference. A passage that cannot be located again is not inspected.
 - REUSES (shared data, instrument or sample) requires FULL-TEXT or ABSTRACT access.
 - NOT-APPLICABLE is the Citation context of a NOT-CITING source.
 - UNKNOWN is a valid value in every coded column. Never replace it with a guess to complete a
@@ -1359,7 +1370,10 @@ DATA-ORIGIN | whether named studies share data, instrument or sample | FULL-TEXT
 SOURCE-RESULT | what a named source reports or states | FULL-TEXT or ABSTRACT | NAMED or
     CORPUS
 ABSENCE | that no work of a kind exists | an ADJUDICATION corpus, SEARCHED for that kind of
-    work, every member screened (no UNKNOWN relevance) | LITERATURE, bounded by the search
+    work and locked before screening | LITERATURE, bounded by the search, only when every
+    member is screened (no UNKNOWN relevance); otherwise WITHIN-SAMPLE over the screened
+    members, with the statement giving screened/total. An absence is never stated beyond the
+    search that bounds it.
 
 Scopes: NAMED (listed sources); WITHIN-SAMPLE (the inspected members only; the statement says
 so); CORPUS (every member of the named corpus); POPULATION (a citing population defined in the
@@ -1375,8 +1389,9 @@ INFERENCE LEDGER
 
 - Corpus: a registered corpus ID; POPULATION for population counts; — for NAMED sets that span
   corpora or use OUTSIDE sources.
-- Members used: ALL; INSPECTED; a comma-separated list of ledger source identifiers; or, for
-  POPULATION, UNSCREENED or SCREENED: [rule].
+- Members used: ALL; INSPECTED; SCREENED (members whose relevance is not UNKNOWN); a
+  comma-separated list of ledger source identifiers; or, for POPULATION, UNSCREENED or
+  SCREENED: [rule].
 - Disposition: SUPPORTED / SUPPORTED-WITHIN-SAMPLE / INSUFFICIENT / NOT-ASSESSED.
 - For each COMPOSITION inference, add one line:
   COMPOSITION: [inference] | [relevance or contribution or access or context] | CODE=n; ... |
@@ -1392,22 +1407,36 @@ DIMENSION EVIDENCE BASIS
 
 | Scorecard dimension | Scorecard disposition | Inference IDs | Basis note |
 
-One row for each of the 11 Section K dimensions, with the same disposition as Artifact 8. A
-SCORED row lists the inferences its score relies on, and only those. An UNASSESSED,
-UNINFORMATIVE or N/A row leaves Inference IDs as — and its basis note states what is missing and
-what would make the dimension assessable.
+Output the line DIMENSION CLASS MAP: cn7-map-2 above this table. One row for each of the 11
+Section K dimensions, with the same disposition as Artifact 8. A SCORED row lists the
+inferences its score relies on, and only those, each tagged (+) when it supports concern or
+(-) when it supports no concern, for example: I03 (+), I10 (-). An UNASSESSED, UNINFORMATIVE
+or N/A row leaves Inference IDs as — and its basis note states what is missing and what would
+make the dimension assessable.
 
-A SCORED dimension needs at least one listed inference of these classes:
+A score above 0 needs at least one (+) inference of the concern classes below. A score of 0
+needs at least one (-) inference of the no-concern classes: affirmative evidence of no concern,
+as the hard rule in Section K requires. Every listed inference must pass Gate B.
 
-- Internal citation density: GRAPH-STRUCTURE.
-- Founding-cluster dominance: GRAPH-STRUCTURE, CO-CITATION or DATABASE-RECORD.
-- Recent-paper dependence: CITATION-USE, GRAPH-STRUCTURE or CO-CITATION. A graph or co-citation
-  statement on a corpus selected on target citation must concern citation beyond the target.
-- Review-hub laundering; Claim mutation: RESTATEMENT.
-- Proxy mismatch: RESTATEMENT, CITATION-USE or SOURCE-RESULT.
-- Lack of decisive tests: ABSENCE or SOURCE-RESULT.
-- Poor critique uptake: ENGAGEMENT.
-- Other dimensions: any class; their own section gates also apply.
+DIMENSION CLASS MAP cn7-map-2 (dimension: concern classes / no-concern classes)
+
+- Internal citation density: GRAPH-STRUCTURE / GRAPH-STRUCTURE.
+- Founding-cluster dominance: GRAPH-STRUCTURE, CO-CITATION, DATABASE-RECORD / the same.
+- Recent-paper dependence: CITATION-USE, GRAPH-STRUCTURE, CO-CITATION / the same. A graph or
+  co-citation statement on a corpus selected on target citation must concern citation beyond
+  the target.
+- Review-hub laundering; Claim mutation: RESTATEMENT / RESTATEMENT.
+- Proxy mismatch: RESTATEMENT, CITATION-USE, SOURCE-RESULT / the same.
+- Lack of decisive tests: ABSENCE / SOURCE-RESULT, DATA-ORIGIN (a named decisive test exists).
+- Poor critique uptake: ENGAGEMENT, GRAPH-STRUCTURE (named dominant-cluster papers that had the
+  opportunity do not cite the critique) / ENGAGEMENT.
+- Adjacent-field neglect: ENGAGEMENT, GRAPH-STRUCTURE (named audited papers do not cite the
+  locked adjudicating source) / ENGAGEMENT, SOURCE-RESULT.
+- Intervention-evidence ratchet; Model non-updating: any class; their own section gates apply.
+
+A co-citation rate over a population is never a concern basis for poor critique uptake or
+adjacent-field neglect. Listed beside a qualifying (+) inference it goes to review; alone it is
+insufficient. The map is versioned: a change to any entry is a new map ID.
 
 FINDING EVIDENCE BASIS
 
@@ -1476,7 +1505,11 @@ UNINFORMATIVE into no concern. A dimension may be fully executed yet remain unin
 
 A dimension may be SCORED only when SECTION K0 links it to inferences that pass Gate B. A
 dimension whose only bases are INSUFFICIENT or NOT-ASSESSED is UNASSESSED. The coverage gate
-counts dimensions after this step. Its 70% value is unchanged and remains PROVISIONAL.   [FAIL-CN-007]
+counts dimensions after this step. Its 70% value is unchanged and remains PROVISIONAL. Report
+coverage after Gate B; the gate checker also reports what coverage would be if each dimension
+with an open review item were withdrawn, and the formal-label gate must state whether it is met
+only on condition that those items resolve for the score. If coverage after Gate B is below
+70%, RISK BAND reads WITHHELD, whatever the arithmetic band position.   [FAIL-CN-007]
 
 Dimensions:
 

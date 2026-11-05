@@ -1,5 +1,9 @@
 CITATION-NETWORK INSTRUMENT v2-CANDIDATE — CHANGE RECORDS
 Status: PROPOSED. Not canonical. Not run live. Failure link: FAIL-CN-007 (FAILURES.md).
+Current revision: 2 (INSTRUMENT VERSION: 2-citation-network v2-candidate.2; dimension class
+map cn7-map-2). Revision 1 (commit ccd6f3d) had no live outputs; revision 2 does not judge
+outputs that declare revision 1. Revision 2 changes are listed at the end and folded into the
+records below.
 
 Base: prompts/research-analysis/2-citation-network.txt, git blob
 7ac79f0da337c4d52e39e1490088d06c82a9d42b, sha256
@@ -14,11 +18,12 @@ review note proposing separate reception and adjudication corpora with eligibili
 sufficiency gates. The note's line references to the base were verified; its counts were
 checked against the run (see FAIL-CN-007, Observed).
 
-Test receipt for every IMPLEMENTED rule below: tests/test-citation-network-v2-gates.py,
-PASS 161 checks under Python 3.11 and 3.13, 2026-11-04, branch
-cn-v2-candidate-corpus-sufficiency. Every checker rule was ablated one at a time; each
-ablation made the suite fail. The v1 test suite, the Atlas unittests, the content replays
-and the webapp prompt-parity check pass unchanged.
+Test receipt for every IMPLEMENTED rule below (revision 2): tests/test-citation-network-v2-
+gates.py, PASS 221 checks under Python 3.11 and 3.13 (225 with the Acemoglu rebuild), 2026-11-04,
+branch cn-v2-candidate-corpus-sufficiency. tests/ablate-citation-network-v2-gates.py: 58/58
+checker rules caught (each disabled alone on a temporary copy makes the suite fail). The v1 test
+suite, the Atlas unittests, the content replays and the webapp prompt-parity check pass
+unchanged.
 
 ----------------------------------------------------------------------------------------
 CN7-R1  Separate reception and adjudication corpora
@@ -37,8 +42,11 @@ CN7-R1  Separate reception and adjudication corpora
   Acceptance: as-run transcription fails ADJUDICATION_CORPUS_MISSING; repaired and controls
     pass; mutations change role or size and fail.
   Status: IMPLEMENTED (instruction + checker); NOT RUN LIVE.
-  Open: whether a NONE adjudication corpus should be allowed to stay empty when the audit
-    makes no evidence-base inference (the structural control does this).
+  Revision 2: a NONE corpus is enough only for an audit that makes no claim about the evidence
+    base; any such claim needs a SEARCHED adjudication corpus with a CORPUS LOCK fixed before
+    screening (checker: REGISTER_FIELD for a missing lock; the claim classes fail without a
+    SEARCHED corpus). Results found after the lock enter only as POST HOC members.
+  Open: none known; whether a lock predates screening is a declaration, not a check.
 
 CN7-R2  Overlap
   Requirement: one ledger row per source with every membership; counted once per corpus;
@@ -65,8 +73,13 @@ CN7-R3  Source eligibility ledger (Gate A)
     REUSE_WITHOUT_ACCESS, CONTEXT_STATE, CODED_FROM_METADATA review).
   Acceptance: as-run fails on N11 and N31; repaired passes; mutations fail.
   Status: IMPLEMENTED; NOT RUN LIVE.
-  Open: the Supported inference column is free text and unchecked; the checkable unit is the
-    inference (CN7-R6). Burden: one row per source (50 + 25 + adjudication rows here).
+  Revision 2: an INSPECTED row needs a passage locator (evidence ID, page, section, or
+    "reference list") in Supported inference; a passage that cannot be located again is not
+    inspected, and cannot carry a CITATION-USE inference (checker: LOCATOR_MISSING; CITATION-USE
+    member rule).
+  Open: the locator is checked for form, not existence. Otherwise the column is free text and
+    the checkable unit is the inference (CN7-R6). Burden: one row per source (50 + 25 +
+    adjudication rows here).
 
 CN7-R4  Citation use requires an inspected passage in a version that contains it
   Requirement: no polarity or claim-use class other than "unclear without full text" without
@@ -105,12 +118,15 @@ CN7-R6  Inference ledger and sufficiency by inference class (Gate B)
   Enforcement: checker (INFERENCE_OVERCLAIMED, DISPOSITION_MISMATCH, OVER_WITHHELD review,
     SAMPLE_DECLARED_RANDOM review).
   Acceptance: as-run fails five inferences; the structural control passes with zero items;
-    the repaired fixture keeps 17 of 20 inferences passing (I05, I12, I15 withheld); OVER_WITHHELD fires when a
-    supportable inference is withheld.
+    the repaired fixture keeps 17 of 20 inferences passing (I05, I12, I15 withheld);
+    OVER_WITHHELD fires when a supportable inference is withheld.
   Status: IMPLEMENTED; NOT RUN LIVE.
-  Open: (a) ABSENCE requires zero UNKNOWN relevance in the search set — may be too strict for
-    large searches; a prespecified screening sample with stated uncertainty is the obvious
-    alternative, untested. (b) Randomness and search adequacy are declarations, not checks.
+  Revision 2 (bounded negatives): ABSENCE at LITERATURE scope still needs every result
+    screened; with unscreened results it is allowed only at WITHIN-SAMPLE over the SCREENED
+    members, with the statement giving screened/total, and a score that uses it goes to review
+    (BOUNDED_ABSENCE) and counts as review-pending in the coverage sensitivity. An absence is
+    never stated beyond the search that bounds it.
+  Open: randomness and search adequacy are declarations, not checks.
 
 CN7-R7  Scores rest on passing inferences; dimension class requirements
   Requirement: DIMENSION EVIDENCE BASIS mirrors Artifact 8; a SCORED row lists only passing
@@ -126,15 +142,27 @@ CN7-R7  Scores rest on passing inferences; dimension class requirements
     SCORED_ON_INSUFFICIENT, DIMENSION_CLASS_MISSING, UNSCORED_WITH_BASIS, BASIS_NOTE_MISSING,
     DIMENSION_ROWS, SCORECARD_DISAGREES; CO_CITATION_UNSCREENED and BY_CONSTRUCTION_RISK
     reviews).
-  Acceptance: as-run fails two dimensions; repaired keeps 8 of 10 applicable SCORED; v1 clean
-    control fails two SCORED 0 rows that rest on no evidence.
+  Acceptance (revision 2): as-run fails four dimensions and its issued band; repaired keeps 5
+    of 10 applicable SCORED and withholds the band; the v1 clean control fails its two SCORED 0
+    rows that rest on no evidence and its lack-of-decisive-tests score that rests on no search.
   Status: IMPLEMENTED; NOT RUN LIVE.
-  Open: (a) the class map is a design judgment, most likely to need revision; adjacent-field
-    neglect, ratchet and model non-updating carry no class requirement. (b) Whether
-    co-citation over an unscreened population should FAIL rather than go to review.
-    (c) Interaction with the 70% gate: on the repaired Acemoglu fixture coverage moves from
-    9/10 to 8/10; the two open review items sit on SCORED 1 dimensions, and resolving both
-    against the score would leave 6/10, below the provisional gate.
+  Revision 2 (cn7-map-2): every SCORED row tags each inference (+) supporting concern or (-)
+    supporting no concern. A score above 0 needs a (+) inference of the dimension's concern
+    classes; a score of 0 needs a (-) inference of its no-concern classes (the SCORED 0 hard
+    rule, now enforced). Lack of decisive tests: concern only from ABSENCE; no concern from a
+    named decisive test (SOURCE-RESULT, DATA-ORIGIN). Poor critique uptake and adjacent-field
+    neglect: concern from ENGAGEMENT or GRAPH-STRUCTURE on named papers; co-citation over a
+    population is never a concern basis — beside a qualifying (+) inference it goes to review,
+    alone it fails. The map carries an ID, printed by the checker and declared in the output;
+    any change to an entry is a new ID. Coverage is reported three ways (declared, after Gate B,
+    and with review-pending dimensions withdrawn); a RISK BAND issued below the 70% gate after
+    Gate B fails, and one that meets it only while review-pending dimensions are counted goes to
+    review (BAND_CONDITIONAL).
+  Effect on the repaired Acemoglu fixture: 5/10 SCORED after Gate B (revision 1: 8/10); band
+    WITHHELD. Taking the dominant cluster as the uptake population gives 6/10, still withheld.
+  Open: (a) the map is a design judgment and the place an independent reviewer is most likely to
+    find overfitting; ratchet and model non-updating still accept any class. (b) Direction tags
+    are declarations; a mis-tagged inference is not detected.
 
 CN7-R8  Findings rest on passing inferences
   Requirement: FINDING EVIDENCE BASIS; confirmed or contested findings list only passing
@@ -211,8 +239,24 @@ NOT IMPLEMENTED / DEFERRED
 - Atlas contract: CorpusScope holds one declared corpus per run; v2 multi-corpus registers and
   ledgers would stay in the raw output, unparsed. Atlas challenge records run only the vendored
   v1 checker; v2 review items use the same line format but are not wired in.
-- Passage-level verification of INSPECTED rows (needs passage anchors).
+- Passage-level verification of INSPECTED rows (needs passage anchors). Revision 2 requires a
+  locator, which makes verification possible later; it does not verify.
 - Webapp embedding: deliberately not done (candidates are not embedded).
+
+REVISION 2 — DECISIONS TAKEN (2026-11-04; the five review positions plus three additions)
+ 1. Mapping explicit and versioned: cn7-map-2, declared in the output (MAP_VERSION_MISSING,
+    MAP_VERSION_MISMATCH). CN7-R7.
+ 2. Unscreened co-citation: never the concern basis for uptake or neglect; review beside
+    qualifying evidence; insufficient alone. Direction tags close the gap where the other
+    evidence points against the concern. CN7-R7, CN7-R10.
+ 3. Bounded negatives: allowed within the screened results, never beyond the search. CN7-R6.
+ 4. Empty adjudication corpus: only when no evidence-base claim is made; otherwise a SEARCHED,
+    locked corpus. CN7-R1, CN7-R7.
+ 5. 70% gate: unchanged and provisional; coverage sensitivity reported; band enforcement after
+    Gate B. CN7-R7.
+ 6. Added: passage locators for INSPECTED rows. CN7-R3, CN7-R4.
+ 7. Added: the SCORED 0 hard rule is enforced through (-) evidence. CN7-R7.
+ 8. Added: rule ablation script, tests/ablate-citation-network-v2-gates.py.
 
 PROMOTION — EVIDENCE THAT WOULD SUPPORT ADOPTION
 Passing these tests is not that evidence. Proposed minimum:
@@ -223,6 +267,7 @@ Passing these tests is not that evidence. Proposed minimum:
     suffices, with no unnecessary withholding (OVER_WITHHELD and reviewer judgment).
  3. An independent adversarial review of the candidate text and checker by a reviewer that did
     not write them, with disagreements recorded.
- 4. Decisions on the open items: CN7-R6(a), CN7-R7(a)-(c), the NONE-corpus question in R1.
+ 4. Decisions on the items still open: CN7-R7(a) and (b), above all an independent review of
+    cn7-map-2.
  5. Explicit adoption by the repository owner: canonical path change, CHANGELOG entry, Atlas
     baseline entry for the new instrument and checker identities.

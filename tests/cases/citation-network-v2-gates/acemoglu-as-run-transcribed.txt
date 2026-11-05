@@ -7,7 +7,7 @@ This is a test input for the v2-candidate gates. It is not the run, not a re-gra
 Coverage line below repeats the run's own figure: citing passages retrieved for 13 of 50 top citers (02c line 686).
 The run registered no adjudication corpus; none is registered here.
 
-INSTRUMENT VERSION: 2-citation-network v2-candidate
+INSTRUMENT VERSION: 2-citation-network v2-candidate.2
 
 SECTION A0: CORPUS REGISTER AND SOURCE ELIGIBILITY
 
@@ -34,17 +34,17 @@ SOURCE ELIGIBILITY LEDGER
 | Source | Corpus membership | Question relevance | Relation to target | Evidence contribution | Source access | Citation context | Supported inference |
 |---|---|---|---|---|---|---|---|
 | N01 W3124131699 2012 The Colonial Origins of Comparative Development: ... | RECEPTION-1 | DIRECT | SUPPORTS+REUSES | REANALYSIS | FULL-TEXT | INSPECTED | citing passage read |
-| N02 W2994756033 2004 Institutions Rule: The Primacy of Institutions ... | RECEPTION-1 | DIRECT | SUPPORTS+REUSES | SHARED-DATA | FULL-TEXT (NBER WP 9305) | INSPECTED | citing passage read |
-| N03 W2890314743 2004 Do Institutions Cause Growth? | RECEPTION-1 | DIRECT | CHALLENGES+REUSES | SHARED-DATA | FULL-TEXT (NBER WP 10568) | INSPECTED | citing passage read |
-| N04 W3122778615 2003 The great reversals: the politics of ... | RECEPTION-1 | BACKGROUND | MENTIONS | NONE | FULL-TEXT (NBER w8178) | INSPECTED | citing passage read |
-| N05 W2108614304 2004 Institutions as the Fundamental Cause of ... | RECEPTION-1 | ADJACENT | PREMISE | REVIEW | FULL-TEXT (NBER WP 10481) | INSPECTED | citing passage read |
-| N06 W3123436326 2017 Double/debiased machine learning for treatment and ... | RECEPTION-1 | UNKNOWN | SUPPORTS+REUSES | REANALYSIS | FULL-TEXT (arXiv 1608.00060) | INSPECTED | citing passage read |
+| N02 W2994756033 2004 Institutions Rule: The Primacy of Institutions ... | RECEPTION-1 | DIRECT | SUPPORTS+REUSES | SHARED-DATA | FULL-TEXT (NBER WP 9305) | INSPECTED | RD-E1, RD-E3, RD-E4: citing passage read |
+| N03 W2890314743 2004 Do Institutions Cause Growth? | RECEPTION-1 | DIRECT | CHALLENGES+REUSES | SHARED-DATA | FULL-TEXT (NBER WP 10568) | INSPECTED | GL-E1, GL-E2: citing passage read |
+| N04 W3122778615 2003 The great reversals: the politics of ... | RECEPTION-1 | BACKGROUND | MENTIONS | NONE | FULL-TEXT (NBER w8178) | INSPECTED | reference list: citing passage read |
+| N05 W2108614304 2004 Institutions as the Fundamental Cause of ... | RECEPTION-1 | ADJACENT | PREMISE | REVIEW | FULL-TEXT (NBER WP 10481) | INSPECTED | HB-E1: citing passage read |
+| N06 W3123436326 2017 Double/debiased machine learning for treatment and ... | RECEPTION-1 | UNKNOWN | SUPPORTS+REUSES | REANALYSIS | FULL-TEXT (arXiv 1608.00060) | INSPECTED | DML-E1, DML-E2: citing passage read |
 | N07 W2556507681 2016 The Theory of Economic Development | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA (LOCATED) | NOT-INSPECTED | record only; not read |
 | N08 W2064927380 2007 The Product Space Conditions the Development ... | RECEPTION-1 | BACKGROUND | MENTIONS | NONE | FULL-TEXT (arXiv 0708.2090) | INSPECTED | citing passage read |
 | N09 W1588189399 2005 Chapter 12 Finance and Growth: Theory ... | RECEPTION-1 | BACKGROUND | MENTIONS | REVIEW | FULL-TEXT (NBER w10766) | INSPECTED | citing passage read |
 | N10 W1484474409 2006 Institutions and the Resource Curse | RECEPTION-1 | BACKGROUND | CITES-UNINSPECTED | NONE | ABSTRACT | NOT-INSPECTED | abstract read; citation not inspected |
 | N11 W1580107285 2005 Chapter 6 Institutions as a Fundamental ... | RECEPTION-1 | ADJACENT | PREMISE | REVIEW | METADATA (LOCATED) | NOT-INSPECTED | record only; not read |
-| N12 W1480274481 2008 The Role of Cognitive Skills in ... | RECEPTION-1 | ADJACENT | MENTIONS | REVIEW | FULL-TEXT (NBER w12832) | INSPECTED | citing passage read |
+| N12 W1480274481 2008 The Role of Cognitive Skills in ... | RECEPTION-1 | ADJACENT | MENTIONS | REVIEW | FULL-TEXT (NBER w12832) | INSPECTED | HW-E1: citing passage read |
 | N13 W3125697804 2004 International Technology Diffusion | RECEPTION-1 | BACKGROUND | CITES-UNINSPECTED | REVIEW | FULL-TEXT (NBER w8573, 2001 WP) | VERSION-MISMATCH | retrieved version lacks the citation |
 | N14 W2104834906 2014 What Do We Learn from the ... | RECEPTION-1 | ADJACENT | MENTIONS | REVIEW | FULL-TEXT (NBER w19578) | INSPECTED | citing passage read |
 | N15 W3123261979 2011 Natural Resources: Curse or Blessing? | RECEPTION-1 | ADJACENT | CITES-UNINSPECTED | REVIEW | ABSTRACT | NOT-INSPECTED | abstract read; citation not inspected |
@@ -53,7 +53,7 @@ SOURCE ELIGIBILITY LEDGER
 | N18 W2145309110 2011 The Slave Trade and the Origins ... | RECEPTION-1 | BACKGROUND | CITES-UNINSPECTED | NONE | ABSTRACT | NOT-INSPECTED | abstract read; citation not inspected |
 | N19 W1934649023 2005 Governance Matters IV : Governance Indicators ... | RECEPTION-1 | ADJACENT | CITES-UNINSPECTED | UNKNOWN | ABSTRACT | NOT-INSPECTED | abstract read; citation not inspected |
 | N20 W3023420463 2005 Eight Questions about Corruption | RECEPTION-1 | BACKGROUND | CITES-UNINSPECTED | REVIEW | ABSTRACT | NOT-INSPECTED | abstract read; citation not inspected |
-| N21 W3122513675 2003 Tropics, germs, and crops: how endowments ... | RECEPTION-1 | DIRECT | SUPPORTS+REUSES | SHARED-DATA | FULL-TEXT (NBER WP 9106) | INSPECTED | citing passage read |
+| N21 W3122513675 2003 Tropics, germs, and crops: how endowments ... | RECEPTION-1 | DIRECT | SUPPORTS+REUSES | SHARED-DATA | FULL-TEXT (NBER WP 9106) | INSPECTED | EL-E1: citing passage read |
 | N22 W2789051288 2009 The Origins of State Capacity: Property ... | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | THEORY | ABSTRACT | NOT-INSPECTED | abstract read; citation not inspected |
 | N23 W4253884756 2010 Civil War | RECEPTION-1 | BACKGROUND | CITES-UNINSPECTED | REVIEW | ABSTRACT | NOT-INSPECTED | abstract read; citation not inspected |
 | N24 W2150851272 2010 1 Economic Geography and International Inequality | RECEPTION-1 | BACKGROUND | CITES-UNINSPECTED | NONE | ABSTRACT | NOT-INSPECTED | abstract read; citation not inspected |
@@ -109,8 +109,8 @@ SOURCE ELIGIBILITY LEDGER
 | R24 W4390870694 2024 Aid effectiveness and donor motives | RECENT-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | ABSTRACT | NOT-INSPECTED | reference list only; citing passage not read |
 | R25 W4200071543 2021 Institutional quality and human capital development ... | RECENT-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA (LOCATED) | NOT-INSPECTED | reference list only; citing passage not read |
 | N00 W3124166904 2001 AJR, The Colonial Origins of Comparative Development (target) | OUTSIDE | DIRECT (field 6) | NOT-CITING | INDEPENDENT-DATA | FULL-TEXT (AER 2001) | NOT-APPLICABLE | target, read in full before this stage (02c line 9) |
-| NP Nobel popular background 2024 | OUTSIDE | ADJACENT | SUPPORTS | REVIEW | FULL-TEXT (2024 popular background) | INSPECTED | restatement read; Artifact 4 polarity inflated (02c line 416) |
-| NS Nobel scientific background 2024 | OUTSIDE | ADJACENT | SUPPORTS+QUALIFIES | REVIEW | FULL-TEXT (2024 scientific background) | INSPECTED | restatement and critique discussion read (02c line 417) |
+| NP Nobel popular background 2024 | OUTSIDE | ADJACENT | SUPPORTS | REVIEW | FULL-TEXT (2024 popular background) | INSPECTED | NP-E1: restatement read; Artifact 4 polarity inflated (02c line 416) |
+| NS Nobel scientific background 2024 | OUTSIDE | ADJACENT | SUPPORTS+QUALIFIES | REVIEW | FULL-TEXT (2024 scientific background) | INSPECTED | NS-E1, NS-E2: restatement and critique discussion read (02c line 417) |
 | AL W1969918011 2012 Albouy, AER Comment | OUTSIDE | DIRECT (field 6) | CHALLENGES | REANALYSIS | FULL-TEXT (AER 2012, read in Stage 2a) | INSPECTED | critique of the settler-mortality data (02c line 234) |
 | SA Sachs 2003, NBER WP 9490 | OUTSIDE | DIRECT (L3 rival R1) | UNKNOWN | UNKNOWN | FULL-TEXT (NBER WP 9490) | NOT-INSPECTED | own result read; its citation of AJR not inspected (02c line 196) |
 
@@ -145,17 +145,19 @@ COMPOSITION: I19 | relevance | DIRECT=4; ADJACENT=7; BACKGROUND=25; UNRELATED=0;
 
 DIMENSION EVIDENCE BASIS
 
+DIMENSION CLASS MAP: cn7-map-2
+
 | Scorecard dimension | Scorecard disposition | Inference IDs | Basis note |
 |---|---|---|---|
-| Founding-cluster dominance | SCORED 1 | I03, I04 | 02c line 465 |
-| Internal citation density | SCORED 0 | I01 | 02c line 466 |
-| Recent-paper dependence | SCORED 1 | I05 | 02c line 467 |
-| Review-hub laundering | SCORED 1 | I06, I07 | NESTED under claim mutation; 02c line 468 |
-| Proxy mismatch | SCORED 1 | I08 | 02c line 469 |
-| Claim mutation | SCORED 1 | I06, I09 | 02c line 470 |
-| Adjacent-field neglect | SCORED 1 | I10, I11 | 02c line 471 |
-| Lack of decisive tests | SCORED 1 | I12, I13, I14 | 02c line 472 |
-| Poor critique uptake | SCORED 1 | I16, I17 | 02c line 473 |
+| Founding-cluster dominance | SCORED 1 | I03 (+), I04 (+) | 02c line 465 |
+| Internal citation density | SCORED 0 | I01 (-) | 02c line 466 |
+| Recent-paper dependence | SCORED 1 | I05 (+) | 02c line 467 |
+| Review-hub laundering | SCORED 1 | I06 (+), I07 (+) | NESTED under claim mutation; 02c line 468 |
+| Proxy mismatch | SCORED 1 | I08 (+) | 02c line 469 |
+| Claim mutation | SCORED 1 | I06 (+), I09 (+) | 02c line 470 |
+| Adjacent-field neglect | SCORED 1 | I10 (-), I11 (+) | source layer affirmative; downstream co-citation low (02c line 448) |
+| Lack of decisive tests | SCORED 1 | I12 (+), I13 (+), I14 (+) | 02c line 472 |
+| Poor critique uptake | SCORED 1 | I16 (-), I17 (+) | cluster engaged; citing-mass co-citation low (02c line 473) |
 | Intervention-evidence ratchet | N/A | — | No intervention claim (02c line 474) |
 | Model non-updating | UNINFORMATIVE | — | Four-link gate link 2 not met: the disconfirming evidence is contested, not verified (02c line 475) |
 
@@ -170,3 +172,5 @@ FINDING EVIDENCE BASIS
 | Finding 5 | confirmed | I16, I17 |
 | Finding 6 | contested | I11, I20 |
 | Finding 7 | confirmed | I01 |
+
+RISK BAND: >20%–40% normal field clustering with some weaknesses — computed over 8 independent scored dimensions

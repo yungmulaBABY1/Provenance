@@ -1432,15 +1432,18 @@ evidence the run never read.
 adds SECTION A0 (registered reception and adjudication corpora, overlap rule, source
 eligibility ledger) and SECTION K0 (inference classes with minimum evidence and widest scope;
 scores and findings may rest only on passing inferences), extends the citation-use rule to
-every polarity class, and requires coverage figures to equal ledger counts. The 70% gate value
-is unchanged. Rule records and open conflicts:
+every polarity class, and requires coverage figures to equal ledger counts. Revision 2 adds
+direction-tagged dimension bases under a versioned class map, passage locators, bounded
+absence claims, a locked search for any evidence-base claim, and band enforcement after Gate
+B. The 70% gate value is unchanged. Rule records and open conflicts:
 `candidates/research-analysis/2-citation-network.v2-candidate.CHANGES.txt`.
 
-**Regression condition:** the as-run transcription fails on the coverage recount, N11, N31,
-the missing adjudication corpus, five overclaimed inferences, two dimensions and Finding 2;
-the same evidence re-ledgered passes with review and keeps all seven findings and 8 of 10
-applicable dimensions; a structural question that metadata answers passes with no review
-item; outputs of the canonical instrument are not judged (NOT_APPLICABLE).
+**Regression condition (candidate revision 2):** the as-run transcription fails on the
+coverage recount, five unlocatable inspections, N11, N31, the missing adjudication corpus, five
+overclaimed inferences, four dimensions, Finding 2 and its issued band; the same evidence
+re-ledgered passes with one review item, keeps all seven findings, keeps 5 of 10 applicable
+dimensions and withholds the band; a structural question that metadata answers passes with no
+review item; outputs of the canonical instrument are not judged (NOT_APPLICABLE).
 
 **Case:** `tests/test-citation-network-v2-gates.py`, fixtures in
 `tests/cases/citation-network-v2-gates/` (tuned to this run; no held-out case).
