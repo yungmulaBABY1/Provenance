@@ -1,0 +1,92 @@
+CANDIDATE GATE FIXTURE — SYNTHETIC OVERLAP CASE
+
+FIXTURE KIND: synthetic overlap control (expected: PASS)
+Hand-written. S1-S6 and T are invented records; nothing here describes any literature.
+It exercises sources that belong to both corpora (S2, S3), an adjudication-only source that
+does not cite the target (S5), and a lightly cited direct test absent from the reception
+corpus (S6). Each corpus is counted from its own memberships only.
+
+INSTRUMENT VERSION: 2-citation-network v2-candidate.3
+
+SECTION A0: CORPUS REGISTER AND SOURCE ELIGIBILITY
+
+CLAIM LAYERS AND RIVALS
+
+CLAIM LAYER: L1 — the synthetic target claim T makes
+RIVAL: R1 — a synthetic rival explanation
+
+CORPUS ID: RECEPTION-1
+CORPUS ROLE: RECEPTION
+CORPUS QUESTION: How the target T is cited by its most-cited citing works
+CORPUS SELECTION RULE: synthetic database, works citing T, top 4 by citation count
+CORPUS DISCOVERY: SEARCHED — synthetic query, citers of T ranked by count
+SELECTED ON TARGET CITATION: YES
+CORPUS SIZE: 4
+CITATION CONTEXT COVERAGE: RECEPTION-1 2/4
+RECORD QUALITY: none known (synthetic records)
+
+CORPUS ID: ADJUDICATION-1
+CORPUS ROLE: ADJUDICATION
+CORPUS QUESTION: Studies that test claim layer L1, whether or not they cite T
+CORPUS SELECTION RULE: synthetic database, topic query for tests of L1, no citation filter, every result screened
+CORPUS DISCOVERY: SEARCHED — synthetic topic query; 4 results, all screened
+SELECTED ON TARGET CITATION: NO
+CORPUS SIZE: 4
+CITATION CONTEXT COVERAGE: ADJUDICATION-1 2/4
+RECORD QUALITY: none known (synthetic records)
+KNOWN-ITEM RECALL: ADJUDICATION-1 2/2 (returned: S2, S5; not returned: none)
+CORPUS LOCK: synthetic search record locked before screening (sha256 0000-synthetic)
+
+SOURCE ELIGIBILITY LEDGER
+
+| Source | Corpus membership | Question relevance | Relation to target | Evidence contribution | Source access | Citation context | Supported inference |
+|---|---|---|---|---|---|---|---|
+| T synthetic target study | OUTSIDE | DIRECT (L1) | NOT-CITING | INDEPENDENT-DATA | FULL-TEXT | NOT-APPLICABLE | the target itself |
+| S1 synthetic highly cited user of T for another question | RECEPTION-1 | BACKGROUND | CITES-UNINSPECTED | NONE | ABSTRACT | NOT-INSPECTED | abstract shows another question |
+| S2 synthetic reanalysis of T's data, highly cited | RECEPTION-1+ADJUDICATION-1 | DIRECT (L1) | CHALLENGES+REUSES | SHARED-DATA | FULL-TEXT | INSPECTED | p. 4: citing passage read |
+| S3 synthetic review, highly cited | RECEPTION-1+ADJUDICATION-1 | ADJACENT | SUPPORTS | REVIEW | FULL-TEXT | INSPECTED | section 2: citing passage read |
+| S4 synthetic record, highly cited | RECEPTION-1 | UNKNOWN | CITES-UNINSPECTED | UNKNOWN | METADATA | NOT-INSPECTED | record only; relevance not screened |
+| S5 synthetic earlier independent test | ADJUDICATION-1 | DIRECT (L1) | NOT-CITING | INDEPENDENT-DATA | FULL-TEXT | NOT-APPLICABLE | predates T; own result read |
+| S6 synthetic lightly cited independent test | ADJUDICATION-1 | DIRECT (L1) | CITES-UNINSPECTED | INDEPENDENT-DATA | ABSTRACT | NOT-INSPECTED | abstract reports its own data |
+
+SECTION K0: EVIDENCE SUFFICIENCY LEDGER
+
+INFERENCE LEDGER
+
+| Inference | Class | Corpus | Claimed scope | Sampling rule | Members used | Disposition | Statement |
+|---|---|---|---|---|---|---|---|
+| O1 | GRAPH-STRUCTURE | RECEPTION-1 | CORPUS | EXHAUSTIVE | ALL | SUPPORTED | 2/12 possible directed edges inside the reception corpus |
+| O2 | COMPOSITION | RECEPTION-1 | CORPUS | EXHAUSTIVE | ALL | SUPPORTED | 1 of the 4 most-cited citers is a direct test; describes the citing set only |
+| O3 | COMPOSITION | ADJUDICATION-1 | LITERATURE | EXHAUSTIVE | ALL | SUPPORTED | 3 of 4 search results are direct tests of L1, within the search bounds |
+| O4 | DATA-ORIGIN | ADJUDICATION-1 | LITERATURE | EXHAUSTIVE | ALL | SUPPORTED | Two direct tests use data independent of T (S5, S6), beside the shared-data reanalysis S2 |
+| O5 | ABSENCE | ADJUDICATION-1 | LITERATURE | EXHAUSTIVE | ALL | SUPPORTED | No preregistered replication of L1 appears among the screened search results |
+| O6 | CITATION-USE | RECEPTION-1 | WITHIN-SAMPLE | CONVENIENCE | INSPECTED | SUPPORTED-WITHIN-SAMPLE | Of the 2 inspected citing passages, S2 challenges T and S3 supports it |
+| O7 | SOURCE-RESULT | — | NAMED | NOT-APPLICABLE | S5, S6 | SUPPORTED | S5 and S6 report their own estimates of L1 |
+
+COMPOSITION: O2 | relevance | DIRECT=1; ADJACENT=1; BACKGROUND=1; UNRELATED=0; UNKNOWN=1 | TOTAL=4
+COMPOSITION: O3 | relevance | DIRECT=3; ADJACENT=1; BACKGROUND=0; UNRELATED=0; UNKNOWN=0 | TOTAL=4
+
+DIMENSION EVIDENCE BASIS
+
+DIMENSION CLASS MAP: cn7-map-3
+
+| Scorecard dimension | Scorecard disposition | Inference IDs | Basis note |
+|---|---|---|---|
+| Founding-cluster dominance | UNASSESSED | — | synthetic case: no authorship or co-citation data |
+| Internal citation density | SCORED 0 | O1 (-) | inside the reception corpus only |
+| Recent-paper dependence | UNASSESSED | — | synthetic case: no recent corpus |
+| Review-hub laundering | UNASSESSED | — | synthetic case: no restatement compared |
+| Proxy mismatch | UNASSESSED | — | synthetic case: no construct comparison |
+| Claim mutation | UNASSESSED | — | synthetic case: no restatement compared |
+| Adjacent-field neglect | UNASSESSED | — | synthetic case: no Section E lock |
+| Lack of decisive tests | SCORED 1 | O5 (+), O7 (-) | independent tests exist; no preregistered replication in the searched set |
+| Poor critique uptake | UNASSESSED | — | synthetic case: no critique traced |
+| Intervention-evidence ratchet | N/A | — | no intervention claim |
+| Model non-updating | UNASSESSED | — | synthetic case: no model traced |
+
+FINDING EVIDENCE BASIS
+
+| Finding | Finding status | Inference IDs |
+|---|---|---|
+| Finding 1 | confirmed | O3, O4, O7 |
+| Finding 2 | confirmed | O1, O2, O6 |
